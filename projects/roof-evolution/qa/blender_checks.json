@@ -2,9 +2,9 @@
   "blender": "5.2.2 LTS",
   "preset": "preview",
   "summary": {
-    "passed": 50,
+    "passed": 58,
     "failed": 0,
-    "total": 50
+    "total": 58
   },
   "results": [
     {
@@ -33,6 +33,12 @@
     },
     {
       "shot": "SC_001",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_001",
       "check": "final_visibility",
       "status": "PASS",
       "detail": "22 visible parts as expected"
@@ -47,7 +53,7 @@
       "shot": "SC_001",
       "check": "camera_locked",
       "status": "PASS",
-      "detail": "camera has no animation and never moves"
+      "detail": "camera never moves"
     },
     {
       "shot": "SC_001",
@@ -81,6 +87,12 @@
     },
     {
       "shot": "SC_002",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_002",
       "check": "exploded_returns_exactly",
       "status": "PASS",
       "detail": "hold offsets roof_A_covering_left=1.60m, roof_A_covering_right=1.60m, roof_A_rafters_left=0.80m, roof_A_rafters_right=0.80m, roof_A_ridge_beam=0.50m"
@@ -89,7 +101,7 @@
       "shot": "SC_002",
       "check": "exploded_no_new_intersections",
       "status": "PASS",
-      "detail": "0 new mesh intersections (37 resting contacts ignored)"
+      "detail": "0 new mesh intersections (33 resting contacts ignored)"
     },
     {
       "shot": "SC_002",
@@ -107,7 +119,7 @@
       "shot": "SC_002",
       "check": "camera_locked",
       "status": "PASS",
-      "detail": "camera has no animation and never moves"
+      "detail": "camera never moves"
     },
     {
       "shot": "SC_002",
@@ -125,19 +137,25 @@
       "shot": "SC_003",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "14 animated objects x 69 frames, max error 5.33e-07"
+      "detail": "28 animated objects x 71 frames, max error 5.33e-07"
     },
     {
       "shot": "SC_003",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "15 objects (15 shared) unchanged on 69 frames"
+      "detail": "15 objects (15 shared) unchanged on 71 frames"
     },
     {
       "shot": "SC_003",
       "check": "no_scale_change",
       "status": "PASS",
       "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_003",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
     },
     {
       "shot": "SC_003",
@@ -155,13 +173,19 @@
       "shot": "SC_003",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.018 at roof_B_covering_right@83; lowest point y=0.070 (label band 0.00); ortho_scale 14.356"
+      "detail": "min margin 0.018 at roof_B_covering_right__fade@83; lowest point y=0.070 (label band 0.00); ortho_scale 14.356"
     },
     {
       "shot": "SC_003",
       "check": "camera_locked",
       "status": "PASS",
-      "detail": "camera has no animation and never moves"
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_003",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "14 twins visible only mid-fade, never with their original or on frames 1/144"
     },
     {
       "shot": "SC_003",
@@ -195,6 +219,12 @@
     },
     {
       "shot": "SC_004",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_004",
       "check": "final_visibility",
       "status": "PASS",
       "detail": "22 visible parts as expected"
@@ -209,7 +239,7 @@
       "shot": "SC_004",
       "check": "camera_locked",
       "status": "PASS",
-      "detail": "camera has no animation and never moves"
+      "detail": "camera never moves"
     },
     {
       "shot": "SC_004",
@@ -227,19 +257,25 @@
       "shot": "SC_005",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "14 animated objects x 20 frames, max error 2.99e-08"
+      "detail": "52 animated objects x 29 frames, max error 1.27e-06"
     },
     {
       "shot": "SC_005",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "30 objects (30 shared) unchanged on 20 frames"
+      "detail": "15 objects (15 shared) unchanged on 29 frames"
     },
     {
       "shot": "SC_005",
       "check": "no_scale_change",
       "status": "PASS",
       "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_005",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "9 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
     },
     {
       "shot": "SC_005",
@@ -251,13 +287,19 @@
       "shot": "SC_005",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.070 at roof_B.roof_B_covering_right@1; lowest point y=0.190 (label band 0.12); ortho_scale 16.684"
+      "detail": "min margin 0.015 at roof_A.roof_A_covering_left__fade@27; lowest point y=0.190 (label band 0.12); ortho_scale 16.684"
     },
     {
       "shot": "SC_005",
       "check": "camera_locked",
       "status": "PASS",
-      "detail": "camera has no animation and never moves"
+      "detail": "camera moves only during the intro (frames 1-37), locked afterwards"
+    },
+    {
+      "shot": "SC_005",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "22 twins visible only mid-fade, never with their original or on frames 1/108"
     },
     {
       "shot": "SC_005",
@@ -278,34 +320,40 @@
       "detail": "4 shots share one camera"
     },
     {
+      "shot": "SC_005",
+      "check": "intro_matches_single_model_camera",
+      "status": "PASS",
+      "detail": "frame 1 ortho 14.3563 vs 14.3563; location minus slot offset matches SC_001"
+    },
+    {
       "shot": "SC_001",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 281e0a492457f5e8"
+      "detail": "sha256 35b543151cc2da5c"
     },
     {
       "shot": "SC_002",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 61bd73ed676dfd98"
+      "detail": "sha256 3489776e53be6880"
     },
     {
       "shot": "SC_003",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 5319db7b4b18bf84"
+      "detail": "sha256 abada603fa3dfb92"
     },
     {
       "shot": "SC_004",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 6a502af955cd9b92"
+      "detail": "sha256 663e7ba010f6e09c"
     },
     {
       "shot": "SC_005",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 084f642bfd3e5de4"
+      "detail": "sha256 33944f522e2bb63b"
     }
   ]
 }

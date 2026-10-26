@@ -34,3 +34,16 @@ Nêu severity, affected scene_id, evidence (frame#, log), đề xuất fix, tái
 **Quy tắc framing:** mọi hình học đặc hơn 50% (`ass_transparency < 0.5`) phải nằm trong khung với lề ≥ 1%. Cấu kiện chỉ được đi qua mép khung khi đang trong suốt ít nhất 50% (vào/ra khỏi khung).
 
 Kết quả: `projects/<slug>/qa/blender_checks.json`, `qa/preview_media_report.json`, `qa/progress_<shot>.png`, `qa/contact_sheet_preview.png`. Các file này là bằng chứng; vẫn phải nhìn ảnh trước khi đánh dấu G2/G3 là PASS.
+
+## Bổ sung M2.5 (2026-10-26)
+| Kiểm tra | Bắt lỗi gì |
+|---|---|
+| `structure_clear_of_shared_at_rest` (Blender) | Rafters / ridge beam ở vị trí nghỉ xuyên vào tường hoặc joists. Đã chứng minh: **FAIL trên geometry M2, PASS sau khi sửa** |
+| `fade_twins_exclusive` (Blender) | Twin blended hiển thị cùng lúc với bản gốc, hoặc hiển thị ở frame đầu/cuối của shot |
+| `camera_locked` (Blender) | Camera chỉ được chuyển động trong intro của SIDE_BY_SIDE, khóa sau `intro_end` |
+| `intro_matches_single_model_camera` (Blender) | Frame 1 của intro phải trùng camera single-model (ortho, hướng, vị trí trừ offset slot) |
+| `repeatable_build` | Chỉ băm những gì được render. Object ẩn có `matrix_world` cũ (Blender không evaluate object ẩn khỏi viewport), nên chỉ băm cờ ẩn của chúng |
+| Media QA `cuts` | SSIM giữa frame cuối shot N và frame đầu shot N+1 ≥ 0.98, trừ khi shot khai báo `cut_from_previous: "hard"` |
+| `python3 tools/cli.py manifest --check` | `PACKAGE_MANIFEST.sha256` khớp với các file đang được git theo dõi |
+
+Render dài trên macOS chạy dưới `caffeinate -i`: nếu không, máy tự ngủ khi idle sẽ làm một frame "đứng" 15 phút (đã quan sát ngày 2026-10-26, xác nhận qua `pmset -g log`).

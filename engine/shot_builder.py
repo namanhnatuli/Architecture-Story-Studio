@@ -63,6 +63,9 @@ class ShotContext:
     aspect: float
     bottom_band: float
     ground: object
+    render_objects: dict = None  # objects + camera + fade twins (everything the plan animates)
+    fade_twins: dict = None      # original name -> blended twin object
+    camera_keys: dict = None     # SIDE_BY_SIDE intro camera start/end, else None
 
 
 def purge_data():
@@ -173,14 +176,60 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
         if vid != "shared" and vid not in visible[obj["slot_id"]]:
             obj.hide_render = obj.hide_viewport = True
 
+    # SIDE_BY_SIDE intro starts on the single-model framing (same fit as every other
+    # shot: base + all variants at the origin), shifted onto the intro state's slot.
+    camera_keys = None
+    intro = cfg.get("intro") if cfg["template"] == "SIDE_BY_SIDE" else None
+    if intro:
+        single = framing.fit_ortho([p for name in objects for p in verts[name]], basis, aspect,
+                                   cam_preset.get("margin", 0.07))
+        shift = offsets[intro["from_state"]]
+        camera_keys = {"name": camera.name,
+                       "start": {"location": tuple(a + b for a, b in zip(single["location"], shift)),
+                                 "ortho_scale": single["ortho_scale"]},
+                       "end": {"location": tuple(fit["location"]), "ortho_scale": fit["ortho_scale"]}}
+
     slot_components = {sid: {cid: components[obj.name] for cid, obj in parts.items()}
                        for sid, parts in slots.items()}
-    plan = templates.plan_shot(shot, states, fps, slot_components)
-    animate.apply_plan(plan, objects)
-    scene_mod.configure_render(scene, preset, fps, frames)
+    plan = templates.plan_shot(shot, states, fps, slot_components, camera_keys)
+    render_objects = dict(objects)
+    render_objects[camera.name] = camera
+    fade_twins = {}
+    if style.get("materials", {}).get("fade_render_method", "DITHERED") == "BLENDED":
+        fade_twins = make_fade_twins(plan, objects, render_objects)
+    animate.apply_plan(plan, render_objects)
+    scene_mod.configure_render(scene, preset, fps, frames, style)
     scene.frame_set(1)
     return ShotContext(shot=shot, cfg=cfg, scene=scene, plan=plan, fps=fps, frame_count=frames,
                        objects=objects, slots=slots, slot_roots=roots, slot_offsets=offsets,
                        visible_variants=visible, components=components, camera=camera,
                        camera_fit=fit, camera_basis=basis, aspect=aspect, bottom_band=bottom_band,
-                       ground=ground)
+                       ground=ground, render_objects=render_objects, fade_twins=fade_twins,
+                       camera_keys=camera_keys)
+
+
+def make_fade_twins(plan, objects, render_objects):
+    """Blended-transparency twins shown only mid-fade (see motion.split_fades)."""
+    blended = {}
+    twins = {}
+    for name, twin_name in motion.split_fades(plan).items():
+        src = objects[name]
+        twin = src.copy()          # shares the mesh; keeps parent and parent inverse
+        twin.animation_data_clear()
+        twin.name = twin_name
+        twin["fade_twin_of"] = name
+        for col in src.users_collection:
+            col.objects.link(twin)
+        for slot in twin.material_slots:
+            base = slot.material
+            if base.name not in blended:
+                copy = base.copy()
+                copy.name = f"{base.name} (fade)"
+                copy.surface_render_method = "BLENDED"
+                copy.use_backface_culling = True
+                blended[base.name] = copy
+            slot.link = "OBJECT"
+            slot.material = blended[base.name]
+        render_objects[twin_name] = twin
+        twins[name] = twin
+    return twins

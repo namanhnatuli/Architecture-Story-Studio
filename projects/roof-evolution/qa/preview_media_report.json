@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-26T16:01:14.717097+00:00",
+  "utc": "2026-10-26T17:08:22.820554+00:00",
   "preset": "preview",
   "files": {
     "output/shots/SC_001.mp4": {
@@ -8,10 +8,10 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 60,
-      "duration": 2.5,
+      "frames": 48,
+      "duration": 2.0,
       "black_segments": 0,
-      "size_bytes": 35778
+      "size_bytes": 27572
     },
     "output/shots/SC_002.mp4": {
       "codec": "h264",
@@ -22,7 +22,7 @@
       "frames": 120,
       "duration": 5.0,
       "black_segments": 0,
-      "size_bytes": 100978
+      "size_bytes": 115607
     },
     "output/shots/SC_003.mp4": {
       "codec": "h264",
@@ -33,7 +33,7 @@
       "frames": 144,
       "duration": 6.0,
       "black_segments": 0,
-      "size_bytes": 141649
+      "size_bytes": 163555
     },
     "output/shots/SC_004.mp4": {
       "codec": "h264",
@@ -44,7 +44,7 @@
       "frames": 60,
       "duration": 2.5,
       "black_segments": 0,
-      "size_bytes": 43122
+      "size_bytes": 44860
     },
     "output/shots/SC_005.mp4": {
       "codec": "h264",
@@ -52,10 +52,10 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 96,
-      "duration": 4.0,
+      "frames": 108,
+      "duration": 4.5,
       "black_segments": 0,
-      "size_bytes": 55663
+      "size_bytes": 121087
     },
     "output/roof_evolution_preview.mp4": {
       "codec": "h264",
@@ -66,10 +66,36 @@
       "frames": 480,
       "duration": 20.0,
       "black_segments": 0,
-      "size_bytes": 330786
+      "size_bytes": 407379
     }
   },
   "expected_total_frames": 480,
+  "cuts": [
+    {
+      "cut": "SC_001->SC_002",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_002->SC_003",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_003->SC_004",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_004->SC_005",
+      "mode": "match",
+      "ssim": 0.99965,
+      "ok": true
+    }
+  ],
   "problems": [],
   "sheets": [
     "qa/contact_sheet_preview.png",

@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-26T17:05:05.627278+00:00",
+  "preset": "review",
+  "files": {
+    "output/shots_review/SC_001.mp4": {
+      "codec": "h264",
+      "width": 960,
+      "height": 540,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 48,
+      "duration": 2.0,
+      "black_segments": 0,
+      "size_bytes": 52846
+    },
+    "output/shots_review/SC_002.mp4": {
+      "codec": "h264",
+      "width": 960,
+      "height": 540,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 120,
+      "duration": 5.0,
+      "black_segments": 0,
+      "size_bytes": 197089
+    },
+    "output/shots_review/SC_003.mp4": {
+      "codec": "h264",
+      "width": 960,
+      "height": 540,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 144,
+      "duration": 6.0,
+      "black_segments": 0,
+      "size_bytes": 299877
+    },
+    "output/shots_review/SC_004.mp4": {
+      "codec": "h264",
+      "width": 960,
+      "height": 540,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 60,
+      "duration": 2.5,
+      "black_segments": 0,
+      "size_bytes": 88028
+    },
+    "output/shots_review/SC_005.mp4": {
+      "codec": "h264",
+      "width": 960,
+      "height": 540,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 108,
+      "duration": 4.5,
+      "black_segments": 0,
+      "size_bytes": 227501
+    },
+    "output/roof_evolution_preview_review.mp4": {
+      "codec": "h264",
+      "width": 960,
+      "height": 540,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 480,
+      "duration": 20.0,
+      "black_segments": 0,
+      "size_bytes": 739933
+    }
+  },
+  "expected_total_frames": 480,
+  "cuts": [
+    {
+      "cut": "SC_001->SC_002",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_002->SC_003",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_003->SC_004",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_004->SC_005",
+      "mode": "match",
+      "ssim": 0.99961,
+      "ok": true
+    }
+  ],
+  "problems": [],
+  "sheets": [
+    "qa/contact_sheet_preview_review.png",
+    "qa/progress_SC_001_review.png",
+    "qa/progress_SC_002_review.png",
+    "qa/progress_SC_003_review.png",
+    "qa/progress_SC_004_review.png",
+    "qa/progress_SC_005_review.png"
+  ]
+}

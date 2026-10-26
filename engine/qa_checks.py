@@ -20,6 +20,7 @@ from engine import framing, motion, shot_builder, spec, templates
 TOL = 1e-4            # plan vs evaluated keyframe values
 TRANSFORM_TOL = 1e-5  # exact landings / shared parts staying put
 FRAME_MARGIN = 0.01   # opaque geometry must stay at least 1% inside the frame
+STRUCTURAL_ROLES = {"rafters", "ridge_beam"}  # members that must not pass through shared parts at rest
 
 
 class Report:
@@ -54,6 +55,8 @@ def _blender_value(obj, channel):
         return tuple(obj.rotation_euler)
     if channel == motion.HIDE:
         return (1.0 if obj.hide_render else 0.0,)
+    if channel == motion.ORTHO:
+        return (obj.data.ortho_scale,)
     return (float(obj[channel[2:-2]]),)
 
 
@@ -79,12 +82,22 @@ def _overlaps(objs, depsgraph):
 
 
 def signature(ctx, frames):
-    """Hash of every model object's world matrix, visibility and shader controls."""
+    """Hash of everything that is rendered: world matrices, visibility, shader controls.
+
+    Hidden objects contribute only their hidden flag: Blender leaves matrix_world of
+    objects excluded from the depsgraph (hide_viewport) stale, so hashing it would
+    measure evaluation history instead of what reaches the image."""
     h = hashlib.sha256()
     for f in frames:
         ctx.scene.frame_set(f)
-        for name in sorted(ctx.objects):
-            obj = ctx.objects[name]
+        for name in sorted(ctx.render_objects):
+            obj = ctx.render_objects[name]
+            if obj.type != "MESH":
+                h.update(f"{f}:{name}:{[round(v, 6) for row in obj.matrix_world for v in row]}".encode())
+                continue
+            if obj.hide_render:
+                h.update(f"{f}:{name}:hidden".encode())
+                continue
             vals = [round(v, 6) for row in obj.matrix_world for v in row]
             vals += [int(obj.hide_render), round(float(obj["ass_transparency"]), 6),
                      round(float(obj["ass_highlight"]), 6)]
@@ -122,7 +135,7 @@ def check_shot(ctx, states, report):
     for f in frames:
         ctx.scene.frame_set(f)
         for name in plan.tracks:
-            obj = ctx.objects[name]
+            obj = ctx.render_objects[name]
             for channel in plan.channels(name):
                 want, got = plan.sample(name, channel, f), _blender_value(obj, channel)
                 err = max(abs(a - b) for a, b in zip(want, got))
@@ -153,14 +166,31 @@ def check_shot(ctx, states, report):
     scaled = []
     for f in frames:
         ctx.scene.frame_set(f)
-        for n, obj in ctx.objects.items():
+        for n, obj in ctx.render_objects.items():
             if not _close(tuple(obj.matrix_world.to_scale()), (1.0, 1.0, 1.0), TRANSFORM_TOL):
                 scaled.append(f"{n}@{f}")
     report.add(sid, "no_scale_change", not scaled, ", ".join(scaled[:5]) or "all world scales are 1.0")
 
-    # 5. Template start/end states.
+    # 4b. Structural members at rest bear on the shared structure, never pass through it
+    #     (e.g. rafters sinking into the wall tops, visible whenever the covering is off).
     last = ctx.frame_count
     comps = ctx.components
+    clashes, tested = set(), 0
+    for f in (1, last):
+        ctx.scene.frame_set(f)
+        dg = bpy.context.evaluated_depsgraph_get()
+        at_rest = [o for n, o in ctx.objects.items() if _visible(o)
+                   and _close(tuple(o.location), comps[n].location, TRANSFORM_TOL)]
+        members = [o for o in at_rest if o["role"] in STRUCTURAL_ROLES and o["variant_id"] != "shared"]
+        base = [o for o in at_rest if o["variant_id"] == "shared"]
+        tested += len(members)
+        if members and base:
+            trees = {o.name: _bvh(o, dg) for o in members + base}
+            clashes |= {f"{m.name}x{b.name}" for m in members for b in base if trees[m.name].overlap(trees[b.name])}
+    report.add(sid, "structure_clear_of_shared_at_rest", not clashes,
+               ", ".join(sorted(clashes)) or f"{tested} member checks (roles {sorted(STRUCTURAL_ROLES)}), no intersection with shared parts")
+
+    # 5. Template start/end states.
     if template == "REPLACE_PARTS":
         a, b = templates.replace_states(ctx.shot, ctx.cfg, states)
         out_names = [templates.object_name("main", i) for i in spec.variant_ids(states, a)]
@@ -223,31 +253,48 @@ def check_shot(ctx, states, report):
 
     # 7. Framing: opaque geometry inside the frame (and above the label band) on every sampled frame.
     worst_margin, worst_at, bottom_min = 1.0, None, 1.0
-    cam_matrix = ctx.camera.matrix_world.copy()
-    cam_moves = ctx.camera.animation_data is not None
+    settle = plan.markers.get("intro_end", 1)
+    ctx.scene.frame_set(settle)
+    cam_matrix, cam_ortho = ctx.camera.matrix_world.copy(), ctx.camera.data.ortho_scale
+    cam_moves = []
     for f in frames:
         ctx.scene.frame_set(f)
         dg = bpy.context.evaluated_depsgraph_get()
-        if ctx.camera.matrix_world != cam_matrix:
-            cam_moves = True
-        for n, obj in ctx.objects.items():
-            if not _visible(obj):
+        if f >= settle and (ctx.camera.matrix_world != cam_matrix or ctx.camera.data.ortho_scale != cam_ortho):
+            cam_moves.append(f)
+        for n, obj in ctx.render_objects.items():
+            if obj.type != "MESH" or not _visible(obj):
                 continue
             for p in shot_builder.world_vertices(obj, dg):
                 c = world_to_camera_view(ctx.scene, ctx.camera, Vector(p))
                 m = min(c.x, 1 - c.x, c.y, 1 - c.y)
-                bottom_min = min(bottom_min, c.y)
+                if f >= settle:  # label band applies once the camera has settled
+                    bottom_min = min(bottom_min, c.y)
                 if m < worst_margin:
                     worst_margin, worst_at = m, f"{n}@{f}"
     ok = worst_margin >= FRAME_MARGIN and bottom_min >= ctx.bottom_band - 0.005
     report.add(sid, "camera_framing", ok,
                f"min margin {worst_margin:.3f} at {worst_at}; lowest point y={bottom_min:.3f} "
                f"(label band {ctx.bottom_band:.2f}); ortho_scale {ctx.camera.data.ortho_scale:.3f}")
-    report.add(sid, "camera_locked", not cam_moves, "camera has no animation and never moves"
-               if not cam_moves else "camera moved during the shot")
+    report.add(sid, "camera_locked", not cam_moves,
+               (f"camera moves only during the intro (frames 1-{settle}), locked afterwards" if settle > 1
+                else "camera never moves") if not cam_moves else f"camera moved after frame {settle}: {cam_moves[:5]}")
 
-    # 8. The pure-Python framing maths agrees with Blender's projection.
-    ctx.scene.frame_set(1)
+    # 7b. Fade twins (blended transparency) render only mid-fade, never together with
+    #     their opaque original, and never on the first/last frame (shot cuts).
+    if ctx.fade_twins:
+        overlap = []
+        for f in frames:
+            ctx.scene.frame_set(f)
+            for name, twin in ctx.fade_twins.items():
+                orig = ctx.objects[name]
+                if not twin.hide_render and (not orig.hide_render or f in (1, last)):
+                    overlap.append(f"{name}@{f}")
+        report.add(sid, "fade_twins_exclusive", not overlap, ", ".join(overlap[:5]) or
+                   f"{len(ctx.fade_twins)} twins visible only mid-fade, never with their original or on frames 1/{last}")
+
+    # 8. The pure-Python framing maths agrees with Blender's projection (settled camera).
+    ctx.scene.frame_set(settle)
     probe = [tuple(o.matrix_world.translation) for o in list(ctx.objects.values())[:8]]
     ours = framing.frame_coords(probe, ctx.camera_fit, ctx.camera_basis, ctx.aspect)
     theirs = [tuple(world_to_camera_view(ctx.scene, ctx.camera, Vector(p)))[:2] for p in probe]
@@ -296,13 +343,18 @@ def run_all(project_dir, preset="preview"):
     data = shot_builder.load_project(project_dir, preset)
     states = data["states"]
     report = Report()
-    cameras, signatures = {}, {}
+    cameras, signatures, intros = {}, {}, {}
     for shot in data["story"]["shots"]:
         sid = shot["id"]
         ctx = shot_builder.build_shot(project_dir, sid, preset)
         frames = check_shot(ctx, states, report)
         if ctx.cfg["template"] != "SIDE_BY_SIDE":
             cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale)
+        elif ctx.camera_keys:
+            ctx.scene.frame_set(1)
+            m = ctx.camera.matrix_world
+            intros[sid] = ([m[r][c] for r in range(3) for c in range(3)], [m[r][3] for r in range(3)],
+                           ctx.camera.data.ortho_scale, ctx.slot_offsets[ctx.cfg["intro"]["from_state"]])
         signatures[sid] = (frames, signature(ctx, frames))
 
     # One locked camera for every single-model shot: cuts between them are invisible.
@@ -311,6 +363,19 @@ def run_all(project_dir, preset="preview"):
              if not (_close(m, cameras[ref_id][0], 1e-6) and abs(s - cameras[ref_id][1]) < 1e-6)]
     report.add("ALL", "camera_identical_across_single_model_shots", not diffs,
                f"differs: {diffs}" if diffs else f"{len(cameras)} shots share one camera")
+
+    # A SIDE_BY_SIDE intro must open on exactly the single-model framing (seamless cut).
+    for sid, (rot, loc, ortho, shift) in intros.items():
+        if ref_id is None:
+            break
+        ref_m, ref_ortho = cameras[ref_id]
+        ref_rot = [ref_m[r * 4 + c] for r in range(3) for c in range(3)]
+        ref_loc = [ref_m[r * 4 + 3] for r in range(3)]
+        ok = (_close(rot, ref_rot, 1e-6) and abs(ortho - ref_ortho) < 1e-6
+              and _close([a - b for a, b in zip(loc, shift)], ref_loc, 1e-5))
+        report.add(sid, "intro_matches_single_model_camera", ok,
+                   f"frame 1 ortho {ortho:.4f} vs {ref_ortho:.4f}; location minus slot offset matches {ref_id}"
+                   if ok else f"frame 1 camera differs from {ref_id}")
 
     # Rebuilding from the same files gives bit-identical transforms (no hidden state).
     for shot in data["story"]["shots"]:

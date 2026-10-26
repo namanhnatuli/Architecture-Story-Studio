@@ -74,8 +74,18 @@ def blender_command(p, mode, preset, *extra):
     b = blender_bin()
     if not b:
         raise SystemExit("Blender not found; see QUICKSTART_MAC.md")
-    return [b, "--background", "--factory-startup", "--python-exit-code", "1", "--python", str(ENGINE),
-            "--", "--project", str(p), "--mode", mode, "--preset", preset, *extra]
+    cmd = [b, "--background", "--factory-startup", "--python-exit-code", "1", "--python", str(ENGINE),
+           "--", "--project", str(p), "--mode", mode, "--preset", preset, *extra]
+    # macOS idle sleep froze a frame for 15 minutes mid-render (pmset log, 2026-10-26);
+    # caffeinate -i keeps the Mac awake only while this Blender process runs.
+    if sys.platform == "darwin" and shutil.which("caffeinate"):
+        cmd = ["caffeinate", "-i", *cmd]
+    return cmd
+
+
+def suffix(preset):
+    """Output name suffix: preview keeps the v0.1 names, other presets get their own."""
+    return "" if preset == "preview" else f"_{preset}"
 
 
 def slug_name(p):
@@ -127,8 +137,10 @@ def do_still(p, preset):
     do_validate(p, final=(preset == "final"))
     run_logged(blender_command(p, "keystills", preset), p / "qa" / f"render_keystills_{preset}.log")
     story = read_json(p / "storyboard/storyboard.json")
-    outputs = [p / "output" / "stills" / f"{s['id']}.png" for s in story.get("key_stills", [])]
-    outputs.append(p / "output" / f"{slug_name(p)}_still.png")
+    folder = "stills" if preset == "preview" else f"stills_{preset}"
+    outputs = [p / "output" / folder / f"{s['id']}.png" for s in story.get("key_stills", [])]
+    if preset == "preview":
+        outputs.append(p / "output" / f"{slug_name(p)}_still.png")
     missing = [str(o) for o in outputs if not o.is_file() or o.stat().st_size == 0]
     if missing:
         raise SystemExit("Render returned success but stills are missing/empty: " + ", ".join(missing))
@@ -186,11 +198,11 @@ def encode_shot(p, shot, preset):
     project = read_json(p / "project.json")
     settings = read_json(ROOT / "config/render_presets.json")
     seq = require_frames(p, shot, preset)
-    target = p / "output" / "shots" / f"{shot['id']}.mp4"
+    target = p / "output" / f"shots{suffix(preset)}" / f"{shot['id']}.mp4"
     target.parent.mkdir(parents=True, exist_ok=True)
     run_logged([ff, "-y", "-framerate", str(project["fps"]), "-start_number", "1", "-i", str(seq / "frame_%04d.png"),
                 "-c:v", settings["output_codec"], "-crf", str(settings["output_crf"]), "-pix_fmt", "yuv420p",
-                "-movflags", "+faststart", str(target)], p / "qa" / f"ffmpeg_{shot['id']}.log")
+                "-movflags", "+faststart", str(target)], p / "qa" / f"ffmpeg_{shot['id']}{suffix(preset)}.log")
     return target
 
 
@@ -204,11 +216,11 @@ def encode_full(p, preset):
         seq = require_frames(p, shot, preset)
         cmd += ["-framerate", str(project["fps"]), "-start_number", "1", "-i", str(seq / "frame_%04d.png")]
     chain = "".join(f"[{i}:v]" for i in range(len(all_shots)))
-    target = p / "output" / f"{slug_name(p)}_preview.mp4"
+    target = p / "output" / f"{slug_name(p)}_preview{suffix(preset)}.mp4"
     cmd += ["-filter_complex", f"{chain}concat=n={len(all_shots)}:v=1:a=0[v]", "-map", "[v]",
             "-c:v", settings["output_codec"], "-crf", str(settings["output_crf"]), "-pix_fmt", "yuv420p",
             "-movflags", "+faststart", str(target)]
-    run_logged(cmd, p / "qa" / "ffmpeg_encode.log")
+    run_logged(cmd, p / "qa" / f"ffmpeg_encode{suffix(preset)}.log")
     if not target.is_file() or target.stat().st_size == 0:
         raise SystemExit("FFmpeg returned success but preview MP4 is missing/empty")
     return target
@@ -232,17 +244,39 @@ def black_segments(path):
     return out.stderr.count("black_start")
 
 
+def boundary_ssim(p, preset):
+    """SSIM between the last frame of each shot and the first frame of the next one.
+
+    Shots are cut together; unless a shot declares "cut_from_previous": "hard", the cut
+    must be invisible (same camera and state), so SSIM must stay >= CUT_SSIM_MIN."""
+    results = []
+    all_shots = shots(p)
+    for prev, nxt in zip(all_shots, all_shots[1:]):
+        a = p / "renders" / preset / prev["id"] / f"frame_{expected_frames(p, prev):04d}.png"
+        b = p / "renders" / preset / nxt["id"] / "frame_0001.png"
+        out = subprocess.run([ffmpeg_bin(), "-v", "info", "-i", str(a), "-i", str(b), "-lavfi", "ssim", "-f", "null", "-"],
+                             text=True, capture_output=True)
+        value = float(out.stderr.split("All:")[1].split()[0])
+        mode = nxt.get("cut_from_previous", "match")
+        results.append({"cut": f"{prev['id']}->{nxt['id']}", "mode": mode, "ssim": round(value, 5),
+                        "ok": mode == "hard" or value >= CUT_SSIM_MIN})
+    return results
+
+
+CUT_SSIM_MIN = 0.98
+
+
 def qa_sheets(p, preset):
     """Contact sheet of the full preview + 0/25/50/75/100% strips for every animated shot."""
     ff = ffmpeg_bin()
     project = read_json(p / "project.json")
     sheets = []
-    full = p / "output" / f"{slug_name(p)}_preview.mp4"
+    full = p / "output" / f"{slug_name(p)}_preview{suffix(preset)}.mp4"
     every = project["fps"]
     tiles = max(1, round(project["duration_seconds"]))
     cols = 5
     rows = (tiles + cols - 1) // cols
-    contact = p / "qa" / "contact_sheet_preview.png"
+    contact = p / "qa" / f"contact_sheet_preview{suffix(preset)}.png"
     subprocess.run([ff, "-v", "error", "-y", "-i", str(full), "-vf",
                     f"select='not(mod(n\\,{every}))',scale=256:-1,tile={cols}x{rows}:padding=2:color=white",
                     "-frames:v", "1", str(contact)], check=True)
@@ -255,7 +289,7 @@ def qa_sheets(p, preset):
         for f in picks:
             cmd += ["-i", str(seq / f"frame_{f:04d}.png")]
         scaled = "".join(f"[{i}]scale=320:-1,pad=iw+4:ih:0:0:white[s{i}];" for i in range(5))
-        target = p / "qa" / f"progress_{shot['id']}.png"
+        target = p / "qa" / f"progress_{shot['id']}{suffix(preset)}.png"
         cmd += ["-filter_complex", scaled + "".join(f"[s{i}]" for i in range(5)) + "hstack=inputs=5", str(target)]
         subprocess.run(cmd, check=True)
         sheets.append(target)
@@ -278,13 +312,17 @@ def media_qa(p, preset, outputs):
         if info["black_segments"]:
             problems.append(f"{label}: {info['black_segments']} black segment(s)")
     report["expected_total_frames"] = expected_total
+    report["cuts"] = boundary_ssim(p, preset)
+    problems += [f"cut {c['cut']}: SSIM {c['ssim']} < {CUT_SSIM_MIN} (visible jump)" for c in report["cuts"] if not c["ok"]]
     report["problems"] = problems
     report["sheets"] = [str(s.relative_to(p)) for s in qa_sheets(p, preset)]
-    target = p / "qa" / "preview_media_report.json"
+    target = p / "qa" / f"preview_media_report{suffix(preset)}.json"
     target.write_text(json.dumps(report, indent=2))
     for name, info in report["files"].items():
         print(f"  {name}: {info['codec']} {info['width']}x{info['height']} {info['fps']} fps, "
               f"{info['frames']} frames, {info['duration']:.3f}s, black segments {info['black_segments']}")
+    for cut in report["cuts"]:
+        print(f"  cut {cut['cut']} ({cut['mode']}): SSIM {cut['ssim']}")
     if problems:
         raise SystemExit("Media QA failed: " + "; ".join(problems))
     print(f"Media QA: PASS => {target}")
@@ -328,6 +366,52 @@ def do_shot(p, shot_id, preset, force=False):
         print("SUCCESS:", target)
 
 
+MANIFEST = ROOT / "PACKAGE_MANIFEST.sha256"
+
+
+def manifest_files():
+    """Version-controlled files (git ls-files), excluding the manifest itself."""
+    if shutil.which("git") and (ROOT / ".git").exists():
+        out = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True).stdout
+        names = [n for n in out.decode().split("\0") if n]
+    else:  # packaged copy without git: every file outside generated folders
+        skip = ("/renders/", "/output/", "/scenes/", "/qa/", "__pycache__", "/.git/")
+        names = [str(f.relative_to(ROOT)) for f in ROOT.rglob("*")
+                 if f.is_file() and not any(s in f"/{f.relative_to(ROOT)}" for s in skip)]
+    return sorted(n for n in names if n != MANIFEST.name and (ROOT / n).is_file())
+
+
+def do_manifest(check=False):
+    rows = [(hashlib.sha256((ROOT / n).read_bytes()).hexdigest(), n) for n in manifest_files()]
+    if check:
+        recorded = {}
+        for line in MANIFEST.read_text(encoding="utf-8").splitlines():
+            if line and not line.startswith("#"):
+                digest, name = line.split("  ", 1)
+                recorded[name] = digest
+        current = {n: d for d, n in rows}
+        changed = sorted(n for n in current if n in recorded and recorded[n] != current[n])
+        added = sorted(set(current) - set(recorded))
+        removed = sorted(set(recorded) - set(current))
+        for label, names in (("CHANGED", changed), ("NEW", added), ("MISSING", removed)):
+            for n in names:
+                print(f"{label}: {n}")
+        if changed or added or removed:
+            raise SystemExit(f"Manifest out of date ({len(changed)} changed, {len(added)} new, {len(removed)} missing)")
+        print(f"PASS: manifest matches {len(rows)} files")
+        return
+    version = "unversioned"
+    for line in (ROOT / "CHANGELOG.md").read_text(encoding="utf-8").splitlines():
+        if line.startswith("## "):
+            version = line[3:].split(" —")[0].strip()
+            break
+    lines = [f"# Package manifest — Architecture Story Studio {version}",
+             "## Files (sha256, relative path) — regenerate: python3 tools/cli.py manifest"]
+    lines += [f"{d}  {n}" for d, n in rows]
+    MANIFEST.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"SUCCESS: {MANIFEST.name} lists {len(rows)} files ({version})")
+
+
 def do_check_blender(p, preset):
     do_validate(p)
     report = p / "qa" / "blender_checks.json"
@@ -348,14 +432,18 @@ def do_check_blender(p, preset):
 def main():
     parser = argparse.ArgumentParser(description="Architecture Story Studio — Mac M4 pilot CLI")
     parser.add_argument("command", choices=["doctor", "validate", "still", "preview", "shot", "encode",
-                                            "check-blender", "final-gate"])
+                                            "check-blender", "final-gate", "manifest"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
     parser.add_argument("--preset", default="preview", choices=["preview", "review", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
     parser.add_argument("--force", action="store_true", help="Re-render shots even if cached")
+    parser.add_argument("--check", action="store_true", help="manifest: verify instead of rewriting")
     args = parser.parse_args()
     if args.command == "doctor":
         do_doctor()
+        return
+    if args.command == "manifest":
+        do_manifest(args.check)
         return
     p = project_path(args.project)
     if args.command == "validate":

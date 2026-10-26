@@ -80,9 +80,12 @@ Option không xác định là lỗi (để lỗi gõ sai không lọt qua). Gi�
 ### SIDE_BY_SIDE
 ```json
 {"template": "SIDE_BY_SIDE", "states": ["roof_A", "roof_B"], "gap_ratio": 0.35, "label_band": 0.12,
- "highlight": {"components": "DIFFERENCES", "start_seconds": 0.8, "rise_seconds": 0.4,
-               "hold_seconds": 1.4, "fall_seconds": 0.5, "strength": 0.45}}
+ "intro": {"from_state": "roof_B", "seconds": 1.5, "easing": "SMOOTH", "fade_start": 0.35, "fade_end": 0.9},
+ "highlight": {"components": "DIFFERENCES", "start_seconds": 1.7, "rise_seconds": 0.4,
+               "hold_seconds": 1.2, "fall_seconds": 0.5, "strength": 0.45}}
 ```
+- **`intro` (M2.5, tùy chọn):** frame 1 dùng *đúng* camera single-model (fit theo base + mọi variant), tịnh tiến theo offset của slot `from_state`. Vì vậy, nếu shot trước kết thúc ở state đó, điểm cắt không lộ (SSIM đo được 0.9996). Sau đó camera (location + `ortho_scale`) chuyển dần sang khung so sánh, các model khác hiện dần trong khoảng `fade_start`–`fade_end` của intro. **Model không di chuyển**, chỉ camera di chuyển, nên không gian luôn liên tục. Highlight phải bắt đầu sau khi intro kết thúc (validator kiểm tra).
+- Đã so sánh với dissolve bằng FFmpeg: ở giữa dissolve có ba "bóng ma" nhà chồng nhau (B ở hai tỷ lệ + A), khó đọc → không chọn. Xem `projects/roof-evolution/qa/M2_5_QA_REPORT.md`.
 - Mỗi state có một model (base + variant), được parent vào một empty `SLOT_<state>`.
 - Bố cục theo trục camera-right trên mặt đất, dùng kích thước footprint (không dùng offset cố định). Khoảng cách = `gap_ratio × model rộng nhất`.
 - Camera dùng **cùng hướng nhìn** với các shot một-model; ortho scale được fit cho cả hàng model, chừa `label_band` ở dưới cho nhãn hậu kỳ.
@@ -96,10 +99,11 @@ Option không xác định là lỗi (để lỗi gõ sai không lọt qua). Gi�
                "hold_seconds": 0.9, "fall_seconds": 0.45, "strength": 0.45}}
 ```
 
-## Highlight
+## Highlight và trong suốt
 Material đọc 2 custom property trên từng object qua node Attribute (kiểu OBJECT):
-- `ass_highlight`: 0..1, làm sáng phần đó bằng phát sáng cùng màu, cộng thêm một chút màu nhấn (#D9A441). **Giữ nguyên tông màu** để màu A/B vẫn nhận ra được.
-- `ass_transparency`: 0 = đặc, 1 = trong suốt hoàn toàn (Eevee dithered, có bóng trong suốt).
+- `ass_highlight`: 0..1, làm phần đó **tự phát sáng bằng chính màu của nó** (`materials.highlight_glow_gain`). M2.5 đã bỏ phần pha màu nhấn, vì ngay cả 10% vàng cũng kéo mái A (graphite) về xám/be và làm mất nhận diện A/B.
+- `ass_transparency`: 0 = đặc, 1 = trong suốt hoàn toàn, có bóng trong suốt.
+- **Fade twins (M2.5):** với `materials.fade_render_method = "BLENDED"`, mỗi object có kênh trong suốt được nhân đôi (`<tên>__fade`, dùng chung mesh, material BLENDED gán ở cấp object). Bản gốc (dithered) hiển thị khi đặc; twin chỉ hiển thị khi 0 < t < 1 (`motion.split_fades`, khoảng hiển thị bổ sung cho nhau, có test). Lý do: dithered bị nhiễu hạt khi đang mờ dần; còn BLENDED dùng cho mọi object thì đổi shading của phần đặc, gây giật hình ở điểm cắt (SSIM 0.992). Twin cho cả hai ưu điểm.
 
 ## Thêm loại công trình mới (cầu, cột, khung…)
 1. Thêm danh sách parts vào `engine/spec.py` (`BASE_BUILDERS` / `VARIANT_BUILDERS`), gồm `role` và `assembly layer`.

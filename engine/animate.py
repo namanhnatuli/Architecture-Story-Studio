@@ -34,6 +34,8 @@ def _assign(obj, channel, value):
         obj[PROPS[channel]] = value[0]
     elif channel == motion.HIDE:
         obj.hide_render = obj.hide_viewport = value[0] > 0.5
+    elif channel == motion.ORTHO:
+        obj.data.ortho_scale = value[0]
     else:
         raise ValueError(f"unsupported channel {channel}")
 
@@ -42,6 +44,8 @@ def _insert(obj, channel, frame):
     if channel == motion.HIDE:
         obj.keyframe_insert("hide_render", frame=frame)
         obj.keyframe_insert("hide_viewport", frame=frame)
+    elif channel == motion.ORTHO:
+        obj.data.keyframe_insert("ortho_scale", frame=frame)
     else:
         obj.keyframe_insert(channel, frame=frame)
 
@@ -57,8 +61,11 @@ def apply_plan(plan, objects):
             for key in plan.keys(name, channel):
                 _assign(obj, channel, key.value)
                 _insert(obj, channel, key.frame)
-        for fc in iter_fcurves(obj):
-            channel = motion.HIDE if fc.data_path in ("hide_render", "hide_viewport") else fc.data_path
+        curves = [(fc, fc.data_path) for fc in iter_fcurves(obj)]
+        if motion.ORTHO in plan.channels(name):
+            curves += [(fc, motion.ORTHO) for fc in iter_fcurves(obj.data) if fc.data_path == "ortho_scale"]
+        for fc, path in curves:
+            channel = motion.HIDE if path in ("hide_render", "hide_viewport") else path
             keys = {k.frame: k for k in plan.keys(name, channel)}
             for kp in fc.keyframe_points:
                 key = keys.get(int(round(kp.co.x)))

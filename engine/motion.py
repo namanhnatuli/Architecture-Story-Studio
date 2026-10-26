@@ -519,10 +519,82 @@ def plan_exploded_view(plan, components, cfg):
     return plan
 
 
+# ---------------------------------------------------------------- fade twins
+FADE_SUFFIX = "__fade"
+FADE_EPS = 1e-6
+
+
+def split_fades(plan, suffix=FADE_SUFFIX):
+    """Give every fading object a twin that is rendered only while partly transparent.
+
+    Eevee's dithered transparency is noisy mid-fade, while blended transparency is
+    clean but shades opaque surfaces slightly differently (a visible pop at shot
+    cuts). With twins, the original (dithered) renders whenever the part is opaque
+    and the twin (blended) only while 0 < transparency < 1, so held frames are
+    unchanged. Twins copy the transforms; visibility windows are complementary.
+    Returns {original name: twin name}.
+    """
+    twins = {}
+    for name in sorted(plan.tracks):
+        if TRANSPARENCY not in plan.channels(name) or name.endswith(suffix):
+            continue
+        twin = name + suffix
+        for channel in (LOC, ROT, TRANSPARENCY):
+            for k in plan.keys(name, channel):
+                plan.key(twin, channel, k.frame, k.value, k.easing)
+        orig_vis, twin_vis = [], []
+        for f in range(1, plan.frame_count + 1):
+            t = plan.sample(name, TRANSPARENCY, f)[0]
+            hidden = plan.sample(name, HIDE, f)
+            shown = hidden is None or hidden[0] < 0.5
+            orig_vis.append(shown and t <= FADE_EPS)
+            twin_vis.append(shown and FADE_EPS < t < 1.0 - FADE_EPS)
+        for target, vis in ((name, orig_vis), (twin, twin_vis)):
+            plan.tracks.get(target, {}).pop(HIDE, None)
+            previous = None
+            for f, v in enumerate(vis, start=1):
+                if v != previous:
+                    plan.key(target, HIDE, f, 0.0 if v else 1.0, "CONSTANT")
+                    previous = v
+        twins[name] = twin
+    return twins
+
+
 # ---------------------------------------------------------------- HOLD / SIDE_BY_SIDE
 HOLD_DEFAULTS = {"template": "HOLD", "state": None, "duration_seconds": None, "highlight": None}
 SIDE_BY_SIDE_DEFAULTS = {"template": "SIDE_BY_SIDE", "states": None, "duration_seconds": None,
-                         "gap_ratio": 0.35, "label_band": 0.12, "highlight": None}
+                         "gap_ratio": 0.35, "label_band": 0.12, "highlight": None, "intro": None}
+INTRO_DEFAULTS = {"from_state": None, "seconds": 1.5, "easing": "SMOOTH", "fade_start": 0.35, "fade_end": 0.9}
+ORTHO = "data.ortho_scale"  # camera data channel (orthographic scale)
+
+
+def plan_intro(plan, cfg, camera, fade_names):
+    """SIDE_BY_SIDE intro: start on the single-model framing of `from_state` (matching the
+    previous shot exactly) and ease the camera out to the comparison framing while the
+    other models fade in. Models never move, so spatial continuity is preserved."""
+    c = merge_config(INTRO_DEFAULTS, cfg, "SIDE_BY_SIDE.intro")
+    seconds = _number(c, "seconds", "SIDE_BY_SIDE.intro", positive=True)
+    a = _number(c, "fade_start", "SIDE_BY_SIDE.intro", maximum=1.0)
+    b = _number(c, "fade_end", "SIDE_BY_SIDE.intro", maximum=1.0)
+    if b <= a:
+        raise PlanError("SIDE_BY_SIDE.intro.fade_end must be greater than fade_start")
+    end = plan.frame(seconds)
+    if end >= plan.frame_count:
+        raise PlanError(f"SIDE_BY_SIDE.intro ({seconds}s) must end before the shot does")
+    last = plan.frame_count
+    name = camera["name"]
+    for channel, key in ((LOC, "location"), (ORTHO, "ortho_scale")):
+        plan.key(name, channel, 1, camera["start"][key], c["easing"])
+        plan.key(name, channel, end, camera["end"][key])
+        plan.key(name, channel, last, camera["end"][key])
+    f0, f1 = plan.frame(seconds * a), plan.frame(seconds * b)
+    for n in fade_names:
+        plan.key(n, TRANSPARENCY, 1, 1.0)
+        plan.key(n, TRANSPARENCY, f0, 1.0, "SMOOTH")
+        plan.key(n, TRANSPARENCY, max(f1, f0 + 1), 0.0)
+        plan.key(n, TRANSPARENCY, last, 0.0)
+    plan.markers.update({"intro_end": end})
+    return end
 
 
 def plan_highlight_only(plan, cfg, defaults, names_for, where):

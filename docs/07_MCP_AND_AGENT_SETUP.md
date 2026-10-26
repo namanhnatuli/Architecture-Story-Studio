@@ -39,3 +39,16 @@
   `isolated=True` tạo scene `ASS_<shot>` và chuyển cửa sổ sang scene đó. Chế độ CLI mặc định thì làm rỗng file (chỉ an toàn khi chạy headless).
 - Lệnh trên có `sys.path` / import cục bộ: safe mode có thể chặn. Khi đó **không tắt safe mode**; dùng `python3 tools/cli.py still|shot|check-blender` (mọi thao tác ghi file đều đi qua CLI).
 - Trạng thái 2026-10-26: phiên Claude Code của milestone M2 khởi động trước khi đăng ký `.mcp.json`, nên **không có tool MCP nào**. Addon trong Blender GUI cũng chưa lắng nghe ở cổng 9876. Toàn bộ QA hình ảnh của M2 làm trên ảnh render thật qua CLI, **không** dùng `look` của MCP.
+
+## M2.5 — Kiểm chứng MCP thật (2026-10-26)
+- **Đã gọi thành công** `get_addon_status`, `get_scene_info`, `execute_blender_code` và `look` qua MCP server `mcp-for-blender==2.2.4` (server 1.30.0, addon 1.8, protocol 15, `up_to_date: true`; safe mode bật, telemetry tắt; mọi thư viện asset và generator đều tắt).
+- Cách gọi: phiên Claude Code vẫn **chưa có tool MCP gốc** (phiên khởi động trước khi đăng ký server), nên tool được gọi bằng một client JSON-RPC/stdio nhỏ viết bằng stdlib. Client này khởi chạy chính server với env đã ghim. Blender dùng để kiểm tra là **một phiên bản GUI riêng** mở *bản sao* của `scenes/SC_00X.blend`, nên Blender người dùng đang mở không bị đụng tới. Cổng `127.0.0.1:9876` (chỉ loopback).
+- Nguyên nhân cổng 9876 không lắng nghe trước đó: phiên bản Blender GUI của người dùng khởi động lúc 22:16:54, **trước khi** addon được cài và bật (22:19–22:20), nên chưa bao giờ nạp addon. Khởi động lại Blender là đủ.
+- Mẹo `look`: chế độ `angles` mặc định tự đóng khung theo *mọi* object hiển thị, kể cả mặt sàn 160 m → luôn truyền `target=[...]`. `mode="frames"` + `view="camera"` + `frames=[...]` cho ra dải tiến trình qua camera của shot.
+- Safe mode cho phép `open_mainfile` và `frame_set`, nhưng chặn `quit_blender` và mọi import ngoài bpy/bmesh/mathutils. Engine vẫn chạy qua CLI.
+
+### ⚠️ Cấu hình scope local đang ghi đè cấu hình đã review
+`claude mcp list` đang dùng server `blender` ở **scope local** (`uvx mcp-for-blender`, không ghim phiên bản, `env` rỗng → **không safe mode, telemetry bật, tự lên bản mới nhất**). Scope local được ưu tiên hơn `.mcp.json` của project. Server này được thêm ngoài các bước của agent (có thể do `uvx mcp-for-blender setup`). Agent **không tự sửa**. Nếu muốn dùng cấu hình đã review:
+```bash
+claude mcp remove blender -s local     # sau đó .mcp.json (ghim 2.2.4, safe mode) sẽ có hiệu lực
+```

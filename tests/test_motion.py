@@ -74,6 +74,12 @@ class ReplacePartsTest(unittest.TestCase):
                     "outgoing": {"direction": "UP", "distance": 3.0, "lift": 0.5, "stagger_seconds": 0.25},
                     "incoming": {"direction": "FROM_ABOVE", "distance": 2.0, "stagger_seconds": 0.25}}
 
+    @staticmethod
+    def cfg_default():
+        return {"hold_start_seconds": 0.5, "hold_end_seconds": 1.0,
+                "outgoing": {"direction": "UP", "distance": 3.0, "lift": 0.5, "stagger_seconds": 0.25},
+                "incoming": {"direction": "FROM_ABOVE", "distance": 2.0, "stagger_seconds": 0.25}}
+
     def plan(self, cfg=None):
         p = motion.Plan(24, 144)
         return motion.plan_replace_parts(p, self.out, self.inc, cfg or self.cfg)
@@ -181,10 +187,76 @@ class PilotPlansTest(unittest.TestCase):
             plan = templates.plan_shot(shot, states, 24, templates.placeholder_slots(shot, states))
             self.assertEqual(plan.frame_count, round(shot["duration_seconds"] * 24))
             shared = set(spec.shared_ids(states))
-            self.assertFalse(shared & {n.split(".")[-1] for n in plan.tracks}, shot["id"])
+            intro = (shot.get("animation") or {}).get("intro")
+            for name in plan.tracks:
+                if name.split(".")[-1] not in shared:
+                    continue
+                # Shared parts never move; the only exception is a SIDE_BY_SIDE intro fading in
+                # the *other* models (transparency only, never on the intro state's own slot).
+                self.assertFalse({motion.LOC, motion.ROT} & set(plan.channels(name)), f"{shot['id']} {name}")
+                self.assertTrue(intro and not name.startswith(intro["from_state"] + "."), f"{shot['id']} {name}")
+                self.assertEqual(plan.channels(name), [motion.TRANSPARENCY], f"{shot['id']} {name}")
         total = sum(s["duration_seconds"] for s in story["shots"])
         self.assertAlmostEqual(total, 20.0)
 
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class FadeTwinsTest(unittest.TestCase):
+    """M2.5: blended twins render only mid-fade; held frames keep the dithered originals."""
+
+    def setUp(self):
+        out = [comp("a_cover", (-1.0, 0, 3.0), layer=3), comp("a_rafter", (-1.0, 0, 2.8), layer=1)]
+        inc = [comp("b_cover", (-1.0, 0, 4.0), layer=3), comp("b_rafter", (-1.0, 0, 3.6), layer=1)]
+        self.plan = motion.plan_replace_parts(motion.Plan(24, 144), out, inc, ReplacePartsTest.cfg_default())
+        self.twins = motion.split_fades(self.plan)
+
+    def visible(self, name, f):
+        hide = self.plan.sample(name, motion.HIDE, f)
+        return hide is None or hide[0] < 0.5
+
+    def test_every_fading_part_has_a_twin_with_identical_motion(self):
+        self.assertEqual(set(self.twins), {"a_cover", "a_rafter", "b_cover", "b_rafter"})
+        for name, twin in self.twins.items():
+            for f in range(1, 145):
+                self.assertEqual(self.plan.sample(name, motion.LOC, f), self.plan.sample(twin, motion.LOC, f))
+
+    def test_windows_are_exclusive_and_cover_partial_transparency(self):
+        for name, twin in self.twins.items():
+            for f in range(1, 145):
+                t = self.plan.sample(name, motion.TRANSPARENCY, f)[0]
+                self.assertFalse(self.visible(name, f) and self.visible(twin, f), f"{name}@{f}")
+                self.assertEqual(self.visible(twin, f), 1e-6 < t < 1 - 1e-6, f"{twin}@{f}")
+            self.assertFalse(self.visible(twin, 1))
+            self.assertFalse(self.visible(twin, 144))
+
+    def test_end_states_unchanged(self):
+        for name in ("b_cover", "b_rafter"):
+            self.assertTrue(self.visible(name, 144))
+        for name in ("a_cover", "a_rafter"):
+            self.assertTrue(self.visible(name, 1))
+            self.assertFalse(self.visible(name, 144))
+
+
+class IntroTest(unittest.TestCase):
+    camera = {"name": "cam", "start": {"location": (1.0, 2.0, 3.0), "ortho_scale": 14.0},
+              "end": {"location": (0.0, 0.0, 3.0), "ortho_scale": 17.0}}
+
+    def test_camera_moves_from_start_to_end_and_models_fade_in(self):
+        p = motion.Plan(24, 108)
+        end = motion.plan_intro(p, {"from_state": "B", "seconds": 1.5}, self.camera, ["a_wall"])
+        self.assertEqual(end, 37)
+        self.assertEqual(p.sample("cam", motion.LOC, 1), (1.0, 2.0, 3.0))
+        self.assertEqual(p.sample("cam", motion.ORTHO, 1), (14.0,))
+        self.assertEqual(p.sample("cam", motion.ORTHO, end), (17.0,))
+        self.assertEqual(p.sample("cam", motion.LOC, 108), (0.0, 0.0, 3.0))
+        self.assertEqual(p.sample("a_wall", motion.TRANSPARENCY, 1), (1.0,))
+        self.assertEqual(p.sample("a_wall", motion.TRANSPARENCY, end), (0.0,))
+
+    def test_bad_intro_configs(self):
+        with self.assertRaisesRegex(motion.PlanError, "fade_end"):
+            motion.plan_intro(motion.Plan(24, 108), {"fade_start": 0.8, "fade_end": 0.5}, self.camera, [])
+        with self.assertRaisesRegex(motion.PlanError, "before the shot does"):
+            motion.plan_intro(motion.Plan(24, 30), {"seconds": 2.0}, self.camera, [])

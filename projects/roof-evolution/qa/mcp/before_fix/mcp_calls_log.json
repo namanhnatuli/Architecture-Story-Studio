@@ -1,0 +1,394 @@
+[
+ {
+  "label": "addon_status",
+  "tool": "get_addon_status",
+  "arguments": {},
+  "isError": false,
+  "seconds": 0.41,
+  "text": [
+   "{\n  \"up_to_date\": true,\n  \"protocol_version\": 15,\n  \"expected_protocol_version\": 15,\n  \"addon_version\": [\n    1,\n    8\n  ],\n  \"capabilities\": [\n    \"bpy_api_lookup\",\n    \"describe_node_type\",\n    \"drain_human_activity\",\n    \"execute_code\",\n    \"get_addon_info\",\n    \"get_object_info\",\n    \"get_scene_info\",\n    \"get_telemetry_consent\",\n    \"get_viewport_screenshot\",\n    \"get_world_state_snapshot\",\n    \"list_scene_items\",\n    \"pick_viewport_object\",\n    \"set_telemetry_consent\"\n  ],\n  \"blender_version\": \"5.2.2 LTS\",\n  \"premium_generators\": [],\n  \"libraries\": {\n    \"polyhaven\": \"off\",\n    \"sketchfa"
+  ],
+  "images": []
+ },
+ {
+  "label": "scene_info",
+  "tool": "get_scene_info",
+  "arguments": {
+   "limit": 40
+  },
+  "isError": false,
+  "seconds": 0.06,
+  "text": [
+   "Scene 'Scene' | 1 camera, 1 empty, 2 light, 30 mesh | active none | selected none | mode OBJECT\n\nShowing 5 of 5 (name | type | location | size | hidden | children):\nground | mesh | at (0.0, 0.0, 0.0) | size 320.0x320.0x0.0\nKey sun | light | at (0.0, 0.0, 0.0)\nFill sun | light | at (0.0, 0.0, 0.0)\nSLOT_main | empty | at (0.0, 0.0, 0.0) | 29 children\nCamera_LOCKED | camera | at (7.14, -9.18, 7.57)"
+  ],
+  "images": []
+ },
+ {
+  "label": "camera_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    30,
+    44,
+    62,
+    80,
+    111,
+    120
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.99,
+  "text": [
+   "Frames left to right, top to bottom: 1, 30, 44, 62, 80, 111, 120. Framed 24 objects, 320 x 320 x 3.79 m across, centred at [0.0, 0.0, 1.51]."
+  ],
+  "images": [
+   "camera_frames_0.png"
+  ]
+ },
+ {
+  "label": "set_hold",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.context.scene.frame_set(62)\nr = bpy.data.objects['roof_A_rafters_left']\nprint('frame', bpy.context.scene.frame_current, 'rafters_left loc', tuple(round(v,3) for v in r.location))"
+  },
+  "isError": false,
+  "seconds": 0.01,
+  "text": [
+   "Code executed successfully: frame 62 rafters_left loc (-1.45, 0.0, 3.578)\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "hold_xray_front",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "front",
+    "three_quarter"
+   ],
+   "shading": "xray",
+   "target": [
+    "roof_A_rafters_left",
+    "roof_A_rafters_right",
+    "wall_front",
+    "wall_left",
+    "wall_right",
+    "ceiling_joists"
+   ],
+   "max_size": 1200
+  },
+  "isError": false,
+  "seconds": 0.29,
+  "text": [
+   "Tiles left to right, top to bottom: front, three_quarter. Framed 6 objects, 5.17 x 3.29 x 4.01 m across, centred at [0.0, -0.04, 2.0]."
+  ],
+  "images": [
+   "hold_xray_front_0.png"
+  ]
+ },
+ {
+  "label": "set_rest",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.context.scene.frame_set(1)\nprint('frame', bpy.context.scene.frame_current)"
+  },
+  "isError": false,
+  "seconds": 0.01,
+  "text": [
+   "Code executed successfully: frame 1\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "rest_xray_front",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "front"
+   ],
+   "shading": "xray",
+   "target": [
+    "roof_A_rafters_left",
+    "roof_A_rafters_right",
+    "wall_left",
+    "wall_right",
+    "roof_A_covering_left",
+    "roof_A_covering_right"
+   ],
+   "max_size": 1000
+  },
+  "isError": false,
+  "seconds": 0.09,
+  "text": [
+   "Tiles left to right, top to bottom: front. Framed 6 objects, 4.89 x 3.62 x 3.41 m across, centred at [0.0, 0.0, 1.7]."
+  ],
+  "images": [
+   "rest_xray_front_0.png"
+  ]
+ },
+ {
+  "label": "open_SC_003",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/blend/SC_003.blend')\nprint('opened', bpy.data.filepath, bpy.context.scene.frame_start, bpy.context.scene.frame_end)"
+  },
+  "isError": false,
+  "seconds": 0.11,
+  "text": [
+   "Code executed successfully: opened /private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/blend/SC_003.blend 1 144\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "SC_003_scene_info",
+  "tool": "get_scene_info",
+  "arguments": {
+   "root": "SLOT_main",
+   "limit": 40
+  },
+  "isError": false,
+  "seconds": 0.06,
+  "text": [
+   "Scene 'Scene' | 1 camera, 1 empty, 2 light, 30 mesh | active none | selected none | mode OBJECT\n\nShowing 30 of 30 (name | type | location | size | hidden | children):\nSLOT_main | empty | at (0.0, 0.0, 0.0) | 29 children\n  ceiling_joists | mesh | at (0.0, 0.0, 2.49) | size 4.6x2.76x0.12\n  door | mesh | at (-0.8, -1.7, 0.94) | size 0.83x0.07x1.88\n  door_handle | mesh | at (-0.47, -1.75, 0.92) | size 0.07x0.04x0.08\n  floor | mesh | at (0.0, 0.0, 0.01) | size 4.6x3.2x0.1\n  foundation | mesh | at (0.0, 0.0, -0.2) | size 4.92x3.52x0.36\n  roof_A_covering_left | mesh | at (-1.18, 0.0, 2.96) | size 2.5"
+  ],
+  "images": []
+ },
+ {
+  "label": "SC_003_camera_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    13,
+    36,
+    48,
+    56,
+    72,
+    90,
+    108,
+    144
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.79,
+  "text": [
+   "Frames left to right, top to bottom: 1, 13, 36, 48, 56, 72, 90, 108, 144. Framed 24 objects, 320 x 320 x 3.79 m across, centred at [0.0, 0.0, 1.51]."
+  ],
+  "images": [
+   "SC_003_camera_frames_0.png"
+  ]
+ },
+ {
+  "label": "SC_003_f30",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.context.scene.frame_set(30)\nfor n in ('roof_A_covering_left','roof_A_rafters_left','roof_B_rafters_left'):\n    o = bpy.data.objects[n]\n    print(n, 'loc', tuple(round(v,3) for v in o.location), 'hidden', o.hide_render, 'transp', round(o['ass_transparency'],3))"
+  },
+  "isError": false,
+  "seconds": 0.06,
+  "text": [
+   "Code executed successfully: roof_A_covering_left loc (-1.542, -0.003, 3.812) hidden False transp 0.168\nroof_A_rafters_left loc (-1.202, 0.0, 3.317) hidden False transp 0.0\nroof_B_rafters_left loc (-1.195, 0.0, 5.687) hidden True transp 1.0\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "SC_003_f30_angles",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "front",
+    "three_quarter"
+   ],
+   "shading": "solid",
+   "max_size": 1200
+  },
+  "isError": false,
+  "seconds": 0.09,
+  "text": [
+   "Tiles left to right, top to bottom: front, three_quarter. Framed 24 objects, 320 x 320 x 4.65 m across, centred at [0.0, 0.0, 1.94]."
+  ],
+  "images": [
+   "SC_003_f30_angles_0.png"
+  ]
+ },
+ {
+  "label": "SC_003_f84",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.context.scene.frame_set(84)\nfor n in ('roof_B_rafters_left','roof_B_ridge_beam','roof_B_covering_left'):\n    o = bpy.data.objects[n]\n    print(n, 'loc', tuple(round(v,3) for v in o.location), 'hidden', o.hide_render, 'transp', round(o['ass_transparency'],3))"
+  },
+  "isError": false,
+  "seconds": 0.02,
+  "text": [
+   "Code executed successfully: roof_B_rafters_left loc (-1.195, 0.0, 3.702) hidden False transp 0.0\nroof_B_ridge_beam loc (0.0, 0.0, 5.079) hidden False transp 0.073\nroof_B_covering_left loc (-1.185, 0.0, 4.278) hidden False transp 0.398\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "SC_003_f84_xray",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "front"
+   ],
+   "shading": "xray",
+   "max_size": 1000
+  },
+  "isError": false,
+  "seconds": 0.08,
+  "text": [
+   "Tiles left to right, top to bottom: front. Framed 24 objects, 320 x 320 x 6.05 m across, centred at [0.0, 0.0, 2.65]."
+  ],
+  "images": [
+   "SC_003_f84_xray_0.png"
+  ]
+ },
+ {
+  "label": "open_SC_005",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/blend/SC_005.blend')\nprint('opened', bpy.data.filepath)\nfor n in ('SLOT_roof_A','SLOT_roof_B'):\n    print(n, tuple(round(v,3) for v in bpy.data.objects[n].location))\nprint('A wall_left world', tuple(round(v,3) for v in bpy.data.objects['roof_A.wall_left'].matrix_world.translation), 'local', tuple(round(v,3) for v in bpy.data.objects['roof_A.wall_left'].location))\nprint('B wall_left world', tuple(round(v,3) for v in bpy.data.objects['roof_B.wall_left'].matrix_world.translation), 'local', tuple(round(v,3) for v in bpy.data.objects['roof_B.wall_left'].location))"
+  },
+  "isError": false,
+  "seconds": 0.04,
+  "text": [
+   "Code executed successfully: opened /private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/blend/SC_005.blend\nSLOT_roof_A (-3.254, -2.53, 0.0)\nSLOT_roof_B (3.254, 2.53, 0.0)\nA wall_left world (-5.554, -2.53, 1.275) local (-2.3, 0.0, 1.275)\nB wall_left world (0.954, 2.53, 1.275) local (-2.3, 0.0, 1.275)\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "SC_005_scene_info",
+  "tool": "get_scene_info",
+  "arguments": {
+   "limit": 12
+  },
+  "isError": false,
+  "seconds": 0.05,
+  "text": [
+   "Scene 'Scene' | 1 camera, 2 empty, 2 light, 45 mesh | active none | selected none | mode OBJECT\n\nShowing 6 of 6 (name | type | location | size | hidden | children):\nground | mesh | at (0.0, 0.0, 0.0) | size 320.0x320.0x0.0\nKey sun | light | at (0.0, 0.0, 0.0)\nFill sun | light | at (0.0, 0.0, 0.0)\nSLOT_roof_A | empty | at (-3.25, -2.53, 0.0) | 22 children\nSLOT_roof_B | empty | at (3.25, 2.53, 0.0) | 22 children\nCamera_LOCKED | camera | at (7.29, -9.37, 7.06)"
+  ],
+  "images": []
+ },
+ {
+  "label": "SC_005_camera_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    24,
+    47,
+    72,
+    96
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.45,
+  "text": [
+   "Frames left to right, top to bottom: 1, 24, 47, 72, 96. Framed 47 objects, 320 x 320 x 5.66 m across, centred at [0.0, 0.0, 2.45]."
+  ],
+  "images": [
+   "SC_005_camera_frames_0.png"
+  ]
+ },
+ {
+  "label": "SC_005_top",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "top",
+    "front"
+   ],
+   "shading": "solid",
+   "target": [
+    "SLOT_roof_A",
+    "SLOT_roof_B"
+   ],
+   "max_size": 1200
+  },
+  "isError": false,
+  "seconds": 0.03,
+  "text": [
+   "Tiles left to right, top to bottom: top, front. Framed 46 objects, 11.43 x 8.68 x 5.66 m across, centred at [0.0, 0.0, 2.45]."
+  ],
+  "images": [
+   "SC_005_top_0.png"
+  ]
+ },
+ {
+  "label": "open_SC_003",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/blend/SC_003.blend')\nbpy.context.scene.frame_set(84)\nprint('frame', bpy.context.scene.frame_current)"
+  },
+  "isError": false,
+  "seconds": 0.11,
+  "text": [
+   "Code executed successfully: frame 84\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "SC_003_f84_camera",
+  "tool": "look",
+  "arguments": {
+   "mode": "camera",
+   "shading": "material",
+   "max_size": 960
+  },
+  "isError": false,
+  "seconds": 0.19,
+  "text": [
+   "Through camera 'Camera_LOCKED'. Framed 24 objects, 320 x 320 x 6.05 m across, centred at [0.0, 0.0, 2.65]."
+  ],
+  "images": [
+   "SC_003_f84_camera_0.png"
+  ]
+ },
+ {
+  "label": "SC_003_f84_xray_walls",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "front",
+    "three_quarter"
+   ],
+   "shading": "xray",
+   "target": [
+    "roof_B_rafters_left",
+    "roof_B_rafters_right",
+    "wall_left",
+    "wall_right",
+    "ceiling_joists",
+    "roof_B_gable_front"
+   ],
+   "max_size": 1200
+  },
+  "isError": false,
+  "seconds": 0.04,
+  "text": [
+   "Tiles left to right, top to bottom: front, three_quarter. Framed 6 objects, 4.77 x 3.2 x 5.18 m across, centred at [0.0, 0.0, 2.59]."
+  ],
+  "images": [
+   "SC_003_f84_xray_walls_0.png"
+  ]
+ }
+]

@@ -93,6 +93,13 @@
                 ]
               }
             }
+          },
+          "cut_from_previous": {
+            "enum": [
+              "match",
+              "hard"
+            ],
+            "description": "match (default): the cut from the previous shot must be invisible (media QA SSIM >= 0.98); hard: deliberate visible cut."
           }
         },
         "additionalProperties": false

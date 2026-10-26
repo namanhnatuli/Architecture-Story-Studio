@@ -44,7 +44,7 @@ python3 tools/cli.py preview
 Kết quả:
 `projects/roof-evolution/output/roof_evolution_preview.mp4` (20 giây, 24 FPS, 640×360), và mỗi shot một file riêng trong `output/shots/`.
 
-480 frame mất khoảng 2–3 phút trên M4. Shot nào không đổi sẽ được bỏ qua ở lần chạy sau (`CACHED`). Muốn render lại toàn bộ thì dùng `--force`; chỉ một shot thì dùng `python3 tools/cli.py shot --shot SC_003`.
+480 frame mất khoảng 4–5 phút ở 640×360 và khoảng 7–10 phút ở 960×540 (`--preset review`, output riêng `*_review`) trên M4 Pro. CLI chạy Blender dưới `caffeinate -i` để máy không tự ngủ giữa chừng. Shot nào không đổi sẽ được bỏ qua ở lần chạy sau (`CACHED`). Muốn render lại toàn bộ thì dùng `--force`; chỉ một shot thì dùng `python3 tools/cli.py shot --shot SC_003`.
 
 ## 3. File mà AI cần đọc
 

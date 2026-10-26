@@ -1,33 +1,60 @@
 {
   "key_stills": [
-    {"id": "01_initial", "shot": "SC_001", "time_seconds": 1.2},
-    {"id": "02_exploded_hold", "shot": "SC_002", "marker": "exploded_hold"},
-    {"id": "03_replace_middle", "shot": "SC_003", "marker": "middle"},
-    {"id": "04_reveal", "shot": "SC_004", "marker": "highlight_peak"},
-    {"id": "05_comparison", "shot": "SC_005", "marker": "highlight_peak"}
+    {
+      "id": "01_initial",
+      "shot": "SC_001",
+      "time_seconds": 1.2
+    },
+    {
+      "id": "02_exploded_hold",
+      "shot": "SC_002",
+      "marker": "exploded_hold"
+    },
+    {
+      "id": "03_replace_middle",
+      "shot": "SC_003",
+      "marker": "middle"
+    },
+    {
+      "id": "04_reveal",
+      "shot": "SC_004",
+      "marker": "highlight_peak"
+    },
+    {
+      "id": "05_comparison",
+      "shot": "SC_005",
+      "marker": "highlight_peak"
+    }
   ],
   "shots": [
     {
       "id": "SC_001",
       "start_seconds": 0.0,
-      "duration_seconds": 2.5,
+      "duration_seconds": 2.0,
       "visual_purpose": "Establish the original design: the house with low-pitched roof A, nothing moving.",
       "narration": "Placeholder: here is a simple house with a low-pitched roof.",
-      "claim_ids": ["CLM_001"],
+      "claim_ids": [
+        "CLM_001"
+      ],
       "visual_type": "BLENDER_3D",
       "from_state": "roof_A",
       "to_state": "roof_A",
       "transition": "HOLD",
       "camera": "LOCKED_THREE_QUARTER",
-      "animation": {"template": "HOLD", "state": "roof_A"}
+      "animation": {
+        "template": "HOLD",
+        "state": "roof_A"
+      }
     },
     {
       "id": "SC_002",
-      "start_seconds": 2.5,
+      "start_seconds": 2.0,
       "duration_seconds": 5.0,
       "visual_purpose": "Separate roof A into covering, ridge beam and rafters so the structure under the covering is readable, then reassemble it exactly.",
       "narration": "Placeholder: the roof is a covering carried by a ridge beam and rafters.",
-      "claim_ids": ["CLM_001"],
+      "claim_ids": [
+        "CLM_001"
+      ],
       "visual_type": "BLENDER_3D",
       "from_state": "roof_A",
       "to_state": "roof_A",
@@ -36,14 +63,25 @@
       "animation": {
         "template": "EXPLODED_VIEW",
         "state": "roof_A",
-        "components": ["roof_A_covering_left", "roof_A_covering_right", "roof_A_ridge_beam",
-                       "roof_A_rafters_left", "roof_A_rafters_right"],
+        "components": [
+          "roof_A_covering_left",
+          "roof_A_covering_right",
+          "roof_A_ridge_beam",
+          "roof_A_rafters_left",
+          "roof_A_rafters_right"
+        ],
         "direction_mode": "HINT",
         "distance": 0.8,
         "per_component": {
-          "roof_A_covering_left": {"distance": 1.6},
-          "roof_A_covering_right": {"distance": 1.6},
-          "roof_A_ridge_beam": {"distance": 0.5}
+          "roof_A_covering_left": {
+            "distance": 1.6
+          },
+          "roof_A_covering_right": {
+            "distance": 1.6
+          },
+          "roof_A_ridge_beam": {
+            "distance": 0.5
+          }
         },
         "sequence": "SEQUENTIAL",
         "stagger_seconds": 0.15,
@@ -56,18 +94,26 @@
         "hold_end_seconds": 0.3,
         "easing": "SMOOTH",
         "highlight": {
-          "components": ["roof_A_rafters_left", "roof_A_rafters_right", "roof_A_ridge_beam"],
-          "mode": "SIMULTANEOUS", "strength": 0.55, "fade_seconds": 0.3
+          "components": [
+            "roof_A_rafters_left",
+            "roof_A_rafters_right",
+            "roof_A_ridge_beam"
+          ],
+          "mode": "SIMULTANEOUS",
+          "strength": 0.55,
+          "fade_seconds": 0.3
         }
       }
     },
     {
       "id": "SC_003",
-      "start_seconds": 7.5,
+      "start_seconds": 7.0,
       "duration_seconds": 6.0,
       "visual_purpose": "Remove every roof A component and assemble roof B in its place while foundation, walls and joists stay unchanged.",
       "narration": "What if the roof shape changed while the rest of the house stayed the same?",
-      "claim_ids": ["CLM_001"],
+      "claim_ids": [
+        "CLM_001"
+      ],
       "visual_type": "BLENDER_3D",
       "from_state": "roof_A",
       "to_state": "roof_B",
@@ -82,24 +128,41 @@
         "hold_start_seconds": 0.5,
         "hold_end_seconds": 1.0,
         "outgoing": {
-          "direction": "OUTWARD_UP", "distance": 3.0, "lift": 0.5, "lift_seconds": 0.4,
-          "move_seconds": 1.1, "stagger_seconds": 0.15, "stagger_by": "LAYER", "order": "DISASSEMBLY",
-          "fade": true, "fade_start": 0.0, "hide_when_done": true
+          "direction": "OUTWARD_UP",
+          "distance": 3.0,
+          "lift": 0.5,
+          "lift_seconds": 0.4,
+          "move_seconds": 1.1,
+          "stagger_seconds": 0.15,
+          "stagger_by": "LAYER",
+          "order": "DISASSEMBLY",
+          "fade": true,
+          "fade_start": 0.0,
+          "hide_when_done": true
         },
         "incoming": {
-          "direction": "FROM_ABOVE", "distance": 2.0, "move_seconds": 1.3, "stagger_seconds": 0.25,
-          "stagger_by": "LAYER", "order": "ASSEMBLY", "fade": true, "fade_end": 0.75,
-          "overlap_seconds": 0.3, "easing": "EASE_OUT"
+          "direction": "FROM_ABOVE",
+          "distance": 2.0,
+          "move_seconds": 1.3,
+          "stagger_seconds": 0.25,
+          "stagger_by": "LAYER",
+          "order": "ASSEMBLY",
+          "fade": true,
+          "fade_end": 0.75,
+          "overlap_seconds": 0.3,
+          "easing": "EASE_OUT"
         }
       }
     },
     {
       "id": "SC_004",
-      "start_seconds": 13.5,
+      "start_seconds": 13.0,
       "duration_seconds": 2.5,
       "visual_purpose": "Reveal the completed alternative design with steep roof B, briefly highlighting the parts that changed.",
       "narration": "Placeholder: the same house, now with a steep roof.",
-      "claim_ids": ["CLM_001"],
+      "claim_ids": [
+        "CLM_001"
+      ],
       "visual_type": "BLENDER_3D",
       "from_state": "roof_B",
       "to_state": "roof_B",
@@ -108,17 +171,25 @@
       "animation": {
         "template": "HOLD",
         "state": "roof_B",
-        "highlight": {"components": "STATE", "start_seconds": 0.3, "rise_seconds": 0.35,
-                      "hold_seconds": 0.9, "fall_seconds": 0.45, "strength": 0.45}
+        "highlight": {
+          "components": "STATE",
+          "start_seconds": 0.3,
+          "rise_seconds": 0.35,
+          "hold_seconds": 0.9,
+          "fall_seconds": 0.45,
+          "strength": 0.45
+        }
       }
     },
     {
       "id": "SC_005",
-      "start_seconds": 16.0,
-      "duration_seconds": 4.0,
-      "visual_purpose": "Compare roof A and roof B side by side at identical scale, camera angle and lighting; highlight only the roof parts that differ.",
+      "start_seconds": 15.5,
+      "duration_seconds": 4.5,
+      "visual_purpose": "Pull back from the finished roof B house to reveal roof A beside it, then compare both at identical scale, camera angle and lighting; highlight only the roof parts that differ.",
       "narration": "Placeholder: side by side, only the roof differs.",
-      "claim_ids": ["CLM_001"],
+      "claim_ids": [
+        "CLM_001"
+      ],
       "visual_type": "BLENDER_3D",
       "from_state": "roof_A",
       "to_state": "roof_B",
@@ -126,11 +197,27 @@
       "camera": "LOCKED_THREE_QUARTER",
       "animation": {
         "template": "SIDE_BY_SIDE",
-        "states": ["roof_A", "roof_B"],
+        "states": [
+          "roof_A",
+          "roof_B"
+        ],
         "gap_ratio": 0.35,
         "label_band": 0.12,
-        "highlight": {"components": "DIFFERENCES", "start_seconds": 0.8, "rise_seconds": 0.4,
-                      "hold_seconds": 1.4, "fall_seconds": 0.5, "strength": 0.45}
+        "highlight": {
+          "components": "DIFFERENCES",
+          "start_seconds": 1.7,
+          "rise_seconds": 0.4,
+          "hold_seconds": 1.2,
+          "fall_seconds": 0.5,
+          "strength": 0.45
+        },
+        "intro": {
+          "from_state": "roof_B",
+          "seconds": 1.5,
+          "easing": "SMOOTH",
+          "fade_start": 0.35,
+          "fade_end": 0.9
+        }
       }
     }
   ]

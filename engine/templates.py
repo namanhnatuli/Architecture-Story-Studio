@@ -131,8 +131,19 @@ def _select(selector, keyword, default_ids, slot, sid, where, allowed_ids):
     return [slot[i] for i in ids]
 
 
-def plan_shot(shot, states, fps, slots):
-    """Plan keyframes for one shot. slots: {slot_id: {component_id: motion.Component}}."""
+CAMERA_NAME = "Camera_LOCKED"
+
+
+def placeholder_camera():
+    rest = {"location": (0.0, 0.0, 0.0), "ortho_scale": 1.0}
+    return {"name": CAMERA_NAME, "start": rest, "end": rest}
+
+
+def plan_shot(shot, states, fps, slots, camera=None):
+    """Plan keyframes for one shot. slots: {slot_id: {component_id: motion.Component}}.
+
+    camera: {"name", "start": {location, ortho_scale}, "end": {...}}, needed only by a
+    SIDE_BY_SIDE intro; the validator passes a placeholder."""
     sid = shot.get("id", "(missing)")
     cfg = animation_config(shot)
     plan = motion.Plan(fps, frame_count(shot, fps))
@@ -191,6 +202,17 @@ def plan_shot(shot, states, fps, slots):
                                                       "highlight.components", allowed)]
                 return names
             motion.plan_highlight_only(plan, cfg, motion.SIDE_BY_SIDE_DEFAULTS, names_for, "SIDE_BY_SIDE")
+            intro = cfg.get("intro")
+            if intro:
+                origin = intro.get("from_state") if isinstance(intro, dict) else None
+                if origin not in chosen:
+                    raise motion.PlanError(f"{sid}: intro.from_state must be one of {chosen}")
+                fading = [c.name for s in chosen if s != origin for c in slots[s].values()]
+                end = motion.plan_intro(plan, intro, camera or placeholder_camera(), fading)
+                start = plan.markers.get("highlight_start")
+                if start is not None and start < end:
+                    raise motion.PlanError(f"{sid}: highlight starts at frame {start}, before the intro "
+                                           f"ends (frame {end}); start it after the camera settles")
     except motion.PlanError as e:
         message = str(e)
         raise motion.PlanError(message if message.startswith(f"{sid}:") else f"{sid}: {message}") from None

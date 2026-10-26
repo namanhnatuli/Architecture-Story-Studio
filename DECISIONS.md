@@ -28,3 +28,12 @@ If a requested change conflicts with these choices, document the reason and upda
 - **Highlight giữ nguyên tông màu gốc**: màu nhấn #D9A441 chỉ chiếm 10%, phần còn lại là phát sáng cùng màu.
 - **MCP chỉ để quan sát/kiểm tra.** Mọi output tái lập được đều đi qua CLI. Engine hỗ trợ `isolated=True` để MCP không xóa scene của người dùng.
 
+## Bổ sung 2026-10-27 (M2.5) — không thay thế các quyết định ở trên
+- **Mái đọc đúng cấu tạo khi tháo ra:** cấu kiện kết cấu gác lên tường (seat cut), không xuyên vào. QA kiểm tra mọi variant ở vị trí nghỉ.
+- **Highlight = phát sáng bằng chính màu của phần đó.** Không dùng màu nhấn trên cấu kiện có màu nhận diện state.
+- **Ánh sáng chuẩn "L3"** (nắng trước-trái, cao; AgX Medium High Contrast). Mọi thay đổi ánh sáng phải so sánh ở 960×540 trên các frame đại diện trước khi đổi config.
+- **Trong suốt:** twin BLENDED chỉ hiển thị khi đang mờ dần; frame đặc luôn render bằng material dithered.
+- **Camera chỉ được chuyển động trong intro của SIDE_BY_SIDE**, để nối liền từ shot single-model. Mọi điểm cắt khác phải liền mạch (SSIM ≥ 0.98) trừ khi khai báo `cut_from_previous: "hard"`.
+- **Git là nguồn sự thật cho file nguồn**; `PACKAGE_MANIFEST.sha256` được sinh từ `git ls-files`. Frame/video/blend là output được sinh ra, không commit.
+- **M3 không dùng multi-agent:** pipeline tuyến tính có gate; chỉ thêm dữ liệu (nguồn, narration, timing) và bước hậu kỳ (audio, ghép, phụ đề). Pilot Suffolk dựa trên nguồn chính quyền địa phương, phạm vi hẹp.
+

@@ -30,20 +30,20 @@
     "type": "studio_soft_sun",
     "shadows": "soft",
     "key_direction": [
-      0.33,
+      -0.35,
       -1.0,
-      1.3
+      1.7
     ],
-    "key_strength": 3.0,
-    "key_angle_degrees": 8.0,
+    "key_strength": 4.0,
+    "key_angle_degrees": 5.0,
     "fill_direction": [
       0.9,
       0.55,
       0.45
     ],
-    "fill_strength": 0.8,
-    "world_strength": 0.6,
-    "note": "Sun lights so models anywhere in the scene are lit identically (SIDE_BY_SIDE)."
+    "fill_strength": 0.3,
+    "world_strength": 0.4,
+    "note": "Sun lights so models anywhere are lit identically (SIDE_BY_SIDE). Key from front-left and high: front faces lit, right faces in shade, short shadows that do not reach a neighbouring model. Chosen 2026-10-26 from variants L0-L3 at 960x540."
   },
   "geometry": {
     "bevel_edges": true,
@@ -57,5 +57,19 @@
   "overlays": {
     "captions_added_in_post": true,
     "do_not_embed_unverified_claims": true
+  },
+  "color_management": {
+    "view_transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.0
+  },
+  "eevee": {
+    "use_raytracing": true,
+    "shadow_ray_count": 2
+  },
+  "materials": {
+    "highlight_glow_gain": 1.0,
+    "fade_render_method": "BLENDED",
+    "note": "Highlight = self-coloured glow (no accent tint). Fading parts get blended-transparency twins shown only mid-fade; opaque frames use dithered materials."
   }
 }

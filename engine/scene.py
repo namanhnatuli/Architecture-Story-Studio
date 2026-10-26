@@ -22,36 +22,27 @@ def _socket(sockets, identifier):
     return next(s for s in sockets if s.identifier == identifier)
 
 
-def make_material(name, color, highlight="#D9A441", roughness=0.72, metallic=0.0):
+def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, render_method="DITHERED"):
     """Principled material driven per object by two custom properties:
-    ass_highlight (0..1 tint towards the highlight colour) and
-    ass_transparency (0 opaque .. 1 invisible). Missing properties read as 0."""
+    ass_highlight (0..1 self-coloured glow) and ass_transparency (0 opaque .. 1
+    invisible). Missing properties read as 0."""
     material = bpy.data.materials.new(name)
     material.use_nodes = True
     nodes, links = material.node_tree.nodes, material.node_tree.links
     bsdf = nodes.get("Principled BSDF")
     bsdf.inputs["Roughness"].default_value = roughness
     bsdf.inputs["Metallic"].default_value = metallic
+    bsdf.inputs["Base Color"].default_value = hex_to_rgba(color)
 
-    # Highlight keeps the part's own hue (A/B colour identity matters in comparisons):
-    # a light tint towards the accent plus a self-coloured glow.
+    # Highlight = the part glowing in its own colour. No accent tint: mixing any other
+    # hue shifted roof A (graphite) towards grey/beige and broke A/B colour identity.
     hl = nodes.new("ShaderNodeAttribute")
     hl.attribute_type, hl.attribute_name = "OBJECT", "ass_highlight"
-    tint = nodes.new("ShaderNodeMath")
-    tint.operation = "MULTIPLY"
-    tint.inputs[1].default_value = 0.1
-    links.new(hl.outputs["Fac"], tint.inputs[0])
-    mix = nodes.new("ShaderNodeMix")
-    mix.data_type = "RGBA"
-    _socket(mix.inputs, "A_Color").default_value = hex_to_rgba(color)
-    _socket(mix.inputs, "B_Color").default_value = hex_to_rgba(highlight)
-    links.new(tint.outputs[0], _socket(mix.inputs, "Factor_Float"))
-    links.new(_socket(mix.outputs, "Result_Color"), bsdf.inputs["Base Color"])
     glow = nodes.new("ShaderNodeMath")
     glow.operation = "MULTIPLY"
-    glow.inputs[1].default_value = 0.8
+    glow.inputs[1].default_value = glow_gain
     links.new(hl.outputs["Fac"], glow.inputs[0])
-    links.new(_socket(mix.outputs, "Result_Color"), bsdf.inputs["Emission Color"])
+    bsdf.inputs["Emission Color"].default_value = hex_to_rgba(color)
     links.new(glow.outputs[0], bsdf.inputs["Emission Strength"])
 
     tr = nodes.new("ShaderNodeAttribute")
@@ -62,7 +53,7 @@ def make_material(name, color, highlight="#D9A441", roughness=0.72, metallic=0.0
     links.new(tr.outputs["Fac"], alpha.inputs[1])
     links.new(alpha.outputs[0], bsdf.inputs["Alpha"])
     if hasattr(material, "surface_render_method"):
-        material.surface_render_method = "DITHERED"
+        material.surface_render_method = render_method
     if hasattr(material, "use_transparent_shadow"):
         material.use_transparent_shadow = True
     material.diffuse_color = hex_to_rgba(color)
@@ -71,16 +62,18 @@ def make_material(name, color, highlight="#D9A441", roughness=0.72, metallic=0.0
 
 def make_materials(style):
     p = style["palette"]
-    hl = p.get("highlight", "#D9A441")
+    m = style.get("materials", {})
+    kw = {"glow_gain": m.get("highlight_glow_gain", 1.0),
+          "render_method": m.get("transparency_render_method", "DITHERED")}
     return {
-        "ground": make_material("Ground", p["ground"], hl, roughness=0.9),
-        "stone": make_material("Foundation stone", p["limestone"], hl),
-        "plaster": make_material("Warm plaster", p["plaster"], hl),
-        "wood": make_material("Wood", p["wood"], hl, roughness=0.6),
-        "window": make_material("Stylized glass", "#6B9AA5", hl, roughness=0.27),
-        "metal": make_material("Metal detail", "#7C7C78", hl, roughness=0.35, metallic=0.55),
-        "roof_variant_a": make_material("Roof A graphite", p["roof_variant_a"], hl),
-        "roof_variant_b": make_material("Roof B terracotta", p["roof_variant_b"], hl),
+        "ground": make_material("Ground", p["ground"], roughness=0.9, **kw),
+        "stone": make_material("Foundation stone", p["limestone"], **kw),
+        "plaster": make_material("Warm plaster", p["plaster"], **kw),
+        "wood": make_material("Wood", p["wood"], roughness=0.6, **kw),
+        "window": make_material("Stylized glass", "#6B9AA5", roughness=0.27, **kw),
+        "metal": make_material("Metal detail", "#7C7C78", roughness=0.35, metallic=0.55, **kw),
+        "roof_variant_a": make_material("Roof A graphite", p["roof_variant_a"], **kw),
+        "roof_variant_b": make_material("Roof B terracotta", p["roof_variant_b"], **kw),
     }
 
 
@@ -152,7 +145,7 @@ def build_camera(scene, collection, preset, points, aspect, bottom_band=0.0):
     return camera, fit, basis
 
 
-def configure_render(scene, preset, fps, frame_count):
+def configure_render(scene, preset, fps, frame_count, style=None):
     engine = preset.get("engine", "EEVEE")
     if engine == "EEVEE":
         # Blender 5.0 renamed the identifier. 4.5 uses BLENDER_EEVEE_NEXT.
@@ -173,8 +166,18 @@ def configure_render(scene, preset, fps, frame_count):
     scene.render.image_settings.file_format = "PNG"
     scene.render.image_settings.color_mode = "RGB"
     scene.render.image_settings.color_depth = "8"
+    style = style or {}
+    cm = style.get("color_management", {})
     try:
-        scene.view_settings.view_transform = "AgX"
-    except Exception:
-        pass
+        scene.view_settings.view_transform = cm.get("view_transform", "AgX")
+        scene.view_settings.look = cm.get("look", "None")
+        scene.view_settings.exposure = float(cm.get("exposure", 0.0))
+    except Exception as e:  # missing OCIO names must not abort a render; log it
+        print(f"[WARN] color management: {e}")
+    ev = style.get("eevee", {})
+    for key in ("use_raytracing", "use_fast_gi", "shadow_ray_count", "shadow_step_count"):
+        if key in ev and hasattr(scene.eevee, key):
+            setattr(scene.eevee, key, ev[key])
+    if "samples" not in preset and "samples" in ev:
+        scene.eevee.taa_render_samples = int(ev["samples"])
     scene.render.use_file_extension = True

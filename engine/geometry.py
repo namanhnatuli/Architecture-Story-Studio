@@ -9,7 +9,7 @@ import math
 
 import bmesh
 import bpy
-from mathutils import Matrix, Vector
+from mathutils import Euler, Matrix, Vector
 
 from engine import spec
 
@@ -39,6 +39,11 @@ def _finish(obj, material, collection, bevel):
     if material:
         obj.data.materials.append(material)
     if bevel:
+        # Smooth + weighted normals: big faces stay flat, bevels catch light (edge highlights).
+        if hasattr(obj.data, "shade_smooth"):
+            obj.data.shade_smooth()
+        else:
+            obj.data.polygons.foreach_set("use_smooth", [True] * len(obj.data.polygons))
         mod = obj.modifiers.new(name="Soft architectural edge", type="BEVEL")
         mod.width = bevel
         mod.segments = 2
@@ -48,11 +53,23 @@ def _finish(obj, material, collection, bevel):
     return obj
 
 
-def box_object(name, boxes, material, collection, location=(0, 0, 0), rotation=(0, 0, 0), bevel=0.015):
-    """One object made of axis-aligned boxes [(local centre, dimensions)], built without bpy.ops."""
+def box_object(name, boxes, material, collection, location=(0, 0, 0), rotation=(0, 0, 0), bevel=0.015,
+               clip_below_z=None):
+    """One object made of axis-aligned boxes [(local centre, dimensions)], built without bpy.ops.
+
+    clip_below_z trims everything below that world height and caps the cut, e.g. a
+    rafter's seat cut where it bears on the wall top instead of sinking into it.
+    """
     bm = bmesh.new()
     for center, dims in boxes:
         bmesh.ops.create_cube(bm, size=1.0, matrix=Matrix.LocRotScale(Vector(center), None, Vector(dims)))
+    if clip_below_z is not None:
+        to_local = Matrix.LocRotScale(Vector(location), Euler(rotation), None).inverted()
+        bmesh.ops.bisect_plane(bm, geom=bm.verts[:] + bm.edges[:] + bm.faces[:],
+                               plane_co=to_local @ Vector((0, 0, clip_below_z)),
+                               plane_no=(to_local.to_3x3() @ Vector((0, 0, 1))).normalized(), clear_inner=True)
+        bmesh.ops.holes_fill(bm, edges=bm.edges[:], sides=0)
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
     mesh = bpy.data.meshes.new(f"{name}_mesh")
     bm.to_mesh(mesh)
     bm.free()
@@ -143,8 +160,10 @@ def build_gable_roof(variant, params, materials, collection):
         objs.append(tag(cover, f"covering_{side}", (nx, 0, nz)))
         s_mid, length = (s_start + s_end) / 2, s_end - s_start
         r_center = (eave_x + sx * s_mid + nx * rafter_off, 0, h + sz * s_mid + nz * rafter_off)
+        # Seat cut 1 mm above the wall top: rafters bear on the walls, never sink into them.
         rafters = box_object(f"{vid}_rafters_{side}", [((0, y, 0), (length, RAFTER_W, RAFTER_T)) for y in ys],
-                             materials["wood"], collection, location=r_center, rotation=rotation, bevel=.008)
+                             materials["wood"], collection, location=r_center, rotation=rotation, bevel=.008,
+                             clip_below_z=h + 0.001)
         objs.append(tag(rafters, f"rafters_{side}", (nx, 0, nz)))
 
     # Ridge beam: top touches the covering underside at the beam's edges.

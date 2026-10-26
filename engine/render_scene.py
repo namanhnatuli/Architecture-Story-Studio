@@ -86,11 +86,12 @@ def main():
         stills = data["story"].get("key_stills", [])
         if not stills:
             raise SystemExit("storyboard.json has no key_stills")
+        folder = "stills" if args.preset == "preview" else f"stills_{args.preset}"
         for i, still in enumerate(stills):
             ctx = shot_builder.build_shot(project_dir, still["shot"], args.preset)
             frame = resolve_key_still(ctx, still)
-            render_frame(ctx, frame, project_dir / "output" / "stills" / f"{still['id']}.png")
-            if i == 0:
+            render_frame(ctx, frame, project_dir / "output" / folder / f"{still['id']}.png")
+            if i == 0 and args.preset == "preview":
                 render_frame(ctx, frame, project_dir / "output" / legacy_still_name(data["project"]))
         return
 

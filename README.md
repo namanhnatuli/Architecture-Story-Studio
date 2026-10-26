@@ -60,11 +60,11 @@ Dự án `roof-evolution` là **prototype minh họa kỹ thuật**, không ph�
 
 | Shot | Template | Nội dung |
 |---|---|---|
-| SC_001 (2.5s) | `HOLD` | Nhà với mái A dốc thấp |
+| SC_001 (2.0s) | `HOLD` | Nhà với mái A dốc thấp |
 | SC_002 (5.0s) | `EXPLODED_VIEW` | Mái A tách thành tấm phủ / ridge beam / rafters, rồi trở về chính xác |
 | SC_003 (6.0s) | `REPLACE_PARTS` | Mái A rời đi, mái B lắp vào; móng, tường, joists đứng yên |
 | SC_004 (2.5s) | `HOLD` + highlight | Thiết kế mới với mái B |
-| SC_005 (4.0s) | `SIDE_BY_SIDE` | A và B cùng tỷ lệ, cùng camera, cùng ánh sáng |
+| SC_005 (4.5s) | `SIDE_BY_SIDE` + intro | Camera lùi ra từ nhà B (không có cắt cứng) để thấy A bên cạnh; cùng tỷ lệ, camera, ánh sáng |
 
 ```bash
 python3 tools/cli.py doctor
@@ -74,13 +74,15 @@ python3 tools/cli.py still            # 5 key stills -> output/stills/, kèm out
 python3 tools/cli.py check-blender    # QA tự động trong Blender -> qa/blender_checks.json
 python3 tools/cli.py preview          # render từng shot (có cache) -> output/shots/*.mp4 + output/roof_evolution_preview.mp4
 python3 tools/cli.py shot --shot SC_002   # chỉ render lại một shot
+python3 tools/cli.py preview --preset review   # 960×540 -> output/*_review.mp4, output/shots_review/
+python3 tools/cli.py manifest --check     # PACKAGE_MANIFEST.sha256 khớp file đang được git theo dõi
 ```
 
 Output: `output/` (stills, MP4 từng shot, MP4 đầy đủ), `scenes/SC_00X.blend` (scene tái lập được của từng shot), `renders/<preset>/SC_00X/` (frame PNG), `qa/` (log, báo cáo, contact sheet, dải tiến trình). Template và cấu hình: [`docs/05_ANIMATION_LIBRARY.md`](docs/05_ANIMATION_LIBRARY.md).
 
 ## Trạng thái và giới hạn đã kiểm tra
 
-**Đã kiểm tra trên Mac (Apple M4 Pro, Blender 5.2.2 LTS, FFmpeg 9.0.1):** validate, 43 unit/integration test, 50 kiểm tra Blender, preview 20s (480 frame, không frame đen), và kiểm tra hình ảnh trên frame đã render. Chưa kiểm tra trên Blender 4.5 LTS. Blender MCP chưa được dùng để kiểm tra hình ảnh (xem `docs/07_MCP_AND_AGENT_SETUP.md`).
+**Đã kiểm tra trên Mac (Apple M4 Pro, Blender 5.2.2 LTS, FFmpeg 9.0.1) — M2.5:** validate, 49 unit/integration test, 58 kiểm tra Blender, preview 20s ở 640×360 và 960×540 (480 frame, không frame đen, 4 điểm cắt liền mạch theo SSIM), kiểm tra hình ảnh trên frame render và qua Blender MCP `look` (xem `docs/07_MCP_AND_AGENT_SETUP.md`). Chưa kiểm tra trên Blender 4.5 LTS. Kế hoạch M3: [`docs/m3/`](docs/m3/).
 
 ## Tài liệu tham khảo kỹ thuật
 

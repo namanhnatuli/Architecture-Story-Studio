@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.5 — 2026-10-27 — M2.5: ổn định hóa, QA qua MCP, sẵn sàng cho M3
+- **Git:** giữ nguyên commit `init` của người dùng; baseline M2 được commit (`75487d3`, tag `m2-baseline`); `.gitignore` bổ sung media QA, `.blend@`, file tạm, `.env*`, `.claude/settings.local.json`.
+- **MCP:** gọi thật `get_addon_status`/`get_scene_info`/`execute_blender_code`/`look` qua stdio (21/21 lệnh trước khi sửa, kèm lượt kiểm tra lại sau khi sửa) trên một phiên bản Blender riêng mở bản sao của các scene. Đã xác định vì sao addon không lắng nghe (Blender mở trước khi addon được cài) và phát hiện cấu hình scope local ghi đè safe mode (chỉ ghi lại, không tự sửa).
+- **Sửa #1 — rafters xuyên tường:** cắt đầu dưới rafters 1 mm trên đỉnh tường (`box_object(clip_below_z=…)`). Kiểm tra mới `structure_clear_of_shared_at_rest` FAIL trên geometry M2, PASS sau khi sửa.
+- **Sửa #2 — highlight:** chỉ còn tự phát sáng bằng màu của chính phần đó (bỏ pha màu nhấn); mái A giữ màu graphite.
+- **Sửa #3 — ánh sáng phẳng:** chọn L3 sau khi so 4 biến thể ở 960×540: nắng chính từ trước-trái và cao (bóng ngắn, không chạm model bên cạnh), fill 0.3, world 0.4, AgX `Medium High Contrast`, ray tracing Eevee, smooth shading + weighted normals cho cạnh vát (edge highlight). Mọi thông số nằm trong `config/visual_style.json`.
+- **Sửa #4 — nhiễu dithering:** twin BLENDED chỉ hiển thị khi đang mờ dần (`motion.split_fades`). Frame tĩnh và điểm cắt không đổi; đã so sánh với dithered 64/128 mẫu và BLENDED cho mọi object.
+- **Sửa #5 — cắt cứng SC_004 → SC_005:** `SIDE_BY_SIDE.intro` (camera lùi ra, model đứng yên). Đã so sánh với dissolve bằng FFmpeg. SC_001 2.0 s, SC_005 4.5 s, tổng vẫn 20.0 s.
+- **Sửa #6 — manifest:** lệnh `python3 tools/cli.py manifest [--check]` tạo lại từ `git ls-files`.
+- **Sửa #7 — frame v0.1:** 144 PNG được nén không mất dữ liệu (đã kiểm checksum) vào `qa/baseline_v0_1/v0_1_preview_frames.tar.gz` rồi mới xóa bản rời; file `.blend` của v0.1 được chuyển vào cùng thư mục.
+- **QA:** 58 kiểm tra Blender (thêm structure/twins/intro; chữ ký tái lập chỉ băm những gì được render); media QA đo SSIM tại điểm cắt (`cut_from_previous`); 49 unit test. CLI chạy Blender dưới `caffeinate -i` (máy ngủ khi idle từng làm một frame đứng 15 phút).
+- **Output review riêng:** `--preset review` ghi vào `output/stills_review/`, `output/shots_review/`, `*_review.mp4`; preview 640×360 giữ nguyên tên cũ.
+- **M3:** kế hoạch + brief nghiên cứu + storyboard nháp trong `docs/m3/` (chưa sản xuất).
+
 ## 0.2.0 — 2026-10-26 — M2: Engine biến đổi trực quan tái sử dụng v1
 - Template mới: `REPLACE_PARTS`, `EXPLODED_VIEW`, `SIDE_BY_SIDE`, `HOLD` (+ highlight), điều khiển hoàn toàn bằng `storyboard.json` → `animation`.
 - Planning bằng Python thuần (`engine/motion.py`, `templates.py`, `spec.py`, `framing.py`), nên validator kiểm tra được timing, ownership và option ngay ở G0. Keyframe được ghi với interpolation tường minh (`engine/animate.py`, hỗ trợ cả slotted actions của 5.x).

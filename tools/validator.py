@@ -87,6 +87,8 @@ def validate_project(project_dir, final=False):
             v = shot.get(field)
             if v is not None and v not in variant_ids:
                 errors.append(f"{sid}: unknown variant {v}")
+        if shot.get("cut_from_previous", "match") not in ("match", "hard"):
+            errors.append(f"{sid}: cut_from_previous must be 'match' or 'hard'")
         if shot.get("transition") == "REPLACE_PARTS" and not (shot.get("from_state") and shot.get("to_state")):
             errors.append(f"{sid}: REPLACE_PARTS needs two states")
     if shots and abs(last_end - duration) > .01:

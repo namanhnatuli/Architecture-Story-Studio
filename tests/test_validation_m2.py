@@ -82,6 +82,16 @@ class ValidatorM2Test(unittest.TestCase):
         self.edit("storyboard/storyboard.json", lambda d: d["key_stills"][1].update(marker="nope"))
         self.assertError("marker 'nope'")
 
+    def test_intro_state_and_highlight_order(self):
+        self.edit("storyboard/storyboard.json",
+                  lambda d: self.shot(d, "SC_005")["animation"]["intro"].update(from_state="roof_C"))
+        self.assertError("intro.from_state must be one of")
+        self.edit("storyboard/storyboard.json",
+                  lambda d: self.shot(d, "SC_005")["animation"]["intro"].update(from_state="roof_B"))
+        self.edit("storyboard/storyboard.json",
+                  lambda d: self.shot(d, "SC_005")["animation"]["highlight"].update(start_seconds=0.5))
+        self.assertError("before the intro ends")
+
     def test_declared_components_must_match_builder(self):
         self.edit("storyboard/states.json", lambda d: d["variants"][0]["components"].pop())
         self.assertError("components must match builder")

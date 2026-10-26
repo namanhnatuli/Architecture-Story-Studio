@@ -1,0 +1,191 @@
+[
+ {
+  "label": "after_addon_status",
+  "tool": "get_addon_status",
+  "arguments": {},
+  "isError": false,
+  "seconds": 0.41,
+  "text": [
+   "{\n  \"up_to_date\": true,\n  \"protocol_version\": 15,\n  \"expected_protocol_version\": 15,\n  \"addon_version\": [\n    1,\n    8\n  ],\n  \"capabilities\": [\n    \"bpy_api_lookup\",\n    \"describe_node_type\",\n    \"drain_human_activity\",\n    \"execute_code\",\n    \"get_addon_info\",\n    \"get_object_info\",\n    \"get_scene_info\",\n    \"get_telemetry_consent\",\n    \"get_viewport_screenshot\",\n    \"get_world_state_snapshot\",\n    \"list_scene_items\",\n    \"pick_viewport_object\",\n    \"set_telemetry_consent\"\n  ],\n  \"blender_version\": \"5.2.2 LTS\",\n  \"premium_generators\": [],\n  \"libraries\": {\n    \"polyhaven\": \"off\",\n    \"sketchfa"
+  ],
+  "images": []
+ },
+ {
+  "label": "after_open_SC_002",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/after/blend/SC_002.blend')\nbpy.context.scene.frame_set(1)\nprint('opened', bpy.data.filepath.split('/')[-1], 'frame', bpy.context.scene.frame_current)"
+  },
+  "isError": false,
+  "seconds": 0.13,
+  "text": [
+   "Code executed successfully: opened SC_002.blend frame 1\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "after_SC_002_rest_xray",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "front",
+    "three_quarter"
+   ],
+   "shading": "xray",
+   "target": [
+    "roof_A_rafters_left",
+    "roof_A_rafters_right",
+    "wall_left",
+    "wall_right",
+    "ceiling_joists",
+    "roof_A_covering_left",
+    "roof_A_covering_right"
+   ],
+   "max_size": 1200
+  },
+  "isError": false,
+  "seconds": 0.26,
+  "text": [
+   "Tiles left to right, top to bottom: front, three_quarter. Framed 7 objects, 4.89 x 3.62 x 3.41 m across, centred at [0.0, 0.0, 1.7]."
+  ],
+  "images": [
+   "after_SC_002_rest_xray_0.png"
+  ]
+ },
+ {
+  "label": "after_SC_002_camera_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    16,
+    30,
+    62,
+    100,
+    120
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 15.95,
+  "text": [
+   "Frames left to right, top to bottom: 1, 16, 30, 62, 100, 120. Framed 24 objects, 320 x 320 x 3.79 m across, centred at [0.0, 0.0, 1.51]."
+  ],
+  "images": [
+   "after_SC_002_camera_frames_0.png"
+  ]
+ },
+ {
+  "label": "after_open_SC_003",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/after/blend/SC_003.blend')\nsc = bpy.context.scene\nsc.frame_set(84)\ntw = [o.name for o in bpy.data.objects if o.name.endswith('__fade')]\nvis = [o.name for o in bpy.data.objects if o.name.endswith('__fade') and not o.hide_render]\nprint('twins', len(tw), 'visible at 84:', vis)\nsc.frame_set(144)\nprint('twins visible at 144:', [o.name for o in bpy.data.objects if o.name.endswith('__fade') and not o.hide_render])"
+  },
+  "isError": false,
+  "seconds": 0.12,
+  "text": [
+   "Code executed successfully: twins 14 visible at 84: ['roof_B_covering_left__fade', 'roof_B_covering_right__fade', 'roof_B_ridge_beam__fade']\ntwins visible at 144: []\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "after_SC_003_f144_xray",
+  "tool": "look",
+  "arguments": {
+   "mode": "angles",
+   "views": [
+    "front",
+    "three_quarter"
+   ],
+   "shading": "xray",
+   "target": [
+    "roof_B_rafters_left",
+    "roof_B_rafters_right",
+    "wall_left",
+    "wall_right",
+    "ceiling_joists",
+    "roof_B_gable_front"
+   ],
+   "max_size": 1200
+  },
+  "isError": false,
+  "seconds": 0.21,
+  "text": [
+   "Tiles left to right, top to bottom: front, three_quarter. Framed 6 objects, 4.77 x 3.2 x 5.18 m across, centred at [0.0, 0.0, 2.59]."
+  ],
+  "images": [
+   "after_SC_003_f144_xray_0.png"
+  ]
+ },
+ {
+  "label": "after_SC_003_camera_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    30,
+    40,
+    56,
+    72,
+    84,
+    108,
+    144
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 5.66,
+  "text": [
+   "Frames left to right, top to bottom: 1, 30, 40, 56, 72, 84, 108, 144. Framed 24 objects, 320 x 320 x 5.66 m across, centred at [0.0, 0.0, 2.45]."
+  ],
+  "images": [
+   "after_SC_003_camera_frames_0.png"
+  ]
+ },
+ {
+  "label": "after_open_SC_005",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_qa/after/blend/SC_005.blend')\nsc = bpy.context.scene; cam = sc.camera\nfor f in (1, 19, 37, 60, 108):\n    sc.frame_set(f)\n    print('frame', f, 'ortho', round(cam.data.ortho_scale, 3), 'cam', tuple(round(v, 3) for v in cam.location), 'A covering transp', round(bpy.data.objects['roof_A.roof_A_covering_left']['ass_transparency'], 3))"
+  },
+  "isError": false,
+  "seconds": 0.1,
+  "text": [
+   "Code executed successfully: frame 1 ortho 14.356 cam (10.391, -6.649, 7.572) A covering transp 1.0\nframe 19 ortho 15.52 cam (8.839, -8.008, 7.318) A covering transp 0.839\nframe 37 ortho 16.684 cam (7.286, -9.367, 7.063) A covering transp 0.0\nframe 60 ortho 16.684 cam (7.286, -9.367, 7.063) A covering transp 0.0\nframe 108 ortho 16.684 cam (7.286, -9.367, 7.063) A covering transp 0.0\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "after_SC_005_camera_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    14,
+    27,
+    37,
+    60,
+    108
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 4.5,
+  "text": [
+   "Frames left to right, top to bottom: 1, 14, 27, 37, 60, 108. Framed 47 objects, 320 x 320 x 5.66 m across, centred at [0.0, 0.0, 2.45]."
+  ],
+  "images": [
+   "after_SC_005_camera_frames_0.png"
+  ]
+ }
+]
