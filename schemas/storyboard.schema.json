@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.architecture-story-studio/schemas/storyboard.schema.json",
+  "type": "object",
+  "required": ["shots"],
+  "properties": {
+    "shots": {"type": "array", "minItems": 1, "items": {
+      "type": "object",
+      "required": ["id", "start_seconds", "duration_seconds", "visual_purpose", "narration", "claim_ids", "visual_type", "from_state", "to_state", "transition", "camera"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^SC_[0-9]{3,}$"},
+        "start_seconds": {"type": "number", "minimum": 0},
+        "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "visual_purpose": {"type": "string", "minLength": 8},
+        "narration": {"type": "string"},
+        "claim_ids": {"type": "array", "items": {"type": "string"}},
+        "visual_type": {"enum": ["BLENDER_3D", "ARCHIVAL", "MAP", "MOTION_GRAPHICS"]},
+        "from_state": {"type": ["string", "null"]},
+        "to_state": {"type": ["string", "null"]},
+        "transition": {"type": "string"},
+        "camera": {"type": "string"}
+      },
+      "additionalProperties": false
+    }}
+  },
+  "additionalProperties": false
+}

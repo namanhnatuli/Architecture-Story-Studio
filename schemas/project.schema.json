@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.architecture-story-studio/schemas/project.schema.json",
+  "title": "Architecture Story Studio Project",
+  "type": "object",
+  "required": ["slug", "title", "mode", "language", "fps", "duration_seconds", "render_preset"],
+  "properties": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "title": {"type": "string", "minLength": 3},
+    "mode": {"enum": ["prototype", "production"]},
+    "language": {"type": "string", "minLength": 2},
+    "fps": {"type": "integer", "minimum": 1, "maximum": 120},
+    "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "render_preset": {"enum": ["preview", "review", "final"]},
+    "factual_review": {"enum": ["provisional", "verified", "contested"]},
+    "audio_timing_locked": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

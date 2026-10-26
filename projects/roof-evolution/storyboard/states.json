@@ -1,0 +1,11 @@
+{
+  "building_type": "simple_rectangular_house",
+  "shared_components": ["foundation", "walls", "floor", "door", "windows", "ground"],
+  "variants": [
+    {"id": "roof_A", "name": "Low pitch roof", "roof_pitch_degrees": 18, "color_key": "roof_variant_a"},
+    {"id": "roof_B", "name": "Steep pitch roof", "roof_pitch_degrees": 48, "color_key": "roof_variant_b"}
+  ],
+  "transitions": [
+    {"from": "roof_A", "to": "roof_B", "template": "REPLACE_PARTS"}
+  ]
+}

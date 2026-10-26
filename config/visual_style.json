@@ -1,0 +1,20 @@
+{
+  "name": "Clean Stylized Architectural Visualization",
+  "description": "Technical clarity over photorealism; premium isometric architecture storytelling",
+  "units": "meters",
+  "background_color": "#EDEBE5",
+  "palette": {
+    "limestone": "#C6B79A",
+    "plaster": "#E5DCCB",
+    "wood": "#8C654D",
+    "roof_variant_a": "#657887",
+    "roof_variant_b": "#B96A4F",
+    "highlight": "#D9A441",
+    "ground": "#C9CCBA"
+  },
+  "camera": {"type": "ORTHOGRAPHIC", "angle": "three-quarter", "stable_during_comparison": true},
+  "lighting": {"type": "studio_soft", "key_area": true, "fill_area": true, "shadows": "soft"},
+  "geometry": {"bevel_edges": true, "bevel_width_m": 0.025},
+  "animation": {"easing": "BEZIER", "stagger_frames": 5, "use_deformation_only_if_topology_compatible": true},
+  "overlays": {"captions_added_in_post": true, "do_not_embed_unverified_claims": true}
+}

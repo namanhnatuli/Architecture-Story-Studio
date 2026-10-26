@@ -1,0 +1,17 @@
+{
+  "shots": [
+    {
+      "id": "SC_001",
+      "start_seconds": 0.0,
+      "duration_seconds": 6.0,
+      "visual_purpose": "Show the same house with a low-pitched roof, then detach it and assemble a steeper roof while keeping the base unchanged.",
+      "narration": "What if the roof shape changed while the rest of the house stayed the same?",
+      "claim_ids": ["CLM_001"],
+      "visual_type": "BLENDER_3D",
+      "from_state": "roof_A",
+      "to_state": "roof_B",
+      "transition": "REPLACE_PARTS",
+      "camera": "LOCKED_THREE_QUARTER"
+    }
+  ]
+}
