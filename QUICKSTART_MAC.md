@@ -32,19 +32,19 @@ export BLENDER_BIN="/Applications/Blender.app/Contents/MacOS/Blender"
 python3 tools/cli.py still
 ```
 
-Đợi Blender thoát, sau đó xem:
-`projects/roof-evolution/output/roof_evolution_still.png`
+Đợi Blender thoát (khoảng vài giây), sau đó xem 5 ảnh trong `projects/roof-evolution/output/stills/` (ảnh đầu tiên được chép thêm thành `output/roof_evolution_still.png`).
 
-Nếu ảnh đúng, tiếp tục:
+Nếu ảnh đúng, chạy kiểm tra tự động rồi render video:
 
 ```bash
+python3 tools/cli.py check-blender
 python3 tools/cli.py preview
 ```
 
 Kết quả:
-`projects/roof-evolution/output/roof_evolution_preview.mp4`
+`projects/roof-evolution/output/roof_evolution_preview.mp4` (20 giây, 24 FPS, 640×360), và mỗi shot một file riêng trong `output/shots/`.
 
-**Cảnh 6 giây, 24 FPS, 640×360.** 144 frame có thể tốn thời gian trên máy cá nhân. Chạy ảnh still trước để tránh render hàng loạt khi scene còn lỗi.
+480 frame mất khoảng 2–3 phút trên M4. Shot nào không đổi sẽ được bỏ qua ở lần chạy sau (`CACHED`). Muốn render lại toàn bộ thì dùng `--force`; chỉ một shot thì dùng `python3 tools/cli.py shot --shot SC_003`.
 
 ## 3. File mà AI cần đọc
 

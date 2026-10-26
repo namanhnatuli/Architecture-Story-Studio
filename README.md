@@ -19,8 +19,8 @@ Không cần tự cài package Python ngoài cho MVP; mã Python thuần phục 
 - Bộ nguyên tắc dự án (`AGENTS.md`, `CLAUDE.md`, `PROJECT_BRIEF.md`), flow nghiên cứu → nội dung → visual → render → QA.
 - Visual style bible, SOP kiểm chứng sự kiện, nguồn tư liệu/giấy phép, quy trình thao tác MCP an toàn.
 - Schema JSON và validator không cần package bên thứ ba.
-- Blender procedural demo: **một ngôi nhà, mái A dốc thấp → tháo rời → mái B dốc cao lắp vào**; camera và bối cảnh giữ nguyên.
-- Render still / preview PNG sequence / MP4; lệnh kiểm tra cấu hình và unit tests.
+- Blender procedural demo: **một ngôi nhà, mái A dốc thấp → exploded view → mái A tháo rời / mái B lắp vào → so sánh A|B**; thư viện template tái sử dụng được (`REPLACE_PARTS`, `EXPLODED_VIEW`, `SIDE_BY_SIDE`, `HOLD`).
+- Render still / PNG sequence theo shot (có cache) / MP4; validate, unit tests và QA tự động trong Blender.
 - Prompt dùng với Codex/Claude và cấu trúc để mở rộng thành video dài.
 
 ### Sơ đồ thư mục
@@ -56,21 +56,31 @@ Architecture-Story-Studio/
 
 ## Pilot có thể chạy
 
-Dự án `roof-evolution` là **prototype minh họa**, không phải tuyên bố rằng mái dốc lớn luôn tốt hơn mái dốc thấp. Nó dựng ngôi nhà đơn giản với hai thiết kế mái; 6 giây, 24 fps. Lệnh:
+Dự án `roof-evolution` là **prototype minh họa kỹ thuật**, không phải lời khẳng định rằng mái dốc cao luôn tốt hơn mái dốc thấp. Từ M2 (2026-10-26), đây là chuỗi 20 giây, 24 fps, gồm 5 shot:
+
+| Shot | Template | Nội dung |
+|---|---|---|
+| SC_001 (2.5s) | `HOLD` | Nhà với mái A dốc thấp |
+| SC_002 (5.0s) | `EXPLODED_VIEW` | Mái A tách thành tấm phủ / ridge beam / rafters, rồi trở về chính xác |
+| SC_003 (6.0s) | `REPLACE_PARTS` | Mái A rời đi, mái B lắp vào; móng, tường, joists đứng yên |
+| SC_004 (2.5s) | `HOLD` + highlight | Thiết kế mới với mái B |
+| SC_005 (4.0s) | `SIDE_BY_SIDE` | A và B cùng tỷ lệ, cùng camera, cùng ánh sáng |
 
 ```bash
 python3 tools/cli.py doctor
 python3 tools/cli.py validate
 python3 -m unittest discover -s tests -v
-python3 tools/cli.py still
-python3 tools/cli.py preview
+python3 tools/cli.py still            # 5 key stills -> output/stills/, kèm output/roof_evolution_still.png
+python3 tools/cli.py check-blender    # QA tự động trong Blender -> qa/blender_checks.json
+python3 tools/cli.py preview          # render từng shot (có cache) -> output/shots/*.mp4 + output/roof_evolution_preview.mp4
+python3 tools/cli.py shot --shot SC_002   # chỉ render lại một shot
 ```
 
-Kết quả nằm trong `projects/roof-evolution/output/` (still PNG, preview MP4); scene `.blend` và frames nằm trong `scenes/`, `renders/`.
+Output: `output/` (stills, MP4 từng shot, MP4 đầy đủ), `scenes/SC_00X.blend` (scene tái lập được của từng shot), `renders/<preset>/SC_00X/` (frame PNG), `qa/` (log, báo cáo, contact sheet, dải tiến trình). Template và cấu hình: [`docs/05_ANIMATION_LIBRARY.md`](docs/05_ANIMATION_LIBRARY.md).
 
 ## Trạng thái và giới hạn đã kiểm tra
 
-**Đã kiểm tra trong môi trường tạo package:** cú pháp Python, validator, unit tests, cấu trúc ZIP. **Chưa render Blender thực tế trên Mac M4** (không có Blender trong môi trường xây dựng). Các lệnh Blender được viết theo API 4.5 / 5.x, nhưng vẫn cần chạy `still` trên máy của bạn để xác thực.
+**Đã kiểm tra trên Mac (Apple M4 Pro, Blender 5.2.2 LTS, FFmpeg 9.0.1):** validate, 43 unit/integration test, 50 kiểm tra Blender, preview 20s (480 frame, không frame đen), và kiểm tra hình ảnh trên frame đã render. Chưa kiểm tra trên Blender 4.5 LTS. Blender MCP chưa được dùng để kiểm tra hình ảnh (xem `docs/07_MCP_AND_AGENT_SETUP.md`).
 
 ## Tài liệu tham khảo kỹ thuật
 

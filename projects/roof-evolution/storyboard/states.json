@@ -1,9 +1,35 @@
 {
+  "schema_version": 2,
   "building_type": "simple_rectangular_house",
-  "shared_components": ["foundation", "walls", "floor", "door", "windows", "ground"],
+  "base": {"builder": "rectangular_house_base", "width": 4.6, "depth": 3.2, "wall_height": 2.55, "rafter_count": 5},
+  "shared_components": ["foundation", "floor", "walls", "door", "windows", "structure"],
   "variants": [
-    {"id": "roof_A", "name": "Low pitch roof", "roof_pitch_degrees": 18, "color_key": "roof_variant_a"},
-    {"id": "roof_B", "name": "Steep pitch roof", "roof_pitch_degrees": 48, "color_key": "roof_variant_b"}
+    {
+      "id": "roof_A", "name": "Low pitch roof", "builder": "gable_roof",
+      "roof_pitch_degrees": 18, "color_key": "roof_variant_a",
+      "components": [
+        {"id": "roof_A_gable_front", "role": "gable_wall", "layer": 0},
+        {"id": "roof_A_gable_back", "role": "gable_wall", "layer": 0},
+        {"id": "roof_A_rafters_left", "role": "rafters", "layer": 1},
+        {"id": "roof_A_rafters_right", "role": "rafters", "layer": 1},
+        {"id": "roof_A_ridge_beam", "role": "ridge_beam", "layer": 2},
+        {"id": "roof_A_covering_left", "role": "roof_covering", "layer": 3},
+        {"id": "roof_A_covering_right", "role": "roof_covering", "layer": 3}
+      ]
+    },
+    {
+      "id": "roof_B", "name": "Steep pitch roof", "builder": "gable_roof",
+      "roof_pitch_degrees": 48, "color_key": "roof_variant_b",
+      "components": [
+        {"id": "roof_B_gable_front", "role": "gable_wall", "layer": 0},
+        {"id": "roof_B_gable_back", "role": "gable_wall", "layer": 0},
+        {"id": "roof_B_rafters_left", "role": "rafters", "layer": 1},
+        {"id": "roof_B_rafters_right", "role": "rafters", "layer": 1},
+        {"id": "roof_B_ridge_beam", "role": "ridge_beam", "layer": 2},
+        {"id": "roof_B_covering_left", "role": "roof_covering", "layer": 3},
+        {"id": "roof_B_covering_right", "role": "roof_covering", "layer": 3}
+      ]
+    }
   ],
   "transitions": [
     {"from": "roof_A", "to": "roof_B", "template": "REPLACE_PARTS"}

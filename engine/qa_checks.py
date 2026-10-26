@@ -1,0 +1,325 @@
+"""Blender-side QA for transformation templates (bpy). Run headless:
+
+  python3 tools/cli.py check-blender
+
+Every check reads evaluated Blender data after scene.frame_set(); nothing is
+assumed from the plan alone. Local (parent-space) values are compared with the
+plan, world-space matrices with layout/framing expectations.
+"""
+import hashlib
+import itertools
+import math
+
+import bpy
+from bpy_extras.object_utils import world_to_camera_view
+from mathutils import Vector
+from mathutils.bvhtree import BVHTree
+
+from engine import framing, motion, shot_builder, spec, templates
+
+TOL = 1e-4            # plan vs evaluated keyframe values
+TRANSFORM_TOL = 1e-5  # exact landings / shared parts staying put
+FRAME_MARGIN = 0.01   # opaque geometry must stay at least 1% inside the frame
+
+
+class Report:
+    def __init__(self):
+        self.results = []
+
+    def add(self, shot, check, ok, detail=""):
+        self.results.append({"shot": shot, "check": check, "status": "PASS" if ok else "FAIL",
+                             "detail": detail})
+        return ok
+
+
+def sample_frames(ctx):
+    n = ctx.frame_count
+    frames = {1, max(1, round(n * .25)), max(1, round(n * .5)), max(1, round(n * .75)), n}
+    frames |= {f for f in ctx.plan.markers.values() if 1 <= f <= n}
+    for name in ctx.plan.tracks:
+        for channel in ctx.plan.channels(name):
+            for key in ctx.plan.keys(name, channel):
+                frames |= {f for f in (key.frame - 1, key.frame, key.frame + 1) if 1 <= f <= n}
+    return sorted(frames)
+
+
+def _close(a, b, tol):
+    return all(abs(x - y) <= tol for x, y in zip(a, b))
+
+
+def _blender_value(obj, channel):
+    if channel == motion.LOC:
+        return tuple(obj.location)
+    if channel == motion.ROT:
+        return tuple(obj.rotation_euler)
+    if channel == motion.HIDE:
+        return (1.0 if obj.hide_render else 0.0,)
+    return (float(obj[channel[2:-2]]),)
+
+
+def _visible(obj):
+    return not obj.hide_render and float(obj.get("ass_transparency", 0.0)) < 0.5
+
+
+def _bvh(obj, depsgraph):
+    ev = obj.evaluated_get(depsgraph)
+    mesh = ev.to_mesh()
+    try:
+        verts = [ev.matrix_world @ v.co for v in mesh.vertices]
+        polys = [tuple(p.vertices) for p in mesh.polygons]
+    finally:
+        ev.to_mesh_clear()
+    return BVHTree.FromPolygons(verts, polys)
+
+
+def _overlaps(objs, depsgraph):
+    trees = {o.name: _bvh(o, depsgraph) for o in objs}
+    return {tuple(sorted((a, b))) for a, b in itertools.combinations(sorted(trees), 2)
+            if trees[a].overlap(trees[b])}
+
+
+def signature(ctx, frames):
+    """Hash of every model object's world matrix, visibility and shader controls."""
+    h = hashlib.sha256()
+    for f in frames:
+        ctx.scene.frame_set(f)
+        for name in sorted(ctx.objects):
+            obj = ctx.objects[name]
+            vals = [round(v, 6) for row in obj.matrix_world for v in row]
+            vals += [int(obj.hide_render), round(float(obj["ass_transparency"]), 6),
+                     round(float(obj["ass_highlight"]), 6)]
+            h.update(f"{f}:{name}:{vals}".encode())
+    return h.hexdigest()
+
+
+def check_shot(ctx, states, report):
+    sid = ctx.shot["id"]
+    template = ctx.cfg["template"]
+    frames = sample_frames(ctx)
+    plan = ctx.plan
+    shared = set(spec.shared_ids(states))
+
+    # 1. Component registration and ownership metadata.
+    problems = []
+    for slot_id, built, _ in templates.layout_slots(ctx.shot, states):
+        expected = {p["id"]: ("shared", p["role"]) for p in spec.base_parts(states)}
+        for vid in built:
+            expected.update({p["id"]: (vid, p["role"]) for p in spec.variant_parts(spec.variant_map(states)[vid])})
+        got = ctx.slots[slot_id]
+        if set(got) != set(expected):
+            problems.append(f"{slot_id}: missing {sorted(set(expected) - set(got))}, extra {sorted(set(got) - set(expected))}")
+        for cid, obj in got.items():
+            if cid in expected and (obj["variant_id"], obj["role"]) != expected[cid]:
+                problems.append(f"{slot_id}.{cid}: owner/role {(obj['variant_id'], obj['role'])} != {expected[cid]}")
+            if obj.parent is not ctx.slot_roots[slot_id]:
+                problems.append(f"{slot_id}.{cid}: not parented to its slot root")
+    report.add(sid, "components_registered", not problems,
+               "; ".join(problems) or f"{sum(len(s) for s in ctx.slots.values())} components, ownership + parenting OK")
+
+    # 2. Blender's evaluated keys equal the pure-Python plan at every sampled frame.
+    worst, mismatches = 0.0, []
+    rest_world = {}
+    for f in frames:
+        ctx.scene.frame_set(f)
+        for name in plan.tracks:
+            obj = ctx.objects[name]
+            for channel in plan.channels(name):
+                want, got = plan.sample(name, channel, f), _blender_value(obj, channel)
+                err = max(abs(a - b) for a, b in zip(want, got))
+                if channel == motion.HIDE:
+                    err = 0.0 if (want[0] > 0.5) == (got[0] > 0.5) else 1.0
+                worst = max(worst, err)
+                if err > TOL and len(mismatches) < 5:
+                    mismatches.append(f"{name}{channel}@{f}: plan {want} vs blender {got}")
+        if f == 1:
+            rest_world = {n: o.matrix_world.copy() for n, o in ctx.objects.items()}
+    report.add(sid, "plan_matches_evaluated_keys", not mismatches,
+               "; ".join(mismatches) or f"{len(plan.tracks)} animated objects x {len(frames)} frames, max error {worst:.2e}")
+
+    # 3. Everything the template does not animate stays exactly where it was (world space).
+    static = [n for n in ctx.objects if n not in plan.tracks]
+    moved = []
+    for f in frames:
+        ctx.scene.frame_set(f)
+        for n in static:
+            m = ctx.objects[n].matrix_world
+            if not all(abs(a - b) <= TRANSFORM_TOL for r1, r2 in zip(m, rest_world[n]) for a, b in zip(r1, r2)):
+                moved.append(f"{n}@{f}")
+    shared_static = [n for n in static if ctx.objects[n]["component_id"] in shared]
+    report.add(sid, "unanimated_parts_static", not moved,
+               ", ".join(moved[:5]) or f"{len(static)} objects ({len(shared_static)} shared) unchanged on {len(frames)} frames")
+
+    # 4. No template ever scales a component (v0.1 shrank parts to 1%).
+    scaled = []
+    for f in frames:
+        ctx.scene.frame_set(f)
+        for n, obj in ctx.objects.items():
+            if not _close(tuple(obj.matrix_world.to_scale()), (1.0, 1.0, 1.0), TRANSFORM_TOL):
+                scaled.append(f"{n}@{f}")
+    report.add(sid, "no_scale_change", not scaled, ", ".join(scaled[:5]) or "all world scales are 1.0")
+
+    # 5. Template start/end states.
+    last = ctx.frame_count
+    comps = ctx.components
+    if template == "REPLACE_PARTS":
+        a, b = templates.replace_states(ctx.shot, ctx.cfg, states)
+        out_names = [templates.object_name("main", i) for i in spec.variant_ids(states, a)]
+        in_names = [templates.object_name("main", i) for i in spec.variant_ids(states, b)]
+        issues = []
+        ctx.scene.frame_set(1)
+        for n in out_names:
+            o = ctx.objects[n]
+            if not (_visible(o) and _close(tuple(o.location), comps[n].location, TRANSFORM_TOL)):
+                issues.append(f"start: {n} not visible at rest")
+        issues += [f"start: {n} visible" for n in in_names if _visible(ctx.objects[n])]
+        ctx.scene.frame_set(last)
+        for n in in_names:
+            o = ctx.objects[n]
+            if not (_close(tuple(o.location), comps[n].location, TRANSFORM_TOL)
+                    and _close(tuple(o.rotation_euler), comps[n].rotation, TRANSFORM_TOL)):
+                issues.append(f"end: {n} not exactly at its rest transform")
+            if not _visible(o) or float(o["ass_transparency"]) != 0.0:
+                issues.append(f"end: {n} not fully visible")
+        issues += [f"end: {n} still rendered" for n in out_names if not ctx.objects[n].hide_render]
+        report.add(sid, "replace_start_end_states", not issues, "; ".join(issues) or
+                   f"{len(out_names)} parts removed, {len(in_names)} landed exactly (tol {TRANSFORM_TOL})")
+    elif template == "EXPLODED_VIEW":
+        names = sorted(plan.tracks)
+        issues = []
+        ctx.scene.frame_set(plan.markers["exploded_hold"])
+        dists = {n: math.dist(tuple(ctx.objects[n].location), comps[n].location) for n in names}
+        issues += [f"{n} did not move at the exploded hold" for n, d in dists.items() if d < 0.05]
+        ctx.scene.frame_set(last)
+        issues += [f"{n} did not return exactly" for n in names
+                   if not _close(tuple(ctx.objects[n].location), comps[n].location, TRANSFORM_TOL)]
+        report.add(sid, "exploded_returns_exactly", not issues, "; ".join(issues) or
+                   "hold offsets " + ", ".join(f"{n}={d:.2f}m" for n, d in sorted(dists.items())))
+        # Explosion must not create intersections that do not already exist at rest.
+        dg = bpy.context.evaluated_depsgraph_get()
+        ctx.scene.frame_set(1)
+        visible = [o for o in ctx.objects.values() if _visible(o)]
+        rest_pairs = _overlaps(visible, dg)
+        ctx.scene.frame_set(plan.markers["exploded_hold"])
+        dg = bpy.context.evaluated_depsgraph_get()
+        hold_pairs = {p for p in _overlaps(visible, dg) if p[0] in plan.tracks or p[1] in plan.tracks}
+        new = sorted(hold_pairs - rest_pairs)
+        report.add(sid, "exploded_no_new_intersections", not new,
+                   ", ".join(f"{a}x{b}" for a, b in new) or f"0 new mesh intersections ({len(rest_pairs)} resting contacts ignored)")
+
+    # 6. Final visibility is exactly the expected design.
+    ctx.scene.frame_set(last)
+    expected_visible = set()
+    for slot_id, _, _ in templates.layout_slots(ctx.shot, states):
+        if template == "REPLACE_PARTS":
+            final_states = [templates.replace_states(ctx.shot, ctx.cfg, states)[1]]
+        else:
+            final_states = ctx.visible_variants[slot_id]
+        ids = list(spec.shared_ids(states)) + [i for v in final_states for i in spec.variant_ids(states, v)]
+        expected_visible |= {templates.object_name(slot_id, i) for i in ids}
+    actual_visible = {n for n, o in ctx.objects.items() if _visible(o)}
+    report.add(sid, "final_visibility", actual_visible == expected_visible,
+               f"missing {sorted(expected_visible - actual_visible)}, unexpected {sorted(actual_visible - expected_visible)}"
+               if actual_visible != expected_visible else f"{len(actual_visible)} visible parts as expected")
+
+    # 7. Framing: opaque geometry inside the frame (and above the label band) on every sampled frame.
+    worst_margin, worst_at, bottom_min = 1.0, None, 1.0
+    cam_matrix = ctx.camera.matrix_world.copy()
+    cam_moves = ctx.camera.animation_data is not None
+    for f in frames:
+        ctx.scene.frame_set(f)
+        dg = bpy.context.evaluated_depsgraph_get()
+        if ctx.camera.matrix_world != cam_matrix:
+            cam_moves = True
+        for n, obj in ctx.objects.items():
+            if not _visible(obj):
+                continue
+            for p in shot_builder.world_vertices(obj, dg):
+                c = world_to_camera_view(ctx.scene, ctx.camera, Vector(p))
+                m = min(c.x, 1 - c.x, c.y, 1 - c.y)
+                bottom_min = min(bottom_min, c.y)
+                if m < worst_margin:
+                    worst_margin, worst_at = m, f"{n}@{f}"
+    ok = worst_margin >= FRAME_MARGIN and bottom_min >= ctx.bottom_band - 0.005
+    report.add(sid, "camera_framing", ok,
+               f"min margin {worst_margin:.3f} at {worst_at}; lowest point y={bottom_min:.3f} "
+               f"(label band {ctx.bottom_band:.2f}); ortho_scale {ctx.camera.data.ortho_scale:.3f}")
+    report.add(sid, "camera_locked", not cam_moves, "camera has no animation and never moves"
+               if not cam_moves else "camera moved during the shot")
+
+    # 8. The pure-Python framing maths agrees with Blender's projection.
+    ctx.scene.frame_set(1)
+    probe = [tuple(o.matrix_world.translation) for o in list(ctx.objects.values())[:8]]
+    ours = framing.frame_coords(probe, ctx.camera_fit, ctx.camera_basis, ctx.aspect)
+    theirs = [tuple(world_to_camera_view(ctx.scene, ctx.camera, Vector(p)))[:2] for p in probe]
+    err = max(abs(a - b) for u, v in zip(ours, theirs) for a, b in zip(u, v))
+    report.add(sid, "framing_math_matches_blender", err < 1e-5, f"max projection error {err:.2e}")
+
+    # 9. SIDE_BY_SIDE: same scale, local vs world, no overlap.
+    if template == "SIDE_BY_SIDE":
+        ctx.scene.frame_set(1)
+        slots = list(ctx.slots)
+        issues = []
+        boxes = {}
+        dg = bpy.context.evaluated_depsgraph_get()
+        for s in slots:
+            pts = [p for o in ctx.slots[s].values() for p in shot_builder.world_vertices(o, dg)]
+            boxes[s] = (tuple(min(p[i] for p in pts) for i in range(3)), tuple(max(p[i] for p in pts) for i in range(3)))
+        for s1, s2 in itertools.combinations(slots, 2):
+            (lo1, hi1), (lo2, hi2) = boxes[s1], boxes[s2]
+            if all(lo1[i] < hi2[i] and lo2[i] < hi1[i] for i in range(2)):
+                issues.append(f"{s1} and {s2} footprints overlap")
+            offset = [b - a for a, b in zip(ctx.slot_offsets[s1], ctx.slot_offsets[s2])]
+            for cid in shared:
+                o1, o2 = ctx.slots[s1][cid], ctx.slots[s2][cid]
+                if not _close([v for r in o1.matrix_basis for v in r], [v for r in o2.matrix_basis for v in r], TRANSFORM_TOL):
+                    issues.append(f"{cid}: local transform differs between slots")
+                world_delta = [b - a for a, b in zip(o1.matrix_world.translation, o2.matrix_world.translation)]
+                if not _close(world_delta, offset, TRANSFORM_TOL):
+                    issues.append(f"{cid}: world offset {world_delta} != slot offset {offset}")
+                if not _close(tuple(o1.dimensions), tuple(o2.dimensions), TRANSFORM_TOL):
+                    issues.append(f"{cid}: dimensions differ between slots")
+        gaps = []
+        for s1, s2 in zip(slots, slots[1:]):
+            (lo1, hi1), (lo2, hi2) = boxes[s1], boxes[s2]
+            axis = ctx.camera_basis[0]
+            span1 = [sum(c * a for c, a in zip(p, axis)) for p in (lo1, hi1, (lo1[0], hi1[1], 0), (hi1[0], lo1[1], 0))]
+            span2 = [sum(c * a for c, a in zip(p, axis)) for p in (lo2, hi2, (lo2[0], hi2[1], 0), (hi2[0], lo2[1], 0))]
+            gaps.append(min(span2) - max(span1))
+        issues += [f"screen-axis gap {g:.3f} m is not positive" for g in gaps if g <= 0]
+        report.add(sid, "side_by_side_layout", not issues, "; ".join(issues[:6]) or
+                   f"{len(slots)} models, identical shared local transforms and dimensions, gaps "
+                   + ", ".join(f"{g:.2f} m" for g in gaps))
+    return frames
+
+
+def run_all(project_dir, preset="preview"):
+    data = shot_builder.load_project(project_dir, preset)
+    states = data["states"]
+    report = Report()
+    cameras, signatures = {}, {}
+    for shot in data["story"]["shots"]:
+        sid = shot["id"]
+        ctx = shot_builder.build_shot(project_dir, sid, preset)
+        frames = check_shot(ctx, states, report)
+        if ctx.cfg["template"] != "SIDE_BY_SIDE":
+            cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale)
+        signatures[sid] = (frames, signature(ctx, frames))
+
+    # One locked camera for every single-model shot: cuts between them are invisible.
+    ref_id = next(iter(cameras), None)
+    diffs = [sid for sid, (m, s) in cameras.items()
+             if not (_close(m, cameras[ref_id][0], 1e-6) and abs(s - cameras[ref_id][1]) < 1e-6)]
+    report.add("ALL", "camera_identical_across_single_model_shots", not diffs,
+               f"differs: {diffs}" if diffs else f"{len(cameras)} shots share one camera")
+
+    # Rebuilding from the same files gives bit-identical transforms (no hidden state).
+    for shot in data["story"]["shots"]:
+        sid = shot["id"]
+        ctx = shot_builder.build_shot(project_dir, sid, preset)
+        frames, first = signatures[sid]
+        report.add(sid, "repeatable_build", signature(ctx, frames) == first, f"sha256 {first[:16]}")
+
+    passed = sum(r["status"] == "PASS" for r in report.results)
+    return {"blender": bpy.app.version_string, "preset": preset,
+            "summary": {"passed": passed, "failed": len(report.results) - passed, "total": len(report.results)},
+            "results": report.results}

@@ -1,4 +1,8 @@
-"""Reusable deterministic transform animation: shared pieces never move."""
+"""DEPRECATED v0.1 replace animation, kept only for reference; nothing imports it.
+
+Superseded in M2 by engine/motion.py (REPLACE_PARTS planner) + engine/animate.py.
+Do not reuse: it shrinks outgoing parts to 1% scale, which M2 forbids.
+"""
 from mathutils import Vector
 
 

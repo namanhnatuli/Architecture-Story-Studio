@@ -2,26 +2,147 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://local.architecture-story-studio/schemas/states.schema.json",
   "type": "object",
-  "required": ["building_type", "shared_components", "variants", "transitions"],
+  "required": [
+    "building_type",
+    "shared_components",
+    "variants",
+    "transitions"
+  ],
   "properties": {
-    "building_type": {"type": "string"},
-    "shared_components": {"type": "array", "items": {"type": "string"}},
-    "variants": {"type": "array", "minItems": 2, "items": {
-      "type": "object", "required": ["id", "name", "roof_pitch_degrees", "color_key"],
+    "building_type": {
+      "type": "string"
+    },
+    "shared_components": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Base component ids or group names (engine/spec.py BASE_BUILDERS); every base part must be covered. 'ground' is accepted as environment."
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "roof_pitch_degrees": {
+            "type": "number",
+            "minimum": 5,
+            "maximum": 70
+          },
+          "color_key": {
+            "type": "string"
+          },
+          "builder": {
+            "enum": [
+              "gable_roof"
+            ],
+            "description": "Defaults to gable_roof for v1 files."
+          },
+          "components": {
+            "type": "array",
+            "description": "Explicit ownership; must match the builder's parts.",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "role",
+                "layer"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "layer": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "template"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "template": {
+            "enum": [
+              "REPLACE_PARTS",
+              "STATE_TRANSITION",
+              "SIDE_BY_SIDE",
+              "ASSEMBLE",
+              "DISASSEMBLE",
+              "EXPLODED_VIEW"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "schema_version": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "base": {
+      "type": "object",
+      "description": "Base builder and its parameters (defaults in engine/spec.py DEFAULT_BASE).",
       "properties": {
-        "id": {"type": "string"},
-        "name": {"type": "string"},
-        "roof_pitch_degrees": {"type": "number", "minimum": 5, "maximum": 70},
-        "color_key": {"type": "string"}
-      }, "additionalProperties": false
-    }},
-    "transitions": {"type": "array", "minItems": 1, "items": {
-      "type": "object", "required": ["from", "to", "template"],
-      "properties": {
-        "from": {"type": "string"},
-        "to": {"type": "string"},
-        "template": {"enum": ["REPLACE_PARTS", "STATE_TRANSITION", "SIDE_BY_SIDE", "ASSEMBLE", "DISASSEMBLE"]}
-      }, "additionalProperties": false
-    }}
-  }, "additionalProperties": false
+        "builder": {
+          "enum": [
+            "rectangular_house_base"
+          ]
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "depth": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "wall_height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "rafter_count": {
+          "type": "integer",
+          "minimum": 2
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
 }

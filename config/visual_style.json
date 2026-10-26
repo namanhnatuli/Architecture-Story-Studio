@@ -12,9 +12,50 @@
     "highlight": "#D9A441",
     "ground": "#C9CCBA"
   },
-  "camera": {"type": "ORTHOGRAPHIC", "angle": "three-quarter", "stable_during_comparison": true},
-  "lighting": {"type": "studio_soft", "key_area": true, "fill_area": true, "shadows": "soft"},
-  "geometry": {"bevel_edges": true, "bevel_width_m": 0.025},
-  "animation": {"easing": "BEZIER", "stagger_frames": 5, "use_deformation_only_if_topology_compatible": true},
-  "overlays": {"captions_added_in_post": true, "do_not_embed_unverified_claims": true}
+  "camera": {
+    "type": "ORTHOGRAPHIC",
+    "angle": "three-quarter",
+    "stable_during_comparison": true,
+    "presets": {
+      "LOCKED_THREE_QUARTER": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -52.13,
+        "elevation_degrees": 25.19,
+        "margin": 0.07,
+        "note": "Same view direction as the v0.1 camera (7.7, -9.9, 7.5) looking at (0, 0, 1.6); position and scale are fitted to geometry."
+      }
+    }
+  },
+  "lighting": {
+    "type": "studio_soft_sun",
+    "shadows": "soft",
+    "key_direction": [
+      0.33,
+      -1.0,
+      1.3
+    ],
+    "key_strength": 3.0,
+    "key_angle_degrees": 8.0,
+    "fill_direction": [
+      0.9,
+      0.55,
+      0.45
+    ],
+    "fill_strength": 0.8,
+    "world_strength": 0.6,
+    "note": "Sun lights so models anywhere in the scene are lit identically (SIDE_BY_SIDE)."
+  },
+  "geometry": {
+    "bevel_edges": true,
+    "bevel_width_m": 0.025
+  },
+  "animation": {
+    "easing": "BEZIER",
+    "stagger_frames": 5,
+    "use_deformation_only_if_topology_compatible": true
+  },
+  "overlays": {
+    "captions_added_in_post": true,
+    "do_not_embed_unverified_claims": true
+  }
 }

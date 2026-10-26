@@ -1,23 +1,110 @@
-# SOP 05 — Animation template catalog
+# SOP 05 — Thư viện template animation
 
-| Template | Công dụng | Điều kiện |
-|---|---|---|
-| `ASSEMBLE` | Cấu kiện vào vị trí | Object IDs + target transforms |
-| `DISASSEMBLE` | Tách các phần không còn dùng | Stagger + exit path, preserve shared |
-| `REPLACE_PARTS` | A ra, B vào | Source+target component groups, cùng tọa độ |
-| `STATE_TRANSITION` | So sánh A/B/C, thời kỳ | Tách 2 geometry khi topology khác |
-| `SIDE_BY_SIDE` | 2–3 mô hình ngang nhau | Cùng scale/camera/lights |
-| `EXPLODED_VIEW` | Tách lớp để giải thích | Component semantic groups |
-| `CUTAWAY` | Nhìn kết cấu bên trong | Cắt/chia mesh có chủ đích |
-| `CAUSE_AND_EFFECT` | Hiển thị yếu tố khí hậu/kỹ thuật | Nguồn bằng chứng và caveat |
-| `HIGHLIGHT_DIFFERENCE` | Chỉ ra thành phần thay đổi | Không tô highlight những cấu kiện giống nhau |
-| `TIMELINE` | Các mốc thời gian có nguồn | Không ngầm áp đặt tiến hóa tuyến tính |
+| Template | Công dụng | Điều kiện | Trạng thái (M2, 2026-10-26) |
+|---|---|---|---|
+| `HOLD` | Giữ một state, có thể highlight | 1 state | **Đã triển khai + test + kiểm tra hình ảnh** |
+| `REPLACE_PARTS` | A ra, B vào | Nhóm component nguồn + đích, cùng tọa độ | **Đã triển khai + test + kiểm tra hình ảnh** |
+| `EXPLODED_VIEW` | Tách lớp để giải thích | Nhóm component có ngữ nghĩa | **Đã triển khai + test + kiểm tra hình ảnh** |
+| `SIDE_BY_SIDE` | 2+ mô hình đặt ngang hàng | Cùng scale/camera/ánh sáng | **Đã triển khai + test + kiểm tra hình ảnh** |
+| `HIGHLIGHT_DIFFERENCE` | Chỉ ra phần thay đổi | Không tô cấu kiện giống nhau | Một phần: tùy chọn `highlight` trong HOLD / EXPLODED_VIEW / SIDE_BY_SIDE |
+| `ASSEMBLE`, `DISASSEMBLE` | Cấu kiện vào / ra | Object IDs + target transforms | Chưa hỗ trợ dạng template riêng (dùng nửa vào / nửa ra của REPLACE_PARTS) |
+| `STATE_TRANSITION`, `CUTAWAY`, `CAUSE_AND_EFFECT`, `TIMELINE` | — | — | Chưa hỗ trợ (V2) |
 
-## Thứ tự ưu tiên triển khai
-MVP: `REPLACE_PARTS` (A tháo mái/B lắp mái). V1: `SIDE_BY_SIDE`, `EXPLODED_VIEW`, `HIGHLIGHT_DIFFERENCE`. V2: `CUTAWAY`, `TIMELINE`, `CAUSE_AND_EFFECT`.
+## Kiến trúc (M2)
 
-## Transform logic
-Mỗi object có **target transform** và animation **có thể sample deterministic theo frame**. Variant gốc không bị xóa; chỉ ẩn/di chuyển khỏi camera khi không active. Không dùng Shape Keys giữa hai mesh topology khác biệt.
+```text
+storyboard.json shot.animation ──► engine/templates.py ──► engine/motion.py ──► Plan (keyframes)
+states.json ownership ───────────► engine/spec.py           (Python thuần, không bpy)   │
+                                                                                         ▼
+engine/geometry.py (builders) ──► engine/shot_builder.py ──► engine/animate.py ──► Blender keys
+                                   engine/framing.py (camera + layout, Python thuần)
+```
 
-## Cân nhắc hiệu suất
-Các loại brick/roof tiles lặp lại nên dùng instancing; chỉ tách thành objects riêng khi cần animation độc lập. Animation rigid body/destruction không là hướng cốt lõi của kênh.
+- **Planning là Python thuần.** `tools/validator.py` chạy cùng planner với geometry giữ chỗ, nên lỗi timing / component / option bị bắt ngay ở G0, trước khi Blender khởi động.
+- **Geometry không biết gì về animation.** Builder chỉ gắn metadata: `component_id`, `variant_id`, `role`, `group`, `assembly_layer`, `explode_hint`.
+- **Mọi keyframe có interpolation tường minh.** Không phụ thuộc BEZIER mặc định; `Plan.sample()` tái tạo đúng đường cong Blender (sai số đo được < 1e-6).
+- **Không bao giờ thu nhỏ scale để làm biến mất.** Biến mất = di chuyển + mờ dần (`ass_transparency`) + `hide_render`.
+- **Mỗi shot là một scene độc lập**, có camera khóa được fit theo *mọi* variant, nên các lần cắt giữa các shot một-model không lộ (đã test camera giống hệt nhau).
+
+## Hướng (dùng chung cho mọi template)
+`[x, y, z]` | `UP` / `FROM_ABOVE` | `DOWN` / `FROM_BELOW` | `LEFT` `RIGHT` `FRONT` `BACK` |
+`OUTWARD` (nằm ngang, từ tâm nhóm ra) | `OUTWARD_UP` (OUTWARD + lên, 45°) | `RADIAL` (3D từ tâm) | `HINT` (hướng gợi ý của builder, ví dụ pháp tuyến của mái).
+Component nằm đúng tâm nhóm sẽ dùng `UP`.
+
+## Easing
+`LINEAR`, `SMOOTH` (sine in-out), `EASE_IN_OUT` / `EASE_IN` / `EASE_OUT` (cubic), `CONSTANT`.
+
+## Thứ tự và stagger
+`order`: `LISTED` | `ASSEMBLY` (layer tăng dần) | `DISASSEMBLY` | `BOTTOM_UP` | `TOP_DOWN`.
+`stagger_by`: `LAYER` (các component cùng layer khởi động cùng lúc, ví dụ tấm phủ trái + phải) | `COMPONENT`.
+
+## Tham chiếu cấu hình
+Option không xác định là lỗi (để lỗi gõ sai không lọt qua). Giá trị mặc định nằm trong `engine/motion.py`.
+
+### REPLACE_PARTS
+```json
+{"template": "REPLACE_PARTS", "from_state": "roof_A", "to_state": "roof_B", "duration_seconds": 6.0,
+ "easing": "SMOOTH", "hold_start_seconds": 0.5, "hold_end_seconds": 1.0,
+ "outgoing": {"components": "FROM_STATE", "direction": "OUTWARD_UP", "distance": 3.0,
+              "lift": 0.5, "lift_seconds": 0.4, "move_seconds": 1.1,
+              "stagger_seconds": 0.15, "stagger_by": "LAYER", "order": "DISASSEMBLY",
+              "rotation_degrees": [0, 0, 0], "fade": true, "fade_start": 0.0, "hide_when_done": true,
+              "per_component": {"roof_A_ridge_beam": {"direction": "UP", "distance": 2.0}}},
+ "incoming": {"components": "TO_STATE", "direction": "FROM_ABOVE", "distance": 2.0, "move_seconds": 1.3,
+              "stagger_seconds": 0.25, "stagger_by": "LAYER", "order": "ASSEMBLY",
+              "rotation_degrees": [0, 0, 0], "fade": true, "fade_end": 0.75,
+              "overlap_seconds": 0.3, "start_seconds": null, "easing": "EASE_OUT", "per_component": {}}}
+```
+- Phần ra: giữ → nhấc lên `lift` (tùy chọn) → di chuyển theo `direction * distance` trong khi mờ dần → `hide_render`.
+- Phần vào: ẩn tại `rest + direction * distance` → hiện lại khi bắt đầu chuyển động → hạ đúng vào transform gốc (khớp chính xác, đã kiểm tra với sai số 1e-5).
+- `components` phải là toàn bộ component của state (danh sách chỉ để chọn thứ tự). Component dùng chung bị từ chối.
+- Phần vào bắt đầu tại `start_seconds`, hoặc tại `(lúc phần ra kết thúc) - overlap_seconds`.
+- Markers (dùng cho stills/QA): `outgoing_start`, `outgoing_end`, `incoming_start`, `incoming_end`, `middle`.
+
+### EXPLODED_VIEW
+```json
+{"template": "EXPLODED_VIEW", "state": "roof_A", "components": ["..."] ,
+ "center": "AUTO", "direction_mode": "HINT", "distance": 0.8,
+ "per_component": {"roof_A_covering_left": {"distance": 1.6}},
+ "sequence": "SEQUENTIAL", "stagger_seconds": 0.15, "stagger_by": "LAYER", "order": "DISASSEMBLY",
+ "hold_start_seconds": 0.4, "explode_seconds": 1.1, "hold_seconds": 1.5, "return_seconds": 1.0,
+ "hold_end_seconds": 0.3, "easing": "SMOOTH",
+ "highlight": {"components": "ALL", "mode": "SIMULTANEOUS", "strength": 0.55, "fade_seconds": 0.3}}
+```
+- Thứ tự trở về đảo ngược thứ tự tách (phần ra sau cùng về trước), và về **chính xác** vị trí nghỉ.
+- Có thể đưa cả component dùng chung vào `components`; chúng cũng trở về chính xác.
+- `highlight.mode`: `SIMULTANEOUS` hoặc `SEQUENTIAL` (khoảng giữ được chia đều cho các component).
+- QA: tại `exploded_hold` không được có giao cắt mesh mới so với lúc nghỉ (kiểm tra bằng BVH).
+- Markers: `explode_start`, `explode_end`, `exploded_hold`, `return_start`, `return_end`.
+
+### SIDE_BY_SIDE
+```json
+{"template": "SIDE_BY_SIDE", "states": ["roof_A", "roof_B"], "gap_ratio": 0.35, "label_band": 0.12,
+ "highlight": {"components": "DIFFERENCES", "start_seconds": 0.8, "rise_seconds": 0.4,
+               "hold_seconds": 1.4, "fall_seconds": 0.5, "strength": 0.45}}
+```
+- Mỗi state có một model (base + variant), được parent vào một empty `SLOT_<state>`.
+- Bố cục theo trục camera-right trên mặt đất, dùng kích thước footprint (không dùng offset cố định). Khoảng cách = `gap_ratio × model rộng nhất`.
+- Camera dùng **cùng hướng nhìn** với các shot một-model; ortho scale được fit cho cả hàng model, chừa `label_band` ở dưới cho nhãn hậu kỳ.
+- Ánh sáng là sun nên không phụ thuộc vị trí → các phần giống nhau trông giống hệt nhau.
+- `DIFFERENCES` = mọi component do variant sở hữu, trong mọi slot.
+
+### HOLD
+```json
+{"template": "HOLD", "state": "roof_B",
+ "highlight": {"components": "STATE", "start_seconds": 0.3, "rise_seconds": 0.35,
+               "hold_seconds": 0.9, "fall_seconds": 0.45, "strength": 0.45}}
+```
+
+## Highlight
+Material đọc 2 custom property trên từng object qua node Attribute (kiểu OBJECT):
+- `ass_highlight`: 0..1, làm sáng phần đó bằng phát sáng cùng màu, cộng thêm một chút màu nhấn (#D9A441). **Giữ nguyên tông màu** để màu A/B vẫn nhận ra được.
+- `ass_transparency`: 0 = đặc, 1 = trong suốt hoàn toàn (Eevee dithered, có bóng trong suốt).
+
+## Thêm loại công trình mới (cầu, cột, khung…)
+1. Thêm danh sách parts vào `engine/spec.py` (`BASE_BUILDERS` / `VARIANT_BUILDERS`), gồm `role` và `assembly layer`.
+2. Viết builder trong `engine/geometry.py`, đăng ký vào `*_BUILDER_FUNCS`. Builder phải gắn metadata qua `annotate()`, và `explode_hint` khi có hướng tách tự nhiên.
+3. Khai báo variant trong `states.json`, dùng lại các template mà không sửa template.
+
+## Transform logic / hiệu suất
+Variant gốc không bị xóa, chỉ ẩn khi không active. Không dùng Shape Keys giữa hai mesh khác topology. Rafters/joists là mesh nhiều hộp trong một object (một component), không phải hàng chục object. Instancing (Geometry Nodes) chỉ cần khi số chi tiết lặp lớn (ngói, gạch).

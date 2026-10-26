@@ -20,3 +20,22 @@
 
 ## Khác biệt Codex / Claude
 `AGENTS.md` là nguồn hướng dẫn chung; `CLAUDE.md` trỏ đến nó. Không xây 2 kiến trúc khác nhau. Mỗi công cụ dùng MCP config theo tài liệu client bản đang cài (không chép blind install snippets nếu chưa xác nhận plugin/version).
+
+## Cấu hình đã cài trên máy (2026-10-26)
+- Package: `mcp-for-blender==2.2.4` (repo `ahujasid/mcp-for-blender`, trước đây `blender-mcp`). Đã review: socket addon bind `localhost:9876`, **không có xác thực**; `execute_blender_code` chạy Python tùy ý; addon **tự bật server khi mở Blender GUI** (tắt trong tab sidebar *MCP for Blender* nếu không dùng).
+- Claude Code: `.mcp.json` ở project root (scope project, không ghi vào config user). Env: `DISABLE_TELEMETRY=true`, `BLENDER_MCP_SAFE_MODE=1` (chặn đọc/ghi file trực tiếp, subprocess, network trong script).
+- Không dùng `uvx mcp-for-blender setup` / `@latest` / `update`: chúng tự sửa mọi client và nâng version chưa review. Nâng cấp = review diff mới rồi đổi version ghim.
+- Không bật các tích hợp tải asset (Poly Haven, Sketchfab, Poly Pizza, Hyper3D, Meshy, Hunyuan3D) khi chưa kiểm tra license và ghi vào asset manifest.
+- Codex: dùng cùng command/env (xem `.mcp.json`) theo tài liệu client Codex đang cài.
+
+## Dùng MCP với engine M2 (chỉ để quan sát; sinh output vẫn qua CLI)
+- Dựng một shot trong scene **riêng biệt**, không xóa file đang mở:
+  ```python
+  import sys; sys.path.insert(0, "<project root>")
+  from engine import shot_builder
+  ctx = shot_builder.build_shot("<project root>/projects/roof-evolution", "SC_003", isolated=True)
+  ctx.scene.frame_set(ctx.plan.markers["middle"])
+  ```
+  `isolated=True` tạo scene `ASS_<shot>` và chuyển cửa sổ sang scene đó. Chế độ CLI mặc định thì làm rỗng file (chỉ an toàn khi chạy headless).
+- Lệnh trên có `sys.path` / import cục bộ: safe mode có thể chặn. Khi đó **không tắt safe mode**; dùng `python3 tools/cli.py still|shot|check-blender` (mọi thao tác ghi file đều đi qua CLI).
+- Trạng thái 2026-10-26: phiên Claude Code của milestone M2 khởi động trước khi đăng ký `.mcp.json`, nên **không có tool MCP nào**. Addon trong Blender GUI cũng chưa lắng nghe ở cổng 9876. Toàn bộ QA hình ảnh của M2 làm trên ảnh render thật qua CLI, **không** dùng `look` của MCP.

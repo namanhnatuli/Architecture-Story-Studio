@@ -9,6 +9,7 @@
 
 ## M2 — Visualization foundations
 - `SIDE_BY_SIDE`, `EXPLODED_VIEW`, `HIGHLIGHT_DIFFERENCE`; tests cho mỗi template; asset manifest chuẩn.
+- **Trạng thái 2026-10-26:** `REPLACE_PARTS`, `EXPLODED_VIEW`, `SIDE_BY_SIDE`, `HOLD` đã triển khai, có test và đã kiểm tra hình ảnh (pilot 20 s). `HIGHLIGHT_DIFFERENCE` mới có ở dạng tùy chọn `highlight`. Còn chờ: kiểm tra hình ảnh qua MCP, test Blender 4.5, preset review 960×540.
 
 ## M3 — Narrative video
 - Pilot 60–90s có nguồn thật về một luận điểm thiết kế; TTS và timing lock; montage với ảnh tư liệu có license.

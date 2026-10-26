@@ -2,6 +2,8 @@
 import json
 from pathlib import Path
 
+from engine import motion, spec, templates  # pure-Python modules, no bpy
+
 
 class ValidationError(Exception):
     pass
@@ -93,6 +95,37 @@ def validate_project(project_dir, final=False):
     for change in states.get("transitions", []):
         if change.get("from") not in variant_ids or change.get("to") not in variant_ids:
             errors.append("Transition references unknown variant")
+
+    # Component ownership, template configs and timing, planned offline with placeholder geometry.
+    state_errors = spec.validate_states(states)
+    errors.extend(f"states.json: {e}" for e in state_errors)
+    plans = {}
+    if not state_errors and type(fps) is int and fps > 0:
+        for shot in shots:
+            try:
+                plans[shot.get("id")] = (shot, templates.plan_shot(
+                    shot, states, fps, templates.placeholder_slots(shot, states)))
+            except (motion.PlanError, KeyError, TypeError, ValueError) as e:
+                errors.append(str(e) if str(e).startswith(str(shot.get("id"))) else f"{shot.get('id')}: {e}")
+        still_ids = set()
+        for still in story.get("key_stills", []):
+            kid = still.get("id")
+            if not kid or kid in still_ids:
+                errors.append(f"key still id missing or duplicated: {kid!r}")
+            still_ids.add(kid)
+            if still.get("shot") not in plans:
+                errors.append(f"key still {kid}: unknown or invalid shot {still.get('shot')!r}")
+                continue
+            shot, plan = plans[still["shot"]]
+            if "marker" in still:
+                if still["marker"] not in plan.markers:
+                    errors.append(f"key still {kid}: marker '{still['marker']}' not produced by "
+                                  f"{templates.animation_config(shot)['template']} (markers: {sorted(plan.markers)})")
+            else:
+                try:
+                    templates.key_still_frame(shot, float(still.get("time_seconds")), fps)
+                except (motion.PlanError, TypeError, ValueError) as e:
+                    errors.append(f"key still {kid}: {e}")
     for claim in sources.get("claims", []):
         for ref in claim.get("source_ids", []):
             if ref not in source_map:

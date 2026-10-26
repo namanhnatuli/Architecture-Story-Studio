@@ -1,0 +1,186 @@
+"""Build one storyboard shot as a self-contained, reproducible Blender scene (bpy).
+
+Order of work: geometry (builders) -> rest data -> layout -> camera fit ->
+static visibility -> template plan (pure Python) -> keyframes. Nothing depends
+on a viewport, selection or a previously open scene.
+"""
+import json
+from dataclasses import dataclass
+from pathlib import Path
+
+import bpy
+
+from engine import animate, framing, geometry, motion, spec, templates
+from engine import scene as scene_mod
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def load_json(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_project(project_dir, preset_name="preview"):
+    project_dir = Path(project_dir).resolve()
+    presets = load_json(ROOT / "config/render_presets.json")
+    if preset_name not in presets:
+        raise ValueError(f"unknown render preset '{preset_name}'")
+    return {
+        "dir": project_dir,
+        "project": load_json(project_dir / "project.json"),
+        "states": load_json(project_dir / "storyboard/states.json"),
+        "story": load_json(project_dir / "storyboard/storyboard.json"),
+        "style": load_json(ROOT / "config/visual_style.json"),
+        "preset": presets[preset_name],
+    }
+
+
+def find_shot(story, shot_id):
+    for shot in story.get("shots", []):
+        if shot.get("id") == shot_id:
+            return shot
+    raise ValueError(f"unknown shot '{shot_id}' (shots: {', '.join(s.get('id', '?') for s in story.get('shots', []))})")
+
+
+@dataclass
+class ShotContext:
+    shot: dict
+    cfg: dict
+    scene: object
+    plan: object
+    fps: int
+    frame_count: int
+    objects: dict          # object name -> model component object
+    slots: dict            # slot id -> {component_id: object}
+    slot_roots: dict       # slot id -> empty parenting that slot
+    slot_offsets: dict     # slot id -> world offset of the slot root
+    visible_variants: dict # slot id -> variant ids visible in the shot
+    components: dict       # object name -> motion.Component (rest data)
+    camera: object
+    camera_fit: dict
+    camera_basis: tuple
+    aspect: float
+    bottom_band: float
+    ground: object
+
+
+def purge_data():
+    """Empty the open file (headless CLI only; MCP sessions use isolated=True instead)."""
+    for coll in (bpy.data.objects, bpy.data.meshes, bpy.data.materials, bpy.data.lights,
+                 bpy.data.cameras, bpy.data.worlds, bpy.data.actions, bpy.data.collections):
+        for item in list(coll):
+            coll.remove(item)
+
+
+def world_vertices(obj, depsgraph):
+    ev = obj.evaluated_get(depsgraph)
+    mesh = ev.to_mesh()
+    try:
+        return [tuple(ev.matrix_world @ v.co) for v in mesh.vertices]
+    finally:
+        ev.to_mesh_clear()
+
+
+def _bounds(points):
+    lo = tuple(min(p[i] for p in points) for i in range(3))
+    hi = tuple(max(p[i] for p in points) for i in range(3))
+    return lo, hi
+
+
+def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
+    """Build a shot. isolated=True creates a new scene instead of emptying the file,
+    so an interactive (MCP) session never loses unrelated work."""
+    data = load_project(project_dir, preset_name)
+    states, style, preset = data["states"], data["style"], data["preset"]
+    errors = spec.validate_states(states)
+    if errors:
+        raise ValueError("states.json invalid: " + "; ".join(errors))
+    shot = find_shot(data["story"], shot_id)
+    cfg = templates.animation_config(shot)
+    fps = int(data["project"]["fps"])
+    frames = templates.frame_count(shot, fps)
+
+    if isolated:
+        scene = bpy.data.scenes.new(f"ASS_{shot_id}")
+        window = getattr(bpy.context, "window", None)
+        if window is None:
+            raise RuntimeError("isolated build needs a Blender window (use the CLI for headless runs)")
+        window.scene = scene
+    else:
+        purge_data()
+        scene = bpy.context.scene
+    root = geometry.make_collection(f"ASS_{shot_id}", scene.collection)
+    materials = scene_mod.make_materials(style)
+    ground = scene_mod.build_environment(scene, style, materials, geometry.make_collection("90_ENVIRONMENT", root))
+
+    objects, slots, roots, visible = {}, {}, {}, {}
+    for slot_id, built, active in templates.layout_slots(shot, states):
+        col = geometry.make_collection(f"00_SLOT_{slot_id}", root)
+        slot_root = bpy.data.objects.new(f"SLOT_{slot_id}", None)
+        slot_root["slot_id"] = slot_id
+        col.objects.link(slot_root)
+        slots[slot_id] = {}
+        for obj in geometry.build_model(states, materials, col, built):
+            name = templates.object_name(slot_id, obj["component_id"])
+            obj.name = name
+            if obj.name != name:
+                raise ValueError(f"object name collision for '{name}'")
+            obj.parent = slot_root  # root sits at the origin, so local == slot space
+            obj["slot_id"] = slot_id
+            objects[name] = obj
+            slots[slot_id][obj["component_id"]] = obj
+        roots[slot_id], visible[slot_id] = slot_root, list(active)
+
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    depsgraph.update()
+    verts = {name: world_vertices(obj, depsgraph) for name, obj in objects.items()}
+    components = {}
+    for name, obj in objects.items():
+        lo, hi = _bounds(verts[name])
+        components[name] = motion.Component(
+            name=name, id=obj["component_id"], location=tuple(obj.location),
+            rotation=tuple(obj.rotation_euler), center=tuple((a + b) / 2 for a, b in zip(lo, hi)),
+            layer=int(obj["assembly_layer"]),
+            hint=tuple(obj["explode_hint"]) if "explode_hint" in obj else None)
+
+    cam_preset = scene_mod.camera_preset(style, shot["camera"])
+    basis = framing.camera_basis(cam_preset["azimuth_degrees"], cam_preset["elevation_degrees"])
+    offsets = {sid: (0.0, 0.0, 0.0) for sid in slots}
+    bottom_band = 0.0
+    if cfg["template"] == "SIDE_BY_SIDE":
+        footprints = []
+        for sid in slots:
+            lo, hi = _bounds([p for name, obj in objects.items() if obj["slot_id"] == sid for p in verts[name]])
+            footprints.append((lo[0], lo[1], hi[0], hi[1]))
+        gap_ratio = cfg.get("gap_ratio", motion.SIDE_BY_SIDE_DEFAULTS["gap_ratio"])
+        offs, _ = framing.layout_side_by_side(footprints, basis[0], gap_ratio)
+        offsets = dict(zip(slots, offs))
+        for sid, off in offsets.items():
+            roots[sid].location = off
+        bottom_band = cfg.get("label_band", motion.SIDE_BY_SIDE_DEFAULTS["label_band"])
+
+    # Camera framed on every built part at rest (hidden variants included), so all
+    # single-model shots of a project share one identical locked camera.
+    points = [tuple(p[i] + offsets[obj["slot_id"]][i] for i in range(3))
+              for name, obj in objects.items() for p in verts[name]]
+    aspect = preset["width"] / preset["height"]
+    camera, fit, basis = scene_mod.build_camera(scene, geometry.make_collection("90_CAMERA", root),
+                                                cam_preset, points, aspect, bottom_band)
+
+    for obj in objects.values():
+        vid = obj["variant_id"]
+        if vid != "shared" and vid not in visible[obj["slot_id"]]:
+            obj.hide_render = obj.hide_viewport = True
+
+    slot_components = {sid: {cid: components[obj.name] for cid, obj in parts.items()}
+                       for sid, parts in slots.items()}
+    plan = templates.plan_shot(shot, states, fps, slot_components)
+    animate.apply_plan(plan, objects)
+    scene_mod.configure_render(scene, preset, fps, frames)
+    scene.frame_set(1)
+    return ShotContext(shot=shot, cfg=cfg, scene=scene, plan=plan, fps=fps, frame_count=frames,
+                       objects=objects, slots=slots, slot_roots=roots, slot_offsets=offsets,
+                       visible_variants=visible, components=components, camera=camera,
+                       camera_fit=fit, camera_basis=basis, aspect=aspect, bottom_band=bottom_band,
+                       ground=ground)
