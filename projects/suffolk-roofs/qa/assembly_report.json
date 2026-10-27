@@ -1,33 +1,360 @@
 {
-  "output": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/suffolk-roofs/output/suffolk_roofs_pilot.mp4",
-  "subtitles": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/suffolk-roofs/output/suffolk_roofs_pilot.en.srt",
+  "output": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/suffolk-roofs/output/suffolk_roofs_pilot_INTERNAL.mp4",
+  "subtitles": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/suffolk-roofs/output/suffolk_roofs_pilot_INTERNAL.en.srt",
+  "narration_rights": [
+    "INTERNAL_PREVIEW_ONLY"
+  ],
+  "publication_audio": false,
   "narration_track": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/suffolk-roofs/audio/narration_mix_full.wav",
   "shots": "all",
-  "frames": 1752,
-  "seconds": 73.0,
+  "frames": 1813,
+  "seconds": 75.54166666666667,
   "video": {
     "codec_name": "h264",
     "codec_type": "video",
     "width": 640,
     "height": 360,
-    "duration": "73.000000",
-    "nb_read_frames": "1752"
+    "duration": "75.541667",
+    "nb_read_frames": "1813"
   },
   "audio": {
     "codec_name": "aac",
     "codec_type": "audio",
     "sample_rate": "48000",
-    "duration": "73.000000",
-    "nb_read_frames": "3422"
+    "duration": "75.541667",
+    "nb_read_frames": "3542"
   },
   "loudness_before": {
-    "I": "-24.37",
+    "I": "-24.30",
     "TP": "-3.62"
   },
   "loudness_after": {
     "integrated_lufs": -16.5,
     "true_peak_dbtp": -1.3
   },
-  "subtitle_entries": 14,
+  "subtitle_entries": 21,
+  "subtitle_stats": {
+    "cues": 21,
+    "sentences": 14,
+    "max_line": 41,
+    "lines_over_42": 0,
+    "two_line_cues": 15,
+    "aligned_boundaries": 7,
+    "sentence_fallbacks": 0,
+    "max_cps": 19.8
+  },
+  "subtitle_warnings": [
+    "cue 4 (B2.s0): 17.4 characters/s (> 17.0)",
+    "cue 6 (B2.s1): 18.3 characters/s (> 17.0)",
+    "cue 12 (B4.s1): 18.6 characters/s (> 17.0)",
+    "cue 14 (B4.s2): 19.8 characters/s (> 17.0)",
+    "cue 15 (B4.s2): 17.1 characters/s (> 17.0)",
+    "cue 17 (B5.s1): 18.9 characters/s (> 17.0)",
+    "cue 21 (B6.s2): 17.0 characters/s (> 17.0)"
+  ],
+  "subtitle_cues": [
+    {
+      "start": 0.3,
+      "end": 2.3449999999999998,
+      "lines": [
+        "In Babergh and Mid Suffolk,"
+      ],
+      "text": "In Babergh and Mid Suffolk,",
+      "sentence": "B1.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "Suffolk,",
+        "before_word": "in",
+        "whisper_boundary": 1.96,
+        "placed_at": 2.045,
+        "rms_db_at_boundary": -70.9
+      }
+    },
+    {
+      "start": 2.3449999999999998,
+      "end": 5.95,
+      "lines": [
+        "in eastern England,",
+        "historic roofs do not all look alike."
+      ],
+      "text": "in eastern England, historic roofs do not all look alike.",
+      "sentence": "B1.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 5.7
+    },
+    {
+      "start": 6.05,
+      "end": 9.18,
+      "lines": [
+        "Some rise steeply.",
+        "Others sit noticeably lower."
+      ],
+      "text": "Some rise steeply. Others sit noticeably lower.",
+      "sentence": "B1.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 8.93
+    },
+    {
+      "start": 9.8,
+      "end": 14.275000000000002,
+      "lines": [
+        "Older timber-framed buildings here were",
+        "probably roofed originally with thatch"
+      ],
+      "text": "Older timber-framed buildings here were probably roofed originally with thatch",
+      "sentence": "B2.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "thatch",
+        "before_word": "or",
+        "whisper_boundary": 4.38,
+        "placed_at": 4.475,
+        "rms_db_at_boundary": -68.8
+      }
+    },
+    {
+      "start": 14.275000000000002,
+      "end": 17.91,
+      "lines": [
+        "or oak shingles, depending on",
+        "which materials were available."
+      ],
+      "text": "or oak shingles, depending on which materials were available.",
+      "sentence": "B2.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 17.66
+    },
+    {
+      "start": 18.01,
+      "end": 22.105,
+      "lines": [
+        "Longstraw thatch, the most traditional",
+        "covering in these districts, is laid"
+      ],
+      "text": "Longstraw thatch, the most traditional covering in these districts, is laid",
+      "sentence": "B2.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "laid",
+        "before_word": "at",
+        "whisper_boundary": 3.96,
+        "placed_at": 4.095,
+        "rms_db_at_boundary": -61.1
+      }
+    },
+    {
+      "start": 22.105,
+      "end": 24.6,
+      "lines": [
+        "at a steep pitch of about fifty degrees."
+      ],
+      "text": "at a steep pitch of about fifty degrees.",
+      "sentence": "B2.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 24.35
+    },
+    {
+      "start": 25.216667,
+      "end": 29.326667,
+      "lines": [
+        "Eventually, clay peg tiles replaced",
+        "some of these thatched roofs."
+      ],
+      "text": "Eventually, clay peg tiles replaced some of these thatched roofs.",
+      "sentence": "B3.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 29.076667
+    },
+    {
+      "start": 29.426667,
+      "end": 32.601667,
+      "lines": [
+        "Most plain clay tile roofs",
+        "here are fairly steep too,"
+      ],
+      "text": "Most plain clay tile roofs here are fairly steep too,",
+      "sentence": "B3.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "too,",
+        "before_word": "between",
+        "whisper_boundary": 3.12,
+        "placed_at": 3.175,
+        "rms_db_at_boundary": -75.5
+      }
+    },
+    {
+      "start": 32.601667,
+      "end": 34.956667,
+      "lines": [
+        "between forty-five and sixty degrees."
+      ],
+      "text": "between forty-five and sixty degrees.",
+      "sentence": "B3.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 34.706667
+    },
+    {
+      "start": 35.591667,
+      "end": 38.191667,
+      "lines": [
+        "Materials also began to travel further."
+      ],
+      "text": "Materials also began to travel further.",
+      "sentence": "B4.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 37.941667
+    },
+    {
+      "start": 38.291667,
+      "end": 41.886666999999996,
+      "lines": [
+        "From the eighteenth century,",
+        "clay pantiles were used more commonly,"
+      ],
+      "text": "From the eighteenth century, clay pantiles were used more commonly,",
+      "sentence": "B4.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "commonly,",
+        "before_word": "as",
+        "whisper_boundary": 3.44,
+        "placed_at": 3.595,
+        "rms_db_at_boundary": -48.1
+      }
+    },
+    {
+      "start": 41.886666999999996,
+      "end": 45.411667,
+      "lines": [
+        "as moving materials around",
+        "the country became easier."
+      ],
+      "text": "as moving materials around the country became easier.",
+      "sentence": "B4.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 45.161667
+    },
+    {
+      "start": 45.511667,
+      "end": 46.826667,
+      "lines": [
+        "In the nineteenth century,"
+      ],
+      "text": "In the nineteenth century,",
+      "sentence": "B4.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "century,",
+        "before_word": "the",
+        "whisper_boundary": 1.34,
+        "placed_at": 1.315,
+        "rms_db_at_boundary": -47.3
+      }
+    },
+    {
+      "start": 46.826667,
+      "end": 51.681667,
+      "lines": [
+        "the railways meant that slate from Wales,",
+        "Cornwall and Cumbria was often used here."
+      ],
+      "text": "the railways meant that slate from Wales, Cornwall and Cumbria was often used here.",
+      "sentence": "B4.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 51.431667
+    },
+    {
+      "start": 52.3,
+      "end": 53.9,
+      "lines": [
+        "Slate is different."
+      ],
+      "text": "Slate is different.",
+      "sentence": "B5.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 53.65
+    },
+    {
+      "start": 54.0,
+      "end": 57.285,
+      "lines": [
+        "Slate roofs here are usually pitched",
+        "at around thirty degrees,"
+      ],
+      "text": "Slate roofs here are usually pitched at around thirty degrees,",
+      "sentence": "B5.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "degrees,",
+        "before_word": "and",
+        "whisper_boundary": 3.18,
+        "placed_at": 3.285,
+        "rms_db_at_boundary": -42.3
+      }
+    },
+    {
+      "start": 57.285,
+      "end": 61.57,
+      "lines": [
+        "and slate is more effective",
+        "than smaller tiles at a lower pitch."
+      ],
+      "text": "and slate is more effective than smaller tiles at a lower pitch.",
+      "sentence": "B5.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 61.32
+    },
+    {
+      "start": 62.175,
+      "end": 65.585,
+      "lines": [
+        "Thatch, clay tile and slate",
+        "each have a typical pitch."
+      ],
+      "text": "Thatch, clay tile and slate each have a typical pitch.",
+      "sentence": "B6.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 65.335
+    },
+    {
+      "start": 65.685,
+      "end": 70.465,
+      "lines": [
+        "These are tendencies, not rules, and not",
+        "every building followed the same path."
+      ],
+      "text": "These are tendencies, not rules, and not every building followed the same path.",
+      "sentence": "B6.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 70.215
+    },
+    {
+      "start": 70.565,
+      "end": 75.205,
+      "lines": [
+        "But in this part of Suffolk, a roof's",
+        "pitch and its covering often go together."
+      ],
+      "text": "But in this part of Suffolk, a roof's pitch and its covering often go together.",
+      "sentence": "B6.s2",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 74.955
+    }
+  ],
   "problems": []
 }

@@ -22,9 +22,9 @@
       "time_seconds": "@B4.s2+3.0"
     },
     {
-      "id": "05_slate_replace",
+      "id": "05_tile_vs_slate",
       "shot": "SC_005",
-      "marker": "middle"
+      "marker": "highlight_peak"
     },
     {
       "id": "06_comparison",
@@ -316,38 +316,35 @@
         "B5"
       ],
       "cut_from_previous": "hard",
-      "visual_purpose": "Slate example: the steep tiled roof is replaced by a slate roof at about 30 degrees on its own structure; walls stay (CLM_107).",
+      "visual_purpose": "Slate example as a different building, side by side with a plain-tile house at identical scale: the slate roof is lower (about 30 degrees) and its units are larger (CLM_107). Two buildings, not one house re-roofed: the sources do not describe tile roofs being converted to slate.",
       "visual_type": "BLENDER_3D",
       "from_state": "plain_tile_50",
       "to_state": "slate_30",
-      "transition": "REPLACE_PARTS",
+      "transition": "SIDE_BY_SIDE",
       "camera": "LOCKED_THREE_QUARTER",
       "animation": {
-        "template": "REPLACE_PARTS",
-        "from_state": "plain_tile_50",
-        "to_state": "slate_30",
-        "easing": "SMOOTH",
-        "hold_start_seconds": "@B5.s0",
-        "hold_end_seconds": 1.0,
-        "outgoing": {
-          "direction": "OUTWARD_UP",
-          "distance": 2.2,
-          "lift": 0.4,
-          "lift_seconds": 0.4,
-          "move_seconds": 1.1,
-          "stagger_seconds": 0.12,
-          "fade": true,
-          "fade_start": 0.0
+        "template": "SIDE_BY_SIDE",
+        "states": [
+          "plain_tile_50",
+          "slate_30"
+        ],
+        "gap_ratio": 0.45,
+        "label_band": 0.14,
+        "labels": {
+          "plain_tile_50": "Plain clay tile · 45–60°",
+          "slate_30": "Slate · around 30°"
         },
-        "incoming": {
-          "direction": "FROM_ABOVE",
-          "distance": 1.6,
-          "move_seconds": 1.3,
-          "stagger_seconds": 0.2,
-          "fade": true,
-          "fade_end": 0.75,
-          "overlap_seconds": 0.3,
-          "easing": "EASE_OUT"
+        "highlight": {
+          "components": [
+            "slate_30_covering_left",
+            "slate_30_covering_right",
+            "slate_30_ridge_cap"
+          ],
+          "start_seconds": "@B5.s1+0.6",
+          "rise_seconds": 0.5,
+          "hold_seconds": 2.4,
+          "fall_seconds": 0.8,
+          "strength": 0.3
         }
       }
     },
@@ -356,7 +353,7 @@
       "beat_ids": [
         "B6"
       ],
-      "visual_purpose": "Comparison: pull back from the slate roof to all three coverings side by side at identical scale; highlight the roof parts while the narration states that each covering has a typical pitch, as a tendency rather than a rule.",
+      "visual_purpose": "Comparison: the three coverings on three different buildings at identical scale, captioned with each covering's typical pitch in these districts; the roofs glow while the narration says these are tendencies, not rules.",
       "visual_type": "BLENDER_3D",
       "from_state": "thatch_50",
       "to_state": "slate_30",
@@ -370,14 +367,7 @@
           "slate_30"
         ],
         "gap_ratio": 0.3,
-        "label_band": 0.12,
-        "intro": {
-          "from_state": "slate_30",
-          "seconds": 1.6,
-          "easing": "SMOOTH",
-          "fade_start": 0.35,
-          "fade_end": 0.9
-        },
+        "label_band": 0.14,
         "highlight": {
           "components": "DIFFERENCES",
           "start_seconds": "@B6.s0+1.4",
@@ -385,8 +375,14 @@
           "hold_seconds": 2.2,
           "fall_seconds": 0.8,
           "strength": 0.3
+        },
+        "labels": {
+          "thatch_50": "Longstraw thatch · about 50°",
+          "plain_tile_50": "Plain clay tile · 45–60°",
+          "slate_30": "Slate · around 30°"
         }
-      }
+      },
+      "cut_from_previous": "hard"
     }
   ]
 }

@@ -2,9 +2,9 @@
   "blender": "5.2.2 LTS",
   "preset": "preview",
   "summary": {
-    "passed": 66,
+    "passed": 70,
     "failed": 0,
-    "total": 66
+    "total": 70
   },
   "results": [
     {
@@ -39,6 +39,12 @@
     },
     {
       "shot": "SC_001",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "2388 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_001",
       "check": "final_visibility",
       "status": "PASS",
       "detail": "69 visible parts as expected"
@@ -47,7 +53,7 @@
       "shot": "SC_001",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.070 at slate_30.slate_30_covering_right@1; lowest point y=0.312 (label band 0.12); ortho_scale 27.077"
+      "detail": "min margin 0.070 at slate_30.slate_30_covering_right@1; lowest point y=0.312 (label band 0.12); ortho_scale 27.087"
     },
     {
       "shot": "SC_001",
@@ -59,13 +65,13 @@
       "shot": "SC_001",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 8.04e-08"
+      "detail": "max projection error 7.24e-08"
     },
     {
       "shot": "SC_001",
       "check": "side_by_side_layout",
       "status": "PASS",
-      "detail": "3 models, identical shared local transforms and dimensions, gaps 1.71 m, 2.20 m"
+      "detail": "3 models, identical shared local transforms and dimensions, gaps 2.24 m, 2.24 m"
     },
     {
       "shot": "SC_002",
@@ -77,7 +83,7 @@
       "shot": "SC_002",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "3 animated objects x 26 frames, max error 1.92e-07"
+      "detail": "3 animated objects x 26 frames, max error 1.90e-07"
     },
     {
       "shot": "SC_002",
@@ -99,6 +105,12 @@
     },
     {
       "shot": "SC_002",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "884 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_002",
       "check": "exploded_returns_exactly",
       "status": "PASS",
       "detail": "hold offsets thatch_50_covering_left=0.55m, thatch_50_covering_right=0.55m, thatch_50_ridge_cap=0.50m"
@@ -107,7 +119,7 @@
       "shot": "SC_002",
       "check": "exploded_no_new_intersections",
       "status": "PASS",
-      "detail": "0 new mesh intersections (33 resting contacts ignored)"
+      "detail": "0 new mesh intersections (28 resting contacts ignored)"
     },
     {
       "shot": "SC_002",
@@ -119,7 +131,7 @@
       "shot": "SC_002",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.018 at thatch_50_ridge_cap@217; lowest point y=0.070 (label band 0.00); ortho_scale 15.615"
+      "detail": "min margin 0.018 at thatch_50_ridge_cap@239; lowest point y=0.070 (label band 0.00); ortho_scale 15.615"
     },
     {
       "shot": "SC_002",
@@ -165,6 +177,12 @@
     },
     {
       "shot": "SC_003",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "884 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_003",
       "check": "replace_start_end_states",
       "status": "PASS",
       "detail": "3 parts removed, 3 landed exactly (tol 1e-05)"
@@ -191,7 +209,7 @@
       "shot": "SC_003",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "6 twins visible only mid-fade, never with their original or on frames 1/236"
+      "detail": "6 twins visible only mid-fade, never with their original or on frames 1/249"
     },
     {
       "shot": "SC_003",
@@ -227,19 +245,19 @@
       "shot": "SC_005",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "34 components, ownership + parenting OK"
+      "detail": "49 components, ownership + parenting OK"
     },
     {
       "shot": "SC_005",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "32 animated objects x 82 frames, max error 4.53e-07"
+      "detail": "3 animated objects x 21 frames, max error 3.97e-08"
     },
     {
       "shot": "SC_005",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "18 objects (15 shared) unchanged on 82 frames"
+      "detail": "46 objects (30 shared) unchanged on 21 frames"
     },
     {
       "shot": "SC_005",
@@ -251,25 +269,25 @@
       "shot": "SC_005",
       "check": "structure_clear_of_shared_at_rest",
       "status": "PASS",
-      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+      "detail": "12 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
     },
     {
       "shot": "SC_005",
-      "check": "replace_start_end_states",
+      "check": "covering_hides_structure",
       "status": "PASS",
-      "detail": "8 parts removed, 8 landed exactly (tol 1e-05)"
+      "detail": "1504 gable-edge and wall-top samples, all under the covering"
     },
     {
       "shot": "SC_005",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "23 visible parts as expected"
+      "detail": "46 visible parts as expected"
     },
     {
       "shot": "SC_005",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.016 at plain_tile_50_covering_left__fade@31; lowest point y=0.070 (label band 0.00); ortho_scale 15.615"
+      "detail": "min margin 0.080 at slate_30.slate_30_covering_right@1; lowest point y=0.210 (label band 0.14); ortho_scale 18.651"
     },
     {
       "shot": "SC_005",
@@ -279,15 +297,21 @@
     },
     {
       "shot": "SC_005",
-      "check": "fade_twins_exclusive",
+      "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "16 twins visible only mid-fade, never with their original or on frames 1/246"
+      "detail": "max projection error 1.08e-07"
     },
     {
       "shot": "SC_005",
-      "check": "framing_math_matches_blender",
+      "check": "side_by_side_layout",
       "status": "PASS",
-      "detail": "max projection error 1.46e-07"
+      "detail": "2 models, identical shared local transforms and dimensions, gaps 3.24 m"
+    },
+    {
+      "shot": "SC_005",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "2 captions inside the label band, centred under their models, no overlap"
     },
     {
       "shot": "SC_006",
@@ -299,13 +323,13 @@
       "shot": "SC_006",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "101 animated objects x 31 frames, max error 2.15e-06"
+      "detail": "24 animated objects x 20 frames, max error 3.97e-08"
     },
     {
       "shot": "SC_006",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "18 objects (15 shared) unchanged on 31 frames"
+      "detail": "48 objects (45 shared) unchanged on 20 frames"
     },
     {
       "shot": "SC_006",
@@ -317,7 +341,13 @@
       "shot": "SC_006",
       "check": "structure_clear_of_shared_at_rest",
       "status": "PASS",
-      "detail": "12 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+      "detail": "18 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_006",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "2388 gable-edge and wall-top samples, all under the covering"
     },
     {
       "shot": "SC_006",
@@ -329,61 +359,55 @@
       "shot": "SC_006",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.056 at thatch_50.thatch_50_covering_left__fade@35; lowest point y=0.312 (label band 0.12); ortho_scale 27.077"
+      "detail": "min margin 0.070 at slate_30.slate_30_covering_right@1; lowest point y=0.322 (label band 0.14); ortho_scale 27.087"
     },
     {
       "shot": "SC_006",
       "check": "camera_locked",
       "status": "PASS",
-      "detail": "camera moves only during the intro (frames 1-39), locked afterwards"
-    },
-    {
-      "shot": "SC_006",
-      "check": "fade_twins_exclusive",
-      "status": "PASS",
-      "detail": "46 twins visible only mid-fade, never with their original or on frames 1/305"
+      "detail": "camera never moves"
     },
     {
       "shot": "SC_006",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 8.04e-08"
+      "detail": "max projection error 7.83e-08"
     },
     {
       "shot": "SC_006",
       "check": "side_by_side_layout",
       "status": "PASS",
-      "detail": "3 models, identical shared local transforms and dimensions, gaps 1.71 m, 2.20 m"
+      "detail": "3 models, identical shared local transforms and dimensions, gaps 2.24 m, 2.24 m"
+    },
+    {
+      "shot": "SC_006",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "3 captions inside the label band, centred under their models, no overlap"
     },
     {
       "shot": "ALL",
       "check": "camera_identical_across_single_model_shots",
       "status": "PASS",
-      "detail": "3 shots share one camera"
-    },
-    {
-      "shot": "SC_006",
-      "check": "intro_matches_single_model_camera",
-      "status": "PASS",
-      "detail": "frame 1 ortho 15.6146 vs 15.6146; location minus slot offset matches SC_002"
+      "detail": "2 shots share one camera"
     },
     {
       "shot": "SC_001",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 324f078b1d042973"
+      "detail": "sha256 ea85565087ec0aa3"
     },
     {
       "shot": "SC_002",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 09449ae6c3209cb3"
+      "detail": "sha256 948973a56f449f28"
     },
     {
       "shot": "SC_003",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 3293f17358ce16e0"
+      "detail": "sha256 d7bc67b2929777b9"
     },
     {
       "shot": "SC_004",
@@ -395,13 +419,13 @@
       "shot": "SC_005",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 036c22382938b5ed"
+      "detail": "sha256 b2bcca8dbf896fef"
     },
     {
       "shot": "SC_006",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 725b81f139ee82dd"
+      "detail": "sha256 038189feef1cfdc4"
     }
   ]
 }

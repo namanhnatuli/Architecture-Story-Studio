@@ -73,6 +73,30 @@
   "materials": {
     "highlight_glow_gain": 1.0,
     "fade_render_method": "BLENDED",
-    "note": "Highlight = self-coloured glow (no accent tint). Fading parts get blended-transparency twins shown only mid-fade; opaque frames use dithered materials."
+    "note": "Highlight = self-coloured glow (no accent tint). Fading parts get blended-transparency twins shown only mid-fade; opaque frames use dithered materials.",
+    "covering_units": {
+      "note": "Stylised roofing units (M3.5 readability). course = rib gauge in engine/geometry.py COVERING_STYLES.",
+      "plain_tile": {
+        "course": 0.17,
+        "width": 0.25,
+        "joint": 0.028,
+        "joint_dark": 0.55,
+        "vertical": 0.8,
+        "tone": 0.07
+      },
+      "slate": {
+        "course": 0.3,
+        "width": 0.46,
+        "joint": 0.03,
+        "joint_dark": 0.5,
+        "vertical": 1.0,
+        "tone": 0.05
+      }
+    }
+  },
+  "labels": {
+    "note": "SIDE_BY_SIDE captions (M3.5). size = text height as a fraction of frame height.",
+    "color": "#3B3A36",
+    "size": 0.042
   }
 }

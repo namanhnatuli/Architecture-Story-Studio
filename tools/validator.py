@@ -146,6 +146,8 @@ def validate_project(project_dir, final=False):
                     templates.key_still_frame(shot, float(still.get("time_seconds")), fps)
                 except (motion.PlanError, TypeError, ValueError) as e:
                     errors.append(f"key still {kid}: {e}")
+    _narr = base / "script/narration.json"
+    narration_revision = ((read_json(_narr).get("revision") or {}).get("version")) if _narr.exists() else None
     for claim in sources.get("claims", []):
         cid, status = claim.get("id"), claim.get("review_status")
         for ref in claim.get("source_ids", []):
@@ -161,6 +163,15 @@ def validate_project(project_dir, final=False):
                     errors.append(f"Claim {cid}: {status} needs a locator and an excerpt for {ref}")
                 if not (source_map.get(ref) or {}).get("url"):
                     errors.append(f"Claim {cid}: source {ref} has no url")
+        if status == "EDITORIALLY_APPROVED":  # a human record, tied to the narration wording it approved
+            record = claim.get("editorial_approval") or {}
+            missing = [k for k in ("approved_by", "approved_on", "narration_revision") if not record.get(k)]
+            if missing:
+                errors.append(f"Claim {cid}: EDITORIALLY_APPROVED needs editorial_approval.{', '.join(missing)} "
+                              "(recorded by the human reviewer; see review/EDITORIAL_APPROVAL_PACKAGE.md)")
+            elif narration_revision and record["narration_revision"] != narration_revision:
+                errors.append(f"Claim {cid}: approval is for narration {record['narration_revision']!r}, but the "
+                              f"narration is now {narration_revision!r} (re-review the changed wording)")
         if status == "REJECTED":
             continue
         if status not in APPROVED_CLAIM:

@@ -164,10 +164,15 @@ RIDGE_W, RIDGE_H = 0.12, 0.18
 COVERING_STYLES = {
     "thatch": {"thickness": 0.30, "eave": 0.18, "gable": 0.12, "bevel": 0.05, "ribs": None,
                "ridge": ("roll", 0.17)},
+    # Course gauges are exaggerated ~1.5x (stylised, readable at 640x360); slate units stay
+    # about twice the size of plain tiles, as in reality (sources: slate "more effective than
+    # other smaller tiles"). The covering material draws matching unit joints (scene.add_units).
     "plain_tile": {"thickness": 0.05, "eave": 0.05, "gable": 0.0, "bevel": 0.01,
-                   "ribs": (0.115, 0.025, 0.012), "ridge": ("half_round", 0.085)},
-    "slate": {"thickness": 0.025, "eave": 0.04, "gable": 0.0, "bevel": 0.006,
-              "ribs": (0.22, 0.02, 0.006), "ridge": ("v", (0.22, 0.10))},
+                   "ribs": (0.17, 0.025, 0.012), "ridge": ("half_round", 0.085)},
+    # 0.045 (was 0.025): a thinner slab let the side walls' top edge show through at the
+    # eave line on 30-degree roofs (QA covering_hides_structure).
+    "slate": {"thickness": 0.045, "eave": 0.04, "gable": 0.0, "bevel": 0.006,
+              "ribs": (0.30, 0.02, 0.006), "ridge": ("v", (0.22, 0.10))},
 }
 
 
@@ -205,6 +210,8 @@ def build_gable_roof(variant, params, materials, collection):
             boxes, bevel = styled_covering_boxes(style, slope_len, d, sign), style["bevel"]
         cover = box_object(f"{vid}_covering_{side}", boxes, roof_mat, collection,
                            location=center, rotation=rotation, bevel=bevel)
+        if style is not None:  # local x of the eave edge: shader course joints start here
+            cover["ass_course_origin"] = sign * ((slope_len + .12) / 2 + style["eave"])
         objs.append(tag(cover, f"covering_{side}", (nx, 0, nz)))
         if structure_inherited:
             continue
@@ -228,10 +235,43 @@ def build_gable_roof(variant, params, materials, collection):
     objs.append(tag(ridge, "ridge_beam", (0, 0, 1)))
 
     for side, y, hint in (("front", -d / 2 + .065, (0, -1, 0)), ("back", d / 2 - .065, (0, 1, 0))):
-        gable = triangle_object(f"{vid}_gable_{side}", w, rise, 0.06, materials["plaster"], collection,
-                                (0, y, h + rise / 3))
+        if style is None:  # v0.1/M2 triangle, unchanged
+            gable = triangle_object(f"{vid}_gable_{side}", w, rise, 0.06, materials["plaster"], collection,
+                                    (0, y, h + rise / 3))
+        else:
+            gable = gable_object(f"{vid}_gable_{side}", w, h, a, run, 0.06, materials["plaster"], collection, y)
         objs.append(tag(gable, f"gable_{side}", hint))
     return objs
+
+
+GABLE_CLEARANCE = 0.006  # gable top edge this far below the covering underside
+
+
+def covering_underside_z(x, h, a, run):
+    """World z of the roof covering's underside above horizontal offset x (from the ridge line)."""
+    return h + 0.02 + (run - abs(x)) * math.tan(a) - (COVERING_T / 2) / math.cos(a)
+
+
+def gable_object(name, w, h, a, run, thickness, material, collection, y):
+    """Gable infill whose sloped edges run parallel to, and just under, the covering underside,
+    so thin coverings (slate) never show the plaster through them. Pentagon when the
+    underside is above the wall top at the wall line, else a clipped triangle."""
+    top = lambda x: covering_underside_z(x, h, a, run) - GABLE_CLEARANCE
+    half = w / 2
+    if top(half) > h:
+        outline = [(-half, h), (half, h), (half, top(half)), (0.0, top(0.0)), (-half, top(half))]
+    else:  # sloped edge meets the wall top inside the wall line
+        x0 = run - (h + GABLE_CLEARANCE - h - 0.02 + (COVERING_T / 2) / math.cos(a)) / math.tan(a)
+        outline = [(-x0, h), (x0, h), (0.0, top(0.0))]
+    mesh = bpy.data.meshes.new(f"{name}_mesh")
+    mesh.from_pydata([(x, 0.0, z) for x, z in outline], [], [tuple(range(len(outline)))])
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    obj.location = (0.0, y, 0.0)
+    _finish(obj, material, collection, bevel=0)
+    solid = obj.modifiers.new(name="Gable thickness", type="SOLIDIFY")
+    solid.thickness = thickness
+    return obj
 
 
 def styled_covering_boxes(style, slope_len, depth, sign):

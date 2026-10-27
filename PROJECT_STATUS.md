@@ -1,45 +1,36 @@
 # Current project status
 
-- Phase: **M3 — pipeline phim có lời dẫn + OmniVoice cục bộ: hoàn tất về kỹ thuật (2026-10-27), trên nhánh `m3-narrative-pipeline`** (tách từ tag `m2.5-validated`, chưa merge, chưa push).
-- Pilot `projects/suffolk-roofs` — *"Why Did Traditional Roofs in Suffolk Change?"*: **73.0 s**, 6 beat → 6 shot (SIDE_BY_SIDE, EXPLODED_VIEW, REPLACE_PARTS ×2, card 2D, SIDE_BY_SIDE + intro), lời dẫn tiếng Anh do OmniVoice sinh, phụ đề cấp câu.
-- **Kết luận: PREVIEW NỘI BỘ ĐỂ DUYỆT — CHƯA SẴN SÀNG XUẤT BẢN.** G0/G3/G4/G5 PASS · G1 PENDING_EDITORIAL · G2 BLOCKED_LICENSE · G6 BLOCKED (`qa/gates.json`).
-- Pilot cũ `projects/roof-evolution` (M2/M2.5) không hồi quy: QA Blender 58/58.
-- Môi trường đã kiểm chứng: macOS 26.6.2, Apple M4 Pro 24 GB, Blender 5.2.2 LTS, FFmpeg 9.0.1, Python 3.14.6, OmniVoice 0.1.5 (localhost:8001).
+- Phase: **M3.5: duyệt biên tập, quyền TTS, hoàn thiện hình ảnh. Xong phần kỹ thuật (2026-10-27) trên nhánh `m3.5-editorial-polish`** (tách từ tag `m3-pilot-preview`; chưa merge, chưa push). M4 **chưa bắt đầu**.
+- Pilot `projects/suffolk-roofs`: **75.542 s**, 6 shot, lời dẫn `m3.5-r1`, 21 cue phụ đề theo cụm từ, `output/suffolk_roofs_pilot_INTERNAL.mp4`.
+- **Trạng thái: `TECHNICALLY_VALIDATED` · `EDITORIAL_REVIEW_PENDING` · `TTS_RIGHTS_PENDING`. Không sẵn sàng xuất bản.** G0/G3/G4/G5 PASS · G1 PENDING_EDITORIAL · G2 BLOCKED_RIGHTS · G6 BLOCKED (`projects/suffolk-roofs/qa/gates.json`).
+- **OmniVoice: NOT CLEARED cho xuất bản thương mại** (trọng số CC-BY-NC). Chỉ dùng cho preview nội bộ. Xem `docs/licensing/TTS_LICENSE_AUDIT.md`.
+- Không hồi quy: `roof-evolution` QA Blender 63/63; 107 unit test.
+- Môi trường: macOS 26.6.2, Apple M4 Pro 24 GB, Blender 5.2.2 LTS, FFmpeg 9.0.1, Python 3.14.6, OmniVoice 0.1.5 (localhost:8001).
 
-## Lệnh tái tạo pilot M3
-Xem đầy đủ trong `docs/m3/M3_PIPELINE.md`. Tóm tắt:
+## Lệnh tái tạo (M3.5)
 ```bash
-python3 tools/cli.py tts-check --project suffolk-roofs
-python3 tools/cli.py narrate   --project suffolk-roofs     # dùng lại các take đã commit (cache)
-python3 tools/cli.py asr-check --project suffolk-roofs
-python3 tools/cli.py schedule  --project suffolk-roofs
-python3 tools/cli.py preview   --project suffolk-roofs     # 640×360
-python3 tools/cli.py assemble  --project suffolk-roofs     # output/suffolk_roofs_pilot.mp4 + .en.srt
-python3 tools/cli.py gates     --project suffolk-roofs
-python3 -m unittest discover -s tests                      # 77 test
+P="--project suffolk-roofs"
+python3 tools/cli.py narrate $P            # cache: không sinh lại gì
+python3 tools/cli.py asr-check $P
+python3 tools/cli.py align $P              # timestamp theo từ (đã cache trong manifest)
+python3 tools/cli.py schedule $P
+python3 tools/cli.py check-blender $P      # 70 kiểm tra
+python3 tools/cli.py preview $P            # 640×360, cache theo nhóm phụ thuộc hình ảnh
+python3 tools/cli.py still $P --preset review           # 960×540
+python3 tools/cli.py still $P --preset production_test  # ảnh tĩnh 1920×1080
+python3 tools/cli.py assemble $P           # *_INTERNAL.mp4 + .en.srt + qa/SUBTITLE_QA.md
+python3 tools/cli.py gates $P
+python3 -m unittest discover -s tests      # 107 test
 ```
 
-## Đã làm / đã kiểm chứng / còn chờ
-| Hạng mục | Trạng thái |
-|---|---|
-| Adapter OmniVoice (`integrations/tts/omnivoice.py`) | ✅ đã làm · ✅ 10 test (server giả lập) · ✅ đã chạy thật với 14 câu + giọng mẫu |
-| Cache audio, kiểm tra tốc độ/độ lớn, sinh lại khi lỗi, ASR | ✅ · ✅ test · ✅ 14/14 ASR PASS |
-| Lập lịch narration-first, khóa timing, mốc neo | ✅ · ✅ test · ✅ 1752 frame, 0 shot phải nới cho animation |
-| Lớp phủ thatch / ngói / slate, `structure_from`, card 2D | ✅ · ✅ QA Blender 66/66 · ✅ đã xem frame + MCP |
-| Ghép video (loudnorm, ghép, SRT, QA A/V) | ✅ · ✅ test · ✅ lệch 0 ms, −16.5 LUFS |
-| Sổ bằng chứng (SOURCE_VERIFIED) | ✅ · ⏳ **duyệt biên tập (G1) do người làm** |
-| License giọng đọc | ⏳ **LICENSE_REVIEW_REQUIRED** (Boson Higgs Audio 2 License trong tokenizer của OmniVoice) |
-| MCP: xung đột scope | ✅ đã xử lý (chỉ còn scope project, bản 2.2.4, safe mode) · ✅ tool + safe mode đã kiểm chứng |
-
 ## Việc người dùng cần quyết định / làm
-1. **G1:** duyệt `projects/suffolk-roofs/research/RESEARCH_REPORT.md` và câu chữ trong `script/SCRIPT_AND_STORYBOARD.md`; chuyển claim sang `EDITORIALLY_APPROVED`.
-2. **Phát âm "Babergh"** (Whisper nghe thành "Baburg").
-3. **G2:** review license Boson / dữ liệu huấn luyện → đổi `narration.voice.license.status`.
-4. Khởi động lại Claude Code và phê duyệt server MCP của project (lúc đó sẽ có tool MCP gốc).
-5. Merge nhánh `m3-narrative-pipeline` khi đã hài lòng (agent không merge, không push).
+1. **Duyệt biên tập:** `projects/suffolk-roofs/review/EDITORIAL_APPROVAL_PACKAGE.md` (7 claim, câu chữ B1/B6, chữ trên màn hình, tiêu đề). Ghi `editorial_approval` theo hướng dẫn ở §9 của gói.
+2. **Chọn giọng đọc để xuất bản:** Kokoro / Azure / Polly / ElevenLabs / giọng người thật (`TTS_LICENSE_AUDIT.md` §6). Agent không mua hay đăng ký gì.
+3. **Nghe phát âm "Babergh":** `projects/suffolk-roofs/qa/pronunciation/PRONUNCIATION_TEST.md`.
+4. Trả lời các câu hỏi Q1–Q5 trong audit (đặc biệt Q3: việc dùng OmniVoice nội bộ có được coi là phi thương mại không).
+5. Merge `m3.5-editorial-polish` khi đã hài lòng. Quyết định phạm vi M4 (`docs/m3/M4_READINESS.md`).
 
 ## Giới hạn đã biết
-- Phụ đề cấp câu (dòng dài tới 67 ký tự); muốn tách cue cần căn chỉnh theo từ.
-- Đường hàng ngói/slate chỉ hiện mờ ở 640/960; mô hình là minh họa.
-- Sửa câu chữ của shot vẫn kích hoạt render lại (khóa cache băm toàn bộ JSON của shot).
-- Chưa kiểm tra trên Blender 4.5 LTS. Không có nhạc nền.
+- Audio hiện tại không được xuất bản; khi đổi provider thì timing và render sẽ chạy lại.
+- Tốc độ đọc phụ đề 17–19.8 ký tự/giây ở 7 cue (do tốc độ đọc lời dẫn).
+- Kích thước viên ngói/slate được cường điệu để dễ đọc (minh họa). Chưa kiểm tra trên Blender 4.5 LTS. Không có nhạc nền.

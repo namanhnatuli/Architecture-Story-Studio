@@ -206,6 +206,17 @@ def plan_shot(shot, states, fps, slots, camera=None):
                 raise motion.PlanError(f"{sid}: gap_ratio must be > 0")
             if isinstance(band, bool) or not isinstance(band, (int, float)) or not 0 <= band < 0.5:
                 raise motion.PlanError(f"{sid}: label_band must be between 0 and 0.5")
+            labels = cfg.get("labels")
+            if labels is not None:
+                if not isinstance(labels, dict) or not labels:
+                    raise motion.PlanError(f"{sid}: labels must map state ids to caption text")
+                for state_id, text in labels.items():
+                    if state_id not in chosen:
+                        raise motion.PlanError(f"{sid}: label for '{state_id}', which is not in this comparison")
+                    if not isinstance(text, str) or not text.strip() or len(text) > 40:
+                        raise motion.PlanError(f"{sid}: label for '{state_id}' must be 1-40 characters")
+                if band < 0.08:
+                    raise motion.PlanError(f"{sid}: labels need label_band >= 0.08")
 
             def names_for(selector):
                 if selector == "DIFFERENCES":

@@ -1,0 +1,54 @@
+{
+  "entry": "PRON_001",
+  "written": "Babergh",
+  "target_ipa": "ˈbeɪbə",
+  "target_respelling": "BAY-ber",
+  "sentence": "In Babergh and Mid Suffolk, in eastern England, historic roofs do not all look alike.",
+  "provider": "omnivoice",
+  "model_revision": "999c332499c708b116876ff5fe1aa5dd15f422ce",
+  "rights_class": "INTERNAL_PREVIEW_ONLY",
+  "generated_utc": "2026-10-27T11:53:40.412384+00:00",
+  "clips": [
+    {
+      "id": "V0_baseline_m3",
+      "description": "M3 take: written spelling read by default (no override)",
+      "spoken": "In Babergh and Mid Suffolk, in eastern England, historic roofs do not all look alike.",
+      "file": "PRON_001_V0_baseline_m3.wav",
+      "asr_text": "In Baburg and Mid-Suffolk, in eastern England, historic roofs do not all look alike."
+    },
+    {
+      "id": "V1_cmu",
+      "description": "CMU phones [B EY1 B AH0]",
+      "spoken": "In [B EY1 B AH0] and Mid Suffolk, in eastern England, historic roofs do not all look alike.",
+      "file": "PRON_001_V1_cmu.wav",
+      "duration": 4.98,
+      "asr_text": "In Baber and Mid-Suffolk, in eastern England, historic roofs do not all look alike."
+    },
+    {
+      "id": "V2_respell",
+      "description": "respelling 'Bayber'",
+      "spoken": "In Bayber and Mid Suffolk, in eastern England, historic roofs do not all look alike.",
+      "file": "PRON_001_V2_respell.wav",
+      "duration": 4.84,
+      "asr_text": "In Baber and Mid-Suffolk in eastern England, historic roofs do not all look alike."
+    },
+    {
+      "id": "V3_respell",
+      "description": "respelling 'Bay-ber'",
+      "spoken": "In Bay-ber and Mid Suffolk, in eastern England, historic roofs do not all look alike.",
+      "file": "PRON_001_V3_respell.wav",
+      "duration": 4.88,
+      "asr_text": "In Babur and Mid-Suffolk in eastern England, historic roofs do not all look alike."
+    },
+    {
+      "id": "V1_cmu_phrase",
+      "description": "CMU phones [B EY1 B AH0] (short phrase)",
+      "spoken": "[B EY1 B AH0] District.",
+      "file": "PRON_001_V1_cmu_phrase.wav",
+      "duration": 1.17,
+      "asr_text": "Baber district."
+    }
+  ],
+  "asr_model": "openai/whisper-large-v3-turbo",
+  "asr_caveat": "Whisper writes the nearest English spelling; it cannot confirm a pronunciation."
+}

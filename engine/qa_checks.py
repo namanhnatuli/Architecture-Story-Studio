@@ -190,6 +190,59 @@ def check_shot(ctx, states, report):
     report.add(sid, "structure_clear_of_shared_at_rest", not clashes,
                ", ".join(sorted(clashes)) or f"{tested} member checks (roles {sorted(STRUCTURAL_ROLES)}), no intersection with shared parts")
 
+    # 4b. Covering hides the structure: points sampled along every gable edge, and the top
+    #     edge vertices of the walls, must have the slot's covering (or ridge cap) straight
+    #     above them at rest. Catches thin coverings (slate) letting plaster show through,
+    #     which M3 missed.
+    pierced, sampled = [], 0
+    for f in (1, last):
+        ctx.scene.frame_set(f)
+        dg = bpy.context.evaluated_depsgraph_get()
+        for slot_id, parts in ctx.slots.items():
+            at_rest = [o for o in parts.values() if _visible(o)
+                       and _close(tuple(o.location), comps[o.name].location, TRANSFORM_TOL)]
+            covers = [o for o in at_rest if o["role"] in spec.COVERING_ROLES]
+            gables = [o for o in at_rest if o["role"] == "gable_wall"]
+            walls = [o for o in at_rest if o["role"] == "wall"]
+            if not covers or not (gables or walls):
+                continue
+            verts, polys = [], []
+            for o in covers:
+                ev = o.evaluated_get(dg)
+                mesh = ev.to_mesh()
+                base = len(verts)
+                verts += [ev.matrix_world @ v.co for v in mesh.vertices]
+                polys += [tuple(base + i for i in poly.vertices) for poly in mesh.polygons]
+                ev.to_mesh_clear()
+            tree = BVHTree.FromPolygons(verts, polys)
+            for g in gables:
+                ev = g.evaluated_get(dg)
+                mesh = ev.to_mesh()
+                pts = [ev.matrix_world @ v.co for v in mesh.vertices]
+                for e in mesh.edges:
+                    a, b = pts[e.vertices[0]], pts[e.vertices[1]]
+                    for k in range(11):
+                        q = a.lerp(b, k / 10)
+                        sampled += 1
+                        hit = tree.ray_cast(q + Vector((0, 0, 1e-5)), Vector((0, 0, 1)), 5.0)
+                        if hit[0] is None:
+                            pierced.append(f"{g.name}@{f}")
+                            break
+                ev.to_mesh_clear()
+            for wall in walls:  # wall top vertices
+                ev = wall.evaluated_get(dg)
+                mesh = ev.to_mesh()
+                pts = [ev.matrix_world @ v.co for v in mesh.vertices]
+                top = max(q.z for q in pts)
+                for q in (q for q in pts if q.z > top - 0.03):
+                    sampled += 1
+                    if tree.ray_cast(q + Vector((0, 0, 1e-5)), Vector((0, 0, 1)), 5.0)[0] is None:
+                        pierced.append(f"{wall.name}@{f}")
+                        break
+                ev.to_mesh_clear()
+    report.add(sid, "covering_hides_structure", not pierced,
+               ", ".join(sorted(set(pierced))[:6]) or f"{sampled} gable-edge and wall-top samples, all under the covering")
+
     # 5. Template start/end states.
     if template == "REPLACE_PARTS":
         a, b = templates.replace_states(ctx.shot, ctx.cfg, states)
@@ -304,13 +357,13 @@ def check_shot(ctx, states, report):
 
     # 9. SIDE_BY_SIDE: same scale, local vs world, no overlap.
     if template == "SIDE_BY_SIDE":
-        ctx.scene.frame_set(1)
+        ctx.scene.frame_set(last)  # every slot is shown at the end (an intro fades slots in from hidden)
         slots = list(ctx.slots)
         issues = []
         boxes = {}
         dg = bpy.context.evaluated_depsgraph_get()
-        for s in slots:
-            pts = [p for o in ctx.slots[s].values() for p in shot_builder.world_vertices(o, dg)]
+        for s in slots:  # rendered parts only: hidden objects are not evaluated (stale matrix_world)
+            pts = [p for o in ctx.slots[s].values() if _visible(o) for p in shot_builder.world_vertices(o, dg)]
             boxes[s] = (tuple(min(p[i] for p in pts) for i in range(3)), tuple(max(p[i] for p in pts) for i in range(3)))
         for s1, s2 in itertools.combinations(slots, 2):
             (lo1, hi1), (lo2, hi2) = boxes[s1], boxes[s2]
@@ -337,6 +390,36 @@ def check_shot(ctx, states, report):
         report.add(sid, "side_by_side_layout", not issues, "; ".join(issues[:6]) or
                    f"{len(slots)} models, identical shared local transforms and dimensions, gaps "
                    + ", ".join(f"{g:.2f} m" for g in gaps))
+        if ctx.labels:  # captions: right text, inside the label band, under their own model, no overlap
+            ctx.scene.frame_set(1)
+            dg = bpy.context.evaluated_depsgraph_get()
+            issues, spans = [], []
+            for slot_id, label in ctx.labels.items():
+                if label.data.body != ctx.cfg["labels"][slot_id]:
+                    issues.append(f"{slot_id}: text {label.data.body!r} differs from the storyboard")
+                corners = [world_to_camera_view(ctx.scene, ctx.camera, label.matrix_world @ Vector(c))
+                           for c in label.evaluated_get(dg).bound_box]
+                xs, ys = [c.x for c in corners], [c.y for c in corners]
+                if min(xs) < FRAME_MARGIN or max(xs) > 1 - FRAME_MARGIN or min(ys) < 0.005 or max(ys) > ctx.bottom_band:
+                    issues.append(f"{slot_id}: label box x {min(xs):.3f}-{max(xs):.3f}, y {min(ys):.3f}-{max(ys):.3f} "
+                                  f"outside the frame/label band {ctx.bottom_band:.2f}")
+                model = [world_to_camera_view(ctx.scene, ctx.camera, Vector(p)).x
+                         for o in ctx.slots[slot_id].values() if _visible(o) for p in shot_builder.world_vertices(o, dg)]
+                towards_camera = ctx.camera.matrix_world.to_3x3() @ Vector((0, 0, 1))
+                for c in label.evaluated_get(dg).bound_box:  # nothing between the caption and the camera
+                    hit = ctx.scene.ray_cast(dg, label.matrix_world @ Vector(c) + towards_camera * 0.01,
+                                             towards_camera, distance=100.0)
+                    if hit[0]:
+                        issues.append(f"{slot_id}: label hidden by {hit[4].name}")
+                        break
+                centre = (min(xs) + max(xs)) / 2
+                if not min(model) <= centre <= max(model):
+                    issues.append(f"{slot_id}: label centre {centre:.3f} is not under its model")
+                spans.append((min(xs), max(xs), slot_id))
+            spans.sort()
+            issues += [f"labels {a[2]} and {b[2]} overlap" for a, b in zip(spans, spans[1:]) if b[0] < a[1]]
+            report.add(sid, "labels_in_band", not issues, "; ".join(issues) or
+                       f"{len(ctx.labels)} captions inside the label band, centred under their models, no overlap")
     return frames
 
 

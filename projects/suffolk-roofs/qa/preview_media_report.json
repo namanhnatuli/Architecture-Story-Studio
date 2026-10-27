@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-27T00:59:18.253859+00:00",
+  "utc": "2026-10-27T12:21:42.740034+00:00",
   "preset": "preview",
   "files": {
     "output/shots/SC_001.mp4": {
@@ -8,10 +8,10 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 216,
-      "duration": 9.0,
+      "frames": 228,
+      "duration": 9.5,
       "black_segments": 0,
-      "size_bytes": 68982
+      "size_bytes": 65987
     },
     "output/shots/SC_002.mp4": {
       "codec": "h264",
@@ -19,10 +19,10 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 348,
-      "duration": 14.5,
+      "frames": 370,
+      "duration": 15.416667,
       "black_segments": 0,
-      "size_bytes": 170680
+      "size_bytes": 172544
     },
     "output/shots/SC_003.mp4": {
       "codec": "h264",
@@ -30,10 +30,10 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 236,
-      "duration": 9.833333,
+      "frames": 249,
+      "duration": 10.375,
       "black_segments": 0,
-      "size_bytes": 140339
+      "size_bytes": 158766
     },
     "output/shots/SC_004.mp4": {
       "codec": "h264",
@@ -52,10 +52,10 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 246,
-      "duration": 10.25,
+      "frames": 237,
+      "duration": 9.875,
       "black_segments": 0,
-      "size_bytes": 179516
+      "size_bytes": 70171
     },
     "output/shots/SC_006.mp4": {
       "codec": "h264",
@@ -63,10 +63,10 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 305,
-      "duration": 12.708333,
+      "frames": 328,
+      "duration": 13.666667,
       "black_segments": 0,
-      "size_bytes": 194854
+      "size_bytes": 131197
     },
     "output/suffolk_roofs_preview.mp4": {
       "codec": "h264",
@@ -74,18 +74,18 @@
       "height": 360,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 1752,
-      "duration": 73.0,
+      "frames": 1813,
+      "duration": 75.541667,
       "black_segments": 0,
-      "size_bytes": 801733
+      "size_bytes": 642717
     }
   },
-  "expected_total_frames": 1752,
+  "expected_total_frames": 1813,
   "cuts": [
     {
       "cut": "SC_001->SC_002",
       "mode": "hard",
-      "ssim": 0.79625,
+      "ssim": 0.78681,
       "ok": true
     },
     {
@@ -97,19 +97,19 @@
     {
       "cut": "SC_003->SC_004",
       "mode": "hard",
-      "ssim": 0.88128,
+      "ssim": 0.86269,
       "ok": true
     },
     {
       "cut": "SC_004->SC_005",
       "mode": "hard",
-      "ssim": 0.77941,
+      "ssim": 0.70474,
       "ok": true
     },
     {
       "cut": "SC_005->SC_006",
-      "mode": "match",
-      "ssim": 0.99974,
+      "mode": "hard",
+      "ssim": 0.72869,
       "ok": true
     }
   ],

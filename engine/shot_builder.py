@@ -66,6 +66,7 @@ class ShotContext:
     render_objects: dict = None  # objects + camera + fade twins (everything the plan animates)
     fade_twins: dict = None      # original name -> blended twin object
     camera_keys: dict = None     # SIDE_BY_SIDE intro camera start/end, else None
+    labels: dict = None          # SIDE_BY_SIDE slot id -> label text object (static, in the label band)
 
 
 def purge_data():
@@ -184,6 +185,11 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
         if obj["component_id"] not in shown[obj["slot_id"]]:
             obj.hide_render = obj.hide_viewport = True
 
+    labels = {}
+    if cfg["template"] == "SIDE_BY_SIDE" and cfg.get("labels"):
+        labels = build_labels(cfg["labels"], objects, verts, offsets, fit, basis, aspect, bottom_band, style,
+                              geometry.make_collection("80_LABELS", root))
+
     # SIDE_BY_SIDE intro starts on the single-model framing (same fit as every other
     # shot: base + all variants at the origin), shifted onto the intro state's slot.
     camera_keys = None
@@ -216,7 +222,40 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                        visible_variants=visible, components=components, camera=camera,
                        camera_fit=fit, camera_basis=basis, aspect=aspect, bottom_band=bottom_band,
                        ground=ground, render_objects=render_objects, fade_twins=fade_twins,
-                       camera_keys=camera_keys)
+                       camera_keys=camera_keys, labels=labels)
+
+
+def build_labels(texts, objects, verts, offsets, fit, basis, aspect, band, style, collection):
+    """Static captions centred under each model in the reserved bottom band, facing the
+    locked camera, never casting shadows. Built-in font; flat colour (engine.diagram)."""
+    from mathutils import Matrix
+    from engine import diagram
+    cfg = style.get("labels", {})
+    material = diagram._flat_material("Label text", cfg.get("color", "#3B3A36"))
+    r, u, f = basis
+    frame_h = fit["ortho_scale"] / aspect
+    out = {}
+    for sid, text in texts.items():
+        pts = [tuple(p[i] + offsets[sid][i] for i in range(3))
+               for name, obj in objects.items() if obj["slot_id"] == sid and not obj.hide_render
+               for p in verts[name]]
+        xs = [x for x, _ in framing.frame_coords(pts, fit, basis, aspect)]
+        # Just in front of the camera plane: deeper placements can sink below the ground plane
+        # at the bottom of wide (3-model) frames and be hidden by it.
+        pos = framing.frame_to_world((min(xs) + max(xs)) / 2, band / 2, fit, basis, aspect, toward_camera=0.5)
+        curve = bpy.data.curves.new(f"LABEL_{sid}_text", type="FONT")
+        curve.body = text
+        curve.size = float(cfg.get("size", 0.042)) * frame_h
+        curve.align_x, curve.align_y = "CENTER", "CENTER"
+        obj = bpy.data.objects.new(f"LABEL_{sid}", curve)
+        obj.data.materials.append(material)
+        obj.matrix_world = Matrix(((r[0], u[0], -f[0], pos[0]), (r[1], u[1], -f[1], pos[1]),
+                                   (r[2], u[2], -f[2], pos[2]), (0.0, 0.0, 0.0, 1.0)))
+        obj.visible_shadow = False
+        obj["label_for"] = sid
+        collection.objects.link(obj)
+        out[sid] = obj
+    return out
 
 
 def make_fade_twins(plan, objects, render_objects):

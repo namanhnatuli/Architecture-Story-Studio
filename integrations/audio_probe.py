@@ -29,8 +29,11 @@ def probe(path):
     if not streams:
         raise AudioValidationError(f"{path} has no audio stream")
     s = streams[0]
+    duration = (data.get("format") or {}).get("duration")
+    if duration in (None, "N/A"):  # e.g. a WAV header with zero samples
+        raise AudioValidationError(f"{path} has no decodable duration (empty audio?)")
     return {"codec": s.get("codec_name"), "sample_rate": int(s.get("sample_rate", 0)),
-            "channels": int(s.get("channels", 0)), "duration": float(data["format"]["duration"])}
+            "channels": int(s.get("channels", 0)), "duration": float(duration)}
 
 
 def levels(path):

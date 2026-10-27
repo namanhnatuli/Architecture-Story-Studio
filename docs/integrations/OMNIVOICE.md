@@ -45,13 +45,17 @@ GRADIO_ANALYTICS_ENABLED=False HF_HUB_OFFLINE=1 \
 - Tốc độ chung 0.92 (≈173 từ/phút đo được, so với 185 ở 1.0), áp dụng cho toàn bộ lời dẫn, không chỉnh theo từng beat.
 - Kiểm tra độ rõ: Whisper large-v3-turbo (cache cục bộ, chạy offline bằng venv của OmniVoice qua `tools/asr_whisper.py`). 14/14 câu nhận dạng là English, WER ≤ 0.111. Lưu ý: "Babergh" được nghe thành "Baburg" → **cần người kiểm tra cách phát âm** (OmniVoice hỗ trợ sửa phát âm bằng ký hiệu CMU).
 
-## 6. License — `LICENSE_REVIEW_REQUIRED` (không phải tư vấn pháp lý)
+## 6. License: **NOT CLEARED cho xuất bản thương mại** (audit M3.5, 2026-10-27; không phải tư vấn pháp lý)
+Chi tiết, nguồn và câu hỏi mở: [`docs/licensing/TTS_LICENSE_AUDIT.md`](../licensing/TTS_LICENSE_AUDIT.md).
+
 | Thành phần | License | Ghi chú |
 |---|---|---|
-| Code OmniVoice | Apache-2.0 | `LICENSE`, pyproject |
-| Trọng số `k2-fsa/OmniVoice` | `apache-2.0` (front matter của model card) | Base model Qwen3-0.6B |
-| **`audio_tokenizer` (Higgs Audio v2 tokenizer, Boson AI)** | **Boson Higgs Audio 2 Community License** (dựa trên Llama 3 Community License) | Phải ghi "Built with Higgs Materials licensed from Boson AI USA, Inc. …" khi phân phối sản phẩm/dịch vụ có dùng nó; áp dụng Llama 3 AUP; **trên 100.000 người dùng hoạt động mỗi năm phải xin giấy phép mở rộng** (chưa rõ có áp dụng cho kênh YouTube không); không dùng đầu ra để cải thiện LLM khác |
-| Dữ liệu huấn luyện | Model card không ghi | Tài liệu repo chỉ dùng Emilia làm ví dụ huấn luyện |
-| Model card | Cấm clone giọng trái phép, giả mạo, lừa đảo | Đáp ứng: chỉ dùng giọng tổng hợp |
+| Code OmniVoice (git `30bb7aca`, 0.1.5) | Apache-2.0 | `LICENSE`, pyproject |
+| Trọng số `k2-fsa/OmniVoice` | **CC-BY-NC** (model card từ 2026-07-03: "due to constraints from its training data (e.g., Emilia)") | Revision đã cài `999c3324` khi đó ghi `apache-2.0`, nhưng `model.safetensors` **trùng từng byte** với bản hiện hành (sha256 `73083931…`) |
+| `audio_tokenizer` (Higgs Audio v2, Boson AI) | Boson Higgs Audio 2 Community License | Ghi công, AUP, ngưỡng 100k người dùng, cấm dùng đầu ra để cải thiện LLM khác |
+| Dữ liệu huấn luyện | Emilia CC BY-NC 4.0 (Emilia-YODAS CC BY 4.0) | HF discussion #29 |
 
-**Quyết định:** chỉ dùng cho preview nội bộ. Xuất bản bị chặn (gate G2/G6) cho đến khi người duyệt các điều khoản Boson và nguồn gốc dữ liệu huấn luyện.
+**Quyết định:** hạng quyền `INTERNAL_PREVIEW_ONLY` (`config/tts_providers.json`). Chỉ dùng để đo timing, nhịp và lập lịch shot. Audio OmniVoice không bao giờ thành audio xuất bản: khóa cache có hạng quyền, `narrate --purpose publication` từ chối, gate G2/G6 chặn. MP4 có audio này được đặt tên `*_INTERNAL.mp4` và gắn metadata `comment`.
+
+## 7. Phát âm (M3.5)
+Override chỉ cho TTS: `script/pronunciation.json` (ví dụ "Babergh" → `[B EY1 B AH0]`). Chữ viết không đổi. Lưu ý: khi gửi riêng phiên âm, không kèm từ nào khác, OmniVoice 0.1.5 trả về WAV rỗng. Bằng chứng: `projects/suffolk-roofs/qa/pronunciation/`. Chỉ người nghe mới xác nhận được (`CONFIRMED`).

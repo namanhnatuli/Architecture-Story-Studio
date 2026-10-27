@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "building_type": "simple_rectangular_house",
-  "note": "Illustrative house. Pitches follow CLM_102/CLM_104/CLM_107; covering geometry is simplified and is not a reconstruction of a specific Suffolk building.",
+  "note": "Illustrative house. Pitches follow CLM_102/CLM_104/CLM_107; covering geometry is simplified and is not a reconstruction of a specific Suffolk building. M3.5: no tile->slate transition: the sources describe slate roofs as a different covering at a lower pitch, not tiled roofs converted to slate.",
   "base": {
     "builder": "rectangular_house_base",
     "width": 4.6,
@@ -165,11 +165,6 @@
     {
       "from": "thatch_50",
       "to": "plain_tile_50",
-      "template": "REPLACE_PARTS"
-    },
-    {
-      "from": "plain_tile_50",
-      "to": "slate_30",
       "template": "REPLACE_PARTS"
     }
   ]

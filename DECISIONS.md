@@ -46,3 +46,12 @@ If a requested change conflicts with these choices, document the reason and upda
 - **Take TTS gốc được commit** (sinh ngẫu nhiên nên không tái lập được); audio beat, track, mix thì sinh lại.
 - **Mỗi state kiến trúc là một kết hợp thực sự** (độ dốc + hình học lớp phủ + vật liệu), không chỉ là đổi màu; `structure_from` cho các lần thay lớp phủ trên cùng một kết cấu.
 
+## Bổ sung 2026-10-27 (M3.5)
+- **Thay quyết định "License TTS = LICENSE_REVIEW_REQUIRED" của M3:** trọng số OmniVoice hiện công bố CC-BY-NC (cùng byte với bản đã cài), nên OmniVoice là **NOT CLEARED** cho xuất bản thương mại và chỉ còn dùng cho preview nội bộ.
+- **Workflow TTS độc lập provider:** `NarrationAdapter` + registry hạng quyền. Hạng quyền nằm trong khóa cache audio. Provider xuất bản do người chọn.
+- **Không gợi ý trình tự tuyến tính thatch → ngói → slate:** SC_005 đổi thành hai công trình đặt cạnh nhau. REPLACE_PARTS chỉ dùng khi nguồn mô tả đúng việc thay thế đó (CLM_103 "some").
+- **Nhãn chữ trên mô hình** (SIDE_BY_SIDE `labels`) là chữ hiển thị claim, nên cũng thuộc gói duyệt biên tập.
+- **Kích thước viên ngói/slate được cường điệu khoảng 1.5 lần** để đọc được ở 640×360, giữ tỷ lệ slate:ngói khoảng 2:1. Đây là minh họa, không phải số đo.
+- **Cache render theo nhóm phụ thuộc**; trường lạ được coi là trường hình ảnh (an toàn).
+- **Preset `production_test` (1920×1080) chỉ để render ảnh tĩnh**; render chuỗi frame 1080p phải chờ các khung đại diện qua QA và gate.
+

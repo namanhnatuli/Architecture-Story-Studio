@@ -66,12 +66,12 @@ def external_python():
     return str(home / ".venv/bin/python")
 
 
-def transcribe(paths):
+def transcribe(paths, words=False):
     python = external_python()
     if not Path(python).is_file():
         raise FileNotFoundError(f"ASR interpreter not found: {python} (set OMNIVOICE_PYTHON)")
     env = dict(os.environ, HF_HUB_OFFLINE="1", TRANSFORMERS_VERBOSITY="error")
-    out = subprocess.run([python, str(ROOT / "tools/asr_whisper.py"),
+    out = subprocess.run([python, str(ROOT / "tools/asr_whisper.py"), *(["--words"] if words else []),
                           os.environ.get("ASR_MODEL", "openai/whisper-large-v3-turbo"), *map(str, paths)],
                          capture_output=True, text=True, env=env, timeout=1800)
     line = next((l for l in out.stdout.splitlines() if l.startswith("ASR_JSON ")), None)

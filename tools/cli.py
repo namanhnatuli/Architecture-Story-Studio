@@ -155,38 +155,43 @@ def do_still(p, preset):
 
 
 # ---------------------------------------------------------------- shots
-def shot_cache_key(p, shot, preset):
-    """Hash of everything that changes a shot's pixels; unchanged shots are not re-rendered."""
-    h = hashlib.sha256()
-    h.update(json.dumps(shot, sort_keys=True).encode())
-    h.update(preset.encode())
-    for path in [p / "project.json", p / "storyboard/states.json", ROOT / "config/visual_style.json",
-                 ROOT / "config/render_presets.json", *sorted((ROOT / "engine").glob("*.py"))]:
-        h.update(path.name.encode())
-        h.update(path.read_bytes())
-    return h.hexdigest()
-
-
 def render_shot(p, shot, preset, force=False):
+    """Render one shot unless its visual inputs are unchanged (tools/render_cache.py categories)."""
+    from tools import render_cache
     sid = shot["id"]
     seq = p / "renders" / preset / sid
-    manifest = seq / "render_manifest.json"
-    key = shot_cache_key(p, shot, preset)
+    manifest_path = seq / "render_manifest.json"
+    parts = render_cache.components(p, shot, preset)
     expected = expected_frames(p, shot)
     frames = sorted(seq.glob("frame_*.png"))
-    if not force and manifest.is_file() and read_json(manifest).get("cache_key") == key and len(frames) == expected:
-        print(f"CACHED: {sid} ({expected} frames, inputs unchanged)")
+    manifest = read_json(manifest_path) if manifest_path.is_file() else None
+    reasons = render_cache.stale_reasons(manifest, parts, render_cache.engine_file_hashes())
+    if not force and not reasons and len(frames) == expected:
+        print(f"CACHED: {sid} ({expected} frames, visual inputs unchanged)")
         return "cached"
+    print(f"RENDER: {sid} ({'forced' if force else '; '.join(reasons) or f'{len(frames)}/{expected} frames on disk'})")
     for frame in frames:  # stale frames of this shot only, inside the project
         frame.unlink()
     run_logged(blender_command(p, "animation", preset, "--shot", sid), p / "qa" / f"render_{sid}_{preset}.log")
     frames = sorted(seq.glob("frame_*.png"))
     if len(frames) != expected:
         raise SystemExit(f"{sid}: expected {expected} frames, found {len(frames)}. See logs.")
-    manifest.write_text(json.dumps({"shot": sid, "cache_key": key, "frames": expected,
-                                    "rendered_utc": datetime.now(timezone.utc).isoformat()}, indent=2))
+    manifest_path.write_text(json.dumps({"shot": sid, "key_version": render_cache.KEY_VERSION,
+                                         "cache_key": render_cache.cache_key(parts), "components": parts,
+                                         "engine_files": render_cache.engine_file_hashes(), "frames": expected,
+                                         "rendered_utc": datetime.now(timezone.utc).isoformat()}, indent=2))
     print(f"SUCCESS: {sid} {len(frames)} PNG frames")
     return "rendered"
+
+
+def do_cache_report(p, preset):
+    from tools import render_cache
+    rows = render_cache.report(p, preset, shots(p))
+    for r in rows:
+        print(f"{r['status']:>7}  {r['shot']}  {'; '.join(r['reasons'])}")
+    out = p / "qa" / f"cache_report_{preset}.json"
+    out.write_text(json.dumps({"preset": preset, "key_version": render_cache.KEY_VERSION, "shots": rows}, indent=2))
+    print(f"=> {out}")
 
 
 def require_frames(p, shot, preset):
@@ -351,7 +356,12 @@ def do_encode(p, preset):
     print("SUCCESS:", full)
 
 
+STILLS_ONLY_PRESETS = ("production_test",)
+
+
 def do_preview(p, preset, force=False):
+    if preset in STILLS_ONLY_PRESETS:
+        raise SystemExit(f"--preset {preset} renders selected stills only (`still`), never a full sequence")
     do_validate(p, final=(preset == "final"))
     for shot in shots(p):
         render_shot(p, shot, preset, force)
@@ -362,6 +372,8 @@ def do_preview(p, preset, force=False):
 
 
 def do_shot(p, shot_id, preset, force=False):
+    if preset in STILLS_ONLY_PRESETS:
+        raise SystemExit(f"--preset {preset} renders selected stills only (`still`), never a full sequence")
     do_validate(p, final=(preset == "final"))
     match = [s for s in shots(p) if s["id"] == shot_id]
     if not match:
@@ -423,10 +435,14 @@ def do_check_blender(p, preset):
     report = p / "qa" / "blender_checks.json"
     cmd = blender_command(p, "check", preset, "--report", str(report))
     logfile = p / "qa" / "blender_checks.log"
+    if report.is_file():  # never summarise a previous run's report after a failed run
+        report.unlink()
     try:
         run_logged(cmd, logfile)
     finally:
-        if report.is_file():
+        if not report.is_file():
+            print("Blender QA: NO REPORT (the Blender run failed before writing one)", file=sys.stderr)
+        else:
             data = read_json(report)
             for r in data["results"]:
                 if r["status"] != "PASS":
@@ -477,6 +493,13 @@ def do_asr_check(p):
           f"{asr_check.MAX_WER})")
 
 
+def do_align(p):
+    """Whisper word timestamps for every current narration sentence (subtitle phrase breaks)."""
+    from pipeline import subtitles
+    n = subtitles.align_project(p)
+    print(f"Alignment: {n} sentence(s) aligned ({'others cached' if n else 'all cached'})")
+
+
 def do_schedule(p):
     from pipeline import beat_scheduler
     timing = beat_scheduler.run(p)
@@ -513,81 +536,59 @@ def do_assemble(p, preset):
     video = p / "output" / f"{slug_name(p)}_preview{suffix(preset)}.mp4"
     if not video.is_file():
         raise SystemExit(f"Missing {video}; run `preview --project {p.name}` first")
-    out = p / "output" / f"{slug_name(p)}_pilot{suffix(preset)}.mp4"
+    cleared, classes = assemble.narration_rights(p)
+    # Never give restricted narration a publishable-looking name.
+    out = p / "output" / f"{slug_name(p)}_pilot{'' if cleared else '_INTERNAL'}{suffix(preset)}.mp4"
     report = assemble.assemble(p, video, out)
     (p / "qa" / f"assembly_report{suffix(preset)}.json").write_text(json.dumps(report, indent=2))
     if report["problems"]:
         raise SystemExit("Assembly QA FAILED: " + "; ".join(report["problems"]))
-    print(f"SUCCESS: {out} (+ {Path(report['subtitles']).name})")
+    write_subtitle_qa(p, report)
+    print(f"SUCCESS: {out} (+ {Path(report['subtitles']).name}); narration rights: {', '.join(classes)}")
+
+
+def write_subtitle_qa(p, report):
+    """qa/SUBTITLE_QA.md: every cue with timing source, reading speed and line lengths."""
+    st = report["subtitle_stats"]
+    rows = ["# Subtitle QA", "",
+            f"- File: `{Path(report['subtitles']).relative_to(p)}` — {st['cues']} cues for {st['sentences']} sentences; "
+            f"{st['two_line_cues']} two-line cues; longest line {st['max_line']} chars (limit 42); "
+            f"max reading speed {st['max_cps']} chars/s.",
+            f"- Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: "
+            f"{st['aligned_boundaries']}; sentence-span fallbacks: {st['sentence_fallbacks']}.",
+            "- Text comes from the script (official spellings kept); ASR text is never used as subtitle text.",
+            f"- Problems: {'; '.join(p_ for p_ in report['problems'] if 'cue' in p_ or 'subtitle' in p_ or 'SRT' in p_) or 'none'}",
+            f"- Warnings: {len(report['subtitle_warnings'])}" + "".join(f"\n  - {w}" for w in report["subtitle_warnings"]),
+            "", "| # | Start | End | Dur | cps | Lines (chars) | Timing source | Break (audio level) |",
+            "|---|---|---|---|---|---|---|---|"]
+    for i, c in enumerate(report["subtitle_cues"], 1):
+        d = c["end"] - c["start"]
+        lines = " / ".join(f"{l} ({len(l)})" for l in c["lines"])
+        b = c.get("boundary")
+        brk = f"after “{b['after_word']}” at {b['placed_at']:.2f}s ({b['rms_db_at_boundary']} dBFS)" if b else "sentence end"
+        rows.append(f"| {i} | {c['start']:.3f} | {c['end']:.3f} | {d:.2f} | {len(c['text']) / d:.1f} | {lines} | "
+                    f"{c['source']} | {brk} |")
+    (p / "qa" / "SUBTITLE_QA.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 
 def do_gates(p, preset):
-    """G0-G6 status for a narrated project (M3 numbering); writes qa/gates.json."""
-    from pipeline import narration as nar
-    gates = {}
-    errors, warnings = validate_project(p)
-    gates["G0 project & schema validation"] = ("PASS" if not errors else "FAIL", errors[:5] or ["validate passes"])
-    sources = read_json(p / "research/sources.json")
-    narration = nar.load(p)
-    claims = {c["id"]: c for c in sources.get("claims", [])}
-    used = sorted({c for b in (narration or {}).get("beats", []) for c in b.get("claim_ids", [])})
-    statuses = {c: claims.get(c, {}).get("review_status") for c in used}
-    if any(s in (None, "REJECTED", "PROVISIONAL", "provisional") for s in statuses.values()):
-        g1 = ("FAIL", [f"{c}: {s}" for c, s in statuses.items() if s not in ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED")])
-    elif all(s in ("EDITORIALLY_APPROVED", "verified") for s in statuses.values()):
-        g1 = ("PASS", [f"{len(used)} claims editorially approved"])
-    else:
-        g1 = ("PENDING_EDITORIAL", [f"{len(used)} narrated claims SOURCE_VERIFIED; editorial approval pending"])
-    gates["G1 evidence & script review"] = g1
-    manifest_path = p / "audio/narration_manifest.json"
-    manifest = read_json(manifest_path) if manifest_path.is_file() else {}
-    current = {s["cache_key"] for b in manifest.get("beats", {}).values() for s in b["sentences"]}
-    asr = [r.get("asr", {}).get("pass") for r in manifest.get("segments", {}).values() if r.get("cache_key") in current]
-    licence = ((narration or {}).get("voice") or {}).get("license", {}).get("status")
-    tech_ok = bool(asr) and all(asr)
-    gates["G2 OmniVoice API & voice licensing"] = (
-        "PASS" if tech_ok and licence == "APPROVED" else ("BLOCKED_LICENSE" if tech_ok else "FAIL"),
-        [f"{len(asr)} sentences generated + ASR-verified" if tech_ok else "ASR check missing/failing",
-         f"voice licence: {licence}"])
-    timing_path = p / "script/timing.json"
-    timing = read_json(timing_path) if timing_path.is_file() else {}
-    timing_errors = [e for e in errors if "timing" in e]
-    gates["G3 narration timing lock"] = ("PASS" if timing.get("locked") and not timing_errors else "FAIL",
-                                         [f"{timing.get('total_frames')} frames, locked={timing.get('locked')}"] + timing_errors)
-    bq = p / "qa" / "blender_checks.json"
-    media = p / "qa" / f"preview_media_report{suffix(preset)}.json"
-    b = read_json(bq)["summary"] if bq.is_file() else None
-    m = read_json(media) if media.is_file() else None
-    g4_ok = bool(b) and b["failed"] == 0 and bool(m) and not m.get("problems")
-    gates["G4 Blender visual preview"] = ("PASS" if g4_ok else "FAIL",
-                                          [f"Blender QA {b['passed']}/{b['total']}" if b else "no Blender QA report",
-                                           "media QA PASS" if m and not m.get("problems") else "media QA missing/failing",
-                                           "visual review of rendered frames: see qa/M3_QA_REPORT.md"])
-    ar = p / "qa" / f"assembly_report{suffix(preset)}.json"
-    a = read_json(ar) if ar.is_file() else None
-    gates["G5 media assembly"] = ("PASS" if a and not a["problems"] else "FAIL",
-                                  a["problems"] if a and a["problems"] else
-                                  ([f"{a['frames']} frames, {a['loudness_after']['integrated_lufs']} LUFS"] if a else ["not assembled"]))
-    final_errors, _ = validate_project(p, final=True)
-    final_errors = [e for e in final_errors if e.startswith("FINAL gate")]
-    gates["G6 final publication readiness"] = ("PASS" if not final_errors and all(v[0] == "PASS" for v in gates.values())
-                                               else "BLOCKED", final_errors or ["all gates pass"])
-    verdict = "PUBLICATION-READY" if gates["G6 final publication readiness"][0] == "PASS" else \
-        "INTERNAL REVIEW PREVIEW — NOT PUBLICATION-READY"
-    for name, (status, notes) in gates.items():
-        print(f"{status:>18}  {name}: {'; '.join(notes)}")
-    print(f"Verdict: {verdict}")
-    (p / "qa" / "gates.json").write_text(json.dumps({"verdict": verdict, "gates": {k: {"status": v[0], "notes": v[1]}
-                                                                                    for k, v in gates.items()}}, indent=2))
+    """G0-G6 + status flags for a narrated project (pipeline/gates.py); writes qa/gates.json."""
+    from pipeline import gates
+    result = gates.evaluate(p, suffix(preset))
+    for name, g in result["gates"].items():
+        print(f"{g['status']:>18}  {name}: {'; '.join(g['notes'])}")
+    print("Statuses:", ", ".join(result["statuses"]))
+    print(f"Verdict: {result['verdict']}")
+    (p / "qa" / "gates.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 def main():
     parser = argparse.ArgumentParser(description="Architecture Story Studio — Mac M4 pilot CLI")
     parser.add_argument("command", choices=["doctor", "validate", "still", "preview", "shot", "encode",
                                             "check-blender", "final-gate", "manifest", "tts-check", "narrate",
-                                            "asr-check", "schedule", "smoke", "assemble", "gates"])
+                                            "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
-    parser.add_argument("--preset", default="preview", choices=["preview", "review", "final"])
+    parser.add_argument("--preset", default="preview", choices=["preview", "review", "production_test", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
     parser.add_argument("--force", action="store_true", help="Re-render shots even if cached")
     parser.add_argument("--check", action="store_true", help="manifest: verify instead of rewriting")
@@ -634,6 +635,10 @@ def main():
         do_assemble(p, args.preset)
     elif args.command == "gates":
         do_gates(p, args.preset)
+    elif args.command == "align":
+        do_align(p)
+    elif args.command == "cache-report":
+        do_cache_report(p, args.preset)
 
 
 if __name__ == "__main__":

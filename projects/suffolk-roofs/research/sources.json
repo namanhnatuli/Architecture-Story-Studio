@@ -14,7 +14,7 @@
       "kind": "official_guidance",
       "url": "https://www.babergh.gov.uk/documents/d/asset-library-54706/roof-coverings-traditional-materials-repairs-and-detailing-guidance",
       "accessed": "2026-10-27",
-      "verification": "PDF read page by page (pp. 1-4, 9-11) on 2026-10-26; the copy fetched from the Babergh URL on 2026-10-27 is byte-identical (sha256 prefix cc388dd2dba70d7c).",
+      "verification": "PDF read page by page (pp. 1-4, 9-11) on 2026-10-26; the copy fetched from the Babergh URL on 2026-10-27 is byte-identical (sha256 prefix cc388dd2dba70d7c). Re-checked 2026-10-27 (M3.5): same sha256 cc388dd2dba70d7c329d6050021af160838cc07b9817b0d6181ce80432f69c58; pp. 9-11 re-extracted with pdftotext.",
       "license": "Quoted for research/citation only; no images reproduced."
     },
     {
@@ -22,10 +22,13 @@
       "title": "Roof coverings on historic buildings (web page)",
       "publisher": "Babergh and Mid Suffolk District Councils",
       "kind": "official_guidance_web",
-      "url": "https://babergh.gov.uk/web/mid-suffolk/roof-coverings-on-historic-buildings",
+      "url": "https://www.babergh.gov.uk/roof-coverings-on-historic-buildings",
       "accessed": "2026-10-27",
-      "verification": "Text extracted with a web-fetch tool on 2026-10-27 (no date shown on the page; footer © 2026). Quotes below are from that extraction and should be re-read in a browser at G1.",
-      "license": "Quoted for research/citation only."
+      "verification": "Re-fetched 2026-10-27 (M3.5) from https://www.babergh.gov.uk/roof-coverings-on-historic-buildings (HTTP 200; page title 'Roof coverings'; no date shown, footer (c) 2026); the excerpts below match that page's 'Traditional roof materials' section. A human should still re-read it in a browser at G1.",
+      "license": "Quoted for research/citation only.",
+      "alternate_urls": [
+        "https://babergh.gov.uk/web/mid-suffolk/roof-coverings-on-historic-buildings"
+      ]
     }
   ],
   "claims": [
@@ -70,14 +73,15 @@
         {
           "source_id": "SRC_002",
           "locator": "Thatch",
-          "excerpt": "Longstraw thatch is the most traditional material found in our districts ... having a characteristically steeper pitch of about 50ᵒ."
+          "excerpt": "Longstraw thatch is the most traditional material found in our districts and should be retained - having a characteristically steeper pitch of about 50ᵒ."
         }
       ],
       "interpretation": "PDF says 'most typical', web page 'most traditional'; narration uses 'most traditional'. 'About' 50 degrees is approximate.",
       "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "scope": "Babergh and Mid Suffolk districts",
-      "visual_implications": "thatch_50: 50-degree gable, thick (0.30 m) soft-edged covering, plain rounded ridge (SRC_002: thatch ridges traditionally plain)."
+      "visual_implications": "thatch_50: 50-degree gable, thick (0.30 m) soft-edged covering, plain rounded ridge (SRC_002: thatch ridges traditionally plain).",
+      "context": "SRC_001 p. 9 also: 'In the north of Suffolk along the Waveney valley, water reed, usually capped with sedge, is more common.'"
     },
     {
       "id": "CLM_103",
@@ -106,7 +110,7 @@
     },
     {
       "id": "CLM_104",
-      "text": "Plain clay tile roofs there are fairly steeply pitched, typically about 45 degrees or more.",
+      "text": "Most plain clay tile roofs here are fairly steeply pitched, between 45 and 60 degrees.",
       "source_ids": [
         "SRC_001",
         "SRC_002"
@@ -123,11 +127,12 @@
           "excerpt": "In our districts, they are made of red or orange clay and are found on fairly steeply pitched between roofs of about 45ᵒ."
         }
       ],
-      "interpretation": "DISCREPANCY: PDF '45-60 degrees', web page 'about 45 degrees' (garbled sentence). Narration uses the common ground: 'forty-five degrees or more'.",
+      "interpretation": "DISCREPANCY: PDF '45-60 degrees' (detailed guidance), web page 'about 45 degrees' (garbled sentence). M3.5 narration follows the PDF range; M3's open-ended '45 degrees or more' was not stated by either source.",
       "review_status": "SOURCE_VERIFIED",
       "confidence": "medium",
       "scope": "Babergh and Mid Suffolk districts",
-      "visual_implications": "plain_tile_50 reuses the 50-degree structure (inside the PDF range); covering: thin slab with course lines every 0.115 m, half-round ridge (SRC_002: rounded red clay ridge tiles on tiled roofs)."
+      "visual_implications": "plain_tile_50 reuses the 50-degree structure (inside the PDF range); covering: thin slab with course lines every 0.115 m, half-round ridge (SRC_002: rounded red clay ridge tiles on tiled roofs).",
+      "text_m3": "Plain clay tile roofs there are fairly steeply pitched, typically about 45 degrees or more."
     },
     {
       "id": "CLM_105",
@@ -202,7 +207,8 @@
       "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "scope": "Babergh and Mid Suffolk districts",
-      "visual_implications": "slate_30: own 30-degree structure; thin dark covering, course lines every 0.22 m, 'V' ridge (SRC_002: V-shaped ridge tiles more common on slate roofs)."
+      "visual_implications": "slate_30: own 30-degree structure; thin dark covering, course lines every 0.22 m, 'V' ridge (SRC_002: V-shaped ridge tiles more common on slate roofs).",
+      "context": "SRC_001 p. 11 also: 'A common feature in Suffolk is a plain tile roof with its lower courses above the eaves laid in slate ... usually at a shallower pitch' (coverings mixed on one building)."
     },
     {
       "id": "CLM_108",
@@ -250,5 +256,6 @@
       "interpretation": "No source in scope supports a climate-causal claim; universal claims are excluded.",
       "visual_implications": "Must not appear."
     }
-  ]
+  ],
+  "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md"
 }

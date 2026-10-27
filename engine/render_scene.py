@@ -57,13 +57,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--project", required=True)
     parser.add_argument("--mode", choices=["keystills", "still", "animation", "check"], required=True)
-    parser.add_argument("--preset", choices=["preview", "review", "final"], default="preview")
+    presets = {k: v for k, v in json.loads((ROOT / "config/render_presets.json").read_text()).items()
+               if isinstance(v, dict)}
+    parser.add_argument("--preset", choices=sorted(presets), default="preview")
     parser.add_argument("--shot")
     parser.add_argument("--frame", type=int)
     parser.add_argument("--time", type=float)
     parser.add_argument("--output")
     parser.add_argument("--report")
     args = parser.parse_args(argv)
+    if args.mode == "animation" and args.preset == "production_test":
+        parser.error("production_test is for selected stills only, never a full sequence")
     project_dir = Path(args.project).resolve()
     data = shot_builder.load_project(project_dir, args.preset)
 

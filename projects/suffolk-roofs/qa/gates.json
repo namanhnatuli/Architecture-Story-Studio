@@ -1,5 +1,10 @@
 {
-  "verdict": "INTERNAL REVIEW PREVIEW \u2014 NOT PUBLICATION-READY",
+  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (EDITORIAL_REVIEW_PENDING; TTS_RIGHTS_PENDING)",
+  "statuses": [
+    "TECHNICALLY_VALIDATED",
+    "EDITORIAL_REVIEW_PENDING",
+    "TTS_RIGHTS_PENDING"
+  ],
   "gates": {
     "G0 project & schema validation": {
       "status": "PASS",
@@ -7,44 +12,48 @@
         "validate passes"
       ]
     },
-    "G1 evidence & script review": {
+    "G1 evidence, script & pronunciation review": {
       "status": "PENDING_EDITORIAL",
       "notes": [
-        "7 narrated claims SOURCE_VERIFIED; editorial approval pending"
+        "0/7 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
+        "factual_review: provisional",
+        "pronunciation pending: PRON_001 (Babergh) PENDING_LISTENING_REVIEW"
       ]
     },
-    "G2 OmniVoice API & voice licensing": {
-      "status": "BLOCKED_LICENSE",
+    "G2 narration audio & TTS rights": {
+      "status": "BLOCKED_RIGHTS",
       "notes": [
         "14 sentences generated + ASR-verified",
-        "voice licence: LICENSE_REVIEW_REQUIRED"
+        "provider omnivoice: rights class INTERNAL_PREVIEW_ONLY; voice licence NOT_CLEARED",
+        "14 narration segment(s) from omnivoice are INTERNAL_PREVIEW_ONLY, not PUBLICATION_CLEARED (regenerate with a cleared provider: `narrate --purpose publication`)"
       ]
     },
     "G3 narration timing lock": {
       "status": "PASS",
       "notes": [
-        "1752 frames, locked=True"
+        "1813 frames, locked=True"
       ]
     },
     "G4 Blender visual preview": {
       "status": "PASS",
       "notes": [
-        "Blender QA 66/66",
-        "media QA PASS",
-        "visual review of rendered frames: see qa/M3_QA_REPORT.md"
+        "Blender QA 70/70",
+        "media QA PASS"
       ]
     },
-    "G5 media assembly": {
+    "G5 media assembly & subtitles": {
       "status": "PASS",
       "notes": [
-        "1752 frames, -16.5 LUFS"
+        "1813 frames, -16.5 LUFS, 21 subtitle cues"
       ]
     },
     "G6 final publication readiness": {
       "status": "BLOCKED",
       "notes": [
         "FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)",
-        "FINAL gate: narration voice licence is 'LICENSE_REVIEW_REQUIRED', not APPROVED",
+        "FINAL gate: narration voice licence is 'NOT_CLEARED', not APPROVED",
+        "FINAL gate: 14 narration segment(s) from omnivoice are INTERNAL_PREVIEW_ONLY, not PUBLICATION_CLEARED (regenerate with a cleared provider: `narrate --purpose publication`)",
+        "FINAL gate: pronunciation PRON_001 (Babergh) is PENDING_LISTENING_REVIEW, not CONFIRMED by a human listener",
         "FINAL gate: unapproved assets",
         "FINAL gate: factual_review is not verified"
       ]

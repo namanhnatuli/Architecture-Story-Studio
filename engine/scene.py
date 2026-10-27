@@ -54,8 +54,72 @@ def add_surface_detail(material, color, detail):
         links.new(bump.outputs["Normal"], bsdf.inputs["Normal"])
 
 
+def _math(nodes, links, op, a, b=None):
+    node = nodes.new("ShaderNodeMath")
+    node.operation = op
+    for i, v in enumerate((a, b)):
+        if v is None:
+            continue
+        if isinstance(v, (int, float)):
+            node.inputs[i].default_value = v
+        else:
+            links.new(v, node.inputs[i])
+    return node.outputs[0]
+
+
+def add_units(material, units):
+    """Stylised roofing units: course joints along the slope and staggered vertical joints,
+    drawn in the covering's object space (local x = along the slope, y = along the ridge).
+    Rows start at the per-object attribute `ass_course_origin` (the eave edge), so they line
+    up with the course ribs; each unit gets a slight random tone. Multiplies whatever
+    currently feeds Base/Emission colour."""
+    nodes, links = material.node_tree.nodes, material.node_tree.links
+    bsdf = nodes.get("Principled BSDF")
+    coord = nodes.new("ShaderNodeTexCoord")
+    xyz = nodes.new("ShaderNodeSeparateXYZ")
+    links.new(coord.outputs["Object"], xyz.inputs["Vector"])
+    origin = nodes.new("ShaderNodeAttribute")
+    origin.attribute_type, origin.attribute_name = "OBJECT", "ass_course_origin"
+    m = lambda op, a, b=None: _math(nodes, links, op, a, b)
+    s = m("DIVIDE", m("SUBTRACT", xyz.outputs["X"], origin.outputs["Fac"]), float(units["course"]))
+    row = m("FLOOR", s)
+    fs = m("SUBTRACT", s, row)
+    parity = m("FLOORED_MODULO", row, 2.0)
+    t = m("ADD", m("DIVIDE", xyz.outputs["Y"], float(units["width"])), m("MULTIPLY", parity, 0.5))
+    col = m("FLOOR", t)
+    ft = m("SUBTRACT", t, col)
+    jc = float(units["joint"]) / float(units["course"]) / 2
+    jw = float(units["joint"]) / float(units["width"]) / 2
+    near = lambda f, j: m("LESS_THAN", m("MINIMUM", f, m("SUBTRACT", 1.0, f)), j)
+    mask = m("MAXIMUM", near(fs, jc), m("MULTIPLY", near(ft, jw), float(units.get("vertical", 1.0))))
+    shade = m("SUBTRACT", 1.0, m("MULTIPLY", mask, 1.0 - float(units["joint_dark"])))
+    cell = nodes.new("ShaderNodeCombineXYZ")
+    links.new(row, cell.inputs["X"])
+    links.new(col, cell.inputs["Y"])
+    rnd = nodes.new("ShaderNodeTexWhiteNoise")
+    rnd.noise_dimensions = "3D"
+    links.new(cell.outputs["Vector"], rnd.inputs["Vector"])
+    tone = m("ADD", 1.0 - float(units.get("tone", 0.06)), m("MULTIPLY", rnd.outputs["Value"],
+                                                           2 * float(units.get("tone", 0.06))))
+    factor = m("MULTIPLY", shade, tone)
+    src = bsdf.inputs["Base Color"].links[0].from_socket if bsdf.inputs["Base Color"].is_linked else None
+    mix = nodes.new("ShaderNodeMix")
+    mix.data_type, mix.blend_type = "RGBA", "MULTIPLY"
+    _socket(mix.inputs, "Factor_Float").default_value = 1.0
+    if src is not None:
+        links.new(src, _socket(mix.inputs, "A_Color"))
+    else:
+        _socket(mix.inputs, "A_Color").default_value = bsdf.inputs["Base Color"].default_value
+    gray = nodes.new("ShaderNodeCombineColor")
+    for ch in ("Red", "Green", "Blue"):
+        links.new(factor, gray.inputs[ch])
+    links.new(gray.outputs["Color"], _socket(mix.inputs, "B_Color"))
+    links.new(_socket(mix.outputs, "Result_Color"), bsdf.inputs["Base Color"])
+    links.new(_socket(mix.outputs, "Result_Color"), bsdf.inputs["Emission Color"])
+
+
 def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, render_method="DITHERED",
-                  detail=None):
+                  detail=None, units=None):
     """Principled material driven per object by two custom properties:
     ass_highlight (0..1 self-coloured glow) and ass_transparency (0 opaque .. 1
     invisible). Missing properties read as 0."""
@@ -87,6 +151,8 @@ def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, rend
     links.new(alpha.outputs[0], bsdf.inputs["Alpha"])
     if detail:
         add_surface_detail(material, color, detail)
+    if units:
+        add_units(material, units)
     if hasattr(material, "surface_render_method"):
         material.surface_render_method = render_method
     if hasattr(material, "use_transparent_shadow"):
@@ -100,6 +166,7 @@ def make_materials(style):
     m = style.get("materials", {})
     kw = {"glow_gain": m.get("highlight_glow_gain", 1.0),
           "render_method": m.get("transparency_render_method", "DITHERED")}
+    u = m.get("covering_units", {})
     return {
         "ground": make_material("Ground", p["ground"], roughness=0.9, **kw),
         "stone": make_material("Foundation stone", p["limestone"], **kw),
@@ -113,10 +180,13 @@ def make_materials(style):
         "thatch": make_material("Thatch (longstraw, illustrative)", p.get("thatch", "#B8975A"), roughness=0.95,
                                 detail={"scale": 6.0, "stretch": (1.0, 18.0, 18.0), "variation": 0.14, "bump": 0.25},
                                 **kw),
+        # Unit sizes are stylised (see geometry.COVERING_STYLES); joints must stay readable at 640x360.
         "roof_tile": make_material("Plain clay tile (illustrative)", p.get("roof_tile", "#B1593E"), roughness=0.75,
-                                   detail={"scale": 14.0, "variation": 0.07, "bump": 0.05}, **kw),
+                                   detail={"scale": 14.0, "variation": 0.07, "bump": 0.05},
+                                   units=u.get("plain_tile"), **kw),
         "roof_slate": make_material("Slate (illustrative)", p.get("roof_slate", "#4F5A64"), roughness=0.45,
-                                    detail={"scale": 10.0, "variation": 0.05, "bump": 0.03}, **kw),
+                                    detail={"scale": 10.0, "variation": 0.05, "bump": 0.03},
+                                    units=u.get("slate"), **kw),
     }
 
 

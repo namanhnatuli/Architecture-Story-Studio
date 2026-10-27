@@ -2,9 +2,9 @@
   "blender": "5.2.2 LTS",
   "preset": "preview",
   "summary": {
-    "passed": 58,
+    "passed": 63,
     "failed": 0,
-    "total": 58
+    "total": 63
   },
   "results": [
     {
@@ -36,6 +36,12 @@
       "check": "structure_clear_of_shared_at_rest",
       "status": "PASS",
       "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_001",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "620 gable-edge and wall-top samples, all under the covering"
     },
     {
       "shot": "SC_001",
@@ -90,6 +96,12 @@
       "check": "structure_clear_of_shared_at_rest",
       "status": "PASS",
       "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_002",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "620 gable-edge and wall-top samples, all under the covering"
     },
     {
       "shot": "SC_002",
@@ -159,6 +171,12 @@
     },
     {
       "shot": "SC_003",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "620 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_003",
       "check": "replace_start_end_states",
       "status": "PASS",
       "detail": "7 parts removed, 7 landed exactly (tol 1e-05)"
@@ -225,6 +243,12 @@
     },
     {
       "shot": "SC_004",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "620 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_004",
       "check": "final_visibility",
       "status": "PASS",
       "detail": "22 visible parts as expected"
@@ -276,6 +300,12 @@
       "check": "structure_clear_of_shared_at_rest",
       "status": "PASS",
       "detail": "9 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_005",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "930 gable-edge and wall-top samples, all under the covering"
     },
     {
       "shot": "SC_005",

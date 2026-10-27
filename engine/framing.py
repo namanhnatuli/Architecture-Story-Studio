@@ -75,6 +75,15 @@ def frame_coords(points, fit, basis, aspect):
             for p in points]
 
 
+def frame_to_world(ux, uy, fit, basis, aspect, toward_camera=5.0):
+    """World point at normalised frame position (ux, uy), `toward_camera` units in front of
+    the camera's near side of the subject (inverse of frame_coords for an ortho camera)."""
+    right, up, forward = basis
+    ortho = fit["ortho_scale"]
+    return tuple(c + r * (ux - 0.5) * ortho + u * (uy - 0.5) * ortho / aspect + f * toward_camera
+                 for c, r, u, f in zip(fit["location"], right, up, forward))
+
+
 def layout_side_by_side(footprints, axis, gap_ratio):
     """Ground offsets placing models in a row along `axis` (camera right on the ground).
 

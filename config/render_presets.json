@@ -1,7 +1,33 @@
 {
-  "preview": {"width": 640, "height": 360, "fps": 24, "engine": "EEVEE", "format": "PNG"},
-  "review": {"width": 960, "height": 540, "fps": 24, "engine": "EEVEE", "format": "PNG"},
-  "final": {"width": 1920, "height": 1080, "fps": 24, "engine": "EEVEE", "format": "PNG"},
+  "preview": {
+    "width": 640,
+    "height": 360,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG"
+  },
+  "review": {
+    "width": 960,
+    "height": 540,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG"
+  },
+  "production_test": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG",
+    "note": "Selected stills at delivery resolution for visual QA only; not a publication render (no final gate)."
+  },
+  "final": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG"
+  },
   "output_codec": "libx264",
   "output_crf": 18,
   "recommended_minimum_free_disk_gb": 10

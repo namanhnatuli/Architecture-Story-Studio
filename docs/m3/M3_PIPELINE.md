@@ -1,7 +1,9 @@
 # M3 — Pipeline phim có lời dẫn (đã triển khai 2026-10-27)
 
 **Research → Script → OmniVoice → Visual Storyboard → Blender Animation → Render → Video QA.**
-Pilot: `projects/suffolk-roofs` (73.0 s). Tích hợp TTS: [`docs/integrations/OMNIVOICE.md`](../integrations/OMNIVOICE.md).
+Pilot: `projects/suffolk-roofs` (M3: 73.0 s; M3.5: 75.542 s). Tích hợp TTS: [`docs/integrations/OMNIVOICE.md`](../integrations/OMNIVOICE.md).
+
+> **M3.5:** OmniVoice chỉ còn dùng cho preview nội bộ (NOT CLEARED cho xuất bản). Có thêm provider/hạng quyền, phát âm, phụ đề căn theo từ, cache render theo nhóm phụ thuộc và các trạng thái gate. Xem [M3_5_PUBLICATION_WORKFLOW.md](M3_5_PUBLICATION_WORKFLOW.md) và [CACHE_DEPENDENCIES.md](CACHE_DEPENDENCIES.md). Các mục bên dưới mô tả M3; khi có khác biệt thì hai tài liệu trên được ưu tiên.
 
 ## File của một project có lời dẫn
 | File | Ai viết | Nội dung |

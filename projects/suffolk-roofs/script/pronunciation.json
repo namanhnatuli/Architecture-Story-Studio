@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "note": "Speech-only overrides. The written word stays unchanged in narration, subtitles, citations and metadata. See pipeline/pronunciation.py.",
+  "entries": [
+    {
+      "id": "PRON_001",
+      "written": "Babergh",
+      "ipa": "ˈbeɪbə",
+      "respelling": "BAY-ber",
+      "source": "Project brief M3.5 (user instruction): 'BAY-ber', IPA /ˈbeɪbə/. Editor may confirm against a local/council source.",
+      "speech": {
+        "omnivoice": "[B EY1 B AH0]"
+      },
+      "asr_aliases": [
+        "baber",
+        "bayber",
+        "baeber",
+        "beber",
+        "bebber",
+        "bayba",
+        "baybur"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "qa/pronunciation/PRONUNCIATION_TEST.md",
+      "confirmed_by": null,
+      "confirmed_on": null,
+      "test_respellings": [
+        "Bayber",
+        "Bay-ber"
+      ]
+    }
+  ]
+}

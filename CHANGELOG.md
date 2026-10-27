@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.3.5 — 2026-10-27 — M3.5: duyệt biên tập, quyền TTS, hoàn thiện hình ảnh (nhánh `m3.5-editorial-polish`)
+- **Audit license** (`docs/licensing/TTS_LICENSE_AUDIT.md`):
+  - Model card OmniVoice hiện ghi trọng số là **CC-BY-NC** (do dữ liệu Emilia), và trọng số này trùng từng byte với revision đã cài → OmniVoice **NOT CLEARED** cho xuất bản thương mại, chỉ dùng cho preview nội bộ.
+  - Đã so sánh 7 phương án xuất bản (Kokoro, Piper, ElevenLabs, Azure, Google, Polly, OpenAI) và phương án giọng người thật. Không đăng ký hay mua dịch vụ nào.
+- **Workflow TTS độc lập provider:**
+  - Interface `NarrationAdapter` gồm adapter OmniVoice và adapter thu âm người thật; registry `config/tts_providers.json` có hạng quyền; `narrate --purpose publication` từ chối provider chưa được cấp quyền.
+  - Khóa cache audio v2 gồm: model, voice id, chữ đọc thực tế và hạng quyền.
+  - 15 take M3 được nhận lại (đổi khóa), không sinh lại; audio beat trùng từng byte.
+- **Gói duyệt biên tập** (`projects/suffolk-roofs/review/EDITORIAL_APPROVAL_PACKAGE.md`): 7 claim đều đã đối chiếu lại với PDF (cùng sha256 với M3) và với trang web theo đúng URL đã cho; có đề xuất cho từng claim và danh sách ký duyệt. **Không tự duyệt claim nào.** Validator yêu cầu hồ sơ duyệt (`editorial_approval`) gắn với narration revision.
+- **Lời dẫn `m3.5-r1`:** 4 câu sửa vì độ chính xác (thêm "originally"; 45–60°; "Slate is different."; câu kết bỏ suy diễn ngược) + sửa phát âm B1.s0. 9/14 take giữ nguyên. Tổng thời lượng 73.0 → 75.542 s.
+- **Trình tự tuyến tính:** SC_005 không còn "thay ngói bằng slate trên cùng một nhà", mà là hai công trình đặt cạnh nhau; SC_006 cắt cứng; đã xóa transition ngói → slate.
+- **Phát âm "Babergh":** override chỉ cho TTS (`[B EY1 B AH0]`), chữ viết giữ nguyên; có clip bằng chứng và danh sách nghe; trạng thái `PENDING_LISTENING_REVIEW`. Alias ASR chỉ dùng để tính WER.
+- **Phụ đề:**
+  - 21 cue theo cụm từ. Ranh giới lấy từ timestamp theo từ của Whisper rồi đặt vào điểm năng lượng thấp nhất của audio thật. Chữ lấy từ kịch bản.
+  - Dòng dài nhất 41 ký tự, 1–2 dòng mỗi cue. Báo cáo `qa/SUBTITLE_QA.md`.
+- **Hình ảnh:**
+  - Hoa văn viên ngói/slate (shader, căn theo gân hàng), nhãn chữ dưới mô hình trong SIDE_BY_SIDE.
+  - Sửa tường hồi và đỉnh tường xuyên qua mái slate mỏng (có từ M3).
+  - Ảnh tĩnh ở 960×540 và 1920×1080 (`production_test`, chỉ ảnh tĩnh); ảnh trước/sau.
+- **Cache render theo nhóm phụ thuộc** (`tools/render_cache.py`, `cache-report`): sửa chữ, claim hay timeline không làm render lại.
+- **Gate:** `pipeline/gates.py` với TECHNICALLY_VALIDATED / EDITORIAL_REVIEW_PENDING / TTS_RIGHTS_PENDING / PUBLICATION_READY; gate cuối kiểm tra nguồn gốc audio và xác nhận phát âm; G4/G5 phát hiện báo cáo cũ. MP4 có audio chưa được cấp quyền mang tên `*_INTERNAL.mp4` kèm metadata.
+- **QA và độ tin cậy:**
+  - Kiểm tra Blender mới: `covering_hides_structure`, `labels_in_band` (cả kiểm tra bị che khuất). Phép thử ngược cho thấy cả hai bắt được lỗi cũ.
+  - Sửa: `check-blender` từng in ra báo cáo **cũ** khi Blender bị lỗi; QA layout SIDE_BY_SIDE từng đọc `matrix_world` cũ của object bị ẩn; `audio_probe` từng ném `KeyError` với WAV rỗng.
+- **Test:** 107 (thêm 30 ở `tests/test_m35.py`). QA Blender: suffolk 70/70, roof-evolution 63/63.
+
 ## 0.3.0 — 2026-10-27 — M3: pipeline phim có lời dẫn + OmniVoice cục bộ (nhánh `m3-narrative-pipeline`)
 - **OmniVoice:** đã khảo sát project người dùng (không sửa gì); khởi động demo Gradio **chỉ ở localhost** (`--ip 127.0.0.1 --no-asr`, tắt analytics, HF offline); hợp đồng API xác nhận qua `/gradio_api/info`. Adapter stdlib `integrations/tts/omnivoice.py` ghép tham số theo nhãn, có timeout/retry, lỗi rõ ràng, kiểm tra audio (`integrations/audio_probe.py`).
 - **License:** code + trọng số Apache-2.0, nhưng tokenizer Higgs Audio v2 đi kèm theo Boson Higgs Audio 2 Community License → `LICENSE_REVIEW_REQUIRED`; chặn xuất bản. Giọng = voice design → giọng mẫu tổng hợp → clone (không giọng người thật).

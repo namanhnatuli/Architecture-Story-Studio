@@ -17,7 +17,6 @@ from integrations import audio_probe
 LOUDNESS_TARGET = -16.0   # LUFS integrated (speech-led; YouTube normalises down to about -14)
 TRUE_PEAK = -1.5          # dBTP
 LRA = 11.0
-SUB_LINE_CHARS = 42
 
 
 def _ffmpeg(*args):
@@ -90,52 +89,23 @@ def ebur128(path):
     return {"integrated_lufs": float(i[-1]), "true_peak_dbtp": float(tp[-1]) if tp and tp[-1] != "-inf" else None}
 
 
-def mux(video, audio, out):
+def mux(video, audio, out, comment=None):
+    meta = ["-metadata", f"comment={comment}"] if comment else []
     r = _ffmpeg("-y", "-i", video, "-i", audio, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy",
-                "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out)
+                "-c:a", "aac", "-b:a", "160k", *meta, "-movflags", "+faststart", out)
     if r.returncode != 0:
         raise RuntimeError(f"mux failed: {r.stderr[-300:]}")
 
 
-def _srt_time(t):
-    ms = int(round(t * 1000))
-    return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
-
-
-def _wrap(text, width=SUB_LINE_CHARS):
-    """One line if it fits, else two balanced lines (split minimising the longer line)."""
-    text = " ".join(text.split())
-    if len(text) <= width:
-        return text
-    spaces = [i for i, ch in enumerate(text) if ch == " "]
-    best = min(spaces, key=lambda i: max(len(text[:i]), len(text[i + 1:])))
-    return text[:best] + "\n" + text[best + 1:]
-
-
-def write_srt(timing, out, shot_ids=None, origin_seconds=0.0):
-    """Sentence-level subtitles from measured sentence spans."""
-    entries = []
-    for beat in timing["beats"]:
-        if shot_ids is not None and beat["shot"] not in shot_ids:
-            continue
-        for s in beat["sentences"]:
-            entries.append((s["start"] - origin_seconds, s["end"] - origin_seconds, s["text"]))
-    lines = []
-    for i, (a, b, text) in enumerate(entries, 1):
-        lines += [str(i), f"{_srt_time(a)} --> {_srt_time(b)}", _wrap(text), ""]
-    Path(out).write_text("\n".join(lines), encoding="utf-8")
-    return entries
-
-
-def check_srt(entries, duration):
-    problems, last = [], 0.0
-    for a, b, text in entries:
-        if not (0 <= a < b <= duration + 1e-6):
-            problems.append(f"subtitle {text[:30]!r} at {a:.2f}-{b:.2f}s is outside 0-{duration:.2f}s")
-        if a < last - 1e-6:
-            problems.append(f"subtitle {text[:30]!r} overlaps the previous one")
-        last = b
-    return problems
+def narration_rights(project_dir):
+    """(all segments PUBLICATION_CLEARED?, sorted set of rights classes) of the current narration."""
+    path = Path(project_dir) / "audio/narration_manifest.json"
+    if not path.is_file():
+        return False, []
+    m = json.loads(path.read_text())
+    classes = {(m["segments"].get(s["cache_key"]) or {}).get("rights_class") or "UNKNOWN"
+               for b in m.get("beats", {}).values() for s in b["sentences"]}
+    return classes == {"PUBLICATION_CLEARED"}, sorted(classes)
 
 
 def assemble(project_dir, video, out_mp4, shot_ids=None, log=print):
@@ -149,9 +119,23 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print):
     measured_in = loudnorm(raw, mixed)
     out_mp4 = Path(out_mp4)
     out_mp4.parent.mkdir(parents=True, exist_ok=True)
-    mux(video, mixed, out_mp4)
+    cleared, classes = narration_rights(p)
+    mux(video, mixed, out_mp4, None if cleared else
+        f"INTERNAL PREVIEW - narration audio rights: {', '.join(classes)} - not for publication")
     srt = out_mp4.with_suffix(".en.srt")
-    entries = write_srt(timing, srt, shot_ids, track["origin_frame"] / timing["fps"])
+    from pipeline import pronunciation as pron, subtitles
+    manifest_path = p / "audio/narration_manifest.json"
+    manifest = json.loads(manifest_path.read_text()) if manifest_path.is_file() else {}
+    cues = subtitles.build_cues(p, timing, manifest, pron.asr_aliases(pron.load(p)), shot_ids,
+                                track["origin_frame"] / timing["fps"], total=track["seconds"])
+    subtitles.write_srt(cues, srt)
+    sentences = {f"{b['id']}.s{s['index']}": s["text"] for b in timing["beats"]
+                 if shot_ids is None or b["shot"] in shot_ids for s in b["sentences"]}
+    sub_problems, sub_warnings, sub_stats = subtitles.qa(cues, track["seconds"], sentences)
+    written = subtitles.parse_srt(srt.read_text(encoding="utf-8"))  # the file itself, not the in-memory cues
+    ms = lambda t: int(round(max(0.0, t) * 1000))
+    if [(ms(a), ms(b), l) for a, b, l in written] != [(ms(c["start"]), ms(c["end"]), c["lines"]) for c in cues]:
+        sub_problems.append("written SRT differs from the computed cues")
 
     probe = json.loads(subprocess.run(
         [audio_probe._bin("ffprobe"), "-v", "error", "-count_frames", "-show_entries",
@@ -174,13 +158,16 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print):
         problems.append(f"integrated loudness {loud['integrated_lufs']} LUFS is not {LOUDNESS_TARGET} +/- 1")
     if loud["true_peak_dbtp"] is not None and loud["true_peak_dbtp"] > -1.0:
         problems.append(f"true peak {loud['true_peak_dbtp']} dBTP exceeds -1.0")
-    problems += check_srt(entries, track["seconds"])
-    report = {"output": str(out_mp4), "subtitles": str(srt), "narration_track": str(mixed), "shots": shot_ids or "all",
+    problems += sub_problems
+    report = {"output": str(out_mp4), "subtitles": str(srt), "narration_rights": classes,
+              "publication_audio": cleared, "narration_track": str(mixed), "shots": shot_ids or "all",
               "frames": track["frames"], "seconds": track["seconds"],
               "video": v, "audio": a, "loudness_before": {"I": measured_in["input_i"], "TP": measured_in["input_tp"]},
-              "loudness_after": loud, "subtitle_entries": len(entries), "problems": problems}
+              "loudness_after": loud, "subtitle_entries": len(cues), "subtitle_stats": sub_stats,
+              "subtitle_warnings": sub_warnings, "subtitle_cues": cues, "problems": problems}
     for line in (f"  {out_mp4.name}: {track['frames']} frames, {track['seconds']:.3f}s",
                  f"  loudness {loud['integrated_lufs']} LUFS, true peak {loud['true_peak_dbtp']} dBTP",
-                 f"  subtitles: {len(entries)} sentence cues -> {srt.name}"):
+                 f"  subtitles: {len(cues)} cues ({sub_stats['aligned_boundaries']} aligned phrase breaks, "
+                 f"max line {sub_stats['max_line']} chars) -> {srt.name}"):
         log(line)
     return report

@@ -242,7 +242,9 @@ class AssemblyTest(unittest.TestCase):
             self.assertEqual(report["problems"], [])
             self.assertEqual(report["frames"], 96)
             srt = (p / "out.en.srt").read_text()
-            self.assertIn("00:00:02,250 --> 00:00:03,250", srt)
+            # cue = measured sentence span + up to 0.25 s lead-out into the following pause (M3.5)
+            self.assertIn("00:00:00,250 --> 00:00:02,000", srt)
+            self.assertIn("00:00:02,250 --> 00:00:03,500", srt)
             with wave.open(str(p / "audio/narration_track_full.wav")) as w:
                 self.assertEqual(w.getnframes(), 96 * 1000)   # 24 kHz / 24 fps = 1000 samples per frame
 

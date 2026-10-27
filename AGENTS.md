@@ -59,3 +59,11 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - Gate của project có lời dẫn: G0–G6 (`python3 tools/cli.py gates`). Không tự đổi claim sang `EDITORIALLY_APPROVED` hay đổi license giọng sang `APPROVED`: đó là quyết định của người.
 - Không sửa tay `storyboard.json` / `timing.json` (được sinh ra); hãy sửa `storyboard.template.json` / `narration.json` rồi chạy `narrate` → `schedule`.
 
+## Bổ sung M3.5 (2026-10-27): biên tập, quyền TTS, phụ đề, cache
+- **OmniVoice là NOT CLEARED cho xuất bản thương mại** (trọng số CC-BY-NC; xem `docs/licensing/TTS_LICENSE_AUDIT.md`), hạng quyền `INTERNAL_PREVIEW_ONLY`. Không bao giờ dùng audio OmniVoice làm audio xuất bản, kể cả khi chữ và thời lượng trùng. Không chọn, đăng ký hay mua dịch vụ TTS khi chưa được phép.
+- Chỉ con người được: nâng hạng quyền provider (`config/tts_providers.json` → `PUBLICATION_CLEARED` + clearance), duyệt license giọng (`APPROVED` + `approved_by`), duyệt claim (`EDITORIALLY_APPROVED` + `editorial_approval`), xác nhận phát âm (`CONFIRMED` + `confirmed_by`). Agent không bao giờ tự làm các bước này.
+- Phát âm: chỉ override trong `script/pronunciation.json`; giữ nguyên chính tả chính thức ở mọi chỗ khác. ASR không chứng minh được cách phát âm.
+- Phụ đề: chữ lấy từ kịch bản; ranh giới cue lấy từ timestamp theo từ của Whisper trên audio thật (`align`), không bao giờ suy ra từ số ký tự.
+- Cache render chỉ phụ thuộc vào đầu vào hình ảnh (`docs/m3/CACHE_DEPENDENCIES.md`); `cache-report` nói vì sao một shot cần render lại.
+- PASS kỹ thuật ≠ được phép xuất bản: xem các trạng thái trong `docs/m3/M3_5_PUBLICATION_WORKFLOW.md`.
+

@@ -81,7 +81,7 @@ python3 tools/cli.py manifest --check     # PACKAGE_MANIFEST.sha256 khớp file 
 Output: `output/` (stills, MP4 từng shot, MP4 đầy đủ), `scenes/SC_00X.blend` (scene tái lập được của từng shot), `renders/<preset>/SC_00X/` (frame PNG), `qa/` (log, báo cáo, contact sheet, dải tiến trình). Template và cấu hình: [`docs/05_ANIMATION_LIBRARY.md`](docs/05_ANIMATION_LIBRARY.md).
 
 ## Pilot M3 có lời dẫn: `projects/suffolk-roofs`
-*"Why Did Traditional Roofs in Suffolk Change?"* — 73 giây, lời dẫn tiếng Anh do **OmniVoice cục bộ** sinh, kèm phụ đề. Đây là **preview nội bộ, chưa sẵn sàng xuất bản**: còn chờ duyệt biên tập các claim và review license giọng đọc. Quy trình: [`docs/m3/M3_PIPELINE.md`](docs/m3/M3_PIPELINE.md). Tích hợp TTS: [`docs/integrations/OMNIVOICE.md`](docs/integrations/OMNIVOICE.md).
+*"Why Did Traditional Roofs in Suffolk Change?"* — 75.5 giây (M3.5), lời dẫn tiếng Anh, phụ đề theo cụm từ. Đây là **preview nội bộ, chưa sẵn sàng xuất bản**: chờ duyệt biên tập (`projects/suffolk-roofs/review/EDITORIAL_APPROVAL_PACKAGE.md`), và **OmniVoice là NOT CLEARED cho xuất bản thương mại** ([audit](docs/licensing/TTS_LICENSE_AUDIT.md)), nên cần chọn một provider giọng đọc dùng để xuất bản. Quy trình: [`docs/m3/M3_PIPELINE.md`](docs/m3/M3_PIPELINE.md), [`docs/m3/M3_5_PUBLICATION_WORKFLOW.md`](docs/m3/M3_5_PUBLICATION_WORKFLOW.md).
 
 ## Trạng thái và giới hạn đã kiểm tra
 
