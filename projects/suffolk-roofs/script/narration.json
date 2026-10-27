@@ -31,37 +31,41 @@
       "postprocess_output": true
     },
     "license": {
-      "status": "LICENSE_REVIEW_REQUIRED",
+      "status": "NOT_CLEARED",
+      "rights_class": "INTERNAL_PREVIEW_ONLY",
+      "permitted_use": "Internal technical preview only (timing, pacing, shot scheduling). Not for publication, distribution or monetised use; not to be reused as publication audio.",
+      "audit": "docs/licensing/TTS_LICENSE_AUDIT.md",
       "reviewed_on": "2026-10-27",
+      "reviewed_by": "agent compliance assessment (not legal advice; no human sign-off)",
       "components": [
         {
           "name": "OmniVoice code",
           "license": "Apache-2.0",
-          "evidence": "/Users/trananh/Work/Projects/OmniVoice/LICENSE; pyproject license = Apache-2.0"
+          "evidence": "~/Work/Projects/OmniVoice LICENSE; pyproject license = Apache-2.0; git 30bb7aca, package 0.1.5"
         },
         {
           "name": "k2-fsa/OmniVoice model weights",
-          "license": "apache-2.0 (model card front matter)",
-          "evidence": "HF cache snapshot 999c332499c708b116876ff5fe1aa5dd15f422ce README.md"
+          "license": "CC-BY-NC (non-commercial)",
+          "evidence": "https://huggingface.co/k2-fsa/OmniVoice model card at main c5fdb5cc (2026-07-03): 'The pre-trained model is licensed under the CC-BY-NC due to constraints from its training data (e.g., Emilia)'; installed revision 999c3324 card said apache-2.0 but model.safetensors sha256 730839316de5... is identical"
         },
         {
           "name": "Higgs Audio v2 tokenizer (bundled audio_tokenizer)",
           "license": "Boson Higgs Audio 2 Community License (based on Meta Llama 3 Community License)",
-          "evidence": "audio_tokenizer/LICENSE in the same snapshot",
+          "evidence": "audio_tokenizer/LICENSE blob 000139f8 (identical at installed revision and main)",
           "obligations": [
-            "Attribution 'Built with Higgs Materials licensed from Boson AI USA, Inc. ...' when distributing a product/service using it",
-            "Llama 3 Acceptable Use Policy applies",
-            "Expanded license required above 100,000 annual active users (applicability to a YouTube channel is unclear)",
+            "Attribution 'Built with Higgs Materials licensed from Boson AI USA, Inc.'",
+            "Acceptable Use Policy applies",
+            "Expanded licence above 100,000 annual active users",
             "Outputs may not be used to improve other large language models"
           ]
         },
         {
           "name": "Training data",
-          "license": "not documented in the model card",
-          "evidence": "Model card has no dataset/licence statement; repo docs show Emilia as a training example only"
+          "license": "Emilia: CC BY-NC 4.0 (Emilia-YODAS subset: CC BY 4.0)",
+          "evidence": "https://huggingface.co/datasets/amphion/Emilia-Dataset; HF discussion k2-fsa/OmniVoice #29"
         }
       ],
-      "decision": "Internal previews only. Publication blocked until a human reviews the Boson licence terms (attribution, user threshold) and the training-data provenance."
+      "decision": "NOT CLEARED for commercial publication. Existing takes are kept and labelled INTERNAL_PREVIEW_ONLY. Publication narration must come from a provider whose rights class is PUBLICATION_CLEARED in config/tts_providers.json (human decision)."
     },
     "pace_note": "speed 0.92 chosen once for the whole narration (~173 wpm vs 185 wpm at 1.0, measured 2026-10-27); uniform, never per beat."
   },

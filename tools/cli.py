@@ -121,8 +121,14 @@ def do_doctor():
     return bool(b)
 
 
-def do_validate(p, final=False):
+DOWNSTREAM_OF_NARRATION = ("timing lock is stale", "project duration differs from timing.json")
+
+
+def do_validate(p, final=False, before_narrate=False):
+    """`before_narrate`: ignore errors that `narrate` + `schedule` themselves resolve (stale timing lock)."""
     errors, warnings = validate_project(p, final)
+    if before_narrate:
+        errors = [e for e in errors if not e.startswith(DOWNSTREAM_OF_NARRATION)]
     for msg in warnings:
         print("WARNING:", msg)
     for msg in errors:
@@ -449,12 +455,17 @@ def do_tts_check(p):
         print(f"Voice licence status: {narration['voice']['license']['status']}")
 
 
-def do_narrate(p, regenerate=False):
-    do_validate(p)
+def do_narrate(p, regenerate=False, purpose="internal_preview"):
+    do_validate(p, before_narrate=True)
+    from integrations.tts import providers
     from pipeline import narration as nar
-    data = nar.generate(p, regenerate=regenerate)
+    try:
+        data = nar.generate(p, regenerate=regenerate, purpose=purpose)
+    except providers.RightsError as e:
+        raise SystemExit(f"REFUSED: {e}")
     total = sum(b["duration"] for b in data["beats"].values())
-    print(f"SUCCESS: {len(data['beats'])} beats, {total:.2f}s of measured speech -> {p / 'audio'}")
+    print(f"SUCCESS: {len(data['beats'])} beats, {total:.2f}s of measured speech -> {p / 'audio'} "
+          f"[{data['rights']['provider']}: {data['rights']['rights_class']}]")
 
 
 def do_asr_check(p):
@@ -581,6 +592,8 @@ def main():
     parser.add_argument("--force", action="store_true", help="Re-render shots even if cached")
     parser.add_argument("--check", action="store_true", help="manifest: verify instead of rewriting")
     parser.add_argument("--regenerate", action="store_true", help="narrate: ignore the audio cache")
+    parser.add_argument("--purpose", default="internal_preview", choices=["internal_preview", "publication"],
+                        help="narrate: publication refuses providers that are not PUBLICATION_CLEARED")
     args = parser.parse_args()
     if args.command == "doctor":
         do_doctor()
@@ -608,7 +621,7 @@ def main():
     elif args.command == "tts-check":
         do_tts_check(p)
     elif args.command == "narrate":
-        do_narrate(p, args.regenerate)
+        do_narrate(p, args.regenerate, args.purpose)
     elif args.command == "asr-check":
         do_asr_check(p)
     elif args.command == "schedule":

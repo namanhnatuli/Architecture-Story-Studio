@@ -1,1 +1,1 @@
-"""Text-to-speech providers. Only OmniVoice (local) is implemented."""
+"""Text-to-speech providers: `providers` (interface + rights registry), `omnivoice` (local, internal preview)."""

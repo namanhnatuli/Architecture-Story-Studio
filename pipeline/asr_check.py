@@ -43,8 +43,12 @@ def normalize(text):
     return re.sub(r"[^a-z0-9' ]+", " ", text).split()
 
 
-def wer(reference, hypothesis):
+def wer(reference, hypothesis, aliases=None):
+    """Word error rate. `aliases` maps heard spellings of an overridden word (e.g. "bayber") back to the
+    written word: Whisper cannot spell a pronunciation, so this only keeps WER about intelligibility."""
     ref, hyp = normalize(reference), normalize(hypothesis)
+    if aliases:
+        hyp = [aliases.get(w, w) for w in hyp]
     prev = list(range(len(hyp) + 1))
     for i, r in enumerate(ref, 1):
         cur = [i] + [0] * len(hyp)
@@ -79,18 +83,23 @@ def transcribe(paths):
 def check_project(project_dir, log=print):
     """Transcribe every narrated sentence; store results in the manifest; return failures."""
     from pipeline.audio_manifest import AudioManifest
+    from pipeline import pronunciation as pron
     project_dir = Path(project_dir)
     manifest = AudioManifest(project_dir)
+    aliases = pron.asr_aliases(pron.load(project_dir))
     records = [r for r in manifest.data["segments"].values() if r.get("role") == "sentence"]
     current = {s["cache_key"] for b in manifest.data.get("beats", {}).values() for s in b["sentences"]}
     records = [r for r in records if r["cache_key"] in current]
     results = transcribe([project_dir / r["file"] for r in records])
     failures = []
     for rec, res in zip(records, results):
-        score = round(wer(rec["text"], res["text"]), 4)
+        used = aliases if rec.get("pronunciation") else None
+        score = round(wer(rec["text"], res["text"], used), 4)
         ok = score <= MAX_WER and (res.get("language") or "").lower() in ("english", "en")
         rec["asr"] = {"text": res["text"], "language": res.get("language"), "wer": score, "pass": ok,
-                      "model": os.environ.get("ASR_MODEL", "openai/whisper-large-v3-turbo")}
+                      "model": os.environ.get("ASR_MODEL", "openai/whisper-large-v3-turbo"),
+                      "pronunciation_aliases_applied": bool(used),
+                      "note": "intelligibility only; pronunciation is confirmed by a human listener"}
         log(f"{'PASS' if ok else 'FAIL'} {rec['beat_id']}.s{rec['sentence_index']} WER {score:.3f} "
             f"lang={res.get('language')}")
         if not ok:

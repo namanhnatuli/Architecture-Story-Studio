@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "audit": "docs/licensing/TTS_LICENSE_AUDIT.md",
+  "audited_on": "2026-10-27",
+  "note": "Rights classes are set by a human. The agent may only lower a class (e.g. on new restrictive evidence), never raise one to PUBLICATION_CLEARED. PUBLICATION_CLEARED requires clearance.cleared_by / cleared_on / evidence.",
+  "rights_classes": {
+    "INTERNAL_PREVIEW_ONLY": "Internal timing/pacing previews only. Never published, distributed or monetised.",
+    "PENDING_REVIEW": "Not evaluated or not yet approved by a human. Not usable for publication.",
+    "PUBLICATION_CLEARED": "A named human recorded that the output may be used in monetised YouTube videos.",
+    "REJECTED": "Must not be used."
+  },
+  "workflow": {
+    "internal_preview": ["omnivoice"],
+    "publication": []
+  },
+  "providers": {
+    "omnivoice": {
+      "kind": "local_model",
+      "adapter": "integrations.tts.providers.OmniVoiceAdapter",
+      "model": "k2-fsa/OmniVoice",
+      "installed_revision": "999c332499c708b116876ff5fe1aa5dd15f422ce",
+      "weights_sha256": "730839316de585f4c8298ec0e1712efc10fb19c6fa4e36eb741cb8d51ebcf6aa",
+      "rights_class": "INTERNAL_PREVIEW_ONLY",
+      "license": {
+        "code": "Apache-2.0",
+        "weights": "CC-BY-NC (model card since 2026-07-03, due to Emilia training data); identical bytes to the installed revision",
+        "tokenizer": "Boson Higgs Audio 2 Community License",
+        "commercial_publication": "NOT CLEARED"
+      },
+      "available": true
+    },
+    "human": {
+      "kind": "recorded",
+      "adapter": "integrations.tts.providers.RecordedNarrationAdapter",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "terms": "Per-narrator written agreement (buyout: perpetual, worldwide, all media, edits allowed) — none recorded yet"
+      },
+      "available": true
+    },
+    "kokoro": {
+      "kind": "local_model",
+      "model": "hexgrad/Kokoro-82M",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "weights": "Apache-2.0 (model card); training data stated as permissive/non-copyrighted incl. synthetic audio from closed TTS providers",
+        "commercial_publication": "candidate — needs listening test + human licence sign-off"
+      },
+      "available": false,
+      "note": "Not installed; no adapter yet. British voices: bf_emma, bm_george, bm_fable, bf_isabella (VOICES.md)."
+    },
+    "piper": {
+      "kind": "local_model",
+      "model": "rhasspy/piper-voices en_GB",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "code": "MIT",
+        "voices": "per-voice dataset licences (e.g. northern_english_male CC-BY-SA 4.0; alan CC BY-SA 4.0)"
+      },
+      "available": false,
+      "note": "ShareAlike obligations on output unclear; quality below documentary target."
+    },
+    "azure_speech": {
+      "kind": "cloud_api",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "terms": "Paid tier: commercial use of prebuilt neural voice output per Microsoft Q&A; Product Terms not yet read; disclosure + no competing-TTS training"
+      },
+      "available": false,
+      "requires_account": true
+    },
+    "amazon_polly": {
+      "kind": "cloud_api",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "terms": "FAQ: output belongs to the customer; cache/replay at no extra cost; must have rights to input text"
+      },
+      "available": false,
+      "requires_account": true
+    },
+    "google_cloud_tts": {
+      "kind": "cloud_api",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "terms": "Docs: may augment media like videos under GCP Terms of Service; ownership not yet confirmed"
+      },
+      "available": false,
+      "requires_account": true
+    },
+    "elevenlabs": {
+      "kind": "cloud_api",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "terms": "Paid plans: commercial use (not Beta features); content made while subscribed usable indefinitely; free plan non-commercial + attribution"
+      },
+      "available": false,
+      "requires_account": true
+    },
+    "openai_tts": {
+      "kind": "cloud_api",
+      "rights_class": "PENDING_REVIEW",
+      "license": {
+        "terms": "Usage policy requires clear disclosure that the voice is AI-generated; Terms of Use on output not yet read (HTTP 403 at audit)"
+      },
+      "available": false,
+      "requires_account": true
+    }
+  }
+}

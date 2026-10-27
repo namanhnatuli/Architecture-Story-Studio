@@ -192,7 +192,8 @@ def run(project_dir, lock=True):
     manifest = json.loads((p / "audio/narration_manifest.json").read_text())
     template = json.loads((p / "storyboard/storyboard.template.json").read_text())
     states = json.loads((p / "storyboard/states.json").read_text())
-    if manifest.get("narration_sha256") != nar.narration_hash(narration):
+    from pipeline import pronunciation as pron
+    if manifest.get("narration_sha256") != nar.narration_hash(narration, pron.load(p)):
         raise ScheduleError("narration.json changed since the audio was generated; run `narrate` again")
     storyboard, timing = schedule(narration, manifest, template, states, int(project["fps"]))
     sentence_records = [r for r in manifest["segments"].values() if r.get("role") == "sentence"]

@@ -170,16 +170,22 @@ def validate_project(project_dir, final=False):
     # M3 narration + timing lock (only when the project has a narration script).
     narration_path = base / "script/narration.json"
     narration = read_json(narration_path) if narration_path.exists() else None
+    registry = lexicon = None
     if narration is not None:
         from pipeline import narration as nar
-        errors.extend(f"narration: {e}" for e in nar.validate(narration, sources))
+        from integrations.tts import providers
+        from pipeline import pronunciation as pron
+        registry = providers.load_registry()
+        errors.extend(f"tts_providers: {e}" for e in providers.validate_registry(registry))
+        lexicon = pron.load(base)
+        errors.extend(f"narration: {e}" for e in nar.validate(narration, sources, registry, lexicon))
         order = [b.get("id") for b in narration.get("beats", [])]
         covered = [bid for s in shots for bid in s.get("beat_ids", [])]
         if covered != order:
             errors.append(f"shots must cover every narration beat exactly once, in order (shots {covered}, beats {order})")
         timing_path = base / "script/timing.json"
         if timing_path.exists():
-            errors.extend(validate_timing(read_json(timing_path), narration, story, fps, duration))
+            errors.extend(validate_timing(read_json(timing_path), narration, story, fps, duration, lexicon))
         elif project.get("audio_timing_locked"):
             errors.append("audio_timing_locked is true but script/timing.json is missing")
 
@@ -198,11 +204,44 @@ def validate_project(project_dir, final=False):
             status = ((narration.get("voice") or {}).get("license") or {}).get("status")
             if status != "APPROVED":
                 errors.append(f"FINAL gate: narration voice licence is {status!r}, not APPROVED")
+            errors.extend(f"FINAL gate: {e}" for e in publication_audio_errors(base, narration, registry, lexicon))
         if any(asset.get("status") != "approved" for asset in assets.get("assets", [])):
             errors.append("FINAL gate: unapproved assets")
         if project.get("factual_review") != "verified":
             errors.append("FINAL gate: factual_review is not verified")
     return errors, warnings
+
+
+def publication_audio_errors(base, narration, registry, lexicon):
+    """Audio provenance for publication: every narrated segment must come from a PUBLICATION_CLEARED
+    provider (by the record *and* the current registry) and every pronunciation override in use
+    must be CONFIRMED by a human listener. Matching text/duration never substitutes for this."""
+    from pipeline import pronunciation as pron
+    errors = []
+    manifest_path = base / "audio/narration_manifest.json"
+    if not manifest_path.exists():
+        return ["narration audio manifest missing"]
+    manifest = read_json(manifest_path)
+    segments = manifest.get("segments", {})
+    providers_info = (registry or {}).get("providers", {})
+    bad = {}
+    for beat in manifest.get("beats", {}).values():
+        for sentence in beat.get("sentences", []):
+            rec = segments.get(sentence.get("cache_key")) or {}
+            provider = rec.get("provider")
+            current = (providers_info.get(provider) or {}).get("rights_class")
+            if rec.get("rights_class") != "PUBLICATION_CLEARED" or current != "PUBLICATION_CLEARED":
+                bad.setdefault((provider, rec.get("rights_class")), []).append(sentence.get("text", "")[:30])
+    for (provider, rc), texts in bad.items():
+        errors.append(f"{len(texts)} narration segment(s) from {provider} are {rc}, not PUBLICATION_CLEARED "
+                      "(regenerate with a cleared provider: `narrate --purpose publication`)")
+    provider = (narration.get("voice") or {}).get("provider")
+    entries = {e["id"]: e for e in (lexicon or {}).get("entries", [])}
+    for eid in pron.used_entries(narration, lexicon, provider):
+        if entries[eid].get("status") != "CONFIRMED":
+            errors.append(f"pronunciation {eid} ({entries[eid].get('written')}) is {entries[eid].get('status')}, "
+                          "not CONFIRMED by a human listener")
+    return errors
 
 
 def validate_graphic(graphic, duration):
@@ -232,12 +271,12 @@ def validate_graphic(graphic, duration):
     return errors
 
 
-def validate_timing(timing, narration, story, fps, duration):
+def validate_timing(timing, narration, story, fps, duration, lexicon=None):
     """The timing lock must match the current narration, storyboard and project duration."""
     from pipeline import beat_scheduler, narration as nar
     errors = []
     basis = timing.get("lock_basis") or {}
-    if basis.get("narration_sha256") != nar.narration_hash(narration):
+    if basis.get("narration_sha256") != nar.narration_hash(narration, lexicon):
         errors.append("timing lock is stale: narration.json changed since `narrate`/`schedule`")
     if timing.get("storyboard_sha256") != beat_scheduler.content_hash(story):
         errors.append("timing lock is stale: storyboard.json differs from the scheduled one (re-run `schedule`)")

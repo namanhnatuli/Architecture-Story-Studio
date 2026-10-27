@@ -142,7 +142,7 @@ class GateTest(unittest.TestCase):
         errors, _ = validate_project(PILOT, final=True)
         joined = " ".join(errors)
         self.assertIn("EDITORIALLY_APPROVED", joined)
-        self.assertIn("LICENSE_REVIEW_REQUIRED", joined)
+        self.assertIn("NOT_CLEARED", joined)
         self.assertIn("unapproved assets", joined)
 
     def test_source_verified_claim_needs_locator_and_excerpt(self):
@@ -196,7 +196,8 @@ class CacheTest(unittest.TestCase):
             (p / "research/sources.json").write_text(json.dumps(sources))
             narration = {"voice": {"provider": "omnivoice", "id": "t", "mode": "design", "language": "English",
                                    "design": {"gender": "Male"}, "params": {},
-                                   "license": {"status": "LICENSE_REVIEW_REQUIRED", "components": [{"name": "x"}]}},
+                                   "license": {"status": "NOT_CLEARED", "rights_class": "INTERNAL_PREVIEW_ONLY",
+                                               "components": [{"name": "x"}]}},
                          "pacing": {"sentence_pause_seconds": 0.3, "beat_lead_in_seconds": 0.3, "beat_tail_seconds": 0.5},
                          "beats": [{"id": "B1", "kind": "fact", "claim_ids": ["C1"],
                                     "sentences": ["Hello there friend, this is a test.", "Hello there friend, this is a test."]}]}

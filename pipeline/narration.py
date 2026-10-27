@@ -7,15 +7,18 @@ Durations always come from the decoded audio, never from word counts.
 """
 import json
 import wave
+from dataclasses import asdict, is_dataclass
 from pathlib import Path
 
 from integrations import audio_probe
 from integrations.tts import omnivoice as ov
-from pipeline.audio_manifest import AudioManifest, cache_key, sha256_file
+from integrations.tts import providers
+from pipeline import pronunciation as pron
+from pipeline.audio_manifest import AudioManifest, cache_key, legacy_cache_key_v1, sha256_file
 
 BEAT_KINDS = ("framing", "fact", "interpretation")
 MAX_TAKES = 3
-LICENSE_STATUSES = ("APPROVED", "LICENSE_REVIEW_REQUIRED", "REJECTED")
+LICENSE_STATUSES = ("APPROVED", "LICENSE_REVIEW_REQUIRED", "NOT_CLEARED", "REJECTED")
 CLAIM_STATUSES = ("PROVISIONAL", "SOURCE_VERIFIED", "EDITORIALLY_APPROVED", "REJECTED",
                   "provisional", "verified", "contested")  # lower-case: v0.1 ledger values
 
@@ -25,8 +28,9 @@ def load(project_dir):
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
 
 
-def validate(narration, sources):
-    """Errors in narration.json against the claim ledger (empty list when valid)."""
+def validate(narration, sources, registry=None, lexicon=None):
+    """Errors in narration.json against the claim ledger, the TTS rights registry and the
+    pronunciation lexicon (empty list when valid). registry/lexicon checks run when given."""
     errors = []
     claims = {c.get("id"): c for c in (sources or {}).get("claims", [])}
     voice = narration.get("voice") or {}
@@ -36,6 +40,22 @@ def validate(narration, sources):
                       "(record the voice licensing review before generating narration)")
     if not lic.get("components"):
         errors.append("narration.voice.license.components is empty (list model/code/data licences)")
+    if registry is not None:
+        provider = voice.get("provider")
+        info = (registry.get("providers") or {}).get(provider)
+        if info is None:
+            errors.append(f"narration.voice.provider {provider!r} is not in config/tts_providers.json")
+        else:
+            if lic.get("rights_class") != info.get("rights_class"):
+                errors.append(f"narration.voice.license.rights_class {lic.get('rights_class')!r} disagrees with "
+                              f"config/tts_providers.json ({provider}: {info.get('rights_class')!r})")
+            if lic.get("status") == "APPROVED" and info.get("rights_class") != providers.PUBLICATION_CLEARED:
+                errors.append(f"narration.voice.license.status is APPROVED but provider {provider} is "
+                              f"{info.get('rights_class')}")
+    if lic.get("status") == "APPROVED" and not (lic.get("approved_by") and lic.get("approved_on")):
+        errors.append("narration.voice.license: APPROVED needs approved_by/approved_on (a named human reviewer)")
+    if lexicon is not None:
+        errors.extend(pron.validate(lexicon))
     if voice.get("mode") == "clone" and not (voice.get("reference") or {}).get("text"):
         errors.append("narration.voice.reference.text is required for clone mode")
     pacing = narration.get("pacing") or {}
@@ -73,6 +93,7 @@ def validate(narration, sources):
 
 
 def voice_spec(narration, project_dir):
+    """OmniVoice VoiceSpec for `tts-check` (the generic path goes through providers.make_adapter)."""
     v = narration["voice"]
     if v.get("mode") == "clone":
         ref = v["reference"]
@@ -81,61 +102,51 @@ def voice_spec(narration, project_dir):
     return ov.VoiceSpec(mode="design", language=v.get("language", "English"), design=v.get("design") or {})
 
 
-def generation_params(narration):
-    return ov.GenerationParams(**(narration["voice"].get("params") or {}))
+class _Run:
+    """One `narrate` run: adapter + manifest + the rights/voice context that goes into every cache key."""
 
+    def __init__(self, adapter, manifest, project_dir, rights_class, voice_id, regenerate, log):
+        self.adapter, self.manifest, self.project_dir = adapter, manifest, Path(project_dir)
+        self.rights_class, self.voice_id, self.regenerate, self.log = rights_class, voice_id, regenerate, log
 
-def _segment(client, manifest, project_dir, text, voice, params, label, regenerate, log, extra):
-    from dataclasses import asdict
-    key = cache_key("omnivoice", ov.ADAPTER_VERSION, client.model_revision, text, voice.identity(), asdict(params))
-    cached = None if regenerate else manifest.lookup(key)
-    if cached:
-        log(f"CACHED {label}: {cached['duration']:.2f}s")
-        return cached
-    out = Path(project_dir) / "audio" / "segments" / f"{key[:20]}.wav"
-    for attempt in range(1, MAX_TAKES + 1):  # generation is stochastic: a rushed/garbled take gets a retake
-        try:
-            result = client.synthesize(text, voice, out, params)
-            break
-        except audio_probe.AudioValidationError as e:
-            log(f"RETAKE {label} (take {attempt}/{MAX_TAKES} rejected: {e})")
-            if attempt == MAX_TAKES:
-                raise
-    record = manifest.store(key, dict(extra, text=text, file=manifest.rel(out), duration=result.duration,
-                                      sample_rate=result.sample_rate, channels=result.channels, codec=result.codec,
-                                      mean_db=result.mean_db, peak_db=result.peak_db,
-                                      words_per_second=result.words_per_second, params=asdict(params),
-                                      endpoint=result.endpoint, elapsed_seconds=result.elapsed_seconds,
-                                      takes=attempt, **result.metadata))
-    manifest.save()  # persist every successful segment immediately (a later failure must not lose it)
-    log(f"GENERATED {label}: {result.duration:.2f}s in {result.elapsed_seconds:.1f}s")
-    return record
-
-
-def ensure_reference(client, narration, project_dir, manifest, regenerate=False, log=print):
-    """Create the synthetic narrator reference clip (voice design), cached like any segment."""
-    v = narration["voice"]
-    if v.get("mode") != "clone":
-        return None
-    ref = v["reference"]
-    made = ref.get("made_with") or {}
-    design = ov.VoiceSpec(mode="design", language=v.get("language", "English"), design=made.get("design") or {})
-    record = _segment(client, manifest, project_dir, ref["text"], design, ov.GenerationParams(),
-                      "voice reference", regenerate, log,
-                      {"role": "voice_reference", "voice_id": v.get("id")})
-    target = Path(project_dir) / ref["audio"]
-    target.parent.mkdir(parents=True, exist_ok=True)
-    src = Path(project_dir) / record["file"]
-    if not target.is_file() or sha256_file(target) != sha256_file(src):
-        target.write_bytes(src.read_bytes())
-    info = audio_probe.probe(target)
-    if not 3.0 <= info["duration"] <= 10.0:
-        raise audio_probe.AudioValidationError(f"voice reference is {info['duration']:.1f}s; OmniVoice recommends 3-10 s")
-    manifest.data["voice"] = {"id": v.get("id"), "mode": "clone", "reference": ref["audio"],
-                              "reference_sha256": sha256_file(target), "reference_duration": info["duration"],
-                              "design": made.get("design"), "license_status": v["license"]["status"],
-                              "provenance": ref.get("provenance")}
-    return target
+    def segment(self, text, spoken, voice, params, label, segment_id, extra):
+        a = self.adapter
+        pd = asdict(params) if is_dataclass(params) else dict(params)
+        identity = a.voice_identity(voice)
+        key = cache_key(a.name, a.adapter_version, a.model, a.model_revision, spoken, self.voice_id, identity, pd,
+                        self.rights_class, a.source_identity(segment_id, self.project_dir, voice))
+        labels = dict(extra, text=text, spoken_text=spoken, voice_id=self.voice_id, rights_class=self.rights_class)
+        if not self.regenerate:
+            cached = self.manifest.lookup(key)
+            if cached:
+                self.log(f"CACHED {label}: {cached['duration']:.2f}s")
+                return cached
+            # M3 (v1) takes: same provider/model/voice/params/text, produced as preview audio.
+            if (self.rights_class == "INTERNAL_PREVIEW_ONLY" and spoken == text and a.name == "omnivoice"):
+                legacy = legacy_cache_key_v1(a.name, a.adapter_version, a.model_revision, text, identity, pd)
+                adopted = self.manifest.adopt(legacy, key, labels)
+                if adopted:
+                    self.manifest.save()
+                    self.log(f"CACHED {label}: {adopted['duration']:.2f}s (M3 take, re-keyed as {self.rights_class})")
+                    return adopted
+        out = self.project_dir / "audio" / "segments" / f"{key[:20]}.wav"
+        for attempt in range(1, MAX_TAKES + 1):  # generation is stochastic: a rushed/garbled take gets a retake
+            try:
+                result = a.synthesize(spoken, voice, out, params, segment_id, self.project_dir)
+                break
+            except audio_probe.AudioValidationError as e:
+                self.log(f"RETAKE {label} (take {attempt}/{MAX_TAKES} rejected: {e})")
+                if attempt == MAX_TAKES:
+                    raise
+        record = self.manifest.store(key, dict(labels, file=self.manifest.rel(out), duration=result.duration,
+                                               sample_rate=result.sample_rate, channels=result.channels,
+                                               codec=result.codec, mean_db=result.mean_db, peak_db=result.peak_db,
+                                               words_per_second=result.words_per_second, params=pd,
+                                               endpoint=result.endpoint, elapsed_seconds=result.elapsed_seconds,
+                                               takes=attempt, **result.metadata))
+        self.manifest.save()  # persist every successful segment immediately (a later failure must not lose it)
+        self.log(f"GENERATED {label}: {result.duration:.2f}s in {result.elapsed_seconds:.1f}s")
+        return record
 
 
 def join_wavs(parts, pause_seconds, out_path):
@@ -168,26 +179,47 @@ def join_wavs(parts, pause_seconds, out_path):
     return spans, cursor / params[2]
 
 
-def generate(project_dir, client=None, regenerate=False, log=print):
-    """Synthesise every sentence (cached), build beat WAVs, record measured timings."""
+def generate(project_dir, client=None, regenerate=False, log=print, purpose="internal_preview", registry=None):
+    """Synthesise every sentence (cached), build beat WAVs, record measured timings.
+
+    `client` may be a providers.NarrationAdapter or, for OmniVoice, an OmniVoiceClient.
+    `purpose="publication"` refuses any provider whose rights class is not PUBLICATION_CLEARED.
+    """
     project_dir = Path(project_dir)
     narration = load(project_dir)
     sources = json.loads((project_dir / "research" / "sources.json").read_text(encoding="utf-8"))
-    errors = validate(narration, sources)
+    registry = registry or providers.load_registry()
+    lexicon = pron.load(project_dir)
+    errors = validate(narration, sources, registry, lexicon)
     if errors:
         raise ValueError("narration.json invalid: " + "; ".join(errors))
-    client = client or ov.OmniVoiceClient()
+    v = narration["voice"]
+    provider = v.get("provider", "omnivoice")
+    rights = providers.check_purpose(provider, purpose, registry)
+    adapter = client if isinstance(client, providers.NarrationAdapter) else providers.make_adapter(provider, client)
     manifest = AudioManifest(project_dir)
-    ensure_reference(client, narration, project_dir, manifest, regenerate, log)
-    voice, params = voice_spec(narration, project_dir), generation_params(narration)
+    run = _Run(adapter, manifest, project_dir, rights, v.get("id"), regenerate, log)
+    voice = adapter.prepare(v, project_dir, lambda text, spoken, vo, params, label, extra:
+                            run.segment(text, spoken, vo, params, label, "voice_reference", extra), log)
+    params = adapter.params(v)
     pause = narration["pacing"]["sentence_pause_seconds"]
-    license_status = narration["voice"]["license"]["status"]
+    manifest.data["voice"] = {"id": v.get("id"), "provider": provider, "mode": v.get("mode"),
+                              "rights_class": rights, "license_status": v["license"]["status"],
+                              "provenance": (v.get("reference") or {}).get("provenance")}
+    if v.get("mode") == "clone":
+        ref = project_dir / v["reference"]["audio"]
+        manifest.data["voice"].update(reference=v["reference"]["audio"], reference_sha256=sha256_file(ref),
+                                      reference_duration=audio_probe.probe(ref)["duration"],
+                                      design=(v["reference"].get("made_with") or {}).get("design"))
     beats = {}
     for beat in narration["beats"]:
-        records = [_segment(client, manifest, project_dir, text, voice, params, f"{beat['id']}.s{i}", regenerate, log,
-                            {"role": "sentence", "beat_id": beat["id"], "sentence_index": i,
-                             "voice_id": narration["voice"].get("id"), "license_status": license_status})
-                   for i, text in enumerate(beat["sentences"])]
+        records = []
+        for i, text in enumerate(beat["sentences"]):
+            spoken, applied = pron.spoken_text(text, lexicon, provider)
+            seg_id = f"{beat['id']}.s{i}"
+            records.append(run.segment(text, spoken, voice, params, seg_id, seg_id,
+                                       {"role": "sentence", "beat_id": beat["id"], "sentence_index": i,
+                                        "pronunciation": applied, "license_status": v["license"]["status"]}))
         out = project_dir / "audio" / "beats" / f"{beat['id']}.wav"
         spans, joined = join_wavs([project_dir / r["file"] for r in records], pause, out)
         measured = audio_probe.probe(out)["duration"]
@@ -196,16 +228,27 @@ def generate(project_dir, client=None, regenerate=False, log=print):
         beats[beat["id"]] = {"file": manifest.rel(out), "duration": measured, "sha256": sha256_file(out),
                              "sentence_pause_seconds": pause,
                              "sentences": [{"index": i, "text": r["text"], "start": round(s, 6), "end": round(e, 6),
-                                            "cache_key": r["cache_key"]} for i, (r, (s, e)) in enumerate(zip(records, spans))]}
+                                            "cache_key": r["cache_key"], "rights_class": r.get("rights_class")}
+                                           for i, (r, (s, e)) in enumerate(zip(records, spans))]}
         log(f"BEAT {beat['id']}: {measured:.2f}s ({len(records)} sentences)")
     manifest.data["beats"] = beats
-    manifest.data["narration_sha256"] = narration_hash(narration)
+    manifest.data["rights"] = {"provider": provider, "rights_class": rights, "purpose": purpose,
+                               "audit": "docs/licensing/TTS_LICENSE_AUDIT.md"}
+    manifest.data["narration_sha256"] = narration_hash(narration, lexicon)
     manifest.save()
     return manifest.data
 
 
-def narration_hash(narration):
+NON_AUDIO_VOICE_KEYS = ("license", "pace_note")
+
+
+def narration_hash(narration, lexicon=None):
+    """Hash of everything that changes the narration audio (licence records excluded; spoken forms included)."""
     import hashlib
-    core = {"voice": narration["voice"], "pacing": narration["pacing"],
-            "beats": [{"id": b["id"], "sentences": b["sentences"]} for b in narration["beats"]]}
+    voice = {k: v for k, v in narration["voice"].items() if k not in NON_AUDIO_VOICE_KEYS}
+    provider = voice.get("provider", "omnivoice")
+    core = {"voice": voice, "pacing": narration["pacing"],
+            "beats": [{"id": b["id"], "sentences": b["sentences"],
+                       "spoken": [pron.spoken_text(t, lexicon, provider)[0] for t in b["sentences"]]}
+                      for b in narration["beats"]]}
     return hashlib.sha256(json.dumps(core, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
