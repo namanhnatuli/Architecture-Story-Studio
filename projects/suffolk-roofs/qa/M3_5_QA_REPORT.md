@@ -31,8 +31,8 @@ Tag `m3-pilot-preview` khớp với `79375f9`; cây làm việc sạch. Output M
 | Hình ảnh | Hoa văn viên ngói/slate, nhãn, sửa lỗi xuyên mái slate; khung 960×540 và 1920×1080 | `output/stills_review/`, `output/stills_production_test/`, `qa/m35_before_after/` |
 | QA Blender | suffolk 70/70; roof-evolution 63/63 (thêm 5 kiểm tra `covering_hides_structure`, không hồi quy) | `qa/blender_checks.json` |
 | Phép thử ngược | Đưa slate về dày 0.025 → `covering_hides_structure` FAIL ở 3 shot; đưa nhãn về sâu 5.0 → `labels_in_band`: "hidden by ground" | log trong phiên làm việc |
-| Cache render | Sau render: 6/6 CACHED; tất định: [[DETERMINISM]] | `qa/cache_report_preview.json`, `docs/m3/CACHE_DEPENDENCIES.md` |
-| MCP | [[MCP]] | `qa/mcp_m35/` |
+| Cache render & tính tất định | Sau render: 6/6 CACHED. Render lại sau khi đổi `render_scene.py` (chỉ đổi phần parse tham số): hash file PNG luôn khác vì Blender ghi `Date`/`RenderTime`. So pixel đã giải mã: card 2D giống hệt; khung 3D lệch tối đa 1/255 ở dưới 0.01% số kênh (PSNR 81–104 dB), do Eevee raytracing trên GPU không cho kết quả bit-exact. So video M3.5 trước và sau: SSIM trung bình 0.99953, thấp nhất 0.99697. Kết luận: không có thay đổi nhìn thấy được | `qa/cache_report_preview.json`, `docs/m3/CACHE_DEPENDENCIES.md` |
+| MCP | 7/7 lệnh (`mcp-for-blender` 2.2.4, safe mode) trên một Blender GUI riêng mở bản sao của SC_005/SC_006. Safe mode chặn `import os`. Nhãn đúng nội dung, `visible_shadow=False`. `ass_course_origin` = ±1.9535 (ngói), ±1.4683 (slate); material slate đọc thuộc tính này. Ảnh `look` của các frame 1/60/140/237 (SC_005) và 1/120/328 (SC_006) không phát hiện lỗi | `qa/mcp_m35/` |
 | Unit test | 107/107 (77 cũ + 30 M3.5) | `python3 -m unittest discover -s tests` |
 
 ## 4. Lỗi phát hiện và sửa trong M3.5

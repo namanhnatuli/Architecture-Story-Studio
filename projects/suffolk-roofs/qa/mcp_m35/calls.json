@@ -1,0 +1,9 @@
+[
+ {"name": "get_addon_status", "label": "m35_addon_status"},
+ {"name": "execute_blender_code", "label": "m35_safe_mode_probe", "arguments": {"code": "import os\nprint(os.getcwd())"}},
+ {"name": "get_scene_info", "label": "m35_SC_005_scene", "arguments": {"limit": 12}},
+ {"name": "execute_blender_code", "label": "m35_SC_005_labels", "arguments": {"code": "import bpy\nlabs = sorted((o.name, o.data.body, o.visible_shadow, o.hide_render) for o in bpy.data.objects if o.name.startswith('LABEL_'))\nprint('labels:', labs)\ncov = sorted((o.name, round(o.get('ass_course_origin', 0.0), 4)) for o in bpy.data.objects if 'covering' in o.name and not o.hide_render and '__fade' not in o.name)\nprint('visible coverings + course origin:', cov)\nm = bpy.data.materials.get('Slate (illustrative)')\nprint('slate material uses course attr:', any(getattr(n, 'attribute_name', '') == 'ass_course_origin' for n in m.node_tree.nodes))"}},
+ {"name": "look", "label": "m35_SC_005_frames", "arguments": {"mode": "frames", "view": "camera", "frames": [1, 60, 140, 237], "shading": "material", "max_size": 1400}},
+ {"name": "execute_blender_code", "label": "m35_open_SC_006", "arguments": {"code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m35/blend/SC_006.blend')\nprint('labels:', sorted(o.data.body for o in bpy.data.objects if o.name.startswith('LABEL_')))"}},
+ {"name": "look", "label": "m35_SC_006_frames", "arguments": {"mode": "frames", "view": "camera", "frames": [1, 120, 328], "shading": "material", "max_size": 1400}}
+]
