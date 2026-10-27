@@ -71,7 +71,7 @@ class ShotContext:
 def purge_data():
     """Empty the open file (headless CLI only; MCP sessions use isolated=True instead)."""
     for coll in (bpy.data.objects, bpy.data.meshes, bpy.data.materials, bpy.data.lights,
-                 bpy.data.cameras, bpy.data.worlds, bpy.data.actions, bpy.data.collections):
+                 bpy.data.cameras, bpy.data.worlds, bpy.data.actions, bpy.data.collections, bpy.data.curves):
         for item in list(coll):
             coll.remove(item)
 
@@ -91,6 +91,18 @@ def _bounds(points):
     return lo, hi
 
 
+def _prepare_scene(shot_id, isolated):
+    if isolated:
+        scene = bpy.data.scenes.new(f"ASS_{shot_id}")
+        window = getattr(bpy.context, "window", None)
+        if window is None:
+            raise RuntimeError("isolated build needs a Blender window (use the CLI for headless runs)")
+        window.scene = scene
+        return scene
+    purge_data()
+    return bpy.context.scene
+
+
 def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     """Build a shot. isolated=True creates a new scene instead of emptying the file,
     so an interactive (MCP) session never loses unrelated work."""
@@ -100,19 +112,15 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     if errors:
         raise ValueError("states.json invalid: " + "; ".join(errors))
     shot = find_shot(data["story"], shot_id)
+    if shot.get("visual_type", "BLENDER_3D") == "MOTION_GRAPHICS":
+        from engine import diagram
+        scene = _prepare_scene(shot_id, isolated)
+        return diagram.build_card(data, shot, preset_name, scene)
     cfg = templates.animation_config(shot)
     fps = int(data["project"]["fps"])
     frames = templates.frame_count(shot, fps)
 
-    if isolated:
-        scene = bpy.data.scenes.new(f"ASS_{shot_id}")
-        window = getattr(bpy.context, "window", None)
-        if window is None:
-            raise RuntimeError("isolated build needs a Blender window (use the CLI for headless runs)")
-        window.scene = scene
-    else:
-        purge_data()
-        scene = bpy.context.scene
+    scene = _prepare_scene(shot_id, isolated)
     root = geometry.make_collection(f"ASS_{shot_id}", scene.collection)
     materials = scene_mod.make_materials(style)
     ground = scene_mod.build_environment(scene, style, materials, geometry.make_collection("90_ENVIRONMENT", root))
@@ -171,9 +179,9 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     camera, fit, basis = scene_mod.build_camera(scene, geometry.make_collection("90_CAMERA", root),
                                                 cam_preset, points, aspect, bottom_band)
 
+    shown = {sid: templates.visible_component_ids(states, vis) for sid, vis in visible.items()}
     for obj in objects.values():
-        vid = obj["variant_id"]
-        if vid != "shared" and vid not in visible[obj["slot_id"]]:
+        if obj["component_id"] not in shown[obj["slot_id"]]:
             obj.hide_render = obj.hide_viewport = True
 
     # SIDE_BY_SIDE intro starts on the single-model framing (same fit as every other
@@ -192,6 +200,9 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     slot_components = {sid: {cid: components[obj.name] for cid, obj in parts.items()}
                        for sid, parts in slots.items()}
     plan = templates.plan_shot(shot, states, fps, slot_components, camera_keys)
+    hidden_but_animated = sorted(n for n in plan.tracks if n in objects and objects[n].hide_render)
+    if hidden_but_animated:  # keys (e.g. fade twins) would silently un-hide them
+        raise ValueError(f"{shot_id}: plan animates statically hidden parts {hidden_but_animated}")
     render_objects = dict(objects)
     render_objects[camera.name] = camera
     fade_twins = {}

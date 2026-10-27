@@ -32,6 +32,12 @@ VARIANT_BUILDERS = {
     ),
 }
 
+# Covering styles (M3). A variant with "covering": {"style": ...} also gets a ridge cap.
+COVERING_STYLES = ("thatch", "plain_tile", "slate")
+COVERING_ROLES = {"roof_covering", "ridge_cap"}
+# Parts a variant may inherit from another variant of identical geometry ("structure_from").
+STRUCTURE_ROLES = {"gable_wall", "rafters", "ridge_beam"}
+
 # Names accepted in shared_components that belong to the environment, not the model.
 ENVIRONMENT_NAMES = ("ground",)
 
@@ -56,12 +62,24 @@ def variant_builder(variant):
     return variant.get("builder", "gable_roof")
 
 
+def covering_style(variant):
+    return (variant.get("covering") or {}).get("style")
+
+
 def builder_parts(variant):
+    """Parts the builder creates for (and that are owned by) this variant.
+
+    With "covering.style" the roof also gets a ridge cap; with "structure_from" the
+    variant owns only its covering + ridge cap and inherits the structure."""
     builder = variant_builder(variant)
     if builder not in VARIANT_BUILDERS:
         raise ValueError(f"unknown variant builder '{builder}' (known: {', '.join(VARIANT_BUILDERS)})")
-    return [{"id": f"{variant['id']}_{s}", "role": r, "layer": layer}
-            for s, r, layer in VARIANT_BUILDERS[builder]]
+    parts = list(VARIANT_BUILDERS[builder])
+    if covering_style(variant):
+        parts.append(("ridge_cap", "ridge_cap", 4))
+    if variant.get("structure_from"):
+        parts = [p for p in parts if p[1] not in STRUCTURE_ROLES]
+    return [{"id": f"{variant['id']}_{s}", "role": r, "layer": layer} for s, r, layer in parts]
 
 
 def variant_parts(variant):
@@ -75,6 +93,27 @@ def variant_map(states):
 
 def variant_ids(states, variant_id):
     return [p["id"] for p in variant_parts(variant_map(states)[variant_id])]
+
+
+def state_parts(states, state_id):
+    """Every roof part shown for a state: its own parts plus inherited structure."""
+    variants = variant_map(states)
+    variant = variants[state_id]
+    own = list(variant_parts(variant))
+    source = variant.get("structure_from")
+    if source:
+        own = [p for p in variant_parts(variants[source]) if p["role"] in STRUCTURE_ROLES] + own
+    return own
+
+
+def state_ids(states, state_id):
+    return [p["id"] for p in state_parts(states, state_id)]
+
+
+def build_set(states, state_id):
+    """Variants whose builders must run to show a state (itself + its structure source)."""
+    source = variant_map(states)[state_id].get("structure_from")
+    return [state_id] + ([source] if source else [])
 
 
 def shared_ids(states):
@@ -117,6 +156,19 @@ def validate_states(states):
         except ValueError as e:
             errors.append(f"variant {vid}: {e}")
             continue
+        style = covering_style(variant)
+        if style is not None and style not in COVERING_STYLES:
+            errors.append(f"variant {vid}: covering.style must be one of {COVERING_STYLES}")
+        source = variant.get("structure_from")
+        if source is not None:
+            src = variant_map(states).get(source)
+            if src is None or source == vid:
+                errors.append(f"variant {vid}: structure_from '{source}' is not another variant")
+            elif src.get("structure_from"):
+                errors.append(f"variant {vid}: structure_from '{source}' must own its structure (no chains)")
+            elif variant_builder(src) != variant_builder(variant) or \
+                    src.get("roof_pitch_degrees") != variant.get("roof_pitch_degrees"):
+                errors.append(f"variant {vid}: structure_from '{source}' needs the same builder and pitch")
         if variant_builder(variant) == "gable_roof":
             pitch = variant.get("roof_pitch_degrees")
             if isinstance(pitch, bool) or not isinstance(pitch, (int, float)) or not 5 <= pitch <= 70:

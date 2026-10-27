@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.architecture-story-studio/schemas/narration.schema.json",
+  "title": "Narration script (M3)",
+  "type": "object",
+  "required": [
+    "voice",
+    "pacing",
+    "beats"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "language": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "voice": {
+      "type": "object",
+      "required": [
+        "provider",
+        "id",
+        "mode",
+        "license"
+      ],
+      "properties": {
+        "provider": {
+          "enum": [
+            "omnivoice"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "design",
+            "clone"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "design": {
+          "type": "object"
+        },
+        "params": {
+          "type": "object"
+        },
+        "reference": {
+          "type": "object",
+          "required": [
+            "audio",
+            "text"
+          ]
+        },
+        "license": {
+          "type": "object",
+          "required": [
+            "status",
+            "components"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "APPROVED",
+                "LICENSE_REVIEW_REQUIRED",
+                "REJECTED"
+              ]
+            },
+            "components": {
+              "type": "array",
+              "minItems": 1
+            }
+          }
+        }
+      }
+    },
+    "pacing": {
+      "type": "object",
+      "required": [
+        "sentence_pause_seconds",
+        "beat_lead_in_seconds",
+        "beat_tail_seconds"
+      ]
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "sentences"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "framing",
+              "fact",
+              "interpretation"
+            ]
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sentences": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

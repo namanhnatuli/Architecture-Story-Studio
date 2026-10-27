@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "title": "Why Did Traditional Roofs in Suffolk Change?",
+  "status": "DRAFT — source-verified wording, awaiting editorial approval (G1)",
+  "voice": {
+    "provider": "omnivoice",
+    "id": "narrator_en_gb_m1",
+    "mode": "clone",
+    "language": "English",
+    "reference": {
+      "audio": "audio/voice/narrator_reference.wav",
+      "text": "This is the narrator reference for a short documentary about historic roofs in eastern England.",
+      "made_with": {
+        "mode": "design",
+        "design": {
+          "gender": "Male",
+          "age": "Middle-aged",
+          "pitch": "Low Pitch",
+          "accent": "British Accent"
+        }
+      },
+      "provenance": "Synthetic voice created with OmniVoice voice design; no real person's recording was used or cloned."
+    },
+    "params": {
+      "num_step": 32,
+      "guidance_scale": 2.0,
+      "denoise": true,
+      "speed": 0.92,
+      "preprocess_prompt": true,
+      "postprocess_output": true
+    },
+    "license": {
+      "status": "LICENSE_REVIEW_REQUIRED",
+      "reviewed_on": "2026-10-27",
+      "components": [
+        {
+          "name": "OmniVoice code",
+          "license": "Apache-2.0",
+          "evidence": "/Users/trananh/Work/Projects/OmniVoice/LICENSE; pyproject license = Apache-2.0"
+        },
+        {
+          "name": "k2-fsa/OmniVoice model weights",
+          "license": "apache-2.0 (model card front matter)",
+          "evidence": "HF cache snapshot 999c332499c708b116876ff5fe1aa5dd15f422ce README.md"
+        },
+        {
+          "name": "Higgs Audio v2 tokenizer (bundled audio_tokenizer)",
+          "license": "Boson Higgs Audio 2 Community License (based on Meta Llama 3 Community License)",
+          "evidence": "audio_tokenizer/LICENSE in the same snapshot",
+          "obligations": [
+            "Attribution 'Built with Higgs Materials licensed from Boson AI USA, Inc. ...' when distributing a product/service using it",
+            "Llama 3 Acceptable Use Policy applies",
+            "Expanded license required above 100,000 annual active users (applicability to a YouTube channel is unclear)",
+            "Outputs may not be used to improve other large language models"
+          ]
+        },
+        {
+          "name": "Training data",
+          "license": "not documented in the model card",
+          "evidence": "Model card has no dataset/licence statement; repo docs show Emilia as a training example only"
+        }
+      ],
+      "decision": "Internal previews only. Publication blocked until a human reviews the Boson licence terms (attribution, user threshold) and the training-data provenance."
+    },
+    "pace_note": "speed 0.92 chosen once for the whole narration (~173 wpm vs 185 wpm at 1.0, measured 2026-10-27); uniform, never per beat."
+  },
+  "pacing": {
+    "sentence_pause_seconds": 0.35,
+    "beat_lead_in_seconds": 0.3,
+    "beat_tail_seconds": 0.55
+  },
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "framing",
+      "claim_ids": [
+        "CLM_102",
+        "CLM_104",
+        "CLM_107"
+      ],
+      "sentences": [
+        "In Babergh and Mid Suffolk, in eastern England, historic roofs do not all look alike.",
+        "Some rise steeply. Others sit noticeably lower."
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_101",
+        "CLM_102"
+      ],
+      "sentences": [
+        "Older timber-framed buildings here were probably roofed with thatch or oak shingles, depending on which materials were available.",
+        "Longstraw thatch, the most traditional covering in these districts, is laid at a steep pitch of about fifty degrees."
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_103",
+        "CLM_104"
+      ],
+      "sentences": [
+        "Eventually, clay peg tiles replaced some of these thatched roofs.",
+        "Plain clay tile roofs are fairly steep too, typically forty-five degrees or more."
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_105",
+        "CLM_106"
+      ],
+      "sentences": [
+        "Materials also began to travel further.",
+        "From the eighteenth century, clay pantiles were used more commonly, as moving materials around the country became easier.",
+        "In the nineteenth century, the railways meant that slate from Wales, Cornwall and Cumbria was often used here."
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_107"
+      ],
+      "sentences": [
+        "Slate behaves differently.",
+        "Slate roofs here are usually pitched at around thirty degrees, and slate is more effective than smaller tiles at a lower pitch."
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_102",
+        "CLM_103",
+        "CLM_104",
+        "CLM_107"
+      ],
+      "sentences": [
+        "Thatch, clay tile and slate each have a typical pitch.",
+        "These are tendencies, not rules, and not every building followed the same path.",
+        "But the pitch of an old roof can still be a clue to its covering."
+      ]
+    }
+  ]
+}

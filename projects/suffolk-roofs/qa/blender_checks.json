@@ -1,0 +1,407 @@
+{
+  "blender": "5.2.2 LTS",
+  "preset": "preview",
+  "summary": {
+    "passed": 66,
+    "failed": 0,
+    "total": 66
+  },
+  "results": [
+    {
+      "shot": "SC_001",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "72 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_001",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "0 animated objects x 5 frames, max error 0.00e+00"
+    },
+    {
+      "shot": "SC_001",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "72 objects (45 shared) unchanged on 5 frames"
+    },
+    {
+      "shot": "SC_001",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_001",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "18 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_001",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "69 visible parts as expected"
+    },
+    {
+      "shot": "SC_001",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.070 at slate_30.slate_30_covering_right@1; lowest point y=0.312 (label band 0.12); ortho_scale 27.077"
+    },
+    {
+      "shot": "SC_001",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_001",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 8.04e-08"
+    },
+    {
+      "shot": "SC_001",
+      "check": "side_by_side_layout",
+      "status": "PASS",
+      "detail": "3 models, identical shared local transforms and dimensions, gaps 1.71 m, 2.20 m"
+    },
+    {
+      "shot": "SC_002",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "34 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_002",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "3 animated objects x 26 frames, max error 1.92e-07"
+    },
+    {
+      "shot": "SC_002",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "31 objects (15 shared) unchanged on 26 frames"
+    },
+    {
+      "shot": "SC_002",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_002",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_002",
+      "check": "exploded_returns_exactly",
+      "status": "PASS",
+      "detail": "hold offsets thatch_50_covering_left=0.55m, thatch_50_covering_right=0.55m, thatch_50_ridge_cap=0.50m"
+    },
+    {
+      "shot": "SC_002",
+      "check": "exploded_no_new_intersections",
+      "status": "PASS",
+      "detail": "0 new mesh intersections (33 resting contacts ignored)"
+    },
+    {
+      "shot": "SC_002",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "23 visible parts as expected"
+    },
+    {
+      "shot": "SC_002",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.018 at thatch_50_ridge_cap@217; lowest point y=0.070 (label band 0.00); ortho_scale 15.615"
+    },
+    {
+      "shot": "SC_002",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_002",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.46e-07"
+    },
+    {
+      "shot": "SC_003",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "34 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_003",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "12 animated objects x 42 frames, max error 4.36e-07"
+    },
+    {
+      "shot": "SC_003",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "28 objects (15 shared) unchanged on 42 frames"
+    },
+    {
+      "shot": "SC_003",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_003",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_003",
+      "check": "replace_start_end_states",
+      "status": "PASS",
+      "detail": "3 parts removed, 3 landed exactly (tol 1e-05)"
+    },
+    {
+      "shot": "SC_003",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "23 visible parts as expected"
+    },
+    {
+      "shot": "SC_003",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.010 at thatch_50_ridge_cap__fade@32; lowest point y=0.070 (label band 0.00); ortho_scale 15.615"
+    },
+    {
+      "shot": "SC_003",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_003",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "6 twins visible only mid-fade, never with their original or on frames 1/236"
+    },
+    {
+      "shot": "SC_003",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.46e-07"
+    },
+    {
+      "shot": "SC_004",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "11 elements"
+    },
+    {
+      "shot": "SC_004",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "11 elements x 38 frames, max error 1.15e-07"
+    },
+    {
+      "shot": "SC_004",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_004",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every element visible on the last frame"
+    },
+    {
+      "shot": "SC_005",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "34 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_005",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "32 animated objects x 82 frames, max error 4.53e-07"
+    },
+    {
+      "shot": "SC_005",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "18 objects (15 shared) unchanged on 82 frames"
+    },
+    {
+      "shot": "SC_005",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_005",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "6 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_005",
+      "check": "replace_start_end_states",
+      "status": "PASS",
+      "detail": "8 parts removed, 8 landed exactly (tol 1e-05)"
+    },
+    {
+      "shot": "SC_005",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "23 visible parts as expected"
+    },
+    {
+      "shot": "SC_005",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.016 at plain_tile_50_covering_left__fade@31; lowest point y=0.070 (label band 0.00); ortho_scale 15.615"
+    },
+    {
+      "shot": "SC_005",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_005",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "16 twins visible only mid-fade, never with their original or on frames 1/246"
+    },
+    {
+      "shot": "SC_005",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.46e-07"
+    },
+    {
+      "shot": "SC_006",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "72 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_006",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "101 animated objects x 31 frames, max error 2.15e-06"
+    },
+    {
+      "shot": "SC_006",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "18 objects (15 shared) unchanged on 31 frames"
+    },
+    {
+      "shot": "SC_006",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_006",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "12 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_006",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "69 visible parts as expected"
+    },
+    {
+      "shot": "SC_006",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.056 at thatch_50.thatch_50_covering_left__fade@35; lowest point y=0.312 (label band 0.12); ortho_scale 27.077"
+    },
+    {
+      "shot": "SC_006",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera moves only during the intro (frames 1-39), locked afterwards"
+    },
+    {
+      "shot": "SC_006",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "46 twins visible only mid-fade, never with their original or on frames 1/305"
+    },
+    {
+      "shot": "SC_006",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 8.04e-08"
+    },
+    {
+      "shot": "SC_006",
+      "check": "side_by_side_layout",
+      "status": "PASS",
+      "detail": "3 models, identical shared local transforms and dimensions, gaps 1.71 m, 2.20 m"
+    },
+    {
+      "shot": "ALL",
+      "check": "camera_identical_across_single_model_shots",
+      "status": "PASS",
+      "detail": "3 shots share one camera"
+    },
+    {
+      "shot": "SC_006",
+      "check": "intro_matches_single_model_camera",
+      "status": "PASS",
+      "detail": "frame 1 ortho 15.6146 vs 15.6146; location minus slot offset matches SC_002"
+    },
+    {
+      "shot": "SC_001",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 324f078b1d042973"
+    },
+    {
+      "shot": "SC_002",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 09449ae6c3209cb3"
+    },
+    {
+      "shot": "SC_003",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 3293f17358ce16e0"
+    },
+    {
+      "shot": "SC_004",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 93aa66a83d496dd2"
+    },
+    {
+      "shot": "SC_005",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 036c22382938b5ed"
+    },
+    {
+      "shot": "SC_006",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 725b81f139ee82dd"
+    }
+  ]
+}

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 — 2026-10-27 — M3: pipeline phim có lời dẫn + OmniVoice cục bộ (nhánh `m3-narrative-pipeline`)
+- **OmniVoice:** đã khảo sát project người dùng (không sửa gì); khởi động demo Gradio **chỉ ở localhost** (`--ip 127.0.0.1 --no-asr`, tắt analytics, HF offline); hợp đồng API xác nhận qua `/gradio_api/info`. Adapter stdlib `integrations/tts/omnivoice.py` ghép tham số theo nhãn, có timeout/retry, lỗi rõ ràng, kiểm tra audio (`integrations/audio_probe.py`).
+- **License:** code + trọng số Apache-2.0, nhưng tokenizer Higgs Audio v2 đi kèm theo Boson Higgs Audio 2 Community License → `LICENSE_REVIEW_REQUIRED`; chặn xuất bản. Giọng = voice design → giọng mẫu tổng hợp → clone (không giọng người thật).
+- **Pipeline** (`pipeline/`): `narration` (sinh theo câu, cache theo nội dung, sinh lại khi lỗi, audio beat ghép ở mức mẫu), `asr_check` (Whisper offline, WER), `beat_scheduler` (narration-first, frame chính xác, mốc neo, khóa timing), `assemble` (track, loudnorm 2 lượt, ghép, SRT cấp câu, QA), `storyboard_report`.
+- **Engine:** `covering.style` (thatch / plain_tile / slate + ngói nóc + vật liệu có texture thủ tục), `structure_from`, card 2D `engine/diagram.py` (font tích hợp), chốt chặn "không animate phần đang bị ẩn".
+- **Validator/CLI:** trạng thái claim PROVISIONAL / SOURCE_VERIFIED / EDITORIALLY_APPROVED / REJECTED (bắt buộc locator + excerpt), kiểm tra narration/license/beat/khóa timing, card; lệnh `tts-check`, `narrate`, `asr-check`, `schedule`, `smoke`, `assemble`, `gates`. Schema `narration`, `sources` v2.
+- **Pilot `suffolk-roofs`:** 73.0 s; QA Blender 66/66; 77 unit test; smoke + bản đầy đủ: lệch A/V 0 ms, −16.5 LUFS; gate → PREVIEW NỘI BỘ, chưa sẵn sàng xuất bản.
+- **MCP:** gỡ server `blender` ở scope local (đã sao lưu `~/.claude.json`); scope project (2.2.4, safe mode, không telemetry) đang có hiệu lực; tool + việc chặn của safe mode đã kiểm chứng.
+- **Lỗi đã sửa trong M3:** đọc vội (sinh lại), mất bản ghi cache (lưu theo từng đoạn), intro làm hiện mái tranh bị ẩn ở SIDE_BY_SIDE, ngói nóc ra ngoài khung khi exploded, mô tả SC_002 sai so với hình, ngắt dòng phụ đề.
+
 ## 0.2.5 — 2026-10-27 — M2.5: ổn định hóa, QA qua MCP, sẵn sàng cho M3
 - **Git:** giữ nguyên commit `init` của người dùng; baseline M2 được commit (`75487d3`, tag `m2-baseline`); `.gitignore` bổ sung media QA, `.blend@`, file tạm, `.env*`, `.claude/settings.local.json`.
 - **MCP:** gọi thật `get_addon_status`/`get_scene_info`/`execute_blender_code`/`look` qua stdio (21/21 lệnh trước khi sửa, kèm lượt kiểm tra lại sau khi sửa) trên một phiên bản Blender riêng mở bản sao của các scene. Đã xác định vì sao addon không lắng nghe (Blender mở trước khi addon được cài) và phát hiện cấu hình scope local ghi đè safe mode (chỉ ghi lại, không tự sửa).

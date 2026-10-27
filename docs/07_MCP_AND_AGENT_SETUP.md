@@ -52,3 +52,10 @@
 ```bash
 claude mcp remove blender -s local     # sau đó .mcp.json (ghim 2.2.4, safe mode) sẽ có hiệu lực
 ```
+
+## M3 — Đã xử lý xung đột scope (2026-10-27)
+- Trước khi sửa: cấu hình có hiệu lực là **scope local** `blender` (`uvx mcp-for-blender`, không ghim phiên bản, `env: {}` → không safe mode, telemetry bật). Đã sao lưu `~/.claude.json` thành `~/.claude.json.backup-m3-20261027-071823` (quyền 600).
+- Đã chạy `claude mcp remove blender -s local`. Lệnh này **chỉ** gỡ mục của project này; project không có server local nào khác và không đụng tới scope user.
+- Giờ có hiệu lực là **scope project** (`.mcp.json`): `mcp-for-blender==2.2.4` (phiên bản đã chạy được 30/30 lệnh ở M2.5), `BLENDER_MCP_SAFE_MODE=1`, `DISABLE_TELEMETRY=true`, `localhost:9876`.
+- Đã kiểm chứng: `claude mcp get blender` → Project config, ✓ Connected; tool được gọi qua client stdio với đúng lệnh/env đó: `get_addon_status`, `get_scene_info`, `look`, `execute_blender_code` đều chạy được, và **safe mode chặn `import os`** ("Rejected by safe mode").
+- Lần tới khi khởi động lại Claude Code, server project cần được phê duyệt một lần (`enabledMcpjsonServers` hiện đang rỗng).

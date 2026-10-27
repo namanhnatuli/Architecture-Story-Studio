@@ -37,3 +37,12 @@ If a requested change conflicts with these choices, document the reason and upda
 - **Git là nguồn sự thật cho file nguồn**; `PACKAGE_MANIFEST.sha256` được sinh từ `git ls-files`. Frame/video/blend là output được sinh ra, không commit.
 - **M3 không dùng multi-agent:** pipeline tuyến tính có gate; chỉ thêm dữ liệu (nguồn, narration, timing) và bước hậu kỳ (audio, ghép, phụ đề). Pilot Suffolk dựa trên nguồn chính quyền địa phương, phạm vi hẹp.
 
+## Bổ sung 2026-10-27 (M3) — không thay thế các quyết định ở trên
+- **TTS = OmniVoice cục bộ** (người dùng chỉ định), qua HTTP API Gradio của demo, **chỉ localhost**. Không dùng dịch vụ TTS ngoài. Adapter tách khỏi pipeline (`integrations/`).
+- **Không clone giọng người thật.** Người dẫn chuyện = voice design → giọng mẫu tổng hợp → clone (để âm sắc nhất quán).
+- **License TTS là một gate riêng (G2)**: `LICENSE_REVIEW_REQUIRED` cho phép preview nội bộ, chặn xuất bản.
+- **Narration-first:** timing của video chạy theo audio đo được; không bao giờ ép thời lượng giọng. Shot chỉ được nới dài cho animation.
+- **Xác minh nguồn ≠ duyệt biên tập:** SOURCE_VERIFIED dùng được cho bản nháp; xuất bản cần EDITORIALLY_APPROVED do người duyệt.
+- **Take TTS gốc được commit** (sinh ngẫu nhiên nên không tái lập được); audio beat, track, mix thì sinh lại.
+- **Mỗi state kiến trúc là một kết hợp thực sự** (độ dốc + hình học lớp phủ + vật liệu), không chỉ là đổi màu; `structure_from` cho các lần thay lớp phủ trên cùng một kết cấu.
+

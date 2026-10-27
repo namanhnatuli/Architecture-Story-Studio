@@ -1,0 +1,176 @@
+{
+  "schema_version": 2,
+  "building_type": "simple_rectangular_house",
+  "note": "Illustrative house. Pitches follow CLM_102/CLM_104/CLM_107; covering geometry is simplified and is not a reconstruction of a specific Suffolk building.",
+  "base": {
+    "builder": "rectangular_house_base",
+    "width": 4.6,
+    "depth": 3.2,
+    "wall_height": 2.55,
+    "rafter_count": 5
+  },
+  "shared_components": [
+    "foundation",
+    "floor",
+    "walls",
+    "door",
+    "windows",
+    "structure"
+  ],
+  "variants": [
+    {
+      "id": "thatch_50",
+      "name": "Longstraw thatch, about 50 degrees",
+      "builder": "gable_roof",
+      "roof_pitch_degrees": 50,
+      "color_key": "thatch",
+      "covering": {
+        "style": "thatch"
+      },
+      "claim_ids": [
+        "CLM_102"
+      ],
+      "components": [
+        {
+          "id": "thatch_50_gable_front",
+          "role": "gable_wall",
+          "layer": 0
+        },
+        {
+          "id": "thatch_50_gable_back",
+          "role": "gable_wall",
+          "layer": 0
+        },
+        {
+          "id": "thatch_50_rafters_left",
+          "role": "rafters",
+          "layer": 1
+        },
+        {
+          "id": "thatch_50_rafters_right",
+          "role": "rafters",
+          "layer": 1
+        },
+        {
+          "id": "thatch_50_ridge_beam",
+          "role": "ridge_beam",
+          "layer": 2
+        },
+        {
+          "id": "thatch_50_covering_left",
+          "role": "roof_covering",
+          "layer": 3
+        },
+        {
+          "id": "thatch_50_covering_right",
+          "role": "roof_covering",
+          "layer": 3
+        },
+        {
+          "id": "thatch_50_ridge_cap",
+          "role": "ridge_cap",
+          "layer": 4
+        }
+      ]
+    },
+    {
+      "id": "plain_tile_50",
+      "name": "Plain clay tile on the same 50-degree structure",
+      "builder": "gable_roof",
+      "roof_pitch_degrees": 50,
+      "color_key": "roof_tile",
+      "covering": {
+        "style": "plain_tile"
+      },
+      "structure_from": "thatch_50",
+      "claim_ids": [
+        "CLM_103",
+        "CLM_104"
+      ],
+      "components": [
+        {
+          "id": "plain_tile_50_covering_left",
+          "role": "roof_covering",
+          "layer": 3
+        },
+        {
+          "id": "plain_tile_50_covering_right",
+          "role": "roof_covering",
+          "layer": 3
+        },
+        {
+          "id": "plain_tile_50_ridge_cap",
+          "role": "ridge_cap",
+          "layer": 4
+        }
+      ]
+    },
+    {
+      "id": "slate_30",
+      "name": "Slate, about 30 degrees",
+      "builder": "gable_roof",
+      "roof_pitch_degrees": 30,
+      "color_key": "roof_slate",
+      "covering": {
+        "style": "slate"
+      },
+      "claim_ids": [
+        "CLM_107"
+      ],
+      "components": [
+        {
+          "id": "slate_30_gable_front",
+          "role": "gable_wall",
+          "layer": 0
+        },
+        {
+          "id": "slate_30_gable_back",
+          "role": "gable_wall",
+          "layer": 0
+        },
+        {
+          "id": "slate_30_rafters_left",
+          "role": "rafters",
+          "layer": 1
+        },
+        {
+          "id": "slate_30_rafters_right",
+          "role": "rafters",
+          "layer": 1
+        },
+        {
+          "id": "slate_30_ridge_beam",
+          "role": "ridge_beam",
+          "layer": 2
+        },
+        {
+          "id": "slate_30_covering_left",
+          "role": "roof_covering",
+          "layer": 3
+        },
+        {
+          "id": "slate_30_covering_right",
+          "role": "roof_covering",
+          "layer": 3
+        },
+        {
+          "id": "slate_30_ridge_cap",
+          "role": "ridge_cap",
+          "layer": 4
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "thatch_50",
+      "to": "plain_tile_50",
+      "template": "REPLACE_PARTS"
+    },
+    {
+      "from": "plain_tile_50",
+      "to": "slate_30",
+      "template": "REPLACE_PARTS"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Brief nghiên cứu pilot M3 — "Why Do Roof Pitches Vary?" (BẢN NHÁP)
 
+> **Đã thay thế (2026-10-27)** bởi `projects/suffolk-roofs/research/sources.json` + `RESEARCH_REPORT.md` (đối chiếu lại tại URL babergh.gov.uk; phát hiện chỗ lệch giữa PDF và trang web; trạng thái SOURCE_VERIFIED, chưa EDITORIALLY_APPROVED).
+
 Trạng thái: **bản nháp, G1 chưa đạt.** Mọi claim bên dưới đều là `provisional`: nguồn đã được AI đọc và các trích dẫn được chép nguyên văn ngày 2026-10-26, nhưng người duyệt phải kiểm tra lại từng trích dẫn trước khi bất kỳ claim nào được chuyển sang `verified`.
 
 ## Phạm vi hẹp đã chọn

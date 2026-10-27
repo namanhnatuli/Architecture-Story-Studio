@@ -27,3 +27,11 @@ projects/*/scenes/*.blend@
 .claude/settings.local.json
 projects/*/qa/**/*.blend
 projects/*/qa/**/*.blend1
+
+# --- M3: narration audio ---
+# Canonical TTS takes (audio/segments/*.wav, audio/voice/*.wav) ARE tracked: generation is
+# stochastic and the timing lock references their hashes. Everything below is rebuilt
+# deterministically from them by `narrate` (beats) and `assemble` (tracks, mixes).
+projects/*/audio/beats/
+projects/*/audio/narration_track_*.wav
+projects/*/audio/narration_mix_*.wav

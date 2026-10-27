@@ -1,0 +1,103 @@
+[
+ {
+  "label": "m3_addon_status",
+  "tool": "get_addon_status",
+  "arguments": {},
+  "isError": false,
+  "seconds": 0.43,
+  "text": [
+   "{\n  \"up_to_date\": true,\n  \"protocol_version\": 15,\n  \"expected_protocol_version\": 15,\n  \"addon_version\": [\n    1,\n    8\n  ],\n  \"capabilities\": [\n    \"bpy_api_lookup\",\n    \"describe_node_type\",\n    \"drain_human_activity\",\n    \"execute_code\",\n    \"get_addon_info\",\n    \"get_object_info\",\n    \"get_scene_info\",\n    \"get_telemetry_consent\",\n    \"get_viewport_screenshot\",\n    \"get_world_state_snapshot\",\n    \"list_scene_items\",\n    \"pick_viewport_object\",\n    \"set_telemetry_consent\"\n  ],\n  \"blender_version\": \"5.2.2 LTS\",\n  \"premium_generators\": [],\n  \"libraries\": {\n    \"polyhaven\": \"off\",\n    \"sketchfa"
+  ],
+  "images": []
+ },
+ {
+  "label": "m3_safe_mode_probe",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import os\nprint(os.getcwd())"
+  },
+  "isError": false,
+  "seconds": 0.0,
+  "text": [
+   "Rejected by safe mode - line 1: import of 'os' is not allowed\n\nBLENDER_MCP_SAFE_MODE is enabled: scripts may only import bpy, bmesh, mathutils, and pure-python stdlib modules. No eval/exec/open, no os/subprocess/network access, no handlers/timers/drivers, no class or property registration, and no loading of external .blend datablocks. Blender operators for rendering, saving, and import/export ARE allowed. Rewrite the script within these limits; only the user can disable safe mode."
+  ],
+  "images": []
+ },
+ {
+  "label": "m3_SC_002_scene",
+  "tool": "get_scene_info",
+  "arguments": {
+   "root": "SLOT_main",
+   "limit": 12
+  },
+  "isError": false,
+  "seconds": 0.05,
+  "text": [
+   "Scene 'Scene' | 1 camera, 1 empty, 2 light, 35 mesh | active none | selected none | mode OBJECT\n\nShowing 12 of 35 (name | type | location | size | hidden | children):\nSLOT_main | empty | at (0.0, 0.0, 0.0) | 34 children\n  ceiling_joists | mesh | at (0.0, 0.0, 2.49) | size 4.6x2.76x0.12\n  door | mesh | at (-0.8, -1.7, 0.94) | size 0.83x0.07x1.88\n  door_handle | mesh | at (-0.47, -1.75, 0.92) | size 0.07x0.04x0.08\n  floor | mesh | at (0.0, 0.0, 0.01) | size 4.6x3.2x0.1\n  foundation | mesh | at (0.0, 0.0, -0.2) | size 4.92x3.52x0.36\n  plain_tile_50_covering_left | mesh | at (0.0, 0.0, 0.0) | size"
+  ],
+  "images": []
+ },
+ {
+  "label": "m3_SC_002_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    160,
+    230,
+    280,
+    348
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.96,
+  "text": [
+   "Frames left to right, top to bottom: 1, 160, 230, 280, 348. Framed 25 objects, 320 x 320 x 6.27 m across, centred at [0.0, 0.0, 2.75]."
+  ],
+  "images": [
+   "m3_SC_002_frames_0.png"
+  ]
+ },
+ {
+  "label": "m3_open_SC_006",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m3/blend/SC_006.blend')\nsc = bpy.context.scene\nsc.frame_set(sc.frame_end)\nvis = sorted(o.name for o in bpy.data.objects if o.name.startswith('plain_tile_50.') and o.type == 'MESH' and not o.hide_render and 'covering' in o.name)\nprint('visible coverings in tile slot at end:', vis)"
+  },
+  "isError": false,
+  "seconds": 0.03,
+  "text": [
+   "Code executed successfully: visible coverings in tile slot at end: ['plain_tile_50.plain_tile_50_covering_left', 'plain_tile_50.plain_tile_50_covering_right']\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "m3_SC_006_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    20,
+    39,
+    120,
+    305
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.49,
+  "text": [
+   "Frames left to right, top to bottom: 1, 20, 39, 120, 305. Framed 73 objects, 320 x 320 x 6.27 m across, centred at [0.0, 0.0, 2.75]."
+  ],
+  "images": [
+   "m3_SC_006_frames_0.png"
+  ]
+ }
+]

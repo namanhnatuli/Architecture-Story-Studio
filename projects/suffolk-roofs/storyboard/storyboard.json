@@ -1,0 +1,436 @@
+{
+  "generated_by": "pipeline/beat_scheduler.py — do not edit; edit storyboard.template.json",
+  "key_stills": [
+    {
+      "id": "01_three_roofs",
+      "shot": "SC_001",
+      "time_seconds": 5.53
+    },
+    {
+      "id": "02_thatch",
+      "shot": "SC_002",
+      "marker": "exploded_hold"
+    },
+    {
+      "id": "03_tile_replace",
+      "shot": "SC_003",
+      "marker": "middle"
+    },
+    {
+      "id": "04_transport_schematic",
+      "shot": "SC_004",
+      "time_seconds": 13.22
+    },
+    {
+      "id": "05_slate_replace",
+      "shot": "SC_005",
+      "marker": "middle"
+    },
+    {
+      "id": "06_comparison",
+      "shot": "SC_006",
+      "marker": "highlight_peak"
+    }
+  ],
+  "shots": [
+    {
+      "id": "SC_001",
+      "beat_ids": [
+        "B1"
+      ],
+      "visual_purpose": "Hook: three illustrative roofs from one region at identical scale, showing that historic roofs there differ in covering and pitch.",
+      "visual_type": "BLENDER_3D",
+      "from_state": "thatch_50",
+      "to_state": "slate_30",
+      "transition": "SIDE_BY_SIDE",
+      "camera": "LOCKED_THREE_QUARTER",
+      "animation": {
+        "template": "SIDE_BY_SIDE",
+        "states": [
+          "thatch_50",
+          "plain_tile_50",
+          "slate_30"
+        ],
+        "gap_ratio": 0.3,
+        "label_band": 0.12
+      },
+      "narration": "In Babergh and Mid Suffolk, in eastern England, historic roofs do not all look alike. Some rise steeply. Others sit noticeably lower.",
+      "claim_ids": [
+        "CLM_102",
+        "CLM_104",
+        "CLM_107"
+      ],
+      "start_seconds": 0.0,
+      "duration_seconds": 9.0
+    },
+    {
+      "id": "SC_002",
+      "beat_ids": [
+        "B2"
+      ],
+      "cut_from_previous": "hard",
+      "visual_purpose": "Thatch example: a 50-degree longstraw-style thatched roof. When the narration names longstraw thatch and its steep pitch (CLM_102), the thick covering lifts off as a separate layer, showing its thickness above the steep 50-degree gable, is highlighted, then returns exactly. (Rafters stay hidden from this camera.)",
+      "visual_type": "BLENDER_3D",
+      "from_state": "thatch_50",
+      "to_state": "thatch_50",
+      "transition": "EXPLODED_VIEW",
+      "camera": "LOCKED_THREE_QUARTER",
+      "animation": {
+        "template": "EXPLODED_VIEW",
+        "state": "thatch_50",
+        "components": [
+          "thatch_50_covering_left",
+          "thatch_50_covering_right",
+          "thatch_50_ridge_cap"
+        ],
+        "direction_mode": "HINT",
+        "distance": 0.55,
+        "per_component": {
+          "thatch_50_ridge_cap": {
+            "distance": 0.5
+          }
+        },
+        "sequence": "SIMULTANEOUS",
+        "order": "DISASSEMBLY",
+        "hold_start_seconds": 7.78,
+        "explode_seconds": 1.2,
+        "hold_seconds": 3.0,
+        "return_seconds": 1.2,
+        "hold_end_seconds": 0.5,
+        "easing": "SMOOTH",
+        "highlight": {
+          "components": [
+            "thatch_50_covering_left",
+            "thatch_50_covering_right"
+          ],
+          "mode": "SIMULTANEOUS",
+          "strength": 0.3,
+          "fade_seconds": 0.4
+        }
+      },
+      "narration": "Older timber-framed buildings here were probably roofed with thatch or oak shingles, depending on which materials were available. Longstraw thatch, the most traditional covering in these districts, is laid at a steep pitch of about fifty degrees.",
+      "claim_ids": [
+        "CLM_101",
+        "CLM_102"
+      ],
+      "start_seconds": 9.0,
+      "duration_seconds": 14.5
+    },
+    {
+      "id": "SC_003",
+      "beat_ids": [
+        "B3"
+      ],
+      "visual_purpose": "Clay tile example: on the same structure, the thatch covering lifts away and a plain clay tile covering settles in (CLM_103 'replaced some'); pitch stays steep (CLM_104).",
+      "visual_type": "BLENDER_3D",
+      "from_state": "thatch_50",
+      "to_state": "plain_tile_50",
+      "transition": "REPLACE_PARTS",
+      "camera": "LOCKED_THREE_QUARTER",
+      "animation": {
+        "template": "REPLACE_PARTS",
+        "from_state": "thatch_50",
+        "to_state": "plain_tile_50",
+        "easing": "SMOOTH",
+        "hold_start_seconds": 0.7,
+        "hold_end_seconds": 1.0,
+        "outgoing": {
+          "direction": "OUTWARD_UP",
+          "distance": 2.2,
+          "lift": 0.4,
+          "lift_seconds": 0.4,
+          "move_seconds": 1.1,
+          "stagger_seconds": 0.12,
+          "fade": true,
+          "fade_start": 0.0
+        },
+        "incoming": {
+          "direction": "FROM_ABOVE",
+          "distance": 1.4,
+          "move_seconds": 1.3,
+          "stagger_seconds": 0.2,
+          "fade": true,
+          "fade_end": 0.75,
+          "overlap_seconds": 0.3,
+          "easing": "EASE_OUT"
+        }
+      },
+      "narration": "Eventually, clay peg tiles replaced some of these thatched roofs. Plain clay tile roofs are fairly steep too, typically forty-five degrees or more.",
+      "claim_ids": [
+        "CLM_103",
+        "CLM_104"
+      ],
+      "start_seconds": 23.5,
+      "duration_seconds": 9.833333333333334
+    },
+    {
+      "id": "SC_004",
+      "beat_ids": [
+        "B4"
+      ],
+      "cut_from_previous": "hard",
+      "visual_purpose": "Transport context: a self-made schematic (not a map) naming the eighteenth-century pantile change (CLM_105) and the nineteenth-century railway slate sources (CLM_106).",
+      "visual_type": "MOTION_GRAPHICS",
+      "from_state": null,
+      "to_state": null,
+      "transition": "CARD",
+      "camera": "CARD",
+      "graphic": {
+        "type": "CARD",
+        "background_color_key": "background",
+        "elements": [
+          {
+            "id": "title",
+            "kind": "text",
+            "text": "Materials began to travel further",
+            "position": [
+              0.5,
+              0.86
+            ],
+            "size": 0.055,
+            "color": "#3C3A36",
+            "align": "CENTER",
+            "appear": 0.3
+          },
+          {
+            "id": "pantiles",
+            "kind": "text",
+            "text": "18th century: clay pantiles used more commonly",
+            "position": [
+              0.5,
+              0.72
+            ],
+            "size": 0.038,
+            "color": "#8A4B33",
+            "align": "CENTER",
+            "appear": 3.0
+          },
+          {
+            "id": "rail",
+            "kind": "text",
+            "text": "19th century: railways — slate often used here",
+            "position": [
+              0.5,
+              0.62
+            ],
+            "size": 0.038,
+            "color": "#3E4A55",
+            "align": "CENTER",
+            "appear": 10.22
+          },
+          {
+            "id": "cumbria",
+            "kind": "text",
+            "text": "Cumbria",
+            "position": [
+              0.2,
+              0.46
+            ],
+            "size": 0.042,
+            "color": "#3E4A55",
+            "align": "CENTER",
+            "appear": 11.82
+          },
+          {
+            "id": "wales",
+            "kind": "text",
+            "text": "Wales",
+            "position": [
+              0.16,
+              0.3
+            ],
+            "size": 0.042,
+            "color": "#3E4A55",
+            "align": "CENTER",
+            "appear": 12.22
+          },
+          {
+            "id": "cornwall",
+            "kind": "text",
+            "text": "Cornwall",
+            "position": [
+              0.2,
+              0.14
+            ],
+            "size": 0.042,
+            "color": "#3E4A55",
+            "align": "CENTER",
+            "appear": 12.62
+          },
+          {
+            "id": "suffolk",
+            "kind": "text",
+            "text": "Suffolk",
+            "position": [
+              0.8,
+              0.3
+            ],
+            "size": 0.05,
+            "color": "#3C3A36",
+            "align": "CENTER",
+            "appear": 10.22
+          },
+          {
+            "id": "arrow_cumbria",
+            "kind": "arrow",
+            "start": [
+              0.3,
+              0.45
+            ],
+            "end": [
+              0.7,
+              0.33
+            ],
+            "width": 0.008,
+            "color": "#4F5A64",
+            "appear": 11.82
+          },
+          {
+            "id": "arrow_wales",
+            "kind": "arrow",
+            "start": [
+              0.26,
+              0.3
+            ],
+            "end": [
+              0.7,
+              0.3
+            ],
+            "width": 0.008,
+            "color": "#4F5A64",
+            "appear": 12.22
+          },
+          {
+            "id": "arrow_cornwall",
+            "kind": "arrow",
+            "start": [
+              0.3,
+              0.15
+            ],
+            "end": [
+              0.7,
+              0.27
+            ],
+            "width": 0.008,
+            "color": "#4F5A64",
+            "appear": 12.62
+          },
+          {
+            "id": "note",
+            "kind": "text",
+            "text": "Schematic, not to scale. Source: Babergh & Mid Suffolk District Councils",
+            "position": [
+              0.5,
+              0.045
+            ],
+            "size": 0.03,
+            "color": "#6E6A62",
+            "align": "CENTER",
+            "appear": 0.3
+          }
+        ],
+        "fade_seconds": 0.4
+      },
+      "narration": "Materials also began to travel further. From the eighteenth century, clay pantiles were used more commonly, as moving materials around the country became easier. In the nineteenth century, the railways meant that slate from Wales, Cornwall and Cumbria was often used here.",
+      "claim_ids": [
+        "CLM_105",
+        "CLM_106"
+      ],
+      "start_seconds": 33.333333333333336,
+      "duration_seconds": 16.708333333333332
+    },
+    {
+      "id": "SC_005",
+      "beat_ids": [
+        "B5"
+      ],
+      "cut_from_previous": "hard",
+      "visual_purpose": "Slate example: the steep tiled roof is replaced by a slate roof at about 30 degrees on its own structure; walls stay (CLM_107).",
+      "visual_type": "BLENDER_3D",
+      "from_state": "plain_tile_50",
+      "to_state": "slate_30",
+      "transition": "REPLACE_PARTS",
+      "camera": "LOCKED_THREE_QUARTER",
+      "animation": {
+        "template": "REPLACE_PARTS",
+        "from_state": "plain_tile_50",
+        "to_state": "slate_30",
+        "easing": "SMOOTH",
+        "hold_start_seconds": 0.3,
+        "hold_end_seconds": 1.0,
+        "outgoing": {
+          "direction": "OUTWARD_UP",
+          "distance": 2.2,
+          "lift": 0.4,
+          "lift_seconds": 0.4,
+          "move_seconds": 1.1,
+          "stagger_seconds": 0.12,
+          "fade": true,
+          "fade_start": 0.0
+        },
+        "incoming": {
+          "direction": "FROM_ABOVE",
+          "distance": 1.6,
+          "move_seconds": 1.3,
+          "stagger_seconds": 0.2,
+          "fade": true,
+          "fade_end": 0.75,
+          "overlap_seconds": 0.3,
+          "easing": "EASE_OUT"
+        }
+      },
+      "narration": "Slate behaves differently. Slate roofs here are usually pitched at around thirty degrees, and slate is more effective than smaller tiles at a lower pitch.",
+      "claim_ids": [
+        "CLM_107"
+      ],
+      "start_seconds": 50.041666666666664,
+      "duration_seconds": 10.25
+    },
+    {
+      "id": "SC_006",
+      "beat_ids": [
+        "B6"
+      ],
+      "visual_purpose": "Comparison: pull back from the slate roof to all three coverings side by side at identical scale; highlight the roof parts while the narration states that each covering has a typical pitch, as a tendency rather than a rule.",
+      "visual_type": "BLENDER_3D",
+      "from_state": "thatch_50",
+      "to_state": "slate_30",
+      "transition": "SIDE_BY_SIDE",
+      "camera": "LOCKED_THREE_QUARTER",
+      "animation": {
+        "template": "SIDE_BY_SIDE",
+        "states": [
+          "thatch_50",
+          "plain_tile_50",
+          "slate_30"
+        ],
+        "gap_ratio": 0.3,
+        "label_band": 0.12,
+        "intro": {
+          "from_state": "slate_30",
+          "seconds": 1.6,
+          "easing": "SMOOTH",
+          "fade_start": 0.35,
+          "fade_end": 0.9
+        },
+        "highlight": {
+          "components": "DIFFERENCES",
+          "start_seconds": 1.7,
+          "rise_seconds": 0.5,
+          "hold_seconds": 2.2,
+          "fall_seconds": 0.8,
+          "strength": 0.3
+        }
+      },
+      "narration": "Thatch, clay tile and slate each have a typical pitch. These are tendencies, not rules, and not every building followed the same path. But the pitch of an old roof can still be a clue to its covering.",
+      "claim_ids": [
+        "CLM_102",
+        "CLM_103",
+        "CLM_104",
+        "CLM_107"
+      ],
+      "start_seconds": 60.291666666666664,
+      "duration_seconds": 12.708333333333334
+    }
+  ]
+}

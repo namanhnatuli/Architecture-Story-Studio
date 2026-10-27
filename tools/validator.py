@@ -4,6 +4,10 @@ from pathlib import Path
 
 from engine import motion, spec, templates  # pure-Python modules, no bpy
 
+APPROVED_CLAIM = {"EDITORIALLY_APPROVED", "verified"}   # "verified": v0.1 ledger vocabulary
+SOURCE_CHECKED_CLAIM = {"SOURCE_VERIFIED", "EDITORIALLY_APPROVED", "verified"}
+GRAPHIC_KINDS = ("text", "arrow")
+
 
 class ValidationError(Exception):
     pass
@@ -83,6 +87,10 @@ def validate_project(project_dir, final=False):
         for ref in shot.get("claim_ids", []):
             if ref not in claim_map:
                 errors.append(f"{sid}: nonexistent claim {ref}")
+            elif claim_map[ref].get("review_status") == "REJECTED":
+                errors.append(f"{sid}: uses REJECTED claim {ref}")
+        if shot.get("visual_type", "BLENDER_3D") == "MOTION_GRAPHICS":
+            errors.extend(f"{sid}: {e}" for e in validate_graphic(shot.get("graphic"), b))
         for field in ("from_state", "to_state"):
             v = shot.get(field)
             if v is not None and v not in variant_ids:
@@ -104,6 +112,8 @@ def validate_project(project_dir, final=False):
     plans = {}
     if not state_errors and type(fps) is int and fps > 0:
         for shot in shots:
+            if shot.get("visual_type", "BLENDER_3D") != "BLENDER_3D":
+                continue  # 2D cards / archival media are not planned by the 3D templates
             try:
                 plans[shot.get("id")] = (shot, templates.plan_shot(
                     shot, states, fps, templates.placeholder_slots(shot, states)))
@@ -115,6 +125,14 @@ def validate_project(project_dir, final=False):
             if not kid or kid in still_ids:
                 errors.append(f"key still id missing or duplicated: {kid!r}")
             still_ids.add(kid)
+            card = next((s for s in shots if s.get("id") == still.get("shot")
+                         and s.get("visual_type") == "MOTION_GRAPHICS"), None)
+            if card is not None:
+                try:
+                    templates.key_still_frame(card, float(still.get("time_seconds")), fps)
+                except (motion.PlanError, TypeError, ValueError) as e:
+                    errors.append(f"key still {kid}: {e}")
+                continue
             if still.get("shot") not in plans:
                 errors.append(f"key still {kid}: unknown or invalid shot {still.get('shot')!r}")
                 continue
@@ -129,13 +147,41 @@ def validate_project(project_dir, final=False):
                 except (motion.PlanError, TypeError, ValueError) as e:
                     errors.append(f"key still {kid}: {e}")
     for claim in sources.get("claims", []):
+        cid, status = claim.get("id"), claim.get("review_status")
         for ref in claim.get("source_ids", []):
             if ref not in source_map:
-                errors.append(f"Claim {claim.get('id')} references missing source {ref}")
-        if claim.get("review_status") != "verified":
-            warnings.append(f"Claim {claim.get('id')} not verified — demo only")
-        elif not claim.get("source_ids"):
-            errors.append(f"Verified claim {claim.get('id')} needs source IDs")
+                errors.append(f"Claim {cid} references missing source {ref}")
+        if status in SOURCE_CHECKED_CLAIM and not claim.get("source_ids"):
+            errors.append(f"Verified claim {cid} needs source IDs")
+        if status in ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED"):
+            evidence = claim.get("evidence") or []
+            for ref in claim.get("source_ids", []):
+                ev = [e for e in evidence if e.get("source_id") == ref]
+                if not ev or not all(e.get("locator") and e.get("excerpt") for e in ev):
+                    errors.append(f"Claim {cid}: {status} needs a locator and an excerpt for {ref}")
+                if not (source_map.get(ref) or {}).get("url"):
+                    errors.append(f"Claim {cid}: source {ref} has no url")
+        if status == "REJECTED":
+            continue
+        if status not in APPROVED_CLAIM:
+            warnings.append(f"Claim {cid} not verified — demo only" if status in ("provisional", "contested", None)
+                            else f"Claim {cid} is {status}, not editorially approved — internal preview only")
+
+    # M3 narration + timing lock (only when the project has a narration script).
+    narration_path = base / "script/narration.json"
+    narration = read_json(narration_path) if narration_path.exists() else None
+    if narration is not None:
+        from pipeline import narration as nar
+        errors.extend(f"narration: {e}" for e in nar.validate(narration, sources))
+        order = [b.get("id") for b in narration.get("beats", [])]
+        covered = [bid for s in shots for bid in s.get("beat_ids", [])]
+        if covered != order:
+            errors.append(f"shots must cover every narration beat exactly once, in order (shots {covered}, beats {order})")
+        timing_path = base / "script/timing.json"
+        if timing_path.exists():
+            errors.extend(validate_timing(read_json(timing_path), narration, story, fps, duration))
+        elif project.get("audio_timing_locked"):
+            errors.append("audio_timing_locked is true but script/timing.json is missing")
 
     for asset in assets.get("assets", []):
         if asset.get("status") != "approved":
@@ -146,10 +192,61 @@ def validate_project(project_dir, final=False):
     if final:
         if not project.get("audio_timing_locked"):
             errors.append("FINAL gate: audio timing not locked")
-        if any(claim.get("review_status") != "verified" for claim in sources.get("claims", [])):
-            errors.append("FINAL gate: unverified claims")
+        if any(c.get("review_status") not in APPROVED_CLAIM | {"REJECTED"} for c in sources.get("claims", [])):
+            errors.append("FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)")
+        if narration is not None:
+            status = ((narration.get("voice") or {}).get("license") or {}).get("status")
+            if status != "APPROVED":
+                errors.append(f"FINAL gate: narration voice licence is {status!r}, not APPROVED")
         if any(asset.get("status") != "approved" for asset in assets.get("assets", [])):
             errors.append("FINAL gate: unapproved assets")
         if project.get("factual_review") != "verified":
             errors.append("FINAL gate: factual_review is not verified")
     return errors, warnings
+
+
+def validate_graphic(graphic, duration):
+    """2D card spec (MOTION_GRAPHICS shots): element ids, kinds, positions, timing."""
+    errors = []
+    if not isinstance(graphic, dict) or not graphic.get("elements"):
+        return ["MOTION_GRAPHICS shot needs graphic.elements"]
+    ids = set()
+    for e in graphic["elements"]:
+        eid = e.get("id")
+        if not eid or eid in ids:
+            errors.append(f"graphic element id missing or duplicated: {eid!r}")
+        ids.add(eid)
+        if e.get("kind") not in GRAPHIC_KINDS:
+            errors.append(f"graphic {eid}: kind must be one of {GRAPHIC_KINDS}")
+        points = [e.get("position")] if e.get("kind") == "text" else [e.get("start"), e.get("end")]
+        for pt in points:
+            if not (isinstance(pt, list) and len(pt) == 2 and all(isinstance(v, (int, float)) and 0 <= v <= 1 for v in pt)):
+                errors.append(f"graphic {eid}: positions are [x, y] in 0..1 card units")
+        if e.get("kind") == "text" and not e.get("text"):
+            errors.append(f"graphic {eid}: empty text")
+        appear = e.get("appear", 0.0)
+        if isinstance(appear, str):
+            errors.append(f"graphic {eid}: unresolved anchor {appear!r} (run `schedule`)")
+        elif isinstance(duration, (int, float)) and not 0 <= appear < duration:
+            errors.append(f"graphic {eid}: appears at {appear}s, outside the shot")
+    return errors
+
+
+def validate_timing(timing, narration, story, fps, duration):
+    """The timing lock must match the current narration, storyboard and project duration."""
+    from pipeline import beat_scheduler, narration as nar
+    errors = []
+    basis = timing.get("lock_basis") or {}
+    if basis.get("narration_sha256") != nar.narration_hash(narration):
+        errors.append("timing lock is stale: narration.json changed since `narrate`/`schedule`")
+    if timing.get("storyboard_sha256") != beat_scheduler.content_hash(story):
+        errors.append("timing lock is stale: storyboard.json differs from the scheduled one (re-run `schedule`)")
+    if timing.get("fps") != fps:
+        errors.append("timing fps differs from project fps")
+    if isinstance(duration, (int, float)) and abs(timing.get("total_seconds", -1) - duration) > 1e-6:
+        errors.append("project duration differs from timing.json total")
+    for s in timing.get("shots", []):
+        if s.get("frames") != round(s.get("duration_seconds", 0) * fps):
+            errors.append(f"{s.get('id')}: timing duration is not a whole number of frames")
+    return errors
+

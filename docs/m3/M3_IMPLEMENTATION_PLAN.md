@@ -1,5 +1,7 @@
 # M3 — Kế hoạch triển khai: dựng hình kiến trúc theo dẫn chuyện
 
+> **Cập nhật 2026-10-27: đã triển khai pilot** — xem [M3_PIPELINE.md](M3_PIPELINE.md) và `projects/suffolk-roofs/qa/M3_QA_REPORT.md`. Khác so với kế hoạch: TTS = OmniVoice cục bộ (được người dùng chỉ định); thư mục `pipeline/` (narration, audio_manifest, asr_check, beat_scheduler, assemble, storyboard_report) thay cho `tools/timing.py` / `tools/assemble.py`; gate của project có lời dẫn đánh số lại G0–G6; thêm `covering.style`, `structure_from` và card 2D. Phần dưới đây là bản kế hoạch gốc, giữ nguyên để làm lịch sử.
+
 Trạng thái: **ĐỀ XUẤT** (2026-10-26, cuối M2.5). Chưa có gì trong tài liệu này được triển khai.
 Pilot: *"Why Do Roof Pitches Vary?"*, 60–90 s, tiếng Anh. Xem [PILOT_RESEARCH_BRIEF.md](PILOT_RESEARCH_BRIEF.md) và [PILOT_STORYBOARD_DRAFT.md](PILOT_STORYBOARD_DRAFT.md).
 

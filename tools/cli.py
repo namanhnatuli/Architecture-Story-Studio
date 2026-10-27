@@ -429,15 +429,158 @@ def do_check_blender(p, preset):
             print(f"Blender QA: {s['passed']}/{s['total']} passed => {report}")
 
 
+# ---------------------------------------------------------------- M3 narration pipeline
+def do_tts_check(p):
+    from integrations.tts import omnivoice as ov
+    from pipeline import narration as nar
+    client = ov.OmniVoiceClient()
+    try:
+        health = client.health()
+    except ov.OmniVoiceError as e:
+        raise SystemExit(f"OmniVoice: {e}")
+    print(json.dumps(health, indent=2))
+    print("Voice-design options:", json.dumps(client.voice_options()))
+    narration = nar.load(p)
+    if narration:
+        spec = nar.voice_spec(narration, p)
+        problems = client.validate_voice(spec) if spec.mode == "design" or Path(spec.reference_audio).is_file() else \
+            ["reference clip not generated yet (run `narrate`)"]
+        print(f"Narrator {narration['voice']['id']} ({spec.mode}): {'OK' if not problems else problems}")
+        print(f"Voice licence status: {narration['voice']['license']['status']}")
+
+
+def do_narrate(p, regenerate=False):
+    do_validate(p)
+    from pipeline import narration as nar
+    data = nar.generate(p, regenerate=regenerate)
+    total = sum(b["duration"] for b in data["beats"].values())
+    print(f"SUCCESS: {len(data['beats'])} beats, {total:.2f}s of measured speech -> {p / 'audio'}")
+
+
+def do_asr_check(p):
+    from pipeline import asr_check
+    failures = asr_check.check_project(p)
+    if failures:
+        raise SystemExit("ASR check failed: " + "; ".join(failures))
+    print("ASR check: PASS (every sentence recognised as English, WER <= "
+          f"{asr_check.MAX_WER})")
+
+
+def do_schedule(p):
+    from pipeline import beat_scheduler
+    timing = beat_scheduler.run(p)
+    for s in timing["shots"]:
+        flag = " (extended for animation)" if s["extended_by_animation"] else ""
+        print(f"  {s['id']}: frames {s['start_frame']}-{s['start_frame'] + s['frames'] - 1} "
+              f"({s['duration_seconds']:.3f}s) beats {', '.join(s['beat_ids'])}{flag}")
+    print(f"Total {timing['total_frames']} frames = {timing['total_seconds']:.3f}s; "
+          f"timing {'LOCKED' if timing['locked'] else 'NOT locked (ASR check missing or failing)'}")
+    from pipeline import storyboard_report
+    print("Script & storyboard:", storyboard_report.write(p))
+    do_validate(p)
+
+
+def do_smoke(p, shot_id, preset):
+    """One shot end to end: its narration beats -> Blender render -> MP4 with narration."""
+    from pipeline import assemble
+    do_validate(p)
+    match = [s for s in shots(p) if s["id"] == shot_id]
+    if not match:
+        raise SystemExit(f"Unknown shot {shot_id}")
+    render_shot(p, match[0], preset)
+    video = encode_shot(p, match[0], preset)
+    out = p / "qa" / "smoke" / f"{shot_id}_smoke{suffix(preset)}.mp4"
+    report = assemble.assemble(p, video, out, shot_ids=[shot_id])
+    (p / "qa" / "smoke" / f"{shot_id}_smoke_report.json").write_text(json.dumps(report, indent=2))
+    if report["problems"]:
+        raise SystemExit("Smoke test FAILED: " + "; ".join(report["problems"]))
+    print(f"SMOKE PASS: {out}")
+
+
+def do_assemble(p, preset):
+    from pipeline import assemble
+    video = p / "output" / f"{slug_name(p)}_preview{suffix(preset)}.mp4"
+    if not video.is_file():
+        raise SystemExit(f"Missing {video}; run `preview --project {p.name}` first")
+    out = p / "output" / f"{slug_name(p)}_pilot{suffix(preset)}.mp4"
+    report = assemble.assemble(p, video, out)
+    (p / "qa" / f"assembly_report{suffix(preset)}.json").write_text(json.dumps(report, indent=2))
+    if report["problems"]:
+        raise SystemExit("Assembly QA FAILED: " + "; ".join(report["problems"]))
+    print(f"SUCCESS: {out} (+ {Path(report['subtitles']).name})")
+
+
+def do_gates(p, preset):
+    """G0-G6 status for a narrated project (M3 numbering); writes qa/gates.json."""
+    from pipeline import narration as nar
+    gates = {}
+    errors, warnings = validate_project(p)
+    gates["G0 project & schema validation"] = ("PASS" if not errors else "FAIL", errors[:5] or ["validate passes"])
+    sources = read_json(p / "research/sources.json")
+    narration = nar.load(p)
+    claims = {c["id"]: c for c in sources.get("claims", [])}
+    used = sorted({c for b in (narration or {}).get("beats", []) for c in b.get("claim_ids", [])})
+    statuses = {c: claims.get(c, {}).get("review_status") for c in used}
+    if any(s in (None, "REJECTED", "PROVISIONAL", "provisional") for s in statuses.values()):
+        g1 = ("FAIL", [f"{c}: {s}" for c, s in statuses.items() if s not in ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED")])
+    elif all(s in ("EDITORIALLY_APPROVED", "verified") for s in statuses.values()):
+        g1 = ("PASS", [f"{len(used)} claims editorially approved"])
+    else:
+        g1 = ("PENDING_EDITORIAL", [f"{len(used)} narrated claims SOURCE_VERIFIED; editorial approval pending"])
+    gates["G1 evidence & script review"] = g1
+    manifest_path = p / "audio/narration_manifest.json"
+    manifest = read_json(manifest_path) if manifest_path.is_file() else {}
+    current = {s["cache_key"] for b in manifest.get("beats", {}).values() for s in b["sentences"]}
+    asr = [r.get("asr", {}).get("pass") for r in manifest.get("segments", {}).values() if r.get("cache_key") in current]
+    licence = ((narration or {}).get("voice") or {}).get("license", {}).get("status")
+    tech_ok = bool(asr) and all(asr)
+    gates["G2 OmniVoice API & voice licensing"] = (
+        "PASS" if tech_ok and licence == "APPROVED" else ("BLOCKED_LICENSE" if tech_ok else "FAIL"),
+        [f"{len(asr)} sentences generated + ASR-verified" if tech_ok else "ASR check missing/failing",
+         f"voice licence: {licence}"])
+    timing_path = p / "script/timing.json"
+    timing = read_json(timing_path) if timing_path.is_file() else {}
+    timing_errors = [e for e in errors if "timing" in e]
+    gates["G3 narration timing lock"] = ("PASS" if timing.get("locked") and not timing_errors else "FAIL",
+                                         [f"{timing.get('total_frames')} frames, locked={timing.get('locked')}"] + timing_errors)
+    bq = p / "qa" / "blender_checks.json"
+    media = p / "qa" / f"preview_media_report{suffix(preset)}.json"
+    b = read_json(bq)["summary"] if bq.is_file() else None
+    m = read_json(media) if media.is_file() else None
+    g4_ok = bool(b) and b["failed"] == 0 and bool(m) and not m.get("problems")
+    gates["G4 Blender visual preview"] = ("PASS" if g4_ok else "FAIL",
+                                          [f"Blender QA {b['passed']}/{b['total']}" if b else "no Blender QA report",
+                                           "media QA PASS" if m and not m.get("problems") else "media QA missing/failing",
+                                           "visual review of rendered frames: see qa/M3_QA_REPORT.md"])
+    ar = p / "qa" / f"assembly_report{suffix(preset)}.json"
+    a = read_json(ar) if ar.is_file() else None
+    gates["G5 media assembly"] = ("PASS" if a and not a["problems"] else "FAIL",
+                                  a["problems"] if a and a["problems"] else
+                                  ([f"{a['frames']} frames, {a['loudness_after']['integrated_lufs']} LUFS"] if a else ["not assembled"]))
+    final_errors, _ = validate_project(p, final=True)
+    final_errors = [e for e in final_errors if e.startswith("FINAL gate")]
+    gates["G6 final publication readiness"] = ("PASS" if not final_errors and all(v[0] == "PASS" for v in gates.values())
+                                               else "BLOCKED", final_errors or ["all gates pass"])
+    verdict = "PUBLICATION-READY" if gates["G6 final publication readiness"][0] == "PASS" else \
+        "INTERNAL REVIEW PREVIEW — NOT PUBLICATION-READY"
+    for name, (status, notes) in gates.items():
+        print(f"{status:>18}  {name}: {'; '.join(notes)}")
+    print(f"Verdict: {verdict}")
+    (p / "qa" / "gates.json").write_text(json.dumps({"verdict": verdict, "gates": {k: {"status": v[0], "notes": v[1]}
+                                                                                    for k, v in gates.items()}}, indent=2))
+
+
 def main():
     parser = argparse.ArgumentParser(description="Architecture Story Studio — Mac M4 pilot CLI")
     parser.add_argument("command", choices=["doctor", "validate", "still", "preview", "shot", "encode",
-                                            "check-blender", "final-gate", "manifest"])
+                                            "check-blender", "final-gate", "manifest", "tts-check", "narrate",
+                                            "asr-check", "schedule", "smoke", "assemble", "gates"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
     parser.add_argument("--preset", default="preview", choices=["preview", "review", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
     parser.add_argument("--force", action="store_true", help="Re-render shots even if cached")
     parser.add_argument("--check", action="store_true", help="manifest: verify instead of rewriting")
+    parser.add_argument("--regenerate", action="store_true", help="narrate: ignore the audio cache")
     args = parser.parse_args()
     if args.command == "doctor":
         do_doctor()
@@ -462,6 +605,22 @@ def main():
         do_encode(p, args.preset)
     elif args.command == "check-blender":
         do_check_blender(p, args.preset)
+    elif args.command == "tts-check":
+        do_tts_check(p)
+    elif args.command == "narrate":
+        do_narrate(p, args.regenerate)
+    elif args.command == "asr-check":
+        do_asr_check(p)
+    elif args.command == "schedule":
+        do_schedule(p)
+    elif args.command == "smoke":
+        if not args.shot:
+            raise SystemExit("--shot is required, e.g. --shot SC_003")
+        do_smoke(p, args.shot, args.preset)
+    elif args.command == "assemble":
+        do_assemble(p, args.preset)
+    elif args.command == "gates":
+        do_gates(p, args.preset)
 
 
 if __name__ == "__main__":

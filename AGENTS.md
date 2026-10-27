@@ -53,3 +53,9 @@ python3 tools/cli.py preview
 
 ## Cách tạo video dài
 Mỗi shot là một `scene` render độc lập; có cache và manifest. Một kịch bản dài phải chia thành beats, mỗi beat gắn nguồn và visual strategy. Không kéo 1 project bpy thành 1 timeline 15 phút khi không cần.
+
+## Project có lời dẫn (M3, bổ sung 2026-10-27)
+- Đọc thêm `docs/m3/M3_PIPELINE.md` và `docs/integrations/OMNIVOICE.md`. TTS chỉ dùng OmniVoice cục bộ (localhost); không gọi dịch vụ TTS ngoài khi chưa được phép; không clone giọng người thật.
+- Gate của project có lời dẫn: G0–G6 (`python3 tools/cli.py gates`). Không tự đổi claim sang `EDITORIALLY_APPROVED` hay đổi license giọng sang `APPROVED`: đó là quyết định của người.
+- Không sửa tay `storyboard.json` / `timing.json` (được sinh ra); hãy sửa `storyboard.template.json` / `narration.json` rồi chạy `narrate` → `schedule`.
+

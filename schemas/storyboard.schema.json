@@ -100,6 +100,17 @@
               "hard"
             ],
             "description": "match (default): the cut from the previous shot must be invisible (media QA SSIM >= 0.98); hard: deliberate visible cut."
+          },
+          "beat_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "M3: narration beats played during this shot"
+          },
+          "graphic": {
+            "type": "object",
+            "description": "M3: MOTION_GRAPHICS card (text/arrow elements in 0..1 card units)"
           }
         },
         "additionalProperties": false
@@ -121,8 +132,11 @@
             "type": "string"
           },
           "time_seconds": {
-            "type": "number",
-            "minimum": 0
+            "type": [
+              "number",
+              "string"
+            ],
+            "description": "number, or a narration anchor in the template"
           },
           "marker": {
             "type": "string"
@@ -130,6 +144,12 @@
         },
         "additionalProperties": false
       }
+    },
+    "generated_by": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
     }
   },
   "additionalProperties": false

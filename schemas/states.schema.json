@@ -73,6 +73,30 @@
               },
               "additionalProperties": false
             }
+          },
+          "covering": {
+            "type": "object",
+            "properties": {
+              "style": {
+                "enum": [
+                  "thatch",
+                  "plain_tile",
+                  "slate"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "description": "M3: covering geometry style; adds a ridge cap part"
+          },
+          "structure_from": {
+            "type": "string",
+            "description": "M3: inherit gables/rafters/ridge beam from a variant with the same builder and pitch"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false
@@ -142,6 +166,9 @@
         }
       },
       "additionalProperties": false
+    },
+    "note": {
+      "type": "string"
     }
   },
   "additionalProperties": false

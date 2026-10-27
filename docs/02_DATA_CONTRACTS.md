@@ -31,3 +31,6 @@ Dùng file dữ liệu làm giao diện giữa AI và Blender; không truyền t
 - `storyboard.json` có `key_stills: [{id, shot, time_seconds | marker}]`. `marker` lấy từ plan của template (ví dụ `exploded_hold`), nên still luôn rơi đúng khoảnh khắc cần xem dù timing có đổi.
 - Tên object trong Blender: shot một-model dùng chính `component_id`; SIDE_BY_SIDE dùng `<state>.<component_id>`. Custom prop `component_id` luôn giữ ID ổn định.
 - Thời lượng shot phải là số nguyên frame; tổng các shot phải bằng `project.duration_seconds`.
+
+## M3 — project có lời dẫn (2026-10-27)
+Xem `docs/m3/M3_PIPELINE.md`. Hợp đồng mới: `script/narration.json` (`schemas/narration.schema.json`), sổ bằng chứng v2 (`schemas/sources.schema.json`: `evidence[{source_id, locator, excerpt}]`, các trạng thái PROVISIONAL / SOURCE_VERIFIED / EDITORIALLY_APPROVED / REJECTED; `verified` của v0.1 vẫn được chấp nhận và tương đương EDITORIALLY_APPROVED), `storyboard.template.json` (có mốc neo) → `storyboard.json` (được sinh ra), `script/timing.json` (khóa: hash của narration, audio beat và storyboard). Shot có `beat_ids`; validator yêu cầu mỗi beat được bao phủ đúng một lần, theo thứ tự.

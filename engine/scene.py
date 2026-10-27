@@ -22,7 +22,40 @@ def _socket(sockets, identifier):
     return next(s for s in sockets if s.identifier == identifier)
 
 
-def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, render_method="DITHERED"):
+def add_surface_detail(material, color, detail):
+    """Subtle procedural variation: object-space noise scales the base colour and drives
+    a bump. `stretch` elongates features (e.g. straw along the slope for thatch)."""
+    nodes, links = material.node_tree.nodes, material.node_tree.links
+    bsdf = nodes.get("Principled BSDF")
+    coord = nodes.new("ShaderNodeTexCoord")
+    mapping = nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = tuple(detail.get("stretch", (1.0, 1.0, 1.0)))
+    links.new(coord.outputs["Object"], mapping.inputs["Vector"])
+    noise = nodes.new("ShaderNodeTexNoise")
+    noise.inputs["Scale"].default_value = detail.get("scale", 8.0)
+    noise.inputs["Detail"].default_value = detail.get("detail", 4.0)
+    links.new(mapping.outputs["Vector"], noise.inputs["Vector"])
+    span = nodes.new("ShaderNodeMapRange")
+    span.inputs["To Min"].default_value = 1.0 - detail.get("variation", 0.08)
+    span.inputs["To Max"].default_value = 1.0 + detail.get("variation", 0.08)
+    links.new(noise.outputs["Fac"], span.inputs["Value"])
+    tint = nodes.new("ShaderNodeMix")
+    tint.data_type = "RGBA"
+    tint.blend_type = "MULTIPLY"
+    _socket(tint.inputs, "Factor_Float").default_value = 1.0
+    _socket(tint.inputs, "A_Color").default_value = hex_to_rgba(color)
+    links.new(span.outputs["Result"], _socket(tint.inputs, "B_Color"))
+    links.new(_socket(tint.outputs, "Result_Color"), bsdf.inputs["Base Color"])
+    links.new(_socket(tint.outputs, "Result_Color"), bsdf.inputs["Emission Color"])
+    if detail.get("bump", 0.0) > 0:
+        bump = nodes.new("ShaderNodeBump")
+        bump.inputs["Strength"].default_value = detail["bump"]
+        links.new(noise.outputs["Fac"], bump.inputs["Height"])
+        links.new(bump.outputs["Normal"], bsdf.inputs["Normal"])
+
+
+def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, render_method="DITHERED",
+                  detail=None):
     """Principled material driven per object by two custom properties:
     ass_highlight (0..1 self-coloured glow) and ass_transparency (0 opaque .. 1
     invisible). Missing properties read as 0."""
@@ -52,6 +85,8 @@ def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, rend
     alpha.inputs[0].default_value = 1.0
     links.new(tr.outputs["Fac"], alpha.inputs[1])
     links.new(alpha.outputs[0], bsdf.inputs["Alpha"])
+    if detail:
+        add_surface_detail(material, color, detail)
     if hasattr(material, "surface_render_method"):
         material.surface_render_method = render_method
     if hasattr(material, "use_transparent_shadow"):
@@ -74,6 +109,14 @@ def make_materials(style):
         "metal": make_material("Metal detail", "#7C7C78", roughness=0.35, metallic=0.55, **kw),
         "roof_variant_a": make_material("Roof A graphite", p["roof_variant_a"], **kw),
         "roof_variant_b": make_material("Roof B terracotta", p["roof_variant_b"], **kw),
+        # M3 coverings (illustrative appearance, not material science)
+        "thatch": make_material("Thatch (longstraw, illustrative)", p.get("thatch", "#B8975A"), roughness=0.95,
+                                detail={"scale": 6.0, "stretch": (1.0, 18.0, 18.0), "variation": 0.14, "bump": 0.25},
+                                **kw),
+        "roof_tile": make_material("Plain clay tile (illustrative)", p.get("roof_tile", "#B1593E"), roughness=0.75,
+                                   detail={"scale": 14.0, "variation": 0.07, "bump": 0.05}, **kw),
+        "roof_slate": make_material("Slate (illustrative)", p.get("roof_slate", "#4F5A64"), roughness=0.45,
+                                    detail={"scale": 10.0, "variation": 0.05, "bump": 0.03}, **kw),
     }
 
 

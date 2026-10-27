@@ -93,6 +93,36 @@ def triangle_object(name, width, rise, thickness, material, collection, location
     return obj
 
 
+def cylinder_object(name, radius, length, material, collection, location, segments=20, bevel=0.0):
+    """Cylinder along the Y axis (ridge rolls, half-round ridge tiles)."""
+    bm = bmesh.new()
+    bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=False, segments=segments, radius1=radius,
+                          radius2=radius, depth=length, matrix=Matrix.Rotation(math.pi / 2, 4, "X"))
+    mesh = bpy.data.meshes.new(f"{name}_mesh")
+    bm.to_mesh(mesh)
+    bm.free()
+    obj = bpy.data.objects.new(name, mesh)
+    obj.location = location
+    _finish(obj, material, collection, bevel)
+    if hasattr(obj.data, "shade_smooth"):
+        obj.data.shade_smooth()
+    return obj
+
+
+def v_ridge_object(name, width, height, length, material, collection, location):
+    """'V'-shaped ridge tile: a triangular prism along Y, apex up."""
+    verts = []
+    for y in (-length / 2, length / 2):
+        verts += [(-width / 2, y, 0.0), (width / 2, y, 0.0), (0.0, y, height)]
+    faces = [(0, 1, 2), (5, 4, 3), (0, 3, 4, 1), (1, 4, 5, 2), (2, 5, 3, 0)]
+    mesh = bpy.data.meshes.new(f"{name}_mesh")
+    mesh.from_pydata(verts, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    obj.location = location
+    return _finish(obj, material, collection, bevel=0.006)
+
+
 # ---------------------------------------------------------------- base (shared)
 def build_rectangular_house_base(params, materials, collection):
     w, d, h = params["width"], params["depth"], params["wall_height"]
@@ -128,6 +158,18 @@ RAFTER_T = 0.14      # rafter depth (perpendicular to the slope)
 RAFTER_W = 0.06
 RIDGE_W, RIDGE_H = 0.12, 0.18
 
+# Covering styles (illustrative, simplified; see projects/*/research for sources).
+# thickness: covering layer; eave/gable: extra overhang; ribs: (gauge, width, height) of
+# course lines on the top face; ridge: shape + size of the ridge capping.
+COVERING_STYLES = {
+    "thatch": {"thickness": 0.30, "eave": 0.18, "gable": 0.12, "bevel": 0.05, "ribs": None,
+               "ridge": ("roll", 0.17)},
+    "plain_tile": {"thickness": 0.05, "eave": 0.05, "gable": 0.0, "bevel": 0.01,
+                   "ribs": (0.115, 0.025, 0.012), "ridge": ("half_round", 0.085)},
+    "slate": {"thickness": 0.025, "eave": 0.04, "gable": 0.0, "bevel": 0.006,
+              "ribs": (0.22, 0.02, 0.006), "ridge": ("v", (0.22, 0.10))},
+}
+
 
 def build_gable_roof(variant, params, materials, collection):
     vid = variant["id"]
@@ -139,6 +181,8 @@ def build_gable_roof(variant, params, materials, collection):
     slope_len = run / math.cos(a)
     ys = spec.rafter_positions(d, params["rafter_count"])
     roof_mat = materials[variant["color_key"]]
+    style = COVERING_STYLES[spec.covering_style(variant)] if spec.covering_style(variant) else None
+    structure_inherited = bool(variant.get("structure_from"))
     objs = []
 
     def tag(obj, suffix, hint):
@@ -155,9 +199,15 @@ def build_gable_roof(variant, params, materials, collection):
         nx, nz = sign * math.sin(a), math.cos(a)     # outward roof normal
         rotation = (0, sign * a, 0)
         center = (eave_x + sx * slope_len / 2, 0, h + sz * slope_len / 2 + 0.02)
-        cover = box_object(f"{vid}_covering_{side}", [((0, 0, 0), (slope_len + .12, d + .42, COVERING_T))],
-                           roof_mat, collection, location=center, rotation=rotation, bevel=.018)
+        if style is None:  # v0.1/M2 panel, unchanged
+            boxes, bevel = [((0, 0, 0), (slope_len + .12, d + .42, COVERING_T))], .018
+        else:
+            boxes, bevel = styled_covering_boxes(style, slope_len, d, sign), style["bevel"]
+        cover = box_object(f"{vid}_covering_{side}", boxes, roof_mat, collection,
+                           location=center, rotation=rotation, bevel=bevel)
         objs.append(tag(cover, f"covering_{side}", (nx, 0, nz)))
+        if structure_inherited:
+            continue
         s_mid, length = (s_start + s_end) / 2, s_end - s_start
         r_center = (eave_x + sx * s_mid + nx * rafter_off, 0, h + sz * s_mid + nz * rafter_off)
         # Seat cut 1 mm above the wall top: rafters bear on the walls, never sink into them.
@@ -165,6 +215,11 @@ def build_gable_roof(variant, params, materials, collection):
                              materials["wood"], collection, location=r_center, rotation=rotation, bevel=.008,
                              clip_below_z=h + 0.001)
         objs.append(tag(rafters, f"rafters_{side}", (nx, 0, nz)))
+
+    if style is not None:
+        objs.append(tag(ridge_cap(vid, style, a, h, rise, d, roof_mat, collection), "ridge_cap", (0, 0, 1)))
+    if structure_inherited:
+        return objs
 
     # Ridge beam: top touches the covering underside at the beam's edges.
     top = h + (run - RIDGE_W / 2) * math.tan(a) + 0.02 - (COVERING_T / 2) / math.cos(a) - 0.004
@@ -177,6 +232,45 @@ def build_gable_roof(variant, params, materials, collection):
                                 (0, y, h + rise / 3))
         objs.append(tag(gable, f"gable_{side}", hint))
     return objs
+
+
+def styled_covering_boxes(style, slope_len, depth, sign):
+    """Covering slab (+ course ribs) in the panel's local frame.
+
+    Local x runs along the slope (towards the eave when x has the sign of `sign`),
+    local z is the outward normal; the underside stays where the M2 panel's was, so
+    rafters, ridge beam and seat cuts are unchanged."""
+    under = -COVERING_T / 2
+    t = style["thickness"]
+    length = slope_len + .12 + style["eave"]
+    width = depth + .42 + 2 * style["gable"]
+    eave_end = sign * ((slope_len + .12) / 2 + style["eave"])   # local x of the eave edge
+    up = -sign                                                  # local x direction towards the ridge
+    slab_center_x = eave_end + up * length / 2
+    boxes = [((slab_center_x, 0, under + t / 2), (length, width, t))]
+    if style["ribs"]:
+        gauge, rib_w, rib_h = style["ribs"]
+        n = int((length - gauge / 2) // gauge)
+        for i in range(1, n + 1):
+            x = eave_end + up * (i * gauge)
+            boxes.append(((x, 0, under + t + rib_h / 2), (rib_w, width, rib_h)))
+    return boxes
+
+
+def ridge_cap(vid, style, a, h, rise, depth, material, collection):
+    """Ridge capping over the apex joint: roll (thatch), half-round tile or 'V' tile."""
+    t = style["thickness"]
+    top = h + rise + 0.02 + (-COVERING_T / 2 + t) / math.cos(a)   # top surface at the apex
+    length = depth + .42 + 2 * style["gable"]
+    shape, size = style["ridge"]
+    name = f"{vid}_ridge_cap"
+    if shape == "v":
+        width, height = size
+        return v_ridge_object(name, width, height, length, material, collection, (0, 0, top - height * 0.45))
+    radius = size
+    sink = 0.35 if shape == "roll" else 0.25
+    return cylinder_object(name, radius, length, material, collection, (0, 0, top - sink * radius),
+                           segments=24, bevel=0.0)
 
 
 BASE_BUILDER_FUNCS = {"rectangular_house_base": build_rectangular_house_base}

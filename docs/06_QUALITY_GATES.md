@@ -47,3 +47,6 @@ Kết quả: `projects/<slug>/qa/blender_checks.json`, `qa/preview_media_report.
 | `python3 tools/cli.py manifest --check` | `PACKAGE_MANIFEST.sha256` khớp với các file đang được git theo dõi |
 
 Render dài trên macOS chạy dưới `caffeinate -i`: nếu không, máy tự ngủ khi idle sẽ làm một frame "đứng" 15 phút (đã quan sát ngày 2026-10-26, xác nhận qua `pmset -g log`).
+
+## M3 — gate cho project có lời dẫn (G0–G6)
+Xem bảng trong `docs/m3/M3_PIPELINE.md`. `python3 tools/cli.py gates --project <slug>` ghi `qa/gates.json` và in kết luận. Kết luận chỉ là "PUBLICATION-READY" khi G6 PASS; nếu không thì là "INTERNAL REVIEW PREVIEW — NOT PUBLICATION-READY".

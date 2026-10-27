@@ -1,5 +1,7 @@
 # Storyboard nháp cho pilot M3 — "Why Do Roof Pitches Vary?" (Suffolk, ~72 s)
 
+> **Đã thay thế (2026-10-27)** bởi `projects/suffolk-roofs/storyboard/storyboard.template.json` và `projects/suffolk-roofs/script/SCRIPT_AND_STORYBOARD.md` (được sinh ra). CLM_006 bị loại; card cho beat thatch được thay bằng mô hình 3D thatch thật. Bản nháp giữ lại làm lịch sử.
+
 Trạng thái: **bản nháp để duyệt.** Narration chưa khóa (G1 chưa đạt; cần TTS cho G4). Thời lượng là ước tính khoảng 150 từ/phút; `tools/timing.py` sẽ thay chúng bằng thời lượng audio đo được.
 Mọi chi tiết hình học đều dùng các template và builder hiện có. State mới chỉ là tham số:
 

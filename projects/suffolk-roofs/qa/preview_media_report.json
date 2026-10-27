@@ -1,0 +1,126 @@
+{
+  "utc": "2026-10-27T00:59:18.253859+00:00",
+  "preset": "preview",
+  "files": {
+    "output/shots/SC_001.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 216,
+      "duration": 9.0,
+      "black_segments": 0,
+      "size_bytes": 68982
+    },
+    "output/shots/SC_002.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 348,
+      "duration": 14.5,
+      "black_segments": 0,
+      "size_bytes": 170680
+    },
+    "output/shots/SC_003.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 236,
+      "duration": 9.833333,
+      "black_segments": 0,
+      "size_bytes": 140339
+    },
+    "output/shots/SC_004.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 401,
+      "duration": 16.708333,
+      "black_segments": 0,
+      "size_bytes": 126139
+    },
+    "output/shots/SC_005.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 246,
+      "duration": 10.25,
+      "black_segments": 0,
+      "size_bytes": 179516
+    },
+    "output/shots/SC_006.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 305,
+      "duration": 12.708333,
+      "black_segments": 0,
+      "size_bytes": 194854
+    },
+    "output/suffolk_roofs_preview.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 1752,
+      "duration": 73.0,
+      "black_segments": 0,
+      "size_bytes": 801733
+    }
+  },
+  "expected_total_frames": 1752,
+  "cuts": [
+    {
+      "cut": "SC_001->SC_002",
+      "mode": "hard",
+      "ssim": 0.79625,
+      "ok": true
+    },
+    {
+      "cut": "SC_002->SC_003",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_003->SC_004",
+      "mode": "hard",
+      "ssim": 0.88128,
+      "ok": true
+    },
+    {
+      "cut": "SC_004->SC_005",
+      "mode": "hard",
+      "ssim": 0.77941,
+      "ok": true
+    },
+    {
+      "cut": "SC_005->SC_006",
+      "mode": "match",
+      "ssim": 0.99974,
+      "ok": true
+    }
+  ],
+  "problems": [],
+  "sheets": [
+    "qa/contact_sheet_preview.png",
+    "qa/progress_SC_001.png",
+    "qa/progress_SC_002.png",
+    "qa/progress_SC_003.png",
+    "qa/progress_SC_004.png",
+    "qa/progress_SC_005.png",
+    "qa/progress_SC_006.png"
+  ]
+}

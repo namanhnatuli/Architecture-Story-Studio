@@ -92,15 +92,15 @@ def signature(ctx, frames):
         ctx.scene.frame_set(f)
         for name in sorted(ctx.render_objects):
             obj = ctx.render_objects[name]
-            if obj.type != "MESH":
+            if obj.type not in ("MESH", "FONT"):
                 h.update(f"{f}:{name}:{[round(v, 6) for row in obj.matrix_world for v in row]}".encode())
                 continue
             if obj.hide_render:
                 h.update(f"{f}:{name}:hidden".encode())
                 continue
             vals = [round(v, 6) for row in obj.matrix_world for v in row]
-            vals += [int(obj.hide_render), round(float(obj["ass_transparency"]), 6),
-                     round(float(obj["ass_highlight"]), 6)]
+            vals += [int(obj.hide_render), round(float(obj.get("ass_transparency", 0.0)), 6),
+                     round(float(obj.get("ass_highlight", 0.0)), 6)]
             h.update(f"{f}:{name}:{vals}".encode())
     return h.hexdigest()
 
@@ -193,8 +193,9 @@ def check_shot(ctx, states, report):
     # 5. Template start/end states.
     if template == "REPLACE_PARTS":
         a, b = templates.replace_states(ctx.shot, ctx.cfg, states)
-        out_names = [templates.object_name("main", i) for i in spec.variant_ids(states, a)]
-        in_names = [templates.object_name("main", i) for i in spec.variant_ids(states, b)]
+        out_ids, in_ids = templates.replace_sets(states, a, b)
+        out_names = [templates.object_name("main", i) for i in out_ids]
+        in_names = [templates.object_name("main", i) for i in in_ids]
         issues = []
         ctx.scene.frame_set(1)
         for n in out_names:
@@ -244,7 +245,7 @@ def check_shot(ctx, states, report):
             final_states = [templates.replace_states(ctx.shot, ctx.cfg, states)[1]]
         else:
             final_states = ctx.visible_variants[slot_id]
-        ids = list(spec.shared_ids(states)) + [i for v in final_states for i in spec.variant_ids(states, v)]
+        ids = templates.visible_component_ids(states, final_states)
         expected_visible |= {templates.object_name(slot_id, i) for i in ids}
     actual_visible = {n for n, o in ctx.objects.items() if _visible(o)}
     report.add(sid, "final_visibility", actual_visible == expected_visible,
@@ -339,6 +340,36 @@ def check_shot(ctx, states, report):
     return frames
 
 
+def check_card(ctx, report):
+    """2D card shot: every element built, fades match the plan, camera static."""
+    sid = ctx.shot["id"]
+    expected = {e["id"] for e in ctx.shot["graphic"]["elements"]}
+    built = set(ctx.objects)
+    report.add(sid, "card_elements_built", expected == built,
+               f"missing {sorted(expected - built)}" if expected != built else f"{len(built)} elements")
+    frames = sample_frames(ctx)
+    worst, bad = 0.0, []
+    cam = ctx.camera.matrix_world.copy()
+    moved = False
+    for f in frames:
+        ctx.scene.frame_set(f)
+        moved |= ctx.camera.matrix_world != cam
+        for name in ctx.plan.tracks:
+            want = ctx.plan.sample(name, motion.TRANSPARENCY, f)[0]
+            got = float(ctx.objects[name]["ass_transparency"])
+            worst = max(worst, abs(want - got))
+            if abs(want - got) > TOL and len(bad) < 5:
+                bad.append(f"{name}@{f}: plan {want} vs {got}")
+    report.add(sid, "plan_matches_evaluated_keys", not bad,
+               "; ".join(bad) or f"{len(ctx.plan.tracks)} elements x {len(frames)} frames, max error {worst:.2e}")
+    report.add(sid, "camera_locked", not moved, "card camera never moves" if not moved else "card camera moved")
+    ctx.scene.frame_set(ctx.frame_count)
+    hidden = [n for n, o in ctx.objects.items() if float(o["ass_transparency"]) > 1e-6]
+    report.add(sid, "final_visibility", not hidden, f"still transparent at the end: {hidden}" if hidden
+               else "every element visible on the last frame")
+    return frames
+
+
 def run_all(project_dir, preset="preview"):
     data = shot_builder.load_project(project_dir, preset)
     states = data["states"]
@@ -347,6 +378,10 @@ def run_all(project_dir, preset="preview"):
     for shot in data["story"]["shots"]:
         sid = shot["id"]
         ctx = shot_builder.build_shot(project_dir, sid, preset)
+        if shot.get("visual_type", "BLENDER_3D") == "MOTION_GRAPHICS":
+            signatures[sid] = (check_card(ctx, report), None)
+            signatures[sid] = (signatures[sid][0], signature(ctx, signatures[sid][0]))
+            continue
         frames = check_shot(ctx, states, report)
         if ctx.cfg["template"] != "SIDE_BY_SIDE":
             cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale)

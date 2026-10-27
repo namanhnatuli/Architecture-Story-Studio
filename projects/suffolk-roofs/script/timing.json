@@ -1,0 +1,251 @@
+{
+  "fps": 24,
+  "total_frames": 1752,
+  "total_seconds": 73.0,
+  "pacing": {
+    "sentence_pause_seconds": 0.35,
+    "beat_lead_in_seconds": 0.3,
+    "beat_tail_seconds": 0.55
+  },
+  "shots": [
+    {
+      "id": "SC_001",
+      "start_frame": 0,
+      "frames": 216,
+      "start_seconds": 0.0,
+      "duration_seconds": 9.0,
+      "narration_seconds": 8.96,
+      "animation_min_seconds": 0.083333,
+      "extended_by_animation": false,
+      "beat_ids": [
+        "B1"
+      ]
+    },
+    {
+      "id": "SC_002",
+      "start_frame": 216,
+      "frames": 348,
+      "start_seconds": 9.0,
+      "duration_seconds": 14.5,
+      "narration_seconds": 14.47,
+      "animation_min_seconds": 13.708333,
+      "extended_by_animation": false,
+      "beat_ids": [
+        "B2"
+      ]
+    },
+    {
+      "id": "SC_003",
+      "start_frame": 564,
+      "frames": 236,
+      "start_seconds": 23.5,
+      "duration_seconds": 9.833333333333334,
+      "narration_seconds": 9.82,
+      "animation_min_seconds": 4.541667,
+      "extended_by_animation": false,
+      "beat_ids": [
+        "B3"
+      ]
+    },
+    {
+      "id": "SC_004",
+      "start_frame": 800,
+      "frames": 401,
+      "start_seconds": 33.333333333333336,
+      "duration_seconds": 16.708333333333332,
+      "narration_seconds": 16.69,
+      "animation_min_seconds": 13.541667,
+      "extended_by_animation": false,
+      "beat_ids": [
+        "B4"
+      ]
+    },
+    {
+      "id": "SC_005",
+      "start_frame": 1201,
+      "frames": 246,
+      "start_seconds": 50.041666666666664,
+      "duration_seconds": 10.25,
+      "narration_seconds": 10.22,
+      "animation_min_seconds": 5.125,
+      "extended_by_animation": false,
+      "beat_ids": [
+        "B5"
+      ]
+    },
+    {
+      "id": "SC_006",
+      "start_frame": 1447,
+      "frames": 305,
+      "start_seconds": 60.291666666666664,
+      "duration_seconds": 12.708333333333334,
+      "narration_seconds": 12.7,
+      "animation_min_seconds": 5.25,
+      "extended_by_animation": false,
+      "beat_ids": [
+        "B6"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "shot": "SC_001",
+      "audio_file": "audio/beats/B1.wav",
+      "audio_sha256": "5886f05b108a936a496a91dd0b77dd7d0e89656e140563cba7cbbe373c0733ce",
+      "start_seconds": 0.3,
+      "duration": 8.11,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "In Babergh and Mid Suffolk, in eastern England, historic roofs do not all look alike.",
+          "start": 0.3,
+          "end": 5.18
+        },
+        {
+          "index": 1,
+          "text": "Some rise steeply. Others sit noticeably lower.",
+          "start": 5.53,
+          "end": 8.41
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "shot": "SC_002",
+      "audio_file": "audio/beats/B2.wav",
+      "audio_sha256": "a642c27c906d629a693812c427096c51e34a874c8ab3849af1fec8d30fc1322e",
+      "start_seconds": 9.3,
+      "duration": 13.62,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Older timber-framed buildings here were probably roofed with thatch or oak shingles, depending on which materials were available.",
+          "start": 9.3,
+          "end": 16.23
+        },
+        {
+          "index": 1,
+          "text": "Longstraw thatch, the most traditional covering in these districts, is laid at a steep pitch of about fifty degrees.",
+          "start": 16.58,
+          "end": 22.92
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "shot": "SC_003",
+      "audio_file": "audio/beats/B3.wav",
+      "audio_sha256": "d8bd6f23e6a85e3c9a80da2ee198f1e20a8c442005fb1e8227acb0c95354c5c4",
+      "start_seconds": 23.8,
+      "duration": 8.97,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Eventually, clay peg tiles replaced some of these thatched roofs.",
+          "start": 23.8,
+          "end": 27.66
+        },
+        {
+          "index": 1,
+          "text": "Plain clay tile roofs are fairly steep too, typically forty-five degrees or more.",
+          "start": 28.01,
+          "end": 32.77
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "shot": "SC_004",
+      "audio_file": "audio/beats/B4.wav",
+      "audio_sha256": "27855e8e64990d6516c3aee7a26d53b1e144649b9533cd8e017668c7db0bce04",
+      "start_seconds": 33.633333,
+      "duration": 15.84,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Materials also began to travel further.",
+          "start": 33.633333,
+          "end": 35.983333
+        },
+        {
+          "index": 1,
+          "text": "From the eighteenth century, clay pantiles were used more commonly, as moving materials around the country became easier.",
+          "start": 36.333333,
+          "end": 43.203333
+        },
+        {
+          "index": 2,
+          "text": "In the nineteenth century, the railways meant that slate from Wales, Cornwall and Cumbria was often used here.",
+          "start": 43.553333,
+          "end": 49.473333
+        }
+      ]
+    },
+    {
+      "id": "B5",
+      "shot": "SC_005",
+      "audio_file": "audio/beats/B5.wav",
+      "audio_sha256": "bec2278619a3f763428e08253da6f863ab004d23c3722ded4bcc1611e4ec56bc",
+      "start_seconds": 50.341667,
+      "duration": 9.37,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Slate behaves differently.",
+          "start": 50.341667,
+          "end": 52.041667
+        },
+        {
+          "index": 1,
+          "text": "Slate roofs here are usually pitched at around thirty degrees, and slate is more effective than smaller tiles at a lower pitch.",
+          "start": 52.391667,
+          "end": 59.711667
+        }
+      ]
+    },
+    {
+      "id": "B6",
+      "shot": "SC_006",
+      "audio_file": "audio/beats/B6.wav",
+      "audio_sha256": "c3509466578748af501bb18f4ca0a2c1bb28148baab4954678a8ec839e04d49a",
+      "start_seconds": 60.591667,
+      "duration": 11.85,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Thatch, clay tile and slate each have a typical pitch.",
+          "start": 60.591667,
+          "end": 63.751667
+        },
+        {
+          "index": 1,
+          "text": "These are tendencies, not rules, and not every building followed the same path.",
+          "start": 64.101667,
+          "end": 68.631667
+        },
+        {
+          "index": 2,
+          "text": "But the pitch of an old roof can still be a clue to its covering.",
+          "start": 68.981667,
+          "end": 72.441667
+        }
+      ]
+    }
+  ],
+  "locked": true,
+  "lock_basis": {
+    "narration_sha256": "f5684ad97c7d5b4bc4e75ac203da0747f22534290daa8569ed745b56a9d594d1",
+    "beat_audio_sha256": {
+      "B1": "5886f05b108a936a496a91dd0b77dd7d0e89656e140563cba7cbbe373c0733ce",
+      "B2": "a642c27c906d629a693812c427096c51e34a874c8ab3849af1fec8d30fc1322e",
+      "B3": "d8bd6f23e6a85e3c9a80da2ee198f1e20a8c442005fb1e8227acb0c95354c5c4",
+      "B4": "27855e8e64990d6516c3aee7a26d53b1e144649b9533cd8e017668c7db0bce04",
+      "B5": "bec2278619a3f763428e08253da6f863ab004d23c3722ded4bcc1611e4ec56bc",
+      "B6": "c3509466578748af501bb18f4ca0a2c1bb28148baab4954678a8ec839e04d49a"
+    },
+    "asr_checked_sentences": 14,
+    "asr_all_pass": true
+  },
+  "storyboard_sha256": "dc40de5388f4d4b7398978c77e5f007c5e98873d097d9d5028f50560e030d65b"
+}

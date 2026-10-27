@@ -86,12 +86,27 @@ def layout_slots(shot, states):
     cfg = animation_config(shot)
     all_variants = list(spec.variant_map(states))
     if cfg["template"] == "SIDE_BY_SIDE":
-        return [(state, [state], [state]) for state in side_states(shot, cfg, states)]
+        return [(state, spec.build_set(states, state), [state]) for state in side_states(shot, cfg, states)]
     if cfg["template"] == "REPLACE_PARTS":
         active = list(replace_states(shot, cfg, states))
     else:
         active = [single_state(shot, cfg, states)]
     return [(MAIN_SLOT, all_variants, active)]
+
+
+def replace_sets(states, a, b):
+    """REPLACE_PARTS moves only what differs: parts of `a` not shown in `b`, and vice versa
+    (parts inherited through structure_from stay in place)."""
+    shown_a, shown_b = spec.state_ids(states, a), spec.state_ids(states, b)
+    return [i for i in shown_a if i not in shown_b], [i for i in shown_b if i not in shown_a]
+
+
+def visible_component_ids(states, visible_states):
+    """Shared parts + every part shown by the visible states."""
+    ids = set(spec.shared_ids(states))
+    for state in visible_states:
+        ids |= set(spec.state_ids(states, state))
+    return ids
 
 
 def object_name(slot_id, component_id):
@@ -152,7 +167,9 @@ def plan_shot(shot, states, fps, slots, camera=None):
         if template == "REPLACE_PARTS":
             a, b = replace_states(shot, cfg, states)
             slot = slots[MAIN_SLOT]
-            out_ids, in_ids = spec.variant_ids(states, a), spec.variant_ids(states, b)
+            out_ids, in_ids = replace_sets(states, a, b)
+            if not out_ids and not in_ids:
+                raise motion.PlanError(f"{sid}: {a} and {b} show identical parts; nothing to replace")
             outgoing = _select((cfg.get("outgoing") or {}).get("components"), "FROM_STATE", out_ids,
                                slot, sid, "outgoing.components", set(out_ids))
             incoming = _select((cfg.get("incoming") or {}).get("components"), "TO_STATE", in_ids,
@@ -165,7 +182,7 @@ def plan_shot(shot, states, fps, slots, camera=None):
         elif template == "EXPLODED_VIEW":
             state = single_state(shot, cfg, states)
             slot = slots[MAIN_SLOT]
-            own = spec.variant_ids(states, state)
+            own = spec.state_ids(states, state)
             allowed = set(own) | set(spec.shared_ids(states))
             comps = _select(cfg.get("components"), "STATE", own, slot, sid, "components", allowed)
             unknown = sorted(set(cfg.get("per_component") or {}) - {c.id for c in comps})
@@ -175,7 +192,7 @@ def plan_shot(shot, states, fps, slots, camera=None):
         elif template == "HOLD":
             state = single_state(shot, cfg, states)
             slot = slots[MAIN_SLOT]
-            own = spec.variant_ids(states, state)
+            own = spec.state_ids(states, state)
             allowed = set(own) | set(spec.shared_ids(states))
 
             def names_for(selector):
@@ -192,10 +209,10 @@ def plan_shot(shot, states, fps, slots, camera=None):
 
             def names_for(selector):
                 if selector == "DIFFERENCES":
-                    return [slots[s][i].name for s in chosen for i in spec.variant_ids(states, s)]
+                    return [slots[s][i].name for s in chosen for i in spec.state_ids(states, s)]
                 names = []
                 for s in chosen:
-                    own = spec.variant_ids(states, s)
+                    own = spec.state_ids(states, s)
                     allowed = set(own) | set(spec.shared_ids(states))
                     picked = [i for i in selector if i in slots[s]] if isinstance(selector, list) else selector
                     names += [c.name for c in _select(picked, "STATE", own, slots[s], sid,
@@ -207,7 +224,10 @@ def plan_shot(shot, states, fps, slots, camera=None):
                 origin = intro.get("from_state") if isinstance(intro, dict) else None
                 if origin not in chosen:
                     raise motion.PlanError(f"{sid}: intro.from_state must be one of {chosen}")
-                fading = [c.name for s in chosen if s != origin for c in slots[s].values()]
+                # Only parts the state actually shows: a structure_from slot also builds the
+                # source variant's covering, which stays hidden and must never be faded in.
+                fading = [c.name for s in chosen if s != origin
+                          for cid, c in slots[s].items() if cid in visible_component_ids(states, [s])]
                 end = motion.plan_intro(plan, intro, camera or placeholder_camera(), fading)
                 start = plan.markers.get("highlight_start")
                 if start is not None and start < end:

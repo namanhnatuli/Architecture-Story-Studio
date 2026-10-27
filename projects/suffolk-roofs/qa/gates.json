@@ -1,0 +1,53 @@
+{
+  "verdict": "INTERNAL REVIEW PREVIEW \u2014 NOT PUBLICATION-READY",
+  "gates": {
+    "G0 project & schema validation": {
+      "status": "PASS",
+      "notes": [
+        "validate passes"
+      ]
+    },
+    "G1 evidence & script review": {
+      "status": "PENDING_EDITORIAL",
+      "notes": [
+        "7 narrated claims SOURCE_VERIFIED; editorial approval pending"
+      ]
+    },
+    "G2 OmniVoice API & voice licensing": {
+      "status": "BLOCKED_LICENSE",
+      "notes": [
+        "14 sentences generated + ASR-verified",
+        "voice licence: LICENSE_REVIEW_REQUIRED"
+      ]
+    },
+    "G3 narration timing lock": {
+      "status": "PASS",
+      "notes": [
+        "1752 frames, locked=True"
+      ]
+    },
+    "G4 Blender visual preview": {
+      "status": "PASS",
+      "notes": [
+        "Blender QA 66/66",
+        "media QA PASS",
+        "visual review of rendered frames: see qa/M3_QA_REPORT.md"
+      ]
+    },
+    "G5 media assembly": {
+      "status": "PASS",
+      "notes": [
+        "1752 frames, -16.5 LUFS"
+      ]
+    },
+    "G6 final publication readiness": {
+      "status": "BLOCKED",
+      "notes": [
+        "FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)",
+        "FINAL gate: narration voice licence is 'LICENSE_REVIEW_REQUIRED', not APPROVED",
+        "FINAL gate: unapproved assets",
+        "FINAL gate: factual_review is not verified"
+      ]
+    }
+  }
+}

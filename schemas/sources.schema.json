@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.architecture-story-studio/schemas/sources.schema.json",
+  "title": "Source ledger v2 (M3)",
+  "type": "object",
+  "required": [
+    "sources",
+    "claims"
+  ],
+  "properties": {
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "url"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "accessed": {
+            "type": "string"
+          },
+          "verification": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "review_status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "review_status": {
+            "enum": [
+              "PROVISIONAL",
+              "SOURCE_VERIFIED",
+              "EDITORIALLY_APPROVED",
+              "REJECTED",
+              "provisional",
+              "verified",
+              "contested"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "source_id",
+                "locator",
+                "excerpt"
+              ]
+            }
+          },
+          "interpretation": {
+            "type": "string"
+          },
+          "visual_implications": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "schema_version": 2,
+  "status_vocabulary": {
+    "PROVISIONAL": "Proposed; not yet checked against the source.",
+    "SOURCE_VERIFIED": "Wording checked against the cited source(s) and locator; may be used in drafts and internal previews.",
+    "EDITORIALLY_APPROVED": "Human editor approved the claim and its narration wording; required for publication.",
+    "REJECTED": "Must not appear in narration, storyboard or visuals."
+  },
+  "sources": [
+    {
+      "id": "SRC_001",
+      "title": "Roof Coverings – Traditional Materials, Repairs and Detailing (Conservation Advice, November 2025, 3rd edition)",
+      "publisher": "Babergh and Mid Suffolk District Councils, Historic Environment",
+      "kind": "official_guidance",
+      "url": "https://www.babergh.gov.uk/documents/d/asset-library-54706/roof-coverings-traditional-materials-repairs-and-detailing-guidance",
+      "accessed": "2026-10-27",
+      "verification": "PDF read page by page (pp. 1-4, 9-11) on 2026-10-26; the copy fetched from the Babergh URL on 2026-10-27 is byte-identical (sha256 prefix cc388dd2dba70d7c).",
+      "license": "Quoted for research/citation only; no images reproduced."
+    },
+    {
+      "id": "SRC_002",
+      "title": "Roof coverings on historic buildings (web page)",
+      "publisher": "Babergh and Mid Suffolk District Councils",
+      "kind": "official_guidance_web",
+      "url": "https://babergh.gov.uk/web/mid-suffolk/roof-coverings-on-historic-buildings",
+      "accessed": "2026-10-27",
+      "verification": "Text extracted with a web-fetch tool on 2026-10-27 (no date shown on the page; footer © 2026). Quotes below are from that extraction and should be re-read in a browser at G1.",
+      "license": "Quoted for research/citation only."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM_101",
+      "text": "Older timber-framed buildings in these districts were probably roofed originally with thatch or oak shingles, depending on which materials were available.",
+      "source_ids": [
+        "SRC_001",
+        "SRC_002"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 9, 'Traditional Roof Coverings'",
+          "excerpt": "Older timber framed buildings would probably have been roofed originally with either thatch or oak shingles depending on the whether materials were available."
+        },
+        {
+          "source_id": "SRC_002",
+          "locator": "Thatch",
+          "excerpt": "Older, timber framed buildings would probably have been originally roofed with either thatch or oak shingles, depending on which materials were available."
+        }
+      ],
+      "interpretation": "Hedged ('probably'); local availability determined the original covering. Oak shingles are not modelled.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "Thatch state shown as the example older covering; narration keeps 'probably'."
+    },
+    {
+      "id": "CLM_102",
+      "text": "Longstraw thatch is the most typical / most traditional thatch in these districts and is laid at a steep pitch of about 50 degrees.",
+      "source_ids": [
+        "SRC_001",
+        "SRC_002"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 9, 'Thatch'",
+          "excerpt": "Most typical for our districts is longstraw thatch, which is laid at the steeper pitch of about 50º."
+        },
+        {
+          "source_id": "SRC_002",
+          "locator": "Thatch",
+          "excerpt": "Longstraw thatch is the most traditional material found in our districts ... having a characteristically steeper pitch of about 50ᵒ."
+        }
+      ],
+      "interpretation": "PDF says 'most typical', web page 'most traditional'; narration uses 'most traditional'. 'About' 50 degrees is approximate.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "thatch_50: 50-degree gable, thick (0.30 m) soft-edged covering, plain rounded ridge (SRC_002: thatch ridges traditionally plain)."
+    },
+    {
+      "id": "CLM_103",
+      "text": "Clay peg tiles eventually replaced some of the thatched roofs.",
+      "source_ids": [
+        "SRC_001",
+        "SRC_002"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 9",
+          "excerpt": "Clay peg tiles eventually replaced some of these examples."
+        },
+        {
+          "source_id": "SRC_002",
+          "locator": "Thatch",
+          "excerpt": "Eventually, clay peg tiles replaced some of our thatched roofs."
+        }
+      ],
+      "interpretation": "'Some', not all: no universal sequence is implied.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "REPLACE_PARTS thatch_50 -> plain_tile_50 swaps only the covering; the structure stays (illustrative)."
+    },
+    {
+      "id": "CLM_104",
+      "text": "Plain clay tile roofs there are fairly steeply pitched, typically about 45 degrees or more.",
+      "source_ids": [
+        "SRC_001",
+        "SRC_002"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 10, 'Plain tiles'",
+          "excerpt": "Most plain tile roofs are fairly steeply pitched between 45° and 60°, often replacing a former thatch covering."
+        },
+        {
+          "source_id": "SRC_002",
+          "locator": "Clay tiles",
+          "excerpt": "In our districts, they are made of red or orange clay and are found on fairly steeply pitched between roofs of about 45ᵒ."
+        }
+      ],
+      "interpretation": "DISCREPANCY: PDF '45-60 degrees', web page 'about 45 degrees' (garbled sentence). Narration uses the common ground: 'forty-five degrees or more'.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "plain_tile_50 reuses the 50-degree structure (inside the PDF range); covering: thin slab with course lines every 0.115 m, half-round ridge (SRC_002: rounded red clay ridge tiles on tiled roofs)."
+    },
+    {
+      "id": "CLM_105",
+      "text": "From the eighteenth century, clay pantiles were used more commonly, once it became easier to move materials around the country.",
+      "source_ids": [
+        "SRC_001",
+        "SRC_002"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 9",
+          "excerpt": "When it became easier to move materials around the country, clay pantiles would have been used more commonly in the 18th century, being transported by river or canal."
+        },
+        {
+          "source_id": "SRC_002",
+          "locator": "Clay tiles",
+          "excerpt": "Clay pantiles were used more commonly from the eighteenth century onward ... once it became easier to move materials around the country, and they became cheaper."
+        }
+      ],
+      "interpretation": "DISCREPANCY: only the PDF mentions river/canal; only the web page mentions cost. Narration uses the shared part only.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "Pantiles are not modelled; mentioned on the 2D transport diagram only."
+    },
+    {
+      "id": "CLM_106",
+      "text": "In the nineteenth century, the railways meant that slate from Wales, Cornwall and Cumbria was often used in the area.",
+      "source_ids": [
+        "SRC_001",
+        "SRC_002"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 9",
+          "excerpt": "In the 19th century, the creation of the railways meant that slate from Wales, Cornwall and Cumbria were often also used in our area."
+        },
+        {
+          "source_id": "SRC_002",
+          "locator": "Slate",
+          "excerpt": "In the nineteenth century, the creation of the railways meant that slate from Wales, Cornwall and Cumbria were often used in our area."
+        }
+      ],
+      "interpretation": "'Often', not exclusively. Routes and quantities are not given; the diagram is schematic, not a map.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "Self-made schematic: three source labels with arrows to Suffolk, labelled 'schematic, not to scale'."
+    },
+    {
+      "id": "CLM_107",
+      "text": "Slate roofs there are usually pitched at around 30 degrees, and slate is more effective than other smaller tiles at a lower pitch.",
+      "source_ids": [
+        "SRC_001",
+        "SRC_002"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 11, 'Slate'",
+          "excerpt": "Slate is also on timber battens, but roofs are usually pitched at around 30º and are more effective than other smaller tiles at a lower pitch."
+        },
+        {
+          "source_id": "SRC_002",
+          "locator": "Slate",
+          "excerpt": "Roofs are normally pitched at around 30ᵒ, and are more effective than other smaller tiles at a lower pitch."
+        }
+      ],
+      "interpretation": "The sources state both facts side by side; they do not say the pitch was chosen *because* of this. Narration must not add 'because'.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "slate_30: own 30-degree structure; thin dark covering, course lines every 0.22 m, 'V' ridge (SRC_002: V-shaped ridge tiles more common on slate roofs)."
+    },
+    {
+      "id": "CLM_108",
+      "text": "Slates date from the 18th century onwards but are most common in the 19th century.",
+      "source_ids": [
+        "SRC_001"
+      ],
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "p. 11",
+          "excerpt": "They date from the 18th century onwards but are most common in the 19th century."
+        }
+      ],
+      "interpretation": "Single source. Not used in narration; kept to avoid implying slate only arrived with railways.",
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "scope": "Babergh and Mid Suffolk districts",
+      "visual_implications": "None (context for the editor)."
+    },
+    {
+      "id": "CLM_006",
+      "text": "US residential code minimum slopes by covering (Seattle 2012, IRC-based).",
+      "source_ids": [],
+      "review_status": "REJECTED",
+      "confidence": "n/a",
+      "interpretation": "Out of scope for a Suffolk heritage story (different country, era and meaning: legal minimum vs historic typical pitch). Excluded by the M3 brief.",
+      "visual_implications": "Must not appear."
+    },
+    {
+      "id": "CLM_901",
+      "text": "Shirakawa-go gassho roofs are pitched above 60 degrees.",
+      "source_ids": [],
+      "review_status": "REJECTED",
+      "confidence": "n/a",
+      "interpretation": "Primary source not readable (HTTP 403) and out of scope.",
+      "visual_implications": "Must not appear."
+    },
+    {
+      "id": "CLM_902",
+      "text": "Steep roofs exist because of snowfall or rainfall.",
+      "source_ids": [],
+      "review_status": "REJECTED",
+      "confidence": "n/a",
+      "interpretation": "No source in scope supports a climate-causal claim; universal claims are excluded.",
+      "visual_implications": "Must not appear."
+    }
+  ]
+}

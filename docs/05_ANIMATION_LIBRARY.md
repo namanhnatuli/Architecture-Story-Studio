@@ -112,3 +112,10 @@ Material đọc 2 custom property trên từng object qua node Attribute (kiểu
 
 ## Transform logic / hiệu suất
 Variant gốc không bị xóa, chỉ ẩn khi không active. Không dùng Shape Keys giữa hai mesh khác topology. Rafters/joists là mesh nhiều hộp trong một object (một component), không phải hàng chục object. Instancing (Geometry Nodes) chỉ cần khi số chi tiết lặp lớn (ngói, gạch).
+
+## M3 — mở rộng
+- **Mốc neo** (chỉ trong `storyboard.template.json`): mọi giá trị giây trong `animation` / `graphic` có thể là `@B3`, `@B3.s1+0.4`, `@B3.end` (beat / câu, tính từ đầu shot). `pipeline/beat_scheduler.py` giải chúng từ audio đo được.
+- **Lớp phủ:** `covering.style` = `thatch` / `plain_tile` / `slate` (thêm part `<variant>_ridge_cap`, role `ridge_cap`, layer 4).
+- **`structure_from`:** variant cùng độ dốc dùng chung gables / rafters / ridge beam; REPLACE_PARTS giữa hai variant như vậy chỉ di chuyển lớp phủ (`templates.replace_sets`).
+- **Card 2D** (`visual_type: MOTION_GRAPHICS`, `graphic.elements` gồm text / arrow, `appear`): `engine/diagram.py`. Không phải template 3D; QA dùng `check_card`.
+- Bài học (lỗi M3 #3): intro của SIDE_BY_SIDE chỉ làm hiện dần các phần mà state hiển thị; shot_builder từ chối plan nào animate phần đang bị ẩn tĩnh.
