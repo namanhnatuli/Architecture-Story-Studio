@@ -37,3 +37,7 @@ projects/*/qa/**/*.blend1
 projects/*/audio/beats/
 projects/*/audio/narration_track_*.wav
 projects/*/audio/narration_mix_*.wav
+
+# --- M4: asset previews (JPEG copies are tracked; PNG originals are local) ---
+asset_library/architecture/**/previews/**/*.png
+asset_library/catalog/qa/*.log

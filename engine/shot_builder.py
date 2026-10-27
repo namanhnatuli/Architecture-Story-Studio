@@ -93,6 +93,7 @@ def _bounds(points):
 
 
 def _prepare_scene(shot_id, isolated):
+    geometry.reset_mesh_cache()   # shared asset meshes never outlive the scene they were built for
     if isolated:
         scene = bpy.data.scenes.new(f"ASS_{shot_id}")
         window = getattr(bpy.context, "window", None)
@@ -161,12 +162,16 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     offsets = {sid: (0.0, 0.0, 0.0) for sid in slots}
     bottom_band = 0.0
     if cfg["template"] == "SIDE_BY_SIDE":
-        footprints = []
-        for sid in slots:
-            lo, hi = _bounds([p for name, obj in objects.items() if obj["slot_id"] == sid for p in verts[name]])
-            footprints.append((lo[0], lo[1], hi[0], hi[1]))
         gap_ratio = cfg.get("gap_ratio", motion.SIDE_BY_SIDE_DEFAULTS["gap_ratio"])
-        offs, _ = framing.layout_side_by_side(footprints, basis[0], gap_ratio)
+        if cfg.get("layout", "ROW") == "STACK":   # M4: long models as rows (one behind another)
+            offs, _ = framing.layout_stack([[p for name, obj in objects.items() if obj["slot_id"] == sid
+                                             for p in verts[name]] for sid in slots], basis, gap_ratio)
+        else:
+            footprints = []
+            for sid in slots:
+                lo, hi = _bounds([p for name, obj in objects.items() if obj["slot_id"] == sid for p in verts[name]])
+                footprints.append((lo[0], lo[1], hi[0], hi[1]))
+            offs, _ = framing.layout_side_by_side(footprints, basis[0], gap_ratio)
         offsets = dict(zip(slots, offs))
         for sid, off in offsets.items():
             roots[sid].location = off
@@ -188,7 +193,7 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     labels = {}
     if cfg["template"] == "SIDE_BY_SIDE" and cfg.get("labels"):
         labels = build_labels(cfg["labels"], objects, verts, offsets, fit, basis, aspect, bottom_band, style,
-                              geometry.make_collection("80_LABELS", root))
+                              geometry.make_collection("80_LABELS", root), cfg.get("layout", "ROW"))
 
     # SIDE_BY_SIDE intro starts on the single-model framing (same fit as every other
     # shot: base + all variants at the origin), shifted onto the intro state's slot.
@@ -225,9 +230,10 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                        camera_keys=camera_keys, labels=labels)
 
 
-def build_labels(texts, objects, verts, offsets, fit, basis, aspect, band, style, collection):
-    """Static captions centred under each model in the reserved bottom band, facing the
-    locked camera, never casting shadows. Built-in font; flat colour (engine.diagram)."""
+def build_labels(texts, objects, verts, offsets, fit, basis, aspect, band, style, collection, layout="ROW"):
+    """Static captions centred under each model, facing the locked camera, never casting
+    shadows: in the reserved bottom band (ROW) or just below each model's row (STACK).
+    Built-in font; flat colour (engine.diagram)."""
     from mathutils import Matrix
     from engine import diagram
     cfg = style.get("labels", {})
@@ -239,13 +245,16 @@ def build_labels(texts, objects, verts, offsets, fit, basis, aspect, band, style
         pts = [tuple(p[i] + offsets[sid][i] for i in range(3))
                for name, obj in objects.items() if obj["slot_id"] == sid and not obj.hide_render
                for p in verts[name]]
-        xs = [x for x, _ in framing.frame_coords(pts, fit, basis, aspect)]
+        coords = framing.frame_coords(pts, fit, basis, aspect)
+        xs = [x for x, _ in coords]
+        size = float(cfg.get("size", 0.042))
+        uy = band / 2 if layout != "STACK" else min(y for _, y in coords) - 0.9 * size
         # Just in front of the camera plane: deeper placements can sink below the ground plane
         # at the bottom of wide (3-model) frames and be hidden by it.
-        pos = framing.frame_to_world((min(xs) + max(xs)) / 2, band / 2, fit, basis, aspect, toward_camera=0.5)
+        pos = framing.frame_to_world((min(xs) + max(xs)) / 2, uy, fit, basis, aspect, toward_camera=0.5)
         curve = bpy.data.curves.new(f"LABEL_{sid}_text", type="FONT")
         curve.body = text
-        curve.size = float(cfg.get("size", 0.042)) * frame_h
+        curve.size = size * frame_h
         curve.align_x, curve.align_y = "CENTER", "CENTER"
         obj = bpy.data.objects.new(f"LABEL_{sid}", curve)
         obj.data.materials.append(material)

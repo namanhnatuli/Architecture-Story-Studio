@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "architecture_asset.schema.json",
+  "title": "Architecture asset specification (M4)",
+  "description": "Parametric architectural model: family + variant + parameters -> semantic components (engine/arch). Parameter ranges, cross-parameter geometry checks and supported animations are enforced by engine/arch/assets.py (validate).",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "family",
+    "variant",
+    "units",
+    "parameters",
+    "accuracy",
+    "animation_support"
+  ],
+  "properties": {
+    "schema": {
+      "const": "architecture_asset/1"
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "family": {
+      "enum": [
+        "bridge",
+        "site"
+      ]
+    },
+    "variant": {
+      "type": "string",
+      "description": "bridge: timber_beam | stone_arch | steel_truss; site: river_crossing"
+    },
+    "units": {
+      "const": "METRIC"
+    },
+    "generator": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Per-variant parameters (see engine/arch/assets.py FAMILIES); unknown keys are rejected."
+    },
+    "visual_style": {
+      "type": "string"
+    },
+    "accuracy": {
+      "enum": [
+        "ILLUSTRATIVE",
+        "REFERENCE_BASED",
+        "HISTORICALLY_VERIFIED"
+      ],
+      "description": "HISTORICALLY_VERIFIED needs provenance.claim_ids; REFERENCE_BASED needs provenance.references."
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "basis": {
+          "type": "string"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url",
+              "accessed"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "accessed": {
+                "type": "string"
+              },
+              "used_for": {
+                "type": "string"
+              },
+              "excerpt": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "external_assets": {
+          "type": "array",
+          "description": "Downloaded models/textures with origin and licence (none in M4)."
+        }
+      }
+    },
+    "animation_support": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "HOLD",
+          "HIGHLIGHT",
+          "EXPLODED_VIEW",
+          "SIDE_BY_SIDE",
+          "REPLACE_PARTS"
+        ]
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

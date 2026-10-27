@@ -1,0 +1,69 @@
+{
+  "asset_id": "bridge_timber_beam_01",
+  "signature": "2b9434405e612a8d9da1f95db7b0c8018981e4da173af1a3da2309048d48611d",
+  "stats": {
+    "build_seconds": 0.032,
+    "objects": 23,
+    "asset_objects": 20,
+    "mesh_datablocks": 11,
+    "asset_mesh_datablocks": 8,
+    "evaluated_verts": 9192
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.031,
+    "objects": 23,
+    "asset_objects": 20,
+    "mesh_datablocks": 11,
+    "asset_mesh_datablocks": 8
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "23 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (47 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 2b9434405e612a8d twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "20 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/three_quarter.png",
+      "render_seconds": 0.571,
+      "build_seconds": 0.031
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/elevation.png",
+      "render_seconds": 0.319,
+      "build_seconds": 0.033
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/top.png",
+      "render_seconds": 0.398,
+      "build_seconds": 0.039
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/exploded.png",
+      "render_seconds": 0.512,
+      "build_seconds": 0.031
+    }
+  },
+  "process": {
+    "wall_seconds": 2.6,
+    "peak_rss_mb": 497.0,
+    "peak_memory_footprint_mb": 1854.0,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

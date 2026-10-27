@@ -1,0 +1,269 @@
+"""Architecture asset specifications: registry, validation, planning (pure Python).
+
+An asset spec (asset_library/architecture/<family>s/<asset_id>.json) names a family
+and variant and gives parameters; `plan()` turns it into semantic components with
+ids prefixed by the owning variant. Invalid specs fail with readable messages.
+Schema: schemas/architecture_asset.schema.json.
+"""
+import json
+from pathlib import Path
+
+from engine.arch import GENERATOR_VERSION
+from engine.arch import semantic
+from engine.arch.families import bridge, site
+
+ROOT = Path(__file__).resolve().parents[2]
+ACCURACY_LEVELS = ("ILLUSTRATIVE", "REFERENCE_BASED", "HISTORICALLY_VERIFIED")
+TEMPLATES = ("HOLD", "EXPLODED_VIEW", "SIDE_BY_SIDE", "REPLACE_PARTS", "HIGHLIGHT")
+
+
+def num(lo, hi, default=None, integer=False, odd=False, even=False):
+    return {"type": "int" if integer else "number", "min": lo, "max": hi, "default": default,
+            "odd": odd, "even": even}
+
+
+def choice(values, default=None):
+    return {"type": "choice", "values": tuple(values), "default": default}
+
+
+COMMON = {"total_length_m": num(8, 80), "deck_width_m": num(2.5, 12, 4.0), "deck_level_m": num(2.5, 20, 5.0)}
+
+FAMILIES = {
+    "bridge": {
+        "timber_beam": {
+            "generator": bridge.timber_beam, "materials": ("timber", "timber_dark", "timber_light"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SIDE_BY_SIDE"),
+            "params": dict(COMMON, span_count=num(1, 12, 4, integer=True), stringer_count=num(2, 8, 4, integer=True),
+                           stringer_width_m=num(0.12, 0.6, 0.26), stringer_depth_m=num(0.2, 1.2, 0.46),
+                           post_size_m=num(0.15, 0.6, 0.3), plank_pitch_m=num(0.12, 0.6, 0.27)),
+        },
+        "stone_arch": {
+            "generator": bridge.stone_arch, "materials": ("stone", "stone_dark", "stone_light", "road_gravel"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SIDE_BY_SIDE"),
+            "params": dict(COMMON, arch_count=num(1, 9, 3, integer=True), arch_type=choice(("semicircular",), "semicircular"),
+                           pier_width_m=num(0.8, 5, 1.8), abutment_length_m=num(0.5, 4, 1.0),
+                           ring_thickness_m=num(0.25, 1.2, 0.5), voussoirs_per_arch=num(5, 31, 13, integer=True, odd=True),
+                           springing_level_m=num(0.0, 10, 0.6), deck_thickness_m=num(0.15, 1.0, 0.3),
+                           parapet_thickness_m=num(0.2, 0.8, 0.4), parapet_height_m=num(0.5, 1.5, 0.9)),
+        },
+        "steel_truss": {
+            "generator": bridge.steel_truss, "materials": ("steel", "steel_dark", "concrete", "concrete_deck"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SIDE_BY_SIDE", "REPLACE_PARTS"),
+            "replaceable_params": ("truss_pattern",),   # variants differing only here share the frame
+            "params": dict(COMMON, span_count=num(1, 6, 2, integer=True), truss_pattern=choice(("pratt", "warren"), "pratt"),
+                           panels_per_span=num(2, 16, 6, integer=True, even=True), truss_height_m=num(1.0, 8.0, 2.2),
+                           pier_width_m=num(0.8, 4.0, 1.6), chord_size_m=num(0.15, 0.6, 0.3),
+                           web_size_m=num(0.1, 0.4, 0.2)),
+        },
+    },
+    "site": {
+        "river_crossing": {
+            "generator": site.river_crossing, "materials": ("earth_bank", "water"), "animation": ("HOLD",),
+            "params": {"gap_m": num(8, 80, 24.0), "deck_level_m": num(2.5, 20, 5.0), "site_width_m": num(6, 40, 12.0),
+                       "bank_length_m": num(2, 20, 4.0), "water_level_m": num(-0.3, 5, 0.3)},
+        },
+    },
+}
+
+
+class AssetError(ValueError):
+    """An architecture asset specification is invalid (message lists every problem)."""
+
+
+def resolve_params(family, variant, given):
+    """Defaults + given parameters; returns (params, errors)."""
+    schema = FAMILIES[family][variant]["params"]
+    errors = [f"unknown parameter '{k}' for {family}/{variant} (known: {', '.join(sorted(schema))})"
+              for k in given if k not in schema]
+    params = {}
+    for key, rule in schema.items():
+        value = given.get(key, rule.get("default"))
+        if value is None:
+            errors.append(f"parameter '{key}' is required for {family}/{variant}")
+            continue
+        if rule["type"] == "choice":
+            if value not in rule["values"]:
+                errors.append(f"parameter '{key}' must be one of {list(rule['values'])}, got {value!r}")
+        else:
+            if isinstance(value, bool) or not isinstance(value, (int, float)):
+                errors.append(f"parameter '{key}' must be a number, got {value!r}")
+                continue
+            if rule["type"] == "int" and int(value) != value:
+                errors.append(f"parameter '{key}' must be a whole number, got {value!r}")
+            if not rule["min"] <= value <= rule["max"]:
+                errors.append(f"parameter '{key}' = {value} is outside {rule['min']}..{rule['max']}")
+            if rule.get("odd") and int(value) % 2 == 0:
+                errors.append(f"parameter '{key}' must be odd (keystone at the crown), got {value}")
+            if rule.get("even") and int(value) % 2:
+                errors.append(f"parameter '{key}' must be even, got {value}")
+            if rule["type"] == "int":
+                value = int(value)
+        params[key] = value
+    return params, errors
+
+
+def compatibility_errors(family, variant, p):
+    """Cross-parameter geometry checks (beyond single-parameter ranges)."""
+    if family != "bridge":
+        return []
+    errors = []
+    if variant == "stone_arch":
+        lay = bridge.stone_arch_layout(p)
+        if lay["span"] <= 0.5:
+            errors.append(f"stone_arch: {p['arch_count']} arches with {p['pier_width_m']} m piers leave "
+                          f"{lay['span']:.2f} m per arch; use fewer arches or narrower piers")
+        if p["pier_width_m"] < 2 * p["ring_thickness_m"] + 0.1:
+            errors.append("stone_arch: pier_width_m must exceed two ring thicknesses (both rings spring from it)")
+        if lay["cover"] < 0.15:
+            errors.append(f"stone_arch: arch crown (extrados {lay['crown_extrados']:.2f} m) leaves {lay['cover']:.2f} m "
+                          f"under the deck (needs >= 0.15 m): raise deck_level_m or use more, smaller arches")
+        if lay["radius"] > 0 and lay["radius"] * 3.14159 / p["voussoirs_per_arch"] > 1.6:
+            errors.append("stone_arch: voussoirs longer than 1.6 m along the arch; increase voussoirs_per_arch")
+    if variant == "timber_beam":
+        span = (p["total_length_m"] - 0.7) / p["span_count"]
+        if span > 9.0:
+            errors.append(f"timber_beam: {span:.1f} m between bents exceeds 9 m; add spans (illustrative limit)")
+        if p["stringer_depth_m"] + 0.09 + 0.34 > p["deck_level_m"] - 0.5:
+            errors.append("timber_beam: deck_level_m too low for stringers, cap beams and posts")
+    if variant == "steel_truss":
+        lay = bridge.steel_truss_layout(p)
+        lengths = [b - a for a, b in lay["spans"]]
+        if min(lengths) <= 2.0:
+            errors.append("steel_truss: spans shorter than 2 m; reduce span_count or pier_width_m")
+        panel = min(lengths) / p["panels_per_span"]
+        ratio = p["truss_height_m"] / panel
+        if not 0.5 <= ratio <= 3.0:
+            errors.append(f"steel_truss: truss height / panel length = {ratio:.2f} (diagonals too flat or steep); "
+                          "keep it between 0.5 and 3.0")
+    return errors
+
+
+def load(path):
+    path = Path(path)
+    if not path.is_absolute():
+        path = ROOT / path
+    try:
+        return json.loads(path.read_text(encoding="utf-8")), path
+    except (OSError, json.JSONDecodeError) as e:
+        raise AssetError(f"cannot read architecture asset {path}: {e}") from None
+
+
+def validate(spec_data, where="asset"):
+    """Errors in an asset spec (empty list when valid). G4-A, specification part."""
+    errors = []
+    for key in ("asset_id", "family", "variant", "units", "parameters", "accuracy", "animation_support"):
+        if key not in spec_data:
+            errors.append(f"{where}: missing '{key}'")
+    if errors:
+        return errors
+    aid = spec_data["asset_id"]
+    if not isinstance(aid, str) or not aid or not all(c.isalnum() or c == "_" for c in aid):
+        errors.append(f"{where}: asset_id must be [A-Za-z0-9_]")
+    family, variant = spec_data["family"], spec_data["variant"]
+    if family not in FAMILIES:
+        return errors + [f"{where}: unknown family '{family}' (known: {', '.join(FAMILIES)})"]
+    if variant not in FAMILIES[family]:
+        return errors + [f"{where}: unknown {family} variant '{variant}' (known: {', '.join(FAMILIES[family])})"]
+    if spec_data["units"] != "METRIC":
+        errors.append(f"{where}: units must be METRIC (metres), got {spec_data['units']!r}")
+    if not isinstance(spec_data["parameters"], dict):
+        return errors + [f"{where}: parameters must be an object"]
+    params, perr = resolve_params(family, variant, spec_data["parameters"])
+    errors += [f"{where}: {e}" for e in perr]
+    if not perr:
+        errors += [f"{where}: {e}" for e in compatibility_errors(family, variant, params)]
+    if spec_data["accuracy"] not in ACCURACY_LEVELS:
+        errors.append(f"{where}: accuracy must be one of {ACCURACY_LEVELS}")
+    elif spec_data["accuracy"] == "HISTORICALLY_VERIFIED" and not (spec_data.get("provenance") or {}).get("claim_ids"):
+        errors.append(f"{where}: HISTORICALLY_VERIFIED needs provenance.claim_ids backed by the research ledger")
+    elif spec_data["accuracy"] == "REFERENCE_BASED" and not (spec_data.get("provenance") or {}).get("references"):
+        errors.append(f"{where}: REFERENCE_BASED needs provenance.references")
+    supported = FAMILIES[family][variant]["animation"]
+    bad = [a for a in spec_data["animation_support"] if a not in supported]
+    if bad:
+        errors.append(f"{where}: animation_support {bad} not supported by {family}/{variant} (supported: {list(supported)})")
+    gen = spec_data.get("generator") or {}
+    if gen and gen.get("name") != f"{family}.{variant}":
+        errors.append(f"{where}: generator.name must be '{family}.{variant}'")
+    return errors
+
+
+def plan(spec_data, owner="shared", where="asset"):
+    """Semantic components for a valid spec; ids prefixed with `owner` unless shared."""
+    errors = validate(spec_data, where)
+    if errors:
+        raise AssetError("; ".join(errors))
+    family, variant = spec_data["family"], spec_data["variant"]
+    params, _ = resolve_params(family, variant, spec_data["parameters"])
+    comps = FAMILIES[family][variant]["generator"](params)
+    for c in comps:
+        c.variant = owner
+        if owner != "shared":
+            c.id = f"{owner}_{c.id}"
+    cerr = semantic.validate_components(comps)
+    if cerr:
+        raise AssetError(f"{where}: generator produced invalid components: " + "; ".join(cerr[:8]))
+    return comps
+
+
+def plan_file(path, owner="shared"):
+    data, resolved = load(path)
+    return plan(data, owner, where=str(path))
+
+
+_CACHE = {}
+
+
+def plan_cached(path, owner="shared"):
+    """plan_file memoised on (file content, owner); callers must not mutate the result."""
+    import hashlib
+    data, resolved = load(path)
+    key = (str(resolved), hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest(), owner)
+    if key not in _CACHE:
+        _CACHE[key] = plan(data, owner, where=str(path))
+    return _CACHE[key]
+
+
+def resolved_params_file(path):
+    data, _ = load(path)
+    return data, resolve_params(data["family"], data["variant"], data["parameters"])[0]
+
+
+def describe(spec_data):
+    """Catalog metadata that does not need Blender."""
+    comps = plan(spec_data)
+    lo, hi = semantic.union_bbox(comps)
+    counts = {}
+    for c in comps:
+        counts[c.type] = counts.get(c.type, 0) + 1
+    signatures = {semantic.mesh_signature(c.mesh, c.material) for c in comps}
+    family, variant = spec_data["family"], spec_data["variant"]
+    return {"components": len(comps), "unique_meshes": len(signatures), "by_type": dict(sorted(counts.items())),
+            "verts": sum(len(c.mesh["verts"]) for c in comps), "faces": sum(len(c.mesh["faces"]) for c in comps),
+            "bbox": [[round(v, 3) for v in lo], [round(v, 3) for v in hi]],
+            "dimensions_m": [round(hi[i] - lo[i], 3) for i in range(3)],
+            "materials": sorted({c.material for c in comps}),
+            "generator": {"name": f"{family}.{variant}", "version": GENERATOR_VERSION},
+            "resolved_parameters": resolve_params(family, variant, spec_data["parameters"])[0]}
+
+
+EXPLODE_PRESETS = {("bridge", "timber_beam"): "timber_beam", ("bridge", "stone_arch"): "stone_arch",
+                   ("bridge", "steel_truss"): "steel_truss"}
+
+
+def explode_offsets(spec_data, comps):
+    """{component id: (dx, dy, dz)} recommended for an exploded view of this asset."""
+    key = EXPLODE_PRESETS.get((spec_data["family"], spec_data["variant"]))
+    return bridge.explode_offsets(key, comps) if key else {}
+
+
+def explode_per_component(path, owner):
+    """EXPLODED_VIEW `per_component` config (direction + distance) from the preset."""
+    import math
+    data, _ = load(path)
+    out = {}
+    for cid, v in explode_offsets(data, plan_cached(path, owner)).items():
+        d = math.sqrt(sum(x * x for x in v))
+        out[cid] = {"direction": [round(x / d, 5) for x in v], "distance": round(d, 4)}
+    return out
+

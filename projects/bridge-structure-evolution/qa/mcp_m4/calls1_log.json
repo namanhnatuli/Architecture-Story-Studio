@@ -1,0 +1,150 @@
+[
+ {
+  "label": "m4_addon_status",
+  "tool": "get_addon_status",
+  "arguments": {},
+  "isError": false,
+  "seconds": 0.42,
+  "text": [
+   "{\n  \"up_to_date\": true,\n  \"protocol_version\": 15,\n  \"expected_protocol_version\": 15,\n  \"addon_version\": [\n    1,\n    8\n  ],\n  \"capabilities\": [\n    \"bpy_api_lookup\",\n    \"describe_node_type\",\n    \"drain_human_activity\",\n    \"execute_code\",\n    \"get_addon_info\",\n    \"get_object_info\",\n    \"get_scene_info\",\n    \"get_telemetry_consent\",\n    \"get_viewport_screenshot\",\n    \"get_world_state_snapshot\",\n    \"list_scene_items\",\n    \"pick_viewport_object\",\n    \"set_telemetry_consent\"\n  ],\n  \"blender_version\": \"5.2.2 LTS\",\n  \"premium_generators\": [],\n  \"libraries\": {\n    \"polyhaven\": \"off\",\n    \"sketchfab\": \"off\",\n    \"polypizza\": \"off\"\n  },\n  \"generators\": {\n    \"tripo\": \"off (Premium only)\",\n    \"hunyuan3d\": \"off\",\n    \"hyper3d\": \"off\",\n    \"meshy\": \"off\"\n  },\n  \"source\": \"native\",\n  \"warning\": null,\n  \"telemetry_consent\": false,\n  \"update_command\": \"uvx mcp-for-blender install-addon\",\n  \"after_install\": \"If the addon file was updated: in Blender, Preferences \\u2192 Add-ons \\u2192 disable/enable 'Interface: Blender MCP', or restart Blender, then Start MCP Server.\"\n}"
+  ],
+  "images": []
+ },
+ {
+  "label": "m4_safe_mode_probe",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import subprocess"
+  },
+  "isError": false,
+  "seconds": 0.0,
+  "text": [
+   "Rejected by safe mode - line 1: import of 'subprocess' is not allowed\n\nBLENDER_MCP_SAFE_MODE is enabled: scripts may only import bpy, bmesh, mathutils, and pure-python stdlib modules. No eval/exec/open, no os/subprocess/network access, no handlers/timers/drivers, no class or property registration, and no loading of external .blend datablocks. Blender operators for rendering, saving, and import/export ARE allowed. Rewrite the script within these limits; only the user can disable safe mode."
+  ],
+  "images": []
+ },
+ {
+  "label": "m4_SC_004_scene",
+  "tool": "get_scene_info",
+  "arguments": {
+   "limit": 10
+  },
+  "isError": false,
+  "seconds": 0.05,
+  "text": [
+   "Scene 'Scene' | 1 camera, 1 empty, 2 light, 106 mesh | active none | selected none | mode OBJECT\n\nShowing 5 of 5 (name | type | location | size | hidden | children):\nground | mesh | at (0.0, 0.0, 0.0) | size 320.0x320.0x0.0\nKey sun | light | at (0.0, 0.0, 0.0)\nFill sun | light | at (0.0, 0.0, 0.0)\nSLOT_main | empty | at (0.0, 0.0, 0.0) | 105 children\nCamera_LOCKED | camera | at (7.4, -16.63, 9.91)"
+  ],
+  "images": []
+ },
+ {
+  "label": "m4_SC_004_semantics",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nfrom collections import Counter\nobjs=[o for o in bpy.data.objects if o.get('variant_id')=='stone_arch']\nprint('stone_arch objects:', len(objs))\nprint('by type:', dict(sorted(Counter(o.get('semantic_type') for o in objs).items())))\nprint('voussoir mesh datablocks:', len({o.data.name for o in objs if o.get('semantic_type')=='VOUSSOIR'}))\nprint('groups:', sorted({o.get('group') for o in objs}))\nprint('bevel modifiers unapplied:', all(any(m.type=='BEVEL' for m in o.modifiers) for o in objs))\nprint('hidden variants:', sorted({o.get('variant_id') for o in bpy.data.objects if o.type=='MESH' and o.hide_render}))"
+  },
+  "isError": false,
+  "seconds": 0.05,
+  "text": [
+   "Code executed successfully: stone_arch objects: 49\nby type: {'ABUTMENT': 2, 'COPING': 2, 'DECK': 1, 'KEYSTONE': 3, 'PARAPET': 2, 'PIER': 2, 'SPANDREL': 1, 'VOUSSOIR': 36}\nvoussoir mesh datablocks: 1\ngroups: ['arch_1', 'arch_2', 'arch_3', 'deck', 'foundations', 'parapets', 'spandrel']\nbevel modifiers unapplied: True\nhidden variants: ['steel_truss', 'steel_truss_warren', 'timber_beam']\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "m4_SC_004_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    40,
+    66,
+    100,
+    144
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.49,
+  "text": [
+   "Frames left to right, top to bottom: 1, 40, 66, 100, 144. Framed 54 objects, 320 x 320 x 6.4 m across, centred at [0.0, 0.0, 2.82]."
+  ],
+  "images": [
+   "/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m4/m4_SC_004_frames_0.png"
+  ]
+ },
+ {
+  "label": "m4_open_SC_006",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m4/blend/SC_006.blend')\nprint('truss web objects:', sorted(o.name for o in bpy.data.objects if o.get('semantic_type') in ('TRUSS_VERTICAL','TRUSS_DIAGONAL')))"
+  },
+  "isError": false,
+  "seconds": 0.02,
+  "text": [
+   "Code executed successfully: truss web objects: ['steel_truss_span1_diagonals_north', 'steel_truss_span1_diagonals_north__fade', 'steel_truss_span1_diagonals_south', 'steel_truss_span1_diagonals_south__fade', 'steel_truss_span1_verticals_north', 'steel_truss_span1_verticals_north__fade', 'steel_truss_span1_verticals_south', 'steel_truss_span1_verticals_south__fade', 'steel_truss_span2_diagonals_north', 'steel_truss_span2_diagonals_north__fade', 'steel_truss_span2_diagonals_south', 'steel_truss_span2_diagonals_south__fade', 'steel_truss_span2_verticals_north', 'steel_truss_span2_verticals_north__fade', 'steel_truss_span2_verticals_south', 'steel_truss_span2_verticals_south__fade', 'steel_truss_warren_span1_diagonals_north', 'steel_truss_warren_span1_diagonals_north__fade', 'steel_truss_warren_span1_diagonals_south', 'steel_truss_warren_span1_diagonals_south__fade', 'steel_truss_warren_span2_diagonals_north', 'steel_truss_warren_span2_diagonals_north__fade', 'steel_truss_warren_span2_diagonals_south', 'steel_truss_warren_span2_diagonals_south__fade']\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "m4_SC_006_frames",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    30,
+    48,
+    70,
+    96
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.49,
+  "text": [
+   "Frames left to right, top to bottom: 1, 30, 48, 70, 96. Framed 34 objects, 320 x 320 x 7.45 m across, centred at [0.0, 0.0, 3.35]."
+  ],
+  "images": [
+   "/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m4/m4_SC_006_frames_0.png"
+  ]
+ },
+ {
+  "label": "m4_open_SC_007",
+  "tool": "execute_blender_code",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m4/blend/SC_007.blend')\nprint('labels:', sorted(o.data.body for o in bpy.data.objects if o.name.startswith('LABEL_')))\nprint('slots:', sorted((o.name, tuple(round(v,2) for v in o.location)) for o in bpy.data.objects if o.name.startswith('SLOT_')))"
+  },
+  "isError": false,
+  "seconds": 0.03,
+  "text": [
+   "Code executed successfully: labels: ['Steel truss (Pratt)', 'Stone arch', 'Timber beam']\nslots: [('SLOT_steel_truss', (9.71, -45.68, -0.0)), ('SLOT_stone_arch', (0.85, -4.01, -0.0)), ('SLOT_timber_beam', (-7.51, 35.34, 0.0))]\n"
+  ],
+  "images": []
+ },
+ {
+  "label": "m4_SC_007_camera",
+  "tool": "look",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    70
+   ],
+   "shading": "material",
+   "max_size": 1400
+  },
+  "isError": false,
+  "seconds": 0.37,
+  "text": [
+   "Frames left to right, top to bottom: 1, 70. Framed 114 objects, 320 x 320 x 38.05 m across, centred at [0.0, 0.0, 18.64]."
+  ],
+  "images": [
+   "/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m4/m4_SC_007_camera_0.png"
+  ]
+ }
+]

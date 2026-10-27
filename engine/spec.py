@@ -44,6 +44,17 @@ ENVIRONMENT_NAMES = ("ground",)
 DEFAULT_BASE = {"builder": "rectangular_house_base", "width": 4.6, "depth": 3.2,
                 "wall_height": 2.55, "rafter_count": 5}
 
+# M4: parts generated from an architecture asset spec (engine/arch), usable as base or variant:
+#   base:    {"builder": "architecture_asset", "asset": "asset_library/architecture/sites/<id>.json"}
+#   variant: {"id": ..., "builder": "architecture_asset", "asset": "asset_library/architecture/bridges/<id>.json"}
+ASSET_BUILDER = "architecture_asset"
+GROUND_Z = -0.38   # top of the environment ground plane (engine/scene.py)
+
+
+def _arch():
+    from engine.arch import assets
+    return assets
+
 
 def base_params(states):
     params = dict(DEFAULT_BASE)
@@ -52,7 +63,11 @@ def base_params(states):
 
 
 def base_parts(states):
-    builder = base_params(states)["builder"]
+    params = base_params(states)
+    builder = params["builder"]
+    if builder == ASSET_BUILDER:
+        comps = _arch().plan_cached(params["asset"], "shared")
+        return [{"id": c.id, "role": c.role, "group": c.group} for c in comps]
     if builder not in BASE_BUILDERS:
         raise ValueError(f"unknown base builder '{builder}' (known: {', '.join(BASE_BUILDERS)})")
     return [{"id": i, "role": r, "group": g} for i, r, g in BASE_BUILDERS[builder]]
@@ -72,8 +87,14 @@ def builder_parts(variant):
     With "covering.style" the roof also gets a ridge cap; with "structure_from" the
     variant owns only its covering + ridge cap and inherits the structure."""
     builder = variant_builder(variant)
+    if builder == ASSET_BUILDER:
+        comps = _arch().plan_cached(variant["asset"], variant["id"])
+        parts = [{"id": c.id, "role": c.role, "layer": c.layer, "replaceable": "REPLACE" in c.animation}
+                 for c in comps]
+        return [p for p in parts if p["replaceable"]] if variant.get("structure_from") else parts
     if builder not in VARIANT_BUILDERS:
-        raise ValueError(f"unknown variant builder '{builder}' (known: {', '.join(VARIANT_BUILDERS)})")
+        known = ", ".join(list(VARIANT_BUILDERS) + [ASSET_BUILDER])
+        raise ValueError(f"unknown variant builder '{builder}' (known: {known})")
     parts = list(VARIANT_BUILDERS[builder])
     if covering_style(variant):
         parts.append(("ridge_cap", "ridge_cap", 4))
@@ -95,14 +116,20 @@ def variant_ids(states, variant_id):
     return [p["id"] for p in variant_parts(variant_map(states)[variant_id])]
 
 
+def inheritable(part):
+    """Parts a `structure_from` variant takes from its source: house roofs inherit the
+    STRUCTURE_ROLES; asset variants inherit everything not marked REPLACE."""
+    return not part["replaceable"] if "replaceable" in part else part["role"] in STRUCTURE_ROLES
+
+
 def state_parts(states, state_id):
-    """Every roof part shown for a state: its own parts plus inherited structure."""
+    """Every part shown for a state: its own parts plus inherited structure."""
     variants = variant_map(states)
     variant = variants[state_id]
     own = list(variant_parts(variant))
     source = variant.get("structure_from")
     if source:
-        own = [p for p in variant_parts(variants[source]) if p["role"] in STRUCTURE_ROLES] + own
+        own = [p for p in variant_parts(variants[source]) if inheritable(p)] + own
     return own
 
 
@@ -133,23 +160,30 @@ def rafter_positions(depth, count, margin=0.25):
 def validate_states(states):
     """Structural ownership checks; returns a list of error strings."""
     errors = []
+    params = base_params(states)
+    if params["builder"] == ASSET_BUILDER and not params.get("asset"):
+        return ["base: builder architecture_asset needs 'asset' (path to an architecture asset spec)"]
     try:
         base = base_parts(states)
-    except ValueError as e:
-        return [str(e)]
-    params = base_params(states)
-    for key in ("width", "depth", "wall_height"):
-        value = params.get(key)
-        if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
-            errors.append(f"base.{key} must be a positive number")
-    count = params.get("rafter_count")
-    if isinstance(count, bool) or not isinstance(count, int) or count < 2:
-        errors.append("base.rafter_count must be an integer >= 2")
+    except ValueError as e:   # includes engine.arch.assets.AssetError
+        return [f"base: {e}"]
+    if params["builder"] == "rectangular_house_base":
+        for key in ("width", "depth", "wall_height"):
+            value = params.get(key)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
+                errors.append(f"base.{key} must be a positive number")
+        count = params.get("rafter_count")
+        if isinstance(count, bool) or not isinstance(count, int) or count < 2:
+            errors.append("base.rafter_count must be an integer >= 2")
+    errors += _asset_compatibility(states)
 
     seen = {p["id"]: "shared" for p in base}
     for variant in states.get("variants", []):
         vid = variant.get("id")
         if not vid:
+            continue
+        if variant_builder(variant) == ASSET_BUILDER and not variant.get("asset"):
+            errors.append(f"variant {vid}: builder architecture_asset needs 'asset'")
             continue
         try:
             expected = builder_parts(variant)
@@ -166,8 +200,11 @@ def validate_states(states):
                 errors.append(f"variant {vid}: structure_from '{source}' is not another variant")
             elif src.get("structure_from"):
                 errors.append(f"variant {vid}: structure_from '{source}' must own its structure (no chains)")
-            elif variant_builder(src) != variant_builder(variant) or \
-                    src.get("roof_pitch_degrees") != variant.get("roof_pitch_degrees"):
+            elif variant_builder(src) != variant_builder(variant):
+                errors.append(f"variant {vid}: structure_from '{source}' needs the same builder")
+            elif variant_builder(variant) == ASSET_BUILDER:
+                errors += [f"variant {vid}: {e}" for e in _asset_frame_errors(src, variant)]
+            elif src.get("roof_pitch_degrees") != variant.get("roof_pitch_degrees"):
                 errors.append(f"variant {vid}: structure_from '{source}' needs the same builder and pitch")
         if variant_builder(variant) == "gable_roof":
             pitch = variant.get("roof_pitch_degrees")
@@ -207,3 +244,42 @@ def validate_states(states):
     if uncovered:
         errors.append(f"base components not declared in shared_components: {uncovered}")
     return errors
+
+
+def _asset_frame_errors(src, variant):
+    """structure_from between asset variants: same family/variant, parameters equal except
+    the family's replaceable_params (e.g. truss_pattern)."""
+    a = _arch()
+    (sd, sp), (vd, vp) = a.resolved_params_file(src["asset"]), a.resolved_params_file(variant["asset"])
+    if (sd["family"], sd["variant"]) != (vd["family"], vd["variant"]):
+        return [f"structure_from '{src['id']}' is a {sd['family']}/{sd['variant']}, not {vd['family']}/{vd['variant']}"]
+    free = set(a.FAMILIES[vd["family"]][vd["variant"]].get("replaceable_params", ()))
+    if not free:
+        return [f"{vd['family']}/{vd['variant']} has no replaceable parts to swap on a shared frame"]
+    diff = sorted(k for k in vp if k not in free and vp[k] != sp.get(k))
+    return [f"structure_from '{src['id']}' differs in {diff}; only {sorted(free)} may differ"] if diff else []
+
+
+def _asset_compatibility(states):
+    """Asset variants must fit an asset site: same gap/length and deck level."""
+    params = base_params(states)
+    if params["builder"] != ASSET_BUILDER:
+        return [f"variant {v.get('id')}: architecture assets need an architecture_asset base (site)"
+                for v in states.get("variants", []) if variant_builder(v) == ASSET_BUILDER]
+    a = _arch()
+    site, sp = a.resolved_params_file(params["asset"])
+    errors = []
+    for v in states.get("variants", []):
+        if variant_builder(v) != ASSET_BUILDER or not v.get("asset"):
+            continue
+        try:
+            data, vp = a.resolved_params_file(v["asset"])
+        except ValueError as e:
+            errors.append(f"variant {v.get('id')}: {e}")
+            continue
+        if site["family"] == "site" and data["family"] == "bridge":
+            for vk, sk in (("total_length_m", "gap_m"), ("deck_level_m", "deck_level_m")):
+                if abs(vp[vk] - sp[sk]) > 1e-6:
+                    errors.append(f"variant {v.get('id')}: {vk} = {vp[vk]} does not fit the site's {sk} = {sp[sk]}")
+    return errors
+

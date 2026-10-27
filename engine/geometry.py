@@ -313,8 +313,31 @@ def ridge_cap(vid, style, a, h, rise, depth, material, collection):
                            segments=24, bevel=0.0)
 
 
-BASE_BUILDER_FUNCS = {"rectangular_house_base": build_rectangular_house_base}
-VARIANT_BUILDER_FUNCS = {"gable_roof": build_gable_roof}
+def build_asset_base(params, materials, collection):
+    """M4: shared site from an architecture asset spec (engine/arch)."""
+    from engine.arch import assets, realize
+    return realize.build_components(assets.plan_cached(params["asset"], "shared"), materials, collection,
+                                    _MESH_CACHE)
+
+
+def build_asset_variant(variant, params, materials, collection):
+    """M4: a variant from an architecture asset spec; with structure_from only its
+    replaceable parts (the rest is inherited from the source variant)."""
+    from engine.arch import assets, realize
+    keep = {p["id"] for p in spec.builder_parts(variant)}
+    comps = [c for c in assets.plan_cached(variant["asset"], variant["id"]) if c.id in keep]
+    return realize.build_components(comps, materials, collection, _MESH_CACHE)
+
+
+_MESH_CACHE = {}   # mesh signature -> bpy mesh; shared across the slots of one shot, reset per scene
+
+
+def reset_mesh_cache():
+    _MESH_CACHE.clear()
+
+
+BASE_BUILDER_FUNCS = {"rectangular_house_base": build_rectangular_house_base, spec.ASSET_BUILDER: build_asset_base}
+VARIANT_BUILDER_FUNCS = {"gable_roof": build_gable_roof, spec.ASSET_BUILDER: build_asset_variant}
 
 
 def build_model(states, materials, collection, variant_ids):

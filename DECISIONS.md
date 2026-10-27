@@ -55,3 +55,13 @@ If a requested change conflicts with these choices, document the reason and upda
 - **Cache render theo nhóm phụ thuộc**; trường lạ được coi là trường hình ảnh (an toàn).
 - **Preset `production_test` (1920×1080) chỉ để render ảnh tĩnh**; render chuỗi frame 1080p phải chờ các khung đại diện qua QA và gate.
 
+## Bổ sung 2026-10-27 (M4)
+- **Spec có ràng buộc, không phải sinh từ câu chữ tự do:** họ/biến thể đã đăng ký, tham số có kiểu và khoảng giá trị, kiểm tra tương thích hình học. Thêm họ mới bằng code + test (`docs/m4/M4_ARCHITECTURE_MODELING.md` §7).
+- **Planner thuần Python, Blender chỉ hiện thực hóa:** thành phần, bbox, nối liền và chữ ký tái lập kiểm tra được offline; BVH trong Blender là bản kiểm tra chính xác.
+- **Một thành phần = một object**; phần lặp lại được gộp (ván, thanh giàn). Voussoir để riêng từng viên vì phải bung theo hướng bán kính. Mesh giống nhau dùng chung một datablock; không apply modifier.
+- **Mọi asset M4 là ILLUSTRATIVE.** Cầu không phải bản dựng lại công trình thật, cũng không phải thiết kế kết cấu. Mẫu giàn có ghi nguồn (Wikipedia, CLM_001/002 SOURCE_VERIFIED), nhưng điều đó không nâng mức độ chính xác của asset.
+- **Ba cầu dùng chung một khu đất (khe 24 m, mặt cầu ở cao độ 5.0 m)** để so sánh tương đương; validator chặn asset không khớp khu đất.
+- **REPLACE_PARTS chỉ giữa các variant tương thích** (Pratt ↔ Warren trên cùng khung), không thay nguyên cây cầu này bằng cây cầu khác. Chuyển giữa các họ cầu dùng cắt cứng.
+- **SIDE_BY_SIDE `STACK`** (mở rộng nhỏ, không viết lại template) cho mô hình dài: mỗi mô hình một hàng trên màn hình.
+- **Ảnh preview:** JPEG được track trong git, PNG để cục bộ.
+

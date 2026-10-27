@@ -37,7 +37,7 @@ def camera_basis(azimuth_degrees, elevation_degrees):
     return right, up, forward
 
 
-def fit_ortho(points, basis, aspect, margin=0.07, bottom_band=0.0, clearance=10.0):
+def fit_ortho(points, basis, aspect, margin=0.07, bottom_band=0.0, clearance=10.0, ground_z=-0.38):
     """Orthographic camera that frames every point with a margin.
 
     margin is a fraction of the frame on each side; bottom_band is an extra
@@ -60,6 +60,15 @@ def fit_ortho(points, basis, aspect, margin=0.07, bottom_band=0.0, clearance=10.
     cx = (min(xs) + max(xs)) / 2.0
     cy = (min(ys) + max(ys)) / 2.0 - bottom_band * frame_h / 2.0
     depth = min(zs) - clearance
+    # The bottom edge of a tall orthographic frame can sit below the ground plane; rays
+    # starting there never hit the ground (a background-coloured band). Moving the camera
+    # back along its own view axis changes nothing in an orthographic projection except
+    # that, so push it back until the lowest frame corner is above the ground.
+    if ground_z is not None and forward[2] < -0.1:
+        frame_bottom = cy - (ortho / aspect) / 2.0
+        low = depth * forward[2] + cx * right[2] + frame_bottom * up[2]
+        if low < ground_z + 1.0:
+            depth -= (ground_z + 1.0 - low) / -forward[2]
     location = tuple(cx * r + cy * u + depth * f for r, u, f in zip(right, up, forward))
     # Clip far enough for an "infinite" ground plane, not just the framed subject.
     return {"location": location, "ortho_scale": ortho, "clip_start": 0.1,
@@ -82,6 +91,30 @@ def frame_to_world(ux, uy, fit, basis, aspect, toward_camera=5.0):
     ortho = fit["ortho_scale"]
     return tuple(c + r * (ux - 0.5) * ortho + u * (uy - 0.5) * ortho / aspect + f * toward_camera
                  for c, r, u, f in zip(fit["location"], right, up, forward))
+
+
+def layout_stack(points_per_model, basis, gap_ratio):
+    """SIDE_BY_SIDE layout "STACK": ground offsets placing models one behind another
+    along the camera's horizontal forward axis so that, on screen, they form rows
+    (first model on top) whose vertical extents never overlap. Needs an elevated
+    camera (the screen-up shift per metre of depth is sin(elevation)).
+
+    points_per_model: [[(x, y, z), ...], ...] at the origin. Returns (offsets, gap) where
+    gap is in screen-up metres."""
+    right, up, forward = basis
+    g = _unit((forward[0], forward[1], 0.0))
+    k = _dot(up, g)
+    if k < 0.2:
+        raise ValueError("STACK layout needs a camera elevation of at least ~12 degrees")
+    extents = [(min(_dot(p, up) for p in pts), max(_dot(p, up) for p in pts)) for pts in points_per_model]
+    gap = gap_ratio * max(hi - lo for lo, hi in extents)
+    shifts, cursor = [], 0.0
+    for lo, hi in extents:
+        s = cursor - hi
+        shifts.append(s)
+        cursor = lo + s - gap
+    mid = (shifts[0] + extents[0][1] + cursor + gap) / 2.0   # centre the stack on screen
+    return [tuple(gi * (s - mid) / k for gi in g) for s in shifts], gap
 
 
 def layout_side_by_side(footprints, axis, gap_ratio):

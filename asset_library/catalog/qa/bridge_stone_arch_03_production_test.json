@@ -1,0 +1,59 @@
+{
+  "asset_id": "bridge_stone_arch_03",
+  "signature": "a188e259a0ec0a667c606cbb93836a1d8ae4bbbef6e21f5f73124b3c77e82734",
+  "stats": {
+    "build_seconds": 0.032,
+    "objects": 52,
+    "asset_objects": 49,
+    "mesh_datablocks": 14,
+    "asset_mesh_datablocks": 11,
+    "evaluated_verts": 4466
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.032,
+    "objects": 52,
+    "asset_objects": 49,
+    "mesh_datablocks": 14,
+    "asset_mesh_datablocks": 11
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "52 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (47 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 a188e259a0ec0a66 twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "49 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_stone_arch_03/production_test/three_quarter.png",
+      "render_seconds": 1.35,
+      "build_seconds": 0.032
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_stone_arch_03/production_test/exploded.png",
+      "render_seconds": 1.291,
+      "build_seconds": 0.035
+    }
+  },
+  "process": {
+    "wall_seconds": 3.3,
+    "peak_rss_mb": 531.1,
+    "peak_memory_footprint_mb": 1951.4,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

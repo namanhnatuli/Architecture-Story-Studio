@@ -1,0 +1,918 @@
+{
+  "schema": "asset_catalog/1",
+  "generated_utc": "2026-10-27T16:50:56.702343+00:00",
+  "generator_version": "1.0.0",
+  "assets": [
+    {
+      "asset_id": "bridge_steel_truss_pratt_01",
+      "title": "Steel pony truss bridge, Pratt web, 2 spans",
+      "family": "bridge",
+      "variant": "steel_truss",
+      "generator": {
+        "name": "bridge.steel_truss",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_steel_truss_pratt_01.json",
+        "sha256": "03bdd6f3a0074ef0b3c7210c2d56bdd86ffd9b3fd46fe1ba43a1c8daae4de30c"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Parallel-chord pony truss (no top bracing below 4.5 m depth). Not structurally certified.",
+        "references": [
+          {
+            "title": "Truss bridge (Wikipedia)",
+            "url": "https://en.wikipedia.org/wiki/Truss_bridge",
+            "accessed": "2026-10-27",
+            "used_for": "web arrangement only",
+            "excerpt": "A Pratt truss includes vertical members and diagonals that slope down towards the center, the opposite of the Howe truss."
+          }
+        ]
+      },
+      "geometry": {
+        "components": 29,
+        "unique_meshes": 12,
+        "by_type": {
+          "ABUTMENT": 2,
+          "BEARING": 2,
+          "DECK": 2,
+          "END_POST": 4,
+          "FLOOR_BEAM": 2,
+          "JOINT": 4,
+          "PIER": 1,
+          "TRUSS_CHORD": 4,
+          "TRUSS_DIAGONAL": 4,
+          "TRUSS_VERTICAL": 4
+        },
+        "verts": 1144,
+        "faces": 858,
+        "bbox": [
+          [
+            -12.0,
+            -2.8,
+            -0.38
+          ],
+          [
+            12.0,
+            2.8,
+            7.07
+          ]
+        ],
+        "dimensions_m": [
+          24.0,
+          5.6,
+          7.45
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 24.0,
+        "deck_width_m": 4.0,
+        "deck_level_m": 5.0,
+        "span_count": 2,
+        "truss_pattern": "pratt",
+        "panels_per_span": 6,
+        "truss_height_m": 2.2,
+        "pier_width_m": 1.6,
+        "chord_size_m": 0.3,
+        "web_size_m": 0.2
+      },
+      "materials": {
+        "keys": [
+          "concrete",
+          "concrete_deck",
+          "steel",
+          "steel_dark"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE",
+        "REPLACE_PARTS"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/top.jpg"
+        ],
+        "production_test": [
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/production_test/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/production_test/three_quarter.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "1f8140d5c900f9568ef04b37f69f7b66843b643ac8100db916a217258b86f3ae",
+            "stats": {
+              "build_seconds": 0.033,
+              "objects": 32,
+              "asset_objects": 29,
+              "mesh_datablocks": 15,
+              "asset_mesh_datablocks": 12,
+              "evaluated_verts": 8128
+            },
+            "process": {
+              "wall_seconds": 2.6,
+              "peak_rss_mb": 499.8,
+              "peak_memory_footprint_mb": 1855.1,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.542
+              },
+              "elevation": {
+                "render_seconds": 0.324
+              },
+              "top": {
+                "render_seconds": 0.391
+              },
+              "exploded": {
+                "render_seconds": 0.501
+              }
+            }
+          },
+          "production_test": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "1f8140d5c900f9568ef04b37f69f7b66843b643ac8100db916a217258b86f3ae",
+            "stats": {
+              "build_seconds": 0.033,
+              "objects": 32,
+              "asset_objects": 29,
+              "mesh_datablocks": 15,
+              "asset_mesh_datablocks": 12,
+              "evaluated_verts": 8128
+            },
+            "process": {
+              "wall_seconds": 3.2,
+              "peak_rss_mb": 530.6,
+              "peak_memory_footprint_mb": 1949.1,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 1.262
+              },
+              "exploded": {
+                "render_seconds": 1.265
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "bridge_steel_truss_warren_01",
+      "title": "Steel pony truss bridge, Warren web, 2 spans",
+      "family": "bridge",
+      "variant": "steel_truss",
+      "generator": {
+        "name": "bridge.steel_truss",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_steel_truss_warren_01.json",
+        "sha256": "efd1d1fa5e545e0df089286eb3eeb79e0a3683142ce5c10d2ed328411f8f7893"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Same frame as bridge_steel_truss_pratt_01; Warren web with isosceles (not equilateral) triangles so both patterns share chords and nodes.",
+        "references": [
+          {
+            "title": "Truss bridge (Wikipedia)",
+            "url": "https://en.wikipedia.org/wiki/Truss_bridge",
+            "accessed": "2026-10-27",
+            "used_for": "web arrangement only",
+            "excerpt": "forming alternately inverted equilateral triangle-shaped spaces along its length ... with no vertical elements"
+          }
+        ]
+      },
+      "geometry": {
+        "components": 25,
+        "unique_meshes": 11,
+        "by_type": {
+          "ABUTMENT": 2,
+          "BEARING": 2,
+          "DECK": 2,
+          "END_POST": 4,
+          "FLOOR_BEAM": 2,
+          "JOINT": 4,
+          "PIER": 1,
+          "TRUSS_CHORD": 4,
+          "TRUSS_DIAGONAL": 4
+        },
+        "verts": 984,
+        "faces": 738,
+        "bbox": [
+          [
+            -12.0,
+            -2.8,
+            -0.38
+          ],
+          [
+            12.0,
+            2.8,
+            7.07
+          ]
+        ],
+        "dimensions_m": [
+          24.0,
+          5.6,
+          7.45
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 24.0,
+        "deck_width_m": 4.0,
+        "deck_level_m": 5.0,
+        "span_count": 2,
+        "truss_pattern": "warren",
+        "panels_per_span": 6,
+        "truss_height_m": 2.2,
+        "pier_width_m": 1.6,
+        "chord_size_m": 0.3,
+        "web_size_m": 0.2
+      },
+      "materials": {
+        "keys": [
+          "concrete",
+          "concrete_deck",
+          "steel",
+          "steel_dark"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE",
+        "REPLACE_PARTS"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_warren_01/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_warren_01/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_warren_01/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_steel_truss_warren_01/review/top.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "0c0c8eee57aabb8b8ad4754b4aeb7badf9353acf9b4aba12554803b97d4a34d2",
+            "stats": {
+              "build_seconds": 0.031,
+              "objects": 28,
+              "asset_objects": 25,
+              "mesh_datablocks": 14,
+              "asset_mesh_datablocks": 11,
+              "evaluated_verts": 7008
+            },
+            "process": {
+              "wall_seconds": 2.5,
+              "peak_rss_mb": 495.8,
+              "peak_memory_footprint_mb": 1852.1,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.54
+              },
+              "elevation": {
+                "render_seconds": 0.32
+              },
+              "top": {
+                "render_seconds": 0.384
+              },
+              "exploded": {
+                "render_seconds": 0.516
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "bridge_stone_arch_03",
+      "title": "Stone arch bridge, 3 semicircular arches",
+      "family": "bridge",
+      "variant": "stone_arch",
+      "generator": {
+        "name": "bridge.stone_arch",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_stone_arch_03.json",
+        "sha256": "46a8b5ee6972ba49cc3091c66facf33e427edda0252b9690ab52484bf3b922e9"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Semicircular voussoir rings with a keystone at each crown, spandrel fill, piers with cutwaters."
+      },
+      "geometry": {
+        "components": 49,
+        "unique_meshes": 11,
+        "by_type": {
+          "ABUTMENT": 2,
+          "COPING": 2,
+          "DECK": 1,
+          "KEYSTONE": 3,
+          "PARAPET": 2,
+          "PIER": 2,
+          "SPANDREL": 1,
+          "VOUSSOIR": 36
+        },
+        "verts": 878,
+        "faces": 545,
+        "bbox": [
+          [
+            -12.05,
+            -3.39,
+            -0.38
+          ],
+          [
+            12.05,
+            3.39,
+            6.02
+          ]
+        ],
+        "dimensions_m": [
+          24.1,
+          6.78,
+          6.4
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 24.0,
+        "deck_width_m": 4.0,
+        "deck_level_m": 5.0,
+        "arch_count": 3,
+        "arch_type": "semicircular",
+        "pier_width_m": 1.8,
+        "abutment_length_m": 1.0,
+        "ring_thickness_m": 0.5,
+        "voussoirs_per_arch": 13,
+        "springing_level_m": 0.6,
+        "deck_thickness_m": 0.3,
+        "parapet_thickness_m": 0.4,
+        "parapet_height_m": 0.9
+      },
+      "materials": {
+        "keys": [
+          "road_gravel",
+          "stone",
+          "stone_dark",
+          "stone_light"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_03/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_03/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_03/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_03/review/top.jpg"
+        ],
+        "production_test": [
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_03/production_test/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_03/production_test/three_quarter.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "a188e259a0ec0a667c606cbb93836a1d8ae4bbbef6e21f5f73124b3c77e82734",
+            "stats": {
+              "build_seconds": 0.032,
+              "objects": 52,
+              "asset_objects": 49,
+              "mesh_datablocks": 14,
+              "asset_mesh_datablocks": 11,
+              "evaluated_verts": 4466
+            },
+            "process": {
+              "wall_seconds": 2.6,
+              "peak_rss_mb": 506.8,
+              "peak_memory_footprint_mb": 1863.2,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.537
+              },
+              "elevation": {
+                "render_seconds": 0.332
+              },
+              "top": {
+                "render_seconds": 0.41
+              },
+              "exploded": {
+                "render_seconds": 0.524
+              }
+            }
+          },
+          "production_test": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "a188e259a0ec0a667c606cbb93836a1d8ae4bbbef6e21f5f73124b3c77e82734",
+            "stats": {
+              "build_seconds": 0.032,
+              "objects": 52,
+              "asset_objects": 49,
+              "mesh_datablocks": 14,
+              "asset_mesh_datablocks": 11,
+              "evaluated_verts": 4466
+            },
+            "process": {
+              "wall_seconds": 3.3,
+              "peak_rss_mb": 531.1,
+              "peak_memory_footprint_mb": 1951.4,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 1.35
+              },
+              "exploded": {
+                "render_seconds": 1.291
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "bridge_stone_arch_05",
+      "title": "Stone arch bridge, 5 semicircular arches",
+      "family": "bridge",
+      "variant": "stone_arch",
+      "generator": {
+        "name": "bridge.stone_arch",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_stone_arch_05.json",
+        "sha256": "b43292ad4648c6c6f5fd55f58e479c5e931f0b2b3b1cf0ec21afd0f1ce83d0e0"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Same generator as bridge_stone_arch_03 with five arches (parameterisation test)."
+      },
+      "geometry": {
+        "components": 57,
+        "unique_meshes": 11,
+        "by_type": {
+          "ABUTMENT": 2,
+          "COPING": 2,
+          "DECK": 1,
+          "KEYSTONE": 5,
+          "PARAPET": 2,
+          "PIER": 4,
+          "SPANDREL": 1,
+          "VOUSSOIR": 40
+        },
+        "verts": 1114,
+        "faces": 687,
+        "bbox": [
+          [
+            -12.05,
+            -3.17,
+            -0.38
+          ],
+          [
+            12.05,
+            3.17,
+            6.02
+          ]
+        ],
+        "dimensions_m": [
+          24.1,
+          6.34,
+          6.4
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 24.0,
+        "deck_width_m": 4.0,
+        "deck_level_m": 5.0,
+        "arch_count": 5,
+        "arch_type": "semicircular",
+        "pier_width_m": 1.4,
+        "abutment_length_m": 1.0,
+        "ring_thickness_m": 0.4,
+        "voussoirs_per_arch": 9,
+        "springing_level_m": 0.6,
+        "deck_thickness_m": 0.3,
+        "parapet_thickness_m": 0.4,
+        "parapet_height_m": 0.9
+      },
+      "materials": {
+        "keys": [
+          "road_gravel",
+          "stone",
+          "stone_dark",
+          "stone_light"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_05/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_05/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_05/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_stone_arch_05/review/top.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "f6da7d508f0ff9f6d8b5466dcfc498217b0314ed2e07d5b99719e7c7948912c2",
+            "stats": {
+              "build_seconds": 0.033,
+              "objects": 60,
+              "asset_objects": 57,
+              "mesh_datablocks": 14,
+              "asset_mesh_datablocks": 11,
+              "evaluated_verts": 5558
+            },
+            "process": {
+              "wall_seconds": 2.6,
+              "peak_rss_mb": 509.4,
+              "peak_memory_footprint_mb": 1866.1,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.545
+              },
+              "elevation": {
+                "render_seconds": 0.331
+              },
+              "top": {
+                "render_seconds": 0.415
+              },
+              "exploded": {
+                "render_seconds": 0.528
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "bridge_timber_beam_01",
+      "title": "Timber beam (trestle) bridge, 4 spans",
+      "family": "bridge",
+      "variant": "timber_beam",
+      "generator": {
+        "name": "bridge.timber_beam",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_timber_beam_01.json",
+        "sha256": "d108f4649e4abbf23d332bd8c3111c5b21706bb9e2f52caa6a9f621a6e4b8896"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Load path shown: planks -> stringers -> cap beams -> trestle posts."
+      },
+      "geometry": {
+        "components": 20,
+        "unique_meshes": 8,
+        "by_type": {
+          "CAP_BEAM": 5,
+          "PLANK": 4,
+          "RAILING": 2,
+          "STRINGER": 4,
+          "SUPPORT": 5
+        },
+        "verts": 1296,
+        "faces": 972,
+        "bbox": [
+          [
+            -12.0,
+            -2.25,
+            -0.38
+          ],
+          [
+            12.0,
+            2.25,
+            6.1
+          ]
+        ],
+        "dimensions_m": [
+          24.0,
+          4.5,
+          6.48
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 24.0,
+        "deck_width_m": 4.0,
+        "deck_level_m": 5.0,
+        "span_count": 4,
+        "stringer_count": 4,
+        "stringer_width_m": 0.26,
+        "stringer_depth_m": 0.46,
+        "post_size_m": 0.3,
+        "plank_pitch_m": 0.27
+      },
+      "materials": {
+        "keys": [
+          "timber",
+          "timber_dark",
+          "timber_light"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_timber_beam_01/review/top.jpg"
+        ],
+        "production_test": [
+          "asset_library/architecture/bridges/previews/bridge_timber_beam_01/production_test/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_timber_beam_01/production_test/three_quarter.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "2b9434405e612a8d9da1f95db7b0c8018981e4da173af1a3da2309048d48611d",
+            "stats": {
+              "build_seconds": 0.032,
+              "objects": 23,
+              "asset_objects": 20,
+              "mesh_datablocks": 11,
+              "asset_mesh_datablocks": 8,
+              "evaluated_verts": 9192
+            },
+            "process": {
+              "wall_seconds": 2.6,
+              "peak_rss_mb": 497.0,
+              "peak_memory_footprint_mb": 1854.0,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.571
+              },
+              "elevation": {
+                "render_seconds": 0.319
+              },
+              "top": {
+                "render_seconds": 0.398
+              },
+              "exploded": {
+                "render_seconds": 0.512
+              }
+            }
+          },
+          "production_test": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "2b9434405e612a8d9da1f95db7b0c8018981e4da173af1a3da2309048d48611d",
+            "stats": {
+              "build_seconds": 0.033,
+              "objects": 23,
+              "asset_objects": 20,
+              "mesh_datablocks": 11,
+              "asset_mesh_datablocks": 8,
+              "evaluated_verts": 9192
+            },
+            "process": {
+              "wall_seconds": 3.4,
+              "peak_rss_mb": 520.7,
+              "peak_memory_footprint_mb": 1943.3,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 1.356
+              },
+              "exploded": {
+                "render_seconds": 1.249
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "site_river_crossing_24",
+      "title": "River crossing site, 24 m gap",
+      "family": "site",
+      "variant": "river_crossing",
+      "generator": {
+        "name": "site.river_crossing",
+        "version": "1.0.0",
+        "module": "engine/arch/families/site.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/sites/site_river_crossing_24.json",
+        "sha256": "e7bcb303b1157878530082a2e721507bb7a94f65ec675cea5543eee694eb0456"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Neutral context shared by all bridge archetypes: two banks and a water strip."
+      },
+      "geometry": {
+        "components": 3,
+        "unique_meshes": 3,
+        "by_type": {
+          "GROUND": 2,
+          "WATER": 1
+        },
+        "verts": 24,
+        "faces": 18,
+        "bbox": [
+          [
+            -14.2,
+            -4.0,
+            -0.38
+          ],
+          [
+            14.2,
+            4.0,
+            5.0
+          ]
+        ],
+        "dimensions_m": [
+          28.4,
+          8.0,
+          5.38
+        ]
+      },
+      "resolved_parameters": {
+        "gap_m": 24.0,
+        "deck_level_m": 5.0,
+        "site_width_m": 8.0,
+        "bank_length_m": 2.2,
+        "water_level_m": 0.3
+      },
+      "materials": {
+        "keys": [
+          "earth_bank",
+          "water"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD"
+      ],
+      "previews": {},
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "id": "SRC_001",
+      "title": "Truss bridge",
+      "publisher": "Wikipedia",
+      "kind": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/Truss_bridge",
+      "accessed": "2026-10-27",
+      "verification": "Read with a web-fetch tool on 2026-10-27 (sections 'Pratt truss', 'Warren truss').",
+      "license": "Quoted for research/citation only."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM_001",
+      "text": "A Pratt truss has vertical members and diagonals that slope down towards the centre.",
+      "source_ids": [
+        "SRC_001"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "section 'Pratt truss'",
+          "excerpt": "A Pratt truss includes vertical members and diagonals that slope down towards the center, the opposite of the Howe truss."
+        }
+      ],
+      "scope": "web arrangement only",
+      "visual_implications": "bridge_steel_truss_pratt_01 web (truss_web('pratt'))."
+    },
+    {
+      "id": "CLM_002",
+      "text": "A Warren truss forms alternately inverted triangles along its length, with no vertical members.",
+      "source_ids": [
+        "SRC_001"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "section 'Warren truss'",
+          "excerpt": "forming alternately inverted equilateral triangle-shaped spaces along its length ... with no vertical elements"
+        }
+      ],
+      "scope": "web arrangement only; the model uses isosceles (not equilateral) triangles so it shares the Pratt frame",
+      "visual_implications": "bridge_steel_truss_warren_01 web (truss_web('warren'))."
+    }
+  ]
+}

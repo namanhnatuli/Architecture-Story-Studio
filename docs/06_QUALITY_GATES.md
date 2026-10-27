@@ -50,3 +50,9 @@ Render dài trên macOS chạy dưới `caffeinate -i`: nếu không, máy tự 
 
 ## M3 — gate cho project có lời dẫn (G0–G6)
 Xem bảng trong `docs/m3/M3_PIPELINE.md`. `python3 tools/cli.py gates --project <slug>` ghi `qa/gates.json` và in kết luận. Kết luận chỉ là "PUBLICATION-READY" khi G6 PASS; nếu không thì là "INTERNAL REVIEW PREVIEW — NOT PUBLICATION-READY".
+
+## M3.5: trạng thái gate
+`pipeline/gates.py`: TECHNICALLY_VALIDATED / EDITORIAL_REVIEW_PENDING / TTS_RIGHTS_PENDING / PUBLICATION_READY (xem `docs/m3/M3_5_PUBLICATION_WORKFLOW.md`).
+
+## M4: gate cho asset kiến trúc (G4-A…E)
+G4-A spec, G4-B hình học (offline + BVH), G4-C hình ảnh (preview đa góc, xem ảnh trực tiếp + MCP), G4-D tương thích animation (QA Blender của project), G4-E tái lập (dựng hai lần). Lệnh và chi tiết: `docs/m4/M4_ARCHITECTURE_MODELING.md` §5. Các gate này là gate kỹ thuật của asset; chúng **không** thay thế gate sự thật hay gate quyền xuất bản.

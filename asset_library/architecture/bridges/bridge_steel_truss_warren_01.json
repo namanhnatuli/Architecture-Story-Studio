@@ -1,0 +1,45 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "bridge_steel_truss_warren_01",
+  "title": "Steel pony truss bridge, Warren web, 2 spans",
+  "family": "bridge",
+  "variant": "steel_truss",
+  "units": "METRIC",
+  "generator": {
+    "name": "bridge.steel_truss",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "total_length_m": 24.0,
+    "deck_width_m": 4.0,
+    "deck_level_m": 5.0,
+    "span_count": 2,
+    "truss_pattern": "warren",
+    "panels_per_span": 6,
+    "truss_height_m": 2.2,
+    "pier_width_m": 1.6,
+    "chord_size_m": 0.3,
+    "web_size_m": 0.2
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Same frame as bridge_steel_truss_pratt_01; Warren web with isosceles (not equilateral) triangles so both patterns share chords and nodes.",
+    "references": [
+      {
+        "title": "Truss bridge (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Truss_bridge",
+        "accessed": "2026-10-27",
+        "used_for": "web arrangement only",
+        "excerpt": "forming alternately inverted equilateral triangle-shaped spaces along its length ... with no vertical elements"
+      }
+    ]
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "EXPLODED_VIEW",
+    "SIDE_BY_SIDE",
+    "REPLACE_PARTS"
+  ]
+}

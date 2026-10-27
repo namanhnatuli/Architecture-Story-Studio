@@ -1,0 +1,69 @@
+{
+  "asset_id": "bridge_steel_truss_pratt_01",
+  "signature": "1f8140d5c900f9568ef04b37f69f7b66843b643ac8100db916a217258b86f3ae",
+  "stats": {
+    "build_seconds": 0.033,
+    "objects": 32,
+    "asset_objects": 29,
+    "mesh_datablocks": 15,
+    "asset_mesh_datablocks": 12,
+    "evaluated_verts": 8128
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.031,
+    "objects": 32,
+    "asset_objects": 29,
+    "mesh_datablocks": 15,
+    "asset_mesh_datablocks": 12
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "32 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (47 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 1f8140d5c900f956 twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "29 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/three_quarter.png",
+      "render_seconds": 0.542,
+      "build_seconds": 0.031
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/elevation.png",
+      "render_seconds": 0.324,
+      "build_seconds": 0.032
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/top.png",
+      "render_seconds": 0.391,
+      "build_seconds": 0.038
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_steel_truss_pratt_01/review/exploded.png",
+      "render_seconds": 0.501,
+      "build_seconds": 0.032
+    }
+  },
+  "process": {
+    "wall_seconds": 2.6,
+    "peak_rss_mb": 499.8,
+    "peak_memory_footprint_mb": 1855.1,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

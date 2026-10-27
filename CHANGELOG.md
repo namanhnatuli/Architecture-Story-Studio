@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.4.0 — 2026-10-27 — M4: dựng hình kiến trúc thủ tục và thư viện asset (nhánh `m4-architectural-modeling`)
+- **Hệ thành phần ngữ nghĩa** (`engine/arch/semantic.py`):
+  - Mỗi thành phần có ID ổn định, loại (30 `SEMANTIC_TYPES`), vật liệu, nhóm, variant sở hữu, transform, mesh cục bộ, layer, hướng bung, vai trò animation, bevel, evidence.
+  - Có bbox và chữ ký mesh để dùng chung mesh và kiểm tra tái lập.
+- **Thư viện hình học** (`engine/arch/primitives.py`, `library.py`, thuần Python): box, thanh, cung vành khăn (voussoir), lăng trụ đa giác, trụ tròn; lặp có khe mạch, dầm, cột, giằng chéo X, vòng vòm và keystone, outline spandrel, mũi cản nước, giàn song song Pratt/Warren, bản nút.
+- **Spec kiến trúc** (`schemas/architecture_asset.schema.json`, `engine/arch/assets.py`):
+  - Registry họ/biến thể với khoảng tham số, kiểm tra tương thích hình học và thông báo lỗi dễ đọc.
+  - Ba mức độ chính xác: ILLUSTRATIVE / REFERENCE_BASED / HISTORICALLY_VERIFIED (mức cao hơn phải có bằng chứng).
+- **Ba họ cầu và khu đất** (`engine/arch/families/`): timber_beam, stone_arch (3 hoặc 5 vòm), steel_truss Pratt/Warren dùng chung khung; site river_crossing. Tổng cộng 6 spec trong `asset_library/architecture/`.
+- **Tích hợp engine M2/M3 (không viết engine mới):**
+  - Builder `architecture_asset` (dùng cho cả base và variant), mesh dùng chung, bevel không phá hủy, collection theo nhóm.
+  - `structure_from` tổng quát: asset kế thừa mọi phần không mang vai trò REPLACE.
+  - SIDE_BY_SIDE `layout: "STACK"` với nhãn theo hàng.
+  - Camera orthographic tự lùi ra khi mép dưới khung nằm thấp hơn mặt đất.
+  - Preset camera BRIDGE_THREE_QUARTER, ELEVATION, TOP, BRIDGE_STACK.
+- **Vật liệu dùng chung** `asset_library/materials/stylized_materials.json` (13 vật liệu thủ tục, không texture); `add_units` có thêm tham số trục cho hàng đá.
+- **QA và gate G4-A…E:**
+  - Kiểm tra offline (`engine/arch/checks.py`).
+  - Kiểm tra trong Blender (`engine/arch/asset_scene.py`): nối liền và độ xuyên sâu bằng BVH, dựng hai lần, gắn tag ngữ nghĩa.
+  - Preview đa góc (ba phần tư, mặt đứng, mặt bằng, bung).
+  - Lệnh CLI: `asset-check`, `asset-render`, `asset-catalog`. Bộ nhớ đo bằng `/usr/bin/time -l`.
+- **Catalog** `asset_library/catalog/catalog.json` + `CATALOG.md`: metadata, nguồn gốc, vật liệu, preview, kết quả kiểm tra.
+- **Pilot** `projects/bridge-structure-evolution` (29.5 s, không lời dẫn, sinh bằng `tools/make_bridge_pilot.py`): QA Blender 86/86, media QA PASS.
+- **Cache render** khóa v3: đệ quy `engine/**` và nhóm phụ thuộc `assets` (spec được tham chiếu + thư viện vật liệu).
+- **Test:** 138 (thêm `tests/test_m4_arch.py` 26 test, `tests/test_blender_m4.py` 5 test, gồm phép thử ngược cho BVH). QA Blender roof-evolution 63/63, suffolk-roofs 70/70; trạng thái xuất bản của suffolk không đổi.
+
 ## 0.3.5 — 2026-10-27 — M3.5: duyệt biên tập, quyền TTS, hoàn thiện hình ảnh (nhánh `m3.5-editorial-polish`)
 - **Audit license** (`docs/licensing/TTS_LICENSE_AUDIT.md`):
   - Model card OmniVoice hiện ghi trọng số là **CC-BY-NC** (do dữ liệu Emilia), và trọng số này trùng từng byte với revision đã cài → OmniVoice **NOT CLEARED** cho xuất bản thương mại, chỉ dùng cho preview nội bộ.

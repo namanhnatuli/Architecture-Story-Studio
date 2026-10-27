@@ -1,0 +1,43 @@
+{
+  "schema": "material_library/1",
+  "note": "Shared stylized PBR materials for procedural architecture (M4). All procedural: no textures, no external files, no licence obligations. Colours are sRGB hex. detail = object-space noise tint + bump (engine/scene.py add_surface_detail); units = joint pattern (engine/scene.py add_units), axes = [course axis, unit axis] in object space.",
+  "categories": {
+    "wood": ["timber", "timber_dark", "timber_light"],
+    "stone": ["stone", "stone_dark", "stone_light", "road_gravel"],
+    "metal": ["steel", "steel_dark"],
+    "concrete": ["concrete", "concrete_deck"],
+    "site": ["earth_bank", "water"]
+  },
+  "materials": {
+    "timber":       {"name": "Timber (stylized)", "color": "#8E6A4B", "roughness": 0.72,
+                     "detail": {"scale": 5.0, "stretch": [0.25, 6.0, 6.0], "variation": 0.12, "bump": 0.12}},
+    "timber_dark":  {"name": "Timber, weathered (stylized)", "color": "#6C5341", "roughness": 0.78,
+                     "detail": {"scale": 5.0, "stretch": [6.0, 6.0, 0.3], "variation": 0.12, "bump": 0.12}},
+    "timber_light": {"name": "Timber deck planks (stylized)", "color": "#A8835F", "roughness": 0.7,
+                     "detail": {"scale": 5.0, "stretch": [6.0, 0.25, 6.0], "variation": 0.14, "bump": 0.1}},
+    "stone":        {"name": "Limestone masonry (stylized)", "color": "#BDB29E", "roughness": 0.86,
+                     "detail": {"scale": 3.0, "variation": 0.06, "bump": 0.06},
+                     "units": {"course": 0.42, "width": 0.85, "joint": 0.028, "joint_dark": 0.74, "vertical": 1.0,
+                               "tone": 0.05, "axes": ["Z", "X"]}},
+    "stone_dark":   {"name": "Foundation masonry (stylized)", "color": "#9E9584", "roughness": 0.88,
+                     "detail": {"scale": 3.0, "variation": 0.07, "bump": 0.07},
+                     "units": {"course": 0.5, "width": 1.0, "joint": 0.03, "joint_dark": 0.74, "vertical": 1.0,
+                               "tone": 0.05, "axes": ["Z", "X"]}},
+    "stone_light":  {"name": "Dressed stone (stylized)", "color": "#D1C7B3", "roughness": 0.8,
+                     "detail": {"scale": 3.0, "variation": 0.04, "bump": 0.04}},
+    "road_gravel":  {"name": "Road surface (stylized)", "color": "#8D867B", "roughness": 0.93,
+                     "detail": {"scale": 22.0, "variation": 0.08, "bump": 0.05}},
+    "steel":        {"name": "Painted steel (stylized)", "color": "#5D7686", "roughness": 0.42, "metallic": 0.35,
+                     "detail": {"scale": 8.0, "variation": 0.03, "bump": 0.0}},
+    "steel_dark":   {"name": "Painted steel, dark (stylized)", "color": "#3E4C56", "roughness": 0.45, "metallic": 0.35,
+                     "detail": {"scale": 8.0, "variation": 0.03, "bump": 0.0}},
+    "concrete":     {"name": "Concrete (stylized)", "color": "#B8B4AA", "roughness": 0.82,
+                     "detail": {"scale": 9.0, "variation": 0.05, "bump": 0.03}},
+    "concrete_deck": {"name": "Concrete deck (stylized)", "color": "#9F9B92", "roughness": 0.85,
+                     "detail": {"scale": 14.0, "variation": 0.05, "bump": 0.03}},
+    "earth_bank":   {"name": "Earth bank (stylized)", "color": "#ADA98F", "roughness": 0.95,
+                     "detail": {"scale": 2.5, "variation": 0.08, "bump": 0.08}},
+    "water":        {"name": "Water (stylized)", "color": "#86A9B8", "roughness": 0.12,
+                     "detail": {"scale": 1.5, "stretch": [1.0, 4.0, 1.0], "variation": 0.04, "bump": 0.02}}
+  }
+}

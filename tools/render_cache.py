@@ -10,8 +10,10 @@ shot can say which category changed:
   project_render   project fields the engine reads (fps)
   style            config/visual_style.json
   preset           the preset entry (width, height, fps, engine, format)
-  engine           engine/*.py that run during a render (qa_checks.py and the deprecated
-                   transform.py are excluded)
+  engine           engine/**/*.py that run during a render (qa_checks.py and the deprecated
+                   transform.py are excluded); recursive since M4 (engine/arch/)
+  assets           M4: contents of the architecture asset specs referenced by states.json
+                   (base + variants) and, when any is referenced, the shared material library
 
 Not render dependencies (never invalidate frames): narration text, audio and its
 rights class, pronunciation, subtitles, timeline position (start_seconds),
@@ -23,7 +25,7 @@ import hashlib
 import json
 from pathlib import Path
 
-KEY_VERSION = 2
+KEY_VERSION = 3
 ROOT = Path(__file__).resolve().parent.parent
 
 SHOT_NON_VISUAL = ("beat_ids", "visual_purpose", "narration", "claim_ids", "start_seconds", "cut_from_previous",
@@ -33,7 +35,8 @@ STATES_TOP_NON_VISUAL = ("note", "transitions", "schema_version")
 PROJECT_NON_VISUAL = ("slug", "title", "mode", "language", "duration_seconds", "render_preset", "factual_review",
                       "audio_timing_locked", "notes")
 ENGINE_EXCLUDED = ("qa_checks.py", "transform.py")
-CATEGORIES = ("shot_visual", "states_geometry", "project_render", "style", "preset", "engine")
+CATEGORIES = ("shot_visual", "states_geometry", "project_render", "style", "preset", "engine", "assets")
+MATERIAL_LIBRARY = "asset_library/materials/stylized_materials.json"
 
 
 def digest(obj):
@@ -57,7 +60,15 @@ def project_render(project):
 
 
 def engine_files(root=ROOT):
-    return [f for f in sorted((Path(root) / "engine").glob("*.py")) if f.name not in ENGINE_EXCLUDED]
+    base = Path(root) / "engine"
+    return [f for f in sorted(base.rglob("*.py")) if f.name not in ENGINE_EXCLUDED and "__pycache__" not in f.parts]
+
+
+def asset_files(states, root=ROOT):
+    """Asset spec files referenced by a states.json (+ material library if any)."""
+    refs = [(states.get("base") or {}).get("asset")] + [v.get("asset") for v in states.get("variants", [])]
+    refs = sorted({r for r in refs if r})
+    return refs + ([MATERIAL_LIBRARY] if refs else [])
 
 
 def components(p, shot, preset, root=ROOT):
@@ -71,12 +82,15 @@ def components(p, shot, preset, root=ROOT):
         "project_render": digest(project_render(read(p / "project.json"))),
         "style": digest((root / "config/visual_style.json").read_bytes()),
         "preset": digest({"name": preset, **presets[preset]}),
-        "engine": digest({f.name: digest(f.read_bytes()) for f in engine_files(root)}),
+        "engine": digest(engine_file_hashes(root)),
+        "assets": digest({rel: digest((root / rel).read_bytes()) if (root / rel).is_file() else "missing"
+                          for rel in asset_files(read(p / "storyboard/states.json"), root)}),
     }
 
 
 def engine_file_hashes(root=ROOT):
-    return {f.name: digest(f.read_bytes()) for f in engine_files(root)}
+    base = Path(root) / "engine"
+    return {str(f.relative_to(base)): digest(f.read_bytes()) for f in engine_files(root)}
 
 
 def cache_key(parts):
@@ -88,7 +102,7 @@ def stale_reasons(manifest, parts, engine_hashes=None):
     if not manifest:
         return ["never rendered"]
     if manifest.get("key_version") != KEY_VERSION:
-        return [f"render manifest key v{manifest.get('key_version', 1)} (pre-M3.5): one-time re-render"]
+        return [f"render manifest key v{manifest.get('key_version', 1)} (older pipeline): one-time re-render"]
     stored = manifest.get("components", {})
     reasons = [c for c in CATEGORIES if stored.get(c) != parts.get(c)]
     if "engine" in reasons and engine_hashes and manifest.get("engine_files"):

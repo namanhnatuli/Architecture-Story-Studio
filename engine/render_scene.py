@@ -55,8 +55,10 @@ def save_blend(ctx, project_dir):
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     parser = argparse.ArgumentParser()
-    parser.add_argument("--project", required=True)
-    parser.add_argument("--mode", choices=["keystills", "still", "animation", "check"], required=True)
+    parser.add_argument("--project", help="project directory (not needed for --mode asset)")
+    parser.add_argument("--mode", choices=["keystills", "still", "animation", "check", "asset"], required=True)
+    parser.add_argument("--asset", help="asset mode: architecture asset spec (asset_library/...json)")
+    parser.add_argument("--views", default="three_quarter,elevation,top,exploded", help="asset mode: views to render")
     presets = {k: v for k, v in json.loads((ROOT / "config/render_presets.json").read_text()).items()
                if isinstance(v, dict)}
     parser.add_argument("--preset", choices=sorted(presets), default="preview")
@@ -68,6 +70,22 @@ def main():
     args = parser.parse_args(argv)
     if args.mode == "animation" and args.preset == "production_test":
         parser.error("production_test is for selected stills only, never a full sequence")
+    if args.mode == "asset":   # M4: stand-alone architecture asset (previews + QA), no project
+        from engine.arch import asset_scene
+        style = json.loads((ROOT / "config/visual_style.json").read_text())
+        preset = {k: v for k, v in json.loads((ROOT / "config/render_presets.json").read_text()).items()
+                  if isinstance(v, dict)}[args.preset]
+        report = asset_scene.run_qa(args.asset, style, preset)
+        if args.views:
+            report["views"] = asset_scene.render_views(args.asset, style, preset, Path(args.output),
+                                                       [v for v in args.views.split(",") if v])
+        Path(args.report).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.report).write_text(json.dumps(report, indent=2), encoding="utf-8")
+        failed = [r for r in report["results"] if r["status"] != "PASS"]
+        print(f"[ASSET] {report['asset_id']}: {len(report['results']) - len(failed)}/{len(report['results'])} checks => {args.report}")
+        sys.exit(3 if failed else 0)
+    if not args.project:
+        parser.error("--project is required")
     project_dir = Path(args.project).resolve()
     data = shot_builder.load_project(project_dir, args.preset)
 

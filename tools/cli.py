@@ -493,6 +493,169 @@ def do_asr_check(p):
           f"{asr_check.MAX_WER})")
 
 
+# ---------------------------------------------------------------- M4 architecture assets
+ASSET_ROOT = ROOT / "asset_library" / "architecture"
+CATALOG_DIR = ROOT / "asset_library" / "catalog"
+
+
+def asset_specs(only=None):
+    paths = sorted(ASSET_ROOT.rglob("*.json"))
+    paths = [f for f in paths if "previews" not in f.parts]
+    if only:
+        target = (ROOT / only).resolve() if not Path(only).is_absolute() else Path(only)
+        paths = [f for f in paths if f.resolve() == target]
+        if not paths:
+            raise SystemExit(f"no architecture asset spec at {only}")
+    return paths
+
+
+def offline_asset_checks(path):
+    """G4-A (specification) + offline G4-B (planned geometry) for one asset spec."""
+    from engine.arch import assets, checks
+    data, _ = assets.load(path)
+    errors = assets.validate(data, where=str(path.relative_to(ROOT)))
+    if errors:
+        return data, [("specification_valid", False, "; ".join(errors))]
+    comps = assets.plan(data)
+    params, _ = assets.resolve_params(data["family"], data["variant"], data["parameters"])
+    results = [("specification_valid", True, f"{data['family']}/{data['variant']}, accuracy {data['accuracy']}")]
+    return data, results + checks.check_asset(data, comps, params)
+
+
+def do_asset_check(only=None):
+    report, failed = {}, 0
+    for path in asset_specs(only):
+        data, results = offline_asset_checks(path)
+        rel = str(path.relative_to(ROOT))
+        report[rel] = [{"check": c, "status": "PASS" if ok else "FAIL", "detail": d} for c, ok, d in results]
+        bad = [c for c, ok, _ in results if not ok]
+        failed += len(bad)
+        print(f"{'PASS' if not bad else 'FAIL'}  {rel}: {len(results) - len(bad)}/{len(results)}"
+              + (f" (failed: {', '.join(bad)})" if bad else ""))
+    CATALOG_DIR.mkdir(parents=True, exist_ok=True)
+    (CATALOG_DIR / "offline_checks.json").write_text(json.dumps(report, indent=2) + "\n")
+    if failed:
+        raise SystemExit(f"{failed} offline asset check(s) failed")
+
+
+def do_asset_render(only, preset):
+    """Blender: multi-view previews + BVH QA + build-twice check per asset; measured peak memory."""
+    import re
+    from engine.arch import assets
+    b = blender_bin()
+    if not b:
+        raise SystemExit("Blender not found")
+    failures = []
+    for path in asset_specs(only):
+        data, _ = assets.load(path)
+        if data["family"] == "site":
+            continue
+        out = path.parent / "previews" / data["asset_id"]
+        report = CATALOG_DIR / "qa" / f"{data['asset_id']}_{preset}.json"
+        log = CATALOG_DIR / "qa" / f"{data['asset_id']}_{preset}.log"
+        # 1920x1080 is for selected stills only: the two presentation views
+        views = "three_quarter,exploded" if preset == "production_test" else "three_quarter,elevation,top,exploded"
+        cmd = ["/usr/bin/time", "-l", b, "--background", "--factory-startup", "--python-exit-code", "1",
+               "--python", str(ENGINE), "--", "--mode", "asset", "--asset", str(path.relative_to(ROOT)),
+               "--preset", preset, "--output", str(out / preset), "--report", str(report), "--views", views]
+        if sys.platform == "darwin" and shutil.which("caffeinate"):
+            cmd = ["caffeinate", "-i", *cmd]
+        t0 = datetime.now(timezone.utc)
+        try:
+            run_logged(cmd, log)
+        except SystemExit:
+            failures.append(data["asset_id"])
+        if not report.is_file():
+            failures.append(f"{data['asset_id']} (no report)")
+            continue
+        rep = read_json(report)
+        text = log.read_text(errors="replace")
+        rss = re.search(r"(\d+)\s+maximum resident set size", text)
+        foot = re.search(r"(\d+)\s+peak memory footprint", text)
+        rep["process"] = {"wall_seconds": round((datetime.now(timezone.utc) - t0).total_seconds(), 1),
+                          "peak_rss_mb": round(int(rss.group(1)) / 2 ** 20, 1) if rss else None,
+                          "peak_memory_footprint_mb": round(int(foot.group(1)) / 2 ** 20, 1) if foot else None,
+                          "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"}
+        if shutil.which("ffmpeg"):   # small JPEG copies are tracked in git; PNGs stay local
+            bg = read_json(ROOT / "config/visual_style.json")["palette"]["ground"].lstrip("#")
+            for png in sorted((out / preset).glob("*.png")):
+                w, h = (int(v) for v in subprocess.run(
+                    [ffprobe_bin(), "-v", "error", "-show_entries", "stream=width,height", "-of", "csv=p=0", str(png)],
+                    capture_output=True, text=True, check=True).stdout.strip().split(","))
+                # transparent pixels (elevation sky) land on the ground colour
+                subprocess.run([ffmpeg_bin(), "-v", "error", "-y", "-f", "lavfi", "-i", f"color=c=0x{bg}:s={w}x{h}",
+                                "-i", str(png), "-filter_complex", "[0][1]overlay=format=auto", "-frames:v", "1",
+                                "-q:v", "3", str(png.with_suffix(".jpg"))], check=True)
+        report.write_text(json.dumps(rep, indent=2) + "\n")
+        bad = [r["check"] for r in rep["results"] if r["status"] != "PASS"]
+        print(f"{'PASS' if not bad else 'FAIL'}  {data['asset_id']} [{preset}]: "
+              f"{len(rep['results']) - len(bad)}/{len(rep['results'])} Blender checks; "
+              f"{rep['stats']['objects']} objects, {rep['stats']['mesh_datablocks']} meshes; "
+              f"peak {rep['process']['peak_rss_mb']} MB; views -> {out / preset}")
+    if failures:
+        raise SystemExit("asset render/QA failed: " + ", ".join(failures))
+
+
+def do_asset_catalog():
+    """asset_library/catalog/catalog.json (+ .md): metadata, provenance, previews, validation."""
+    import hashlib
+    from engine.arch import GENERATOR_VERSION, assets
+    lib = ROOT / "asset_library/materials/stylized_materials.json"
+    entries = []
+    for path in asset_specs():
+        data, results = offline_asset_checks(path)
+        rel = str(path.relative_to(ROOT))
+        meta = assets.describe(data)
+        previews = {}
+        for preset in ("review", "production_test", "preview"):
+            folder = path.parent / "previews" / data["asset_id"] / preset
+            jpgs = sorted(folder.glob("*.jpg"))
+            if jpgs:
+                previews[preset] = [str(j.relative_to(ROOT)) for j in jpgs]
+        blender = {}
+        for preset in ("review", "production_test", "preview"):
+            q = CATALOG_DIR / "qa" / f"{data['asset_id']}_{preset}.json"
+            if q.is_file():
+                rq = read_json(q)
+                blender[preset] = {"checks": {r["check"]: r["status"] for r in rq["results"]},
+                                   "signature": rq["signature"], "stats": rq["stats"], "process": rq.get("process"),
+                                   "views": {k: {"render_seconds": v["render_seconds"]} for k, v in rq.get("views", {}).items()}}
+        entries.append({
+            "asset_id": data["asset_id"], "title": data.get("title"), "family": data["family"], "variant": data["variant"],
+            "generator": {"name": f"{data['family']}.{data['variant']}", "version": GENERATOR_VERSION,
+                          "module": "engine/arch/families/" + ("bridge.py" if data["family"] == "bridge" else "site.py")},
+            "source_config": {"path": rel, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()},
+            "units": data["units"], "accuracy": data["accuracy"], "provenance": data.get("provenance", {}),
+            "geometry": {k: meta[k] for k in ("components", "unique_meshes", "by_type", "verts", "faces", "bbox", "dimensions_m")},
+            "resolved_parameters": meta["resolved_parameters"],
+            "materials": {"keys": meta["materials"], "library": str(lib.relative_to(ROOT)),
+                          "library_sha256": hashlib.sha256(lib.read_bytes()).hexdigest(), "external_textures": []},
+            "animation_support": data["animation_support"],
+            "previews": previews,
+            "validation": {"offline": {c: ("PASS" if ok else "FAIL") for c, ok, _ in results}, "blender": blender},
+        })
+    CATALOG_DIR.mkdir(parents=True, exist_ok=True)
+    catalog = {"schema": "asset_catalog/1", "generated_utc": datetime.now(timezone.utc).isoformat(),
+               "generator_version": GENERATOR_VERSION, "assets": entries}
+    (CATALOG_DIR / "catalog.json").write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
+    rows = ["# Architecture asset catalog", "",
+            "Generated by `python3 tools/cli.py asset-catalog`. Every asset is **ILLUSTRATIVE** unless stated otherwise.", "",
+            "| Asset | Family / variant | Components (unique meshes) | Size L×W×H m | Accuracy | Offline QA | Blender QA (review) | Preview |",
+            "|---|---|---|---|---|---|---|---|"]
+    for e in entries:
+        off = e["validation"]["offline"]
+        bl = e["validation"]["blender"].get("review", {}).get("checks", {})
+        prev = next((j for j in e["previews"].get("review", []) if j.endswith("three_quarter.jpg")), "")
+        dims = "×".join(f"{d:.1f}" for d in e["geometry"]["dimensions_m"])
+        rows.append(f"| `{e['asset_id']}` | {e['family']}/{e['variant']} | {e['geometry']['components']} "
+                    f"({e['geometry']['unique_meshes']}) | {dims} | {e['accuracy']} | "
+                    f"{sum(v == 'PASS' for v in off.values())}/{len(off)} | "
+                    f"{(str(sum(v == 'PASS' for v in bl.values())) + '/' + str(len(bl))) if bl else 'n/a'} | "
+                    f"{('[3/4](../' + prev.split('asset_library/', 1)[1] + ')') if prev else '—'} |")
+    (CATALOG_DIR / "CATALOG.md").write_text("\n".join(rows) + "\n")
+    print(f"Catalog: {len(entries)} assets => {CATALOG_DIR / 'catalog.json'}")
+
+
 def do_align(p):
     """Whisper word timestamps for every current narration sentence (subtitle phrase breaks)."""
     from pipeline import subtitles
@@ -586,10 +749,12 @@ def main():
     parser = argparse.ArgumentParser(description="Architecture Story Studio — Mac M4 pilot CLI")
     parser.add_argument("command", choices=["doctor", "validate", "still", "preview", "shot", "encode",
                                             "check-blender", "final-gate", "manifest", "tts-check", "narrate",
-                                            "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align"])
+                                            "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align",
+                                            "asset-check", "asset-render", "asset-catalog"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
     parser.add_argument("--preset", default="preview", choices=["preview", "review", "production_test", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
+    parser.add_argument("--asset", help="asset-*: one asset spec path (default: every spec in asset_library/architecture)")
     parser.add_argument("--force", action="store_true", help="Re-render shots even if cached")
     parser.add_argument("--check", action="store_true", help="manifest: verify instead of rewriting")
     parser.add_argument("--regenerate", action="store_true", help="narrate: ignore the audio cache")
@@ -601,6 +766,15 @@ def main():
         return
     if args.command == "manifest":
         do_manifest(args.check)
+        return
+    if args.command == "asset-check":
+        do_asset_check(args.asset)
+        return
+    if args.command == "asset-render":
+        do_asset_render(args.asset, args.preset)
+        return
+    if args.command == "asset-catalog":
+        do_asset_catalog()
         return
     p = project_path(args.project)
     if args.command == "validate":

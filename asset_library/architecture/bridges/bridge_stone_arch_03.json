@@ -1,0 +1,38 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "bridge_stone_arch_03",
+  "title": "Stone arch bridge, 3 semicircular arches",
+  "family": "bridge",
+  "variant": "stone_arch",
+  "units": "METRIC",
+  "generator": {
+    "name": "bridge.stone_arch",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "total_length_m": 24.0,
+    "deck_width_m": 4.0,
+    "deck_level_m": 5.0,
+    "arch_count": 3,
+    "arch_type": "semicircular",
+    "pier_width_m": 1.8,
+    "abutment_length_m": 1.0,
+    "ring_thickness_m": 0.5,
+    "voussoirs_per_arch": 13,
+    "springing_level_m": 0.6,
+    "deck_thickness_m": 0.3,
+    "parapet_thickness_m": 0.4,
+    "parapet_height_m": 0.9
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Semicircular voussoir rings with a keystone at each crown, spandrel fill, piers with cutwaters."
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "EXPLODED_VIEW",
+    "SIDE_BY_SIDE"
+  ]
+}

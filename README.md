@@ -100,3 +100,7 @@ Toàn bộ thư viện bên ngoài là tùy chọn. **MCP không phải điều 
 ### Duy trì bối cảnh giữa các phiên làm việc với AI
 
 Đọc `DECISIONS.md` (các quyết định đã chốt), `PROJECT_STATUS.md` (đang ở đâu), `docs/11_AI_COLLABORATION_PROTOCOL.md` (cách bàn giao). Khi một AI hoàn thành bước, yêu cầu cập nhật status thay vì dựa vào lịch sử chat.
+
+## M4: dựng hình kiến trúc thủ tục và thư viện asset
+Spec kiến trúc → thành phần ngữ nghĩa → hình học Blender → QA → asset tái sử dụng (`engine/arch/`, `asset_library/`). Có ba họ cầu (gỗ dầm, vòm đá, giàn thép Pratt/Warren), tất cả là mô hình **minh họa**. Pilot kỹ thuật: `projects/bridge-structure-evolution` (29.5 s, không lời dẫn). Tài liệu: [`docs/m4/M4_ARCHITECTURE_MODELING.md`](docs/m4/M4_ARCHITECTURE_MODELING.md); catalog: [`asset_library/catalog/CATALOG.md`](asset_library/catalog/CATALOG.md).
+

@@ -1,5 +1,7 @@
 """Materials, environment, camera and render settings for visual consistency (bpy)."""
+import json
 import math
+from pathlib import Path
 
 import bpy
 from mathutils import Matrix, Vector
@@ -81,11 +83,12 @@ def add_units(material, units):
     origin = nodes.new("ShaderNodeAttribute")
     origin.attribute_type, origin.attribute_name = "OBJECT", "ass_course_origin"
     m = lambda op, a, b=None: _math(nodes, links, op, a, b)
-    s = m("DIVIDE", m("SUBTRACT", xyz.outputs["X"], origin.outputs["Fac"]), float(units["course"]))
+    course_axis, unit_axis = units.get("axes", ("X", "Y"))   # roofs: X along the slope; walls: ["Z", "X"]
+    s = m("DIVIDE", m("SUBTRACT", xyz.outputs[course_axis], origin.outputs["Fac"]), float(units["course"]))
     row = m("FLOOR", s)
     fs = m("SUBTRACT", s, row)
     parity = m("FLOORED_MODULO", row, 2.0)
-    t = m("ADD", m("DIVIDE", xyz.outputs["Y"], float(units["width"])), m("MULTIPLY", parity, 0.5))
+    t = m("ADD", m("DIVIDE", xyz.outputs[unit_axis], float(units["width"])), m("MULTIPLY", parity, 0.5))
     col = m("FLOOR", t)
     ft = m("SUBTRACT", t, col)
     jc = float(units["joint"]) / float(units["course"]) / 2
@@ -161,6 +164,17 @@ def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, rend
     return material
 
 
+MATERIAL_LIBRARY = Path(__file__).resolve().parents[1] / "asset_library" / "materials" / "stylized_materials.json"
+
+
+def library_materials(kw, path=MATERIAL_LIBRARY):
+    """M4 shared material library (procedural only), keyed like the asset components."""
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    return {key: make_material(m["name"], m["color"], roughness=m.get("roughness", 0.72),
+                               metallic=m.get("metallic", 0.0), detail=m.get("detail"), units=m.get("units"), **kw)
+            for key, m in data["materials"].items()}
+
+
 def make_materials(style):
     p = style["palette"]
     m = style.get("materials", {})
@@ -187,6 +201,7 @@ def make_materials(style):
         "roof_slate": make_material("Slate (illustrative)", p.get("roof_slate", "#4F5A64"), roughness=0.45,
                                     detail={"scale": 10.0, "variation": 0.05, "bump": 0.03},
                                     units=u.get("slate"), **kw),
+        **library_materials(kw),
     }
 
 

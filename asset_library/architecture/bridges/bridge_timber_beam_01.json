@@ -1,0 +1,34 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "bridge_timber_beam_01",
+  "title": "Timber beam (trestle) bridge, 4 spans",
+  "family": "bridge",
+  "variant": "timber_beam",
+  "units": "METRIC",
+  "generator": {
+    "name": "bridge.timber_beam",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "total_length_m": 24.0,
+    "deck_width_m": 4.0,
+    "deck_level_m": 5.0,
+    "span_count": 4,
+    "stringer_count": 4,
+    "stringer_width_m": 0.26,
+    "stringer_depth_m": 0.46,
+    "post_size_m": 0.3,
+    "plank_pitch_m": 0.27
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility at a common 24 m site; not a reconstruction of a specific bridge and not an engineering design. Load path shown: planks -> stringers -> cap beams -> trestle posts."
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "EXPLODED_VIEW",
+    "SIDE_BY_SIDE"
+  ]
+}

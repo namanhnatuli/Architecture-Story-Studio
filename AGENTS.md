@@ -67,3 +67,9 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - Cache render chỉ phụ thuộc vào đầu vào hình ảnh (`docs/m3/CACHE_DEPENDENCIES.md`); `cache-report` nói vì sao một shot cần render lại.
 - PASS kỹ thuật ≠ được phép xuất bản: xem các trạng thái trong `docs/m3/M3_5_PUBLICATION_WORKFLOW.md`.
 
+## Bổ sung M4 (2026-10-27): dựng hình kiến trúc thủ tục
+- Công trình mới đi theo luồng **spec (`asset_library/architecture/...json`) → `engine/arch` (planner thuần Python) → `architecture_asset` builder**. Không viết tọa độ cứng trong scene; mọi sửa đổi hình học nằm trong bộ sinh hoặc thư viện, rồi dựng lại từ nguồn.
+- Asset mới mặc định `ILLUSTRATIVE`. `REFERENCE_BASED` cần `references`; `HISTORICALLY_VERIFIED` cần `claim_ids` đã duyệt. Không tải model hay texture bên ngoài khi chưa ghi rõ license.
+- Trước khi dùng một asset: chạy `asset-check`, rồi `asset-render --preset review` và **xem ảnh**. MCP chỉ để kiểm tra; khi dùng `look` luôn truyền `target`.
+- Không render chuỗi frame 1080p (preset `production_test` chỉ dành cho ảnh tĩnh); không render 4K.
+

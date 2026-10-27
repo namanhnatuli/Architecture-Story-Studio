@@ -1,0 +1,27 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "site_river_crossing_24",
+  "title": "River crossing site, 24 m gap",
+  "family": "site",
+  "variant": "river_crossing",
+  "units": "METRIC",
+  "generator": {
+    "name": "site.river_crossing",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "gap_m": 24.0,
+    "deck_level_m": 5.0,
+    "site_width_m": 8.0,
+    "bank_length_m": 2.2,
+    "water_level_m": 0.3
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Neutral context shared by all bridge archetypes: two banks and a water strip."
+  },
+  "animation_support": [
+    "HOLD"
+  ]
+}

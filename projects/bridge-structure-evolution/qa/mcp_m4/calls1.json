@@ -1,0 +1,89 @@
+[
+ {
+  "name": "get_addon_status",
+  "label": "m4_addon_status"
+ },
+ {
+  "name": "execute_blender_code",
+  "label": "m4_safe_mode_probe",
+  "arguments": {
+   "code": "import subprocess"
+  }
+ },
+ {
+  "name": "get_scene_info",
+  "label": "m4_SC_004_scene",
+  "arguments": {
+   "limit": 10
+  }
+ },
+ {
+  "name": "execute_blender_code",
+  "label": "m4_SC_004_semantics",
+  "arguments": {
+   "code": "import bpy\nfrom collections import Counter\nobjs=[o for o in bpy.data.objects if o.get('variant_id')=='stone_arch']\nprint('stone_arch objects:', len(objs))\nprint('by type:', dict(sorted(Counter(o.get('semantic_type') for o in objs).items())))\nprint('voussoir mesh datablocks:', len({o.data.name for o in objs if o.get('semantic_type')=='VOUSSOIR'}))\nprint('groups:', sorted({o.get('group') for o in objs}))\nprint('bevel modifiers unapplied:', all(any(m.type=='BEVEL' for m in o.modifiers) for o in objs))\nprint('hidden variants:', sorted({o.get('variant_id') for o in bpy.data.objects if o.type=='MESH' and o.hide_render}))"
+  }
+ },
+ {
+  "name": "look",
+  "label": "m4_SC_004_frames",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    40,
+    66,
+    100,
+    144
+   ],
+   "shading": "material",
+   "max_size": 1400
+  }
+ },
+ {
+  "name": "execute_blender_code",
+  "label": "m4_open_SC_006",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m4/blend/SC_006.blend')\nprint('truss web objects:', sorted(o.name for o in bpy.data.objects if o.get('semantic_type') in ('TRUSS_VERTICAL','TRUSS_DIAGONAL')))"
+  }
+ },
+ {
+  "name": "look",
+  "label": "m4_SC_006_frames",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    30,
+    48,
+    70,
+    96
+   ],
+   "shading": "material",
+   "max_size": 1400
+  }
+ },
+ {
+  "name": "execute_blender_code",
+  "label": "m4_open_SC_007",
+  "arguments": {
+   "code": "import bpy\nbpy.ops.wm.open_mainfile(filepath='/private/tmp/claude-501/-Users-trananh-Work-Projects-Architecture-Story-Studio/120612d1-647c-49dc-987a-5b00380bdcc5/scratchpad/mcp_m4/blend/SC_007.blend')\nprint('labels:', sorted(o.data.body for o in bpy.data.objects if o.name.startswith('LABEL_')))\nprint('slots:', sorted((o.name, tuple(round(v,2) for v in o.location)) for o in bpy.data.objects if o.name.startswith('SLOT_')))"
+  }
+ },
+ {
+  "name": "look",
+  "label": "m4_SC_007_camera",
+  "arguments": {
+   "mode": "frames",
+   "view": "camera",
+   "frames": [
+    1,
+    70
+   ],
+   "shading": "material",
+   "max_size": 1400
+  }
+ }
+]

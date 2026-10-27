@@ -380,13 +380,20 @@ def check_shot(ctx, states, report):
                 if not _close(tuple(o1.dimensions), tuple(o2.dimensions), TRANSFORM_TOL):
                     issues.append(f"{cid}: dimensions differ between slots")
         gaps = []
-        for s1, s2 in zip(slots, slots[1:]):
-            (lo1, hi1), (lo2, hi2) = boxes[s1], boxes[s2]
-            axis = ctx.camera_basis[0]
-            span1 = [sum(c * a for c, a in zip(p, axis)) for p in (lo1, hi1, (lo1[0], hi1[1], 0), (hi1[0], lo1[1], 0))]
-            span2 = [sum(c * a for c, a in zip(p, axis)) for p in (lo2, hi2, (lo2[0], hi2[1], 0), (hi2[0], lo2[1], 0))]
-            gaps.append(min(span2) - max(span1))
-        issues += [f"screen-axis gap {g:.3f} m is not positive" for g in gaps if g <= 0]
+        if ctx.cfg.get("layout", "ROW") == "STACK":   # rows on screen: first model on top, never overlapping
+            up = ctx.camera_basis[1]
+            rows = {s: [sum(c * a for c, a in zip(p, up)) for o in ctx.slots[s].values() if _visible(o)
+                        for p in shot_builder.world_vertices(o, dg)] for s in slots}
+            gaps = [min(rows[s1]) - max(rows[s2]) for s1, s2 in zip(slots, slots[1:])]
+            issues += [f"screen rows overlap by {-g:.3f} m" for g in gaps if g <= 0]
+        else:
+            for s1, s2 in zip(slots, slots[1:]):
+                (lo1, hi1), (lo2, hi2) = boxes[s1], boxes[s2]
+                axis = ctx.camera_basis[0]
+                span1 = [sum(c * a for c, a in zip(p, axis)) for p in (lo1, hi1, (lo1[0], hi1[1], 0), (hi1[0], lo1[1], 0))]
+                span2 = [sum(c * a for c, a in zip(p, axis)) for p in (lo2, hi2, (lo2[0], hi2[1], 0), (hi2[0], lo2[1], 0))]
+                gaps.append(min(span2) - max(span1))
+            issues += [f"screen-axis gap {g:.3f} m is not positive" for g in gaps if g <= 0]
         report.add(sid, "side_by_side_layout", not issues, "; ".join(issues[:6]) or
                    f"{len(slots)} models, identical shared local transforms and dimensions, gaps "
                    + ", ".join(f"{g:.2f} m" for g in gaps))
@@ -400,9 +407,17 @@ def check_shot(ctx, states, report):
                 corners = [world_to_camera_view(ctx.scene, ctx.camera, label.matrix_world @ Vector(c))
                            for c in label.evaluated_get(dg).bound_box]
                 xs, ys = [c.x for c in corners], [c.y for c in corners]
-                if min(xs) < FRAME_MARGIN or max(xs) > 1 - FRAME_MARGIN or min(ys) < 0.005 or max(ys) > ctx.bottom_band:
+                stack = ctx.cfg.get("layout", "ROW") == "STACK"
+                if min(xs) < FRAME_MARGIN or max(xs) > 1 - FRAME_MARGIN or min(ys) < 0.005 or \
+                        (not stack and max(ys) > ctx.bottom_band):
                     issues.append(f"{slot_id}: label box x {min(xs):.3f}-{max(xs):.3f}, y {min(ys):.3f}-{max(ys):.3f} "
                                   f"outside the frame/label band {ctx.bottom_band:.2f}")
+                for other, parts in ctx.slots.items():   # never on top of a model (any slot)
+                    pts = [world_to_camera_view(ctx.scene, ctx.camera, Vector(q)) for o in parts.values()
+                           if _visible(o) for q in shot_builder.world_vertices(o, dg)]
+                    if pts and min(xs) < max(q.x for q in pts) and max(xs) > min(q.x for q in pts) and \
+                            min(ys) < max(q.y for q in pts) and max(ys) > min(q.y for q in pts):
+                        issues.append(f"{slot_id}: label overlaps the {other} model on screen")
                 model = [world_to_camera_view(ctx.scene, ctx.camera, Vector(p)).x
                          for o in ctx.slots[slot_id].values() if _visible(o) for p in shot_builder.world_vertices(o, dg)]
                 towards_camera = ctx.camera.matrix_world.to_3x3() @ Vector((0, 0, 1))
@@ -415,9 +430,9 @@ def check_shot(ctx, states, report):
                 centre = (min(xs) + max(xs)) / 2
                 if not min(model) <= centre <= max(model):
                     issues.append(f"{slot_id}: label centre {centre:.3f} is not under its model")
-                spans.append((min(xs), max(xs), slot_id))
-            spans.sort()
-            issues += [f"labels {a[2]} and {b[2]} overlap" for a, b in zip(spans, spans[1:]) if b[0] < a[1]]
+                spans.append((min(xs), max(xs), min(ys), max(ys), slot_id))
+            issues += [f"labels {a[4]} and {b[4]} overlap" for i, a in enumerate(spans) for b in spans[i + 1:]
+                       if a[0] < b[1] and b[0] < a[1] and a[2] < b[3] and b[2] < a[3]]
             report.add(sid, "labels_in_band", not issues, "; ".join(issues) or
                        f"{len(ctx.labels)} captions inside the label band, centred under their models, no overlap")
     return frames

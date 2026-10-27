@@ -26,6 +26,34 @@
         "elevation_degrees": 25.19,
         "margin": 0.07,
         "note": "Same view direction as the v0.1 camera (7.7, -9.9, 7.5) looking at (0, 0, 1.6); position and scale are fitted to geometry."
+      },
+      "BRIDGE_THREE_QUARTER": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -66.0,
+        "elevation_degrees": 21.0,
+        "margin": 0.06,
+        "note": "M4: long structures along X; more frontal than LOCKED_THREE_QUARTER so the elevation (arches, truss web) reads."
+      },
+      "ELEVATION": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -90.0,
+        "elevation_degrees": 1.0,
+        "margin": 0.05,
+        "note": "M4: side elevation (looking along +Y), for silhouette and proportion checks."
+      },
+      "TOP": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -90.0,
+        "elevation_degrees": 88.0,
+        "margin": 0.05,
+        "note": "M4: plan view (near-vertical; exactly vertical is undefined for a level camera)."
+      },
+      "BRIDGE_STACK": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -78.0,
+        "elevation_degrees": 24.0,
+        "margin": 0.05,
+        "note": "M4: SIDE_BY_SIDE layout STACK (models stacked in depth, one row per model on screen)."
       }
     }
   },

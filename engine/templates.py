@@ -206,6 +206,10 @@ def plan_shot(shot, states, fps, slots, camera=None):
                 raise motion.PlanError(f"{sid}: gap_ratio must be > 0")
             if isinstance(band, bool) or not isinstance(band, (int, float)) or not 0 <= band < 0.5:
                 raise motion.PlanError(f"{sid}: label_band must be between 0 and 0.5")
+            if cfg.get("layout", "ROW") not in ("ROW", "STACK"):
+                raise motion.PlanError(f"{sid}: layout must be ROW or STACK")
+            if cfg.get("layout") == "STACK" and cfg.get("intro"):
+                raise motion.PlanError(f"{sid}: intro is only supported with layout ROW")
             labels = cfg.get("labels")
             if labels is not None:
                 if not isinstance(labels, dict) or not labels:
