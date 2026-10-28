@@ -1,0 +1,34 @@
+{
+  "schema": "visual_planning/1",
+  "note": "Deterministic planner settings (planner/). Camera modes map to existing presets in config/visual_style.json per aspect class; timing values are the provisional-estimate rules and the motion budgets the compiler may stretch (holds only, never motion speed).",
+  "aspect_classes": {
+    "long": {"families": ["bridge", "site"],
+             "camera": {"FULL_OBJECT": "BRIDGE_THREE_QUARTER", "THREE_QUARTER": "BRIDGE_THREE_QUARTER",
+                        "SIDE_ELEVATION": "ELEVATION", "COMPONENT_CLOSEUP": "BRIDGE_THREE_QUARTER",
+                        "COMPARISON": "BRIDGE_STACK", "LOCKED_TRANSFORMATION": "BRIDGE_THREE_QUARTER"},
+             "comparison_layout": "STACK"},
+    "compact": {"families": ["roof", "house"],
+                "camera": {"FULL_OBJECT": "LOCKED_THREE_QUARTER", "THREE_QUARTER": "LOCKED_THREE_QUARTER",
+                           "SIDE_ELEVATION": "ELEVATION", "COMPONENT_CLOSEUP": "LOCKED_THREE_QUARTER",
+                           "COMPARISON": "LOCKED_THREE_QUARTER", "LOCKED_TRANSFORMATION": "LOCKED_THREE_QUARTER"},
+                "comparison_layout": "ROW"}
+  },
+  "timing": {
+    "provisional_words_per_second": 2.6,
+    "provisional_padding_seconds": 0.8,
+    "min_shot_seconds": 2.0,
+    "frame_rate": 24
+  },
+  "camera": {
+    "subtitle_safe_band": 0.1,
+    "min_target_frame_fraction": 0.004,
+    "closeup_margin_note": "COMPONENT_CLOSEUP fits the camera to the focus components only (shot camera_focus)."
+  },
+  "motion": {
+    "highlight": {"start": 0.6, "rise": 0.4, "fall": 0.4, "tail": 0.3, "strength": 0.45, "ghost_transparency": 0.7},
+    "exploded": {"hold_start": 0.4, "explode": 1.0, "return": 1.0, "hold_end": 0.2, "stagger": 0.18, "min_hold": 1.2},
+    "replace": {"move_out": 1.0, "move_in": 1.1, "stagger": 0.08, "min_hold_start": 0.4, "min_hold_end": 0.6},
+    "assemble": {"move_in": 1.0, "stagger": 0.05, "min_hold_start": 0.3, "min_hold_end": 0.8}
+  },
+  "composite_weights": {"HOLD": 1.0, "EXPLODED_VIEW": 1.7, "REPLACE_PARTS": 1.2, "SIDE_BY_SIDE": 1.0}
+}

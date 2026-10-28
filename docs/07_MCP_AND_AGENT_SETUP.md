@@ -59,3 +59,9 @@ claude mcp remove blender -s local     # sau đó .mcp.json (ghim 2.2.4, safe mo
 - Giờ có hiệu lực là **scope project** (`.mcp.json`): `mcp-for-blender==2.2.4` (phiên bản đã chạy được 30/30 lệnh ở M2.5), `BLENDER_MCP_SAFE_MODE=1`, `DISABLE_TELEMETRY=true`, `localhost:9876`.
 - Đã kiểm chứng: `claude mcp get blender` → Project config, ✓ Connected; tool được gọi qua client stdio với đúng lệnh/env đó: `get_addon_status`, `get_scene_info`, `look`, `execute_blender_code` đều chạy được, và **safe mode chặn `import os`** ("Rejected by safe mode").
 - Lần tới khi khởi động lại Claude Code, server project cần được phê duyệt một lần (`enabledMcpjsonServers` hiện đang rỗng).
+
+## M5 — QA bằng MCP (2026-10-28)
+- Cùng cấu hình: `mcp-for-blender==2.2.4`, safe mode, telemetry tắt, chỉ lắng nghe `127.0.0.1:9876`, Blender GUI riêng mở **bản sao** `scenes/SC_00X.blend`; trước khi chạy đã xác nhận không có Blender nào khác đang mở.
+- Safe mode chặn cả `bpy_extras` (ví dụ `bpy_extras.object_utils.world_to_camera_view`), không chỉ `os`/`subprocess`. Phép chiếu camera trong script QA phải viết bằng `mathutils` (ma trận nghịch của camera + `ortho_scale` + `shift`).
+- Nếu script mở file bị từ chối thì scene cũ vẫn đang mở, và các lệnh `look` tiếp theo sẽ báo "No object named …". Phải kiểm tra kết quả của lệnh mở file trước khi đọc ảnh.
+- Kết quả: `docs/m5/M5_QA_REPORT.md` §5.

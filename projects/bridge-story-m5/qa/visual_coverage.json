@@ -1,0 +1,301 @@
+{
+  "project_id": "bridge-story-m5",
+  "executable": true,
+  "beats": [
+    {
+      "beat_id": "B1",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "SITE_HOLD",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 10.8,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "SITE_HOLD: Hold on the shared site before any structure (the gap to span)"
+      ],
+      "assets": [
+        {
+          "concept": "river_crossing_site",
+          "status": "REUSE_EXISTING",
+          "asset_id": "site_river_crossing_24",
+          "explanation": "shared site of the project"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "planned_seconds": 10.833,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "B2",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "ASSEMBLE_IN",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 10.8,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "ASSEMBLE_IN: Structure drops into place on the shown empty site, then its focus parts glow"
+      ],
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        }
+      ],
+      "semantic_targets": [
+        "stringer"
+      ],
+      "templates": [
+        "REPLACE_PARTS",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_002",
+        "SC_003"
+      ],
+      "planned_seconds": 10.833,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "B3",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "HIGHLIGHT_THEN_EXPLODE",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 9.646,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_THEN_EXPLODE: Glow the focus components, then take the assembly apart and back"
+      ],
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        }
+      ],
+      "semantic_targets": [
+        "cap_beam",
+        "deck_planks",
+        "stringer"
+      ],
+      "templates": [
+        "HOLD",
+        "EXPLODED_VIEW"
+      ],
+      "shot_ids": [
+        "SC_004",
+        "SC_005"
+      ],
+      "planned_seconds": 9.667,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "B4",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "CLOSEUP_HIGHLIGHT",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 9.262,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "CLOSEUP_HIGHLIGHT: Establish the structure with the focus parts glowing, then a close-up framed on them"
+      ],
+      "assets": [
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        }
+      ],
+      "semantic_targets": [
+        "arch_ring",
+        "keystone",
+        "voussoir"
+      ],
+      "templates": [
+        "HOLD",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_006",
+        "SC_007"
+      ],
+      "planned_seconds": 9.292,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "B5",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 5.031,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "ASSEMBLE_IN rejected (INVALID_REQUEST): ASSEMBLE_IN needs the previous shot to end on the empty site",
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+      ],
+      "assets": [
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [
+        "truss_web"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_008"
+      ],
+      "planned_seconds": 5.042,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "B6",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 12.723,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_REPLACE_HIGHLIGHT: Glow the parts that will change, swap them on the shared frame, glow the new parts"
+      ],
+      "assets": [
+        {
+          "concept": "pratt_truss",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        },
+        {
+          "concept": "warren_truss",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_warren_01",
+          "explanation": "bridge_steel_truss_warren_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'warren'}"
+        }
+      ],
+      "semantic_targets": [
+        "truss_web"
+      ],
+      "templates": [
+        "HOLD",
+        "REPLACE_PARTS",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_009",
+        "SC_010",
+        "SC_011"
+      ],
+      "planned_seconds": 12.75,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "B7",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 6.185,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned"
+      ],
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        },
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        },
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "SIDE_BY_SIDE"
+      ],
+      "shot_ids": [
+        "SC_012"
+      ],
+      "planned_seconds": 6.208,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "B8",
+      "visual_intent": "SUMMARIZE_DIFFERENCES",
+      "strategy": "CONTINUE_COMPARISON",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 7.723,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "CONTINUE_COMPARISON: Stay on the comparison, glow what differs"
+      ],
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        },
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        },
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "SIDE_BY_SIDE"
+      ],
+      "shot_ids": [
+        "SC_013"
+      ],
+      "planned_seconds": 7.75,
+      "visibility_issues": []
+    }
+  ]
+}

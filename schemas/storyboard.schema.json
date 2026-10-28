@@ -111,6 +111,33 @@
           "graphic": {
             "type": "object",
             "description": "M3: MOTION_GRAPHICS card (text/arrow elements in 0..1 card units)"
+          },
+          "camera_focus": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "M5 COMPONENT_CLOSEUP: component ids the locked camera is fitted to (single-model shots)."
+          },
+          "camera_safe_band": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.4,
+            "description": "M5: bottom fraction of the frame kept free (subtitles) in single-model shots."
+          },
+          "build_variants": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "M5: variants built in a single-model shot (one continuity group sharing a locked camera); default: every variant."
+          },
+          "editorial": {
+            "type": "object",
+            "description": "Non-visual planning metadata (planner/, M5): beat, intent, strategy, evidence; never a render dependency."
+          },
+          "notes": {
+            "type": "string"
           }
         },
         "additionalProperties": false

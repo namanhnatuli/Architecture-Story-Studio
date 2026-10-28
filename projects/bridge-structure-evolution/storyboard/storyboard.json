@@ -44,7 +44,7 @@
       "transition": "HOLD",
       "from_state": "timber_beam",
       "to_state": "timber_beam",
-      "visual_purpose": "Timber beam archetype: the primary beams (stringers) glow as they span between trestle bents.",
+      "visual_purpose": "Timber beam archetype: the primary beams (stringers) glow as they span between trestle bents; the deck planks above them turn see-through meanwhile (M5 QA: otherwise 86% hidden).",
       "animation": {
         "template": "HOLD",
         "state": "timber_beam",
@@ -59,7 +59,14 @@
           "rise_seconds": 0.4,
           "hold_seconds": 1.1,
           "fall_seconds": 0.4,
-          "strength": 0.45
+          "strength": 0.45,
+          "ghost": [
+            "timber_beam_span1_planks",
+            "timber_beam_span2_planks",
+            "timber_beam_span3_planks",
+            "timber_beam_span4_planks"
+          ],
+          "ghost_transparency": 0.7
         }
       },
       "camera": "BRIDGE_THREE_QUARTER",

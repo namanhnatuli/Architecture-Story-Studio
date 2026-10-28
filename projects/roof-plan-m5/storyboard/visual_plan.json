@@ -1,0 +1,574 @@
+{
+  "schema": "visual_plan/1",
+  "plan_version": "1.0",
+  "planner_version": "1.0.0",
+  "project_id": "roof-plan-m5",
+  "title": "Roof generalization fixture (synthetic)",
+  "timing_mode": "PROVISIONAL",
+  "publication": {
+    "restriction": "INTERNAL_ONLY",
+    "reason": "Synthetic planning fixture; invented narration about the illustrative model, no claims."
+  },
+  "fps": 24,
+  "total_frames": 503,
+  "duration_seconds": 20.958333,
+  "executable": true,
+  "inputs": {
+    "beats_sha256": "58b2e6522f043718e78792a440f55ef289aeac8bd5e1686369f7060c3a07b1b2",
+    "sources_sha256": "8f0bb9da8af3d466bf38f710fe2ef3bb6ce17939bfcf7a7f7668359f541eda07",
+    "vocabulary_sha256": "827daebe3f9b0e365c4f996d16165c2530b26855c48602e90f1062f79448b4dd",
+    "planning_config_sha256": "475b8883f95aba3cd838577507e2a56dbef059cc88c5d0fc2ce9b2a83de61a7b",
+    "assets": {
+      "legacy_roof_evolution_roof_B": "39d27ec3a73ec48222312dda7c251a51bd62e85f400fb208e0f21d8b1ed61b3e"
+    }
+  },
+  "family": "roof",
+  "states": {
+    "schema_version": 2,
+    "generated_by": "planner",
+    "planner_version": "1.0.0",
+    "building_type": "roof",
+    "base": {
+      "builder": "rectangular_house_base",
+      "width": 4.6,
+      "depth": 3.2,
+      "wall_height": 2.55,
+      "rafter_count": 5
+    },
+    "shared_components": [
+      "foundation",
+      "floor",
+      "walls",
+      "door",
+      "windows",
+      "structure"
+    ],
+    "variants": [
+      {
+        "id": "low_pitch_gable_roof",
+        "name": "Low-pitched gable roof",
+        "builder": "gable_roof",
+        "roof_pitch_degrees": 18,
+        "color_key": "roof_variant_a"
+      },
+      {
+        "id": "steep_gable_roof",
+        "name": "Steep gable roof",
+        "builder": "gable_roof",
+        "roof_pitch_degrees": 48,
+        "color_key": "roof_variant_b"
+      }
+    ],
+    "transitions": []
+  },
+  "resolutions": [
+    {
+      "concept": "low_pitch_gable_roof",
+      "status": "ADAPT_EXISTING_ASSET",
+      "asset_id": "legacy_roof_evolution_roof_A",
+      "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+    },
+    {
+      "concept": "steep_gable_roof",
+      "status": "ADAPT_EXISTING_ASSET",
+      "asset_id": "legacy_roof_evolution_roof_B",
+      "explanation": "legacy_roof_evolution_roof_B (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'min': 40}}; legacy roof-evolution variant 'roof_B' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_plain_tile_50', 'legacy_suffolk_roofs_thatch_50']"
+    }
+  ],
+  "shots": [
+    {
+      "shot": {
+        "id": "SC_001",
+        "duration_seconds": 4.666666666666667,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "LOCKED_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "low_pitch_gable_roof"
+        },
+        "from_state": "low_pitch_gable_roof",
+        "to_state": "low_pitch_gable_roof",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "R1"
+        ],
+        "claim_ids": [],
+        "narration": "Here is a small house with a low-pitched gable roof.",
+        "visual_purpose": "Introduce roof A on the house [HOLD 1/1: hold low_pitch_gable_roof]",
+        "build_variants": [
+          "low_pitch_gable_roof",
+          "steep_gable_roof"
+        ]
+      },
+      "beat_id": "R1",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "HOLD",
+      "part": [
+        1,
+        1
+      ],
+      "template": "HOLD",
+      "states": [
+        "low_pitch_gable_roof"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "LOCKED_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "low_pitch_gable_roof",
+          "steep_gable_roof"
+        ]
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 112,
+        "duration_seconds": 4.666667,
+        "min_seconds": 2.0,
+        "start_seconds": 0.0
+      },
+      "explanation": "hold low_pitch_gable_roof",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "legacy_roof_evolution_roof_A"
+      ],
+      "cut_from_previous": "first",
+      "shot_id": "SC_001",
+      "visibility": []
+    },
+    {
+      "shot": {
+        "id": "SC_002",
+        "duration_seconds": 6.583333333333333,
+        "visual_type": "BLENDER_3D",
+        "transition": "EXPLODED_VIEW",
+        "camera": "LOCKED_THREE_QUARTER",
+        "animation": {
+          "template": "EXPLODED_VIEW",
+          "state": "low_pitch_gable_roof",
+          "components": [
+            "low_pitch_gable_roof_rafters_left",
+            "low_pitch_gable_roof_rafters_right",
+            "low_pitch_gable_roof_ridge_beam",
+            "low_pitch_gable_roof_covering_left",
+            "low_pitch_gable_roof_covering_right"
+          ],
+          "per_component": {
+            "low_pitch_gable_roof_rafters_left": {
+              "distance": 0.8
+            },
+            "low_pitch_gable_roof_rafters_right": {
+              "distance": 0.8
+            },
+            "low_pitch_gable_roof_ridge_beam": {
+              "distance": 0.5
+            },
+            "low_pitch_gable_roof_covering_left": {
+              "distance": 1.6
+            },
+            "low_pitch_gable_roof_covering_right": {
+              "distance": 1.6
+            }
+          },
+          "sequence": "SEQUENTIAL",
+          "stagger_by": "LAYER",
+          "order": "DISASSEMBLY",
+          "stagger_seconds": 0.18,
+          "hold_start_seconds": 0.4,
+          "explode_seconds": 1.0,
+          "hold_seconds": 3.18,
+          "return_seconds": 1.0,
+          "hold_end_seconds": 0.2,
+          "highlight": {
+            "components": [
+              "low_pitch_gable_roof_rafters_left",
+              "low_pitch_gable_roof_rafters_right",
+              "low_pitch_gable_roof_ridge_beam"
+            ],
+            "mode": "SIMULTANEOUS",
+            "strength": 0.5,
+            "fade_seconds": 0.25
+          }
+        },
+        "from_state": "low_pitch_gable_roof",
+        "to_state": "low_pitch_gable_roof",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "R2"
+        ],
+        "claim_ids": [],
+        "narration": "Under the covering, rafters and a ridge beam carry the roof surface in this model.",
+        "visual_purpose": "Explain the roof assembly of the model [EXPLODE 1/1: take low_pitch_gable_roof apart by assembly layer (5 components, 3 layers) and back; 3 focus components glow]",
+        "build_variants": [
+          "low_pitch_gable_roof",
+          "steep_gable_roof"
+        ]
+      },
+      "beat_id": "R2",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "EXPLODE",
+      "part": [
+        1,
+        1
+      ],
+      "template": "EXPLODED_VIEW",
+      "states": [
+        "low_pitch_gable_roof"
+      ],
+      "camera": {
+        "mode": "LOCKED_TRANSFORMATION",
+        "preset": "LOCKED_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "low_pitch_gable_roof",
+          "steep_gable_roof"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "rafters",
+          "roles": [
+            "rafters"
+          ],
+          "group": null,
+          "component_ids": [
+            "low_pitch_gable_roof_rafters_left",
+            "low_pitch_gable_roof_rafters_right"
+          ]
+        },
+        {
+          "concept": "ridge_beam",
+          "roles": [
+            "ridge_beam"
+          ],
+          "group": null,
+          "component_ids": [
+            "low_pitch_gable_roof_ridge_beam"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 158,
+        "duration_seconds": 6.583333,
+        "min_seconds": 4.625,
+        "start_seconds": 4.666667
+      },
+      "explanation": "take low_pitch_gable_roof apart by assembly layer (5 components, 3 layers) and back; 3 focus components glow",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "legacy_roof_evolution_roof_A"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_002",
+      "visibility": [
+        {
+          "target": "*",
+          "ok": null,
+          "detail": "not checked offline (legacy geometry is built in Blender); see Blender QA"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_003",
+        "duration_seconds": 5.416666666666667,
+        "visual_type": "BLENDER_3D",
+        "transition": "REPLACE_PARTS",
+        "camera": "LOCKED_THREE_QUARTER",
+        "animation": {
+          "template": "REPLACE_PARTS",
+          "from_state": "low_pitch_gable_roof",
+          "to_state": "steep_gable_roof",
+          "easing": "SMOOTH",
+          "hold_start_seconds": 1.1167,
+          "hold_end_seconds": 0.6,
+          "outgoing": {
+            "direction": "OUTWARD_UP",
+            "distance": 2.6,
+            "lift": 0.3,
+            "lift_seconds": 0.3,
+            "move_seconds": 1.0,
+            "stagger_seconds": 0.08,
+            "fade": true,
+            "fade_start": 0.0
+          },
+          "incoming": {
+            "direction": "FROM_ABOVE",
+            "distance": 2.2,
+            "move_seconds": 1.1,
+            "stagger_seconds": 0.08,
+            "fade": true,
+            "fade_end": 0.75,
+            "overlap_seconds": 0.3,
+            "easing": "EASE_OUT"
+          }
+        },
+        "from_state": "low_pitch_gable_roof",
+        "to_state": "steep_gable_roof",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "R3"
+        ],
+        "claim_ids": [],
+        "narration": "On the same walls, a steeper roof replaces only the roof parts.",
+        "visual_purpose": "Replace the compatible roof assembly with roof B [REPLACE 1/1: swap 7 parts of low_pitch_gable_roof for 7 parts of steep_gable_roof on the shared base]",
+        "build_variants": [
+          "low_pitch_gable_roof",
+          "steep_gable_roof"
+        ]
+      },
+      "beat_id": "R3",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "REPLACE",
+      "part": [
+        1,
+        1
+      ],
+      "template": "REPLACE_PARTS",
+      "states": [
+        "low_pitch_gable_roof",
+        "steep_gable_roof"
+      ],
+      "camera": {
+        "mode": "LOCKED_TRANSFORMATION",
+        "preset": "LOCKED_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "low_pitch_gable_roof",
+          "steep_gable_roof"
+        ]
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 130,
+        "duration_seconds": 5.416667,
+        "min_seconds": 3.625,
+        "start_seconds": 11.25
+      },
+      "explanation": "swap 7 parts of low_pitch_gable_roof for 7 parts of steep_gable_roof on the shared base",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "legacy_roof_evolution_roof_A",
+        "legacy_roof_evolution_roof_B"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_003",
+      "visibility": []
+    },
+    {
+      "shot": {
+        "id": "SC_004",
+        "duration_seconds": 4.291666666666667,
+        "visual_type": "BLENDER_3D",
+        "transition": "SIDE_BY_SIDE",
+        "camera": "LOCKED_THREE_QUARTER",
+        "animation": {
+          "template": "SIDE_BY_SIDE",
+          "states": [
+            "low_pitch_gable_roof",
+            "steep_gable_roof"
+          ],
+          "layout": "ROW",
+          "gap_ratio": 0.35,
+          "label_band": 0.14,
+          "labels": {
+            "low_pitch_gable_roof": "Low-pitched gable roof",
+            "steep_gable_roof": "Steep gable roof"
+          }
+        },
+        "from_state": "low_pitch_gable_roof",
+        "to_state": "steep_gable_roof",
+        "beat_ids": [
+          "R4"
+        ],
+        "claim_ids": [],
+        "narration": "Side by side, the two designs differ in pitch.",
+        "visual_purpose": "Compare the two roofs at identical scale [COMPARE_SIDE_BY_SIDE 1/1: 2 variants at identical scale (ROW)]"
+      },
+      "beat_id": "R4",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "part": [
+        1,
+        1
+      ],
+      "template": "SIDE_BY_SIDE",
+      "states": [
+        "low_pitch_gable_roof",
+        "steep_gable_roof"
+      ],
+      "camera": {
+        "mode": "COMPARISON",
+        "preset": "LOCKED_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.0,
+        "group": 2
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 103,
+        "duration_seconds": 4.291667,
+        "min_seconds": 2.0,
+        "start_seconds": 16.666667
+      },
+      "explanation": "2 variants at identical scale (ROW)",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "legacy_roof_evolution_roof_A",
+        "legacy_roof_evolution_roof_B"
+      ],
+      "cut_from_previous": "hard",
+      "shot_id": "SC_004",
+      "visibility": []
+    }
+  ],
+  "coverage": [
+    {
+      "beat_id": "R1",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "narration": "Here is a small house with a low-pitched gable roof.",
+      "status": "COVERED",
+      "strategy": "HOLD",
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "expected_seconds": 4.646,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "ASSEMBLE_IN rejected (INVALID_REQUEST): ASSEMBLE_IN needs the previous shot to end on the empty site",
+        "HOLD_HIGHLIGHT rejected (INVALID_REQUEST): HOLD_HIGHLIGHT needs component concepts to highlight",
+        "HOLD: Hold the structure"
+      ],
+      "evidence_status": "FRAMING"
+    },
+    {
+      "beat_id": "R2",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "narration": "Under the covering, rafters and a ridge beam carry the roof surface in this model.",
+      "status": "COVERED",
+      "strategy": "EXPLODE",
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        }
+      ],
+      "semantic_targets": [
+        "rafters",
+        "ridge_beam"
+      ],
+      "templates": [
+        "EXPLODED_VIEW"
+      ],
+      "shot_ids": [
+        "SC_002"
+      ],
+      "expected_seconds": 6.569,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_THEN_EXPLODE rejected (TIMING_CONFLICT): HIGHLIGHT_THEN_EXPLODE needs 6.67 s (2.04 + 4.62), the beat has 6.58 s",
+        "EXPLODE: Take the assembly apart along its layers and back, focus components glowing"
+      ],
+      "evidence_status": "FRAMING"
+    },
+    {
+      "beat_id": "R3",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "narration": "On the same walls, a steeper roof replaces only the roof parts.",
+      "status": "COVERED",
+      "strategy": "REPLACE",
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        },
+        {
+          "concept": "steep_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_B",
+          "explanation": "legacy_roof_evolution_roof_B (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'min': 40}}; legacy roof-evolution variant 'roof_B' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_plain_tile_50', 'legacy_suffolk_roofs_thatch_50']"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "REPLACE_PARTS"
+      ],
+      "shot_ids": [
+        "SC_003"
+      ],
+      "expected_seconds": 5.415,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_REPLACE_HIGHLIGHT rejected (TIMING_CONFLICT): HIGHLIGHT_REPLACE_HIGHLIGHT needs 7.71 s (2.04 + 3.62 + 2.04), the beat has 5.42 s",
+        "REPLACE: Swap only the differing parts on the shared frame"
+      ],
+      "evidence_status": "FRAMING"
+    },
+    {
+      "beat_id": "R4",
+      "visual_intent": "COMPARE_VARIANTS",
+      "narration": "Side by side, the two designs differ in pitch.",
+      "status": "COVERED",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        },
+        {
+          "concept": "steep_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_B",
+          "explanation": "legacy_roof_evolution_roof_B (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'min': 40}}; legacy roof-evolution variant 'roof_B' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_plain_tile_50', 'legacy_suffolk_roofs_thatch_50']"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "SIDE_BY_SIDE"
+      ],
+      "shot_ids": [
+        "SC_004"
+      ],
+      "expected_seconds": 4.262,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned"
+      ],
+      "evidence_status": "FRAMING"
+    }
+  ],
+  "warnings": []
+}

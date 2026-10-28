@@ -1,0 +1,1973 @@
+{
+  "schema": "visual_plan/1",
+  "plan_version": "1.0",
+  "planner_version": "1.0.0",
+  "project_id": "bridge-story-m5",
+  "title": "Three Ways to Span a Gap",
+  "timing_mode": "PROVISIONAL",
+  "publication": {
+    "restriction": "INTERNAL_ONLY",
+    "reason": "Claims are source-verified, not editorially approved; no rights-cleared narration exists (silent preview)."
+  },
+  "fps": 24,
+  "total_frames": 1737,
+  "duration_seconds": 72.375,
+  "executable": true,
+  "inputs": {
+    "beats_sha256": "fb6d773bf1c53737b71dd90b15673c0f976ea8e5dd4d47e84fdd68e3bbdc1701",
+    "sources_sha256": "674c33889b1f782f65bd09c10e5bf6c34b5c890b3b46db7f97f23a25835b6a1e",
+    "vocabulary_sha256": "827daebe3f9b0e365c4f996d16165c2530b26855c48602e90f1062f79448b4dd",
+    "planning_config_sha256": "475b8883f95aba3cd838577507e2a56dbef059cc88c5d0fc2ce9b2a83de61a7b",
+    "assets": {
+      "bridge_steel_truss_pratt_01": "e10493e27819ae3f026b077a5de3d92a968eb9bf1d6aa7de94e9a4ceb6d123d6",
+      "bridge_steel_truss_warren_01": "2504840c19ea9729348c78e9d625c4c47adc930de1354b0526f7441e26b0c10b",
+      "bridge_stone_arch_03": "2793cf5ecc842671181179e00dd5a1eb4f1df7c2bac83c2c366699ebc0be0199",
+      "bridge_timber_beam_01": "9a416c794cb5a56c22eab1960a56ad195306971d223e723f17c831e9be201411"
+    }
+  },
+  "family": "bridge",
+  "states": {
+    "schema_version": 2,
+    "generated_by": "planner",
+    "planner_version": "1.0.0",
+    "building_type": "bridge",
+    "base": {
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/sites/site_river_crossing_24.json"
+    },
+    "shared_components": [
+      "banks",
+      "water"
+    ],
+    "variants": [
+      {
+        "id": "site",
+        "name": "Empty site (no structure)",
+        "builder": "none"
+      },
+      {
+        "id": "timber_beam_bridge",
+        "name": "Timber beam bridge",
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/bridges/bridge_timber_beam_01.json"
+      },
+      {
+        "id": "stone_arch_bridge",
+        "name": "Stone arch bridge",
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/bridges/bridge_stone_arch_03.json"
+      },
+      {
+        "id": "steel_truss_bridge",
+        "name": "Steel truss bridge",
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/bridges/bridge_steel_truss_pratt_01.json"
+      },
+      {
+        "id": "warren_truss",
+        "name": "Warren truss",
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/bridges/bridge_steel_truss_warren_01.json",
+        "structure_from": "steel_truss_bridge"
+      }
+    ],
+    "transitions": []
+  },
+  "resolutions": [
+    {
+      "concept": "river_crossing_site",
+      "status": "REUSE_EXISTING",
+      "asset_id": "site_river_crossing_24",
+      "explanation": "site_river_crossing_24 (offline only, ILLUSTRATIVE) matches site/river_crossing"
+    },
+    {
+      "concept": "timber_beam_bridge",
+      "status": "REUSE_EXISTING",
+      "asset_id": "bridge_timber_beam_01",
+      "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+    },
+    {
+      "concept": "stone_arch_bridge",
+      "status": "REUSE_EXISTING",
+      "asset_id": "bridge_stone_arch_03",
+      "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+    },
+    {
+      "concept": "steel_truss_bridge",
+      "status": "REUSE_EXISTING",
+      "asset_id": "bridge_steel_truss_pratt_01",
+      "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+    },
+    {
+      "concept": "pratt_truss",
+      "status": "REUSE_EXISTING",
+      "asset_id": "bridge_steel_truss_pratt_01",
+      "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+    },
+    {
+      "concept": "warren_truss",
+      "status": "REUSE_EXISTING",
+      "asset_id": "bridge_steel_truss_warren_01",
+      "explanation": "bridge_steel_truss_warren_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'warren'}"
+    }
+  ],
+  "shots": [
+    {
+      "shot": {
+        "id": "SC_001",
+        "duration_seconds": 10.833333333333334,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "site"
+        },
+        "from_state": "site",
+        "to_state": "site",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B1"
+        ],
+        "claim_ids": [],
+        "narration": "Here is a gap of twenty-four metres, with a bank on each side. A bridge has to carry a deck from one bank to the other.",
+        "visual_purpose": "Show the empty site and the span to be crossed [SITE_HOLD 1/1: the empty shared site: the gap any of the structures must span]",
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "beat_id": "B1",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "SITE_HOLD",
+      "part": [
+        1,
+        1
+      ],
+      "template": "HOLD",
+      "states": [
+        "site"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 260,
+        "duration_seconds": 10.833333,
+        "min_seconds": 2.0,
+        "start_seconds": 0.0
+      },
+      "explanation": "the empty shared site: the gap any of the structures must span",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [],
+      "cut_from_previous": "first",
+      "shot_id": "SC_001",
+      "visibility": []
+    },
+    {
+      "shot": {
+        "id": "SC_002",
+        "duration_seconds": 5.833333333333333,
+        "visual_type": "BLENDER_3D",
+        "transition": "REPLACE_PARTS",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "REPLACE_PARTS",
+          "from_state": "site",
+          "to_state": "timber_beam_bridge",
+          "easing": "SMOOTH",
+          "hold_start_seconds": 0.3,
+          "hold_end_seconds": 0.8,
+          "incoming": {
+            "direction": "FROM_ABOVE",
+            "distance": 2.5,
+            "move_seconds": 1.0,
+            "stagger_seconds": 0.05,
+            "fade": true,
+            "fade_end": 0.7,
+            "overlap_seconds": 0.0,
+            "easing": "EASE_OUT"
+          }
+        },
+        "from_state": "site",
+        "to_state": "timber_beam_bridge",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B2"
+        ],
+        "claim_ids": [
+          "CLM_101"
+        ],
+        "narration": "The simplest answer is a beam. In this timber bridge, beams run from one support to the next, and the deck rests on top of them.",
+        "visual_purpose": "Introduce the timber beam bridge and its spanning members [ASSEMBLE_IN 1/2: timber_beam_bridge assembles into the shown empty site (its parts drop in by assembly layer)]",
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "beat_id": "B2",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "ASSEMBLE_IN",
+      "part": [
+        1,
+        2
+      ],
+      "template": "REPLACE_PARTS",
+      "states": [
+        "site",
+        "timber_beam_bridge"
+      ],
+      "camera": {
+        "mode": "LOCKED_TRANSFORMATION",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 140,
+        "duration_seconds": 5.833333,
+        "min_seconds": 2.3333,
+        "start_seconds": 10.833333
+      },
+      "explanation": "timber_beam_bridge assembles into the shown empty site (its parts drop in by assembly layer)",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_timber_beam_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_002",
+      "visibility": []
+    },
+    {
+      "shot": {
+        "id": "SC_003",
+        "duration_seconds": 5.0,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "timber_beam_bridge",
+          "highlight": {
+            "components": [
+              "timber_beam_bridge_span1_stringers",
+              "timber_beam_bridge_span2_stringers",
+              "timber_beam_bridge_span3_stringers",
+              "timber_beam_bridge_span4_stringers"
+            ],
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 3.3,
+            "fall_seconds": 0.4,
+            "strength": 0.45,
+            "ghost": [
+              "timber_beam_bridge_span1_planks",
+              "timber_beam_bridge_span2_planks",
+              "timber_beam_bridge_span3_planks",
+              "timber_beam_bridge_span4_planks"
+            ],
+            "ghost_transparency": 0.7
+          }
+        },
+        "from_state": "timber_beam_bridge",
+        "to_state": "timber_beam_bridge",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B2"
+        ],
+        "claim_ids": [
+          "CLM_101"
+        ],
+        "narration": "The simplest answer is a beam. In this timber bridge, beams run from one support to the next, and the deck rests on top of them.",
+        "visual_purpose": "Introduce the timber beam bridge and its spanning members [ASSEMBLE_IN 2/2: then stringer glow]",
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "beat_id": "B2",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "ASSEMBLE_IN",
+      "part": [
+        2,
+        2
+      ],
+      "template": "HOLD",
+      "states": [
+        "timber_beam_bridge"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "stringer",
+          "roles": [
+            "stringer"
+          ],
+          "group": null,
+          "component_ids": [
+            "timber_beam_bridge_span1_stringers",
+            "timber_beam_bridge_span2_stringers",
+            "timber_beam_bridge_span3_stringers",
+            "timber_beam_bridge_span4_stringers"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 120,
+        "duration_seconds": 5.0,
+        "min_seconds": 2.0417,
+        "start_seconds": 16.666667
+      },
+      "explanation": "then stringer glow; 4 covering part(s) turn see-through while they glow",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_timber_beam_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_003",
+      "visibility": [
+        {
+          "target": "stringer",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.53-0.80, 18.9% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_004",
+        "duration_seconds": 3.0,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "timber_beam_bridge",
+          "highlight": {
+            "components": [
+              "timber_beam_bridge_bent1_cap",
+              "timber_beam_bridge_bent2_cap",
+              "timber_beam_bridge_bent3_cap",
+              "timber_beam_bridge_bent4_cap",
+              "timber_beam_bridge_bent5_cap",
+              "timber_beam_bridge_span1_planks",
+              "timber_beam_bridge_span1_stringers",
+              "timber_beam_bridge_span2_planks",
+              "timber_beam_bridge_span2_stringers",
+              "timber_beam_bridge_span3_planks",
+              "timber_beam_bridge_span3_stringers",
+              "timber_beam_bridge_span4_planks",
+              "timber_beam_bridge_span4_stringers"
+            ],
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 1.3,
+            "fall_seconds": 0.4,
+            "strength": 0.45
+          }
+        },
+        "from_state": "timber_beam_bridge",
+        "to_state": "timber_beam_bridge",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B3"
+        ],
+        "claim_ids": [],
+        "narration": "Taken apart, the arrangement is easy to read: planks rest on beams, beams rest on cap beams, and cap beams sit on posts.",
+        "visual_purpose": "Explain the beam-and-deck arrangement of the model [HIGHLIGHT_THEN_EXPLODE 1/2: glow deck_planks, stringer, cap_beam]",
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "beat_id": "B3",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "HIGHLIGHT_THEN_EXPLODE",
+      "part": [
+        1,
+        2
+      ],
+      "template": "HOLD",
+      "states": [
+        "timber_beam_bridge"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "deck_planks",
+          "roles": [
+            "plank"
+          ],
+          "group": null,
+          "component_ids": [
+            "timber_beam_bridge_span1_planks",
+            "timber_beam_bridge_span2_planks",
+            "timber_beam_bridge_span3_planks",
+            "timber_beam_bridge_span4_planks"
+          ]
+        },
+        {
+          "concept": "stringer",
+          "roles": [
+            "stringer"
+          ],
+          "group": null,
+          "component_ids": [
+            "timber_beam_bridge_span1_stringers",
+            "timber_beam_bridge_span2_stringers",
+            "timber_beam_bridge_span3_stringers",
+            "timber_beam_bridge_span4_stringers"
+          ]
+        },
+        {
+          "concept": "cap_beam",
+          "roles": [
+            "cap_beam"
+          ],
+          "group": null,
+          "component_ids": [
+            "timber_beam_bridge_bent1_cap",
+            "timber_beam_bridge_bent2_cap",
+            "timber_beam_bridge_bent3_cap",
+            "timber_beam_bridge_bent4_cap",
+            "timber_beam_bridge_bent5_cap"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 72,
+        "duration_seconds": 3.0,
+        "min_seconds": 2.0417,
+        "start_seconds": 21.666667
+      },
+      "explanation": "glow deck_planks, stringer, cap_beam",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_timber_beam_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_004",
+      "visibility": [
+        {
+          "target": "deck_planks",
+          "ok": true,
+          "detail": "bbox x 0.14-0.86, y 0.55-0.81, 19.1% of frame"
+        },
+        {
+          "target": "stringer",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.53-0.80, 18.9% of frame"
+        },
+        {
+          "target": "cap_beam",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.51-0.79, 19.8% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_005",
+        "duration_seconds": 6.666666666666667,
+        "visual_type": "BLENDER_3D",
+        "transition": "EXPLODED_VIEW",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "EXPLODED_VIEW",
+          "state": "timber_beam_bridge",
+          "components": [
+            "timber_beam_bridge_bent1_cap",
+            "timber_beam_bridge_bent2_cap",
+            "timber_beam_bridge_bent3_cap",
+            "timber_beam_bridge_bent4_cap",
+            "timber_beam_bridge_bent5_cap",
+            "timber_beam_bridge_railing_north",
+            "timber_beam_bridge_railing_south",
+            "timber_beam_bridge_span1_planks",
+            "timber_beam_bridge_span1_stringers",
+            "timber_beam_bridge_span2_planks",
+            "timber_beam_bridge_span2_stringers",
+            "timber_beam_bridge_span3_planks",
+            "timber_beam_bridge_span3_stringers",
+            "timber_beam_bridge_span4_planks",
+            "timber_beam_bridge_span4_stringers"
+          ],
+          "per_component": {
+            "timber_beam_bridge_bent1_cap": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 0.6
+            },
+            "timber_beam_bridge_bent2_cap": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 0.6
+            },
+            "timber_beam_bridge_bent3_cap": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 0.6
+            },
+            "timber_beam_bridge_bent4_cap": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 0.6
+            },
+            "timber_beam_bridge_bent5_cap": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 0.6
+            },
+            "timber_beam_bridge_span1_stringers": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.1
+            },
+            "timber_beam_bridge_span1_planks": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.9
+            },
+            "timber_beam_bridge_span2_stringers": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.1
+            },
+            "timber_beam_bridge_span2_planks": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.9
+            },
+            "timber_beam_bridge_span3_stringers": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.1
+            },
+            "timber_beam_bridge_span3_planks": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.9
+            },
+            "timber_beam_bridge_span4_stringers": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.1
+            },
+            "timber_beam_bridge_span4_planks": {
+              "direction": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance": 1.9
+            },
+            "timber_beam_bridge_railing_north": {
+              "direction": [
+                0.0,
+                0.94386,
+                0.33035
+              ],
+              "distance": 1.6
+            },
+            "timber_beam_bridge_railing_south": {
+              "direction": [
+                0.0,
+                -0.94386,
+                0.33035
+              ],
+              "distance": 1.6
+            }
+          },
+          "sequence": "SEQUENTIAL",
+          "stagger_by": "LAYER",
+          "order": "DISASSEMBLY",
+          "stagger_seconds": 0.18,
+          "hold_start_seconds": 0.4,
+          "explode_seconds": 1.0,
+          "hold_seconds": 2.9033,
+          "return_seconds": 1.0,
+          "hold_end_seconds": 0.2,
+          "highlight": {
+            "components": [
+              "timber_beam_bridge_bent1_cap",
+              "timber_beam_bridge_bent2_cap",
+              "timber_beam_bridge_bent3_cap",
+              "timber_beam_bridge_bent4_cap",
+              "timber_beam_bridge_bent5_cap",
+              "timber_beam_bridge_span1_planks",
+              "timber_beam_bridge_span1_stringers",
+              "timber_beam_bridge_span2_planks",
+              "timber_beam_bridge_span2_stringers",
+              "timber_beam_bridge_span3_planks",
+              "timber_beam_bridge_span3_stringers",
+              "timber_beam_bridge_span4_planks",
+              "timber_beam_bridge_span4_stringers"
+            ],
+            "mode": "SIMULTANEOUS",
+            "strength": 0.5,
+            "fade_seconds": 0.25
+          }
+        },
+        "from_state": "timber_beam_bridge",
+        "to_state": "timber_beam_bridge",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B3"
+        ],
+        "claim_ids": [],
+        "narration": "Taken apart, the arrangement is easy to read: planks rest on beams, beams rest on cap beams, and cap beams sit on posts.",
+        "visual_purpose": "Explain the beam-and-deck arrangement of the model [HIGHLIGHT_THEN_EXPLODE 2/2: take timber_beam_bridge apart by assembly layer (15 components, 4 layers) and back; 13 focus components glow]",
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "beat_id": "B3",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "HIGHLIGHT_THEN_EXPLODE",
+      "part": [
+        2,
+        2
+      ],
+      "template": "EXPLODED_VIEW",
+      "states": [
+        "timber_beam_bridge"
+      ],
+      "camera": {
+        "mode": "LOCKED_TRANSFORMATION",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 1,
+        "build_variants": [
+          "site",
+          "timber_beam_bridge"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "deck_planks",
+          "roles": [
+            "plank"
+          ],
+          "group": null,
+          "component_ids": [
+            "timber_beam_bridge_span1_planks",
+            "timber_beam_bridge_span2_planks",
+            "timber_beam_bridge_span3_planks",
+            "timber_beam_bridge_span4_planks"
+          ]
+        },
+        {
+          "concept": "stringer",
+          "roles": [
+            "stringer"
+          ],
+          "group": null,
+          "component_ids": [
+            "timber_beam_bridge_span1_stringers",
+            "timber_beam_bridge_span2_stringers",
+            "timber_beam_bridge_span3_stringers",
+            "timber_beam_bridge_span4_stringers"
+          ]
+        },
+        {
+          "concept": "cap_beam",
+          "roles": [
+            "cap_beam"
+          ],
+          "group": null,
+          "component_ids": [
+            "timber_beam_bridge_bent1_cap",
+            "timber_beam_bridge_bent2_cap",
+            "timber_beam_bridge_bent3_cap",
+            "timber_beam_bridge_bent4_cap",
+            "timber_beam_bridge_bent5_cap"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 160,
+        "duration_seconds": 6.666667,
+        "min_seconds": 5.0,
+        "start_seconds": 24.666667
+      },
+      "explanation": "take timber_beam_bridge apart by assembly layer (15 components, 4 layers) and back; 13 focus components glow",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_timber_beam_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_005",
+      "visibility": [
+        {
+          "target": "deck_planks",
+          "ok": true,
+          "detail": "bbox x 0.14-0.86, y 0.55-0.81, 19.1% of frame"
+        },
+        {
+          "target": "stringer",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.53-0.80, 18.9% of frame"
+        },
+        {
+          "target": "cap_beam",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.51-0.79, 19.8% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_006",
+        "duration_seconds": 4.625,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "stone_arch_bridge",
+          "highlight": {
+            "components": [
+              "stone_arch_bridge_arch1_keystone",
+              "stone_arch_bridge_arch1_voussoir01",
+              "stone_arch_bridge_arch1_voussoir02",
+              "stone_arch_bridge_arch1_voussoir03",
+              "stone_arch_bridge_arch1_voussoir04",
+              "stone_arch_bridge_arch1_voussoir05",
+              "stone_arch_bridge_arch1_voussoir06",
+              "stone_arch_bridge_arch1_voussoir08",
+              "stone_arch_bridge_arch1_voussoir09",
+              "stone_arch_bridge_arch1_voussoir10",
+              "stone_arch_bridge_arch1_voussoir11",
+              "stone_arch_bridge_arch1_voussoir12",
+              "stone_arch_bridge_arch1_voussoir13",
+              "stone_arch_bridge_arch2_keystone",
+              "stone_arch_bridge_arch2_voussoir01",
+              "stone_arch_bridge_arch2_voussoir02",
+              "stone_arch_bridge_arch2_voussoir03",
+              "stone_arch_bridge_arch2_voussoir04",
+              "stone_arch_bridge_arch2_voussoir05",
+              "stone_arch_bridge_arch2_voussoir06",
+              "stone_arch_bridge_arch2_voussoir08",
+              "stone_arch_bridge_arch2_voussoir09",
+              "stone_arch_bridge_arch2_voussoir10",
+              "stone_arch_bridge_arch2_voussoir11",
+              "stone_arch_bridge_arch2_voussoir12",
+              "stone_arch_bridge_arch2_voussoir13",
+              "stone_arch_bridge_arch3_keystone",
+              "stone_arch_bridge_arch3_voussoir01",
+              "stone_arch_bridge_arch3_voussoir02",
+              "stone_arch_bridge_arch3_voussoir03",
+              "stone_arch_bridge_arch3_voussoir04",
+              "stone_arch_bridge_arch3_voussoir05",
+              "stone_arch_bridge_arch3_voussoir06",
+              "stone_arch_bridge_arch3_voussoir08",
+              "stone_arch_bridge_arch3_voussoir09",
+              "stone_arch_bridge_arch3_voussoir10",
+              "stone_arch_bridge_arch3_voussoir11",
+              "stone_arch_bridge_arch3_voussoir12",
+              "stone_arch_bridge_arch3_voussoir13"
+            ],
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 2.925,
+            "fall_seconds": 0.4,
+            "strength": 0.45
+          }
+        },
+        "from_state": "stone_arch_bridge",
+        "to_state": "stone_arch_bridge",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B4"
+        ],
+        "claim_ids": [
+          "CLM_102"
+        ],
+        "narration": "A stone arch works differently. It is built from wedge-shaped stones called voussoirs, with a keystone at the top of each arch.",
+        "visual_purpose": "Introduce the masonry arch and show one arch ring's voussoirs and keystone [CLOSEUP_HIGHLIGHT 1/2: establish stone_arch_bridge with arch_ring glowing]",
+        "build_variants": [
+          "stone_arch_bridge"
+        ]
+      },
+      "beat_id": "B4",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "CLOSEUP_HIGHLIGHT",
+      "part": [
+        1,
+        2
+      ],
+      "template": "HOLD",
+      "states": [
+        "stone_arch_bridge"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 2,
+        "build_variants": [
+          "stone_arch_bridge"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "arch_ring",
+          "roles": [
+            "keystone",
+            "voussoir"
+          ],
+          "group": null,
+          "component_ids": [
+            "stone_arch_bridge_arch1_voussoir01",
+            "stone_arch_bridge_arch1_voussoir02",
+            "stone_arch_bridge_arch1_voussoir03",
+            "stone_arch_bridge_arch1_voussoir04",
+            "stone_arch_bridge_arch1_voussoir05",
+            "stone_arch_bridge_arch1_voussoir06",
+            "stone_arch_bridge_arch1_keystone",
+            "stone_arch_bridge_arch1_voussoir08",
+            "stone_arch_bridge_arch1_voussoir09",
+            "stone_arch_bridge_arch1_voussoir10",
+            "stone_arch_bridge_arch1_voussoir11",
+            "stone_arch_bridge_arch1_voussoir12",
+            "stone_arch_bridge_arch1_voussoir13",
+            "stone_arch_bridge_arch2_voussoir01",
+            "stone_arch_bridge_arch2_voussoir02",
+            "stone_arch_bridge_arch2_voussoir03",
+            "stone_arch_bridge_arch2_voussoir04",
+            "stone_arch_bridge_arch2_voussoir05",
+            "stone_arch_bridge_arch2_voussoir06",
+            "stone_arch_bridge_arch2_keystone",
+            "stone_arch_bridge_arch2_voussoir08",
+            "stone_arch_bridge_arch2_voussoir09",
+            "stone_arch_bridge_arch2_voussoir10",
+            "stone_arch_bridge_arch2_voussoir11",
+            "stone_arch_bridge_arch2_voussoir12",
+            "stone_arch_bridge_arch2_voussoir13",
+            "stone_arch_bridge_arch3_voussoir01",
+            "stone_arch_bridge_arch3_voussoir02",
+            "stone_arch_bridge_arch3_voussoir03",
+            "stone_arch_bridge_arch3_voussoir04",
+            "stone_arch_bridge_arch3_voussoir05",
+            "stone_arch_bridge_arch3_voussoir06",
+            "stone_arch_bridge_arch3_keystone",
+            "stone_arch_bridge_arch3_voussoir08",
+            "stone_arch_bridge_arch3_voussoir09",
+            "stone_arch_bridge_arch3_voussoir10",
+            "stone_arch_bridge_arch3_voussoir11",
+            "stone_arch_bridge_arch3_voussoir12",
+            "stone_arch_bridge_arch3_voussoir13"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 111,
+        "duration_seconds": 4.625,
+        "min_seconds": 2.0417,
+        "start_seconds": 31.333333
+      },
+      "explanation": "establish stone_arch_bridge with arch_ring glowing",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_stone_arch_03"
+      ],
+      "cut_from_previous": "hard",
+      "shot_id": "SC_006",
+      "visibility": [
+        {
+          "target": "arch_ring",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.33-0.75, 28.9% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_007",
+        "duration_seconds": 4.666666666666667,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "stone_arch_bridge",
+          "highlight": {
+            "components": [
+              "stone_arch_bridge_arch2_keystone",
+              "stone_arch_bridge_arch2_voussoir01",
+              "stone_arch_bridge_arch2_voussoir02",
+              "stone_arch_bridge_arch2_voussoir03",
+              "stone_arch_bridge_arch2_voussoir04",
+              "stone_arch_bridge_arch2_voussoir05",
+              "stone_arch_bridge_arch2_voussoir06",
+              "stone_arch_bridge_arch2_voussoir08",
+              "stone_arch_bridge_arch2_voussoir09",
+              "stone_arch_bridge_arch2_voussoir10",
+              "stone_arch_bridge_arch2_voussoir11",
+              "stone_arch_bridge_arch2_voussoir12",
+              "stone_arch_bridge_arch2_voussoir13"
+            ],
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 2.9667,
+            "fall_seconds": 0.4,
+            "strength": 0.45
+          }
+        },
+        "from_state": "stone_arch_bridge",
+        "to_state": "stone_arch_bridge",
+        "camera_focus": [
+          "stone_arch_bridge_arch2_keystone",
+          "stone_arch_bridge_arch2_voussoir01",
+          "stone_arch_bridge_arch2_voussoir02",
+          "stone_arch_bridge_arch2_voussoir03",
+          "stone_arch_bridge_arch2_voussoir04",
+          "stone_arch_bridge_arch2_voussoir05",
+          "stone_arch_bridge_arch2_voussoir06",
+          "stone_arch_bridge_arch2_voussoir08",
+          "stone_arch_bridge_arch2_voussoir09",
+          "stone_arch_bridge_arch2_voussoir10",
+          "stone_arch_bridge_arch2_voussoir11",
+          "stone_arch_bridge_arch2_voussoir12",
+          "stone_arch_bridge_arch2_voussoir13"
+        ],
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B4"
+        ],
+        "claim_ids": [
+          "CLM_102"
+        ],
+        "narration": "A stone arch works differently. It is built from wedge-shaped stones called voussoirs, with a keystone at the top of each arch.",
+        "visual_purpose": "Introduce the masonry arch and show one arch ring's voussoirs and keystone [CLOSEUP_HIGHLIGHT 2/2: close-up framed on 13 component(s)]",
+        "build_variants": [
+          "stone_arch_bridge"
+        ]
+      },
+      "beat_id": "B4",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "CLOSEUP_HIGHLIGHT",
+      "part": [
+        2,
+        2
+      ],
+      "template": "HOLD",
+      "states": [
+        "stone_arch_bridge"
+      ],
+      "camera": {
+        "mode": "COMPONENT_CLOSEUP",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": [
+          "stone_arch_bridge_arch2_keystone",
+          "stone_arch_bridge_arch2_voussoir01",
+          "stone_arch_bridge_arch2_voussoir02",
+          "stone_arch_bridge_arch2_voussoir03",
+          "stone_arch_bridge_arch2_voussoir04",
+          "stone_arch_bridge_arch2_voussoir05",
+          "stone_arch_bridge_arch2_voussoir06",
+          "stone_arch_bridge_arch2_voussoir08",
+          "stone_arch_bridge_arch2_voussoir09",
+          "stone_arch_bridge_arch2_voussoir10",
+          "stone_arch_bridge_arch2_voussoir11",
+          "stone_arch_bridge_arch2_voussoir12",
+          "stone_arch_bridge_arch2_voussoir13"
+        ],
+        "safe_band": 0.1,
+        "group": 3,
+        "build_variants": [
+          "stone_arch_bridge"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "voussoir",
+          "roles": [
+            "voussoir"
+          ],
+          "group": "arch_2",
+          "component_ids": [
+            "stone_arch_bridge_arch2_voussoir01",
+            "stone_arch_bridge_arch2_voussoir02",
+            "stone_arch_bridge_arch2_voussoir03",
+            "stone_arch_bridge_arch2_voussoir04",
+            "stone_arch_bridge_arch2_voussoir05",
+            "stone_arch_bridge_arch2_voussoir06",
+            "stone_arch_bridge_arch2_voussoir08",
+            "stone_arch_bridge_arch2_voussoir09",
+            "stone_arch_bridge_arch2_voussoir10",
+            "stone_arch_bridge_arch2_voussoir11",
+            "stone_arch_bridge_arch2_voussoir12",
+            "stone_arch_bridge_arch2_voussoir13"
+          ]
+        },
+        {
+          "concept": "keystone",
+          "roles": [
+            "keystone"
+          ],
+          "group": "arch_2",
+          "component_ids": [
+            "stone_arch_bridge_arch2_keystone"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 112,
+        "duration_seconds": 4.666667,
+        "min_seconds": 2.0417,
+        "start_seconds": 35.958333
+      },
+      "explanation": "close-up framed on 13 component(s)",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_stone_arch_03"
+      ],
+      "cut_from_previous": "hard",
+      "shot_id": "SC_007",
+      "visibility": [
+        {
+          "target": "voussoir",
+          "ok": true,
+          "detail": "bbox x 0.16-0.84, y 0.16-0.94, 52.8% of frame"
+        },
+        {
+          "target": "keystone",
+          "ok": true,
+          "detail": "bbox x 0.39-0.61, y 0.62-0.94, 7.1% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_008",
+        "duration_seconds": 5.041666666666667,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "steel_truss_bridge",
+          "highlight": {
+            "components": [
+              "steel_truss_bridge_span1_diagonals_north",
+              "steel_truss_bridge_span1_diagonals_south",
+              "steel_truss_bridge_span1_verticals_north",
+              "steel_truss_bridge_span1_verticals_south",
+              "steel_truss_bridge_span2_diagonals_north",
+              "steel_truss_bridge_span2_diagonals_south",
+              "steel_truss_bridge_span2_verticals_north",
+              "steel_truss_bridge_span2_verticals_south"
+            ],
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 3.3417,
+            "fall_seconds": 0.4,
+            "strength": 0.45
+          }
+        },
+        "from_state": "steel_truss_bridge",
+        "to_state": "steel_truss_bridge",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B5"
+        ],
+        "claim_ids": [
+          "CLM_103"
+        ],
+        "narration": "A truss takes another approach: many straight members joined into triangles.",
+        "visual_purpose": "Introduce the truss and its triangulated members [HOLD_HIGHLIGHT 1/1: hold steel_truss_bridge, glowing truss_web]",
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "beat_id": "B5",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "HOLD_HIGHLIGHT",
+      "part": [
+        1,
+        1
+      ],
+      "template": "HOLD",
+      "states": [
+        "steel_truss_bridge"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 4,
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "truss_web",
+          "roles": [
+            "truss_diagonal",
+            "truss_vertical"
+          ],
+          "group": null,
+          "component_ids": [
+            "steel_truss_bridge_span1_verticals_north",
+            "steel_truss_bridge_span1_diagonals_north",
+            "steel_truss_bridge_span1_verticals_south",
+            "steel_truss_bridge_span1_diagonals_south",
+            "steel_truss_bridge_span2_verticals_north",
+            "steel_truss_bridge_span2_diagonals_north",
+            "steel_truss_bridge_span2_verticals_south",
+            "steel_truss_bridge_span2_diagonals_south"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 121,
+        "duration_seconds": 5.041667,
+        "min_seconds": 2.0417,
+        "start_seconds": 40.625
+      },
+      "explanation": "hold steel_truss_bridge, glowing truss_web",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_steel_truss_pratt_01"
+      ],
+      "cut_from_previous": "hard",
+      "shot_id": "SC_008",
+      "visibility": [
+        {
+          "target": "truss_web",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.51-0.88, 25.9% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_009",
+        "duration_seconds": 3.75,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "steel_truss_bridge",
+          "highlight": {
+            "components": [
+              "steel_truss_bridge_span1_diagonals_north",
+              "steel_truss_bridge_span1_diagonals_south",
+              "steel_truss_bridge_span1_verticals_north",
+              "steel_truss_bridge_span1_verticals_south",
+              "steel_truss_bridge_span2_diagonals_north",
+              "steel_truss_bridge_span2_diagonals_south",
+              "steel_truss_bridge_span2_verticals_north",
+              "steel_truss_bridge_span2_verticals_south"
+            ],
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 2.05,
+            "fall_seconds": 0.4,
+            "strength": 0.45
+          }
+        },
+        "from_state": "steel_truss_bridge",
+        "to_state": "steel_truss_bridge",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B6"
+        ],
+        "claim_ids": [
+          "CLM_104",
+          "CLM_105"
+        ],
+        "narration": "The triangles can be arranged in different patterns. A Pratt truss has vertical members and diagonals that slope down towards the centre. A Warren truss uses alternating diagonals, with no verticals.",
+        "visual_purpose": "Compare the Pratt and Warren web patterns on the same chords [HIGHLIGHT_REPLACE_HIGHLIGHT 1/3: glow the parts of steel_truss_bridge that will change]",
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "beat_id": "B6",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT",
+      "part": [
+        1,
+        3
+      ],
+      "template": "HOLD",
+      "states": [
+        "steel_truss_bridge"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 4,
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "truss_web",
+          "roles": [
+            "truss_diagonal",
+            "truss_vertical"
+          ],
+          "group": null,
+          "component_ids": [
+            "steel_truss_bridge_span1_verticals_north",
+            "steel_truss_bridge_span1_diagonals_north",
+            "steel_truss_bridge_span1_verticals_south",
+            "steel_truss_bridge_span1_diagonals_south",
+            "steel_truss_bridge_span2_verticals_north",
+            "steel_truss_bridge_span2_diagonals_north",
+            "steel_truss_bridge_span2_verticals_south",
+            "steel_truss_bridge_span2_diagonals_south"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 90,
+        "duration_seconds": 3.75,
+        "min_seconds": 2.0417,
+        "start_seconds": 45.666667
+      },
+      "explanation": "glow the parts of steel_truss_bridge that will change",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_steel_truss_pratt_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_009",
+      "visibility": [
+        {
+          "target": "truss_web",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.51-0.88, 25.9% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_010",
+        "duration_seconds": 5.166666666666667,
+        "visual_type": "BLENDER_3D",
+        "transition": "REPLACE_PARTS",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "REPLACE_PARTS",
+          "from_state": "steel_truss_bridge",
+          "to_state": "warren_truss",
+          "easing": "SMOOTH",
+          "hold_start_seconds": 1.2167,
+          "hold_end_seconds": 0.6,
+          "outgoing": {
+            "direction": "OUTWARD_UP",
+            "distance": 2.6,
+            "lift": 0.3,
+            "lift_seconds": 0.3,
+            "move_seconds": 1.0,
+            "stagger_seconds": 0.08,
+            "fade": true,
+            "fade_start": 0.0
+          },
+          "incoming": {
+            "direction": "FROM_ABOVE",
+            "distance": 2.2,
+            "move_seconds": 1.1,
+            "stagger_seconds": 0.08,
+            "fade": true,
+            "fade_end": 0.75,
+            "overlap_seconds": 0.3,
+            "easing": "EASE_OUT"
+          }
+        },
+        "from_state": "steel_truss_bridge",
+        "to_state": "warren_truss",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B6"
+        ],
+        "claim_ids": [
+          "CLM_104",
+          "CLM_105"
+        ],
+        "narration": "The triangles can be arranged in different patterns. A Pratt truss has vertical members and diagonals that slope down towards the centre. A Warren truss uses alternating diagonals, with no verticals.",
+        "visual_purpose": "Compare the Pratt and Warren web patterns on the same chords [HIGHLIGHT_REPLACE_HIGHLIGHT 2/3: swap 8 parts of steel_truss_bridge for 4 parts of warren_truss on the shared frame]",
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "beat_id": "B6",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT",
+      "part": [
+        2,
+        3
+      ],
+      "template": "REPLACE_PARTS",
+      "states": [
+        "steel_truss_bridge",
+        "warren_truss"
+      ],
+      "camera": {
+        "mode": "LOCKED_TRANSFORMATION",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 4,
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 124,
+        "duration_seconds": 5.166667,
+        "min_seconds": 3.125,
+        "start_seconds": 49.416667
+      },
+      "explanation": "swap 8 parts of steel_truss_bridge for 4 parts of warren_truss on the shared frame",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_steel_truss_pratt_01",
+        "bridge_steel_truss_warren_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_010",
+      "visibility": []
+    },
+    {
+      "shot": {
+        "id": "SC_011",
+        "duration_seconds": 3.8333333333333335,
+        "visual_type": "BLENDER_3D",
+        "transition": "HOLD",
+        "camera": "BRIDGE_THREE_QUARTER",
+        "animation": {
+          "template": "HOLD",
+          "state": "warren_truss",
+          "highlight": {
+            "components": [
+              "warren_truss_span1_diagonals_north",
+              "warren_truss_span1_diagonals_south",
+              "warren_truss_span2_diagonals_north",
+              "warren_truss_span2_diagonals_south"
+            ],
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 2.1333,
+            "fall_seconds": 0.4,
+            "strength": 0.45
+          }
+        },
+        "from_state": "warren_truss",
+        "to_state": "warren_truss",
+        "camera_safe_band": 0.1,
+        "beat_ids": [
+          "B6"
+        ],
+        "claim_ids": [
+          "CLM_104",
+          "CLM_105"
+        ],
+        "narration": "The triangles can be arranged in different patterns. A Pratt truss has vertical members and diagonals that slope down towards the centre. A Warren truss uses alternating diagonals, with no verticals.",
+        "visual_purpose": "Compare the Pratt and Warren web patterns on the same chords [HIGHLIGHT_REPLACE_HIGHLIGHT 3/3: glow the new parts of warren_truss]",
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "beat_id": "B6",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT",
+      "part": [
+        3,
+        3
+      ],
+      "template": "HOLD",
+      "states": [
+        "warren_truss"
+      ],
+      "camera": {
+        "mode": "FULL_OBJECT",
+        "preset": "BRIDGE_THREE_QUARTER",
+        "focus": null,
+        "safe_band": 0.1,
+        "group": 4,
+        "build_variants": [
+          "steel_truss_bridge",
+          "warren_truss"
+        ]
+      },
+      "semantic_targets": [
+        {
+          "concept": "truss_web",
+          "roles": [
+            "truss_diagonal"
+          ],
+          "group": null,
+          "component_ids": [
+            "warren_truss_span1_diagonals_north",
+            "warren_truss_span1_diagonals_south",
+            "warren_truss_span2_diagonals_north",
+            "warren_truss_span2_diagonals_south"
+          ]
+        }
+      ],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 92,
+        "duration_seconds": 3.833333,
+        "min_seconds": 2.0417,
+        "start_seconds": 54.583333
+      },
+      "explanation": "glow the new parts of warren_truss",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_steel_truss_warren_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_011",
+      "visibility": [
+        {
+          "target": "truss_web",
+          "ok": true,
+          "detail": "bbox x 0.15-0.85, y 0.50-0.87, 25.9% of frame"
+        }
+      ]
+    },
+    {
+      "shot": {
+        "id": "SC_012",
+        "duration_seconds": 6.208333333333333,
+        "visual_type": "BLENDER_3D",
+        "transition": "SIDE_BY_SIDE",
+        "camera": "BRIDGE_STACK",
+        "animation": {
+          "template": "SIDE_BY_SIDE",
+          "states": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "layout": "STACK",
+          "gap_ratio": 0.5,
+          "label_band": 0.1,
+          "labels": {
+            "timber_beam_bridge": "Timber beam bridge",
+            "stone_arch_bridge": "Stone arch bridge",
+            "steel_truss_bridge": "Steel truss bridge"
+          }
+        },
+        "from_state": "timber_beam_bridge",
+        "to_state": "steel_truss_bridge",
+        "beat_ids": [
+          "B7"
+        ],
+        "claim_ids": [],
+        "narration": "Side by side, the three models span the same gap in three different ways.",
+        "visual_purpose": "All three archetypes at identical scale on identical sites [COMPARE_SIDE_BY_SIDE 1/1: 3 variants at identical scale (STACK)]"
+      },
+      "beat_id": "B7",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "part": [
+        1,
+        1
+      ],
+      "template": "SIDE_BY_SIDE",
+      "states": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
+      "camera": {
+        "mode": "COMPARISON",
+        "preset": "BRIDGE_STACK",
+        "focus": null,
+        "safe_band": 0.0,
+        "group": 5
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 149,
+        "duration_seconds": 6.208333,
+        "min_seconds": 2.0,
+        "start_seconds": 58.416667
+      },
+      "explanation": "3 variants at identical scale (STACK)",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_timber_beam_01",
+        "bridge_stone_arch_03",
+        "bridge_steel_truss_pratt_01"
+      ],
+      "cut_from_previous": "hard",
+      "shot_id": "SC_012",
+      "visibility": []
+    },
+    {
+      "shot": {
+        "id": "SC_013",
+        "duration_seconds": 7.75,
+        "visual_type": "BLENDER_3D",
+        "transition": "SIDE_BY_SIDE",
+        "camera": "BRIDGE_STACK",
+        "animation": {
+          "template": "SIDE_BY_SIDE",
+          "states": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "layout": "STACK",
+          "gap_ratio": 0.5,
+          "label_band": 0.1,
+          "labels": {
+            "timber_beam_bridge": "Timber beam bridge",
+            "stone_arch_bridge": "Stone arch bridge",
+            "steel_truss_bridge": "Steel truss bridge"
+          },
+          "highlight": {
+            "components": "DIFFERENCES",
+            "start_seconds": 0.6,
+            "rise_seconds": 0.4,
+            "hold_seconds": 6.05,
+            "fall_seconds": 0.4,
+            "strength": 0.3
+          }
+        },
+        "from_state": "timber_beam_bridge",
+        "to_state": "steel_truss_bridge",
+        "beat_ids": [
+          "B8"
+        ],
+        "claim_ids": [],
+        "narration": "Beam, arch and truss: three arrangements of parts for the same task. These are illustrations, not a timeline.",
+        "visual_purpose": "Close on the comparison, glowing the parts that differ [CONTINUE_COMPARISON 1/1: 3 variants at identical scale (STACK); differing parts glow]"
+      },
+      "beat_id": "B8",
+      "visual_intent": "SUMMARIZE_DIFFERENCES",
+      "strategy": "CONTINUE_COMPARISON",
+      "part": [
+        1,
+        1
+      ],
+      "template": "SIDE_BY_SIDE",
+      "states": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
+      "camera": {
+        "mode": "COMPARISON",
+        "preset": "BRIDGE_STACK",
+        "focus": null,
+        "safe_band": 0.0,
+        "group": 5
+      },
+      "semantic_targets": [],
+      "timing": {
+        "mode": "PROVISIONAL",
+        "frames": 186,
+        "duration_seconds": 7.75,
+        "min_seconds": 2.0417,
+        "start_seconds": 64.625
+      },
+      "explanation": "3 variants at identical scale (STACK); differing parts glow",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "asset_ids": [
+        "bridge_timber_beam_01",
+        "bridge_stone_arch_03",
+        "bridge_steel_truss_pratt_01"
+      ],
+      "cut_from_previous": "match",
+      "shot_id": "SC_013",
+      "visibility": []
+    }
+  ],
+  "coverage": [
+    {
+      "beat_id": "B1",
+      "visual_intent": "SHOW_CONTEXT",
+      "narration": "Here is a gap of twenty-four metres, with a bank on each side. A bridge has to carry a deck from one bank to the other.",
+      "status": "COVERED",
+      "strategy": "SITE_HOLD",
+      "assets": [
+        {
+          "concept": "river_crossing_site",
+          "status": "REUSE_EXISTING",
+          "asset_id": "site_river_crossing_24",
+          "explanation": "shared site of the project"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "expected_seconds": 10.8,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "SITE_HOLD: Hold on the shared site before any structure (the gap to span)"
+      ],
+      "evidence_status": "FRAMING"
+    },
+    {
+      "beat_id": "B2",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "narration": "The simplest answer is a beam. In this timber bridge, beams run from one support to the next, and the deck rests on top of them.",
+      "status": "COVERED",
+      "strategy": "ASSEMBLE_IN",
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        }
+      ],
+      "semantic_targets": [
+        "stringer"
+      ],
+      "templates": [
+        "REPLACE_PARTS",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_002",
+        "SC_003"
+      ],
+      "expected_seconds": 10.8,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "ASSEMBLE_IN: Structure drops into place on the shown empty site, then its focus parts glow"
+      ],
+      "evidence_status": "INTERNAL_PREVIEW"
+    },
+    {
+      "beat_id": "B3",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "narration": "Taken apart, the arrangement is easy to read: planks rest on beams, beams rest on cap beams, and cap beams sit on posts.",
+      "status": "COVERED",
+      "strategy": "HIGHLIGHT_THEN_EXPLODE",
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        }
+      ],
+      "semantic_targets": [
+        "cap_beam",
+        "deck_planks",
+        "stringer"
+      ],
+      "templates": [
+        "HOLD",
+        "EXPLODED_VIEW"
+      ],
+      "shot_ids": [
+        "SC_004",
+        "SC_005"
+      ],
+      "expected_seconds": 9.646,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_THEN_EXPLODE: Glow the focus components, then take the assembly apart and back"
+      ],
+      "evidence_status": "FRAMING"
+    },
+    {
+      "beat_id": "B4",
+      "visual_intent": "SHOW_COMPONENT",
+      "narration": "A stone arch works differently. It is built from wedge-shaped stones called voussoirs, with a keystone at the top of each arch.",
+      "status": "COVERED",
+      "strategy": "CLOSEUP_HIGHLIGHT",
+      "assets": [
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        }
+      ],
+      "semantic_targets": [
+        "arch_ring",
+        "keystone",
+        "voussoir"
+      ],
+      "templates": [
+        "HOLD",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_006",
+        "SC_007"
+      ],
+      "expected_seconds": 9.262,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "CLOSEUP_HIGHLIGHT: Establish the structure with the focus parts glowing, then a close-up framed on them"
+      ],
+      "evidence_status": "INTERNAL_PREVIEW"
+    },
+    {
+      "beat_id": "B5",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "narration": "A truss takes another approach: many straight members joined into triangles.",
+      "status": "COVERED",
+      "strategy": "HOLD_HIGHLIGHT",
+      "assets": [
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [
+        "truss_web"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_008"
+      ],
+      "expected_seconds": 5.031,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "ASSEMBLE_IN rejected (INVALID_REQUEST): ASSEMBLE_IN needs the previous shot to end on the empty site",
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+      ],
+      "evidence_status": "INTERNAL_PREVIEW"
+    },
+    {
+      "beat_id": "B6",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "narration": "The triangles can be arranged in different patterns. A Pratt truss has vertical members and diagonals that slope down towards the centre. A Warren truss uses alternating diagonals, with no verticals.",
+      "status": "COVERED",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT",
+      "assets": [
+        {
+          "concept": "pratt_truss",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        },
+        {
+          "concept": "warren_truss",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_warren_01",
+          "explanation": "bridge_steel_truss_warren_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'warren'}"
+        }
+      ],
+      "semantic_targets": [
+        "truss_web"
+      ],
+      "templates": [
+        "HOLD",
+        "REPLACE_PARTS",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_009",
+        "SC_010",
+        "SC_011"
+      ],
+      "expected_seconds": 12.723,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_REPLACE_HIGHLIGHT: Glow the parts that will change, swap them on the shared frame, glow the new parts"
+      ],
+      "evidence_status": "INTERNAL_PREVIEW"
+    },
+    {
+      "beat_id": "B7",
+      "visual_intent": "COMPARE_VARIANTS",
+      "narration": "Side by side, the three models span the same gap in three different ways.",
+      "status": "COVERED",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        },
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        },
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "SIDE_BY_SIDE"
+      ],
+      "shot_ids": [
+        "SC_012"
+      ],
+      "expected_seconds": 6.185,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned"
+      ],
+      "evidence_status": "FRAMING"
+    },
+    {
+      "beat_id": "B8",
+      "visual_intent": "SUMMARIZE_DIFFERENCES",
+      "narration": "Beam, arch and truss: three arrangements of parts for the same task. These are illustrations, not a timeline.",
+      "status": "COVERED",
+      "strategy": "CONTINUE_COMPARISON",
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        },
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        },
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "SIDE_BY_SIDE"
+      ],
+      "shot_ids": [
+        "SC_013"
+      ],
+      "expected_seconds": 7.723,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "CONTINUE_COMPARISON: Stay on the comparison, glow what differs"
+      ],
+      "evidence_status": "FRAMING"
+    }
+  ],
+  "warnings": []
+}

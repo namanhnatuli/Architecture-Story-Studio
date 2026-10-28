@@ -2,9 +2,9 @@
   "blender": "5.2.2 LTS",
   "preset": "preview",
   "summary": {
-    "passed": 63,
+    "passed": 64,
     "failed": 0,
-    "total": 63
+    "total": 64
   },
   "results": [
     {
@@ -132,6 +132,12 @@
       "check": "camera_locked",
       "status": "PASS",
       "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_002",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "53% of the highlighted silhouette visible, 1.31% of the frame at frame 62"
     },
     {
       "shot": "SC_002",
@@ -347,7 +353,7 @@
       "shot": "ALL",
       "check": "camera_identical_across_single_model_shots",
       "status": "PASS",
-      "detail": "4 shots share one camera"
+      "detail": "4 shots in 1 continuity group(s), one locked camera per group"
     },
     {
       "shot": "SC_005",

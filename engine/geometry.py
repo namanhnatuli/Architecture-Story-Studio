@@ -337,7 +337,8 @@ def reset_mesh_cache():
 
 
 BASE_BUILDER_FUNCS = {"rectangular_house_base": build_rectangular_house_base, spec.ASSET_BUILDER: build_asset_base}
-VARIANT_BUILDER_FUNCS = {"gable_roof": build_gable_roof, spec.ASSET_BUILDER: build_asset_variant}
+VARIANT_BUILDER_FUNCS = {"gable_roof": build_gable_roof, spec.ASSET_BUILDER: build_asset_variant,
+                         "none": lambda variant, params, materials, collection: []}
 
 
 def build_model(states, materials, collection, variant_ids):

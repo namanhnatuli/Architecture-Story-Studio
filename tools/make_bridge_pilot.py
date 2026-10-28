@@ -68,8 +68,11 @@ def shots():
     pratt_web = ids("steel_truss", "TRUSS_VERTICAL", "TRUSS_DIAGONAL")
     out = [
         dict(id="SC_001", duration_seconds=3.0, transition="HOLD", from_state="timber_beam", to_state="timber_beam",
-             visual_purpose="Timber beam archetype: the primary beams (stringers) glow as they span between trestle bents.",
-             animation={"template": "HOLD", "state": "timber_beam", "highlight": pulse(ids("timber_beam", "STRINGER"), 0.45)}),
+             visual_purpose="Timber beam archetype: the primary beams (stringers) glow as they span between trestle bents; "
+                            "the deck planks above them turn see-through meanwhile (M5 QA: otherwise 86% hidden).",
+             animation={"template": "HOLD", "state": "timber_beam",
+                        "highlight": dict(pulse(ids("timber_beam", "STRINGER"), 0.45), ghost=ids("timber_beam", "PLANK"),
+                                          ghost_transparency=0.7)}),
         dict(id="SC_002", duration_seconds=5.5, transition="EXPLODED_VIEW", from_state="timber_beam", to_state="timber_beam",
              visual_purpose="Exploded timber deck: railings, planks, stringers and cap beams lift off the trestle posts to "
                             "show the load path, then return.", animation=t_explode),

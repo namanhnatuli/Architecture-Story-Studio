@@ -1,0 +1,144 @@
+{
+  "schema": "narrative_beats/1",
+  "project_id": "bridge-story-m5",
+  "title": "Three Ways to Span a Gap",
+  "status": "INTERNAL_TECHNICAL_PILOT",
+  "timing_mode": "PROVISIONAL",
+  "publication": {
+    "restriction": "INTERNAL_ONLY",
+    "reason": "Claims are source-verified, not editorially approved; no rights-cleared narration exists (silent preview)."
+  },
+  "beats": [
+    {
+      "beat_id": "B1",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "Here is a gap of twenty-four metres, with a bank on each side. A bridge has to carry a deck from one bank to the other.",
+      "visual_goal": "Show the empty site and the span to be crossed",
+      "required_concepts": [
+        "river_crossing_site"
+      ],
+      "expected_complexity": "LOW"
+    },
+    {
+      "beat_id": "B2",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_101"
+      ],
+      "narration": "The simplest answer is a beam. In this timber bridge, beams run from one support to the next, and the deck rests on top of them.",
+      "visual_goal": "Introduce the timber beam bridge and its spanning members",
+      "required_concepts": [
+        "timber_beam_bridge",
+        "stringer"
+      ],
+      "expected_complexity": "MEDIUM"
+    },
+    {
+      "beat_id": "B3",
+      "kind": "framing",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [],
+      "narration": "Taken apart, the arrangement is easy to read: planks rest on beams, beams rest on cap beams, and cap beams sit on posts.",
+      "visual_goal": "Explain the beam-and-deck arrangement of the model",
+      "required_concepts": [
+        "timber_beam_bridge",
+        "deck_planks",
+        "stringer",
+        "cap_beam"
+      ],
+      "expected_complexity": "HIGH"
+    },
+    {
+      "beat_id": "B4",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": [
+        "CLM_102"
+      ],
+      "narration": "A stone arch works differently. It is built from wedge-shaped stones called voussoirs, with a keystone at the top of each arch.",
+      "visual_goal": "Introduce the masonry arch and show one arch ring's voussoirs and keystone",
+      "required_concepts": [
+        "stone_arch_bridge",
+        "arch_ring"
+      ],
+      "focus_concepts": [
+        {
+          "concept": "voussoir",
+          "group": "arch_2"
+        },
+        {
+          "concept": "keystone",
+          "group": "arch_2"
+        }
+      ],
+      "expected_complexity": "MEDIUM"
+    },
+    {
+      "beat_id": "B5",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_103"
+      ],
+      "narration": "A truss takes another approach: many straight members joined into triangles.",
+      "visual_goal": "Introduce the truss and its triangulated members",
+      "required_concepts": [
+        "steel_truss_bridge",
+        "truss_web"
+      ],
+      "expected_complexity": "LOW"
+    },
+    {
+      "beat_id": "B6",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_104",
+        "CLM_105"
+      ],
+      "narration": "The triangles can be arranged in different patterns. A Pratt truss has vertical members and diagonals that slope down towards the centre. A Warren truss uses alternating diagonals, with no verticals.",
+      "visual_goal": "Compare the Pratt and Warren web patterns on the same chords",
+      "preferred_states": [
+        "pratt_truss",
+        "warren_truss"
+      ],
+      "required_concepts": [
+        "truss_web"
+      ],
+      "expected_complexity": "HIGH"
+    },
+    {
+      "beat_id": "B7",
+      "kind": "framing",
+      "narrative_intent": "COMPARE_VARIANTS",
+      "claim_ids": [],
+      "narration": "Side by side, the three models span the same gap in three different ways.",
+      "visual_goal": "All three archetypes at identical scale on identical sites",
+      "preferred_states": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM"
+    },
+    {
+      "beat_id": "B8",
+      "kind": "framing",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [],
+      "narration": "Beam, arch and truss: three arrangements of parts for the same task. These are illustrations, not a timeline.",
+      "visual_goal": "Close on the comparison, glowing the parts that differ",
+      "preferred_states": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
+      "required_concepts": [],
+      "expected_complexity": "LOW"
+    }
+  ]
+}

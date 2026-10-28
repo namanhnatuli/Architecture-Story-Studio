@@ -98,6 +98,8 @@ Option không xác định là lỗi (để lỗi gõ sai không lọt qua). Gi�
  "highlight": {"components": "STATE", "start_seconds": 0.3, "rise_seconds": 0.35,
                "hold_seconds": 0.9, "fall_seconds": 0.45, "strength": 0.45}}
 ```
+- **`highlight.ghost` (M5, chỉ cho HOLD):** danh sách component **che** phần đang phát sáng, ví dụ ván mặt cầu nằm trên dầm dọc. Các component này chuyển sang trong suốt `ghost_transparency` (mặc định 0.7, tối đa 0.9) theo đúng nhịp của xung sáng, rồi trở lại đặc. Không có gì di chuyển, và trong lúc mờ thì fade twin (BLENDED) hiển thị thay cho bản gốc. Một component không được vừa phát sáng vừa ghost. SIDE_BY_SIDE từ chối tùy chọn này.
+- QA Blender `highlight_targets_visible` (M5): ở đỉnh xung sáng (HOLD) hoặc giữa khoảng giữ bung (EXPLODED_VIEW), bắn tia orthographic trên lưới 192×108 qua khung camera. Ít nhất 25 % bóng (silhouette) của các phần phát sáng phải không bị phần đặc khác che, và phần nhìn thấy phải chiếm ít nhất 0.3 % khung hình. Phần trong suốt ≥ 50 % (ghost) không tính là vật che.
 
 ## Highlight và trong suốt
 Material đọc 2 custom property trên từng object qua node Attribute (kiểu OBJECT):

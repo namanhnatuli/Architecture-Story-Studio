@@ -1,0 +1,57 @@
+{
+  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (NOT TECHNICALLY VALIDATED; EDITORIAL_REVIEW_PENDING; TTS_RIGHTS_PENDING)",
+  "statuses": [
+    "EDITORIAL_REVIEW_PENDING",
+    "TTS_RIGHTS_PENDING"
+  ],
+  "gates": {
+    "G0 project & schema validation": {
+      "status": "PASS",
+      "notes": [
+        "validate passes"
+      ]
+    },
+    "G1 evidence, script & pronunciation review": {
+      "status": "PENDING_EDITORIAL",
+      "notes": [
+        "0/0 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
+        "factual_review: provisional"
+      ]
+    },
+    "G2 narration audio & TTS rights": {
+      "status": "FAIL",
+      "notes": [
+        "ASR check missing/failing",
+        "provider None: rights class n/a; voice licence None",
+        "narration audio manifest missing"
+      ]
+    },
+    "G3 narration timing lock": {
+      "status": "FAIL",
+      "notes": [
+        "None frames, locked=None"
+      ]
+    },
+    "G4 Blender visual preview": {
+      "status": "FAIL",
+      "notes": [
+        "Blender QA 163/163",
+        "media QA is stale (rendered for a different timing)"
+      ]
+    },
+    "G5 media assembly & subtitles": {
+      "status": "FAIL",
+      "notes": [
+        "not assembled"
+      ]
+    },
+    "G6 final publication readiness": {
+      "status": "BLOCKED",
+      "notes": [
+        "FINAL gate: audio timing not locked",
+        "FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)",
+        "FINAL gate: factual_review is not verified"
+      ]
+    }
+  }
+}

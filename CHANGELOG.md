@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.5.0 — 2026-10-28 — M5: lập kế hoạch hình ảnh tự động và điều phối storyboard → Blender (nhánh `m5-autonomous-visual-planning`)
+- **Planner tất định** (`planner/`, thuần Python, không LLM khi chạy): beat → ý đồ hình ảnh → asset → template → shot/camera → timing → storyboard thực thi được. Cùng đầu vào thì ra cùng kế hoạch, giống từng byte.
+- **Hợp đồng mới:**
+  - `schemas/narrative_beats.schema.json` (`script/visual_beats.json`) và `schemas/visual_plan.schema.json` (`storyboard/visual_plan.json`).
+  - `config/visual_vocabulary.json`: khái niệm khu đất, công trình, thành phần; `where`, `supported`, `ambiguous_if_multiple`, `ghost_roles`.
+  - `config/visual_planning.json`: camera theo lớp tỷ lệ, luật timing, ngân sách chuyển động.
+- **9 ý đồ hình ảnh** với chiến lược theo thứ tự ưu tiên (13 chiến lược ghép từ template có sẵn). Từ khóa trong lời thoại chỉ dùng để cảnh báo khi lệch với ý đồ khai báo, không bao giờ tự sửa ý đồ.
+- **Chọn asset:** REUSE_EXISTING / ADAPT_EXISTING_ASSET (adapter cho mái M2) / GENERATE_FROM_SUPPORTED_FAMILY (spec ILLUSTRATIVE ghi trong dự án) / NEW_ASSET_REQUIRED (kèm nhiệm vụ sinh) / BLOCKED_MISSING_EVIDENCE. Mỗi lựa chọn có lời giải thích; catalog chỉ đọc.
+- **Ánh xạ thành phần ngữ nghĩa** theo role/group, với ID ổn định. Thiếu hoặc mơ hồ đều là lỗi, được kiểm tra trước khi chọn chiến lược.
+- **Camera:** 6 chế độ → preset có sẵn; COMPONENT_CLOSEUP (`camera_focus`, `camera_safe_band`); nhóm liên tục camera (`build_variants`, cắt match/cứng); kiểm tra hiển thị offline.
+- **Timing:** PROVISIONAL (ước lượng, có ghi nhãn) hoặc AUDIO_LOCKED (`script/timing.json` đã khóa). Thời lượng tối thiểu lấy từ motion planner thật; thiếu thời gian thì chọn chiến lược nhẹ hơn hoặc báo `TIMING_CONFLICT`, không bao giờ cắt ngắn.
+- **Báo cáo coverage** `qa/VISUAL_COVERAGE.md` + `visual_coverage.json` (7 trạng thái).
+- **CLI:** `plan-visuals` (exit 4 khi không thực thi được), `validate-plan` (kiểm tra độc lập + G0), `build-shots`.
+- **Engine (tùy chọn, tương thích ngược):**
+  - builder `none` (khu đất trống);
+  - `build_variants`, `camera_focus`, `camera_safe_band`;
+  - `highlight.ghost` cho HOLD (phần che chuyển trong suốt);
+  - QA Blender: camera theo nhóm liên tục, và kiểm tra mới **`highlight_targets_visible`** (bắn tia đo phần bị che).
+- **Cache:** `states_geometry`/`assets` chỉ băm các variant mà shot dựng. Đổi asset cầu đá chỉ làm cũ 4/13 shot.
+- **Pilot** `projects/bridge-story-m5` "Three Ways to Span a Gap": 8 beat → 13 shot, 72.375 s, không lời, INTERNAL ONLY, 5 claim SOURCE_VERIFIED. QA Blender 163/163, media QA PASS, smoke test 2 shot.
+- **Fixture tổng quát hóa** `projects/roof-plan-m5` (SYNTHETIC): mái nhà qua adapter, layout ROW, QA Blender 52/52.
+- **Sửa lỗi tìm ra khi xem hình:**
+  - dầm dọc bị ván che (chỉ 14 % nhìn thấy) → ghost, 82 %; lỗi này cũng có ở pilot M4 SC_001 và đã sửa luôn;
+  - ảnh tĩnh của shot lắp ráp toàn khu đất trống → marker `incoming_end`;
+  - compiler giữ `audio_timing_locked` chỉ khi kế hoạch là AUDIO_LOCKED.
+- **Tài liệu** `docs/m5/` (kiến trúc, giao thức lập kế hoạch, chọn asset, báo cáo QA + hiệu năng). Cập nhật AGENTS, DECISIONS, CACHE_DEPENDENCIES, ANIMATION_LIBRARY.
+- **Test:** `tests/test_m5_planner.py` (34), `tests/test_blender_m5.py` (2). Hồi quy: QA Blender roof-evolution 64/64, suffolk-roofs 71/71 (gate không đổi), bridge-structure-evolution 92/92.
+
 ## 0.4.0 — 2026-10-27 — M4: dựng hình kiến trúc thủ tục và thư viện asset (nhánh `m4-architectural-modeling`)
 - **Hệ thành phần ngữ nghĩa** (`engine/arch/semantic.py`):
   - Mỗi thành phần có ID ổn định, loại (30 `SEMANTIC_TYPES`), vật liệu, nhóm, variant sở hữu, transform, mesh cục bộ, layer, hướng bung, vai trò animation, bevel, evidence.

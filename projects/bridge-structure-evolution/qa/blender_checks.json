@@ -2,9 +2,9 @@
   "blender": "5.2.2 LTS",
   "preset": "preview",
   "summary": {
-    "passed": 86,
+    "passed": 92,
     "failed": 0,
-    "total": 86
+    "total": 92
   },
   "results": [
     {
@@ -17,13 +17,13 @@
       "shot": "SC_001",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "4 animated objects x 18 frames, max error 2.78e-08"
+      "detail": "12 animated objects x 19 frames, max error 4.32e-08"
     },
     {
       "shot": "SC_001",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "101 objects (3 shared) unchanged on 18 frames"
+      "detail": "97 objects (3 shared) unchanged on 19 frames"
     },
     {
       "shot": "SC_001",
@@ -60,6 +60,18 @@
       "check": "camera_locked",
       "status": "PASS",
       "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_001",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "4 twins visible only mid-fade, never with their original or on frames 1/72"
+    },
+    {
+      "shot": "SC_001",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "82% of the highlighted silhouette visible, 5.10% of the frame at frame 41; 4 covering part(s) ghosted"
     },
     {
       "shot": "SC_001",
@@ -135,6 +147,12 @@
     },
     {
       "shot": "SC_002",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "51% of the highlighted silhouette visible, 3.17% of the frame at frame 64"
+    },
+    {
+      "shot": "SC_002",
       "check": "framing_math_matches_blender",
       "status": "PASS",
       "detail": "max projection error 1.70e-07"
@@ -192,6 +210,12 @@
       "check": "camera_locked",
       "status": "PASS",
       "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_003",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "31% of the highlighted silhouette visible, 3.12% of the frame at frame 41"
     },
     {
       "shot": "SC_003",
@@ -267,6 +291,12 @@
     },
     {
       "shot": "SC_004",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "100% of the highlighted silhouette visible, 1.34% of the frame at frame 73"
+    },
+    {
+      "shot": "SC_004",
       "check": "framing_math_matches_blender",
       "status": "PASS",
       "detail": "max projection error 1.70e-07"
@@ -324,6 +354,12 @@
       "check": "camera_locked",
       "status": "PASS",
       "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_005",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "79% of the highlighted silhouette visible, 3.12% of the frame at frame 41"
     },
     {
       "shot": "SC_005",
@@ -479,13 +515,13 @@
       "shot": "ALL",
       "check": "camera_identical_across_single_model_shots",
       "status": "PASS",
-      "detail": "6 shots share one camera"
+      "detail": "6 shots in 1 continuity group(s), one locked camera per group"
     },
     {
       "shot": "SC_001",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 5d73079757275ef3"
+      "detail": "sha256 1e88b0a1b561762b"
     },
     {
       "shot": "SC_002",

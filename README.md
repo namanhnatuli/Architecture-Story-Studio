@@ -104,3 +104,12 @@ Toàn bộ thư viện bên ngoài là tùy chọn. **MCP không phải điều 
 ## M4: dựng hình kiến trúc thủ tục và thư viện asset
 Spec kiến trúc → thành phần ngữ nghĩa → hình học Blender → QA → asset tái sử dụng (`engine/arch/`, `asset_library/`). Có ba họ cầu (gỗ dầm, vòm đá, giàn thép Pratt/Warren), tất cả là mô hình **minh họa**. Pilot kỹ thuật: `projects/bridge-structure-evolution` (29.5 s, không lời dẫn). Tài liệu: [`docs/m4/M4_ARCHITECTURE_MODELING.md`](docs/m4/M4_ARCHITECTURE_MODELING.md); catalog: [`asset_library/catalog/CATALOG.md`](asset_library/catalog/CATALOG.md).
 
+## M5: lập kế hoạch hình ảnh tự động
+Beat có cấu trúc (`script/visual_beats.json`) → `planner/` tất định (không LLM khi chạy) → asset, template, shot, camera, timing → storyboard của engine. Thiếu năng lực thì báo thiếu, không lấp chỗ trống. Pilot: `projects/bridge-story-m5` "Three Ways to Span a Gap" (8 beat, 13 shot, 72.4 s, không lời, nội bộ). Fixture SYNTHETIC: `projects/roof-plan-m5`.
+```bash
+P="--project bridge-story-m5"
+python3 tools/cli.py plan-visuals $P && python3 tools/cli.py build-shots $P   # → qa/VISUAL_COVERAGE.md
+python3 tools/cli.py check-blender $P && python3 tools/cli.py preview $P
+```
+Tài liệu: [`docs/m5/M5_ARCHITECTURE.md`](docs/m5/M5_ARCHITECTURE.md), [`VISUAL_PLANNING_PROTOCOL.md`](docs/m5/VISUAL_PLANNING_PROTOCOL.md), [`ASSET_RESOLUTION.md`](docs/m5/ASSET_RESOLUTION.md), [`M5_QA_REPORT.md`](docs/m5/M5_QA_REPORT.md).
+

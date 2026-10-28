@@ -91,7 +91,45 @@ def layout_slots(shot, states):
         active = list(replace_states(shot, cfg, states))
     else:
         active = [single_state(shot, cfg, states)]
-    return [(MAIN_SLOT, all_variants, active)]
+    return [(MAIN_SLOT, single_slot_variants(shot, states, active), active)]
+
+
+def single_slot_variants(shot, states, active):
+    """Variants built in a single-model shot: `build_variants` (M5: one continuity group,
+    whose shots share a locked camera) or, by default, every variant of the project.
+    Active states and their structure_from sources must be included."""
+    all_variants = list(spec.variant_map(states))
+    chosen = shot.get("build_variants")
+    if chosen is None:
+        return all_variants
+    sid = shot.get("id", "(missing)")
+    if not isinstance(chosen, list) or not chosen or len(set(chosen)) != len(chosen):
+        raise motion.PlanError(f"{sid}: build_variants must be a non-empty list of distinct variant ids")
+    unknown = [v for v in chosen if v not in all_variants]
+    if unknown:
+        raise motion.PlanError(f"{sid}: build_variants {unknown} are not variants in states.json")
+    needed = {s2 for a in active for s2 in spec.build_set(states, a)}
+    missing = sorted(needed - set(chosen))
+    if missing:
+        raise motion.PlanError(f"{sid}: build_variants must include {missing} (shown or inherited by the shot)")
+    return [v for v in all_variants if v in chosen]
+
+
+def check_camera_focus(shot, states, active):
+    """camera_focus (M5 COMPONENT_CLOSEUP): component ids visible in the shot."""
+    focus = shot.get("camera_focus")
+    if focus is None:
+        return
+    sid = shot.get("id", "(missing)")
+    if not isinstance(focus, list) or not focus:
+        raise motion.PlanError(f"{sid}: camera_focus must be a non-empty list of component ids")
+    shown = visible_component_ids(states, active)
+    bad = sorted(set(focus) - shown)
+    if bad:
+        raise motion.PlanError(f"{sid}: camera_focus {bad} are not visible components of {active}")
+    band = shot.get("camera_safe_band", 0.0)
+    if isinstance(band, bool) or not isinstance(band, (int, float)) or not 0 <= band < 0.4:
+        raise motion.PlanError(f"{sid}: camera_safe_band must be between 0 and 0.4")
 
 
 def replace_sets(states, a, b):
@@ -163,6 +201,10 @@ def plan_shot(shot, states, fps, slots, camera=None):
     cfg = animation_config(shot)
     plan = motion.Plan(fps, frame_count(shot, fps))
     template = cfg["template"]
+    if template != "SIDE_BY_SIDE":
+        check_camera_focus(shot, states, layout_slots(shot, states)[0][2])
+    elif shot.get("camera_focus") or shot.get("build_variants"):
+        raise motion.PlanError(f"{sid}: camera_focus/build_variants are for single-model shots")
     try:
         if template == "REPLACE_PARTS":
             a, b = replace_states(shot, cfg, states)

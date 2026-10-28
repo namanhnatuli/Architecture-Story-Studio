@@ -1,0 +1,26 @@
+{
+  "schema": "narrative_beats/1",
+  "project_id": "roof-plan-m5",
+  "title": "Roof generalization fixture (synthetic)",
+  "status": "SYNTHETIC_TEST_FIXTURE",
+  "synthetic_fixture": true,
+  "timing_mode": "PROVISIONAL",
+  "publication": {"restriction": "INTERNAL_ONLY", "reason": "Synthetic planning fixture; invented narration about the illustrative model, no claims."},
+  "beats": [
+    {"beat_id": "R1", "kind": "framing", "narrative_intent": "INTRODUCE_ARCHITECTURE", "claim_ids": [],
+     "narration": "Here is a small house with a low-pitched gable roof.",
+     "visual_goal": "Introduce roof A on the house", "required_concepts": ["low_pitch_gable_roof"], "expected_complexity": "LOW"},
+    {"beat_id": "R2", "kind": "framing", "narrative_intent": "EXPLAIN_STRUCTURE", "claim_ids": [],
+     "narration": "Under the covering, rafters and a ridge beam carry the roof surface in this model.",
+     "visual_goal": "Explain the roof assembly of the model", "required_concepts": ["low_pitch_gable_roof", "rafters", "ridge_beam"],
+     "expected_complexity": "MEDIUM"},
+    {"beat_id": "R3", "kind": "framing", "narrative_intent": "EXPLAIN_DESIGN_CHANGE", "claim_ids": [],
+     "narration": "On the same walls, a steeper roof replaces only the roof parts.",
+     "visual_goal": "Replace the compatible roof assembly with roof B", "preferred_states": ["low_pitch_gable_roof", "steep_gable_roof"],
+     "required_concepts": ["roof_covering"], "expected_complexity": "HIGH"},
+    {"beat_id": "R4", "kind": "framing", "narrative_intent": "COMPARE_VARIANTS", "claim_ids": [],
+     "narration": "Side by side, the two designs differ in pitch.",
+     "visual_goal": "Compare the two roofs at identical scale", "preferred_states": ["low_pitch_gable_roof", "steep_gable_roof"],
+     "required_concepts": [], "expected_complexity": "LOW"}
+  ]
+}

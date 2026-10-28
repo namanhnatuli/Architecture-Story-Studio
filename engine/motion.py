@@ -298,8 +298,13 @@ def plan_pulse(plan, names, start, rise, hold, fall, strength, where="highlight"
     return f0, f3
 
 
-def merged_pulse(cfg, where, default_components):
-    defaults = dict(PULSE_DEFAULTS, components=default_components)
+# HOLD only: parts that cover the highlighted ones (deck planks over stringers) turn
+# see-through on the same envelope as the glow, then return; nothing moves.
+GHOST_DEFAULTS = {"ghost": None, "ghost_transparency": 0.7}
+
+
+def merged_pulse(cfg, where, default_components, extra=None):
+    defaults = dict(PULSE_DEFAULTS, components=default_components, **(extra or {}))
     c = merge_config(defaults, cfg, where)
     for key in ("start_seconds", "rise_seconds", "hold_seconds", "fall_seconds"):
         _number(c, key, where)
@@ -603,9 +608,27 @@ def plan_highlight_only(plan, cfg, defaults, names_for, where):
     c = merge_config(defaults, cfg, where)
     if c["highlight"]:
         default_sel = "DIFFERENCES" if where == "SIDE_BY_SIDE" else "STATE"
-        h = merged_pulse(c["highlight"], f"{where}.highlight", default_sel)
-        f0, f3 = plan_pulse(plan, names_for(h["components"]), h["start_seconds"], h["rise_seconds"],
+        h = merged_pulse(c["highlight"], f"{where}.highlight", default_sel, GHOST_DEFAULTS if where == "HOLD" else None)
+        glowing = names_for(h["components"])
+        f0, f3 = plan_pulse(plan, glowing, h["start_seconds"], h["rise_seconds"],
                             h["hold_seconds"], h["fall_seconds"], h["strength"], f"{where}.highlight")
+        if h.get("ghost"):
+            if not isinstance(h["ghost"], list):
+                raise PlanError(f"{where}.highlight.ghost must be a list of component ids")
+            t = _number(h, "ghost_transparency", f"{where}.highlight", positive=True, maximum=0.9)
+            ghosts = names_for(h["ghost"])
+            both = sorted(set(ghosts) & set(glowing))
+            if both:
+                raise PlanError(f"{where}.highlight.ghost: {both} also glow; ghost only the parts covering them")
+            f1 = plan.frame(h["start_seconds"] + h["rise_seconds"])
+            f2 = plan.frame(h["start_seconds"] + h["rise_seconds"] + h["hold_seconds"])
+            for n in ghosts:
+                plan.key(n, TRANSPARENCY, 1, 0.0)
+                plan.key(n, TRANSPARENCY, f0, 0.0, "SMOOTH")
+                plan.key(n, TRANSPARENCY, f1, t, "LINEAR")
+                plan.key(n, TRANSPARENCY, f2, t, "SMOOTH")
+                plan.key(n, TRANSPARENCY, f3, 0.0)
+                plan.key(n, TRANSPARENCY, plan.frame_count, 0.0)
         plan.markers.update({"highlight_start": f0, "highlight_end": f3,
                              "highlight_peak": plan.frame(h["start_seconds"] + h["rise_seconds"]
                                                           + h["hold_seconds"] / 2.0)})

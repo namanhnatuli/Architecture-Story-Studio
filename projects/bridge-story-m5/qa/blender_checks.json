@@ -1,0 +1,989 @@
+{
+  "blender": "5.2.2 LTS",
+  "preset": "preview",
+  "summary": {
+    "passed": 163,
+    "failed": 0,
+    "total": 163
+  },
+  "results": [
+    {
+      "shot": "SC_001",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "23 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_001",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "0 animated objects x 5 frames, max error 0.00e+00"
+    },
+    {
+      "shot": "SC_001",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "23 objects (3 shared) unchanged on 5 frames"
+    },
+    {
+      "shot": "SC_001",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_001",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_001",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_001",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "3 visible parts as expected"
+    },
+    {
+      "shot": "SC_001",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_left@1; lowest point y=0.233 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_001",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_001",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.54e-07"
+    },
+    {
+      "shot": "SC_002",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "23 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_002",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "40 animated objects x 30 frames, max error 2.43e-07"
+    },
+    {
+      "shot": "SC_002",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "3 objects (3 shared) unchanged on 30 frames"
+    },
+    {
+      "shot": "SC_002",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_002",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_002",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_002",
+      "check": "replace_start_end_states",
+      "status": "PASS",
+      "detail": "0 parts removed, 20 landed exactly (tol 1e-05)"
+    },
+    {
+      "shot": "SC_002",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "23 visible parts as expected"
+    },
+    {
+      "shot": "SC_002",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_left@1; lowest point y=0.233 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_002",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_002",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "20 twins visible only mid-fade, never with their original or on frames 1/140"
+    },
+    {
+      "shot": "SC_002",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.54e-07"
+    },
+    {
+      "shot": "SC_003",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "23 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_003",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "12 animated objects x 21 frames, max error 4.83e-08"
+    },
+    {
+      "shot": "SC_003",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "15 objects (3 shared) unchanged on 21 frames"
+    },
+    {
+      "shot": "SC_003",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_003",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_003",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_003",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "23 visible parts as expected"
+    },
+    {
+      "shot": "SC_003",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_left@1; lowest point y=0.233 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_003",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_003",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "4 twins visible only mid-fade, never with their original or on frames 1/120"
+    },
+    {
+      "shot": "SC_003",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "82% of the highlighted silhouette visible, 5.13% of the frame at frame 65; 4 covering part(s) ghosted"
+    },
+    {
+      "shot": "SC_003",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.54e-07"
+    },
+    {
+      "shot": "SC_004",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "23 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_004",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "13 animated objects x 20 frames, max error 1.40e-08"
+    },
+    {
+      "shot": "SC_004",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "10 objects (3 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_004",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_004",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_004",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_004",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "23 visible parts as expected"
+    },
+    {
+      "shot": "SC_004",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_left@1; lowest point y=0.233 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_004",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_004",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "84% of the highlighted silhouette visible, 6.28% of the frame at frame 41"
+    },
+    {
+      "shot": "SC_004",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.54e-07"
+    },
+    {
+      "shot": "SC_005",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "23 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_005",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "15 animated objects x 61 frames, max error 9.77e-08"
+    },
+    {
+      "shot": "SC_005",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "8 objects (3 shared) unchanged on 61 frames"
+    },
+    {
+      "shot": "SC_005",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_005",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_005",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_005",
+      "check": "exploded_returns_exactly",
+      "status": "PASS",
+      "detail": "hold offsets timber_beam_bridge_bent1_cap=0.60m, timber_beam_bridge_bent2_cap=0.60m, timber_beam_bridge_bent3_cap=0.60m, timber_beam_bridge_bent4_cap=0.60m, timber_beam_bridge_bent5_cap=0.60m, timber_beam_bridge_railing_north=1.60m, timber_beam_bridge_railing_south=1.60m, timber_beam_bridge_span1_planks=1.90m, timber_beam_bridge_span1_stringers=1.10m, timber_beam_bridge_span2_planks=1.90m, timber_beam_bridge_span2_stringers=1.10m, timber_beam_bridge_span3_planks=1.90m, timber_beam_bridge_span3_stringers=1.10m, timber_beam_bridge_span4_planks=1.90m, timber_beam_bridge_span4_stringers=1.10m"
+    },
+    {
+      "shot": "SC_005",
+      "check": "exploded_no_new_intersections",
+      "status": "PASS",
+      "detail": "0 new mesh intersections (27 resting contacts ignored)"
+    },
+    {
+      "shot": "SC_005",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "23 visible parts as expected"
+    },
+    {
+      "shot": "SC_005",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_left@1; lowest point y=0.233 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_005",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_005",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "94% of the highlighted silhouette visible, 9.96% of the frame at frame 82"
+    },
+    {
+      "shot": "SC_005",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.54e-07"
+    },
+    {
+      "shot": "SC_006",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "52 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_006",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "39 animated objects x 20 frames, max error 1.40e-08"
+    },
+    {
+      "shot": "SC_006",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "13 objects (3 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_006",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_006",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_006",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_006",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "52 visible parts as expected"
+    },
+    {
+      "shot": "SC_006",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_left@1; lowest point y=0.231 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_006",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_006",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "31% of the highlighted silhouette visible, 3.14% of the frame at frame 60"
+    },
+    {
+      "shot": "SC_006",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.31e-07"
+    },
+    {
+      "shot": "SC_007",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "52 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_007",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "13 animated objects x 20 frames, max error 1.40e-08"
+    },
+    {
+      "shot": "SC_007",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "39 objects (3 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_007",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_007",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_007",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_007",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "52 visible parts as expected"
+    },
+    {
+      "shot": "SC_007",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at stone_arch_bridge_arch2_keystone@1; lowest point y=0.160 (label band 0.10); ortho_scale 12.433"
+    },
+    {
+      "shot": "SC_007",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_007",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "31% of the highlighted silhouette visible, 7.55% of the frame at frame 61"
+    },
+    {
+      "shot": "SC_007",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 3.43e-07"
+    },
+    {
+      "shot": "SC_008",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "36 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_008",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "8 animated objects x 21 frames, max error 1.40e-08"
+    },
+    {
+      "shot": "SC_008",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "28 objects (3 shared) unchanged on 21 frames"
+    },
+    {
+      "shot": "SC_008",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_008",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_008",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_008",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "32 visible parts as expected"
+    },
+    {
+      "shot": "SC_008",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_right@1; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_008",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_008",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "80% of the highlighted silhouette visible, 3.12% of the frame at frame 65"
+    },
+    {
+      "shot": "SC_008",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.89e-07"
+    },
+    {
+      "shot": "SC_009",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "36 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_009",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "8 animated objects x 20 frames, max error 5.18e-08"
+    },
+    {
+      "shot": "SC_009",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "28 objects (3 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_009",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_009",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_009",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_009",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "32 visible parts as expected"
+    },
+    {
+      "shot": "SC_009",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_right@1; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_009",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_009",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "80% of the highlighted silhouette visible, 3.12% of the frame at frame 50"
+    },
+    {
+      "shot": "SC_009",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.89e-07"
+    },
+    {
+      "shot": "SC_010",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "36 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_010",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "24 animated objects x 26 frames, max error 3.53e-07"
+    },
+    {
+      "shot": "SC_010",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "24 objects (3 shared) unchanged on 26 frames"
+    },
+    {
+      "shot": "SC_010",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_010",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_010",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_010",
+      "check": "replace_start_end_states",
+      "status": "PASS",
+      "detail": "8 parts removed, 4 landed exactly (tol 1e-05)"
+    },
+    {
+      "shot": "SC_010",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "28 visible parts as expected"
+    },
+    {
+      "shot": "SC_010",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_right@1; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_010",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_010",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "12 twins visible only mid-fade, never with their original or on frames 1/124"
+    },
+    {
+      "shot": "SC_010",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.89e-07"
+    },
+    {
+      "shot": "SC_011",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "36 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_011",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "4 animated objects x 20 frames, max error 1.40e-08"
+    },
+    {
+      "shot": "SC_011",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "32 objects (3 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_011",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_011",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_011",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_011",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "28 visible parts as expected"
+    },
+    {
+      "shot": "SC_011",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_right@1; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_011",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_011",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "78% of the highlighted silhouette visible, 1.86% of the frame at frame 51"
+    },
+    {
+      "shot": "SC_011",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.89e-07"
+    },
+    {
+      "shot": "SC_012",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "107 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_012",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "0 animated objects x 6 frames, max error 0.00e+00"
+    },
+    {
+      "shot": "SC_012",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "107 objects (9 shared) unchanged on 6 frames"
+    },
+    {
+      "shot": "SC_012",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_012",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_012",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_012",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "107 visible parts as expected"
+    },
+    {
+      "shot": "SC_012",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.050 at timber_beam_bridge.timber_beam_bridge_railing_north@1; lowest point y=0.150 (label band 0.10); ortho_scale 98.216"
+    },
+    {
+      "shot": "SC_012",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_012",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 9.78e-08"
+    },
+    {
+      "shot": "SC_012",
+      "check": "side_by_side_layout",
+      "status": "PASS",
+      "detail": "3 models, identical shared local transforms and dimensions, gaps 5.78 m, 5.78 m"
+    },
+    {
+      "shot": "SC_012",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "3 captions inside the label band, centred under their models, no overlap"
+    },
+    {
+      "shot": "SC_013",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "107 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_013",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "98 animated objects x 20 frames, max error 1.19e-08"
+    },
+    {
+      "shot": "SC_013",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "9 objects (9 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_013",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_013",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_013",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_013",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "107 visible parts as expected"
+    },
+    {
+      "shot": "SC_013",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.050 at timber_beam_bridge.timber_beam_bridge_railing_north@1; lowest point y=0.150 (label band 0.10); ortho_scale 98.216"
+    },
+    {
+      "shot": "SC_013",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_013",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 9.78e-08"
+    },
+    {
+      "shot": "SC_013",
+      "check": "side_by_side_layout",
+      "status": "PASS",
+      "detail": "3 models, identical shared local transforms and dimensions, gaps 5.78 m, 5.78 m"
+    },
+    {
+      "shot": "SC_013",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "3 captions inside the label band, centred under their models, no overlap"
+    },
+    {
+      "shot": "ALL",
+      "check": "camera_identical_across_single_model_shots",
+      "status": "PASS",
+      "detail": "11 shots in 4 continuity group(s), one locked camera per group"
+    },
+    {
+      "shot": "SC_001",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 b229adbe1e23a6a7"
+    },
+    {
+      "shot": "SC_002",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 3937a636cce2fe6b"
+    },
+    {
+      "shot": "SC_003",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 988a7eec105658b9"
+    },
+    {
+      "shot": "SC_004",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 dbe380ffc29d8aff"
+    },
+    {
+      "shot": "SC_005",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 0aa69c62ce467043"
+    },
+    {
+      "shot": "SC_006",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 bf62e087012dc37e"
+    },
+    {
+      "shot": "SC_007",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 958dace2eb411311"
+    },
+    {
+      "shot": "SC_008",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 c9d543f4d9497c30"
+    },
+    {
+      "shot": "SC_009",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 c99b2ed261189008"
+    },
+    {
+      "shot": "SC_010",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 7d2610c38e31b7ad"
+    },
+    {
+      "shot": "SC_011",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 353fadbd85ae84bf"
+    },
+    {
+      "shot": "SC_012",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 2942bbd9d339676c"
+    },
+    {
+      "shot": "SC_013",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 74232c4baaa85a91"
+    }
+  ]
+}

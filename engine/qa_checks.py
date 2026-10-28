@@ -21,6 +21,9 @@ TOL = 1e-4            # plan vs evaluated keyframe values
 TRANSFORM_TOL = 1e-5  # exact landings / shared parts staying put
 FRAME_MARGIN = 0.01   # opaque geometry must stay at least 1% inside the frame
 STRUCTURAL_ROLES = {"rafters", "ridge_beam"}  # members that must not pass through shared parts at rest
+HIGHLIGHT_MIN_VISIBLE = 0.25   # share of a highlighted set's silhouette not hidden behind other opaque parts
+HIGHLIGHT_MIN_FRAME = 0.003    # and visible area as a share of the frame
+RAY_GRID = (192, 108)          # one orthographic ray per 3.3 x 3.3 px at 640 x 360
 
 
 class Report:
@@ -73,6 +76,54 @@ def _bvh(obj, depsgraph):
     finally:
         ev.to_mesh_clear()
     return BVHTree.FromPolygons(verts, polys)
+
+
+def _combined_bvh(objs, depsgraph):
+    """One BVH over several objects (world space) and the owner name of every polygon."""
+    verts, polys, owner = [], [], []
+    for obj in objs:
+        ev = obj.evaluated_get(depsgraph)
+        mesh = ev.to_mesh()
+        try:
+            base = len(verts)
+            verts += [ev.matrix_world @ v.co for v in mesh.vertices]
+            for p in mesh.polygons:
+                polys.append([base + i for i in p.vertices])
+                owner.append(obj.name)
+        finally:
+            ev.to_mesh_clear()
+    return BVHTree.FromPolygons(verts, polys), owner
+
+
+def highlight_visibility(ctx, names, frame):
+    """(visible share of the targets' silhouette, visible share of the frame): orthographic
+    rays on a grid over the camera frame; a ray counts when the first opaque surface it
+    meets belongs to a target. Parts at >= 50 % transparency (ghosted) do not occlude."""
+    ctx.scene.frame_set(frame)
+    dg = bpy.context.evaluated_depsgraph_get()
+    opaque = [o for o in ctx.render_objects.values() if o.type == "MESH" and _visible(o)]
+    targets = [o for o in opaque if o.name in names]
+    if not targets:
+        return 0.0, 0.0
+    every, owner = _combined_bvh(opaque, dg)
+    only, _ = _combined_bvh(targets, dg)
+    cam = ctx.camera
+    direction = (cam.matrix_world.to_3x3() @ Vector((0.0, 0.0, -1.0))).normalized()
+    corners = [Vector(c) for c in cam.data.view_frame(scene=ctx.scene)]
+    x0, x1 = min(c.x for c in corners), max(c.x for c in corners)
+    y0, y1 = min(c.y for c in corners), max(c.y for c in corners)
+    nx, ny = RAY_GRID
+    silhouette = seen = 0
+    for j in range(ny):
+        for i in range(nx):
+            origin = cam.matrix_world @ Vector((x0 + (i + 0.5) / nx * (x1 - x0), y0 + (j + 0.5) / ny * (y1 - y0), 0.0))
+            if only.ray_cast(origin, direction)[0] is None:
+                continue
+            silhouette += 1
+            idx = every.ray_cast(origin, direction)[2]
+            if idx is not None and owner[idx] in names:
+                seen += 1
+    return seen / max(silhouette, 1), seen / (nx * ny)
 
 
 def _overlaps(objs, depsgraph):
@@ -316,8 +367,11 @@ def check_shot(ctx, states, report):
         dg = bpy.context.evaluated_depsgraph_get()
         if f >= settle and (ctx.camera.matrix_world != cam_matrix or ctx.camera.data.ortho_scale != cam_ortho):
             cam_moves.append(f)
+        focus = set(ctx.shot.get("camera_focus") or [])
         for n, obj in ctx.render_objects.items():
             if obj.type != "MESH" or not _visible(obj):
+                continue
+            if focus and obj.get("component_id") not in focus:   # close-up: only the framed parts
                 continue
             for p in shot_builder.world_vertices(obj, dg):
                 c = world_to_camera_view(ctx.scene, ctx.camera, Vector(p))
@@ -346,6 +400,20 @@ def check_shot(ctx, states, report):
                     overlap.append(f"{name}@{f}")
         report.add(sid, "fade_twins_exclusive", not overlap, ", ".join(overlap[:5]) or
                    f"{len(ctx.fade_twins)} twins visible only mid-fade, never with their original or on frames 1/{last}")
+
+    # 7c. Highlighted parts can actually be seen (not hidden under other parts) at the peak
+    #     of the glow: HOLD highlight and the exploded hold of EXPLODED_VIEW.
+    h = ctx.cfg.get("highlight") or {}
+    marker = {"HOLD": "highlight_peak", "EXPLODED_VIEW": "exploded_hold"}.get(template)
+    if marker and isinstance(h.get("components"), list) and marker in plan.markers:
+        names = {templates.object_name(templates.MAIN_SLOT, i) for i in h["components"]}
+        share, area = highlight_visibility(ctx, names, plan.markers[marker])
+        ghosts = h.get("ghost") or []
+        report.add(sid, "highlight_targets_visible", share >= HIGHLIGHT_MIN_VISIBLE and area >= HIGHLIGHT_MIN_FRAME,
+                   f"{share * 100:.0f}% of the highlighted silhouette visible, {area * 100:.2f}% of the frame at "
+                   f"frame {plan.markers[marker]}" + (f"; {len(ghosts)} covering part(s) ghosted" if ghosts else "")
+                   + ("" if share >= HIGHLIGHT_MIN_VISIBLE else "; mostly hidden: ghost the covering parts, "
+                      "explode, or choose another camera"))
 
     # 8. The pure-Python framing maths agrees with Blender's projection (settled camera).
     ctx.scene.frame_set(settle)
@@ -482,7 +550,9 @@ def run_all(project_dir, preset="preview"):
             continue
         frames = check_shot(ctx, states, report)
         if ctx.cfg["template"] != "SIDE_BY_SIDE":
-            cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale)
+            group = (tuple(templates.layout_slots(shot, states)[0][1]), shot.get("camera"),
+                     tuple(shot.get("camera_focus") or ()), float(shot.get("camera_safe_band", 0.0)))
+            cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale, group)
         elif ctx.camera_keys:
             ctx.scene.frame_set(1)
             m = ctx.camera.matrix_world
@@ -490,18 +560,26 @@ def run_all(project_dir, preset="preview"):
                            ctx.camera.data.ortho_scale, ctx.slot_offsets[ctx.cfg["intro"]["from_state"]])
         signatures[sid] = (frames, signature(ctx, frames))
 
-    # One locked camera for every single-model shot: cuts between them are invisible.
-    ref_id = next(iter(cameras), None)
-    diffs = [sid for sid, (m, s) in cameras.items()
-             if not (_close(m, cameras[ref_id][0], 1e-6) and abs(s - cameras[ref_id][1]) < 1e-6)]
+    # One locked camera for every single-model shot of a continuity group (same built
+    # variants, preset, focus and safe band): cuts between them are invisible.
+    groups = {}
+    for sid, (m, s, key) in cameras.items():
+        groups.setdefault(key, []).append((sid, m, s))
+    diffs = [sid for members in groups.values() for sid, m, s in members
+             if not (_close(m, members[0][1], 1e-6) and abs(s - members[0][2]) < 1e-6)]
     report.add("ALL", "camera_identical_across_single_model_shots", not diffs,
-               f"differs: {diffs}" if diffs else f"{len(cameras)} shots share one camera")
+               f"differs: {diffs}" if diffs else
+               f"{len(cameras)} shots in {len(groups)} continuity group(s), one locked camera per group")
 
-    # A SIDE_BY_SIDE intro must open on exactly the single-model framing (seamless cut).
+    # A SIDE_BY_SIDE intro must open on exactly the single-model framing (seamless cut):
+    # the camera of shots that build every variant, without focus or safe band.
+    everything = tuple(spec.variant_map(states))
+    ref_id = next((sid for sid, (m, s, key) in cameras.items() if key[0] == everything and not key[2] and not key[3]),
+                  next(iter(cameras), None))
     for sid, (rot, loc, ortho, shift) in intros.items():
         if ref_id is None:
             break
-        ref_m, ref_ortho = cameras[ref_id]
+        ref_m, ref_ortho, _ = cameras[ref_id]
         ref_rot = [ref_m[r * 4 + c] for r in range(3) for c in range(3)]
         ref_loc = [ref_m[r * 4 + 3] for r in range(3)]
         ok = (_close(rot, ref_rot, 1e-6) and abs(ortho - ref_ortho) < 1e-6

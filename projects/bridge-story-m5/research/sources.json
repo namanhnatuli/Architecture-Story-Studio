@@ -1,0 +1,127 @@
+{
+  "note": "M5 internal technical pilot. Claims are SOURCE_VERIFIED against the quoted passages but NOT editorially approved; the pilot is INTERNAL_ONLY.",
+  "sources": [
+    {
+      "id": "SRC_001",
+      "title": "Beam bridge",
+      "publisher": "Wikipedia",
+      "kind": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/Beam_bridge",
+      "accessed": "2026-10-28",
+      "verification": "Read with a web-fetch tool on 2026-10-28 (lead section).",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_002",
+      "title": "Voussoir",
+      "publisher": "Wikipedia",
+      "kind": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/Voussoir",
+      "accessed": "2026-10-28",
+      "verification": "Read with a web-fetch tool on 2026-10-28 (lead section).",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_003",
+      "title": "Truss bridge",
+      "publisher": "Wikipedia",
+      "kind": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/Truss_bridge",
+      "accessed": "2026-10-28",
+      "verification": "Read with a web-fetch tool on 2026-10-28 (lead section; 'Pratt truss'; 'Warren truss').",
+      "license": "Quoted for research/citation only."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM_101",
+      "text": "Beam bridges are the simplest structural form for bridge spans, supported by an abutment or pier at each end.",
+      "source_ids": [
+        "SRC_001"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_001",
+          "locator": "lead",
+          "excerpt": "Beam bridges are the simplest structural forms for bridge spans supported by an abutment or pier at each end."
+        }
+      ],
+      "scope": "definition only; no claim about strength, cost or history",
+      "caveat": "Tertiary source; not editorially approved (internal technical pilot)."
+    },
+    {
+      "id": "CLM_102",
+      "text": "A voussoir is a wedge-shaped element, typically a stone, used in building an arch; the keystone is the centre stone at the apex of an arch.",
+      "source_ids": [
+        "SRC_002"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_002",
+          "locator": "lead",
+          "excerpt": "a wedge-shaped element, typically a stone, which is used in building an arch or vault ... the center stone or masonry unit at the apex of an arch"
+        }
+      ],
+      "scope": "terminology only",
+      "caveat": "Tertiary source; not editorially approved (internal technical pilot)."
+    },
+    {
+      "id": "CLM_103",
+      "text": "A truss bridge's load-bearing superstructure is a truss: a structure of connected elements, usually forming triangular units.",
+      "source_ids": [
+        "SRC_003"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_003",
+          "locator": "lead",
+          "excerpt": "composed of a truss, a structure of connected elements, usually forming triangular units"
+        }
+      ],
+      "scope": "definition only",
+      "caveat": "Tertiary source; not editorially approved (internal technical pilot)."
+    },
+    {
+      "id": "CLM_104",
+      "text": "A Pratt truss has vertical members and diagonals that slope down towards the centre.",
+      "source_ids": [
+        "SRC_003"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_003",
+          "locator": "section 'Pratt truss'",
+          "excerpt": "A Pratt truss includes vertical members and diagonals that slope down towards the center, the opposite of the Howe truss."
+        }
+      ],
+      "scope": "web arrangement only",
+      "caveat": "Tertiary source; not editorially approved (internal technical pilot)."
+    },
+    {
+      "id": "CLM_105",
+      "text": "A Warren truss forms alternately inverted triangles along its length, with no vertical members.",
+      "source_ids": [
+        "SRC_003"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_003",
+          "locator": "section 'Warren truss'",
+          "excerpt": "forming alternately inverted equilateral triangle-shaped spaces along its length ... with no vertical elements"
+        }
+      ],
+      "scope": "web arrangement only; the model uses isosceles triangles to share the Pratt frame",
+      "caveat": "Tertiary source; not editorially approved (internal technical pilot)."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "generated_by": "planner",
+  "planner_version": "1.0.0",
+  "building_type": "roof",
+  "base": {
+    "builder": "rectangular_house_base",
+    "width": 4.6,
+    "depth": 3.2,
+    "wall_height": 2.55,
+    "rafter_count": 5
+  },
+  "shared_components": [
+    "foundation",
+    "floor",
+    "walls",
+    "door",
+    "windows",
+    "structure"
+  ],
+  "variants": [
+    {
+      "id": "low_pitch_gable_roof",
+      "name": "Low-pitched gable roof",
+      "builder": "gable_roof",
+      "roof_pitch_degrees": 18,
+      "color_key": "roof_variant_a"
+    },
+    {
+      "id": "steep_gable_roof",
+      "name": "Steep gable roof",
+      "builder": "gable_roof",
+      "roof_pitch_degrees": 48,
+      "color_key": "roof_variant_b"
+    }
+  ],
+  "transitions": []
+}

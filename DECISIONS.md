@@ -65,3 +65,15 @@ If a requested change conflicts with these choices, document the reason and upda
 - **SIDE_BY_SIDE `STACK`** (mở rộng nhỏ, không viết lại template) cho mô hình dài: mỗi mô hình một hàng trên màn hình.
 - **Ảnh preview:** JPEG được track trong git, PNG để cục bộ.
 
+## Bổ sung 2026-10-28 (M5)
+- **Lập kế hoạch hình ảnh tất định, không có LLM khi chạy.** Tác giả viết beat có cấu trúc (lời thoại, ý đồ, khái niệm, claim); `planner/` quyết định asset, template, shot, camera và frame theo luật cố định. Cùng đầu vào thì ra cùng kế hoạch (có test so từng byte). LLM chỉ có mặt ở bước viết beat, và beat là file được review.
+- **Planner nằm trước engine, không thay engine.** Kế hoạch được biên dịch thành đúng hợp đồng M2–M4 (`states.json`, `storyboard.json`). Engine chỉ thêm các trường tùy chọn: builder `none`, `build_variants`, `camera_focus`/`camera_safe_band`, `highlight.ghost`.
+- **Không bỏ qua beat lặng lẽ, không lấp chỗ trống bằng animation không liên quan.** Mỗi beat có đúng một trạng thái coverage. Kế hoạch có beat không thực thi được thì không biên dịch được.
+- **Thiếu năng lực thì báo thiếu:** `NEW_ASSET_REQUIRED` kèm nhiệm vụ sinh, `MISSING_TEMPLATE` (bản đồ, mũi tên lực), `EVIDENCE_BLOCKED`. Không sửa catalog hay từ vựng để che yêu cầu.
+- **REPLACE_PARTS chỉ giữa trạng thái chung khung** (hoặc từ khu đất trống, hoặc hai mái trên cùng một nhà). Hai họ khác nhau thì dùng SEQUENTIAL_STATES, tức là cắt cứng.
+- **Asset sinh mới (GENERATE) là ILLUSTRATIVE và thuộc về dự án** (`planning/generated_assets/`), không bao giờ ghi vào catalog. Mức chính xác yêu cầu cao hơn mức của asset thì `BLOCKED_MISSING_EVIDENCE`.
+- **SHOW_EVOLUTION cần chronology đã duyệt biên tập.** Pilot M5 cố ý không trình bày gỗ → đá → thép như một dòng thời gian.
+- **Timing PROVISIONAL là ước lượng, có ghi nhãn.** AUDIO_LOCKED lấy từ `schedule` của M3. Thiếu thời gian thì chọn chiến lược nhẹ hơn hoặc báo `TIMING_CONFLICT`. Không bao giờ cắt ngắn hay tăng tốc chuyển động.
+- **Nhóm liên tục camera:** shot nối bằng cắt match dùng chung một camera khóa và một tập variant được dựng. Cache chỉ phụ thuộc các variant shot đó dựng.
+- **Phần phát sáng phải nhìn thấy được.** QA Blender đo phần bị che bằng tia. Phần thường bị che (dầm dọc dưới ván…) được làm lộ bằng cách cho phần che trong suốt (`ghost`), không phải bằng cách đổi camera.
+

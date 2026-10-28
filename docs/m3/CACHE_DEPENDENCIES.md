@@ -21,12 +21,14 @@ Khóa v1 (M3) không có model, voice id và hạng quyền. Bản ghi v1 chỉ 
 | Nhóm | Gồm | Không gồm |
 |---|---|---|
 | `shot_visual` | Mọi trường của shot **trừ** các trường không phải hình ảnh: animation/graphic, state, camera, transition, `duration_seconds`, nhãn | `narration`, `visual_purpose`, `claim_ids`, `beat_ids`, `start_seconds`, `cut_from_previous`, `notes`, `editorial` |
-| `states_geometry` | base + mọi variant (camera khóa được fit theo mọi variant) | `name`, `claim_ids`, `note(s)`, `description`, `transitions`, `schema_version` |
+| `states_geometry` | base + các variant mà shot **dựng**: mọi variant (camera khóa fit theo mọi variant), hoặc chỉ các variant trong `build_variants` của shot (M5: mỗi nhóm liên tục camera một tập) | `name`, `claim_ids`, `note(s)`, `description`, `transitions`, `schema_version` |
 | `project_render` | Các trường project mà engine đọc (`fps`) | `title`, `slug`, `mode`, `language`, `duration_seconds`, `render_preset`, `factual_review`, `audio_timing_locked` |
 | `style` | `config/visual_style.json` | — |
 | `preset` | Mục của preset (kích thước, fps, engine, định dạng) | codec/CRF khi encode (chỉ ảnh hưởng MP4) |
 | `engine` | `engine/**/*.py` (đệ quy từ M4: `engine/arch/`), hash theo từng file | `qa_checks.py` (chỉ dùng cho QA), `transform.py` (đã bỏ) |
-| `assets` (M4, khóa v3) | Nội dung các spec asset mà `states.json` tham chiếu (base + variant), cùng `asset_library/materials/stylized_materials.json` nếu có tham chiếu | Spec asset không được dùng; catalog; ảnh preview |
+| `assets` (M4, khóa v3) | Nội dung các spec asset của base và của các variant shot dựng (M5: giới hạn theo `build_variants`), cùng `asset_library/materials/stylized_materials.json` nếu có tham chiếu | Spec asset không được dùng; catalog; ảnh preview |
+
+**M5 (`build_variants`, `camera_focus`, `camera_safe_band`):** ba trường này là trường hình ảnh (thuộc `shot_visual`). `build_variants` còn giới hạn `states_geometry` và `assets` của shot. Vì vậy sửa spec cầu đá chỉ làm cũ các shot có dựng cầu đá; các shot khu đất/cầu gỗ vẫn dùng cache (`tests/test_m5_planner.py` `CacheDependencyTest`). Storyboard do planner biên dịch ghi `editorial` (không phải phụ thuộc render) và `plan_sha256` ở mức tài liệu.
 
 Trường lạ (không có trong danh sách loại trừ) được coi là **trường hình ảnh**, tức là an toàn: thà render lại còn hơn dùng nhầm khung cũ.
 
@@ -39,6 +41,8 @@ python3 tools/cli.py cache-report --project suffolk-roofs [--preset review]   # 
 Manifest render v1 (M3) được render lại **một lần** (lý do ghi: "render manifest key v1 (pre-M3.5): one-time re-render"). Ở M3.5, lần render lại một lần này trùng với các thay đổi hình ảnh thật (engine, độ dài shot), nên không tốn thêm.
 
 ## Test
+`tests/test_m5_planner.py` `CacheDependencyTest`: sửa chữ claim, `visual_goal` không đổi khóa nào; đổi mục tiêu ngữ nghĩa của B5 chỉ đổi SC_008; đổi hình học cầu đá chỉ đổi các shot dựng cầu đá.
+
 `tests/test_m35.py`:
 - `AudioCacheSeparationTest`: mỗi chiều của khóa tách cache; audio preview không bao giờ được dùng lại cho publication; các take M3 được nhận lại.
 - `RenderCacheTest`: sửa chữ, tiêu đề, claim, `start_seconds` không làm mất cache; sửa độ dài, animation, hình học, fps, engine thì có, và lý do được nêu đúng tên.

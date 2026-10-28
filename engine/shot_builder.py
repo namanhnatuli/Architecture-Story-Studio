@@ -178,9 +178,17 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
         bottom_band = cfg.get("label_band", motion.SIDE_BY_SIDE_DEFAULTS["label_band"])
 
     # Camera framed on every built part at rest (hidden variants included), so all
-    # single-model shots of a project share one identical locked camera.
-    points = [tuple(p[i] + offsets[obj["slot_id"]][i] for i in range(3))
-              for name, obj in objects.items() for p in verts[name]]
+    # single-model shots of a project (or of one M5 continuity group, build_variants)
+    # share one identical locked camera. M5: camera_focus frames only the listed
+    # components (COMPONENT_CLOSEUP); camera_safe_band keeps a strip free for subtitles.
+    focus = set(shot.get("camera_focus") or []) if cfg["template"] != "SIDE_BY_SIDE" else set()
+    framed = [name for name, obj in objects.items() if not focus or obj["component_id"] in focus]
+    if focus and not framed:
+        raise ValueError(f"{shot_id}: camera_focus matches no built component")
+    points = [tuple(p[i] + offsets[objects[name]["slot_id"]][i] for i in range(3))
+              for name in framed for p in verts[name]]
+    if cfg["template"] != "SIDE_BY_SIDE":
+        bottom_band = float(shot.get("camera_safe_band", 0.0))
     aspect = preset["width"] / preset["height"]
     camera, fit, basis = scene_mod.build_camera(scene, geometry.make_collection("90_CAMERA", root),
                                                 cam_preset, points, aspect, bottom_band)

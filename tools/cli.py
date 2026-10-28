@@ -656,6 +656,52 @@ def do_asset_catalog():
     print(f"Catalog: {len(entries)} assets => {CATALOG_DIR / 'catalog.json'}")
 
 
+# ---------------------------------------------------------------- M5 visual planning
+def do_plan_visuals(p):
+    """Narrative beats -> storyboard/visual_plan.json + qa/VISUAL_COVERAGE.md (no Blender)."""
+    from planner import coverage, planner as pl
+    try:
+        plan = pl.plan_project(p)
+    except pl.PlanningError as e:
+        for err in e.errors:
+            print("ERROR:", err)
+        raise SystemExit(2)
+    (p / "storyboard").mkdir(parents=True, exist_ok=True)
+    (p / "storyboard" / "visual_plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n")
+    report = coverage.write(plan, p)
+    for c in plan["coverage"]:
+        print(f"{c['status']:>17}  {c['beat_id']} {c['visual_intent']:<22} {c['strategy'] or '-':<28} "
+              f"{', '.join(c['shot_ids']) or '-'}")
+    for w in plan["warnings"]:
+        print("WARNING:", w)
+    print(f"{len(plan['shots'])} shots, {plan['duration_seconds']:.2f} s ({plan['timing_mode']}); "
+          f"executable={plan['executable']} => {p / 'storyboard/visual_plan.json'}, {report}")
+    if not plan["executable"]:
+        raise SystemExit(4)
+
+
+def do_validate_plan(p):
+    from planner import validate
+    path = p / "storyboard" / "visual_plan.json"
+    if not path.is_file():
+        raise SystemExit(f"{path} missing; run plan-visuals first")
+    errors = validate.validate_plan(read_json(path), p)
+    for e in errors:
+        print("ERROR:", e)
+    if errors:
+        raise SystemExit(2)
+    print("PASS: visual plan (references, timing, templates, targets, camera, evidence) + engine validation")
+
+
+def do_build_shots(p):
+    """Validated plan -> storyboard/states.json + storyboard.json + project.json (engine contract)."""
+    from planner import compiler
+    do_validate_plan(p)
+    for path in compiler.compile_plan(read_json(p / "storyboard" / "visual_plan.json"), p):
+        print("WROTE:", path)
+    do_validate(p)
+
+
 def do_align(p):
     """Whisper word timestamps for every current narration sentence (subtitle phrase breaks)."""
     from pipeline import subtitles
@@ -750,7 +796,8 @@ def main():
     parser.add_argument("command", choices=["doctor", "validate", "still", "preview", "shot", "encode",
                                             "check-blender", "final-gate", "manifest", "tts-check", "narrate",
                                             "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align",
-                                            "asset-check", "asset-render", "asset-catalog"])
+                                            "asset-check", "asset-render", "asset-catalog",
+                                            "plan-visuals", "validate-plan", "build-shots"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
     parser.add_argument("--preset", default="preview", choices=["preview", "review", "production_test", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
@@ -811,6 +858,12 @@ def main():
         do_gates(p, args.preset)
     elif args.command == "align":
         do_align(p)
+    elif args.command == "plan-visuals":
+        do_plan_visuals(p)
+    elif args.command == "validate-plan":
+        do_validate_plan(p)
+    elif args.command == "build-shots":
+        do_build_shots(p)
     elif args.command == "cache-report":
         do_cache_report(p, args.preset)
 

@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "narrative_beats.schema.json",
+  "title": "Narrative beats for visual planning (M5)",
+  "description": "Narration beats with their visual intent and architectural concepts; planner/ turns them into a visual execution plan. Validated by planner/beats.py.",
+  "type": "object",
+  "required": [
+    "schema",
+    "project_id",
+    "timing_mode",
+    "publication",
+    "beats"
+  ],
+  "properties": {
+    "schema": {
+      "const": "narrative_beats/1"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "timing_mode": {
+      "enum": [
+        "PROVISIONAL",
+        "AUDIO_LOCKED"
+      ]
+    },
+    "publication": {
+      "type": "object",
+      "required": [
+        "restriction"
+      ],
+      "properties": {
+        "restriction": {
+          "enum": [
+            "INTERNAL_ONLY",
+            "PUBLICATION_CANDIDATE"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "synthetic_fixture": {
+      "type": "boolean",
+      "description": "true = invented test data, not factual content"
+    },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "beat_id",
+          "narration",
+          "kind",
+          "narrative_intent",
+          "visual_goal",
+          "required_concepts"
+        ],
+        "properties": {
+          "beat_id": {
+            "type": "string"
+          },
+          "narration": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "framing",
+              "fact",
+              "interpretation"
+            ]
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "narrative_intent": {
+            "enum": [
+              "INTRODUCE_ARCHITECTURE",
+              "EXPLAIN_STRUCTURE",
+              "SHOW_COMPONENT",
+              "EXPLAIN_DESIGN_CHANGE",
+              "COMPARE_VARIANTS",
+              "SHOW_EVOLUTION",
+              "EXPLAIN_CAUSE_EFFECT",
+              "SHOW_CONTEXT",
+              "SUMMARIZE_DIFFERENCES"
+            ]
+          },
+          "visual_goal": {
+            "type": "string"
+          },
+          "required_concepts": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "concept"
+                  ],
+                  "properties": {
+                    "concept": {
+                      "type": "string"
+                    },
+                    "group": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "description": "Concept names from config/visual_vocabulary.json (site, architecture or component)."
+          },
+          "focus_concepts": {
+            "type": "array",
+            "description": "Component concepts for a close-up (SHOW_COMPONENT)."
+          },
+          "preferred_states": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Architecture concepts in order (A -> B, or the compared set)."
+          },
+          "expected_complexity": {
+            "enum": [
+              "LOW",
+              "MEDIUM",
+              "HIGH"
+            ]
+          },
+          "strategy": {
+            "type": "string",
+            "description": "Optional explicit visual strategy (planner/intents.py STRATEGIES); otherwise chosen by intent."
+          },
+          "camera_mode": {
+            "enum": [
+              "FULL_OBJECT",
+              "THREE_QUARTER",
+              "SIDE_ELEVATION",
+              "COMPONENT_CLOSEUP",
+              "COMPARISON",
+              "LOCKED_TRANSFORMATION"
+            ]
+          },
+          "required_accuracy": {
+            "enum": [
+              "ILLUSTRATIVE",
+              "REFERENCE_BASED",
+              "HISTORICALLY_VERIFIED"
+            ]
+          },
+          "graphic": {
+            "type": "object",
+            "description": "MOTION_GRAPHICS card spec (engine/diagram.py) for SHOW_CONTEXT / EXPLAIN_CAUSE_EFFECT."
+          },
+          "timing": {
+            "type": "object",
+            "properties": {
+              "duration_source": {
+                "enum": [
+                  "PROVISIONAL",
+                  "AUDIO_LOCKED"
+                ]
+              },
+              "estimated_seconds": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "publication": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

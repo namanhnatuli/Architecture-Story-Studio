@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "visual_plan.schema.json",
+  "title": "Visual execution plan (M5)",
+  "description": "Deterministic output of planner/planner.py; validated by planner/validate.py; compiled to storyboard/states.json + storyboard.json by planner/compiler.py. Reproducible without re-planning.",
+  "type": "object",
+  "required": [
+    "schema",
+    "plan_version",
+    "planner_version",
+    "project_id",
+    "timing_mode",
+    "fps",
+    "total_frames",
+    "executable",
+    "inputs",
+    "states",
+    "shots",
+    "coverage"
+  ],
+  "properties": {
+    "schema": {
+      "const": "visual_plan/1"
+    },
+    "plan_version": {
+      "type": "string"
+    },
+    "planner_version": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "timing_mode": {
+      "enum": [
+        "PROVISIONAL",
+        "AUDIO_LOCKED"
+      ]
+    },
+    "fps": {
+      "type": "integer"
+    },
+    "total_frames": {
+      "type": "integer"
+    },
+    "duration_seconds": {
+      "type": "number"
+    },
+    "executable": {
+      "type": "boolean"
+    },
+    "family": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "description": "sha256 of beats, sources, vocabulary, planning config and every used asset spec"
+    },
+    "states": {
+      "type": "object",
+      "description": "states.json the plan compiles to"
+    },
+    "resolutions": {
+      "type": "array"
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "shot_id",
+          "beat_id",
+          "visual_intent",
+          "strategy",
+          "template",
+          "states",
+          "camera",
+          "timing",
+          "semantic_targets",
+          "cut_from_previous",
+          "shot",
+          "evidence_status"
+        ],
+        "properties": {
+          "shot_id": {
+            "type": "string"
+          },
+          "beat_id": {
+            "type": "string"
+          },
+          "part": {
+            "type": "array"
+          },
+          "visual_intent": {
+            "type": "string"
+          },
+          "strategy": {
+            "type": "string"
+          },
+          "template": {
+            "enum": [
+              "HOLD",
+              "EXPLODED_VIEW",
+              "REPLACE_PARTS",
+              "SIDE_BY_SIDE",
+              "MOTION_GRAPHICS"
+            ]
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "asset_ids": {
+            "type": "array"
+          },
+          "semantic_targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "concept",
+                "component_ids"
+              ]
+            }
+          },
+          "camera": {
+            "type": "object",
+            "required": [
+              "mode",
+              "preset",
+              "group"
+            ]
+          },
+          "timing": {
+            "type": "object",
+            "required": [
+              "mode",
+              "frames",
+              "duration_seconds",
+              "min_seconds",
+              "start_seconds"
+            ]
+          },
+          "cut_from_previous": {
+            "enum": [
+              "first",
+              "match",
+              "hard"
+            ]
+          },
+          "evidence_status": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "visibility": {
+            "type": "array"
+          },
+          "shot": {
+            "type": "object",
+            "description": "the storyboard shot (engine contract) this plan entry compiles to"
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "beat_id",
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "COVERED",
+              "PARTIALLY_COVERED",
+              "MISSING_ASSET",
+              "MISSING_TEMPLATE",
+              "TIMING_CONFLICT",
+              "EVIDENCE_BLOCKED",
+              "INVALID_REQUEST"
+            ]
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

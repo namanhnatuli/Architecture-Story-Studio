@@ -5,8 +5,9 @@ separately and stored in renders/<preset>/<shot>/render_manifest.json, so a stal
 shot can say which category changed:
 
   shot_visual      the shot's own render fields (animation/graphic, states, camera, duration...)
-  states_geometry  base + variants without editorial metadata (all variants: the locked camera
-                   is fitted to every variant of the project)
+  states_geometry  base + the variants the shot builds, without editorial metadata (single-model
+                   shots build every variant unless M5 build_variants limits them to one
+                   continuity group; the locked camera is fitted to what is built)
   project_render   project fields the engine reads (fps)
   style            config/visual_style.json
   preset           the preset entry (width, height, fps, engine, format)
@@ -48,10 +49,19 @@ def shot_visual(shot):
     return {k: v for k, v in shot.items() if k not in SHOT_NON_VISUAL}
 
 
-def states_geometry(states):
+def built_variants(shot, states):
+    """Variants a shot builds (M5): its slots' build sets; every variant if it cannot be planned."""
+    from engine import templates
+    try:
+        return {v for _, built, _ in templates.layout_slots(shot, states) for v in built}
+    except Exception:   # invalid shot: depend on everything (fail-safe)
+        return {v.get("id") for v in states.get("variants", [])}
+
+
+def states_geometry(states, only=None):
     out = {k: v for k, v in states.items() if k not in STATES_TOP_NON_VISUAL}
     out["variants"] = [{k: v for k, v in var.items() if k not in STATE_NON_VISUAL}
-                       for var in states.get("variants", [])]
+                       for var in states.get("variants", []) if only is None or var.get("id") in only]
     return out
 
 
@@ -64,9 +74,11 @@ def engine_files(root=ROOT):
     return [f for f in sorted(base.rglob("*.py")) if f.name not in ENGINE_EXCLUDED and "__pycache__" not in f.parts]
 
 
-def asset_files(states, root=ROOT):
-    """Asset spec files referenced by a states.json (+ material library if any)."""
-    refs = [(states.get("base") or {}).get("asset")] + [v.get("asset") for v in states.get("variants", [])]
+def asset_files(states, root=ROOT, only=None):
+    """Asset spec files referenced by a states.json (+ material library if any); with `only`,
+    just the base and those variants (the ones a shot builds)."""
+    refs = [(states.get("base") or {}).get("asset")] + [v.get("asset") for v in states.get("variants", [])
+                                                          if only is None or v.get("id") in only]
     refs = sorted({r for r in refs if r})
     return refs + ([MATERIAL_LIBRARY] if refs else [])
 
@@ -76,15 +88,17 @@ def components(p, shot, preset, root=ROOT):
     p, root = Path(p), Path(root)
     read = lambda path: json.loads(Path(path).read_text(encoding="utf-8"))
     presets = read(root / "config/render_presets.json")
+    states = read(p / "storyboard/states.json")
+    built = built_variants(shot, states)
     return {
         "shot_visual": digest(shot_visual(shot)),
-        "states_geometry": digest(states_geometry(read(p / "storyboard/states.json"))),
+        "states_geometry": digest(states_geometry(states, built)),
         "project_render": digest(project_render(read(p / "project.json"))),
         "style": digest((root / "config/visual_style.json").read_bytes()),
         "preset": digest({"name": preset, **presets[preset]}),
         "engine": digest(engine_file_hashes(root)),
         "assets": digest({rel: digest((root / rel).read_bytes()) if (root / rel).is_file() else "missing"
-                          for rel in asset_files(read(p / "storyboard/states.json"), root)}),
+                          for rel in asset_files(states, root, built)}),
     }
 
 

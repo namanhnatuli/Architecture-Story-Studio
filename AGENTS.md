@@ -73,3 +73,10 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - Trước khi dùng một asset: chạy `asset-check`, rồi `asset-render --preset review` và **xem ảnh**. MCP chỉ để kiểm tra; khi dùng `look` luôn truyền `target`.
 - Không render chuỗi frame 1080p (preset `production_test` chỉ dành cho ảnh tĩnh); không render 4K.
 
+## Bổ sung M5 (2026-10-28): lập kế hoạch hình ảnh tự động
+- Video mới dùng planner bắt đầu từ `script/visual_beats.json` (`schemas/narrative_beats.schema.json`): lời thoại, `narrative_intent` (9 ý đồ), khái niệm cần thấy, claim. **Không viết tay** `storyboard.json`/`states.json` của dự án do planner sinh (có `generated_by: planner` và `plan_sha256`); sửa beat rồi chạy lại `plan-visuals`.
+- Thứ tự: `plan-visuals` → đọc `qa/VISUAL_COVERAGE.md` → `validate-plan` → `build-shots` → `check-blender` → `still --preset review` (xem ảnh) → smoke test 1–2 shot → `preview`.
+- Planner tất định và không gọi LLM khi chạy. Không bỏ qua beat: beat nào không phải COVERED/PARTIALLY_COVERED thì kế hoạch không thực thi được (exit 4), và phải sửa beat, asset hoặc claim thay vì sửa storyboard.
+- Không sửa catalog hay từ vựng chỉ để che một yêu cầu còn thiếu: `NEW_ASSET_REQUIRED`, `MISSING_TEMPLATE`, `EVIDENCE_BLOCKED` là kết quả đúng cho tới khi có năng lực thật.
+- Beat `fact` chỉ được trích claim có thật trong `research/sources.json` (SOURCE_VERIFIED trở lên). SHOW_EVOLUTION cần claim đã duyệt biên tập. Dữ liệu bịa để test phải có `synthetic_fixture: true` hoặc ghi rõ SYNTHETIC.
+- Tài liệu: `docs/m5/M5_ARCHITECTURE.md`, `VISUAL_PLANNING_PROTOCOL.md`, `ASSET_RESOLUTION.md`, `M5_QA_REPORT.md`.

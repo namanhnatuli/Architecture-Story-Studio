@@ -1,0 +1,145 @@
+{
+  "project_id": "roof-plan-m5",
+  "executable": true,
+  "beats": [
+    {
+      "beat_id": "R1",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "HOLD",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 4.646,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "ASSEMBLE_IN rejected (INVALID_REQUEST): ASSEMBLE_IN needs the previous shot to end on the empty site",
+        "HOLD_HIGHLIGHT rejected (INVALID_REQUEST): HOLD_HIGHLIGHT needs component concepts to highlight",
+        "HOLD: Hold the structure"
+      ],
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "planned_seconds": 4.667,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "R2",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "EXPLODE",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 6.569,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_THEN_EXPLODE rejected (TIMING_CONFLICT): HIGHLIGHT_THEN_EXPLODE needs 6.67 s (2.04 + 4.62), the beat has 6.58 s",
+        "EXPLODE: Take the assembly apart along its layers and back, focus components glowing"
+      ],
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        }
+      ],
+      "semantic_targets": [
+        "rafters",
+        "ridge_beam"
+      ],
+      "templates": [
+        "EXPLODED_VIEW"
+      ],
+      "shot_ids": [
+        "SC_002"
+      ],
+      "planned_seconds": 6.583,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "R3",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "REPLACE",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 5.415,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "HIGHLIGHT_REPLACE_HIGHLIGHT rejected (TIMING_CONFLICT): HIGHLIGHT_REPLACE_HIGHLIGHT needs 7.71 s (2.04 + 3.62 + 2.04), the beat has 5.42 s",
+        "REPLACE: Swap only the differing parts on the shared frame"
+      ],
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        },
+        {
+          "concept": "steep_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_B",
+          "explanation": "legacy_roof_evolution_roof_B (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'min': 40}}; legacy roof-evolution variant 'roof_B' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_plain_tile_50', 'legacy_suffolk_roofs_thatch_50']"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "REPLACE_PARTS"
+      ],
+      "shot_ids": [
+        "SC_003"
+      ],
+      "planned_seconds": 5.417,
+      "visibility_issues": []
+    },
+    {
+      "beat_id": "R4",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 4.262,
+      "timing_source": "PROVISIONAL",
+      "issues": [],
+      "explanation": [
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned"
+      ],
+      "assets": [
+        {
+          "concept": "low_pitch_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_A",
+          "explanation": "legacy_roof_evolution_roof_A (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'max': 30}}; legacy roof-evolution variant 'roof_A' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_slate_30']"
+        },
+        {
+          "concept": "steep_gable_roof",
+          "status": "ADAPT_EXISTING_ASSET",
+          "asset_id": "legacy_roof_evolution_roof_B",
+          "explanation": "legacy_roof_evolution_roof_B (validated, ILLUSTRATIVE) matches roof/gable_roof with {'roof_pitch_degrees': {'min': 40}}; legacy roof-evolution variant 'roof_B' used through the M5 adapter; preferred over ['legacy_suffolk_roofs_plain_tile_50', 'legacy_suffolk_roofs_thatch_50']"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "SIDE_BY_SIDE"
+      ],
+      "shot_ids": [
+        "SC_004"
+      ],
+      "planned_seconds": 4.292,
+      "visibility_issues": []
+    }
+  ]
+}

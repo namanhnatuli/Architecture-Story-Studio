@@ -1,0 +1,252 @@
+{
+  "utc": "2026-10-28T00:25:05.669591+00:00",
+  "preset": "preview",
+  "files": {
+    "output/shots/SC_001.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 260,
+      "duration": 10.833333,
+      "black_segments": 0,
+      "size_bytes": 78453
+    },
+    "output/shots/SC_002.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 140,
+      "duration": 5.833333,
+      "black_segments": 0,
+      "size_bytes": 116970
+    },
+    "output/shots/SC_003.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 120,
+      "duration": 5.0,
+      "black_segments": 0,
+      "size_bytes": 89255
+    },
+    "output/shots/SC_004.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 72,
+      "duration": 3.0,
+      "black_segments": 0,
+      "size_bytes": 57004
+    },
+    "output/shots/SC_005.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 160,
+      "duration": 6.666667,
+      "black_segments": 0,
+      "size_bytes": 213120
+    },
+    "output/shots/SC_006.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 111,
+      "duration": 4.625,
+      "black_segments": 0,
+      "size_bytes": 55426
+    },
+    "output/shots/SC_007.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 112,
+      "duration": 4.666667,
+      "black_segments": 0,
+      "size_bytes": 58148
+    },
+    "output/shots/SC_008.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 121,
+      "duration": 5.041667,
+      "black_segments": 0,
+      "size_bytes": 68683
+    },
+    "output/shots/SC_009.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 90,
+      "duration": 3.75,
+      "black_segments": 0,
+      "size_bytes": 62685
+    },
+    "output/shots/SC_010.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 124,
+      "duration": 5.166667,
+      "black_segments": 0,
+      "size_bytes": 145961
+    },
+    "output/shots/SC_011.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 92,
+      "duration": 3.833333,
+      "black_segments": 0,
+      "size_bytes": 57147
+    },
+    "output/shots/SC_012.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 149,
+      "duration": 6.208333,
+      "black_segments": 0,
+      "size_bytes": 47909
+    },
+    "output/shots/SC_013.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 186,
+      "duration": 7.75,
+      "black_segments": 0,
+      "size_bytes": 74361
+    },
+    "output/bridge_story_m5_preview.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 1737,
+      "duration": 72.375,
+      "black_segments": 0,
+      "size_bytes": 940738
+    }
+  },
+  "expected_total_frames": 1737,
+  "cuts": [
+    {
+      "cut": "SC_001->SC_002",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_002->SC_003",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_003->SC_004",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_004->SC_005",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_005->SC_006",
+      "mode": "hard",
+      "ssim": 0.79803,
+      "ok": true
+    },
+    {
+      "cut": "SC_006->SC_007",
+      "mode": "hard",
+      "ssim": 0.67162,
+      "ok": true
+    },
+    {
+      "cut": "SC_007->SC_008",
+      "mode": "hard",
+      "ssim": 0.5909,
+      "ok": true
+    },
+    {
+      "cut": "SC_008->SC_009",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_009->SC_010",
+      "mode": "match",
+      "ssim": 0.99999,
+      "ok": true
+    },
+    {
+      "cut": "SC_010->SC_011",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    },
+    {
+      "cut": "SC_011->SC_012",
+      "mode": "hard",
+      "ssim": 0.65889,
+      "ok": true
+    },
+    {
+      "cut": "SC_012->SC_013",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    }
+  ],
+  "problems": [],
+  "sheets": [
+    "qa/contact_sheet_preview.png",
+    "qa/progress_SC_001.png",
+    "qa/progress_SC_002.png",
+    "qa/progress_SC_003.png",
+    "qa/progress_SC_004.png",
+    "qa/progress_SC_005.png",
+    "qa/progress_SC_006.png",
+    "qa/progress_SC_007.png",
+    "qa/progress_SC_008.png",
+    "qa/progress_SC_009.png",
+    "qa/progress_SC_010.png",
+    "qa/progress_SC_011.png",
+    "qa/progress_SC_012.png",
+    "qa/progress_SC_013.png"
+  ]
+}

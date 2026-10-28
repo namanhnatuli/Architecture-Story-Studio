@@ -24,6 +24,8 @@ BASE_BUILDERS = {
 
 # Variant builders: (id suffix, role, assembly layer). Layer 0 is assembled first.
 VARIANT_BUILDERS = {
+    # M5: a state with no parts of its own (e.g. the empty site before a bridge appears)
+    "none": (),
     "gable_roof": (
         ("gable_front", "gable_wall", 0), ("gable_back", "gable_wall", 0),
         ("rafters_left", "rafters", 1), ("rafters_right", "rafters", 1),
