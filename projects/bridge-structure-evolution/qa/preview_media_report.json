@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-28T00:41:30.028460+00:00",
+  "utc": "2026-10-28T15:36:17.491528+00:00",
   "preset": "preview",
   "files": {
     "output/shots/SC_001.mp4": {
@@ -11,7 +11,12 @@
       "frames": 72,
       "duration": 3.0,
       "black_segments": 0,
-      "size_bytes": 76615
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 76304
     },
     "output/shots/SC_002.mp4": {
       "codec": "h264",
@@ -22,7 +27,12 @@
       "frames": 132,
       "duration": 5.5,
       "black_segments": 0,
-      "size_bytes": 208754
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 209951
     },
     "output/shots/SC_003.mp4": {
       "codec": "h264",
@@ -33,7 +43,12 @@
       "frames": 72,
       "duration": 3.0,
       "black_segments": 0,
-      "size_bytes": 51314
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 51170
     },
     "output/shots/SC_004.mp4": {
       "codec": "h264",
@@ -44,7 +59,12 @@
       "frames": 144,
       "duration": 6.0,
       "black_segments": 0,
-      "size_bytes": 260535
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 261616
     },
     "output/shots/SC_005.mp4": {
       "codec": "h264",
@@ -55,7 +75,12 @@
       "frames": 72,
       "duration": 3.0,
       "black_segments": 0,
-      "size_bytes": 58860
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 58396
     },
     "output/shots/SC_006.mp4": {
       "codec": "h264",
@@ -66,7 +91,12 @@
       "frames": 96,
       "duration": 4.0,
       "black_segments": 0,
-      "size_bytes": 146060
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 146026
     },
     "output/shots/SC_007.mp4": {
       "codec": "h264",
@@ -77,7 +107,12 @@
       "frames": 120,
       "duration": 5.0,
       "black_segments": 0,
-      "size_bytes": 52416
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 52221
     },
     "output/bridge_structure_evolution_preview.mp4": {
       "codec": "h264",
@@ -88,10 +123,71 @@
       "frames": 708,
       "duration": 29.5,
       "black_segments": 0,
-      "size_bytes": 764238
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 764514
     }
   },
+  "expected": {
+    "width": 640,
+    "height": 360,
+    "fps": "24/1",
+    "codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_streams": 0
+  },
   "expected_total_frames": 708,
+  "shot_boundaries": [
+    {
+      "shot": "SC_001",
+      "start_frame": 1,
+      "frames": 72
+    },
+    {
+      "shot": "SC_002",
+      "start_frame": 73,
+      "frames": 132
+    },
+    {
+      "shot": "SC_003",
+      "start_frame": 205,
+      "frames": 72
+    },
+    {
+      "shot": "SC_004",
+      "start_frame": 277,
+      "frames": 144
+    },
+    {
+      "shot": "SC_005",
+      "start_frame": 421,
+      "frames": 72
+    },
+    {
+      "shot": "SC_006",
+      "start_frame": 493,
+      "frames": 96
+    },
+    {
+      "shot": "SC_007",
+      "start_frame": 589,
+      "frames": 120
+    }
+  ],
+  "storyboard_sha256": "7fabfd21076419d9f3ce298a8b7b55cd7f69f04d6af016d52cb4e0c2ec823470",
+  "plan_sha256": null,
+  "render_keys": {
+    "SC_001": "91f3f2ca9b4a12e8691e9ebdcf49a1dada1ee7a37779d2898abde3e47a3a2d59",
+    "SC_002": "fc3cd5d968cafcf50719ec0fa0466fc9c09aa7edbbb3abe7260c0d50b7ef86de",
+    "SC_003": "559ad3bd04e6b287f8f752e712accd24b91248ea68d023564bb727ae4857fc8c",
+    "SC_004": "65d6ec9a59d25dc3fa595eb3467463e1d9c3b374844ddb4f2856a9e0adba1b62",
+    "SC_005": "0449a7194c29f07e2dace68c40ded0209cb40f71d91587d6a88b344b517af16d",
+    "SC_006": "3fbb1f742e3c818a9eaadeebcfebfa4f316b01e91f14da701333aac0ffcada6a",
+    "SC_007": "d8498b3e218bc24f3db23995e27b2a3e96a6b54d56307292f2ee550139b6354e"
+  },
   "cuts": [
     {
       "cut": "SC_001->SC_002",
@@ -126,7 +222,7 @@
     {
       "cut": "SC_006->SC_007",
       "mode": "hard",
-      "ssim": 0.66118,
+      "ssim": 0.66117,
       "ok": true
     }
   ],

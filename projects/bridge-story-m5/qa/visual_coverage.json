@@ -1,6 +1,16 @@
 {
   "project_id": "bridge-story-m5",
   "executable": true,
+  "visibility_summary": {
+    "shots_assessed": 8,
+    "target_rows": 13,
+    "rows_passing": 11,
+    "uncertain_rows": 0,
+    "issues_detected": 1,
+    "auto_repaired": 1,
+    "manual_review": 0,
+    "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
+  },
   "beats": [
     {
       "beat_id": "B1",
@@ -30,7 +40,10 @@
         "SC_001"
       ],
       "planned_seconds": 10.833,
-      "visibility_issues": []
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
     },
     {
       "beat_id": "B2",
@@ -64,7 +77,63 @@
         "SC_003"
       ],
       "planned_seconds": 10.833,
-      "visibility_issues": []
+      "readable": {
+        "stringer": true
+      },
+      "visual_repairs": [
+        {
+          "beat_id": "B2",
+          "shot_id": "SC_003",
+          "concept": "stringer",
+          "problems": [
+            "OCCLUDED"
+          ],
+          "frame": "highlight_peak",
+          "before": {
+            "visible_share": 0.1362,
+            "core_area": 0.0,
+            "visible_area": 0.00849
+          },
+          "after": {
+            "visible_share": 0.8096,
+            "core_area": 0.01669,
+            "visible_area": 0.05044
+          },
+          "evaluated": [
+            {
+              "remedy": "REFRAME",
+              "result": "SKIPPED",
+              "detail": "would break the match cut with the previous shot"
+            },
+            {
+              "remedy": "ALT_CAMERA:ELEVATION",
+              "result": "SKIPPED",
+              "detail": "would break the match-cut continuity (a different view direction)"
+            },
+            {
+              "remedy": "GHOST:plank",
+              "result": "PASS",
+              "detail": "share 0.81, core 1.67%, area 5.04% -> PASS"
+            }
+          ],
+          "chosen": "GHOST:plank"
+        }
+      ],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_003",
+          "concept": "stringer",
+          "label": "highlight_peak",
+          "frame": 65,
+          "visible_share": 0.8096,
+          "core_area": 0.01669,
+          "visible_area": 0.05044,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B3",
@@ -100,19 +169,103 @@
         "SC_005"
       ],
       "planned_seconds": 9.667,
-      "visibility_issues": []
+      "readable": {
+        "cap_beam": true,
+        "deck_planks": true,
+        "stringer": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_004",
+          "concept": "deck_planks",
+          "label": "highlight_peak",
+          "frame": 41,
+          "visible_share": 0.8184,
+          "core_area": 0.01741,
+          "visible_area": 0.0515,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_004",
+          "concept": "stringer",
+          "label": "highlight_peak",
+          "frame": 41,
+          "visible_share": 0.1362,
+          "core_area": 0.0,
+          "visible_area": 0.00849,
+          "ok": false,
+          "problems": [
+            "OCCLUDED"
+          ],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_004",
+          "concept": "cap_beam",
+          "label": "highlight_peak",
+          "frame": 41,
+          "visible_share": 0.1733,
+          "core_area": 0.00029,
+          "visible_area": 0.00169,
+          "ok": false,
+          "problems": [
+            "OCCLUDED"
+          ],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_005",
+          "concept": "deck_planks",
+          "label": "exploded_hold",
+          "frame": 82,
+          "visible_share": 1.0,
+          "core_area": 0.04977,
+          "visible_area": 0.06284,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_005",
+          "concept": "stringer",
+          "label": "exploded_hold",
+          "frame": 82,
+          "visible_share": 0.5031,
+          "core_area": 0.0137,
+          "visible_area": 0.03135,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_005",
+          "concept": "cap_beam",
+          "label": "exploded_hold",
+          "frame": 82,
+          "visible_share": 0.4877,
+          "core_area": 0.00101,
+          "visible_area": 0.00477,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B4",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "CLOSEUP_HIGHLIGHT",
+      "strategy": "CLOSEUP_EXPLODE",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 9.262,
       "timing_source": "PROVISIONAL",
       "issues": [],
       "explanation": [
-        "CLOSEUP_HIGHLIGHT: Establish the structure with the focus parts glowing, then a close-up framed on them"
+        "CLOSEUP_EXPLODE: Establish the structure, then a close-up in which only the focus pieces separate, showing their individual shape"
       ],
       "assets": [
         {
@@ -129,14 +282,58 @@
       ],
       "templates": [
         "HOLD",
-        "HOLD"
+        "EXPLODED_VIEW"
       ],
       "shot_ids": [
         "SC_006",
         "SC_007"
       ],
       "planned_seconds": 9.292,
-      "visibility_issues": []
+      "readable": {
+        "arch_ring": true,
+        "keystone": true,
+        "voussoir": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_006",
+          "concept": "arch_ring",
+          "label": "highlight_peak",
+          "frame": 42,
+          "visible_share": 0.3094,
+          "core_area": 0.01746,
+          "visible_area": 0.03178,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_007",
+          "concept": "voussoir",
+          "label": "exploded_hold",
+          "frame": 76,
+          "visible_share": 1.0,
+          "core_area": 0.06115,
+          "visible_area": 0.08353,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_007",
+          "concept": "keystone",
+          "label": "exploded_hold",
+          "frame": 76,
+          "visible_share": 1.0,
+          "core_area": 0.0055,
+          "visible_area": 0.00762,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B5",
@@ -169,7 +366,25 @@
         "SC_008"
       ],
       "planned_seconds": 5.042,
-      "visibility_issues": []
+      "readable": {
+        "truss_web": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_008",
+          "concept": "truss_web",
+          "label": "highlight_peak",
+          "frame": 65,
+          "visible_share": 0.791,
+          "core_area": 0.00053,
+          "visible_area": 0.03048,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B6",
@@ -211,19 +426,54 @@
         "SC_011"
       ],
       "planned_seconds": 12.75,
-      "visibility_issues": []
+      "readable": {
+        "truss_web": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_009",
+          "concept": "truss_web",
+          "label": "highlight_peak",
+          "frame": 50,
+          "visible_share": 0.791,
+          "core_area": 0.00053,
+          "visible_area": 0.03048,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_011",
+          "concept": "truss_web",
+          "label": "highlight_peak",
+          "frame": 51,
+          "visible_share": 0.7884,
+          "core_area": 0.0,
+          "visible_area": 0.01905,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B7",
       "visual_intent": "COMPARE_VARIANTS",
-      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "strategy": "SEQUENTIAL_COMPARISON",
       "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 6.185,
       "timing_source": "PROVISIONAL",
-      "issues": [],
+      "issues": [
+        "narration says the models are seen together, but no simultaneous layout reads at the reference resolution: SEQUENTIAL_COMPARISON (same camera and scale) instead; consider rewording the narration"
+      ],
       "explanation": [
-        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned"
+        "COMPARE_SIDE_BY_SIDE rejected (UNREADABLE): no simultaneous layout of 3 models reads at 640x360 (detail): STACK 0.5: members ~1.3 px wide at 640x360 (< 2.5) | STACK 0.25: members ~1.5 px wide at 640x360 (< 2.5) | ROW 0.35: members ~1.1 px wide at 640x360 (< 2.5); smallest model 24% of the frame width (< 25%) | ROW 0.2: members ~1.1 px wide at 640x360 (< 2.5)",
+        "FOCUSED_PAIR rejected (INVALID_REQUEST): FOCUSED_PAIR needs focus_states naming two of three or more compared states",
+        "DETAIL_THEN_OVERVIEW rejected (TIMING_CONFLICT): DETAIL_THEN_OVERVIEW needs 8.04 s (2.00 + 2.00 + 2.00 + 2.04), the beat has 6.21 s",
+        "SEQUENTIAL_COMPARISON: One variant at a time under one shared locked camera (same scale), captioned"
       ],
       "assets": [
         {
@@ -247,25 +497,127 @@
       ],
       "semantic_targets": [],
       "templates": [
-        "SIDE_BY_SIDE"
+        "HOLD",
+        "HOLD",
+        "HOLD"
       ],
       "shot_ids": [
-        "SC_012"
+        "SC_012",
+        "SC_013",
+        "SC_014"
       ],
       "planned_seconds": 6.208,
-      "visibility_issues": []
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6344,
+                "occupancy": 0.5582,
+                "width_px": 563.2,
+                "detail_m": 0.3,
+                "detail_px": 5.79,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 5.79,
+            "min_width": 0.88
+          },
+          "shot_id": "SC_012"
+        },
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6383,
+                "occupancy": 0.5617,
+                "width_px": 563.2,
+                "detail_m": 0.743,
+                "detail_px": 14.33,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 14.33,
+            "min_width": 0.88
+          },
+          "shot_id": "SC_013"
+        },
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6902,
+                "occupancy": 0.6074,
+                "width_px": 563.2,
+                "detail_m": 0.2,
+                "detail_px": 3.86,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 3.86,
+            "min_width": 0.88
+          },
+          "shot_id": "SC_014"
+        }
+      ],
+      "visibility": []
     },
     {
       "beat_id": "B8",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": "CONTINUE_COMPARISON",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
       "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 7.723,
       "timing_source": "PROVISIONAL",
       "issues": [],
       "explanation": [
-        "CONTINUE_COMPARISON: Stay on the comparison, glow what differs"
+        "CONTINUE_COMPARISON rejected (INVALID_REQUEST): no comparison of the same states to continue",
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned (layout chosen by planner/composition.py: STACK or ROW, gap)"
       ],
       "assets": [
         {
@@ -292,10 +644,90 @@
         "SIDE_BY_SIDE"
       ],
       "shot_ids": [
-        "SC_013"
+        "SC_015"
       ],
       "planned_seconds": 7.75,
-      "visibility_issues": []
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [
+        {
+          "layout": "SIDE_BY_SIDE_STACK",
+          "gap_ratio": 0.25,
+          "label_band": 0.1,
+          "purpose": "overview",
+          "scale": "COMMON",
+          "metrics": {
+            "px_per_m": 7.47,
+            "models": {
+              "timber_beam_bridge": {
+                "width": 0.3435,
+                "height": 0.2188,
+                "occupancy": 0.0752,
+                "width_px": 219.9,
+                "detail_m": 0.3,
+                "detail_px": 2.24,
+                "clipped": false,
+                "in_label_band": false
+              },
+              "stone_arch_bridge": {
+                "width": 0.3435,
+                "height": 0.2205,
+                "occupancy": 0.0758,
+                "width_px": 219.9,
+                "detail_m": 0.743,
+                "detail_px": 5.55,
+                "clipped": false,
+                "in_label_band": false
+              },
+              "steel_truss_bridge": {
+                "width": 0.3435,
+                "height": 0.2404,
+                "occupancy": 0.0826,
+                "width_px": 219.9,
+                "detail_m": 0.2,
+                "detail_px": 1.49,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 1.49,
+            "min_width": 0.3435
+          },
+          "candidates": [
+            {
+              "layout": "STACK",
+              "gap_ratio": 0.5,
+              "ok": true,
+              "problems": []
+            },
+            {
+              "layout": "STACK",
+              "gap_ratio": 0.25,
+              "ok": true,
+              "problems": []
+            },
+            {
+              "layout": "ROW",
+              "gap_ratio": 0.35,
+              "ok": false,
+              "problems": [
+                "smallest model 24% of the frame width (< 25%)"
+              ]
+            },
+            {
+              "layout": "ROW",
+              "gap_ratio": 0.2,
+              "ok": true,
+              "problems": []
+            }
+          ],
+          "shot_id": "SC_015"
+        }
+      ],
+      "visibility": []
     }
   ]
 }

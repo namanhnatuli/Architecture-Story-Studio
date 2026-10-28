@@ -2,9 +2,9 @@
   "blender": "5.2.2 LTS",
   "preset": "preview",
   "summary": {
-    "passed": 163,
+    "passed": 188,
     "failed": 0,
-    "total": 163
+    "total": 188
   },
   "results": [
     {
@@ -365,7 +365,7 @@
       "shot": "SC_006",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "39 animated objects x 20 frames, max error 1.40e-08"
+      "detail": "39 animated objects x 20 frames, max error 1.45e-08"
     },
     {
       "shot": "SC_006",
@@ -413,7 +413,7 @@
       "shot": "SC_006",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "31% of the highlighted silhouette visible, 3.14% of the frame at frame 60"
+      "detail": "31% of the highlighted silhouette visible, 3.14% of the frame at frame 42"
     },
     {
       "shot": "SC_006",
@@ -431,13 +431,13 @@
       "shot": "SC_007",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "13 animated objects x 20 frames, max error 1.40e-08"
+      "detail": "13 animated objects x 38 frames, max error 5.54e-07"
     },
     {
       "shot": "SC_007",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "39 objects (3 shared) unchanged on 20 frames"
+      "detail": "39 objects (3 shared) unchanged on 38 frames"
     },
     {
       "shot": "SC_007",
@@ -459,6 +459,18 @@
     },
     {
       "shot": "SC_007",
+      "check": "exploded_returns_exactly",
+      "status": "PASS",
+      "detail": "hold offsets stone_arch_bridge_arch2_keystone=5.39m, stone_arch_bridge_arch2_voussoir01=5.14m, stone_arch_bridge_arch2_voussoir02=5.15m, stone_arch_bridge_arch2_voussoir03=5.16m, stone_arch_bridge_arch2_voussoir04=5.16m, stone_arch_bridge_arch2_voussoir05=5.17m, stone_arch_bridge_arch2_voussoir06=5.17m, stone_arch_bridge_arch2_voussoir08=5.17m, stone_arch_bridge_arch2_voussoir09=5.17m, stone_arch_bridge_arch2_voussoir10=5.16m, stone_arch_bridge_arch2_voussoir11=5.16m, stone_arch_bridge_arch2_voussoir12=5.15m, stone_arch_bridge_arch2_voussoir13=5.14m"
+    },
+    {
+      "shot": "SC_007",
+      "check": "exploded_no_new_intersections",
+      "status": "PASS",
+      "detail": "0 new mesh intersections (25 resting contacts ignored)"
+    },
+    {
+      "shot": "SC_007",
       "check": "final_visibility",
       "status": "PASS",
       "detail": "52 visible parts as expected"
@@ -467,7 +479,7 @@
       "shot": "SC_007",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.060 at stone_arch_bridge_arch2_keystone@1; lowest point y=0.160 (label band 0.10); ortho_scale 12.433"
+      "detail": "min margin 0.050 at stone_arch_bridge_arch2_keystone@35; lowest point y=0.150 (label band 0.10); ortho_scale 10.889"
     },
     {
       "shot": "SC_007",
@@ -479,13 +491,13 @@
       "shot": "SC_007",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "31% of the highlighted silhouette visible, 7.55% of the frame at frame 61"
+      "detail": "100% of the highlighted silhouette visible, 9.10% of the frame at frame 76"
     },
     {
       "shot": "SC_007",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 3.43e-07"
+      "detail": "max projection error 4.63e-08"
     },
     {
       "shot": "SC_008",
@@ -761,7 +773,7 @@
       "shot": "SC_012",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "107 components, ownership + parenting OK"
+      "detail": "101 components, ownership + parenting OK"
     },
     {
       "shot": "SC_012",
@@ -773,7 +785,7 @@
       "shot": "SC_012",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "107 objects (9 shared) unchanged on 6 frames"
+      "detail": "101 objects (3 shared) unchanged on 6 frames"
     },
     {
       "shot": "SC_012",
@@ -797,13 +809,13 @@
       "shot": "SC_012",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "107 visible parts as expected"
+      "detail": "23 visible parts as expected"
     },
     {
       "shot": "SC_012",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.050 at timber_beam_bridge.timber_beam_bridge_railing_north@1; lowest point y=0.150 (label band 0.10); ortho_scale 98.216"
+      "detail": "min margin 0.060 at bank_right@1; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
     },
     {
       "shot": "SC_012",
@@ -815,37 +827,31 @@
       "shot": "SC_012",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 9.78e-08"
-    },
-    {
-      "shot": "SC_012",
-      "check": "side_by_side_layout",
-      "status": "PASS",
-      "detail": "3 models, identical shared local transforms and dimensions, gaps 5.78 m, 5.78 m"
+      "detail": "max projection error 2.18e-07"
     },
     {
       "shot": "SC_012",
       "check": "labels_in_band",
       "status": "PASS",
-      "detail": "3 captions inside the label band, centred under their models, no overlap"
+      "detail": "1 captions inside the label band, centred under their models, no overlap"
     },
     {
       "shot": "SC_013",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "107 components, ownership + parenting OK"
+      "detail": "101 components, ownership + parenting OK"
     },
     {
       "shot": "SC_013",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "98 animated objects x 20 frames, max error 1.19e-08"
+      "detail": "0 animated objects x 6 frames, max error 0.00e+00"
     },
     {
       "shot": "SC_013",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "9 objects (9 shared) unchanged on 20 frames"
+      "detail": "101 objects (3 shared) unchanged on 6 frames"
     },
     {
       "shot": "SC_013",
@@ -869,13 +875,13 @@
       "shot": "SC_013",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "107 visible parts as expected"
+      "detail": "52 visible parts as expected"
     },
     {
       "shot": "SC_013",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.050 at timber_beam_bridge.timber_beam_bridge_railing_north@1; lowest point y=0.150 (label band 0.10); ortho_scale 98.216"
+      "detail": "min margin 0.060 at bank_right@1; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
     },
     {
       "shot": "SC_013",
@@ -887,16 +893,148 @@
       "shot": "SC_013",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 9.78e-08"
+      "detail": "max projection error 2.18e-07"
     },
     {
       "shot": "SC_013",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "1 captions inside the label band, centred under their models, no overlap"
+    },
+    {
+      "shot": "SC_014",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "101 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_014",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "0 animated objects x 5 frames, max error 0.00e+00"
+    },
+    {
+      "shot": "SC_014",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "101 objects (3 shared) unchanged on 5 frames"
+    },
+    {
+      "shot": "SC_014",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_014",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_014",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_014",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "32 visible parts as expected"
+    },
+    {
+      "shot": "SC_014",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.060 at bank_right@1; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+    },
+    {
+      "shot": "SC_014",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_014",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.18e-07"
+    },
+    {
+      "shot": "SC_014",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "1 captions inside the label band, centred under their models, no overlap"
+    },
+    {
+      "shot": "SC_015",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "107 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_015",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "98 animated objects x 20 frames, max error 1.19e-08"
+    },
+    {
+      "shot": "SC_015",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "9 objects (9 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_015",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_015",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_015",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_015",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "107 visible parts as expected"
+    },
+    {
+      "shot": "SC_015",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.050 at timber_beam_bridge.timber_beam_bridge_railing_north@1; lowest point y=0.150 (label band 0.10); ortho_scale 85.380"
+    },
+    {
+      "shot": "SC_015",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_015",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 8.86e-08"
+    },
+    {
+      "shot": "SC_015",
       "check": "side_by_side_layout",
       "status": "PASS",
-      "detail": "3 models, identical shared local transforms and dimensions, gaps 5.78 m, 5.78 m"
+      "detail": "3 models, identical shared local transforms and dimensions, gaps 2.89 m, 2.89 m"
     },
     {
-      "shot": "SC_013",
+      "shot": "SC_015",
       "check": "labels_in_band",
       "status": "PASS",
       "detail": "3 captions inside the label band, centred under their models, no overlap"
@@ -905,7 +1043,7 @@
       "shot": "ALL",
       "check": "camera_identical_across_single_model_shots",
       "status": "PASS",
-      "detail": "11 shots in 4 continuity group(s), one locked camera per group"
+      "detail": "14 shots in 5 continuity group(s), one locked camera per group"
     },
     {
       "shot": "SC_001",
@@ -941,13 +1079,13 @@
       "shot": "SC_006",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 bf62e087012dc37e"
+      "detail": "sha256 ec055454651dac98"
     },
     {
       "shot": "SC_007",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 958dace2eb411311"
+      "detail": "sha256 4af1d38f2a5834bf"
     },
     {
       "shot": "SC_008",
@@ -977,13 +1115,25 @@
       "shot": "SC_012",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 2942bbd9d339676c"
+      "detail": "sha256 dd7e6a3fd052683a"
     },
     {
       "shot": "SC_013",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 74232c4baaa85a91"
+      "detail": "sha256 ddfd11557ddfc4cc"
+    },
+    {
+      "shot": "SC_014",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 aa8ff643b878c683"
+    },
+    {
+      "shot": "SC_015",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 2e13fa533f1028f5"
     }
   ]
 }

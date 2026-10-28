@@ -1,0 +1,725 @@
+{
+ "project": "roof-plan-m5",
+ "preset": "preview",
+ "grid": [
+  192,
+  108
+ ],
+ "summary": {
+  "rows": 20,
+  "verdict_agreement": 1.0,
+  "mean_abs_share_error": 0.0148,
+  "max_abs_share_error": 0.0427,
+  "level2_seconds": 0.8,
+  "level1_seconds": 0.1,
+  "explanatory_failures_L2": 0,
+  "beat_concepts": 2,
+  "beat_concepts_unreadable_L2": []
+ },
+ "rows": [
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 1,
+   "label": "start",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 590
+     },
+     {
+      "id": "low_pitch_gable_roof_covering_left",
+      "samples": 382
+     },
+     {
+      "id": "low_pitch_gable_roof_gable_front",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 1,
+   "label": "start",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 168
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 40,
+   "label": "q25",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5991,
+    "core_area": 0.01042,
+    "visible_area": 0.03323,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5564,
+    "core_area": 0.00627,
+    "visible_area": 0.02619,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 433
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 40,
+   "label": "q25",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.341,
+    "core_area": 0.00121,
+    "visible_area": 0.00285,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.355,
+    "core_area": 0.00116,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 99
+     },
+     {
+      "id": "low_pitch_gable_roof_rafters_right",
+      "samples": 10
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 79,
+   "label": "mid",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5864,
+    "core_area": 0.01032,
+    "visible_area": 0.03255,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5468,
+    "core_area": 0.00646,
+    "visible_area": 0.02566,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 441
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 79,
+   "label": "mid",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3468,
+    "core_area": 0.00121,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.355,
+    "core_area": 0.00116,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 99
+     },
+     {
+      "id": "low_pitch_gable_roof_rafters_right",
+      "samples": 10
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 118,
+   "label": "q75",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5864,
+    "core_area": 0.01032,
+    "visible_area": 0.03255,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5468,
+    "core_area": 0.00646,
+    "visible_area": 0.02566,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 441
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 118,
+   "label": "q75",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3468,
+    "core_area": 0.00121,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.355,
+    "core_area": 0.00116,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 99
+     },
+     {
+      "id": "low_pitch_gable_roof_rafters_right",
+      "samples": 10
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 158,
+   "label": "end",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 590
+     },
+     {
+      "id": "low_pitch_gable_roof_covering_left",
+      "samples": 382
+     },
+     {
+      "id": "low_pitch_gable_roof_gable_front",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 158,
+   "label": "end",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 168
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 43,
+   "label": "explode_end",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5864,
+    "core_area": 0.01032,
+    "visible_area": 0.03255,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5468,
+    "core_area": 0.00646,
+    "visible_area": 0.02566,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 441
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 43,
+   "label": "explode_end",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3468,
+    "core_area": 0.00121,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.355,
+    "core_area": 0.00116,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 99
+     },
+     {
+      "id": "low_pitch_gable_roof_rafters_right",
+      "samples": 10
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 590
+     },
+     {
+      "id": "low_pitch_gable_roof_covering_left",
+      "samples": 382
+     },
+     {
+      "id": "low_pitch_gable_roof_gable_front",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 168
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 81,
+   "label": "exploded_hold",
+   "concept": "rafters",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.5864,
+    "core_area": 0.01032,
+    "visible_area": 0.03255,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5468,
+    "core_area": 0.00646,
+    "visible_area": 0.02566,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 441
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 81,
+   "label": "exploded_hold",
+   "concept": "ridge_beam",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.3468,
+    "core_area": 0.00121,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.355,
+    "core_area": 0.00116,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 99
+     },
+     {
+      "id": "low_pitch_gable_roof_rafters_right",
+      "samples": 10
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 152,
+   "label": "return_end",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 590
+     },
+     {
+      "id": "low_pitch_gable_roof_covering_left",
+      "samples": 382
+     },
+     {
+      "id": "low_pitch_gable_roof_gable_front",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 152,
+   "label": "return_end",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 168
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 120,
+   "label": "return_start",
+   "concept": "rafters",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5864,
+    "core_area": 0.01032,
+    "visible_area": 0.03255,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5468,
+    "core_area": 0.00646,
+    "visible_area": 0.02566,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 441
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "R2",
+   "frame": 120,
+   "label": "return_start",
+   "concept": "ridge_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3468,
+    "core_area": 0.00121,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.355,
+    "core_area": 0.00116,
+    "visible_area": 0.00289,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "low_pitch_gable_roof_covering_right",
+      "samples": 99
+     },
+     {
+      "id": "low_pitch_gable_roof_rafters_right",
+      "samples": 10
+     }
+    ]
+   }
+  }
+ ]
+}

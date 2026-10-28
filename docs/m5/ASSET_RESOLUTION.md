@@ -7,7 +7,7 @@
 |---|---|---|
 | `site` | `river_crossing_site` | `family: site`, `variant` |
 | `architecture` | `timber_beam_bridge`, `five_arch_stone_bridge` (`where: {arch_count: 5}`), `pratt_truss` / `warren_truss` (`truss_pattern`), `low_pitch_gable_roof` (`roof_pitch_degrees ≤ 30`), `steep_gable_roof` (`≥ 40`) | `family`, `variant`, `where` (bằng nhau, hoặc `{min, max}`), `supported: false` cho họ chưa có bộ sinh (`suspension_bridge`, `cable_stayed_bridge`, `cantilever_bridge`) |
-| `component` | `voussoir`, `keystone`, `arch_ring`, `deck_planks`, `stringer`, `cap_beam`, `diagonal_members`, `truss_web`, `rafters`, `ridge_beam`, `roof_covering`… | `roles`: role ngữ nghĩa M4 (`type` viết thường) hoặc role mái M2; `ambiguous_if_multiple` cho khái niệm chung chung (`beam`, `member`); `ghost_roles` là role của các phần thường che nó (`stringer` → `plank`) |
+| `component` | `voussoir`, `keystone`, `arch_ring`, `deck_planks`, `stringer`, `cap_beam`, `diagonal_members`, `truss_web`, `rafters`, `ridge_beam`, `roof_covering`… | `roles`: role ngữ nghĩa M4 (`type` viết thường) hoặc role mái M2; `ambiguous_if_multiple` cho khái niệm chung chung (`beam`, `member`); `read_as: pieces` (M5.5): khái niệm được giải thích bằng hình dạng từng viên (voussoir) |
 
 Thêm khái niệm là thêm **cách gọi tên**, không thêm hình học. Một khái niệm công trình chỉ thực thi được khi có asset khớp, hoặc khi bộ sinh của họ/biến thể đó sinh được tham số yêu cầu.
 

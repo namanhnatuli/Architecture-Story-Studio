@@ -1,0 +1,4771 @@
+{
+ "project": "bridge-story-m5",
+ "preset": "preview",
+ "grid": [
+  192,
+  108
+ ],
+ "summary": {
+  "rows": 122,
+  "verdict_agreement": 1.0,
+  "mean_abs_share_error": 0.006,
+  "max_abs_share_error": 0.0174,
+  "level2_seconds": 3.6,
+  "level1_seconds": 1.73,
+  "explanatory_failures_L2": 2,
+  "beat_concepts": 9,
+  "beat_concepts_unreadable_L2": []
+ },
+ "rows": [
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 1,
+   "label": "start",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 30,
+   "label": "q25",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8096,
+    "core_area": 0.01669,
+    "visible_area": 0.05044,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8228,
+    "core_area": 0.0178,
+    "visible_area": 0.05126,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 208
+     },
+     {
+      "id": "bank_right",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 60,
+   "label": "mid",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8096,
+    "core_area": 0.01669,
+    "visible_area": 0.05044,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8228,
+    "core_area": 0.0178,
+    "visible_area": 0.05126,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 208
+     },
+     {
+      "id": "bank_right",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 90,
+   "label": "q75",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8096,
+    "core_area": 0.01669,
+    "visible_area": 0.05044,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8228,
+    "core_area": 0.0178,
+    "visible_area": 0.05126,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 208
+     },
+     {
+      "id": "bank_right",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 120,
+   "label": "end",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 114,
+   "label": "highlight_end",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 65,
+   "label": "highlight_peak",
+   "concept": "stringer",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.8096,
+    "core_area": 0.01669,
+    "visible_area": 0.05044,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8228,
+    "core_area": 0.0178,
+    "visible_area": 0.05126,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 208
+     },
+     {
+      "id": "bank_right",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "B2",
+   "frame": 60,
+   "label": "middle",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8096,
+    "core_area": 0.01669,
+    "visible_area": 0.05044,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8228,
+    "core_area": 0.0178,
+    "visible_area": 0.05126,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 208
+     },
+     {
+      "id": "bank_right",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 1,
+   "label": "start",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 1,
+   "label": "start",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 1,
+   "label": "start",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 18,
+   "label": "q25",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 18,
+   "label": "q25",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 18,
+   "label": "q25",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 36,
+   "label": "mid",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 36,
+   "label": "mid",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 36,
+   "label": "mid",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 54,
+   "label": "q75",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 54,
+   "label": "q75",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 54,
+   "label": "q75",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 72,
+   "label": "end",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 72,
+   "label": "end",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 72,
+   "label": "end",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 66,
+   "label": "highlight_end",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 66,
+   "label": "highlight_end",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 66,
+   "label": "highlight_end",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 41,
+   "label": "highlight_peak",
+   "concept": "deck_planks",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 41,
+   "label": "highlight_peak",
+   "concept": "stringer",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 41,
+   "label": "highlight_peak",
+   "concept": "cap_beam",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 36,
+   "label": "middle",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 36,
+   "label": "middle",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "B3",
+   "frame": 36,
+   "label": "middle",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 1,
+   "label": "start",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 1,
+   "label": "start",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 1,
+   "label": "start",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 40,
+   "label": "q25",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.04977,
+    "visible_area": 0.06284,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.04982,
+    "visible_area": 0.06293,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 40,
+   "label": "q25",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5251,
+    "core_area": 0.01389,
+    "visible_area": 0.03274,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5328,
+    "core_area": 0.01442,
+    "visible_area": 0.03328,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 136
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 127
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 127
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 110
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 40,
+   "label": "q25",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.4783,
+    "core_area": 0.00072,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.4851,
+    "core_area": 0.00077,
+    "visible_area": 0.00473,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 29
+     },
+     {
+      "id": "timber_beam_bridge_span3_stringers",
+      "samples": 17
+     },
+     {
+      "id": "timber_beam_bridge_span4_stringers",
+      "samples": 16
+     },
+     {
+      "id": "bank_right",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 80,
+   "label": "mid",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.04977,
+    "visible_area": 0.06284,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.04982,
+    "visible_area": 0.06293,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 80,
+   "label": "mid",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5031,
+    "core_area": 0.0137,
+    "visible_area": 0.03135,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5116,
+    "core_area": 0.01432,
+    "visible_area": 0.03188,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 142
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 135
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 134
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 115
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 80,
+   "label": "mid",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.4877,
+    "core_area": 0.00101,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5,
+    "core_area": 0.00096,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 26
+     },
+     {
+      "id": "timber_beam_bridge_span3_stringers",
+      "samples": 19
+     },
+     {
+      "id": "timber_beam_bridge_span4_stringers",
+      "samples": 18
+     },
+     {
+      "id": "timber_beam_bridge_span1_stringers",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 120,
+   "label": "q75",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.04977,
+    "visible_area": 0.06284,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.04982,
+    "visible_area": 0.06293,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 120,
+   "label": "q75",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5031,
+    "core_area": 0.0137,
+    "visible_area": 0.03135,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5116,
+    "core_area": 0.01432,
+    "visible_area": 0.03188,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 142
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 135
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 134
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 115
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 120,
+   "label": "q75",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.4826,
+    "core_area": 0.00082,
+    "visible_area": 0.00468,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5,
+    "core_area": 0.00082,
+    "visible_area": 0.00458,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 24
+     },
+     {
+      "id": "timber_beam_bridge_span4_stringers",
+      "samples": 18
+     },
+     {
+      "id": "timber_beam_bridge_span3_stringers",
+      "samples": 17
+     },
+     {
+      "id": "timber_beam_bridge_span1_stringers",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 160,
+   "label": "end",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 160,
+   "label": "end",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 160,
+   "label": "end",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 48,
+   "label": "explode_end",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.04977,
+    "visible_area": 0.06284,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.04982,
+    "visible_area": 0.06293,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 48,
+   "label": "explode_end",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5031,
+    "core_area": 0.0137,
+    "visible_area": 0.03135,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5116,
+    "core_area": 0.01432,
+    "visible_area": 0.03188,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 142
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 135
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 134
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 115
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 48,
+   "label": "explode_end",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.4877,
+    "core_area": 0.00101,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5,
+    "core_area": 0.00096,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 26
+     },
+     {
+      "id": "timber_beam_bridge_span3_stringers",
+      "samples": 19
+     },
+     {
+      "id": "timber_beam_bridge_span4_stringers",
+      "samples": 18
+     },
+     {
+      "id": "timber_beam_bridge_span1_stringers",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 82,
+   "label": "exploded_hold",
+   "concept": "deck_planks",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.04977,
+    "visible_area": 0.06284,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.04982,
+    "visible_area": 0.06293,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 82,
+   "label": "exploded_hold",
+   "concept": "stringer",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.5031,
+    "core_area": 0.0137,
+    "visible_area": 0.03135,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5116,
+    "core_area": 0.01432,
+    "visible_area": 0.03188,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 142
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 135
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 134
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 115
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 82,
+   "label": "exploded_hold",
+   "concept": "cap_beam",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.4877,
+    "core_area": 0.00101,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5,
+    "core_area": 0.00096,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 26
+     },
+     {
+      "id": "timber_beam_bridge_span3_stringers",
+      "samples": 19
+     },
+     {
+      "id": "timber_beam_bridge_span4_stringers",
+      "samples": 18
+     },
+     {
+      "id": "timber_beam_bridge_span1_stringers",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 154,
+   "label": "return_end",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8184,
+    "core_area": 0.01741,
+    "visible_area": 0.0515,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8345,
+    "core_area": 0.01866,
+    "visible_area": 0.05252,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 211
+     },
+     {
+      "id": "timber_beam_bridge_railing_north",
+      "samples": 4
+     },
+     {
+      "id": "bank_right",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 154,
+   "label": "return_end",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1362,
+    "core_area": 0.0,
+    "visible_area": 0.00849,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.137,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 236
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 223
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 211
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 154,
+   "label": "return_end",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1733,
+    "core_area": 0.00029,
+    "visible_area": 0.00169,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1823,
+    "core_area": 0.00039,
+    "visible_area": 0.00178,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "bank_right",
+      "samples": 40
+     },
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 23
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 21
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 117,
+   "label": "return_start",
+   "concept": "deck_planks",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.04977,
+    "visible_area": 0.06284,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.04982,
+    "visible_area": 0.06293,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 117,
+   "label": "return_start",
+   "concept": "stringer",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5031,
+    "core_area": 0.0137,
+    "visible_area": 0.03135,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5116,
+    "core_area": 0.01432,
+    "visible_area": 0.03188,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_span4_planks",
+      "samples": 142
+     },
+     {
+      "id": "timber_beam_bridge_span2_planks",
+      "samples": 135
+     },
+     {
+      "id": "timber_beam_bridge_span3_planks",
+      "samples": 134
+     },
+     {
+      "id": "timber_beam_bridge_span1_planks",
+      "samples": 115
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "B3",
+   "frame": 117,
+   "label": "return_start",
+   "concept": "cap_beam",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.4877,
+    "core_area": 0.00101,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5,
+    "core_area": 0.00096,
+    "visible_area": 0.00477,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_bridge_railing_south",
+      "samples": 26
+     },
+     {
+      "id": "timber_beam_bridge_span3_stringers",
+      "samples": 19
+     },
+     {
+      "id": "timber_beam_bridge_span4_stringers",
+      "samples": 18
+     },
+     {
+      "id": "timber_beam_bridge_span1_stringers",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 1,
+   "label": "start",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 19,
+   "label": "q25",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 38,
+   "label": "mid",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 56,
+   "label": "q75",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 75,
+   "label": "end",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 69,
+   "label": "highlight_end",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 42,
+   "label": "highlight_peak",
+   "concept": "arch_ring",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_006",
+   "beat": "B4",
+   "frame": 38,
+   "label": "middle",
+   "concept": "arch_ring",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3094,
+    "core_area": 0.01746,
+    "visible_area": 0.03178,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3074,
+    "core_area": 0.01707,
+    "visible_area": 0.03139,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_bridge_parapet_south",
+      "samples": 451
+     },
+     {
+      "id": "bank_right",
+      "samples": 208
+     },
+     {
+      "id": "stone_arch_bridge_coping_south",
+      "samples": 47
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 1,
+   "label": "start",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9181,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.917,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 138
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 1,
+   "label": "start",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 37,
+   "label": "q25",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.06057,
+    "visible_area": 0.08304,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.06019,
+    "visible_area": 0.08266,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 37,
+   "label": "q25",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 74,
+   "label": "mid",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08353,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08333,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 74,
+   "label": "mid",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 111,
+   "label": "q75",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08353,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08333,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 111,
+   "label": "q75",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 148,
+   "label": "end",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9181,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.917,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 138
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 148,
+   "label": "end",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 39,
+   "label": "explode_end",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08353,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08333,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 39,
+   "label": "explode_end",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9181,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.917,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 138
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 76,
+   "label": "exploded_hold",
+   "concept": "voussoir",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08353,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08333,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 76,
+   "label": "exploded_hold",
+   "concept": "keystone",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 142,
+   "label": "return_end",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9181,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.917,
+    "core_area": 0.05758,
+    "visible_area": 0.0735,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 138
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 142,
+   "label": "return_end",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9079,
+    "core_area": 0.00463,
+    "visible_area": 0.00666,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_bridge_spandrel",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 114,
+   "label": "return_start",
+   "concept": "voussoir",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08353,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.06115,
+    "visible_area": 0.08333,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_007",
+   "beat": "B4",
+   "frame": 114,
+   "label": "return_start",
+   "concept": "keystone",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.0055,
+    "visible_area": 0.00762,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 1,
+   "label": "start",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 30,
+   "label": "q25",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 60,
+   "label": "mid",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 91,
+   "label": "q75",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 121,
+   "label": "end",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 115,
+   "label": "highlight_end",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 65,
+   "label": "highlight_peak",
+   "concept": "truss_web",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_008",
+   "beat": "B5",
+   "frame": 61,
+   "label": "middle",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 1,
+   "label": "start",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 22,
+   "label": "q25",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 45,
+   "label": "mid",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 68,
+   "label": "q75",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 90,
+   "label": "end",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 84,
+   "label": "highlight_end",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 50,
+   "label": "highlight_peak",
+   "concept": "truss_web",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_009",
+   "beat": "B6",
+   "frame": 45,
+   "label": "middle",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.791,
+    "core_area": 0.00053,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7968,
+    "core_area": 0.00063,
+    "visible_area": 0.0312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 43
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_north",
+      "samples": 19
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_north",
+      "samples": 16
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 1,
+   "label": "start",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 23,
+   "label": "q25",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 46,
+   "label": "mid",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 69,
+   "label": "q75",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 92,
+   "label": "end",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 86,
+   "label": "highlight_end",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 51,
+   "label": "highlight_peak",
+   "concept": "truss_web",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 15,
+   "label": "highlight_start",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_011",
+   "beat": "B6",
+   "frame": 46,
+   "label": "middle",
+   "concept": "truss_web",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7884,
+    "core_area": 0.0,
+    "visible_area": 0.01905,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7794,
+    "core_area": 0.0,
+    "visible_area": 0.01857,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_bridge_span2_joints_south",
+      "samples": 28
+     },
+     {
+      "id": "steel_truss_bridge_span1_joints_south",
+      "samples": 26
+     },
+     {
+      "id": "steel_truss_bridge_span2_chords_south",
+      "samples": 16
+     },
+     {
+      "id": "steel_truss_bridge_span1_chords_south",
+      "samples": 14
+     }
+    ]
+   }
+  }
+ ]
+}

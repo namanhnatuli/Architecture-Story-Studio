@@ -1,0 +1,1947 @@
+{
+ "project": "bridge-structure-evolution",
+ "preset": "preview",
+ "grid": [
+  192,
+  108
+ ],
+ "summary": {
+  "rows": 47,
+  "verdict_agreement": 1.0,
+  "mean_abs_share_error": 0.0045,
+  "max_abs_share_error": 0.0152,
+  "level2_seconds": 2.2,
+  "level1_seconds": 1.0,
+  "explanatory_failures_L2": 0,
+  "beat_concepts": 5,
+  "beat_concepts_unreadable_L2": []
+ },
+ "rows": [
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 1,
+   "label": "start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 18,
+   "label": "q25",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 36,
+   "label": "mid",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8074,
+    "core_area": 0.01702,
+    "visible_area": 0.05035,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8162,
+    "core_area": 0.01789,
+    "visible_area": 0.05097,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     },
+     {
+      "id": "bank_right",
+      "samples": 23
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 54,
+   "label": "q75",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8074,
+    "core_area": 0.01702,
+    "visible_area": 0.05035,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8162,
+    "core_area": 0.01789,
+    "visible_area": 0.05097,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     },
+     {
+      "id": "bank_right",
+      "samples": 23
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 72,
+   "label": "end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 63,
+   "label": "highlight_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 41,
+   "label": "highlight_peak",
+   "concept": "highlight",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.8074,
+    "core_area": 0.01702,
+    "visible_area": 0.05035,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8162,
+    "core_area": 0.01789,
+    "visible_area": 0.05097,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     },
+     {
+      "id": "bank_right",
+      "samples": 23
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 18,
+   "label": "highlight_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_001",
+   "beat": "SC_001",
+   "frame": 36,
+   "label": "middle",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8074,
+    "core_area": 0.01702,
+    "visible_area": 0.05035,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8162,
+    "core_area": 0.01789,
+    "visible_area": 0.05097,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     },
+     {
+      "id": "bank_right",
+      "samples": 23
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 1,
+   "label": "start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 33,
+   "label": "q25",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5062,
+    "core_area": 0.00661,
+    "visible_area": 0.03154,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5182,
+    "core_area": 0.00752,
+    "visible_area": 0.03231,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 182
+     },
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 121
+     },
+     {
+      "id": "timber_beam_span2_planks",
+      "samples": 113
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 112
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 66,
+   "label": "mid",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5043,
+    "core_area": 0.01389,
+    "visible_area": 0.03144,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5081,
+    "core_area": 0.01418,
+    "visible_area": 0.03173,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 145
+     },
+     {
+      "id": "timber_beam_span2_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 120
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 99,
+   "label": "q75",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.4756,
+    "core_area": 0.00559,
+    "visible_area": 0.02966,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.4892,
+    "core_area": 0.00603,
+    "visible_area": 0.03048,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 202
+     },
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 125
+     },
+     {
+      "id": "timber_beam_span2_planks",
+      "samples": 116
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 116
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 132,
+   "label": "end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 48,
+   "label": "explode_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5043,
+    "core_area": 0.01389,
+    "visible_area": 0.03144,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5081,
+    "core_area": 0.01418,
+    "visible_area": 0.03173,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 145
+     },
+     {
+      "id": "timber_beam_span2_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 120
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 64,
+   "label": "exploded_hold",
+   "concept": "highlight",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.5043,
+    "core_area": 0.01389,
+    "visible_area": 0.03144,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5081,
+    "core_area": 0.01418,
+    "visible_area": 0.03173,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 145
+     },
+     {
+      "id": "timber_beam_span2_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 120
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 118,
+   "label": "return_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1353,
+    "core_area": 0.0,
+    "visible_area": 0.00844,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1367,
+    "core_area": 0.0,
+    "visible_area": 0.00854,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 232
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 221
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 216
+     },
+     {
+      "id": "timber_beam_railing_south",
+      "samples": 215
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 81,
+   "label": "return_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.5043,
+    "core_area": 0.01389,
+    "visible_area": 0.03144,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5081,
+    "core_area": 0.01418,
+    "visible_area": 0.03173,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "timber_beam_span4_planks",
+      "samples": 145
+     },
+     {
+      "id": "timber_beam_span2_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span3_planks",
+      "samples": 133
+     },
+     {
+      "id": "timber_beam_span1_planks",
+      "samples": 120
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 1,
+   "label": "start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 18,
+   "label": "q25",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 36,
+   "label": "mid",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 54,
+   "label": "q75",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 72,
+   "label": "end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 63,
+   "label": "highlight_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 41,
+   "label": "highlight_peak",
+   "concept": "highlight",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 18,
+   "label": "highlight_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_003",
+   "beat": "SC_003",
+   "frame": 36,
+   "label": "middle",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.3114,
+    "core_area": 0.0176,
+    "visible_area": 0.03197,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.3054,
+    "core_area": 0.01707,
+    "visible_area": 0.03125,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 760
+     },
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 455
+     },
+     {
+      "id": "bank_right",
+      "samples": 211
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 48
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 1,
+   "label": "start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1547,
+    "core_area": 0.00043,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1558,
+    "core_area": 0.00048,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 135
+     },
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 63
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 26
+     },
+     {
+      "id": "stone_arch_arch1_voussoir08",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 36,
+   "label": "q25",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.6344,
+    "core_area": 0.00473,
+    "visible_area": 0.00854,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.6462,
+    "core_area": 0.00473,
+    "visible_area": 0.00863,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 78
+     },
+     {
+      "id": "stone_arch_arch1_voussoir08",
+      "samples": 8
+     },
+     {
+      "id": "stone_arch_arch2_voussoir08",
+      "samples": 6
+     },
+     {
+      "id": "stone_arch_arch3_voussoir08",
+      "samples": 6
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 72,
+   "label": "mid",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.00868,
+    "visible_area": 0.01365,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.00844,
+    "visible_area": 0.01341,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 108,
+   "label": "q75",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8163,
+    "core_area": 0.0067,
+    "visible_area": 0.01114,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.8315,
+    "core_area": 0.00656,
+    "visible_area": 0.01095,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 37
+     },
+     {
+      "id": "stone_arch_arch2_voussoir08",
+      "samples": 4
+     },
+     {
+      "id": "stone_arch_arch3_voussoir08",
+      "samples": 3
+     },
+     {
+      "id": "stone_arch_arch1_voussoir08",
+      "samples": 2
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 144,
+   "label": "end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1547,
+    "core_area": 0.00043,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1558,
+    "core_area": 0.00048,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 135
+     },
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 63
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 26
+     },
+     {
+      "id": "stone_arch_arch1_voussoir08",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 56,
+   "label": "explode_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.00868,
+    "visible_area": 0.01365,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.00844,
+    "visible_area": 0.01341,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1547,
+    "core_area": 0.00043,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1558,
+    "core_area": 0.00048,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 135
+     },
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 63
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 26
+     },
+     {
+      "id": "stone_arch_arch1_voussoir08",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 73,
+   "label": "exploded_hold",
+   "concept": "highlight",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.00868,
+    "visible_area": 0.01365,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.00844,
+    "visible_area": 0.01341,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 135,
+   "label": "return_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.1547,
+    "core_area": 0.00043,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.1558,
+    "core_area": 0.00048,
+    "visible_area": 0.00207,
+    "ok": false,
+    "problems": [
+     "OCCLUDED"
+    ],
+    "occluders": [
+     {
+      "id": "stone_arch_parapet_south",
+      "samples": 135
+     },
+     {
+      "id": "stone_arch_spandrel",
+      "samples": 63
+     },
+     {
+      "id": "stone_arch_coping_south",
+      "samples": 26
+     },
+     {
+      "id": "stone_arch_arch1_voussoir08",
+      "samples": 3
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_004",
+   "beat": "SC_004",
+   "frame": 90,
+   "label": "return_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 1.0,
+    "core_area": 0.00868,
+    "visible_area": 0.01365,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 1.0,
+    "core_area": 0.00844,
+    "visible_area": 0.01341,
+    "ok": true,
+    "problems": [],
+    "occluders": []
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 1,
+   "label": "start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 18,
+   "label": "q25",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 36,
+   "label": "mid",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 54,
+   "label": "q75",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 72,
+   "label": "end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 63,
+   "label": "highlight_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 41,
+   "label": "highlight_peak",
+   "concept": "highlight",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 18,
+   "label": "highlight_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_005",
+   "beat": "SC_005",
+   "frame": 36,
+   "label": "middle",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.7892,
+    "core_area": 0.00039,
+    "visible_area": 0.03033,
+    "ok": true,
+    "problems": [],
+    "geometry": "MESH",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.7936,
+    "core_area": 0.00048,
+    "visible_area": 0.03115,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "steel_truss_span1_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span2_joints_south",
+      "samples": 47
+     },
+     {
+      "id": "steel_truss_span1_chords_north",
+      "samples": 17
+     },
+     {
+      "id": "steel_truss_span2_chords_north",
+      "samples": 15
+     }
+    ]
+   }
+  }
+ ]
+}

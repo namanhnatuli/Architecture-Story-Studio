@@ -187,6 +187,10 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
         raise ValueError(f"{shot_id}: camera_focus matches no built component")
     points = [tuple(p[i] + offsets[objects[name]["slot_id"]][i] for i in range(3))
               for name in framed for p in verts[name]]
+    if focus:   # M5.5: a close-up of moving parts frames them at every keyed position
+        early = templates.plan_shot(shot, states, fps, {sid: {cid: components[obj.name] for cid, obj in parts.items()}
+                                                        for sid, parts in slots.items()})
+        points += focus_motion_points(early, objects, framed, depsgraph)
     if cfg["template"] != "SIDE_BY_SIDE":
         bottom_band = float(shot.get("camera_safe_band", 0.0))
     aspect = preset["width"] / preset["height"]
@@ -202,6 +206,9 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     if cfg["template"] == "SIDE_BY_SIDE" and cfg.get("labels"):
         labels = build_labels(cfg["labels"], objects, verts, offsets, fit, basis, aspect, bottom_band, style,
                               geometry.make_collection("80_LABELS", root), cfg.get("layout", "ROW"))
+    elif cfg["template"] == "HOLD" and cfg.get("label"):   # M5.5: caption of a single model, in the safe band
+        labels = build_labels({templates.MAIN_SLOT: cfg["label"]}, objects, verts, offsets, fit, basis, aspect,
+                              bottom_band, style, geometry.make_collection("80_LABELS", root), "ROW")
 
     # SIDE_BY_SIDE intro starts on the single-model framing (same fit as every other
     # shot: base + all variants at the origin), shifted onto the intro state's slot.
@@ -236,6 +243,32 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                        camera_fit=fit, camera_basis=basis, aspect=aspect, bottom_band=bottom_band,
                        ground=ground, render_objects=render_objects, fade_twins=fade_twins,
                        camera_keys=camera_keys, labels=labels)
+
+
+def focus_motion_points(plan, objects, framed, depsgraph):
+    """World vertices of the framed objects at every frame where the plan keys their
+    location or rotation (single slot: the slot root is at the origin). Mirrors
+    planner/visibility.focus_envelope."""
+    from mathutils import Euler, Matrix
+    pts = []
+    for name in framed:
+        frames = sorted({k.frame for k in plan.keys(name, motion.LOC)} | {k.frame for k in plan.keys(name, motion.ROT)})
+        if not frames:
+            continue
+        obj = objects[name]
+        ev = obj.evaluated_get(depsgraph)
+        mesh = ev.to_mesh()
+        try:
+            local = [v.co.copy() for v in mesh.vertices]
+        finally:
+            ev.to_mesh_clear()
+        for f in frames:
+            loc = plan.sample(name, motion.LOC, f) if motion.LOC in plan.channels(name) else None
+            rot = plan.sample(name, motion.ROT, f) if motion.ROT in plan.channels(name) else None
+            m = Matrix.LocRotScale(tuple(loc) if loc else tuple(obj.location),
+                                   Euler(tuple(rot) if rot else tuple(obj.rotation_euler)), None)
+            pts += [tuple(m @ v) for v in local]
+    return pts
 
 
 def build_labels(texts, objects, verts, offsets, fit, basis, aspect, band, style, collection, layout="ROW"):

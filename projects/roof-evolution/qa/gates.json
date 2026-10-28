@@ -1,0 +1,54 @@
+{
+  "verdict": "TECHNICAL PREVIEW — VALID (silent); NOT FOR PUBLICATION",
+  "statuses": [
+    "TECHNICALLY_VALIDATED",
+    "EDITORIAL_REVIEW_PENDING"
+  ],
+  "profile": "TECHNICAL_SILENT_PREVIEW",
+  "gates": {
+    "G0 project & schema validation": {
+      "status": "PASS",
+      "notes": [
+        "validate passes"
+      ]
+    },
+    "G1 evidence review": {
+      "status": "PENDING_EVIDENCE",
+      "notes": [
+        "CLM_001: provisional",
+        "(a silent technical preview may show them; publication may not)"
+      ]
+    },
+    "G2 narration audio & TTS rights": {
+      "status": "NOT_APPLICABLE",
+      "notes": [
+        "silent technical preview: no narration audio"
+      ]
+    },
+    "G3 narration timing lock": {
+      "status": "NOT_APPLICABLE",
+      "notes": [
+        "silent technical preview: timing comes from the visual plan (storyboard)"
+      ]
+    },
+    "G4 Blender visual preview": {
+      "status": "PASS",
+      "notes": [
+        "Blender QA 64/64",
+        "silent media QA PASS (480 frames, 5 shots, render keys current)"
+      ]
+    },
+    "G5 media assembly & subtitles": {
+      "status": "NOT_APPLICABLE",
+      "notes": [
+        "silent technical preview: no audio to assemble, no subtitles; the silent MP4 is checked in G4"
+      ]
+    },
+    "G6 final publication readiness": {
+      "status": "BLOCKED",
+      "notes": [
+        "profile TECHNICAL_SILENT_PREVIEW is a technical preview; it is never publication-ready (no narration, no rights)"
+      ]
+    }
+  }
+}

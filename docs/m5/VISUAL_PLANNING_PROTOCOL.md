@@ -36,9 +36,9 @@ Mức tài liệu: `timing_mode`, `publication.restriction` (`INTERNAL_ONLY` ho�
 | `SHOW_CONTEXT` | SITE_HOLD → CARD | Khu đất trống, hoặc thẻ 2D tác giả cung cấp. Không có bản đồ hay ảnh tư liệu (`MAP_OR_IMAGERY`) |
 | `INTRODUCE_ARCHITECTURE` | ASSEMBLE_IN → HOLD_HIGHLIGHT → HOLD | ASSEMBLE_IN chỉ dùng được khi shot trước kết thúc trên khu đất trống |
 | `EXPLAIN_STRUCTURE` | HIGHLIGHT_THEN_EXPLODE → EXPLODE → HOLD_HIGHLIGHT | Bung theo layer lắp ráp |
-| `SHOW_COMPONENT` | CLOSEUP_HIGHLIGHT → HOLD_HIGHLIGHT | Cận cảnh: camera khóa vừa khung các thành phần trọng tâm |
+| `SHOW_COMPONENT` | CLOSEUP_EXPLODE (M5.5, khi thành phần trọng tâm được đọc theo từng viên: `read_as: pieces`) → CLOSEUP_HIGHLIGHT → HOLD_HIGHLIGHT | Cận cảnh: camera khóa vừa khung các thành phần trọng tâm (và mọi vị trí chúng đi qua) |
 | `EXPLAIN_DESIGN_CHANGE` | HIGHLIGHT_REPLACE_HIGHLIGHT → REPLACE → SEQUENTIAL_STATES | REPLACE_PARTS chỉ dùng được giữa hai trạng thái chung khung (§4) |
-| `COMPARE_VARIANTS` | COMPARE_SIDE_BY_SIDE → SEQUENTIAL_STATES | STACK cho công trình dài (cầu), ROW cho công trình gọn (nhà) |
+| `COMPARE_VARIANTS` | COMPARE_SIDE_BY_SIDE → FOCUSED_PAIR → DETAIL_THEN_OVERVIEW → SEQUENTIAL_COMPARISON → SEQUENTIAL_STATES | M5.5: bố cục được đo và chọn (`docs/m5_5/ADAPTIVE_COMPOSITION.md`) |
 | `SHOW_EVOLUTION` | SEQUENTIAL_STATES | Cần **mọi** claim đã được biên tập duyệt (`EDITORIALLY_APPROVED`); nếu chưa thì `EVIDENCE_BLOCKED` |
 | `EXPLAIN_CAUSE_EFFECT` | CARD | Không có lớp mũi tên lực trên mô hình 3D (`FORCE_DIAGRAM`). Không có thẻ thì `MISSING_TEMPLATE` |
 | `SUMMARIZE_DIFFERENCES` | CONTINUE_COMPARISON → COMPARE_SIDE_BY_SIDE | Ở lại khung so sánh và cho các phần khác nhau phát sáng |
@@ -82,7 +82,7 @@ Gỗ → đá, hay giàn → vòm đều **không** thay thế được. Khi tá
 
 - Mọi preset đã có từ M2–M4 (`config/visual_style.json`). M5 không thêm preset mới.
 - Mỗi mục tiêu ngữ nghĩa được kiểm tra offline: phải nằm trong khung (trên dải phụ đề 10 %) và chiếm ít nhất 0.4 % diện tích khung hình. Nếu không, planner cảnh báo "too small to read: use COMPONENT_CLOSEUP".
-- **Phần bị che:** khái niệm có `ghost_roles` trong từ vựng (dầm dọc nằm dưới ván, dầm ngang dưới bản mặt cầu, rui và đòn nóc dưới lớp phủ mái) sẽ làm các phần che nó chuyển sang trong suốt trong lúc nó phát sáng (`highlight.ghost`). Kiểm tra offline chỉ xét khung hình, không xét bị che; `check-blender` (`highlight_targets_visible`) đo phần thật sự nhìn thấy.
+- **Phần bị che (M5.5):** planner ước lượng mức nhìn thấy của từng mục tiêu trước khi render (`planner/visibility.py`). Nếu mục tiêu không đọc được, planner thử các cách sửa theo thứ tự: reframe, dải phụ đề, camera khác, ghost các phần đang che, chiến lược khác (`planner/repair.py`), và ghi lại mọi lựa chọn. Kiểm tra chính xác trong Blender: `verify-visibility`. Xem `docs/m5_5/VISUAL_INTELLIGENCE.md`. (Trường `ghost_roles` của M5 đã bị bỏ: việc ghost giờ dựa trên vật che đo được, không dựa trên từ vựng.)
 - Cận cảnh dùng camera khóa vừa khung thành phần trọng tâm. Ví dụ 13 viên đá vòm thứ hai (12 voussoir + keystone), với `camera_safe_band` 0.1.
 
 ## 7. Trạng thái coverage

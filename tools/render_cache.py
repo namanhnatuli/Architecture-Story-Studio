@@ -34,8 +34,8 @@ SHOT_NON_VISUAL = ("beat_ids", "visual_purpose", "narration", "claim_ids", "star
 STATE_NON_VISUAL = ("name", "claim_ids", "note", "notes", "description")
 STATES_TOP_NON_VISUAL = ("note", "transitions", "schema_version")
 PROJECT_NON_VISUAL = ("slug", "title", "mode", "language", "duration_seconds", "render_preset", "factual_review",
-                      "audio_timing_locked", "notes")
-ENGINE_EXCLUDED = ("qa_checks.py", "transform.py")
+                      "audio_timing_locked", "notes", "production_profile", "publication_metadata")
+ENGINE_EXCLUDED = ("qa_checks.py", "qa_visibility.py", "transform.py")
 CATEGORIES = ("shot_visual", "states_geometry", "project_render", "style", "preset", "engine", "assets")
 MATERIAL_LIBRARY = "asset_library/materials/stylized_materials.json"
 

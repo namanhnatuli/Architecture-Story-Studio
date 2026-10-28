@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-26T17:08:22.820554+00:00",
+  "utc": "2026-10-28T15:30:04.923639+00:00",
   "preset": "preview",
   "files": {
     "output/shots/SC_001.mp4": {
@@ -11,7 +11,12 @@
       "frames": 48,
       "duration": 2.0,
       "black_segments": 0,
-      "size_bytes": 27572
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 28075
     },
     "output/shots/SC_002.mp4": {
       "codec": "h264",
@@ -22,7 +27,12 @@
       "frames": 120,
       "duration": 5.0,
       "black_segments": 0,
-      "size_bytes": 115607
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 115948
     },
     "output/shots/SC_003.mp4": {
       "codec": "h264",
@@ -33,7 +43,12 @@
       "frames": 144,
       "duration": 6.0,
       "black_segments": 0,
-      "size_bytes": 163555
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 163522
     },
     "output/shots/SC_004.mp4": {
       "codec": "h264",
@@ -44,7 +59,12 @@
       "frames": 60,
       "duration": 2.5,
       "black_segments": 0,
-      "size_bytes": 44860
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 46436
     },
     "output/shots/SC_005.mp4": {
       "codec": "h264",
@@ -55,7 +75,12 @@
       "frames": 108,
       "duration": 4.5,
       "black_segments": 0,
-      "size_bytes": 121087
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 123157
     },
     "output/roof_evolution_preview.mp4": {
       "codec": "h264",
@@ -66,10 +91,59 @@
       "frames": 480,
       "duration": 20.0,
       "black_segments": 0,
-      "size_bytes": 407379
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 408894
     }
   },
+  "expected": {
+    "width": 640,
+    "height": 360,
+    "fps": "24/1",
+    "codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_streams": 0
+  },
   "expected_total_frames": 480,
+  "shot_boundaries": [
+    {
+      "shot": "SC_001",
+      "start_frame": 1,
+      "frames": 48
+    },
+    {
+      "shot": "SC_002",
+      "start_frame": 49,
+      "frames": 120
+    },
+    {
+      "shot": "SC_003",
+      "start_frame": 169,
+      "frames": 144
+    },
+    {
+      "shot": "SC_004",
+      "start_frame": 313,
+      "frames": 60
+    },
+    {
+      "shot": "SC_005",
+      "start_frame": 373,
+      "frames": 108
+    }
+  ],
+  "storyboard_sha256": "b87c5e236c8dbdc6477849572320f5fd09a6a8b68234fca37d54d8bfb7c9b0b8",
+  "plan_sha256": null,
+  "render_keys": {
+    "SC_001": "ec41ba4c86e15cecd833334f7bfccf919fc0bb92dffb57f44c25346415c60804",
+    "SC_002": "5036cfa298194c45daf071cdd4cea295a57672c2f205da832ff571aa44b18680",
+    "SC_003": "0e3ec84711b0e3b78ec27283f99bccf5df65591261b8ab16e8e00711348c5466",
+    "SC_004": "3231642f1de6f8f1d48ebe08705e50ad407fdae31752251de301692d2ec29a3e",
+    "SC_005": "4d9fe8b25667703ea59011eefb0acf526fd56712d083d02fb10ef8487b3e608e"
+  },
   "cuts": [
     {
       "cut": "SC_001->SC_002",
@@ -92,7 +166,7 @@
     {
       "cut": "SC_004->SC_005",
       "mode": "match",
-      "ssim": 0.99965,
+      "ssim": 0.99966,
       "ok": true
     }
   ],

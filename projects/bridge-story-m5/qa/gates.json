@@ -1,9 +1,10 @@
 {
-  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (NOT TECHNICALLY VALIDATED; EDITORIAL_REVIEW_PENDING; TTS_RIGHTS_PENDING)",
+  "verdict": "TECHNICAL PREVIEW — VALID (silent); NOT FOR PUBLICATION",
   "statuses": [
-    "EDITORIAL_REVIEW_PENDING",
-    "TTS_RIGHTS_PENDING"
+    "TECHNICALLY_VALIDATED",
+    "EDITORIAL_REVIEW_PENDING"
   ],
+  "profile": "TECHNICAL_SILENT_PREVIEW",
   "gates": {
     "G0 project & schema validation": {
       "status": "PASS",
@@ -11,46 +12,47 @@
         "validate passes"
       ]
     },
-    "G1 evidence, script & pronunciation review": {
+    "GV visual plan & coverage": {
+      "status": "PASS",
+      "notes": [
+        "visual plan valid: 15 shots, coverage COVERED 8"
+      ]
+    },
+    "G1 evidence review": {
       "status": "PENDING_EDITORIAL",
       "notes": [
-        "0/0 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
-        "factual_review: provisional"
+        "0/5 on-screen claims editorially approved (source-verified only)"
       ]
     },
     "G2 narration audio & TTS rights": {
-      "status": "FAIL",
+      "status": "NOT_APPLICABLE",
       "notes": [
-        "ASR check missing/failing",
-        "provider None: rights class n/a; voice licence None",
-        "narration audio manifest missing"
+        "silent technical preview: no narration audio"
       ]
     },
     "G3 narration timing lock": {
-      "status": "FAIL",
+      "status": "NOT_APPLICABLE",
       "notes": [
-        "None frames, locked=None"
+        "silent technical preview: timing comes from the visual plan (PROVISIONAL)"
       ]
     },
     "G4 Blender visual preview": {
-      "status": "FAIL",
+      "status": "PASS",
       "notes": [
-        "Blender QA 163/163",
-        "media QA is stale (rendered for a different timing)"
+        "Blender QA 188/188",
+        "silent media QA PASS (1737 frames, 15 shots, render keys current)"
       ]
     },
     "G5 media assembly & subtitles": {
-      "status": "FAIL",
+      "status": "NOT_APPLICABLE",
       "notes": [
-        "not assembled"
+        "silent technical preview: no audio to assemble, no subtitles; the silent MP4 is checked in G4"
       ]
     },
     "G6 final publication readiness": {
       "status": "BLOCKED",
       "notes": [
-        "FINAL gate: audio timing not locked",
-        "FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)",
-        "FINAL gate: factual_review is not verified"
+        "profile TECHNICAL_SILENT_PREVIEW is a technical preview; it is never publication-ready (no narration, no rights)"
       ]
     }
   }

@@ -50,6 +50,4 @@ def validate(vocab):
             errors.append(f"vocabulary {name}: needs family and variant")
         if c.get("kind") == "component" and not c.get("roles"):
             errors.append(f"vocabulary {name}: component concepts need roles")
-        if set(c.get("ghost_roles", [])) & set(c.get("roles", [])):
-            errors.append(f"vocabulary {name}: ghost_roles (the parts covering it) must differ from its roles")
     return errors

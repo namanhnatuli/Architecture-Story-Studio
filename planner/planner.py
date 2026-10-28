@@ -7,12 +7,13 @@ with concrete template configs, camera mode/preset/focus, timing and explanation
 Beats that cannot be visualised are reported, never dropped or padded.
 """
 import json
+import re
 from pathlib import Path
 
 from engine import motion, spec, templates
 from engine.arch import assets, semantic
-from planner import PLANNER_VERSION, beats as B, camera as CAM, catalog, intents, mapper, resolver
-from planner import timing as T, vocabulary as V
+from planner import PLANNER_VERSION, beats as B, camera as CAM, catalog, composition, intents, mapper, resolver
+from planner import repair, timing as T, vocabulary as V
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_STATE = "site"
@@ -160,6 +161,26 @@ class Model:
             own = [p for p in own if p["replaceable"]] + inherited
         return list(self.shared_parts) + own
 
+    def pull_out(self, sid, ids, per, preset):
+        """Exploded close-up of pieces set in a wall (voussoirs in a spandrel): each piece first
+        leaves along its depth axis (its largest extent) towards the camera by that depth +
+        0.3 m, plus its preset spread, so it never moves into the parts that stay."""
+        from engine import framing
+        fwd = framing.camera_basis(preset["azimuth_degrees"], preset["elevation_degrees"])[2]
+        comps = {c.id: c for c in assets.plan_cached(self.states[sid]["entry"]["path"], sid)}
+        out = {}
+        for i in ids:
+            lo, hi = semantic.bbox(comps[i])
+            ext = [hi[k] - lo[k] for k in range(3)]
+            axis = max(range(3), key=lambda k: ext[k])
+            pull = [0.0, 0.0, 0.0]
+            pull[axis] = (ext[axis] + 0.3) * (1.0 if -fwd[axis] > 0 else -1.0)
+            d, dist = per[i]["direction"], per[i]["distance"]
+            v = [pull[k] + d[k] * dist for k in range(3)]
+            n = sum(c * c for c in v) ** 0.5
+            out[i] = {"direction": [round(c / n, 5) for c in v], "distance": round(n, 4)}
+        return out
+
     def explode_components(self, sid):
         """(ids, per_component) for an exploded view of `sid` (generator presets; legacy: hints)."""
         st = self.states[sid]
@@ -201,6 +222,8 @@ class Draft:
         self.template, self.mode, self.make, self.weight = template, mode, make, weight
         self.states, self.targets, self.explanation, self.focus = states, targets, explanation, focus
         self.extend_hold = None   # REPLACE: rebuild with a longer pre-swap hold once frames are allocated
+        self.composition = None   # comparison layout decision (planner/composition.py)
+        self.sequence = None      # shots of one sequential comparison share a locked camera
 
 
 def build_strategy(name, ctx):
@@ -229,31 +252,20 @@ def build_strategy(name, ctx):
     def ids_of(tg):
         return sorted({i for t in tg for i in t["component_ids"]})
 
-    def covering(sid, tg):
-        """Parts that normally cover the highlighted ones (vocabulary ghost_roles, e.g. deck planks
-        over stringers): they turn see-through while the targets glow."""
-        roles = set()
-        for t in tg:
-            roles |= set((model.vocab.get(t["concept"]) or {}).get("ghost_roles", []))
-        roles -= {r for t in tg for r in t["roles"]}
-        glowing = set(ids_of(tg))
-        return sorted(p["id"] for p in model.parts(sid) if p["role"] in roles and p["id"] not in glowing)
-
-    def hold(sid, tg, mode, focus=None):
-        ids = ids_of(tg)
-        ghost = covering(sid, tg) if ids else []
+    def hold(sid, tg, mode, focus=None, label=None, glow=None, shot_band=None):
+        ids = ids_of(tg) if glow is None else glow
 
         def make(n):
             anim = {"template": "HOLD", "state": sid}
             if ids:
                 support(sid, "HIGHLIGHT")
                 anim["highlight"] = _pulse(ids, n / fps, m["highlight"])
-                if ghost:
-                    anim["highlight"].update(ghost=ghost, ghost_transparency=m["highlight"]["ghost_transparency"])
             elif n / fps < ctx["cfg"]["timing"]["min_shot_seconds"]:
                 raise T.TooShort("hold")
-            return _shot("HOLD", {"from_state": sid, "to_state": sid}, anim, n, fps, camera_of(mode), focus, band)
-        make.ghost = ghost
+            if label:
+                anim["label"] = label
+            return _shot("HOLD", {"from_state": sid, "to_state": sid}, anim, n, fps, camera_of(mode), focus,
+                         band if shot_band is None else shot_band)
         return make
 
     if name == "SITE_HOLD":
@@ -306,10 +318,7 @@ def build_strategy(name, ctx):
                                 f"then {', '.join(t['concept'] for t in tg)} glow"))
         return drafts
 
-    if name == "CLOSEUP_HIGHLIGHT":
-        need_states(1)
-        sid = arch[0]
-        wide = targets_in(sid)
+    def focus_targets(sid):
         focus_refs = beat.get("focus_concepts") or ctx["component_refs"]
         try:
             tg = mapper.resolve_targets(focus_refs, model.parts(sid), model.vocab, sid)
@@ -317,21 +326,10 @@ def build_strategy(name, ctx):
             raise StrategyRejected("INVALID_REQUEST", str(e))
         if not tg:
             raise StrategyRejected("INVALID_REQUEST", "a close-up needs component concepts to frame")
-        focus = ids_of(tg)
-        return [Draft("HOLD", "FULL_OBJECT", hold(sid, wide, "FULL_OBJECT"), w["HOLD"], [sid], wide,
-                      f"establish {sid} with {', '.join(t['concept'] for t in wide)} glowing"),
-                Draft("HOLD", "COMPONENT_CLOSEUP", hold(sid, tg, "COMPONENT_CLOSEUP", focus), w["HOLD"], [sid], tg,
-                      f"close-up framed on {len(focus)} component(s)", focus=focus)]
+        return tg
 
-    if name in ("EXPLODE", "HIGHLIGHT_THEN_EXPLODE"):
-        need_states(1)
-        sid = arch[0]
-        support(sid, "EXPLODED_VIEW")
-        ids, per = model.explode_components(sid)
-        if not ids:
-            raise StrategyRejected("MISSING_TEMPLATE", f"{sid} has no explodable components")
-        tg = targets_in(sid)
-        hl = sorted(set(ids_of(tg)) & set(ids))
+    def exploded(sid, ids, per, hl, tg, mode, focus=None):
+        """EXPLODED_VIEW draft of `ids` (layer-staggered disassembly and return)."""
         parts = {p["id"]: p for p in model.parts(sid)}
         layers = len({parts[i]["layer"] for i in ids})
         e = m["exploded"]
@@ -348,11 +346,58 @@ def build_strategy(name, ctx):
                     "hold_end_seconds": e["hold_end"]}
             if hl:
                 anim["highlight"] = {"components": hl, "mode": "SIMULTANEOUS", "strength": 0.5, "fade_seconds": 0.25}
-            return _shot("EXPLODED_VIEW", {"from_state": sid, "to_state": sid}, anim, n, fps,
-                         camera_of("LOCKED_TRANSFORMATION"), None, band)
-        ex = Draft("EXPLODED_VIEW", "LOCKED_TRANSFORMATION", make_ex, w["EXPLODED_VIEW"], [sid], tg,
-                   f"take {sid} apart by assembly layer ({len(ids)} components, {layers} layers) and back"
-                   + (f"; {len(hl)} focus components glow" if hl else ""))
+            return _shot("EXPLODED_VIEW", {"from_state": sid, "to_state": sid}, anim, n, fps, camera_of(mode), focus, band)
+        return Draft("EXPLODED_VIEW", mode, make_ex, w["EXPLODED_VIEW"], [sid], tg,
+                     f"take {sid} apart by assembly layer ({len(ids)} components, {layers} layers) and back"
+                     + (f"; {len(hl)} focus components glow" if hl else ""), focus=focus)
+
+    if name == "CLOSEUP_HIGHLIGHT":
+        need_states(1)
+        sid = arch[0]
+        wide = targets_in(sid)
+        tg = focus_targets(sid)
+        focus = ids_of(tg)
+        return [Draft("HOLD", "FULL_OBJECT", hold(sid, wide, "FULL_OBJECT"), w["HOLD"], [sid], wide,
+                      f"establish {sid} with {', '.join(t['concept'] for t in wide)} glowing"),
+                Draft("HOLD", "COMPONENT_CLOSEUP", hold(sid, tg, "COMPONENT_CLOSEUP", focus), w["HOLD"], [sid], tg,
+                      f"close-up framed on {len(focus)} component(s)", focus=focus)]
+
+    if name == "CLOSEUP_EXPLODE":
+        need_states(1)
+        sid = arch[0]
+        tg = focus_targets(sid)
+        pieces = [t["concept"] for t in tg if (model.vocab.get(t["concept"]) or {}).get("read_as") == "pieces"]
+        if not pieces:
+            raise StrategyRejected("INVALID_REQUEST", "no focus concept is read as separate pieces "
+                                   "(vocabulary read_as); a glowing close-up is enough")
+        support(sid, "EXPLODED_VIEW")
+        ids, per = model.explode_components(sid)
+        focus = ids_of(tg)
+        missing = sorted(set(focus) - set(ids))
+        if missing:
+            raise StrategyRejected("MISSING_TEMPLATE", f"{len(missing)} focus component(s) have no explode preset "
+                                   f"(e.g. {missing[0]})")
+        wide = targets_in(sid)
+        # Frontal close-up: the pieces' shape lies in the face, and the pull out of the face is
+        # then pure depth (invisible in orthographic view) - only the spread shows on screen.
+        ex = exploded(sid, focus, model.pull_out(sid, focus, per, ctx["presets"][camera_of("SIDE_ELEVATION")]),
+                      focus, tg, "SIDE_ELEVATION", focus)
+        ex.explanation = (f"frontal close-up: only the {len(focus)} focus pieces ({', '.join(t['concept'] for t in tg)}) "
+                          f"come forward out of the face, spread apart and return, so each piece's shape reads "
+                          f"({', '.join(pieces)} are read as pieces)")
+        return [Draft("HOLD", "FULL_OBJECT", hold(sid, wide, "FULL_OBJECT"), w["HOLD"], [sid], wide,
+                      f"establish {sid} with {', '.join(t['concept'] for t in wide)} glowing"), ex]
+
+    if name in ("EXPLODE", "HIGHLIGHT_THEN_EXPLODE"):
+        need_states(1)
+        sid = arch[0]
+        support(sid, "EXPLODED_VIEW")
+        ids, per = model.explode_components(sid)
+        if not ids:
+            raise StrategyRejected("MISSING_TEMPLATE", f"{sid} has no explodable components")
+        tg = targets_in(sid)
+        hl = sorted(set(ids_of(tg)) & set(ids))
+        ex = exploded(sid, ids, per, hl, tg, "LOCKED_TRANSFORMATION")
         if name == "EXPLODE":
             return [ex]
         if not tg:
@@ -403,30 +448,98 @@ def build_strategy(name, ctx):
                 Draft("HOLD", "FULL_OBJECT", hold(b, hb, "FULL_OBJECT"), w["HOLD"], [b], hb,
                       f"glow the new parts of {b}")]
 
-    if name in ("COMPARE_SIDE_BY_SIDE", "CONTINUE_COMPARISON"):
-        need_states(2)
-        for s in arch:
-            support(s, "SIDE_BY_SIDE")
-        if name == "CONTINUE_COMPARISON" and ctx["prev_compare"] != list(arch):
-            raise StrategyRejected("INVALID_REQUEST", "no comparison of the same states to continue")
-        fam = model.family
-        aspect = CAM.aspect_class(ctx["cfg"], fam)
-        layout = ctx["cfg"]["aspect_classes"][aspect]["comparison_layout"]
-        labels = {s: model.states[s]["label"] for s in arch}
-        glow = name == "CONTINUE_COMPARISON" or beat["narrative_intent"] == "SUMMARIZE_DIFFERENCES"
+    ccfg = ctx["cfg"]["composition"]
+    purpose = ccfg["intent_purpose"].get(beat["narrative_intent"], "detail")
+    presets = ctx["presets"]
+
+    def side_by_side(states_cmp, cand, glow, why, use=purpose):
+        labels = {s: model.states[s]["label"] for s in states_cmp}
 
         def make_cmp(n):
-            anim = {"template": "SIDE_BY_SIDE", "states": list(arch), "layout": layout,
-                    "gap_ratio": 0.5 if layout == "STACK" else 0.35, "label_band": 0.1 if layout == "STACK" else 0.14,
-                    "labels": labels}
+            anim = {"template": "SIDE_BY_SIDE", "states": list(states_cmp), "layout": cand["layout"],
+                    "gap_ratio": cand["gap_ratio"], "label_band": cand["label_band"], "labels": labels}
             if glow:
                 anim["highlight"] = dict(_pulse("DIFFERENCES", n / fps, m["highlight"]), strength=0.3)
             elif n / fps < ctx["cfg"]["timing"]["min_shot_seconds"]:
                 raise T.TooShort("compare")
-            return _shot("SIDE_BY_SIDE", {"from_state": arch[0], "to_state": arch[-1]}, anim, n, fps,
+            return _shot("SIDE_BY_SIDE", {"from_state": states_cmp[0], "to_state": states_cmp[-1]}, anim, n, fps,
                          camera_of("COMPARISON"))
-        return [Draft("SIDE_BY_SIDE", "COMPARISON", make_cmp, w["SIDE_BY_SIDE"], list(arch), [],
-                      f"{len(arch)} variants at identical scale ({layout})" + ("; differing parts glow" if glow else ""))]
+        d = Draft("SIDE_BY_SIDE", "COMPARISON", make_cmp, w["SIDE_BY_SIDE"], list(states_cmp), [],
+                  f"{len(states_cmp)} variants at identical scale ({cand['layout']}, gap {cand['gap_ratio']})"
+                  + ("; differing parts glow" if glow else "") + (f"; {why}" if why else ""))
+        d.composition = {"layout": f"SIDE_BY_SIDE_{cand['layout']}", "gap_ratio": cand["gap_ratio"],
+                         "label_band": cand["label_band"], "purpose": use, "scale": "COMMON",
+                         "metrics": cand.get("metrics")}
+        return d
+
+    def choose_layout(states_cmp, use=purpose):
+        rows = composition.evaluate(ctx["draft_states"], states_cmp, camera_of("COMPARISON"), ccfg, use, presets, fps)
+        chosen = composition.best(rows)
+        if chosen is None:
+            raise StrategyRejected("UNREADABLE", f"no simultaneous layout of {len(states_cmp)} models reads at "
+                                   f"{ccfg['reference_resolution'][0]}x{ccfg['reference_resolution'][1]} "
+                                   f"({use}): " + composition.summary(rows))
+        return chosen, rows
+
+    def sequence(states_cmp, glow):
+        """Each model alone, captioned, under one shared camera (build set = every compared model)."""
+        built = [v for v in model.order if v in states_cmp]
+        seq_band = ccfg["sequence_caption_band"]
+        rows = composition.evaluate_sequence(ctx["draft_states"], states_cmp, built, camera_of("FULL_OBJECT"), ccfg,
+                                             purpose, presets, fps)
+        bad = [r for r in rows if not r["ok"]]
+        if bad:
+            raise StrategyRejected("UNREADABLE", "one model per frame still does not read: " + composition.summary(bad))
+        shared = {p["id"] for p in model.shared_parts}
+        drafts = []
+        for k, (s_id, r) in enumerate(zip(states_cmp, rows), 1):
+            own = sorted(p["id"] for p in model.parts(s_id) if p["id"] not in shared) if glow else None
+            d = Draft("HOLD", "FULL_OBJECT", hold(s_id, [], "FULL_OBJECT", label=model.states[s_id]["label"],
+                                                 glow=own, shot_band=seq_band), w["HOLD"], [s_id], [],
+                      f"{k}/{len(states_cmp)}: {model.states[s_id]['label']} alone, captioned, same locked camera and "
+                      f"scale as the others" + ("; its own parts glow" if glow else ""))
+            d.sequence = f"SEQ_{beat['beat_id']}"
+            d.composition = {"layout": "SEQUENTIAL_COMPARISON", "purpose": purpose, "scale": "COMMON",
+                             "sequence": list(states_cmp), "metrics": r["metrics"]}
+            drafts.append(d)
+        return drafts
+
+    if name in ("COMPARE_SIDE_BY_SIDE", "CONTINUE_COMPARISON", "FOCUSED_PAIR"):
+        states_cmp = list(arch)
+        if name == "FOCUSED_PAIR":
+            pair = [ctx["state_of"].get(c, c) for c in beat.get("focus_states", [])]
+            if len(pair) != 2 or not set(pair) <= set(arch) or len(arch) < 3:
+                raise StrategyRejected("INVALID_REQUEST", "FOCUSED_PAIR needs focus_states naming two of three or more "
+                                       "compared states")
+            states_cmp = [s for s in arch if s in pair]
+        need_states(2)
+        for s_id in states_cmp:
+            support(s_id, "SIDE_BY_SIDE")
+        glow = name == "CONTINUE_COMPARISON" or beat["narrative_intent"] == "SUMMARIZE_DIFFERENCES"
+        if name == "CONTINUE_COMPARISON":
+            prev = ctx["prev_compare"]
+            if not prev or prev["states"] != states_cmp:
+                raise StrategyRejected("INVALID_REQUEST", "no comparison of the same states to continue")
+            cand = dict(prev["cand"])
+            pc = composition.purpose_cfg(ccfg, purpose)
+            if cand.get("metrics") and not composition.readable(cand["metrics"], pc)[0]:
+                raise StrategyRejected("UNREADABLE", "the previous comparison does not read for "
+                                       f"{purpose}: " + "; ".join(composition.readable(cand["metrics"], pc)[1]))
+            return [side_by_side(states_cmp, cand, True, "continues the previous comparison (same layout)")]
+        cand, rows = choose_layout(states_cmp)
+        d = side_by_side(states_cmp, cand, glow, None)
+        d.composition["candidates"] = [{k: r[k] for k in ("layout", "gap_ratio", "ok", "problems")} for r in rows]
+        return [d]
+
+    if name == "SEQUENTIAL_COMPARISON":
+        need_states(2)
+        return sequence(list(arch), beat["narrative_intent"] == "SUMMARIZE_DIFFERENCES")
+
+    if name == "DETAIL_THEN_OVERVIEW":
+        need_states(2)
+        drafts = sequence(list(arch), False)
+        cand, _ = choose_layout(list(arch), "overview")
+        return drafts + [side_by_side(list(arch), cand, True, "overview after the details", "overview")]
 
     raise StrategyRejected("MISSING_TEMPLATE", f"strategy {name} is not implemented")
 
@@ -480,7 +593,23 @@ def allocate(drafts, total, states, fps):
 
 # ---------------------------------------------------------------- plan
 def plan_project(project_dir, root=ROOT, vocab=None):
-    """`vocab` overrides config/visual_vocabulary.json (tests); its hash is recorded in the plan inputs."""
+    """Plan, assess target visibility, repair (camera, ghosting) and, where a strategy's shots
+    cannot be made readable, re-plan that beat with its next strategy (bounded; deterministic).
+    `vocab` overrides config/visual_vocabulary.json (tests); its hash is recorded in the plan inputs."""
+    excluded = {}
+    for _ in range(6):
+        plan, unresolved = _plan_pass(project_dir, root, vocab, excluded)
+        progress = False
+        for bid, (strategy, detail, alternatives) in unresolved.items():
+            if alternatives:
+                excluded.setdefault(bid, {})[strategy] = detail
+                progress = True
+        if not progress:
+            return plan
+    return plan
+
+
+def _plan_pass(project_dir, root, vocab, excluded):
     root, project_dir = Path(root), Path(project_dir)
     doc, sources, default_vocab, cfg = load_inputs(project_dir, root)
     vocab = vocab or default_vocab
@@ -498,6 +627,7 @@ def plan_project(project_dir, root=ROOT, vocab=None):
                 families.add(c["family"])
     model.set_base(families)
     windows = T.beat_windows(doc, project_dir, cfg["timing"])
+    presets = CAM.style_presets(root)
 
     coverage, plan_shots, warnings = [], [], []
     prev_end_state, prev_compare = None, None
@@ -525,7 +655,7 @@ def plan_project(project_dir, root=ROOT, vocab=None):
                                  intents.MISSING_CAPABILITIES["VERIFIED_CHRONOLOGY"][1])
             continue
         accuracy = beat.get("required_accuracy", "ILLUSTRATIVE")
-        arch_states, site_concept, blocked = [], False, False
+        arch_states, site_concept, blocked, state_of = [], False, False, {}
         for n in mapper.architecture_refs(beat, vocab):
             c = vocab.get(n)
             if c and c["kind"] == "site":
@@ -544,7 +674,8 @@ def plan_project(project_dir, root=ROOT, vocab=None):
                                          f"{r['task']['variant']} ({r['task']['estimate']})")
                 cov["status"] = "EVIDENCE_BLOCKED" if r["status"] == "BLOCKED_MISSING_EVIDENCE" else "MISSING_ASSET"
                 continue
-            arch_states.append(model.add_state(n, r))
+            state_of[n] = model.add_state(n, r)
+            arch_states.append(state_of[n])
         if blocked:
             continue
         unmapped = _unmapped_components(beat, model, arch_states)
@@ -558,7 +689,8 @@ def plan_project(project_dir, root=ROOT, vocab=None):
         ctx = {"cfg": cfg, "fps": fps, "model": model, "beat": beat, "arch_states": arch_states,
                "site_concept": site_concept, "component_refs": mapper.component_refs(beat, vocab),
                "draft_states": draft_states, "prev_end_state": prev_end_state, "prev_compare": prev_compare,
-               "camera_of": lambda mode: CAM.preset_for(cfg, model.family or "bridge", mode)}
+               "camera_of": lambda mode: CAM.preset_for(cfg, model.family or "bridge", mode),
+               "presets": presets, "state_of": state_of}
         names = [beat["strategy"]] if beat.get("strategy") else intents.INTENTS[intent]["strategies"]
         if beat.get("strategy") and beat["strategy"] not in intents.STRATEGIES:
             cov.update(status="INVALID_REQUEST")
@@ -566,6 +698,9 @@ def plan_project(project_dir, root=ROOT, vocab=None):
             continue
         chosen, rejections = None, []
         for name in names:
+            if name in excluded.get(bid, {}):
+                rejections.append(("VISIBILITY", name, excluded[bid][name]))
+                continue
             try:
                 drafts = build_strategy(name, ctx)
                 draft_states = model.states_json()
@@ -598,6 +733,12 @@ def plan_project(project_dir, root=ROOT, vocab=None):
                 cov["issues"] += [d for k, _, d in rejections if k == status]
             continue
         name, drafts, alloc, mins = chosen
+        if name in ("SEQUENTIAL_COMPARISON", "DETAIL_THEN_OVERVIEW") and \
+                re.search(r"\b(side by side|together|at once|simultaneous(ly)?)\b", beat["narration"].lower()):
+            note = (f"narration says the models are seen together, but no simultaneous layout reads at the reference "
+                    f"resolution: {name} (same camera and scale) instead; consider rewording the narration")
+            cov["issues"].append(note)
+            warnings.append(f"{bid}: {note}")
         cov["strategy"] = name
         cov["status"] = "PARTIALLY_COVERED" if name in PARTIAL.get(intent, ()) else "COVERED"
         cov["explanation"].append(f"{name}: {intents.STRATEGIES[name][1]}")
@@ -616,15 +757,17 @@ def plan_project(project_dir, root=ROOT, vocab=None):
                                                      "component_ids": t["component_ids"]} for t in d.targets],
                                "timing": {"mode": windows[bid][1], "frames": n, "duration_seconds": round(n / fps, 6),
                                           "min_seconds": round(mn / fps, 4)},
-                               "explanation": d.explanation + (f"; {len(d.make.ghost)} covering part(s) turn see-through "
-                                                               f"while they glow" if getattr(d.make, "ghost", None) else ""),
-                               "evidence_status": ev_status,
+                               "explanation": d.explanation, "evidence_status": ev_status,
+                               "composition": d.composition, "sequence": d.sequence,
                                "asset_ids": [model.states[s]["asset_id"] for s in d.states if model.states[s]["asset_id"]]})
             cov["templates"].append(d.template)
         cov["semantic_targets"] = sorted({t["concept"] for d in drafts for t in d.targets})
         last = plan_shots[-1]
         prev_end_state = last["states"][-1] if last["template"] != "SIDE_BY_SIDE" else None
-        prev_compare = last["states"] if last["template"] == "SIDE_BY_SIDE" else None
+        prev_compare = ({"states": last["states"], "cand": {k: last["shot"]["animation"][k] for k in
+                                                           ("layout", "gap_ratio", "label_band")}
+                         | {"metrics": (last["composition"] or {}).get("metrics")}}
+                        if last["template"] == "SIDE_BY_SIDE" else None)
 
     _continuity(plan_shots, model)
     for i, ps in enumerate(plan_shots, 1):
@@ -635,7 +778,39 @@ def plan_project(project_dir, root=ROOT, vocab=None):
         t += ps["timing"]["frames"]
     for cov in coverage:
         cov["shot_ids"] = [ps["shot_id"] for ps in plan_shots if ps["beat_id"] == cov["beat_id"]]
-    _visibility(plan_shots, model, cfg, warnings)
+    records, unresolved = repair.repair_plan(plan_shots, model.states_json, lambda: _continuity(plan_shots, model),
+                                             cfg, presets, fps, model.family or "bridge",
+                                             {k for k, c in vocab.concepts.items() if c.get("read_as") == "pieces"})
+    replan = {}
+    cov_by = {c["beat_id"]: c for c in coverage}
+    by_shot = {ps["shot_id"]: ps for ps in plan_shots}
+    for rec in records:
+        cov_by[rec["beat_id"]].setdefault("visual_repairs", []).append(rec)
+        if rec["chosen"]:
+            ps = by_shot[rec["shot_id"]]
+            ps.setdefault("repairs", []).append({"concept": rec["concept"], "remedy": rec["chosen"],
+                                                 "problems": rec["problems"], "before": rec["before"],
+                                                 "after": rec["after"]})
+            ps["explanation"] += f"; repaired ({rec['chosen']}): {rec['concept']} was {', '.join(rec['problems'])}"
+    for bid, rows in unresolved.items():
+        cov = cov_by[bid]
+        beat = next(b for b in doc["beats"] if b["beat_id"] == bid)
+        names = [beat["strategy"]] if beat.get("strategy") else intents.INTENTS[beat["narrative_intent"]]["strategies"]
+        later = [n for n in names[names.index(cov["strategy"]) + 1:] if n not in excluded.get(bid, {})]
+        detail = "; ".join(f"{r['concept']} {','.join(r['problems'])} (share {r.get('visible_share', 0):.2f}, "
+                           f"core {r.get('core_area', 0) * 100:.2f}%)" for r in rows) + " after camera/ghost repairs"
+        replan[bid] = (cov["strategy"], detail, bool(later))
+        if not later:
+            if cov["status"] == "COVERED":
+                cov["status"] = "PARTIALLY_COVERED"
+            cov["issues"].append(f"VISIBILITY_UNRESOLVED: {detail}; manual review (or verify-visibility in Blender)")
+            warnings.append(f"{bid}: visibility unresolved: {detail}")
+    for ps in plan_shots:
+        if ps.get("visibility"):
+            unc = [r["concept"] for r in ps["visibility"]["targets"] if r.get("verification") == "UNCERTAIN"]
+            if unc:
+                warnings.append(f"{ps['shot_id']} {', '.join(sorted(set(unc)))}: visibility UNCERTAIN offline "
+                                "(proxy geometry or few samples): verify in Blender (verify-visibility)")
     executable = all(c["status"] in ("COVERED", "PARTIALLY_COVERED") for c in coverage)
     inputs = {"beats_sha256": B.content_hash(doc), "sources_sha256": B.content_hash(sources),
               "vocabulary_sha256": B.content_hash(vocab.data), "planning_config_sha256": B.content_hash(cfg),
@@ -649,21 +824,27 @@ def plan_project(project_dir, root=ROOT, vocab=None):
             "states": model.states_json(),
             "resolutions": [{k: r.get(k) for k in ("concept", "status", "asset_id", "explanation")}
                             for r in model.resolutions.values()],
-            "shots": plan_shots, "coverage": coverage, "warnings": warnings}
+            "shots": plan_shots, "coverage": coverage, "warnings": warnings,
+            "visibility_summary": _visibility_summary(plan_shots, records, unresolved),
+            "pieces_concepts": sorted(k for k, c in vocab.concepts.items() if c.get("read_as") == "pieces")}, replan
 
 
 def _continuity(plan_shots, model):
-    """Continuity groups (one locked camera each) and cut types. A group continues only through
-    a match cut: same camera preset and focus, and the next shot starts where the last ended."""
+    """Continuity groups (one locked camera each) and cut types. A group continues through a
+    match cut (same camera preset and focus, the next shot starts where the last ended) and
+    through the hard cuts inside one sequential comparison (one camera for every model)."""
     group, prev = 0, None
     for ps in plan_shots:
         single = ps["template"] not in ("SIDE_BY_SIDE", "MOTION_GRAPHICS")
-        if prev is not None and single and prev["template"] not in ("SIDE_BY_SIDE", "MOTION_GRAPHICS") and \
+        if prev is not None and ps.get("sequence") and prev.get("sequence") == ps["sequence"]:
+            cut = "hard"    # next model of a sequential comparison: same locked camera, new state
+        elif prev is not None and single and prev["template"] not in ("SIDE_BY_SIDE", "MOTION_GRAPHICS") and \
                 prev["camera"]["preset"] == ps["camera"]["preset"] and prev["camera"]["focus"] == ps["camera"]["focus"] \
                 and prev["states"][-1] == ps["states"][0]:
             cut = "match"
         elif prev is not None and ps["template"] == "SIDE_BY_SIDE" and prev["template"] == "SIDE_BY_SIDE" and \
-                prev["states"] == ps["states"] and prev["shot"]["animation"]["layout"] == ps["shot"]["animation"]["layout"]:
+                prev["states"] == ps["states"] and all(prev["shot"]["animation"].get(k) == ps["shot"]["animation"].get(k)
+                                                       for k in ("layout", "gap_ratio", "label_band")):
             cut = "match"
         else:
             cut = "hard" if prev is not None else "first"
@@ -690,41 +871,12 @@ def _continuity(plan_shots, model):
             ps["camera"]["build_variants"] = built
 
 
-def _visibility(plan_shots, model, cfg, warnings):
-    """Offline check that semantic targets are inside the locked camera and large enough."""
-    presets = CAM.style_presets()
-    aspect = 16 / 9
-    for ps in plan_shots:
-        ps["visibility"] = []
-        if not ps["semantic_targets"] or ps["template"] in ("SIDE_BY_SIDE", "MOTION_GRAPHICS"):
-            continue
-        built = ps["shot"].get("build_variants") or []
-        variant_assets = []
-        for v in built:
-            st = model.states[v]
-            if v == SITE_STATE:
-                continue
-            e = st["entry"]
-            variant_assets.append((e["path"] if e["source"] == "library" else None, v))
-        pts = CAM.group_points(model.base.get("asset") if model.family == "bridge" else None, variant_assets)
-        if pts is None:
-            ps["visibility"].append({"target": "*", "ok": None,
-                                     "detail": "not checked offline (legacy geometry is built in Blender); see Blender QA"})
-            continue
-        if ps["camera"]["focus"]:
-            focus = set(ps["camera"]["focus"])
-            pts = [p for v, owner in variant_assets for c in assets.plan_cached(v, owner) if c.id in focus
-                   for p in semantic.world_verts(c)]
-        comps = {}
-        for v, owner in variant_assets:
-            for c in assets.plan_cached(v, owner):
-                comps[c.id] = c
-        for t in ps["semantic_targets"]:
-            tp = [p for cid in t["component_ids"] if cid in comps for p in semantic.world_verts(comps[cid])]
-            if not tp:
-                continue
-            ok, detail = CAM.visibility(pts, tp, presets[ps["camera"]["preset"]], aspect, ps["camera"]["safe_band"],
-                                        cfg["camera"]["min_target_frame_fraction"])
-            ps["visibility"].append({"target": t["concept"], "ok": ok, "detail": detail})
-            if not ok:
-                warnings.append(f"{ps['beat_id']} {t['concept']}: {detail}")
+def _visibility_summary(plan_shots, records, unresolved):
+    rows = [r for ps in plan_shots if ps.get("visibility") for r in ps["visibility"]["targets"]]
+    return {"shots_assessed": sum(1 for ps in plan_shots if ps.get("visibility")),
+            "target_rows": len(rows), "rows_passing": sum(1 for r in rows if r.get("ok")),
+            "uncertain_rows": sum(1 for r in rows if r.get("verification") == "UNCERTAIN"),
+            "issues_detected": len({(r["beat_id"], r["concept"]) for r in records}),
+            "auto_repaired": len({(r["beat_id"], r["concept"]) for r in records if r["chosen"]}),
+            "manual_review": sum(len(v) for v in unresolved.values()),
+            "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"}

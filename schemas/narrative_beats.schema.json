@@ -184,6 +184,13 @@
           },
           "publication": {
             "type": "string"
+          },
+          "focus_states": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "M5.5 FOCUSED_PAIR: the two compared concepts the beat is about"
           }
         }
       }

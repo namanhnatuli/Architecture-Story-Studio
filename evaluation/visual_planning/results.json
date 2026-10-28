@@ -1,0 +1,803 @@
+{
+ "dataset": "M5.5 evaluation dataset for planner/ (python3 tools/cli.py evaluate-planning). Each case edits a temporary copy of a project; narration or concept edits are SYNTHETIC test inputs, not factual content. The planner never reads this file.",
+ "cases": 24,
+ "passed": 24,
+ "dimensions": {
+  "narrative_relevance": {
+   "passed": 25,
+   "checks": 25
+  },
+  "asset_selection": {
+   "passed": 9,
+   "checks": 9
+  },
+  "target_selection": {
+   "passed": 14,
+   "checks": 14
+  },
+  "animation_suitability": {
+   "passed": 14,
+   "checks": 14
+  },
+  "camera_readability": {
+   "passed": 5,
+   "checks": 5
+  },
+  "target_visibility": {
+   "passed": 9,
+   "checks": 9
+  },
+  "timing_feasibility": {
+   "passed": 2,
+   "checks": 2
+  },
+  "evidence_compatibility": {
+   "passed": 3,
+   "checks": 3
+  },
+  "visual_continuity": {
+   "passed": 4,
+   "checks": 4
+  },
+  "cross_family_reuse": {
+   "passed": 2,
+   "checks": 2
+  }
+ },
+ "by_kind": {
+  "positive": {
+   "passed": 11,
+   "cases": 11
+  },
+  "negative": {
+   "passed": 6,
+   "cases": 6
+  },
+  "ambiguous": {
+   "passed": 3,
+   "cases": 3
+  },
+  "missing_capability": {
+   "passed": 4,
+   "cases": 4
+  }
+ },
+ "by_family": {
+  "bridge": {
+   "passed": 18,
+   "cases": 18
+  },
+  "roof": {
+   "passed": 6,
+   "cases": 6
+  }
+ },
+ "results": [
+  {
+   "id": "BR-POS-01",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Introduce the timber beam bridge on the empty site; its stringers must read (hidden under the deck)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy ASSEMBLE_IN (want ['ASSEMBLE_IN'])"
+    },
+    {
+     "dimension": "asset_selection",
+     "check": "assets",
+     "ok": true,
+     "detail": "timber_beam_bridge: REUSE_EXISTING bridge_timber_beam_01 (want REUSE_EXISTING bridge_timber_beam_01)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "target_roles",
+     "ok": true,
+     "detail": "stringer roles ['stringer'] (want ['stringer'])"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['REPLACE_PARTS', 'HOLD'] (want ['REPLACE_PARTS', 'HOLD'])"
+    },
+    {
+     "dimension": "visual_continuity",
+     "check": "cuts",
+     "ok": true,
+     "detail": "cuts ['match', 'match'] (want ['match', 'match'])"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "readable",
+     "ok": true,
+     "detail": "every concept reads: True (want True)"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "repair",
+     "ok": true,
+     "detail": "repairs ['GHOST:plank'] (want GHOST:plank)"
+    },
+    {
+     "dimension": "evidence_compatibility",
+     "check": "evidence",
+     "ok": true,
+     "detail": "evidence INTERNAL_PREVIEW"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "BR-POS-02",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Explain the timber layers; hidden layers read in the exploded view of the same beat (no repair needed)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy HIGHLIGHT_THEN_EXPLODE (want ['HIGHLIGHT_THEN_EXPLODE'])"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['HOLD', 'EXPLODED_VIEW'] (want ['HOLD', 'EXPLODED_VIEW'])"
+    },
+    {
+     "dimension": "visual_continuity",
+     "check": "cuts",
+     "ok": true,
+     "detail": "cuts ['match', 'match'] (want ['match', 'match'])"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "readable",
+     "ok": true,
+     "detail": "every concept reads: True (want True)"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "repair",
+     "ok": true,
+     "detail": "repairs [] (want None)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "BR-POS-03",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Voussoirs and keystone: frontal close-up of arch 2, pieces separate (Test C)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy CLOSEUP_EXPLODE (want ['CLOSEUP_EXPLODE'])"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "target_roles",
+     "ok": true,
+     "detail": "voussoir roles ['voussoir'] (want ['voussoir'])"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "target_roles",
+     "ok": true,
+     "detail": "keystone roles ['keystone'] (want ['keystone'])"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['HOLD', 'EXPLODED_VIEW'] (want ['HOLD', 'EXPLODED_VIEW'])"
+    },
+    {
+     "dimension": "camera_readability",
+     "check": "camera",
+     "ok": true,
+     "detail": "camera {'mode': 'SIDE_ELEVATION', 'preset': 'ELEVATION', 'focus': ['stone_arch_bridge_arch2_keystone', 'stone_arch_bridge_arch2_voussoir01', 'stone_arch_bridge_arch2_voussoir02', 'stone_arch_bridge_arch2_voussoir03', 'stone_arch_bridge_arch2_voussoir04', 'stone_arch_bridge_arch2_voussoir05', 'stone_arch_bridge_arch2_voussoir06', 'stone_arch_bridge_arch2_voussoir08', 'stone_arch_bridge_arch2_voussoir09', 'stone_arch_bridge_arch2_voussoir10', 'stone_arch_bridge_arch2_voussoir11', 'stone_arch_bridge_arch2_voussoir12', 'stone_arch_bridge_arch2_voussoir13'], 'safe_band': 0.1, 'group': 2, 'build_variants': ['stone_arch_bridge']} (want {'shot': -1, 'focus_count': 13, 'preset': 'ELEVATION'})"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "readable",
+     "ok": true,
+     "detail": "every concept reads: True (want True)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "BR-POS-04",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Pratt to Warren: swap only the web on the shared frame",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy HIGHLIGHT_REPLACE_HIGHLIGHT (want ['HIGHLIGHT_REPLACE_HIGHLIGHT'])"
+    },
+    {
+     "dimension": "asset_selection",
+     "check": "assets",
+     "ok": true,
+     "detail": "pratt_truss: REUSE_EXISTING bridge_steel_truss_pratt_01 (want REUSE_EXISTING bridge_steel_truss_pratt_01)"
+    },
+    {
+     "dimension": "asset_selection",
+     "check": "assets",
+     "ok": true,
+     "detail": "warren_truss: REUSE_EXISTING bridge_steel_truss_warren_01 (want REUSE_EXISTING bridge_steel_truss_warren_01)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['HOLD', 'REPLACE_PARTS', 'HOLD'] (want ['HOLD', 'REPLACE_PARTS', 'HOLD'])"
+    },
+    {
+     "dimension": "visual_continuity",
+     "check": "cuts",
+     "ok": true,
+     "detail": "cuts ['match', 'match', 'match'] (want ['match', 'match', 'match'])"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "readable",
+     "ok": true,
+     "detail": "every concept reads: True (want True)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "BR-POS-05",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Compare three long bridges at 640x360: no simultaneous layout reads, one at a time at one scale (Test B)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy SEQUENTIAL_COMPARISON (want ['SEQUENTIAL_COMPARISON'])"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['HOLD', 'HOLD', 'HOLD'] (want ['HOLD', 'HOLD', 'HOLD'])"
+    },
+    {
+     "dimension": "camera_readability",
+     "check": "composition",
+     "ok": true,
+     "detail": "composition [{'layout': 'SEQUENTIAL_COMPARISON', 'scale': 'COMMON'}, {'layout': 'SEQUENTIAL_COMPARISON', 'scale': 'COMMON'}, {'layout': 'SEQUENTIAL_COMPARISON', 'scale': 'COMMON'}]"
+    },
+    {
+     "dimension": "visual_continuity",
+     "check": "one_camera",
+     "ok": true,
+     "detail": "one locked camera for the beat's shots"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'no simultaneous layout'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "BR-POS-06",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Summarise: an overview only needs the overall forms to read",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy COMPARE_SIDE_BY_SIDE (want ['COMPARE_SIDE_BY_SIDE'])"
+    },
+    {
+     "dimension": "camera_readability",
+     "check": "composition",
+     "ok": true,
+     "detail": "composition [{'layout': 'SIDE_BY_SIDE_STACK', 'purpose': 'overview', 'scale': 'COMMON'}]"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "BR-POS-07",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Changing the narrative changes the visual: B5 as SHOW_COMPONENT of the diagonals (SYNTHETIC edit)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy CLOSEUP_HIGHLIGHT (want ['CLOSEUP_HIGHLIGHT'])"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "target_roles",
+     "ok": true,
+     "detail": "diagonal_members roles ['truss_diagonal'] (want ['truss_diagonal'])"
+    },
+    {
+     "dimension": "camera_readability",
+     "check": "camera",
+     "ok": true,
+     "detail": "camera {'mode': 'COMPONENT_CLOSEUP', 'preset': 'BRIDGE_THREE_QUARTER', 'focus': ['steel_truss_bridge_span1_diagonals_north', 'steel_truss_bridge_span1_diagonals_south', 'steel_truss_bridge_span2_diagonals_north', 'steel_truss_bridge_span2_diagonals_south'], 'safe_band': 0.1, 'group': 2, 'build_variants': ['steel_truss_bridge']} (want {'shot': -1, 'mode': 'COMPONENT_CLOSEUP'})"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "readable",
+     "ok": true,
+     "detail": "every concept reads: True (want True)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "RF-POS-01",
+   "kind": "positive",
+   "family": "roof",
+   "title": "Introduce roof A on the house (legacy roof through the adapter)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy HOLD (want ['HOLD'])"
+    },
+    {
+     "dimension": "asset_selection",
+     "check": "assets",
+     "ok": true,
+     "detail": "low_pitch_gable_roof: ADAPT_EXISTING_ASSET legacy_roof_evolution_roof_A (want ADAPT_EXISTING_ASSET legacy_roof_evolution_roof_A)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['HOLD'] (want ['HOLD'])"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "RF-POS-02",
+   "kind": "positive",
+   "family": "roof",
+   "title": "Explain rafters and ridge beam: with the steep roof sharing the camera (R3) the ridge is too small, so the explode is reframed",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy EXPLODE (want ['EXPLODE'])"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "target_roles",
+     "ok": true,
+     "detail": "rafters roles ['rafters'] (want ['rafters'])"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "target_roles",
+     "ok": true,
+     "detail": "ridge_beam roles ['ridge_beam'] (want ['ridge_beam'])"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['EXPLODED_VIEW'] (want ['EXPLODED_VIEW'])"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "readable",
+     "ok": true,
+     "detail": "every concept reads: True (want True)"
+    },
+    {
+     "dimension": "target_visibility",
+     "check": "repair",
+     "ok": true,
+     "detail": "repairs ['REFRAME'] (want REFRAME)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "RF-POS-03",
+   "kind": "positive",
+   "family": "roof",
+   "title": "Replace the roof assembly on the same walls",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "asset_selection",
+     "check": "assets",
+     "ok": true,
+     "detail": "steep_gable_roof: ADAPT_EXISTING_ASSET legacy_roof_evolution_roof_B (want ADAPT_EXISTING_ASSET legacy_roof_evolution_roof_B)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "templates",
+     "ok": true,
+     "detail": "templates ['REPLACE_PARTS'] (want ['REPLACE_PARTS'])"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "RF-POS-04",
+   "kind": "positive",
+   "family": "roof",
+   "title": "Compare two compact houses: a ROW reads, no fallback needed",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy COMPARE_SIDE_BY_SIDE (want ['COMPARE_SIDE_BY_SIDE'])"
+    },
+    {
+     "dimension": "camera_readability",
+     "check": "composition",
+     "ok": true,
+     "detail": "composition [{'layout': 'SIDE_BY_SIDE_ROW', 'scale': 'COMMON'}]"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "NEG-01",
+   "kind": "negative",
+   "family": "bridge",
+   "title": "A keystone requested on the timber bridge (SYNTHETIC)",
+   "checks": [
+    {
+     "dimension": "target_selection",
+     "check": "status",
+     "ok": true,
+     "detail": "status INVALID_REQUEST (want INVALID_REQUEST)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions \"'keystone'\""
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "NEG-02",
+   "kind": "negative",
+   "family": "bridge",
+   "title": "Forced REPLACE from timber to stone (no shared frame)",
+   "checks": [
+    {
+     "dimension": "animation_suitability",
+     "check": "status",
+     "ok": true,
+     "detail": "status INVALID_REQUEST (want INVALID_REQUEST)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'share no frame'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "NEG-03",
+   "kind": "negative",
+   "family": "bridge",
+   "title": "Claim without verified evidence",
+   "checks": [
+    {
+     "dimension": "evidence_compatibility",
+     "check": "status",
+     "ok": true,
+     "detail": "status EVIDENCE_BLOCKED (want EVIDENCE_BLOCKED)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "NEG-04",
+   "kind": "negative",
+   "family": "bridge",
+   "title": "1.5 s for an exploded explanation",
+   "checks": [
+    {
+     "dimension": "timing_feasibility",
+     "check": "status",
+     "ok": true,
+     "detail": "status TIMING_CONFLICT (want TIMING_CONFLICT)"
+    },
+    {
+     "dimension": "timing_feasibility",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'nothing was truncated'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "NEG-05",
+   "kind": "negative",
+   "family": "bridge",
+   "title": "Evolution without editorially approved chronology",
+   "checks": [
+    {
+     "dimension": "evidence_compatibility",
+     "check": "status",
+     "ok": true,
+     "detail": "status EVIDENCE_BLOCKED (want EVIDENCE_BLOCKED)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "NEG-06",
+   "kind": "negative",
+   "family": "roof",
+   "title": "A keystone requested on a roof (cross-family negative)",
+   "checks": [
+    {
+     "dimension": "target_selection",
+     "check": "status",
+     "ok": true,
+     "detail": "status INVALID_REQUEST (want INVALID_REQUEST)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions \"'keystone'\""
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "AMB-01",
+   "kind": "ambiguous",
+   "family": "bridge",
+   "title": "'beam' on a timber bridge matches stringers and cap beams",
+   "checks": [
+    {
+     "dimension": "target_selection",
+     "check": "status",
+     "ok": true,
+     "detail": "status INVALID_REQUEST (want INVALID_REQUEST)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'ambiguous'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "AMB-02",
+   "kind": "ambiguous",
+   "family": "bridge",
+   "title": "'member' on a truss matches chords, posts, verticals and diagonals",
+   "checks": [
+    {
+     "dimension": "target_selection",
+     "check": "status",
+     "ok": true,
+     "detail": "status INVALID_REQUEST (want INVALID_REQUEST)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'ambiguous'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "AMB-03",
+   "kind": "ambiguous",
+   "family": "bridge",
+   "title": "Narration cues disagree with the declared intent: warned, never silently overridden (SYNTHETIC narration)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy COMPARE_SIDE_BY_SIDE (want ['COMPARE_SIDE_BY_SIDE'])"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'declared SUMMARIZE_DIFFERENCES'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "MISS-01",
+   "kind": "missing_capability",
+   "family": "bridge",
+   "title": "Suspension bridge: no generator, nothing substituted",
+   "checks": [
+    {
+     "dimension": "asset_selection",
+     "check": "status",
+     "ok": true,
+     "detail": "status MISSING_ASSET (want MISSING_ASSET)"
+    },
+    {
+     "dimension": "asset_selection",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'NEW_FAMILY_GENERATOR'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "MISS-02",
+   "kind": "missing_capability",
+   "family": "bridge",
+   "title": "Cause and effect needs a force diagram",
+   "checks": [
+    {
+     "dimension": "animation_suitability",
+     "check": "status",
+     "ok": true,
+     "detail": "status MISSING_TEMPLATE (want MISSING_TEMPLATE)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'FORCE_DIAGRAM'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "MISS-03",
+   "kind": "missing_capability",
+   "family": "roof",
+   "title": "Context for a house without a site model or map",
+   "checks": [
+    {
+     "dimension": "animation_suitability",
+     "check": "status",
+     "ok": true,
+     "detail": "status MISSING_TEMPLATE (want MISSING_TEMPLATE)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'MAP_OR_IMAGERY'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "MISS-04",
+   "kind": "missing_capability",
+   "family": "bridge",
+   "title": "A historically verified arch: illustrative assets cannot stand in",
+   "checks": [
+    {
+     "dimension": "asset_selection",
+     "check": "status",
+     "ok": true,
+     "detail": "status EVIDENCE_BLOCKED (want EVIDENCE_BLOCKED)"
+    },
+    {
+     "dimension": "asset_selection",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'HISTORICALLY_VERIFIED'"
+    }
+   ],
+   "ok": true
+  }
+ ]
+}

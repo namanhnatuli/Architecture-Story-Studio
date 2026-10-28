@@ -160,11 +160,178 @@
             "type": "string"
           },
           "visibility": {
-            "type": "array"
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "M5.5 Level 1 estimate at the explanatory frames (planner/visibility.py)",
+            "properties": {
+              "frames": {
+                "type": "object"
+              },
+              "explanatory": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "targets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "concept": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "frame": {
+                      "type": "integer"
+                    },
+                    "visible_share": {
+                      "type": "number"
+                    },
+                    "core_area": {
+                      "type": "number"
+                    },
+                    "visible_area": {
+                      "type": "number"
+                    },
+                    "projected_area": {
+                      "type": "number"
+                    },
+                    "safe_band_share": {
+                      "type": "number"
+                    },
+                    "outside_share": {
+                      "type": "number"
+                    },
+                    "occluders": {
+                      "type": "array"
+                    },
+                    "components": {
+                      "type": "object"
+                    },
+                    "geometry": {
+                      "enum": [
+                        "MESH",
+                        "PROXY"
+                      ]
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "verification": {
+                      "enum": [
+                        "ESTIMATED",
+                        "UNCERTAIN"
+                      ]
+                    },
+                    "problems": {
+                      "type": "array",
+                      "items": {
+                        "enum": [
+                          "OCCLUDED",
+                          "TOO_SMALL",
+                          "CLIPPED",
+                          "SUBTITLE_SAFE_AREA",
+                          "PIECES_HIDDEN",
+                          "NOT_SHOWN"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "shot": {
             "type": "object",
             "description": "the storyboard shot (engine contract) this plan entry compiles to"
+          },
+          "repairs": {
+            "type": "array",
+            "description": "Visual repairs written into the shot (planner/repair.py)",
+            "items": {
+              "type": "object",
+              "required": [
+                "concept",
+                "remedy",
+                "problems"
+              ],
+              "properties": {
+                "concept": {
+                  "type": "string"
+                },
+                "remedy": {
+                  "type": "string",
+                  "pattern": "^(REFRAME|SAFE_BAND|ALT_CAMERA:.+|GHOST:.+)$"
+                },
+                "problems": {
+                  "type": "array"
+                },
+                "before": {
+                  "type": "object"
+                },
+                "after": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "composition": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Comparison layout decision (planner/composition.py)",
+            "properties": {
+              "layout": {
+                "enum": [
+                  "SIDE_BY_SIDE_STACK",
+                  "SIDE_BY_SIDE_ROW",
+                  "SEQUENTIAL_COMPARISON"
+                ]
+              },
+              "gap_ratio": {
+                "type": "number"
+              },
+              "label_band": {
+                "type": "number"
+              },
+              "purpose": {
+                "enum": [
+                  "detail",
+                  "overview"
+                ]
+              },
+              "scale": {
+                "enum": [
+                  "COMMON",
+                  "NORMALIZED"
+                ]
+              },
+              "sequence": {
+                "type": "array"
+              },
+              "metrics": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "candidates": {
+                "type": "array"
+              }
+            }
+          },
+          "sequence": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Shots of one sequential comparison share one locked camera"
           }
         }
       }
@@ -188,6 +355,10 @@
               "EVIDENCE_BLOCKED",
               "INVALID_REQUEST"
             ]
+          },
+          "visual_repairs": {
+            "type": "array",
+            "description": "Every visibility problem found and the remedies evaluated (chosen or null)"
           }
         }
       }
@@ -197,6 +368,17 @@
       "items": {
         "type": "string"
       }
+    },
+    "visibility_summary": {
+      "type": "object",
+      "description": "M5.5 Level 1 visibility: shots assessed, target rows passing, issues detected, auto-repaired, manual review, uncertain rows."
+    },
+    "pieces_concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Vocabulary concepts read as separate pieces (read_as: pieces)."
     }
   }
 }

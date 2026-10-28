@@ -1,6 +1,6 @@
 {
   "generated_by": "planner 1.0.0 (tools/cli.py build-shots); edit script/visual_beats.json and re-plan, not this file",
-  "plan_sha256": "5e57db58ce735ebd8ad35b19494ca8b57b09d5d17ec9477cd5640af15bd50182",
+  "plan_sha256": "110713c509bca561edf35b12871404380a4977a6487eede087da7fe6524211ac",
   "key_stills": [
     {
       "id": "SC_001_B1_hold",
@@ -30,12 +30,12 @@
     {
       "id": "SC_006_B4_hold",
       "shot": "SC_006",
-      "time_seconds": 2.5438
+      "time_seconds": 1.7188
     },
     {
-      "id": "SC_007_B4_hold",
+      "id": "SC_007_B4_exploded_view",
       "shot": "SC_007",
-      "time_seconds": 2.5667
+      "marker": "exploded_hold"
     },
     {
       "id": "SC_008_B5_hold",
@@ -58,13 +58,23 @@
       "time_seconds": 2.1083
     },
     {
-      "id": "SC_012_B7_side_by_side",
+      "id": "SC_012_B7_hold",
       "shot": "SC_012",
-      "time_seconds": 3.4146
+      "time_seconds": 1.1229
     },
     {
-      "id": "SC_013_B8_side_by_side",
+      "id": "SC_013_B7_hold",
       "shot": "SC_013",
+      "time_seconds": 1.1229
+    },
+    {
+      "id": "SC_014_B7_hold",
+      "shot": "SC_014",
+      "time_seconds": 1.1688
+    },
+    {
+      "id": "SC_015_B8_side_by_side",
+      "shot": "SC_015",
       "time_seconds": 4.2625
     }
   ],
@@ -220,7 +230,49 @@
         "semantic_targets": [
           "stringer"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "stringer",
+            "component_ids": [
+              "timber_beam_bridge_span1_stringers",
+              "timber_beam_bridge_span2_stringers",
+              "timber_beam_bridge_span3_stringers",
+              "timber_beam_bridge_span4_stringers"
+            ],
+            "pieces": false
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "stringer",
+            "label": "highlight_peak",
+            "frame": 65,
+            "visible_share": 0.8096,
+            "core_area": 0.01669,
+            "visible_area": 0.05044,
+            "ok": true
+          }
+        ],
+        "repairs": [
+          {
+            "concept": "stringer",
+            "remedy": "GHOST:plank",
+            "problems": [
+              "OCCLUDED"
+            ],
+            "before": {
+              "visible_share": 0.1362,
+              "core_area": 0.0,
+              "visible_area": 0.00849
+            },
+            "after": {
+              "visible_share": 0.8096,
+              "core_area": 0.01669,
+              "visible_area": 0.05044
+            }
+          }
+        ]
       }
     },
     {
@@ -284,7 +336,69 @@
           "stringer",
           "cap_beam"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "deck_planks",
+            "component_ids": [
+              "timber_beam_bridge_span1_planks",
+              "timber_beam_bridge_span2_planks",
+              "timber_beam_bridge_span3_planks",
+              "timber_beam_bridge_span4_planks"
+            ],
+            "pieces": false
+          },
+          {
+            "concept": "stringer",
+            "component_ids": [
+              "timber_beam_bridge_span1_stringers",
+              "timber_beam_bridge_span2_stringers",
+              "timber_beam_bridge_span3_stringers",
+              "timber_beam_bridge_span4_stringers"
+            ],
+            "pieces": false
+          },
+          {
+            "concept": "cap_beam",
+            "component_ids": [
+              "timber_beam_bridge_bent1_cap",
+              "timber_beam_bridge_bent2_cap",
+              "timber_beam_bridge_bent3_cap",
+              "timber_beam_bridge_bent4_cap",
+              "timber_beam_bridge_bent5_cap"
+            ],
+            "pieces": false
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "deck_planks",
+            "label": "highlight_peak",
+            "frame": 41,
+            "visible_share": 0.8184,
+            "core_area": 0.01741,
+            "visible_area": 0.0515,
+            "ok": true
+          },
+          {
+            "concept": "stringer",
+            "label": "highlight_peak",
+            "frame": 41,
+            "visible_share": 0.1362,
+            "core_area": 0.0,
+            "visible_area": 0.00849,
+            "ok": false
+          },
+          {
+            "concept": "cap_beam",
+            "label": "highlight_peak",
+            "frame": 41,
+            "visible_share": 0.1733,
+            "core_area": 0.00029,
+            "visible_area": 0.00169,
+            "ok": false
+          }
+        ]
       }
     },
     {
@@ -494,12 +608,74 @@
           "stringer",
           "cap_beam"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "deck_planks",
+            "component_ids": [
+              "timber_beam_bridge_span1_planks",
+              "timber_beam_bridge_span2_planks",
+              "timber_beam_bridge_span3_planks",
+              "timber_beam_bridge_span4_planks"
+            ],
+            "pieces": false
+          },
+          {
+            "concept": "stringer",
+            "component_ids": [
+              "timber_beam_bridge_span1_stringers",
+              "timber_beam_bridge_span2_stringers",
+              "timber_beam_bridge_span3_stringers",
+              "timber_beam_bridge_span4_stringers"
+            ],
+            "pieces": false
+          },
+          {
+            "concept": "cap_beam",
+            "component_ids": [
+              "timber_beam_bridge_bent1_cap",
+              "timber_beam_bridge_bent2_cap",
+              "timber_beam_bridge_bent3_cap",
+              "timber_beam_bridge_bent4_cap",
+              "timber_beam_bridge_bent5_cap"
+            ],
+            "pieces": false
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "deck_planks",
+            "label": "exploded_hold",
+            "frame": 82,
+            "visible_share": 1.0,
+            "core_area": 0.04977,
+            "visible_area": 0.06284,
+            "ok": true
+          },
+          {
+            "concept": "stringer",
+            "label": "exploded_hold",
+            "frame": 82,
+            "visible_share": 0.5031,
+            "core_area": 0.0137,
+            "visible_area": 0.03135,
+            "ok": true
+          },
+          {
+            "concept": "cap_beam",
+            "label": "exploded_hold",
+            "frame": 82,
+            "visible_share": 0.4877,
+            "core_area": 0.00101,
+            "visible_area": 0.00477,
+            "ok": true
+          }
+        ]
       }
     },
     {
       "id": "SC_006",
-      "duration_seconds": 4.625,
+      "duration_seconds": 3.125,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -552,7 +728,7 @@
           ],
           "start_seconds": 0.6,
           "rise_seconds": 0.4,
-          "hold_seconds": 2.925,
+          "hold_seconds": 1.425,
           "fall_seconds": 0.4,
           "strength": 0.45
         }
@@ -570,12 +746,12 @@
         "CLM_102"
       ],
       "narration": "A stone arch works differently. It is built from wedge-shaped stones called voussoirs, with a keystone at the top of each arch.",
-      "visual_purpose": "Introduce the masonry arch and show one arch ring's voussoirs and keystone [CLOSEUP_HIGHLIGHT 1/2: establish stone_arch_bridge with arch_ring glowing]",
+      "visual_purpose": "Introduce the masonry arch and show one arch ring's voussoirs and keystone [CLOSEUP_EXPLODE 1/2: establish stone_arch_bridge with arch_ring glowing]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B4",
         "visual_intent": "SHOW_COMPONENT",
-        "strategy": "CLOSEUP_HIGHLIGHT",
+        "strategy": "CLOSEUP_EXPLODE",
         "part": [
           1,
           2
@@ -584,20 +760,208 @@
         "semantic_targets": [
           "arch_ring"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "arch_ring",
+            "component_ids": [
+              "stone_arch_bridge_arch1_voussoir01",
+              "stone_arch_bridge_arch1_voussoir02",
+              "stone_arch_bridge_arch1_voussoir03",
+              "stone_arch_bridge_arch1_voussoir04",
+              "stone_arch_bridge_arch1_voussoir05",
+              "stone_arch_bridge_arch1_voussoir06",
+              "stone_arch_bridge_arch1_keystone",
+              "stone_arch_bridge_arch1_voussoir08",
+              "stone_arch_bridge_arch1_voussoir09",
+              "stone_arch_bridge_arch1_voussoir10",
+              "stone_arch_bridge_arch1_voussoir11",
+              "stone_arch_bridge_arch1_voussoir12",
+              "stone_arch_bridge_arch1_voussoir13",
+              "stone_arch_bridge_arch2_voussoir01",
+              "stone_arch_bridge_arch2_voussoir02",
+              "stone_arch_bridge_arch2_voussoir03",
+              "stone_arch_bridge_arch2_voussoir04",
+              "stone_arch_bridge_arch2_voussoir05",
+              "stone_arch_bridge_arch2_voussoir06",
+              "stone_arch_bridge_arch2_keystone",
+              "stone_arch_bridge_arch2_voussoir08",
+              "stone_arch_bridge_arch2_voussoir09",
+              "stone_arch_bridge_arch2_voussoir10",
+              "stone_arch_bridge_arch2_voussoir11",
+              "stone_arch_bridge_arch2_voussoir12",
+              "stone_arch_bridge_arch2_voussoir13",
+              "stone_arch_bridge_arch3_voussoir01",
+              "stone_arch_bridge_arch3_voussoir02",
+              "stone_arch_bridge_arch3_voussoir03",
+              "stone_arch_bridge_arch3_voussoir04",
+              "stone_arch_bridge_arch3_voussoir05",
+              "stone_arch_bridge_arch3_voussoir06",
+              "stone_arch_bridge_arch3_keystone",
+              "stone_arch_bridge_arch3_voussoir08",
+              "stone_arch_bridge_arch3_voussoir09",
+              "stone_arch_bridge_arch3_voussoir10",
+              "stone_arch_bridge_arch3_voussoir11",
+              "stone_arch_bridge_arch3_voussoir12",
+              "stone_arch_bridge_arch3_voussoir13"
+            ],
+            "pieces": false
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "arch_ring",
+            "label": "highlight_peak",
+            "frame": 42,
+            "visible_share": 0.3094,
+            "core_area": 0.01746,
+            "visible_area": 0.03178,
+            "ok": true
+          }
+        ]
       }
     },
     {
       "id": "SC_007",
-      "duration_seconds": 4.666666666666667,
+      "duration_seconds": 6.166666666666667,
       "visual_type": "BLENDER_3D",
-      "transition": "HOLD",
-      "camera": "BRIDGE_THREE_QUARTER",
+      "transition": "EXPLODED_VIEW",
+      "camera": "ELEVATION",
       "from_state": "stone_arch_bridge",
       "to_state": "stone_arch_bridge",
       "animation": {
-        "template": "HOLD",
+        "template": "EXPLODED_VIEW",
         "state": "stone_arch_bridge",
+        "components": [
+          "stone_arch_bridge_arch2_keystone",
+          "stone_arch_bridge_arch2_voussoir01",
+          "stone_arch_bridge_arch2_voussoir02",
+          "stone_arch_bridge_arch2_voussoir03",
+          "stone_arch_bridge_arch2_voussoir04",
+          "stone_arch_bridge_arch2_voussoir05",
+          "stone_arch_bridge_arch2_voussoir06",
+          "stone_arch_bridge_arch2_voussoir08",
+          "stone_arch_bridge_arch2_voussoir09",
+          "stone_arch_bridge_arch2_voussoir10",
+          "stone_arch_bridge_arch2_voussoir11",
+          "stone_arch_bridge_arch2_voussoir12",
+          "stone_arch_bridge_arch2_voussoir13"
+        ],
+        "per_component": {
+          "stone_arch_bridge_arch2_keystone": {
+            "direction": [
+              0.0,
+              -0.96815,
+              0.25038
+            ],
+            "distance": 5.3917
+          },
+          "stone_arch_bridge_arch2_voussoir01": {
+            "direction": [
+              -0.06759,
+              -0.99212,
+              0.10548
+            ],
+            "distance": 5.1405
+          },
+          "stone_arch_bridge_arch2_voussoir02": {
+            "direction": [
+              -0.06356,
+              -0.99059,
+              0.12122
+            ],
+            "distance": 5.1485
+          },
+          "stone_arch_bridge_arch2_voussoir03": {
+            "direction": [
+              -0.05587,
+              -0.98919,
+              0.13555
+            ],
+            "distance": 5.1557
+          },
+          "stone_arch_bridge_arch2_voussoir04": {
+            "direction": [
+              -0.04496,
+              -0.98802,
+              0.14761
+            ],
+            "distance": 5.1618
+          },
+          "stone_arch_bridge_arch2_voussoir05": {
+            "direction": [
+              -0.03148,
+              -0.98713,
+              0.15677
+            ],
+            "distance": 5.1665
+          },
+          "stone_arch_bridge_arch2_voussoir06": {
+            "direction": [
+              -0.0162,
+              -0.98658,
+              0.16246
+            ],
+            "distance": 5.1694
+          },
+          "stone_arch_bridge_arch2_voussoir08": {
+            "direction": [
+              0.0162,
+              -0.98658,
+              0.16246
+            ],
+            "distance": 5.1694
+          },
+          "stone_arch_bridge_arch2_voussoir09": {
+            "direction": [
+              0.03148,
+              -0.98713,
+              0.15677
+            ],
+            "distance": 5.1665
+          },
+          "stone_arch_bridge_arch2_voussoir10": {
+            "direction": [
+              0.04496,
+              -0.98802,
+              0.14761
+            ],
+            "distance": 5.1618
+          },
+          "stone_arch_bridge_arch2_voussoir11": {
+            "direction": [
+              0.05587,
+              -0.98919,
+              0.13555
+            ],
+            "distance": 5.1557
+          },
+          "stone_arch_bridge_arch2_voussoir12": {
+            "direction": [
+              0.06356,
+              -0.99059,
+              0.12122
+            ],
+            "distance": 5.1485
+          },
+          "stone_arch_bridge_arch2_voussoir13": {
+            "direction": [
+              0.06759,
+              -0.99212,
+              0.10548
+            ],
+            "distance": 5.1405
+          }
+        },
+        "sequence": "SEQUENTIAL",
+        "stagger_by": "LAYER",
+        "order": "DISASSEMBLY",
+        "stagger_seconds": 0.18,
+        "hold_start_seconds": 0.4,
+        "explode_seconds": 1.0,
+        "hold_seconds": 3.1233,
+        "return_seconds": 1.0,
+        "hold_end_seconds": 0.2,
         "highlight": {
           "components": [
             "stone_arch_bridge_arch2_keystone",
@@ -614,11 +978,9 @@
             "stone_arch_bridge_arch2_voussoir12",
             "stone_arch_bridge_arch2_voussoir13"
           ],
-          "start_seconds": 0.6,
-          "rise_seconds": 0.4,
-          "hold_seconds": 2.9667,
-          "fall_seconds": 0.4,
-          "strength": 0.45
+          "mode": "SIMULTANEOUS",
+          "strength": 0.5,
+          "fade_seconds": 0.25
         }
       },
       "camera_focus": [
@@ -640,7 +1002,7 @@
       "build_variants": [
         "stone_arch_bridge"
       ],
-      "start_seconds": 35.958333,
+      "start_seconds": 34.458333,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B4"
@@ -649,12 +1011,12 @@
         "CLM_102"
       ],
       "narration": "A stone arch works differently. It is built from wedge-shaped stones called voussoirs, with a keystone at the top of each arch.",
-      "visual_purpose": "Introduce the masonry arch and show one arch ring's voussoirs and keystone [CLOSEUP_HIGHLIGHT 2/2: close-up framed on 13 component(s)]",
+      "visual_purpose": "Introduce the masonry arch and show one arch ring's voussoirs and keystone [CLOSEUP_EXPLODE 2/2: frontal close-up: only the 13 focus pieces (voussoir, keystone) come forward out of the face, spread apart and return, so each piece's shape reads (voussoir, keystone are read as pieces)]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B4",
         "visual_intent": "SHOW_COMPONENT",
-        "strategy": "CLOSEUP_HIGHLIGHT",
+        "strategy": "CLOSEUP_EXPLODE",
         "part": [
           2,
           2
@@ -664,7 +1026,54 @@
           "voussoir",
           "keystone"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "voussoir",
+            "component_ids": [
+              "stone_arch_bridge_arch2_voussoir01",
+              "stone_arch_bridge_arch2_voussoir02",
+              "stone_arch_bridge_arch2_voussoir03",
+              "stone_arch_bridge_arch2_voussoir04",
+              "stone_arch_bridge_arch2_voussoir05",
+              "stone_arch_bridge_arch2_voussoir06",
+              "stone_arch_bridge_arch2_voussoir08",
+              "stone_arch_bridge_arch2_voussoir09",
+              "stone_arch_bridge_arch2_voussoir10",
+              "stone_arch_bridge_arch2_voussoir11",
+              "stone_arch_bridge_arch2_voussoir12",
+              "stone_arch_bridge_arch2_voussoir13"
+            ],
+            "pieces": true
+          },
+          {
+            "concept": "keystone",
+            "component_ids": [
+              "stone_arch_bridge_arch2_keystone"
+            ],
+            "pieces": true
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "voussoir",
+            "label": "exploded_hold",
+            "frame": 76,
+            "visible_share": 1.0,
+            "core_area": 0.06115,
+            "visible_area": 0.08353,
+            "ok": true
+          },
+          {
+            "concept": "keystone",
+            "label": "exploded_hold",
+            "frame": 76,
+            "visible_share": 1.0,
+            "core_area": 0.0055,
+            "visible_area": 0.00762,
+            "ok": true
+          }
+        ]
       }
     },
     {
@@ -724,7 +1133,34 @@
         "semantic_targets": [
           "truss_web"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "truss_web",
+            "component_ids": [
+              "steel_truss_bridge_span1_verticals_north",
+              "steel_truss_bridge_span1_diagonals_north",
+              "steel_truss_bridge_span1_verticals_south",
+              "steel_truss_bridge_span1_diagonals_south",
+              "steel_truss_bridge_span2_verticals_north",
+              "steel_truss_bridge_span2_diagonals_north",
+              "steel_truss_bridge_span2_verticals_south",
+              "steel_truss_bridge_span2_diagonals_south"
+            ],
+            "pieces": false
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "truss_web",
+            "label": "highlight_peak",
+            "frame": 65,
+            "visible_share": 0.791,
+            "core_area": 0.00053,
+            "visible_area": 0.03048,
+            "ok": true
+          }
+        ]
       }
     },
     {
@@ -784,7 +1220,34 @@
         "semantic_targets": [
           "truss_web"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "truss_web",
+            "component_ids": [
+              "steel_truss_bridge_span1_verticals_north",
+              "steel_truss_bridge_span1_diagonals_north",
+              "steel_truss_bridge_span1_verticals_south",
+              "steel_truss_bridge_span1_diagonals_south",
+              "steel_truss_bridge_span2_verticals_north",
+              "steel_truss_bridge_span2_diagonals_north",
+              "steel_truss_bridge_span2_verticals_south",
+              "steel_truss_bridge_span2_diagonals_south"
+            ],
+            "pieces": false
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "truss_web",
+            "label": "highlight_peak",
+            "frame": 50,
+            "visible_share": 0.791,
+            "core_area": 0.00053,
+            "visible_area": 0.03048,
+            "ok": true
+          }
+        ]
       }
     },
     {
@@ -905,33 +1368,51 @@
         "semantic_targets": [
           "truss_web"
         ],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "visibility_targets": [
+          {
+            "concept": "truss_web",
+            "component_ids": [
+              "warren_truss_span1_diagonals_north",
+              "warren_truss_span1_diagonals_south",
+              "warren_truss_span2_diagonals_north",
+              "warren_truss_span2_diagonals_south"
+            ],
+            "pieces": false
+          }
+        ],
+        "visibility_estimate": [
+          {
+            "concept": "truss_web",
+            "label": "highlight_peak",
+            "frame": 51,
+            "visible_share": 0.7884,
+            "core_area": 0.0,
+            "visible_area": 0.01905,
+            "ok": true
+          }
+        ]
       }
     },
     {
       "id": "SC_012",
-      "duration_seconds": 6.208333333333333,
+      "duration_seconds": 2.0416666666666665,
       "visual_type": "BLENDER_3D",
-      "transition": "SIDE_BY_SIDE",
-      "camera": "BRIDGE_STACK",
+      "transition": "HOLD",
+      "camera": "BRIDGE_THREE_QUARTER",
       "from_state": "timber_beam_bridge",
-      "to_state": "steel_truss_bridge",
+      "to_state": "timber_beam_bridge",
       "animation": {
-        "template": "SIDE_BY_SIDE",
-        "states": [
-          "timber_beam_bridge",
-          "stone_arch_bridge",
-          "steel_truss_bridge"
-        ],
-        "layout": "STACK",
-        "gap_ratio": 0.5,
-        "label_band": 0.1,
-        "labels": {
-          "timber_beam_bridge": "Timber beam bridge",
-          "stone_arch_bridge": "Stone arch bridge",
-          "steel_truss_bridge": "Steel truss bridge"
-        }
+        "template": "HOLD",
+        "state": "timber_beam_bridge",
+        "label": "Timber beam bridge"
       },
+      "camera_safe_band": 0.1,
+      "build_variants": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
       "start_seconds": 58.416667,
       "cut_from_previous": "hard",
       "beat_ids": [
@@ -939,23 +1420,195 @@
       ],
       "claim_ids": [],
       "narration": "Side by side, the three models span the same gap in three different ways.",
-      "visual_purpose": "All three archetypes at identical scale on identical sites [COMPARE_SIDE_BY_SIDE 1/1: 3 variants at identical scale (STACK)]",
+      "visual_purpose": "All three archetypes at identical scale on identical sites [SEQUENTIAL_COMPARISON 1/3: 1/3: Timber beam bridge alone, captioned, same locked camera and scale as the others]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B7",
         "visual_intent": "COMPARE_VARIANTS",
-        "strategy": "COMPARE_SIDE_BY_SIDE",
+        "strategy": "SEQUENTIAL_COMPARISON",
         "part": [
           1,
-          1
+          3
         ],
         "evidence_status": "INTERNAL_PREVIEW",
         "semantic_targets": [],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "composition": {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6344,
+                "occupancy": 0.5582,
+                "width_px": 563.2,
+                "detail_m": 0.3,
+                "detail_px": 5.79,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 5.79,
+            "min_width": 0.88
+          }
+        }
       }
     },
     {
       "id": "SC_013",
+      "duration_seconds": 2.0416666666666665,
+      "visual_type": "BLENDER_3D",
+      "transition": "HOLD",
+      "camera": "BRIDGE_THREE_QUARTER",
+      "from_state": "stone_arch_bridge",
+      "to_state": "stone_arch_bridge",
+      "animation": {
+        "template": "HOLD",
+        "state": "stone_arch_bridge",
+        "label": "Stone arch bridge"
+      },
+      "camera_safe_band": 0.1,
+      "build_variants": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
+      "start_seconds": 60.458333,
+      "cut_from_previous": "hard",
+      "beat_ids": [
+        "B7"
+      ],
+      "claim_ids": [],
+      "narration": "Side by side, the three models span the same gap in three different ways.",
+      "visual_purpose": "All three archetypes at identical scale on identical sites [SEQUENTIAL_COMPARISON 2/3: 2/3: Stone arch bridge alone, captioned, same locked camera and scale as the others]",
+      "editorial": {
+        "planned_by": "planner 1.0.0",
+        "beat_id": "B7",
+        "visual_intent": "COMPARE_VARIANTS",
+        "strategy": "SEQUENTIAL_COMPARISON",
+        "part": [
+          2,
+          3
+        ],
+        "evidence_status": "INTERNAL_PREVIEW",
+        "semantic_targets": [],
+        "timing_mode": "PROVISIONAL",
+        "composition": {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6383,
+                "occupancy": 0.5617,
+                "width_px": 563.2,
+                "detail_m": 0.743,
+                "detail_px": 14.33,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 14.33,
+            "min_width": 0.88
+          }
+        }
+      }
+    },
+    {
+      "id": "SC_014",
+      "duration_seconds": 2.125,
+      "visual_type": "BLENDER_3D",
+      "transition": "HOLD",
+      "camera": "BRIDGE_THREE_QUARTER",
+      "from_state": "steel_truss_bridge",
+      "to_state": "steel_truss_bridge",
+      "animation": {
+        "template": "HOLD",
+        "state": "steel_truss_bridge",
+        "label": "Steel truss bridge"
+      },
+      "camera_safe_band": 0.1,
+      "build_variants": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
+      "start_seconds": 62.5,
+      "cut_from_previous": "hard",
+      "beat_ids": [
+        "B7"
+      ],
+      "claim_ids": [],
+      "narration": "Side by side, the three models span the same gap in three different ways.",
+      "visual_purpose": "All three archetypes at identical scale on identical sites [SEQUENTIAL_COMPARISON 3/3: 3/3: Steel truss bridge alone, captioned, same locked camera and scale as the others]",
+      "editorial": {
+        "planned_by": "planner 1.0.0",
+        "beat_id": "B7",
+        "visual_intent": "COMPARE_VARIANTS",
+        "strategy": "SEQUENTIAL_COMPARISON",
+        "part": [
+          3,
+          3
+        ],
+        "evidence_status": "INTERNAL_PREVIEW",
+        "semantic_targets": [],
+        "timing_mode": "PROVISIONAL",
+        "composition": {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6902,
+                "occupancy": 0.6074,
+                "width_px": 563.2,
+                "detail_m": 0.2,
+                "detail_px": 3.86,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 3.86,
+            "min_width": 0.88
+          }
+        }
+      }
+    },
+    {
+      "id": "SC_015",
       "duration_seconds": 7.75,
       "visual_type": "BLENDER_3D",
       "transition": "SIDE_BY_SIDE",
@@ -970,7 +1623,7 @@
           "steel_truss_bridge"
         ],
         "layout": "STACK",
-        "gap_ratio": 0.5,
+        "gap_ratio": 0.25,
         "label_band": 0.1,
         "labels": {
           "timber_beam_bridge": "Timber beam bridge",
@@ -987,24 +1640,72 @@
         }
       },
       "start_seconds": 64.625,
+      "cut_from_previous": "hard",
       "beat_ids": [
         "B8"
       ],
       "claim_ids": [],
       "narration": "Beam, arch and truss: three arrangements of parts for the same task. These are illustrations, not a timeline.",
-      "visual_purpose": "Close on the comparison, glowing the parts that differ [CONTINUE_COMPARISON 1/1: 3 variants at identical scale (STACK); differing parts glow]",
+      "visual_purpose": "Close on the comparison, glowing the parts that differ [COMPARE_SIDE_BY_SIDE 1/1: 3 variants at identical scale (STACK, gap 0.25); differing parts glow]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B8",
         "visual_intent": "SUMMARIZE_DIFFERENCES",
-        "strategy": "CONTINUE_COMPARISON",
+        "strategy": "COMPARE_SIDE_BY_SIDE",
         "part": [
           1,
           1
         ],
         "evidence_status": "INTERNAL_PREVIEW",
         "semantic_targets": [],
-        "timing_mode": "PROVISIONAL"
+        "timing_mode": "PROVISIONAL",
+        "composition": {
+          "layout": "SIDE_BY_SIDE_STACK",
+          "gap_ratio": 0.25,
+          "label_band": 0.1,
+          "purpose": "overview",
+          "scale": "COMMON",
+          "metrics": {
+            "px_per_m": 7.47,
+            "models": {
+              "timber_beam_bridge": {
+                "width": 0.3435,
+                "height": 0.2188,
+                "occupancy": 0.0752,
+                "width_px": 219.9,
+                "detail_m": 0.3,
+                "detail_px": 2.24,
+                "clipped": false,
+                "in_label_band": false
+              },
+              "stone_arch_bridge": {
+                "width": 0.3435,
+                "height": 0.2205,
+                "occupancy": 0.0758,
+                "width_px": 219.9,
+                "detail_m": 0.743,
+                "detail_px": 5.55,
+                "clipped": false,
+                "in_label_band": false
+              },
+              "steel_truss_bridge": {
+                "width": 0.3435,
+                "height": 0.2404,
+                "occupancy": 0.0826,
+                "width_px": 219.9,
+                "detail_m": 0.2,
+                "detail_px": 1.49,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 1.49,
+            "min_width": 0.3435
+          }
+        }
       }
     }
   ]

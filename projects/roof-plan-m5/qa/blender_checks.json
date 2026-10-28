@@ -11,7 +11,7 @@
       "shot": "SC_001",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "29 components, ownership + parenting OK"
+      "detail": "22 components, ownership + parenting OK"
     },
     {
       "shot": "SC_001",
@@ -23,7 +23,7 @@
       "shot": "SC_001",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "29 objects (15 shared) unchanged on 5 frames"
+      "detail": "22 objects (15 shared) unchanged on 5 frames"
     },
     {
       "shot": "SC_001",
@@ -53,7 +53,7 @@
       "shot": "SC_001",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.170 at foundation@1; lowest point y=0.170 (label band 0.10); ortho_scale 16.245"
+      "detail": "min margin 0.070 at low_pitch_gable_roof_covering_right@1; lowest point y=0.170 (label band 0.10); ortho_scale 12.303"
     },
     {
       "shot": "SC_001",
@@ -65,13 +65,13 @@
       "shot": "SC_001",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 1.36e-07"
+      "detail": "max projection error 1.38e-07"
     },
     {
       "shot": "SC_002",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "29 components, ownership + parenting OK"
+      "detail": "22 components, ownership + parenting OK"
     },
     {
       "shot": "SC_002",
@@ -83,7 +83,7 @@
       "shot": "SC_002",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "24 objects (15 shared) unchanged on 49 frames"
+      "detail": "17 objects (15 shared) unchanged on 49 frames"
     },
     {
       "shot": "SC_002",
@@ -125,7 +125,7 @@
       "shot": "SC_002",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.091 at low_pitch_gable_roof_covering_left@35; lowest point y=0.170 (label band 0.10); ortho_scale 16.245"
+      "detail": "min margin 0.070 at low_pitch_gable_roof_covering_left@35; lowest point y=0.170 (label band 0.10); ortho_scale 9.692"
     },
     {
       "shot": "SC_002",
@@ -137,13 +137,13 @@
       "shot": "SC_002",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "53% of the highlighted silhouette visible, 1.02% of the frame at frame 81"
+      "detail": "53% of the highlighted silhouette visible, 2.85% of the frame at frame 81"
     },
     {
       "shot": "SC_002",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 1.36e-07"
+      "detail": "max projection error 3.02e-07"
     },
     {
       "shot": "SC_003",
@@ -293,19 +293,19 @@
       "shot": "ALL",
       "check": "camera_identical_across_single_model_shots",
       "status": "PASS",
-      "detail": "3 shots in 1 continuity group(s), one locked camera per group"
+      "detail": "3 shots in 3 continuity group(s), one locked camera per group"
     },
     {
       "shot": "SC_001",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 7935b98dd0e76c18"
+      "detail": "sha256 404bf84d6af7d9b9"
     },
     {
       "shot": "SC_002",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 ebf0bafe4d62c84f"
+      "detail": "sha256 41bfbab223b6f8c8"
     },
     {
       "shot": "SC_003",

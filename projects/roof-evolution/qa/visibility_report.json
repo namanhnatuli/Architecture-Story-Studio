@@ -1,0 +1,377 @@
+{
+ "project": "roof-evolution",
+ "preset": "preview",
+ "grid": [
+  192,
+  108
+ ],
+ "summary": {
+  "rows": 10,
+  "verdict_agreement": 1.0,
+  "mean_abs_share_error": 0.0248,
+  "max_abs_share_error": 0.0452,
+  "level2_seconds": 0.7,
+  "level1_seconds": 0.08,
+  "explanatory_failures_L2": 0,
+  "beat_concepts": 1,
+  "beat_concepts_unreadable_L2": []
+ },
+ "rows": [
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 1,
+   "label": "start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 329
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 167
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 30,
+   "label": "q25",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.592,
+    "core_area": 0.00246,
+    "visible_area": 0.01722,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5468,
+    "core_area": 0.00159,
+    "visible_area": 0.01379,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 237
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 60,
+   "label": "mid",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.57,
+    "core_area": 0.00231,
+    "visible_area": 0.01611,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5282,
+    "core_area": 0.00077,
+    "visible_area": 0.01312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 241
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 2
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 90,
+   "label": "q75",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.6123,
+    "core_area": 0.00203,
+    "visible_area": 0.01775,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5771,
+    "core_area": 0.0014,
+    "visible_area": 0.01461,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 222
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 120,
+   "label": "end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 329
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 167
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 44,
+   "label": "explode_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.57,
+    "core_area": 0.00231,
+    "visible_area": 0.01611,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5282,
+    "core_area": 0.00077,
+    "visible_area": 0.01312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 241
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 2
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 11,
+   "label": "explode_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 329
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 167
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 62,
+   "label": "exploded_hold",
+   "concept": "highlight",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.57,
+    "core_area": 0.00231,
+    "visible_area": 0.01611,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5282,
+    "core_area": 0.00077,
+    "visible_area": 0.01312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 241
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 2
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 111,
+   "label": "return_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.0,
+    "core_area": 0.0,
+    "visible_area": 0.0,
+    "ok": false,
+    "problems": [
+     "OCCLUDED",
+     "TOO_SMALL"
+    ],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 329
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 167
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "SC_002",
+   "frame": 80,
+   "label": "return_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.57,
+    "core_area": 0.00231,
+    "visible_area": 0.01611,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.5282,
+    "core_area": 0.00077,
+    "visible_area": 0.01312,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "roof_A_covering_right",
+      "samples": 241
+     },
+     {
+      "id": "roof_A_covering_left",
+      "samples": 2
+     }
+    ]
+   }
+  }
+ ]
+}

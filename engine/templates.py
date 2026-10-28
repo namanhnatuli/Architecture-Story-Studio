@@ -240,6 +240,12 @@ def plan_shot(shot, states, fps, slots, camera=None):
             def names_for(selector):
                 return [c.name for c in _select(selector, "STATE", own, slot, sid, "highlight.components", allowed)]
             motion.plan_highlight_only(plan, cfg, motion.HOLD_DEFAULTS, names_for, "HOLD")
+            label = cfg.get("label")
+            if label is not None:   # M5.5: caption of a single model (sequential comparisons)
+                if not isinstance(label, str) or not label.strip() or len(label) > 40:
+                    raise motion.PlanError(f"{sid}: label must be 1-40 characters")
+                if float(shot.get("camera_safe_band", 0.0)) < 0.08:
+                    raise motion.PlanError(f"{sid}: a HOLD label needs camera_safe_band >= 0.08 (it sits in that band)")
         elif template == "SIDE_BY_SIDE":
             chosen = side_states(shot, cfg, states)
             gap = cfg.get("gap_ratio", motion.SIDE_BY_SIDE_DEFAULTS["gap_ratio"])

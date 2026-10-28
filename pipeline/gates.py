@@ -15,6 +15,11 @@ from pipeline import narration as nar
 from pipeline import pronunciation as pron
 
 STATUSES = ("TECHNICALLY_VALIDATED", "EDITORIAL_REVIEW_PENDING", "TTS_RIGHTS_PENDING", "PUBLICATION_READY")
+# M5.5 production profiles (project.json "production_profile"): what the output is FOR decides
+# which gates apply. A technical preview is never publication authorization.
+PROFILES = ("TECHNICAL_SILENT_PREVIEW", "NARRATED_INTERNAL_REVIEW", "PUBLICATION_CANDIDATE")
+DEFAULT_PROFILE = "NARRATED_INTERNAL_REVIEW"   # projects without a profile get the strict narrated gates
+PUBLICATION_METADATA = ("title", "description", "language", "credits")
 
 
 def _read(path):
@@ -22,11 +27,160 @@ def _read(path):
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
 
 
+def profile_of(project):
+    return (project or {}).get("production_profile") or DEFAULT_PROFILE
+
+
+def plan_gate(p):
+    """GV (M5.5): the visual execution plan validates and its coverage report is current."""
+    plan_path = p / "storyboard/visual_plan.json"
+    if not plan_path.is_file():
+        return None
+    from planner import compiler, validate
+    plan = _read(plan_path)
+    errors = validate.validate_plan(plan, p, engine_check=False)
+    story = _read(p / "storyboard/storyboard.json") or {}
+    if story.get("plan_sha256") != compiler.plan_hash(plan):
+        errors.append("storyboard.json was not compiled from the current visual_plan.json (run build-shots)")
+    cov = _read(p / "qa/visual_coverage.json")
+    if not cov or cov.get("executable") != plan.get("executable"):
+        errors.append("qa/visual_coverage.json missing or out of date (run plan-visuals)")
+    return ("PASS" if not errors else "FAIL", errors[:5] or [
+        f"visual plan valid: {len(plan['shots'])} shots, coverage "
+        + ", ".join(f"{k} {v}" for k, v in sorted(_counts(c["status"] for c in plan["coverage"]).items()))])
+
+
+def _counts(items):
+    out = {}
+    for i in items:
+        out[i] = out.get(i, 0) + 1
+    return out
+
+
+def silent_media(p, m, b, preset):
+    """G4 for silent previews: Blender QA + media QA + staleness from the actual render
+    dependencies (storyboard totals, per-shot render-cache keys), never from audio timing."""
+    from tools import render_cache
+    from tools.cli import shots, expected_frames
+    notes, ok = [], True
+    if not b:
+        return "FAIL", ["no Blender QA report"]
+    notes.append(f"Blender QA {b['passed']}/{b['total']}")
+    ok &= b["failed"] == 0
+    if not m:
+        return "FAIL", notes + ["media QA missing (run preview)"]
+    if m.get("problems"):
+        return "FAIL", notes + m["problems"][:3]
+    current = shots(p)
+    total = sum(expected_frames(p, s) for s in current)
+    stale = []
+    if m.get("expected_total_frames") != total:
+        stale.append(f"rendered for {m.get('expected_total_frames')} frames, storyboard now has {total}")
+    keys = m.get("render_keys")
+    if keys is None:
+        stale.append("media report predates M5.5 (no render keys): re-run preview")
+    else:
+        for s in current:
+            now = render_cache.cache_key(render_cache.components(p, s, preset))
+            if keys.get(s["id"]) != now:
+                stale.append(f"{s['id']} changed since the media were encoded")
+    if stale:
+        return "FAIL", notes + ["media QA is stale: " + "; ".join(stale[:4])]
+    notes.append(f"silent media QA PASS ({total} frames, {len(current)} shots, render keys current)")
+    return ("PASS" if ok else "FAIL"), notes
+
+
+def _storyboard_claims(p):
+    story = _read(p / "storyboard/storyboard.json") or {}
+    return sorted({c for s in story.get("shots", []) for c in s.get("claim_ids", [])})
+
+
 def evaluate(p, preset_suffix=""):
-    """{"gates": {name: {status, notes}}, "statuses": [...], "verdict": str}."""
+    """{"gates": {name: {status, notes}}, "statuses": [...], "verdict": str, "profile": str}."""
+    p = Path(p)
+    project = _read(p / "project.json") or {}
+    profile = profile_of(project)
+    if profile == "TECHNICAL_SILENT_PREVIEW":
+        return _evaluate_silent(p, project, preset_suffix)
+    result = _evaluate_narrated(p, preset_suffix)
+    result["profile"] = profile
+    gv = plan_gate(p)
+    if gv:
+        result["gates"]["GV visual plan & coverage"] = {"status": gv[0], "notes": gv[1]}
+    if profile == "PUBLICATION_CANDIDATE":
+        meta = project.get("publication_metadata") or {}
+        missing = [k for k in PUBLICATION_METADATA if not str(meta.get(k) or "").strip()]
+        g6 = result["gates"]["G6 final publication readiness"]
+        if missing:
+            g6["status"] = "BLOCKED"
+            g6["notes"] = [f"FINAL gate: publication metadata missing {missing}"] + [n for n in g6["notes"]
+                                                                                   if n != "all gates pass"]
+        if gv and gv[0] != "PASS":
+            g6["status"] = "BLOCKED"
+            g6["notes"].append("FINAL gate: visual plan does not validate")
+        if g6["status"] != "PASS" and "PUBLICATION_READY" in result["statuses"]:
+            result["statuses"] = ["TECHNICALLY_VALIDATED"]
+            result["verdict"] = "PUBLICATION CANDIDATE — BLOCKED (" + "; ".join(g6["notes"][:2]) + ")"
+    elif "PUBLICATION_READY" in result["statuses"]:
+        # Every gate passed, but this profile is an internal review: publication needs the
+        # PUBLICATION_CANDIDATE profile (and its metadata), never an implicit promotion.
+        result["statuses"] = ["TECHNICALLY_VALIDATED"]
+        result["verdict"] = ("INTERNAL REVIEW — ALL GATES PASS; set production_profile PUBLICATION_CANDIDATE "
+                             "(with publication_metadata) to evaluate publication")
+    return result
+
+
+def _evaluate_silent(p, project, preset_suffix):
+    """TECHNICAL_SILENT_PREVIEW: plan, assets, Blender QA and silent media must pass; narration,
+    TTS rights, timing lock and subtitles are NOT_APPLICABLE (not failures); never publishable."""
+    from tools.validator import validate_project
+    gates = {}
+    errors, _ = validate_project(p)
+    gates["G0 project & schema validation"] = ("PASS" if not errors else "FAIL", errors[:5] or ["validate passes"])
+    gv = plan_gate(p)
+    if gv:
+        gates["GV visual plan & coverage"] = gv
+    sources = _read(p / "research/sources.json") or {}
+    claims = {c["id"]: c for c in sources.get("claims", [])}
+    used = _storyboard_claims(p)
+    statuses = {c: claims.get(c, {}).get("review_status") for c in used}
+    unknown = [c for c in used if c not in claims]
+    weak = [f"{c}: {s}" for c, s in statuses.items() if c in claims and s not in ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED")]
+    if unknown:
+        g1 = ("FAIL", [f"claims not in research/sources.json: {unknown}"])
+    elif weak:
+        g1 = ("PENDING_EVIDENCE", weak + ["(a silent technical preview may show them; publication may not)"])
+    elif all(s == "EDITORIALLY_APPROVED" for s in statuses.values()):
+        g1 = ("PASS", [f"{len(used)} on-screen claims editorially approved"])
+    else:
+        g1 = ("PENDING_EDITORIAL", [f"{sum(s == 'EDITORIALLY_APPROVED' for s in statuses.values())}/{len(used)} "
+                                    "on-screen claims editorially approved (source-verified only)"])
+    gates["G1 evidence review"] = g1
+    na = "NOT_APPLICABLE"
+    gates["G2 narration audio & TTS rights"] = (na, ["silent technical preview: no narration audio"])
+    gates["G3 narration timing lock"] = (na, ["silent technical preview: timing comes from the visual plan "
+                                              f"({(_read(p / 'storyboard/visual_plan.json') or {}).get('timing_mode', 'storyboard')})"])
+    preset = "preview" if not preset_suffix else preset_suffix.lstrip("_")
+    b = (_read(p / "qa/blender_checks.json") or {}).get("summary")
+    m = _read(p / "qa" / f"preview_media_report{preset_suffix}.json")
+    gates["G4 Blender visual preview"] = silent_media(p, m, b, preset)
+    gates["G5 media assembly & subtitles"] = (na, ["silent technical preview: no audio to assemble, no subtitles; "
+                                                   "the silent MP4 is checked in G4"])
+    gates["G6 final publication readiness"] = ("BLOCKED", ["profile TECHNICAL_SILENT_PREVIEW is a technical preview; "
+                                                           "it is never publication-ready (no narration, no rights)"])
+    technical = all(gates[g][0] == "PASS" for g in gates if g.startswith(("G0", "GV", "G4")))
+    flags = (["TECHNICALLY_VALIDATED"] if technical else []) + (["EDITORIAL_REVIEW_PENDING"] if g1[0] != "PASS" else [])
+    verdict = ("TECHNICAL PREVIEW — VALID (silent); NOT FOR PUBLICATION" if technical else
+               "TECHNICAL PREVIEW — NOT VALID (" + "; ".join(g for g in gates if gates[g][0] == "FAIL"
+                                                          and g.startswith(("G0", "GV", "G4"))) + ")")
+    return {"verdict": verdict, "statuses": flags, "profile": "TECHNICAL_SILENT_PREVIEW",
+            "gates": {k: {"status": v[0], "notes": v[1]} for k, v in gates.items()}}
+
+
+def _evaluate_narrated(p, preset_suffix=""):
+    """NARRATED_INTERNAL_REVIEW / PUBLICATION_CANDIDATE (the M3.5 gates, unchanged)."""
     from tools.validator import publication_audio_errors, validate_project
     from integrations.tts import providers
-    p = Path(p)
     gates = {}
     errors, _ = validate_project(p)
     gates["G0 project & schema validation"] = ("PASS" if not errors else "FAIL", errors[:5] or ["validate passes"])

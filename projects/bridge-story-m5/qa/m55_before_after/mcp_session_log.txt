@@ -1,0 +1,92 @@
+SERVER {"name": "MCP for Blender", "version": "1.30.0"}
+TOOLS ['get_addon_status', 'disable_telemetry', 'get_scene_info', 'execute_blender_code', 'record_trajectory_feedback', 'look', 'generate_3d', 'search_assets', 'import_asset']
+CALL a_status tool=get_addon_status error=False 0.42s images=[]
+    {
+      "up_to_date": true,
+      "protocol_version": 15,
+      "expected_protocol_version": 15,
+      "addon_version": [
+        1,
+        8
+      ],
+      "capabilities": [
+        "bpy_api_lookup",
+        "describe_node_type",
+        "drain_human_activity",
+        "execute_code",
+        "get_addon_info",
+        "get_object_info",
+        "get_scene_info",
+        "get_telemetry_consent",
+        "get_viewport_screenshot",
+        "get_world_state_snapshot",
+        "list_scene_items",
+        "pick_viewport_object",
+        "set_telemetry_consent"
+      ],
+      "blender_version": "5.2.2 LTS",
+      "premium_generators": [],
+      "libraries": {
+        "polyhaven": "off",
+        "sketchfab": "off",
+        "polypizza": "off"
+      },
+      "generators": {
+        "tripo": "off (Premium only)",
+        "hunyuan3d": "off",
+        "hyper3d": "off",
+        "meshy": "off"
+      },
+      "source": "native",
+      "warning": null,
+      "telemetry_consent": false,
+      "update_command": "uvx mcp-for-blender install-addon",
+      "after_install": "If the addon file was updated: in Blender, Preferences \u2192 Add-ons \u2192 disable/enable 'Interface: Blender MCP', or restart Blender, then Start MCP Server."
+    }
+CALL a_safe_mode_probe tool=execute_blender_code error=False 0.0s images=[]
+    Rejected by safe mode - line 1: import of 'subprocess' is not allowed
+    
+    BLENDER_MCP_SAFE_MODE is enabled: scripts may only import bpy, bmesh, mathutils, and pure-python stdlib modules. No eval/exec/open, no os/subprocess/network access, no handlers/timers/drivers, no class or property registration, and no loading of external .blend datablocks. Blender operators for rendering, saving, and import/export ARE allowed. Rewrite the script within these limits; only the user can disable safe mode.
+CALL m_A_before tool=execute_blender_code error=False 0.09s images=[]
+    Code executed successfully: A BEFORE (no ghost) frame 65 meshes 24 targets 4 visible share 0.140 visible area 0.0087 ortho 33.11 top occluders [('timber_beam_bridge_span1_planks', 59), ('timber_beam_bridge_span3_planks', 58)] see-through 0
+    
+CALL l_A_before tool=look error=False 0.41s images=['<scratchpad>/mcp_m55/l_A_before_0.png']
+    Frames left to right, top to bottom: 1, 65, 120. Framed 4 objects, 24 x 3.36 x 0.46 m across, centred at [0.0, 0.0, 4.68].
+CALL m_A_after tool=execute_blender_code error=False 0.09s images=[]
+    Code executed successfully: A AFTER (GHOST:plank) frame 65 meshes 28 targets 4 visible share 0.838 visible area 0.0519 ortho 33.11 top occluders [('timber_beam_bridge_railing_south', 48), ('bank_right', 4)] see-through 4
+    
+CALL l_A_after tool=look error=False 0.38s images=['<scratchpad>/mcp_m55/l_A_after_0.png']
+    Frames left to right, top to bottom: 1, 65, 120. Framed 4 objects, 24 x 3.36 x 0.46 m across, centred at [0.0, 0.0, 4.68].
+CALL m_C_before tool=execute_blender_code error=False 0.08s images=[]
+    Code executed successfully: C BEFORE (M5 glowing close-up) frame 61 meshes 53 targets 13 visible share 0.308 visible area 0.0760 ortho 12.43 top occluders [('stone_arch_bridge_spandrel', 549), ('stone_arch_bridge_parapet_south', 274)] see-through 0
+    
+CALL l_C_before tool=look error=False 0.22s images=['<scratchpad>/mcp_m55/l_C_before_0.png']
+    Frames left to right, top to bottom: 1, 61. Framed 4 objects, 4.01 x 4.92 x 3.61 m across, centred at [-1.58, 0.0, 2.36].
+CALL m_C_after tool=execute_blender_code error=False 0.09s images=[]
+    Code executed successfully: C AFTER (frontal exploded close-up) frame 76 meshes 53 targets 13 visible share 1.000 visible area 0.0887 ortho 10.89 top occluders [] see-through 0
+    
+CALL l_C_after tool=look error=False 0.43s images=['<scratchpad>/mcp_m55/l_C_after_0.png']
+    Frames left to right, top to bottom: 1, 40, 76, 148. Framed 4 objects, 4.36 x 4.98 x 4.42 m across, centred at [-1.76, -5.19, 3.3].
+CALL m_R_before tool=execute_blender_code error=False 0.08s images=[]
+    Code executed successfully: R BEFORE (M5 whole-house explode) frame 81 meshes 30 targets 3 visible share 0.539 visible area 0.0106 ortho 16.25 top occluders [('low_pitch_gable_roof_covering_right', 47)] see-through 0
+    
+CALL l_R_before tool=look error=False 0.21s images=['<scratchpad>/mcp_m55/l_R_before_0.png']
+    Frames left to right, top to bottom: 1, 81. Framed 3 objects, 4.98 x 2.88 x 0.83 m across, centred at [0.0, 0.0, 3.59].
+CALL m_R_after tool=execute_blender_code error=False 0.08s images=[]
+    Code executed successfully: R AFTER (REFRAME) frame 81 meshes 23 targets 3 visible share 0.513 visible area 0.0272 ortho 9.69 top occluders [('low_pitch_gable_roof_covering_right', 133), ('low_pitch_gable_roof_covering_left', 1)] see-through 0
+    
+CALL l_R_after tool=look error=False 0.2s images=['<scratchpad>/mcp_m55/l_R_after_0.png']
+    Frames left to right, top to bottom: 1, 81. Framed 3 objects, 4.98 x 2.88 x 0.83 m across, centred at [0.0, 0.0, 3.59].
+CALL m_B_before tool=execute_blender_code error=False 0.11s images=[]
+    Code executed successfully: B BEFORE (M5 STACK, truss web) frame 75 meshes 108 targets 4 visible share 0.857 visible area 0.0012 ortho 98.22 top occluders [('steel_truss_bridge.steel_truss_bridge_span1_joints_south', 1)] see-through 0
+    
+CALL l_B_before tool=look error=False 0.2s images=['<scratchpad>/mcp_m55/l_B_before_0.png']
+    Frames left to right, top to bottom: 75. Framed 4 objects, 23.45 x 0.2 x 2.32 m across, centred at [9.71, -47.98, 5.72].
+CALL m_B_after_seq tool=execute_blender_code error=False 0.04s images=[]
+    Code executed successfully: B AFTER (sequential, truss web) frame 25 meshes 102 targets 4 visible share 0.804 visible area 0.0166 ortho 33.11 top occluders [('steel_truss_bridge_span2_joints_south', 11), ('steel_truss_bridge_span1_joints_south', 10)] see-through 0
+    
+CALL l_B_after_seq tool=look error=False 0.14s images=['<scratchpad>/mcp_m55/l_B_after_seq_0.png']
+    Frames left to right, top to bottom: 25. Framed 4 objects, 23.45 x 0.2 x 2.32 m across, centred at [0.0, -2.3, 5.72].
+CALL m_B_after_overview tool=execute_blender_code error=False 0.12s images=[]
+    Code executed successfully: B AFTER overview (STACK gap 0.25) frame 93 meshes 108 targets 4 visible share 1.000 visible area 0.0027 ortho 85.38 top occluders [] see-through 0
+    

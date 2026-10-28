@@ -177,9 +177,11 @@ class PilotPlanTest(unittest.TestCase):
 
     def test_strategies_follow_the_narrative(self):
         s = {c["beat_id"]: c["strategy"] for c in self.plan["coverage"]}
+        # M5.5: B4 voussoirs are read as pieces (frontal exploded close-up); B7 three long bridges are
+        # unreadable all at once at 640x360, so one at a time under one camera; B8 is the overview.
         self.assertEqual(s, {"B1": "SITE_HOLD", "B2": "ASSEMBLE_IN", "B3": "HIGHLIGHT_THEN_EXPLODE",
-                             "B4": "CLOSEUP_HIGHLIGHT", "B5": "HOLD_HIGHLIGHT", "B6": "HIGHLIGHT_REPLACE_HIGHLIGHT",
-                             "B7": "COMPARE_SIDE_BY_SIDE", "B8": "CONTINUE_COMPARISON"})
+                             "B4": "CLOSEUP_EXPLODE", "B5": "HOLD_HIGHLIGHT", "B6": "HIGHLIGHT_REPLACE_HIGHLIGHT",
+                             "B7": "SEQUENTIAL_COMPARISON", "B8": "COMPARE_SIDE_BY_SIDE"})
         replace = [p for p in self.plan["shots"] if p["template"] == "REPLACE_PARTS"]
         self.assertEqual([p["states"] for p in replace], [["site", "timber_beam_bridge"], ["steel_truss_bridge", "warren_truss"]])
         warren = next(v for v in self.plan["states"]["variants"] if v["id"] == "warren_truss")
@@ -187,7 +189,8 @@ class PilotPlanTest(unittest.TestCase):
 
     def test_camera_groups_closeup_and_cuts(self):
         shots = self.plan["shots"]
-        closeup = next(p for p in shots if p["camera"]["mode"] == "COMPONENT_CLOSEUP")
+        closeup = next(p for p in shots if p["shot"].get("camera_focus"))
+        self.assertEqual((closeup["template"], closeup["camera"]["preset"]), ("EXPLODED_VIEW", "ELEVATION"))
         self.assertEqual(len(closeup["shot"]["camera_focus"]), 13)
         self.assertEqual(closeup["cut_from_previous"], "hard")
         for a, b in zip(shots, shots[1:]):
@@ -199,16 +202,27 @@ class PilotPlanTest(unittest.TestCase):
                     self.assertEqual(a["states"][-1], b["states"][0])
         first = [p for p in shots if p["camera"]["group"] == 1]
         self.assertTrue(all(p["shot"]["build_variants"] == ["site", "timber_beam_bridge"] for p in first))
-        self.assertTrue(all(v["ok"] is not False for p in shots for v in p.get("visibility", [])))
+        seq = [p for p in shots if p.get("sequence")]
+        self.assertEqual([p["states"][0] for p in seq], ["timber_beam_bridge", "stone_arch_bridge", "steel_truss_bridge"])
+        self.assertEqual(len({p["camera"]["group"] for p in seq}), 1)          # one locked camera = one scale
+        self.assertEqual([p["cut_from_previous"] for p in seq[1:]], ["hard", "hard"])
+        self.assertEqual(seq[0]["shot"]["build_variants"], ["timber_beam_bridge", "stone_arch_bridge", "steel_truss_bridge"])
 
     def test_covered_targets_are_revealed_not_hidden(self):
-        """Stringers lie under the deck planks: while they glow the planks turn see-through
-        (vocabulary ghost_roles); when the planks glow themselves nothing is ghosted."""
+        """Test A: the stringers lie under the deck planks. The offline estimate detects it before
+        rendering (14 % visible), camera remedies are skipped (match cut), and the planner ghosts
+        the planks while the stringers glow; when the planks glow themselves nothing is ghosted."""
         by_id = {p["shot_id"]: p for p in self.plan["shots"]}
         h = by_id["SC_003"]["shot"]["animation"]["highlight"]
         self.assertEqual(h["ghost"], [f"timber_beam_bridge_span{i}_planks" for i in range(1, 5)])
         self.assertTrue(all("stringers" in c for c in h["components"]))
         self.assertNotIn("ghost", by_id["SC_004"]["shot"]["animation"]["highlight"])
+        rep = by_id["SC_003"]["repairs"][0]
+        self.assertEqual((rep["remedy"], rep["problems"]), ("GHOST:plank", ["OCCLUDED"]))
+        self.assertLess(rep["before"]["visible_share"], 0.25)
+        self.assertGreater(rep["after"]["visible_share"], 0.75)
+        record = next(r for c in self.plan["coverage"] for r in c.get("visual_repairs", []) if r["shot_id"] == "SC_003")
+        self.assertEqual([e["result"] for e in record["evaluated"]], ["SKIPPED", "SKIPPED", "PASS"])
         from engine import motion, templates
         story = json.loads((BRIDGE / "storyboard/storyboard.json").read_text())
         states = json.loads((BRIDGE / "storyboard/states.json").read_text())
@@ -220,7 +234,7 @@ class PilotPlanTest(unittest.TestCase):
         shot["animation"]["highlight"]["ghost"] = h["components"][:1]
         with self.assertRaisesRegex(motion.PlanError, "also glow"):
             templates.plan_shot(shot, states, 24, templates.placeholder_slots(shot, states))
-        sbs = copy.deepcopy(next(x for x in story["shots"] if x["id"] == "SC_013"))
+        sbs = copy.deepcopy(next(x for x in story["shots"] if x["transition"] == "SIDE_BY_SIDE"))
         sbs["animation"]["highlight"]["ghost"] = h["ghost"]
         with self.assertRaisesRegex(motion.PlanError, "unknown option 'ghost'"):
             templates.plan_shot(sbs, states, 24, templates.placeholder_slots(sbs, states))

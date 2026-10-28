@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 
 from engine import spec, templates
-from planner import beats as B, camera as CAM, compiler, vocabulary as V
+from planner import beats as B, camera as CAM, compiler, visibility as VIS, vocabulary as V
 from planner.planner import REPLACE_SHARED_BASE_FAMILIES, SITE_STATE
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -160,6 +160,7 @@ def validate_plan(plan, project_dir, root=ROOT, engine_check=True):
             errors.append(f"{where}: engine rejects the shot: {e}")
     if t != plan["total_frames"]:
         errors.append(f"total_frames {plan['total_frames']} differs from the sum of shots {t}")
+    errors += visibility_errors(plan, root)
 
     if engine_check and plan["executable"] and not errors:
         errors += [f"engine: {e}" for e in engine_validation(plan, p)]
@@ -178,3 +179,63 @@ def engine_validation(plan, project_dir):
         compiler.compile_plan(plan, dst)
         errs, _ = validate_project(dst)
         return errs
+
+
+def visibility_errors(plan, root=ROOT):
+    """M5.5: stored visibility equals a recomputation; every target concept reads in its beat
+    (or the beat says it does not); every ghost / close-up repair is documented; comparison
+    layouts read for their purpose; a sequential comparison shares one locked camera."""
+    from planner import composition, repair
+    errors = []
+    cfg = json.loads((Path(root) / "config/visual_planning.json").read_text())
+    vcfg, ccfg = cfg["visibility"], cfg["composition"]
+    presets = CAM.style_presets(root)
+    pieces = set(plan.get("pieces_concepts", []))
+    states, fps = plan["states"], plan["fps"]
+    readable = {}
+    for ps in plan["shots"]:
+        sid = ps["shot_id"]
+        assessed = ps["semantic_targets"] and ps["template"] in ("HOLD", "EXPLODED_VIEW", "REPLACE_PARTS")
+        if assessed:
+            try:
+                _, a = repair.assess_shot(ps, states, vcfg, presets, fps, pieces)
+            except Exception as e:   # noqa: BLE001
+                errors.append(f"{sid}: visibility cannot be recomputed: {e}")
+                continue
+            if repair.stored(a) != ps.get("visibility"):
+                errors.append(f"{sid}: stored visibility differs from a recomputation (plan edited by hand?)")
+            for r in a["targets"]:
+                readable.setdefault((ps["beat_id"], r["concept"]), []).append(r["ok"])
+        h = (ps["shot"].get("animation") or {}).get("highlight") or {}
+        remedies = [r["remedy"] for r in ps.get("repairs", [])]
+        if isinstance(h, dict) and h.get("ghost") and not any(r.startswith("GHOST") for r in remedies):
+            errors.append(f"{sid}: ghosted parts without a documented visibility repair")
+        comp = ps.get("composition") or {}
+        if ps["template"] == "SIDE_BY_SIDE" and comp:
+            anim = ps["shot"]["animation"]
+            shot = composition.comparison_shot(ps["states"], anim["layout"], anim["gap_ratio"], anim["label_band"],
+                                               ps["shot"]["camera"])
+            m = composition.measure_layout(VIS.build_scene(shot, states, fps, presets), ccfg)
+            ok, problems = composition.readable(m, composition.purpose_cfg(ccfg, comp.get("purpose", "detail")))
+            if not ok:
+                errors.append(f"{sid}: comparison layout does not read for {comp.get('purpose')}: {'; '.join(problems)}")
+            if comp.get("scale") != "COMMON":
+                errors.append(f"{sid}: a SIDE_BY_SIDE comparison is always at a common scale")
+    sequences = {}
+    for ps in plan["shots"]:
+        if ps.get("sequence"):
+            sequences.setdefault(ps["sequence"], []).append(ps)
+    for name, members in sequences.items():
+        if len({m["camera"]["group"] for m in members}) != 1:
+            errors.append(f"{name}: a sequential comparison must keep one locked camera (one continuity group)")
+        if any(not (m["shot"]["animation"].get("label")) for m in members):
+            errors.append(f"{name}: every model of a sequential comparison needs its caption")
+        if any((m.get("composition") or {}).get("scale") != "COMMON" for m in members):
+            errors.append(f"{name}: sequential comparison shots must declare scale COMMON (shared camera)")
+    cov = {c["beat_id"]: c for c in plan["coverage"]}
+    for (bid, concept), oks in readable.items():
+        if not any(oks) and (cov[bid]["status"] == "COVERED" or
+                             not any(i.startswith("VISIBILITY_UNRESOLVED") for i in cov[bid]["issues"])):
+            errors.append(f"beat {bid}: {concept} does not read in any of its shots, but the beat is not flagged "
+                          "(PARTIALLY_COVERED + VISIBILITY_UNRESOLVED)")
+    return errors

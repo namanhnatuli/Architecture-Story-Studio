@@ -1,6 +1,16 @@
 {
   "project_id": "roof-plan-m5",
   "executable": true,
+  "visibility_summary": {
+    "shots_assessed": 1,
+    "target_rows": 2,
+    "rows_passing": 2,
+    "uncertain_rows": 0,
+    "issues_detected": 1,
+    "auto_repaired": 1,
+    "manual_review": 0,
+    "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
+  },
   "beats": [
     {
       "beat_id": "R1",
@@ -32,7 +42,10 @@
         "SC_001"
       ],
       "planned_seconds": 4.667,
-      "visibility_issues": []
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
     },
     {
       "beat_id": "R2",
@@ -66,7 +79,66 @@
         "SC_002"
       ],
       "planned_seconds": 6.583,
-      "visibility_issues": []
+      "readable": {
+        "rafters": true,
+        "ridge_beam": true
+      },
+      "visual_repairs": [
+        {
+          "beat_id": "R2",
+          "shot_id": "SC_002",
+          "concept": "ridge_beam",
+          "problems": [
+            "TOO_SMALL"
+          ],
+          "frame": "exploded_hold",
+          "before": {
+            "visible_share": 0.3438,
+            "core_area": 0.00019,
+            "visible_area": 0.00106
+          },
+          "after": {
+            "visible_share": 0.3468,
+            "core_area": 0.00121,
+            "visible_area": 0.00289
+          },
+          "evaluated": [
+            {
+              "remedy": "REFRAME",
+              "result": "PASS",
+              "detail": "share 0.35, core 0.12%, area 0.29% -> PASS"
+            }
+          ],
+          "chosen": "REFRAME"
+        }
+      ],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_002",
+          "concept": "rafters",
+          "label": "exploded_hold",
+          "frame": 81,
+          "visible_share": 0.5864,
+          "core_area": 0.01032,
+          "visible_area": 0.03255,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_002",
+          "concept": "ridge_beam",
+          "label": "exploded_hold",
+          "frame": 81,
+          "visible_share": 0.3468,
+          "core_area": 0.00121,
+          "visible_area": 0.00289,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "R3",
@@ -103,7 +175,10 @@
         "SC_003"
       ],
       "planned_seconds": 5.417,
-      "visibility_issues": []
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
     },
     {
       "beat_id": "R4",
@@ -115,7 +190,7 @@
       "timing_source": "PROVISIONAL",
       "issues": [],
       "explanation": [
-        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned"
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned (layout chosen by planner/composition.py: STACK or ROW, gap)"
       ],
       "assets": [
         {
@@ -139,7 +214,79 @@
         "SC_004"
       ],
       "planned_seconds": 4.292,
-      "visibility_issues": []
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [
+        {
+          "layout": "SIDE_BY_SIDE_ROW",
+          "gap_ratio": 0.35,
+          "label_band": 0.14,
+          "purpose": "detail",
+          "scale": "COMMON",
+          "metrics": {
+            "px_per_m": 37.21,
+            "models": {
+              "low_pitch_gable_roof": {
+                "width": 0.3535,
+                "height": 0.5459,
+                "occupancy": 0.1929,
+                "width_px": 226.2,
+                "detail_m": 0.858,
+                "detail_px": 31.93,
+                "clipped": false,
+                "in_label_band": false
+              },
+              "steep_gable_roof": {
+                "width": 0.354,
+                "height": 0.72,
+                "occupancy": 0.2549,
+                "width_px": 226.6,
+                "detail_m": 2.26,
+                "detail_px": 84.11,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 31.93,
+            "min_width": 0.3535
+          },
+          "candidates": [
+            {
+              "layout": "STACK",
+              "gap_ratio": 0.5,
+              "ok": false,
+              "problems": [
+                "smallest model 17% of the frame width (< 25%)"
+              ]
+            },
+            {
+              "layout": "STACK",
+              "gap_ratio": 0.25,
+              "ok": false,
+              "problems": [
+                "smallest model 19% of the frame width (< 25%)"
+              ]
+            },
+            {
+              "layout": "ROW",
+              "gap_ratio": 0.35,
+              "ok": true,
+              "problems": []
+            },
+            {
+              "layout": "ROW",
+              "gap_ratio": 0.2,
+              "ok": true,
+              "problems": []
+            }
+          ],
+          "shot_id": "SC_004"
+        }
+      ],
+      "visibility": []
     }
   ]
 }

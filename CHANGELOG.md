@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.5.5 — 2026-10-28 — M5.5: trí tuệ hình ảnh, bố cục thích ứng, profile sản xuất (nhánh `m5.5-visual-intelligence`)
+- **Level 1, mức nhìn thấy offline** (`planner/visibility.py`): dựng lại cảnh theo luật của engine, rồi raster độ sâu + ID (192×108) tại frame đầu, 25/50/75 %, frame cuối và mọi marker. Các chỉ số: diện tích chiếu, share nhìn thấy, *core* (không phải vệt mảnh), vật che, dải phụ đề, cắt khung, từng viên. Trạng thái ESTIMATED/UNCERTAIN.
+- **Level 2 trong Blender** (`engine/qa_visibility.py`, `verify-visibility`): tia orthographic trên mesh đã evaluate, cùng các frame. Báo cáo so với L1 ở `qa/VISIBILITY.md`. Pilot: 122 dòng, kết luận trùng 100 %, sai số share trung bình 0.006.
+- **Sửa kế hoạch** (`planner/repair.py`): REFRAME → SAFE_BAND → ALT_CAMERA → GHOST → chiến lược tiếp theo → VISIBILITY_UNRESOLVED. Camera không được phá cắt match, trừ vấn đề kích thước. Mọi ứng viên được ghi lại; cách chọn ghi vào plan; `validate-plan` tính lại và kiểm tra. Ghost giờ dựa trên vật che đo được; `ghost_roles` của từ vựng đã bị bỏ.
+- **Bố cục so sánh thích ứng** (`planner/composition.py`): đo STACK và ROW (nhiều gap) ở 640×360 (thành phần điển hình ≥ 2.5 px; mô hình ≥ 25 % chiều rộng), theo mục đích `detail` hoặc `overview`. Chiến lược mới: SEQUENTIAL_COMPARISON (một camera, một tỷ lệ, nhãn HOLD), DETAIL_THEN_OVERVIEW, FOCUSED_PAIR. CLOSEUP_EXPLODE cho thành phần `read_as: pieces`: cận cảnh chính diện, các viên kéo ra khỏi mặt và tỏa ra.
+- **Engine:**
+  - `engine/house_layout.py`: số đo nhà/mái M2 thuần Python, dùng chung với proxy offline (27 shot giống hệt);
+  - `animation.label` cho HOLD;
+  - `camera_focus` fit cả bao chuyển động;
+  - kiểm tra nhãn cho HOLD.
+- **Profile sản xuất:** `production_profile` = TECHNICAL_SILENT_PREVIEW / NARRATED_INTERNAL_REVIEW / PUBLICATION_CANDIDATE.
+  - Profile không lời: G2/G3/G5 là NOT_APPLICABLE; thêm gate GV (plan + coverage); G4 stale tính theo khóa render.
+  - Validator từ chối profile không lời trên dự án có lời dẫn.
+  - PUBLICATION_READY chỉ có ở PUBLICATION_CANDIDATE (cần `publication_metadata`).
+  - Gate của Suffolk không đổi.
+- **Media QA cho video không lời:**
+  - kiểm tra độ phân giải, fps, codec, thời lượng so với số frame;
+  - kiểm tra không có audio và không có lỗi giải mã;
+  - ghi ranh giới shot, `storyboard_sha256`, `plan_sha256` và khóa render từng shot.
+- **Bộ đánh giá** `evaluation/visual_planning/cases.json` (24 ca: dương, âm, mơ hồ, thiếu năng lực; cầu + mái), `evaluate-planning` → `RESULTS.md`. 24/24 ca đạt trên 10 chiều.
+- **Pilot** `bridge-story-m5` lập kế hoạch lại:
+  - 15 shot, 72.375 s;
+  - B4 CLOSEUP_EXPLODE; B7 SEQUENTIAL_COMPARISON; B8 STACK gap 0.25 (overview);
+  - SC_003 ghost chọn tự động;
+  - QA Blender 188/188, media QA PASS, profile không lời: VALID, NOT FOR PUBLICATION.
+- **Fixture mái:** R2 được REFRAME (đòn nóc quá nhỏ), và khung giữ trọn mọi phần bung. QA 52/52.
+- **Test:** 207 (thêm `tests/test_m55_visual_intelligence.py` 29 test, `tests/test_blender_m55.py` 4 test).
+
 ## 0.5.0 — 2026-10-28 — M5: lập kế hoạch hình ảnh tự động và điều phối storyboard → Blender (nhánh `m5-autonomous-visual-planning`)
 - **Planner tất định** (`planner/`, thuần Python, không LLM khi chạy): beat → ý đồ hình ảnh → asset → template → shot/camera → timing → storyboard thực thi được. Cùng đầu vào thì ra cùng kế hoạch, giống từng byte.
 - **Hợp đồng mới:**

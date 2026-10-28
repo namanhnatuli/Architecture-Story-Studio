@@ -113,3 +113,13 @@ python3 tools/cli.py check-blender $P && python3 tools/cli.py preview $P
 ```
 Tài liệu: [`docs/m5/M5_ARCHITECTURE.md`](docs/m5/M5_ARCHITECTURE.md), [`VISUAL_PLANNING_PROTOCOL.md`](docs/m5/VISUAL_PLANNING_PROTOCOL.md), [`ASSET_RESOLUTION.md`](docs/m5/ASSET_RESOLUTION.md), [`M5_QA_REPORT.md`](docs/m5/M5_QA_REPORT.md).
 
+## M5.5: trí tuệ hình ảnh và production profile
+Planner ước lượng mức nhìn thấy của từng mục tiêu trước khi render, rồi tự sửa kế hoạch: reframe, dải phụ đề, camera khác, ghost tạm thời, hoặc chiến lược khác. Bố cục so sánh được đo theo độ đọc được ở 640×360. Blender đo lại để kiểm chứng (`verify-visibility`). `production_profile` tách preview kỹ thuật không lời khỏi việc xuất bản.
+```bash
+python3 tools/cli.py plan-visuals --project bridge-story-m5 && python3 tools/cli.py build-shots --project bridge-story-m5
+python3 tools/cli.py verify-visibility --project bridge-story-m5   # Level 2 (Blender) vs Level 1
+python3 tools/cli.py gates --project bridge-story-m5               # TECHNICAL PREVIEW — VALID (silent); NOT FOR PUBLICATION
+python3 tools/cli.py evaluate-planning                              # 24 ca đánh giá
+```
+Tài liệu: [`docs/m5_5/`](docs/m5_5/).
+

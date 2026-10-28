@@ -80,3 +80,10 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - Không sửa catalog hay từ vựng chỉ để che một yêu cầu còn thiếu: `NEW_ASSET_REQUIRED`, `MISSING_TEMPLATE`, `EVIDENCE_BLOCKED` là kết quả đúng cho tới khi có năng lực thật.
 - Beat `fact` chỉ được trích claim có thật trong `research/sources.json` (SOURCE_VERIFIED trở lên). SHOW_EVOLUTION cần claim đã duyệt biên tập. Dữ liệu bịa để test phải có `synthetic_fixture: true` hoặc ghi rõ SYNTHETIC.
 - Tài liệu: `docs/m5/M5_ARCHITECTURE.md`, `VISUAL_PLANNING_PROTOCOL.md`, `ASSET_RESOLUTION.md`, `M5_QA_REPORT.md`.
+
+## Bổ sung M5.5 (2026-10-28): trí tuệ hình ảnh và profile
+- Sau `plan-visuals`, đọc mục "Visual repairs" và "Comparison composition" trong `qa/VISUAL_COVERAGE.md`. Sau khi build, chạy `verify-visibility` (Blender) với các shot đã được sửa. Một beat `VISIBILITY_UNRESOLVED` cần người xem lại: không ép kết quả bằng cách sửa ngưỡng hay hình học.
+- Mỗi dự án phải khai báo `production_profile`. Không đổi profile để vượt gate. Suffolk là NARRATED_INTERNAL_REVIEW, giữ nguyên trạng thái.
+- Khi thêm hành vi planner, thêm ca vào `evaluation/visual_planning/cases.json` và chạy `evaluate-planning`. Dataset này không được dùng trong planner.
+- Tài liệu: `docs/m5_5/VISUAL_INTELLIGENCE.md`, `ADAPTIVE_COMPOSITION.md`, `PRODUCTION_PROFILES.md`, `M5_5_QA_REPORT.md`, `M6_READINESS.md`.
+

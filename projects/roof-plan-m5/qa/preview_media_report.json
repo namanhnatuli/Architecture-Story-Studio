@@ -1,0 +1,153 @@
+{
+  "utc": "2026-10-28T15:27:03.080615+00:00",
+  "preset": "preview",
+  "files": {
+    "output/shots/SC_001.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 112,
+      "duration": 4.666667,
+      "black_segments": 0,
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 43227
+    },
+    "output/shots/SC_002.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 158,
+      "duration": 6.583333,
+      "black_segments": 0,
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 153025
+    },
+    "output/shots/SC_003.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 130,
+      "duration": 5.416667,
+      "black_segments": 0,
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 117699
+    },
+    "output/shots/SC_004.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 103,
+      "duration": 4.291667,
+      "black_segments": 0,
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 42002
+    },
+    "output/roof_plan_m5_preview.mp4": {
+      "codec": "h264",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 503,
+      "duration": 20.958333,
+      "black_segments": 0,
+      "streams": {
+        "video": 1,
+        "audio": 0
+      },
+      "decode_errors": 0,
+      "size_bytes": 363497
+    }
+  },
+  "expected": {
+    "width": 640,
+    "height": 360,
+    "fps": "24/1",
+    "codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_streams": 0
+  },
+  "expected_total_frames": 503,
+  "shot_boundaries": [
+    {
+      "shot": "SC_001",
+      "start_frame": 1,
+      "frames": 112
+    },
+    {
+      "shot": "SC_002",
+      "start_frame": 113,
+      "frames": 158
+    },
+    {
+      "shot": "SC_003",
+      "start_frame": 271,
+      "frames": 130
+    },
+    {
+      "shot": "SC_004",
+      "start_frame": 401,
+      "frames": 103
+    }
+  ],
+  "storyboard_sha256": "33cee29e540a327c3ebf52e2f5bd9ba9562f7dc884814ddc973a2f042b0b79ea",
+  "plan_sha256": "057c4bbb391b308fe72c9eaee6aefcdce1428d615854ecb5112233546a203002",
+  "render_keys": {
+    "SC_001": "cfe6cb43f59fe210737392d9bbce7570328e0891f5ac77fe8a7fb9d42549fa47",
+    "SC_002": "7ed1e39114a28f1412a08f0c6c8d181c4f835c397b84d92aa22bc62a26cf1b3e",
+    "SC_003": "2cd15d84672fdb04e6efd2a37d5be42171da8337ee0b46754de674eee86622bc",
+    "SC_004": "0a26633ee1e044854ae28be8cf88ac73549ba5e6dbe614ee0f5bbea1fac50cd4"
+  },
+  "cuts": [
+    {
+      "cut": "SC_001->SC_002",
+      "mode": "hard",
+      "ssim": 0.825,
+      "ok": true
+    },
+    {
+      "cut": "SC_002->SC_003",
+      "mode": "hard",
+      "ssim": 0.85576,
+      "ok": true
+    },
+    {
+      "cut": "SC_003->SC_004",
+      "mode": "hard",
+      "ssim": 0.78202,
+      "ok": true
+    }
+  ],
+  "problems": [],
+  "sheets": [
+    "qa/contact_sheet_preview.png",
+    "qa/progress_SC_001.png",
+    "qa/progress_SC_002.png",
+    "qa/progress_SC_003.png",
+    "qa/progress_SC_004.png"
+  ]
+}

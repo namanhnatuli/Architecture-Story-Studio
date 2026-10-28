@@ -30,6 +30,15 @@ Khóa v1 (M3) không có model, voice id và hạng quyền. Bản ghi v1 chỉ 
 
 **M5 (`build_variants`, `camera_focus`, `camera_safe_band`):** ba trường này là trường hình ảnh (thuộc `shot_visual`). `build_variants` còn giới hạn `states_geometry` và `assets` của shot. Vì vậy sửa spec cầu đá chỉ làm cũ các shot có dựng cầu đá; các shot khu đất/cầu gỗ vẫn dùng cache (`tests/test_m5_planner.py` `CacheDependencyTest`). Storyboard do planner biên dịch ghi `editorial` (không phải phụ thuộc render) và `plan_sha256` ở mức tài liệu.
 
+**M5.5:**
+- Các quyết định hình ảnh do planner viết vào shot là trường hình ảnh: `highlight.ghost`, `camera_focus` của REFRAME, preset khác, `layout`/`gap_ratio` của bố cục, `animation.label`. Mỗi quyết định chỉ làm cũ shot của nó. Đã đo: đổi độ trong suốt ghost thì chỉ SC_003 render lại; đổi `gap_ratio` thì chỉ SC_015.
+- Các phần sau không phải phụ thuộc render:
+  - `editorial` (gồm `visibility_targets`, `visibility_estimate`, `repairs`, `composition`);
+  - `production_profile`, `publication_metadata`;
+  - `engine/qa_visibility.py` (chỉ dùng cho QA);
+  - ngưỡng trong `config/visual_planning.json`, khi chúng không làm thay đổi quyết định nào.
+- Báo cáo QA (visibility, coverage, media) vẫn có thể cần chạy lại dù frame render còn dùng được.
+
 Trường lạ (không có trong danh sách loại trừ) được coi là **trường hình ảnh**, tức là an toàn: thà render lại còn hơn dùng nhầm khung cũ.
 
 Không phải phụ thuộc render: audio và hạng quyền, phát âm, phụ đề, sổ nguồn/trạng thái duyệt, vị trí shot trên timeline. Các thứ này chỉ ảnh hưởng tới `assemble` (track audio, SRT) và các gate.

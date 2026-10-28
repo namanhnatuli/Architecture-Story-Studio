@@ -3,17 +3,92 @@
   "$id": "https://local.architecture-story-studio/schemas/project.schema.json",
   "title": "Architecture Story Studio Project",
   "type": "object",
-  "required": ["slug", "title", "mode", "language", "fps", "duration_seconds", "render_preset"],
+  "required": [
+    "slug",
+    "title",
+    "mode",
+    "language",
+    "fps",
+    "duration_seconds",
+    "render_preset"
+  ],
   "properties": {
-    "slug": {"type": "string", "pattern": "^[a-z0-9-]+$"},
-    "title": {"type": "string", "minLength": 3},
-    "mode": {"enum": ["prototype", "production"]},
-    "language": {"type": "string", "minLength": 2},
-    "fps": {"type": "integer", "minimum": 1, "maximum": 120},
-    "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
-    "render_preset": {"enum": ["preview", "review", "final"]},
-    "factual_review": {"enum": ["provisional", "verified", "contested"]},
-    "audio_timing_locked": {"type": "boolean"}
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "mode": {
+      "enum": [
+        "prototype",
+        "production"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 120
+    },
+    "duration_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "render_preset": {
+      "enum": [
+        "preview",
+        "review",
+        "final"
+      ]
+    },
+    "factual_review": {
+      "enum": [
+        "provisional",
+        "verified",
+        "contested"
+      ]
+    },
+    "audio_timing_locked": {
+      "type": "boolean"
+    },
+    "production_profile": {
+      "enum": [
+        "TECHNICAL_SILENT_PREVIEW",
+        "NARRATED_INTERNAL_REVIEW",
+        "PUBLICATION_CANDIDATE"
+      ],
+      "description": "M5.5: what the output is for; decides which gates apply (pipeline/gates.py). Missing = NARRATED_INTERNAL_REVIEW."
+    },
+    "publication_metadata": {
+      "type": "object",
+      "required": [
+        "title",
+        "description",
+        "language",
+        "credits"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "credits": {
+          "type": "string"
+        }
+      },
+      "description": "Required by PUBLICATION_CANDIDATE"
+    }
   },
   "additionalProperties": false
 }

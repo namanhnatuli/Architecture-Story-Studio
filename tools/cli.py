@@ -249,6 +249,19 @@ def probe(path):
             "frames": int(stream["nb_read_frames"]), "duration": float(data["format"]["duration"])}
 
 
+def stream_types(path):
+    out = subprocess.run([ffprobe_bin(), "-v", "error", "-show_entries", "stream=codec_type", "-of", "json", str(path)],
+                         text=True, capture_output=True, check=True)
+    types = [st["codec_type"] for st in json.loads(out.stdout).get("streams", [])]
+    return {"video": types.count("video"), "audio": types.count("audio")}
+
+
+def decode_errors(path):
+    """Container/bitstream integrity: errors reported while decoding every frame."""
+    out = subprocess.run([ffmpeg_bin(), "-v", "error", "-i", str(path), "-f", "null", "-"], text=True, capture_output=True)
+    return len([l for l in out.stderr.splitlines() if l.strip()])
+
+
 def black_segments(path):
     out = subprocess.run([ffmpeg_bin(), "-v", "info", "-i", str(path), "-vf", "blackdetect=d=0.04:pix_th=0.10",
                           "-an", "-f", "null", "-"], text=True, capture_output=True)
@@ -308,21 +321,49 @@ def qa_sheets(p, preset):
 
 
 def media_qa(p, preset, outputs):
-    report = {"utc": datetime.now(timezone.utc).isoformat(), "preset": preset, "files": {}}
+    """Silent preview media QA (M5.5): per file frames, resolution, fps, codec, duration vs
+    frames, no audio stream, decode errors, black segments; cut continuity; and what the
+    media were rendered from (storyboard hash, per-shot render-cache keys) for staleness."""
+    import hashlib
+    from tools import render_cache
+    settings = read_json(ROOT / "config/render_presets.json")
+    want = settings[preset]
+    fps = read_json(p / "project.json")["fps"]
+    report = {"utc": datetime.now(timezone.utc).isoformat(), "preset": preset, "files": {},
+              "expected": {"width": want["width"], "height": want["height"], "fps": f"{fps}/1", "codec": "h264",
+                           "pix_fmt": "yuv420p", "audio_streams": 0}}
     problems = []
-    expected_total = 0
+    expected_total, boundaries = 0, []
     for shot in shots(p):
+        boundaries.append({"shot": shot["id"], "start_frame": expected_total + 1, "frames": expected_frames(p, shot)})
         expected_total += expected_frames(p, shot)
     for label, path, expected in outputs:
         info = probe(path)
         info["black_segments"] = black_segments(path)
+        info["streams"] = stream_types(path)
+        info["decode_errors"] = decode_errors(path)
         info["size_bytes"] = path.stat().st_size
         report["files"][str(path.relative_to(p))] = info
         if info["frames"] != expected:
             problems.append(f"{label}: {info['frames']} frames, expected {expected}")
+        if (info["width"], info["height"]) != (want["width"], want["height"]):
+            problems.append(f"{label}: {info['width']}x{info['height']}, expected {want['width']}x{want['height']}")
+        if info["fps"] != f"{fps}/1" or info["codec"] != "h264" or info["pix_fmt"] != "yuv420p":
+            problems.append(f"{label}: {info['codec']} {info['pix_fmt']} {info['fps']} fps, expected h264 yuv420p {fps}/1")
+        if abs(info["duration"] - info["frames"] / fps) > 1.5 / fps:
+            problems.append(f"{label}: duration {info['duration']:.3f}s does not match {info['frames']} frames")
+        if info["streams"]["video"] != 1 or info["streams"]["audio"] != 0:
+            problems.append(f"{label}: streams {info['streams']} (a preview is one silent video stream)")
+        if info["decode_errors"]:
+            problems.append(f"{label}: {info['decode_errors']} decode error(s) (damaged container or frames)")
         if info["black_segments"]:
             problems.append(f"{label}: {info['black_segments']} black segment(s)")
     report["expected_total_frames"] = expected_total
+    report["shot_boundaries"] = boundaries
+    story_path = p / "storyboard" / "storyboard.json"
+    report["storyboard_sha256"] = hashlib.sha256(story_path.read_bytes()).hexdigest()
+    report["plan_sha256"] = read_json(story_path).get("plan_sha256")
+    report["render_keys"] = {s["id"]: render_cache.cache_key(render_cache.components(p, s, preset)) for s in shots(p)}
     report["cuts"] = boundary_ssim(p, preset)
     problems += [f"cut {c['cut']}: SSIM {c['ssim']} < {CUT_SSIM_MIN} (visible jump)" for c in report["cuts"] if not c["ok"]]
     report["problems"] = problems
@@ -780,12 +821,112 @@ def write_subtitle_qa(p, report):
     (p / "qa" / "SUBTITLE_QA.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 
+def do_verify_visibility(p, preset):
+    """Level 2 (Blender ray casts) vs Level 1 (offline raster) for every evaluation frame of every
+    shot with explanatory targets: qa/visibility_measured.json, qa/visibility_report.json, qa/VISIBILITY.md."""
+    import time
+    from planner import camera as CAM, visibility as VIS
+    measured = p / "qa" / "visibility_measured.json"
+    cmd = [blender_bin(), "--background", "--factory-startup", "--python-exit-code", "1", "--python",
+           str(ROOT / "engine" / "qa_visibility.py"), "--", "--project", str(p), "--preset", preset, "--out", str(measured)]
+    t0 = time.time()
+    run_logged(cmd, p / "qa" / "verify_visibility.log")
+    t_blender = time.time() - t0
+    l2 = read_json(measured)
+    cfg = read_json(ROOT / "config/visual_planning.json")["visibility"]
+    states, story = read_json(p / "storyboard/states.json"), read_json(p / "storyboard/storyboard.json")
+    fps = read_json(p / "project.json")["fps"]
+    presets = CAM.style_presets()
+    t0 = time.time()
+    rows, deltas, agree, total = [], [], 0, 0
+    for shot in story["shots"]:
+        if shot["id"] not in l2["shots"]:
+            continue
+        l1 = VIS.assess_all_frames(shot, states, fps, presets, cfg)
+        for label, frame in l1["frames"].items():
+            for a, b in zip(l1["rows"][label], l2["shots"][shot["id"]]["rows"].get(label, [])):
+                if not (a.get("shown") and b.get("shown")):
+                    continue
+                pieces = any(t.get("pieces") for t in VIS.targets_of(shot) if t["concept"] == b["concept"]) and \
+                    templates_template(shot) == "EXPLODED_VIEW"
+                ok2, _, prob2 = VIS.verdict(b, cfg, pieces)
+                total += 1
+                agree += ok2 == a["ok"]
+                deltas.append(abs(a["visible_share"] - b["visible_share"]))
+                rows.append({"shot": shot["id"], "beat": (shot.get("beat_ids") or [shot["id"]])[0],
+                             "frame": frame, "label": label, "concept": a["concept"],
+                             "explanatory": label in l1["explanatory"],
+                             "L1": {k: a[k] for k in ("visible_share", "core_area", "visible_area", "ok")} | {
+                                 "problems": a["problems"], "geometry": a["geometry"], "verification": a["verification"]},
+                             "L2": {k: b[k] for k in ("visible_share", "core_area", "visible_area")} | {
+                                 "ok": ok2, "problems": prob2, "occluders": b["occluders"]}})
+    t_l1 = time.time() - t0
+    summary = {"rows": total, "verdict_agreement": round(agree / total, 4) if total else None,
+               "mean_abs_share_error": round(sum(deltas) / len(deltas), 4) if deltas else None,
+               "max_abs_share_error": round(max(deltas), 4) if deltas else None,
+               "level2_seconds": round(t_blender, 1), "level1_seconds": round(t_l1, 2),
+               "explanatory_failures_L2": sum(1 for r in rows if r["explanatory"] and not r["L2"]["ok"])}
+    by_beat = {}
+    for r in rows:   # a concept must read at an explanatory frame of at least one shot of its beat
+        if r["explanatory"]:
+            by_beat.setdefault((r["beat"], r["concept"]), []).append(r["L2"]["ok"])
+    summary["beat_concepts"] = len(by_beat)
+    summary["beat_concepts_unreadable_L2"] = sorted(f"{b} {c}" for (b, c), oks in by_beat.items() if not any(oks))
+    report = {"project": p.name, "preset": preset, "grid": cfg["raster"], "summary": summary, "rows": rows}
+    (p / "qa" / "visibility_report.json").write_text(json.dumps(report, indent=1) + "\n")
+    lines = [f"# Visibility: Level 1 estimate vs Level 2 Blender measurement ({p.name})", "",
+             f"- {total} target x frame rows; verdict agreement **{summary['verdict_agreement']}**; visible-share error "
+             f"mean {summary['mean_abs_share_error']}, max {summary['max_abs_share_error']}.",
+             f"- Level 2 (Blender, {cfg['raster'][0]}x{cfg['raster'][1]} orthographic rays, evaluated meshes): "
+             f"{summary['level2_seconds']} s; Level 1 (offline raster): {summary['level1_seconds']} s.",
+             f"- Explanatory frames failing in Blender: {summary['explanatory_failures_L2']} (a concept only has to read "
+             f"in one shot of its beat); beat concepts unreadable in Blender: "
+             f"{', '.join(summary['beat_concepts_unreadable_L2']) or 'none'} of {summary['beat_concepts']}.", "",
+             "| Shot | Frame | Concept | L1 share / core % / area % | L2 share / core % / area % | L1 | L2 | L2 occluders |",
+             "|---|---|---|---|---|---|---|---|"]
+    for r in rows:
+        if not (r["explanatory"] or r["L1"]["ok"] != r["L2"]["ok"]):
+            continue
+        a, b = r["L1"], r["L2"]
+        lines.append(f"| {r['shot']} | {r['label']} ({r['frame']}) | {r['concept']} | {a['visible_share']:.2f} / "
+                     f"{a['core_area'] * 100:.2f} / {a['visible_area'] * 100:.2f} | {b['visible_share']:.2f} / "
+                     f"{b['core_area'] * 100:.2f} / {b['visible_area'] * 100:.2f} | {'reads' if a['ok'] else ', '.join(a['problems'])} | "
+                     f"{'reads' if b['ok'] else ', '.join(b['problems'])} | {', '.join(o['id'] for o in b['occluders'][:2]) or '—'} |")
+    (p / "qa" / "VISIBILITY.md").write_text("\n".join(lines) + "\n")
+    print(f"Visibility: {total} rows, agreement {summary['verdict_agreement']}, share error mean "
+          f"{summary['mean_abs_share_error']} max {summary['max_abs_share_error']}; Blender {summary['level2_seconds']} s"
+          f" => {p / 'qa' / 'VISIBILITY.md'}")
+    if summary["beat_concepts_unreadable_L2"]:
+        raise SystemExit("unreadable in Blender: " + ", ".join(summary["beat_concepts_unreadable_L2"]))
+
+
+def do_evaluate_planning():
+    """Visual-planning evaluation dataset (planner/evaluate.py) -> evaluation/visual_planning/RESULTS.md."""
+    import time
+    from planner import evaluate
+    t0 = time.time()
+    summary = evaluate.run()
+    report = evaluate.write_report(summary, ROOT / "evaluation/visual_planning")
+    for r in summary["results"]:
+        print(f"{'PASS' if r['ok'] else 'FAIL'}  {r['id']:<10} {r['kind']:<19} {r['family']:<7} {r['title']}")
+    for d, v in summary["dimensions"].items():
+        print(f"  {d:<24} {v['passed']}/{v['checks']}")
+    print(f"{summary['passed']}/{summary['cases']} cases in {time.time() - t0:.1f} s => {report}")
+    if summary["passed"] != summary["cases"]:
+        raise SystemExit(2)
+
+
+def templates_template(shot):
+    return (shot.get("animation") or {}).get("template") or shot.get("transition")
+
+
 def do_gates(p, preset):
-    """G0-G6 + status flags for a narrated project (pipeline/gates.py); writes qa/gates.json."""
+    """G0-G6 (+GV) + status flags for the project's production profile (pipeline/gates.py); writes qa/gates.json."""
     from pipeline import gates
     result = gates.evaluate(p, suffix(preset))
     for name, g in result["gates"].items():
         print(f"{g['status']:>18}  {name}: {'; '.join(g['notes'])}")
+    print("Profile:", result.get("profile"))
     print("Statuses:", ", ".join(result["statuses"]))
     print(f"Verdict: {result['verdict']}")
     (p / "qa" / "gates.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
@@ -797,7 +938,8 @@ def main():
                                             "check-blender", "final-gate", "manifest", "tts-check", "narrate",
                                             "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align",
                                             "asset-check", "asset-render", "asset-catalog",
-                                            "plan-visuals", "validate-plan", "build-shots"])
+                                            "plan-visuals", "validate-plan", "build-shots", "verify-visibility",
+                                            "evaluate-planning"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
     parser.add_argument("--preset", default="preview", choices=["preview", "review", "production_test", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
@@ -862,6 +1004,10 @@ def main():
         do_plan_visuals(p)
     elif args.command == "validate-plan":
         do_validate_plan(p)
+    elif args.command == "evaluate-planning":
+        do_evaluate_planning()
+    elif args.command == "verify-visibility":
+        do_verify_visibility(p, args.preset)
     elif args.command == "build-shots":
         do_build_shots(p)
     elif args.command == "cache-report":

@@ -16,8 +16,8 @@
   "inputs": {
     "beats_sha256": "58b2e6522f043718e78792a440f55ef289aeac8bd5e1686369f7060c3a07b1b2",
     "sources_sha256": "8f0bb9da8af3d466bf38f710fe2ef3bb6ce17939bfcf7a7f7668359f541eda07",
-    "vocabulary_sha256": "827daebe3f9b0e365c4f996d16165c2530b26855c48602e90f1062f79448b4dd",
-    "planning_config_sha256": "475b8883f95aba3cd838577507e2a56dbef059cc88c5d0fc2ce9b2a83de61a7b",
+    "vocabulary_sha256": "84a1bdc0f475af205aeda8c79c1b4c0e74e74d8249fa7d1bf9411c93407c792d",
+    "planning_config_sha256": "e625bc40216cec2d01edac4149ed205193d7ccb4774e781954ad2c7e8510e403",
     "assets": {
       "legacy_roof_evolution_roof_B": "39d27ec3a73ec48222312dda7c251a51bd62e85f400fb208e0f21d8b1ed61b3e"
     }
@@ -97,8 +97,7 @@
         "narration": "Here is a small house with a low-pitched gable roof.",
         "visual_purpose": "Introduce roof A on the house [HOLD 1/1: hold low_pitch_gable_roof]",
         "build_variants": [
-          "low_pitch_gable_roof",
-          "steep_gable_roof"
+          "low_pitch_gable_roof"
         ]
       },
       "beat_id": "R1",
@@ -119,8 +118,7 @@
         "safe_band": 0.1,
         "group": 1,
         "build_variants": [
-          "low_pitch_gable_roof",
-          "steep_gable_roof"
+          "low_pitch_gable_roof"
         ]
       },
       "semantic_targets": [],
@@ -133,12 +131,14 @@
       },
       "explanation": "hold low_pitch_gable_roof",
       "evidence_status": "INTERNAL_PREVIEW",
+      "composition": null,
+      "sequence": null,
       "asset_ids": [
         "legacy_roof_evolution_roof_A"
       ],
       "cut_from_previous": "first",
       "shot_id": "SC_001",
-      "visibility": []
+      "visibility": null
     },
     {
       "shot": {
@@ -204,8 +204,14 @@
         "narration": "Under the covering, rafters and a ridge beam carry the roof surface in this model.",
         "visual_purpose": "Explain the roof assembly of the model [EXPLODE 1/1: take low_pitch_gable_roof apart by assembly layer (5 components, 3 layers) and back; 3 focus components glow]",
         "build_variants": [
-          "low_pitch_gable_roof",
-          "steep_gable_roof"
+          "low_pitch_gable_roof"
+        ],
+        "camera_focus": [
+          "low_pitch_gable_roof_covering_left",
+          "low_pitch_gable_roof_covering_right",
+          "low_pitch_gable_roof_rafters_left",
+          "low_pitch_gable_roof_rafters_right",
+          "low_pitch_gable_roof_ridge_beam"
         ]
       },
       "beat_id": "R2",
@@ -220,14 +226,19 @@
         "low_pitch_gable_roof"
       ],
       "camera": {
-        "mode": "LOCKED_TRANSFORMATION",
+        "mode": "COMPONENT_CLOSEUP",
         "preset": "LOCKED_THREE_QUARTER",
-        "focus": null,
+        "focus": [
+          "low_pitch_gable_roof_covering_left",
+          "low_pitch_gable_roof_covering_right",
+          "low_pitch_gable_roof_rafters_left",
+          "low_pitch_gable_roof_rafters_right",
+          "low_pitch_gable_roof_ridge_beam"
+        ],
         "safe_band": 0.1,
-        "group": 1,
+        "group": 2,
         "build_variants": [
-          "low_pitch_gable_roof",
-          "steep_gable_roof"
+          "low_pitch_gable_roof"
         ]
       },
       "semantic_targets": [
@@ -260,18 +271,118 @@
         "min_seconds": 4.625,
         "start_seconds": 4.666667
       },
-      "explanation": "take low_pitch_gable_roof apart by assembly layer (5 components, 3 layers) and back; 3 focus components glow",
+      "explanation": "take low_pitch_gable_roof apart by assembly layer (5 components, 3 layers) and back; 3 focus components glow; repaired (REFRAME): ridge_beam was TOO_SMALL",
       "evidence_status": "INTERNAL_PREVIEW",
+      "composition": null,
+      "sequence": null,
       "asset_ids": [
         "legacy_roof_evolution_roof_A"
       ],
-      "cut_from_previous": "match",
+      "cut_from_previous": "hard",
       "shot_id": "SC_002",
-      "visibility": [
+      "visibility": {
+        "frames": {
+          "start": 1,
+          "q25": 40,
+          "mid": 79,
+          "q75": 118,
+          "end": 158,
+          "explode_end": 43,
+          "explode_start": 11,
+          "exploded_hold": 81,
+          "return_end": 152,
+          "return_start": 120
+        },
+        "explanatory": [
+          "exploded_hold"
+        ],
+        "targets": [
+          {
+            "concept": "rafters",
+            "shown": true,
+            "samples": 1151,
+            "projected_area": 0.05551,
+            "visible_area": 0.03255,
+            "visible_share": 0.5864,
+            "core_area": 0.01032,
+            "safe_band_share": 0.0,
+            "outside_share": 0.0,
+            "occluders": [
+              {
+                "id": "low_pitch_gable_roof_covering_right",
+                "share": 0.985
+              },
+              {
+                "id": "low_pitch_gable_roof_covering_left",
+                "share": 0.015
+              }
+            ],
+            "components": {
+              "low_pitch_gable_roof_rafters_left": {
+                "samples": 530,
+                "visible_share": 0.7811,
+                "core_area": 0.00598
+              },
+              "low_pitch_gable_roof_rafters_right": {
+                "samples": 621,
+                "visible_share": 0.4203,
+                "core_area": 0.00434
+              }
+            },
+            "geometry": "PROXY",
+            "frame": 81,
+            "label": "exploded_hold",
+            "ok": true,
+            "verification": "ESTIMATED",
+            "problems": []
+          },
+          {
+            "concept": "ridge_beam",
+            "shown": true,
+            "samples": 173,
+            "projected_area": 0.00834,
+            "visible_area": 0.00289,
+            "visible_share": 0.3468,
+            "core_area": 0.00121,
+            "safe_band_share": 0.0,
+            "outside_share": 0.0,
+            "occluders": [
+              {
+                "id": "low_pitch_gable_roof_covering_right",
+                "share": 0.912
+              },
+              {
+                "id": "low_pitch_gable_roof_rafters_right",
+                "share": 0.088
+              }
+            ],
+            "components": {},
+            "geometry": "PROXY",
+            "frame": 81,
+            "label": "exploded_hold",
+            "ok": true,
+            "verification": "ESTIMATED",
+            "problems": []
+          }
+        ]
+      },
+      "repairs": [
         {
-          "target": "*",
-          "ok": null,
-          "detail": "not checked offline (legacy geometry is built in Blender); see Blender QA"
+          "concept": "ridge_beam",
+          "remedy": "REFRAME",
+          "problems": [
+            "TOO_SMALL"
+          ],
+          "before": {
+            "visible_share": 0.3438,
+            "core_area": 0.00019,
+            "visible_area": 0.00106
+          },
+          "after": {
+            "visible_share": 0.3468,
+            "core_area": 0.00121,
+            "visible_area": 0.00289
+          }
         }
       ]
     },
@@ -341,7 +452,7 @@
         "preset": "LOCKED_THREE_QUARTER",
         "focus": null,
         "safe_band": 0.1,
-        "group": 1,
+        "group": 3,
         "build_variants": [
           "low_pitch_gable_roof",
           "steep_gable_roof"
@@ -357,13 +468,15 @@
       },
       "explanation": "swap 7 parts of low_pitch_gable_roof for 7 parts of steep_gable_roof on the shared base",
       "evidence_status": "INTERNAL_PREVIEW",
+      "composition": null,
+      "sequence": null,
       "asset_ids": [
         "legacy_roof_evolution_roof_A",
         "legacy_roof_evolution_roof_B"
       ],
-      "cut_from_previous": "match",
+      "cut_from_previous": "hard",
       "shot_id": "SC_003",
-      "visibility": []
+      "visibility": null
     },
     {
       "shot": {
@@ -393,7 +506,7 @@
         ],
         "claim_ids": [],
         "narration": "Side by side, the two designs differ in pitch.",
-        "visual_purpose": "Compare the two roofs at identical scale [COMPARE_SIDE_BY_SIDE 1/1: 2 variants at identical scale (ROW)]"
+        "visual_purpose": "Compare the two roofs at identical scale [COMPARE_SIDE_BY_SIDE 1/1: 2 variants at identical scale (ROW, gap 0.35)]"
       },
       "beat_id": "R4",
       "visual_intent": "COMPARE_VARIANTS",
@@ -412,7 +525,7 @@
         "preset": "LOCKED_THREE_QUARTER",
         "focus": null,
         "safe_band": 0.0,
-        "group": 2
+        "group": 4
       },
       "semantic_targets": [],
       "timing": {
@@ -422,15 +535,83 @@
         "min_seconds": 2.0,
         "start_seconds": 16.666667
       },
-      "explanation": "2 variants at identical scale (ROW)",
+      "explanation": "2 variants at identical scale (ROW, gap 0.35)",
       "evidence_status": "INTERNAL_PREVIEW",
+      "composition": {
+        "layout": "SIDE_BY_SIDE_ROW",
+        "gap_ratio": 0.35,
+        "label_band": 0.14,
+        "purpose": "detail",
+        "scale": "COMMON",
+        "metrics": {
+          "px_per_m": 37.21,
+          "models": {
+            "low_pitch_gable_roof": {
+              "width": 0.3535,
+              "height": 0.5459,
+              "occupancy": 0.1929,
+              "width_px": 226.2,
+              "detail_m": 0.858,
+              "detail_px": 31.93,
+              "clipped": false,
+              "in_label_band": false
+            },
+            "steep_gable_roof": {
+              "width": 0.354,
+              "height": 0.72,
+              "occupancy": 0.2549,
+              "width_px": 226.6,
+              "detail_m": 2.26,
+              "detail_px": 84.11,
+              "clipped": false,
+              "in_label_band": false
+            }
+          },
+          "overlap": 0.0,
+          "label_clash": false,
+          "scale": "COMMON",
+          "min_detail_px": 31.93,
+          "min_width": 0.3535
+        },
+        "candidates": [
+          {
+            "layout": "STACK",
+            "gap_ratio": 0.5,
+            "ok": false,
+            "problems": [
+              "smallest model 17% of the frame width (< 25%)"
+            ]
+          },
+          {
+            "layout": "STACK",
+            "gap_ratio": 0.25,
+            "ok": false,
+            "problems": [
+              "smallest model 19% of the frame width (< 25%)"
+            ]
+          },
+          {
+            "layout": "ROW",
+            "gap_ratio": 0.35,
+            "ok": true,
+            "problems": []
+          },
+          {
+            "layout": "ROW",
+            "gap_ratio": 0.2,
+            "ok": true,
+            "problems": []
+          }
+        ]
+      },
+      "sequence": null,
       "asset_ids": [
         "legacy_roof_evolution_roof_A",
         "legacy_roof_evolution_roof_B"
       ],
       "cut_from_previous": "hard",
       "shot_id": "SC_004",
-      "visibility": []
+      "visibility": null
     }
   ],
   "coverage": [
@@ -496,7 +677,36 @@
         "HIGHLIGHT_THEN_EXPLODE rejected (TIMING_CONFLICT): HIGHLIGHT_THEN_EXPLODE needs 6.67 s (2.04 + 4.62), the beat has 6.58 s",
         "EXPLODE: Take the assembly apart along its layers and back, focus components glowing"
       ],
-      "evidence_status": "FRAMING"
+      "evidence_status": "FRAMING",
+      "visual_repairs": [
+        {
+          "beat_id": "R2",
+          "shot_id": "SC_002",
+          "concept": "ridge_beam",
+          "problems": [
+            "TOO_SMALL"
+          ],
+          "frame": "exploded_hold",
+          "before": {
+            "visible_share": 0.3438,
+            "core_area": 0.00019,
+            "visible_area": 0.00106
+          },
+          "after": {
+            "visible_share": 0.3468,
+            "core_area": 0.00121,
+            "visible_area": 0.00289
+          },
+          "evaluated": [
+            {
+              "remedy": "REFRAME",
+              "result": "PASS",
+              "detail": "share 0.35, core 0.12%, area 0.29% -> PASS"
+            }
+          ],
+          "chosen": "REFRAME"
+        }
+      ]
     },
     {
       "beat_id": "R3",
@@ -565,10 +775,24 @@
       "timing_source": "PROVISIONAL",
       "issues": [],
       "explanation": [
-        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned"
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned (layout chosen by planner/composition.py: STACK or ROW, gap)"
       ],
       "evidence_status": "FRAMING"
     }
   ],
-  "warnings": []
+  "warnings": [],
+  "visibility_summary": {
+    "shots_assessed": 1,
+    "target_rows": 2,
+    "rows_passing": 2,
+    "uncertain_rows": 0,
+    "issues_detected": 1,
+    "auto_repaired": 1,
+    "manual_review": 0,
+    "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
+  },
+  "pieces_concepts": [
+    "keystone",
+    "voussoir"
+  ]
 }

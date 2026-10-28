@@ -566,7 +566,7 @@ def split_fades(plan, suffix=FADE_SUFFIX):
 
 
 # ---------------------------------------------------------------- HOLD / SIDE_BY_SIDE
-HOLD_DEFAULTS = {"template": "HOLD", "state": None, "duration_seconds": None, "highlight": None}
+HOLD_DEFAULTS = {"template": "HOLD", "state": None, "duration_seconds": None, "highlight": None, "label": None}
 SIDE_BY_SIDE_DEFAULTS = {"template": "SIDE_BY_SIDE", "states": None, "duration_seconds": None,
                          "gap_ratio": 0.35, "label_band": 0.12, "highlight": None, "intro": None, "labels": None,
                          "layout": "ROW"}

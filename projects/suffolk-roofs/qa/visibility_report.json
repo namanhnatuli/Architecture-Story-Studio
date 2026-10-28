@@ -1,0 +1,401 @@
+{
+ "project": "suffolk-roofs",
+ "preset": "preview",
+ "grid": [
+  192,
+  108
+ ],
+ "summary": {
+  "rows": 10,
+  "verdict_agreement": 1.0,
+  "mean_abs_share_error": 0.0134,
+  "max_abs_share_error": 0.0138,
+  "level2_seconds": 0.7,
+  "level1_seconds": 0.09,
+  "explanatory_failures_L2": 0,
+  "beat_concepts": 1,
+  "beat_concepts_unreadable_L2": []
+ },
+ "rows": [
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 1,
+   "label": "start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8928,
+    "core_area": 0.08136,
+    "visible_area": 0.09081,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9066,
+    "core_area": 0.08237,
+    "visible_area": 0.09177,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 134
+     },
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 61
+     },
+     {
+      "id": "wall_front",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 92,
+   "label": "q25",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8928,
+    "core_area": 0.08136,
+    "visible_area": 0.09081,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9066,
+    "core_area": 0.08237,
+    "visible_area": 0.09177,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 134
+     },
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 61
+     },
+     {
+      "id": "wall_front",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 185,
+   "label": "mid",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8928,
+    "core_area": 0.08136,
+    "visible_area": 0.09081,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9066,
+    "core_area": 0.08237,
+    "visible_area": 0.09177,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 134
+     },
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 61
+     },
+     {
+      "id": "wall_front",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 278,
+   "label": "q75",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9329,
+    "core_area": 0.09303,
+    "visible_area": 0.10388,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9456,
+    "core_area": 0.09365,
+    "visible_area": 0.10479,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 106
+     },
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 18
+     },
+     {
+      "id": "thatch_50_ridge_beam",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 370,
+   "label": "end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8928,
+    "core_area": 0.08136,
+    "visible_area": 0.09081,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9066,
+    "core_area": 0.08237,
+    "visible_area": 0.09177,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 134
+     },
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 61
+     },
+     {
+      "id": "wall_front",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 239,
+   "label": "explode_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9329,
+    "core_area": 0.09303,
+    "visible_area": 0.10388,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9456,
+    "core_area": 0.09365,
+    "visible_area": 0.10479,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 106
+     },
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 18
+     },
+     {
+      "id": "thatch_50_ridge_beam",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 210,
+   "label": "explode_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8928,
+    "core_area": 0.08136,
+    "visible_area": 0.09081,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9066,
+    "core_area": 0.08237,
+    "visible_area": 0.09177,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 134
+     },
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 61
+     },
+     {
+      "id": "wall_front",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 275,
+   "label": "exploded_hold",
+   "concept": "highlight",
+   "explanatory": true,
+   "L1": {
+    "visible_share": 0.9329,
+    "core_area": 0.09303,
+    "visible_area": 0.10388,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9456,
+    "core_area": 0.09365,
+    "visible_area": 0.10479,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 106
+     },
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 18
+     },
+     {
+      "id": "thatch_50_ridge_beam",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 340,
+   "label": "return_end",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.8928,
+    "core_area": 0.08136,
+    "visible_area": 0.09081,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9066,
+    "core_area": 0.08237,
+    "visible_area": 0.09177,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 134
+     },
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 61
+     },
+     {
+      "id": "wall_front",
+      "samples": 1
+     }
+    ]
+   }
+  },
+  {
+   "shot": "SC_002",
+   "beat": "B2",
+   "frame": 311,
+   "label": "return_start",
+   "concept": "highlight",
+   "explanatory": false,
+   "L1": {
+    "visible_share": 0.9329,
+    "core_area": 0.09303,
+    "visible_area": 0.10388,
+    "ok": true,
+    "problems": [],
+    "geometry": "PROXY",
+    "verification": "ESTIMATED"
+   },
+   "L2": {
+    "visible_share": 0.9456,
+    "core_area": 0.09365,
+    "visible_area": 0.10479,
+    "ok": true,
+    "problems": [],
+    "occluders": [
+     {
+      "id": "thatch_50_ridge_cap",
+      "samples": 106
+     },
+     {
+      "id": "thatch_50_gable_front",
+      "samples": 18
+     },
+     {
+      "id": "thatch_50_ridge_beam",
+      "samples": 1
+     }
+    ]
+   }
+  }
+ ]
+}

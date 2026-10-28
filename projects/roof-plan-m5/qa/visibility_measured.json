@@ -1,0 +1,481 @@
+{
+ "blender": "5.2.2 LTS",
+ "grid": [
+  192,
+  108
+ ],
+ "shots": {
+  "SC_002": {
+   "frames": {
+    "start": 1,
+    "q25": 40,
+    "mid": 79,
+    "q75": 118,
+    "end": 158,
+    "explode_end": 43,
+    "explode_start": 11,
+    "exploded_hold": 81,
+    "return_end": 152,
+    "return_start": 120
+   },
+   "rows": {
+    "start": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 975,
+      "projected_area": 0.04702,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 590
+       },
+       {
+        "id": "low_pitch_gable_roof_covering_left",
+        "samples": 382
+       },
+       {
+        "id": "low_pitch_gable_roof_gable_front",
+        "samples": 3
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 168,
+      "projected_area": 0.0081,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 168
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "q25": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 976,
+      "projected_area": 0.04707,
+      "visible_area": 0.02619,
+      "visible_share": 0.5564,
+      "core_area": 0.00627,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 433
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 169,
+      "projected_area": 0.00815,
+      "visible_area": 0.00289,
+      "visible_share": 0.355,
+      "core_area": 0.00116,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 99
+       },
+       {
+        "id": "low_pitch_gable_roof_rafters_right",
+        "samples": 10
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "mid": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 973,
+      "projected_area": 0.04692,
+      "visible_area": 0.02566,
+      "visible_share": 0.5468,
+      "core_area": 0.00646,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 441
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 169,
+      "projected_area": 0.00815,
+      "visible_area": 0.00289,
+      "visible_share": 0.355,
+      "core_area": 0.00116,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 99
+       },
+       {
+        "id": "low_pitch_gable_roof_rafters_right",
+        "samples": 10
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "q75": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 973,
+      "projected_area": 0.04692,
+      "visible_area": 0.02566,
+      "visible_share": 0.5468,
+      "core_area": 0.00646,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 441
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 169,
+      "projected_area": 0.00815,
+      "visible_area": 0.00289,
+      "visible_share": 0.355,
+      "core_area": 0.00116,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 99
+       },
+       {
+        "id": "low_pitch_gable_roof_rafters_right",
+        "samples": 10
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "end": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 975,
+      "projected_area": 0.04702,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 590
+       },
+       {
+        "id": "low_pitch_gable_roof_covering_left",
+        "samples": 382
+       },
+       {
+        "id": "low_pitch_gable_roof_gable_front",
+        "samples": 3
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 168,
+      "projected_area": 0.0081,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 168
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "explode_end": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 973,
+      "projected_area": 0.04692,
+      "visible_area": 0.02566,
+      "visible_share": 0.5468,
+      "core_area": 0.00646,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 441
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 169,
+      "projected_area": 0.00815,
+      "visible_area": 0.00289,
+      "visible_share": 0.355,
+      "core_area": 0.00116,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 99
+       },
+       {
+        "id": "low_pitch_gable_roof_rafters_right",
+        "samples": 10
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "explode_start": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 975,
+      "projected_area": 0.04702,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 590
+       },
+       {
+        "id": "low_pitch_gable_roof_covering_left",
+        "samples": 382
+       },
+       {
+        "id": "low_pitch_gable_roof_gable_front",
+        "samples": 3
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 168,
+      "projected_area": 0.0081,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 168
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "exploded_hold": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 973,
+      "projected_area": 0.04692,
+      "visible_area": 0.02566,
+      "visible_share": 0.5468,
+      "core_area": 0.00646,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 441
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 169,
+      "projected_area": 0.00815,
+      "visible_area": 0.00289,
+      "visible_share": 0.355,
+      "core_area": 0.00116,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 99
+       },
+       {
+        "id": "low_pitch_gable_roof_rafters_right",
+        "samples": 10
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "return_end": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 975,
+      "projected_area": 0.04702,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 590
+       },
+       {
+        "id": "low_pitch_gable_roof_covering_left",
+        "samples": 382
+       },
+       {
+        "id": "low_pitch_gable_roof_gable_front",
+        "samples": 3
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 168,
+      "projected_area": 0.0081,
+      "visible_area": 0.0,
+      "visible_share": 0.0,
+      "core_area": 0.0,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 168
+       }
+      ],
+      "components": {}
+     }
+    ],
+    "return_start": [
+     {
+      "concept": "rafters",
+      "shown": true,
+      "samples": 973,
+      "projected_area": 0.04692,
+      "visible_area": 0.02566,
+      "visible_share": 0.5468,
+      "core_area": 0.00646,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 441
+       }
+      ],
+      "components": {}
+     },
+     {
+      "concept": "ridge_beam",
+      "shown": true,
+      "samples": 169,
+      "projected_area": 0.00815,
+      "visible_area": 0.00289,
+      "visible_share": 0.355,
+      "core_area": 0.00116,
+      "safe_band_share": 0.0,
+      "outside_share": 0.0,
+      "geometry": "BLENDER",
+      "occluders": [
+       {
+        "id": "low_pitch_gable_roof_covering_right",
+        "samples": 99
+       },
+       {
+        "id": "low_pitch_gable_roof_rafters_right",
+        "samples": 10
+       }
+      ],
+      "components": {}
+     }
+    ]
+   }
+  }
+ }
+}

@@ -26,6 +26,17 @@ def storyboard(plan):
                                "part": ps["part"], "evidence_status": ps["evidence_status"],
                                "semantic_targets": [t["concept"] for t in ps["semantic_targets"]],
                                "timing_mode": ps["timing"]["mode"]})
+        if ps["semantic_targets"]:   # M5.5: what Level 2 (verify-visibility) measures, and the estimate
+            shot["editorial"]["visibility_targets"] = [
+                {"concept": t["concept"], "component_ids": t["component_ids"],
+                 "pieces": t["concept"] in plan.get("pieces_concepts", [])} for t in ps["semantic_targets"]]
+            shot["editorial"]["visibility_estimate"] = [
+                {k: r.get(k) for k in ("concept", "label", "frame", "visible_share", "core_area", "visible_area", "ok")}
+                for r in (ps.get("visibility") or {}).get("targets", [])]
+        if ps.get("composition"):
+            shot["editorial"]["composition"] = {k: v for k, v in ps["composition"].items() if k != "candidates"}
+        if ps.get("repairs"):
+            shot["editorial"]["repairs"] = ps["repairs"]
         shots.append(shot)
         marker = {"EXPLODED_VIEW": "exploded_hold", "REPLACE_PARTS": "middle"}.get(ps["template"])
         if ps["template"] == "REPLACE_PARTS" and ps["states"][0] == SITE_STATE:

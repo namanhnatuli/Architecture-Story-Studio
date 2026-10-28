@@ -77,3 +77,10 @@ If a requested change conflicts with these choices, document the reason and upda
 - **Nhóm liên tục camera:** shot nối bằng cắt match dùng chung một camera khóa và một tập variant được dựng. Cache chỉ phụ thuộc các variant shot đó dựng.
 - **Phần phát sáng phải nhìn thấy được.** QA Blender đo phần bị che bằng tia. Phần thường bị che (dầm dọc dưới ván…) được làm lộ bằng cách cho phần che trong suốt (`ghost`), không phải bằng cách đổi camera.
 
+## Bổ sung 2026-10-28 (M5.5)
+- **Hình đúng kỹ thuật chưa đủ; mục tiêu phải đọc được.** Mỗi khái niệm của beat phải đọc được ở ít nhất một shot của beat. Điều này được ước lượng offline trước khi render (Level 1) và đo trong Blender (Level 2). Hai mức phải trùng kết luận; giá trị là tỷ lệ mẫu, không phải phần trăm bề mặt chính xác.
+- **Sửa trong kế hoạch, không sửa trong scene.** Cách sửa được thử trên bản sao của shot và ghi vào visual plan cùng mọi ứng viên. Không sửa hình học kiến trúc, không để độ trong suốt vĩnh viễn, không dùng cách sửa phá cắt match khi còn cách khác.
+- **Thứ tự ưu tiên mặc định:** bố cục tĩnh rõ → chỉnh camera tối thiểu → ghost tạm thời → exploded view → đổi cấu trúc shot → xem lại thủ công.
+- **So sánh theo độ đọc được ở màn hình nhỏ (640×360), không phải theo việc chứa đủ mô hình.** Khi không bố cục đồng thời nào đọc được, so sánh tuần tự dưới một camera chung (tỷ lệ chung). Không chuẩn hóa từng mô hình một cách lặng lẽ.
+- **Mục đích của output quyết định gate.** Profile được khai báo rõ và có validate. Profile không lời không bao giờ cho phép xuất bản, và không thể dùng trên dự án có lời dẫn. Không có cờ bỏ qua chung.
+

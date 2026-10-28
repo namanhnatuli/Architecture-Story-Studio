@@ -44,6 +44,16 @@ def validate_project(project_dir, final=False):
         errors.append("project.slug must match project folder name")
     if project.get("mode") not in ("prototype", "production"):
         errors.append("project.mode invalid")
+    profile = project.get("production_profile")
+    if profile is not None:   # M5.5: explicit, validated production profiles (pipeline/gates.py)
+        from pipeline.gates import PROFILES
+        if profile not in PROFILES:
+            errors.append(f"production_profile must be one of {', '.join(PROFILES)}")
+        if profile == "TECHNICAL_SILENT_PREVIEW" and any(
+                (base / rel).exists() for rel in ("script/narration.json", "audio/narration_manifest.json")):
+            errors.append("production_profile TECHNICAL_SILENT_PREVIEW but the project has narration "
+                          "(script/narration.json or audio/): a narrated project is NARRATED_INTERNAL_REVIEW or "
+                          "PUBLICATION_CANDIDATE, its audio gates cannot be switched off")
     fps = project.get("fps")
     if type(fps) is not int or not (1 <= fps <= 120):
         errors.append("fps must be integer between 1 and 120")

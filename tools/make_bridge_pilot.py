@@ -137,7 +137,8 @@ def main():
     project = {"slug": "bridge-structure-evolution",
                "title": "Bridge Structures — M4 Technical Pilot (illustrative archetypes)", "mode": "prototype",
                "language": "en", "fps": 24, "duration_seconds": total, "render_preset": "preview",
-               "factual_review": "provisional", "audio_timing_locked": False}
+               "factual_review": "provisional", "audio_timing_locked": False,
+               "production_profile": "TECHNICAL_SILENT_PREVIEW"}
     (P / "project.json").write_text(json.dumps(project, indent=2) + "\n")
     print(f"{len(shot_list)} shots, {total:.1f} s => {P}")
 
