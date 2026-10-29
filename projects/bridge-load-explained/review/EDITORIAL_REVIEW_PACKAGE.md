@@ -205,7 +205,7 @@ Ký hiệu: ✅ = nguồn nói gần như nguyên văn; ◐ = được hỗ tr�
 
 **B1** (fact; claim CLM_601, CLM_602)
 - s0: What happens when weight is placed on a bridge?
-- s1: Traffic, people and the bridge's own weight all press down on its deck.
+- s1: Traffic, people and the weight of the bridge itself all press on its deck.
 - s2: To stay standing, the bridge has to carry that load down into the ground.
 
 **B2** (fact; claim CLM_602, CLM_603, CLM_604)
@@ -247,9 +247,11 @@ Ký hiệu: ✅ = nguồn nói gần như nguyên văn; ◐ = được hỗ tr�
 
 ## 4. Cần nghe lại (phát âm và độ rõ)
 
-ASR (Whisper large-v3-turbo) nhận đúng cả 26 câu (WER ≤ 0.087). Sai khác đều nằm ở chính tả, không phải ở nghĩa: 'veussoirs' cho *voussoirs* (B4.s1) và 'cord' cho *chord* (B6.s2, từ đồng âm). Ở bản đầu, câu B7.s3 "The truss shares it…" bị nghe thành "The trust shares it…", nên agent đã viết lại thành "In the truss, the load is shared…" (WER 0). Người nghe cần xác nhận:
-- *voussoirs* /ˈvuːswɑːz/ (misaki: vˈuːswɑːz), *keystone*, *abutments*, *superstructure*, *substructure*, *truss*, *chord*.
-- Giọng `bf_emma` là mặc định kỹ thuật tạm thời, **chưa được người dùng duyệt** (xem `review/voice_audition/AUDITION.md`).
+Giọng `bm_george`, do người dùng chọn ngày 2026-10-29. ASR (Whisper large-v3-turbo) nhận cả 26 câu với WER ≤ 0.111. Sai khác còn lại là đồng âm hoặc thì động từ: 'peers' cho *piers* (B2.s2), 'passed' cho *pass* (B2.s3), 'cord' cho *chord* (B6.s2). Người nghe cần xác nhận rằng người xem nghe đúng.
+Câu chữ đã sửa vì ASR nghe nhầm (sửa bản nháp, không phải duyệt biên tập):
+- B7.s3 (giọng bf_emma): "The truss shares it…" bị nghe thành "trust", nên viết lại thành "In the truss, the load is shared…".
+- B1.s1 (giọng bm_george): "…all press down…" bị nghe thành "pressed", và "…all push down…" bị nghe thành "pushed". Câu đã chốt là "Traffic, people and the weight of the bridge itself all press on its deck." (WER 0).
+- Thuật ngữ cần nghe: *voussoirs* /ˈvuːswɑːz/, *keystone*, *abutments*, *piers*, *superstructure*, *substructure*, *truss*, *chord*.
 
 ## 5. Cách ghi quyết định (chỉ người duyệt)
 

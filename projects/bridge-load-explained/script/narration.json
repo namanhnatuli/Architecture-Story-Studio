@@ -5,9 +5,16 @@
   "status": "DRAFT - source-verified wording, awaiting editorial approval (G1)",
   "voice": {
     "provider": "kokoro",
-    "id": "kokoro_bf_emma",
+    "id": "kokoro_bm_george",
     "mode": "preset",
-    "voice": "bf_emma",
+    "voice": "bm_george",
+    "selection": {
+      "voice": "bm_george",
+      "selected_by": "Tran Nam Anh (user, in-session instruction)",
+      "selected_on": "2026-10-29",
+      "basis": "chose bm_george from the four audition clips (review/voice_audition/AUDITION.md)",
+      "scope": "channel voice choice only; Kokoro publication clearance and editorial approval are separate and still pending"
+    },
     "language": "en-GB",
     "params": {
       "speed": 1.0,
@@ -28,9 +35,9 @@
           "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
         },
         {
-          "name": "Voice bf_emma (voices/bf_emma.pt)",
+          "name": "Voice bm_george (voices/bm_george.pt)",
           "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
-          "evidence": "VOICES.md SHA256 prefix d0a423de matches the local file"
+          "evidence": "VOICES.md SHA256 prefix f1bc8122 matches the local file"
         },
         {
           "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
@@ -48,9 +55,9 @@
           "evidence": "model card; unresolved, audit section 5"
         }
       ],
-      "decision": "Candidate for publication, NOT CLEARED. Rights class stays PENDING_REVIEW; the agent never raises it. The channel voice is a provisional technical default, not approved by the user."
+      "decision": "Candidate for publication, NOT CLEARED. Rights class stays PENDING_REVIEW; the agent never raises it. The channel voice bm_george was chosen by the user on 2026-10-29; that choice does not clear the provider for publication."
     },
-    "pace_note": "speed 1.0 for the whole narration; measured 160.8 wpm over the 26 sentences (320 words, 119.38 s of speech, 2026-10-29); the audition passage (dense technical sentences) measured 182.5 wpm. Uniform, never per beat."
+    "pace_note": "speed 1.0 for the whole narration; bm_george measured 143.4 wpm over the 26 sentences (321 words, 134.32 s of speech, 2026-10-29); the audition passage measured 161.0 wpm. Uniform, never per beat."
   },
   "pacing": {
     "sentence_pause_seconds": 0.4,
@@ -70,7 +77,7 @@
       "claim_ids": ["CLM_601", "CLM_602"],
       "sentences": [
         "What happens when weight is placed on a bridge?",
-        "Traffic, people and the bridge's own weight all press down on its deck.",
+        "Traffic, people and the weight of the bridge itself all press on its deck.",
         "To stay standing, the bridge has to carry that load down into the ground."
       ]
     },

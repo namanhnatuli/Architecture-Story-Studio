@@ -10,11 +10,11 @@
     "reason": "Claims are source-verified, not editorially approved; the narration provider (Kokoro-82M) is PENDING_REVIEW and the voice is not approved by the user."
   },
   "fps": 24,
-  "total_frames": 3271,
-  "duration_seconds": 136.291667,
+  "total_frames": 3632,
+  "duration_seconds": 151.333333,
   "executable": true,
   "inputs": {
-    "beats_sha256": "bf6b1cc7a083c0ace161807f4d0f5e1244f0e4ea18b4dff55176d002723949e7",
+    "beats_sha256": "792455dcfb6c40af6f63d1d6e854cc33144199a3043a0699b868a0a92a661b59",
     "sources_sha256": "e3f6ee6cf73c9ab07e91b048b11f818752b528e6ac41054bd86d0a945b600e72",
     "vocabulary_sha256": "1db89ce05c3abf2478f0df4e2a6204dd388dc0af13b1831c5f3233c021679953",
     "planning_config_sha256": "3168becfae2765abfccd8de180d9b194c8faadfbe3498c041b9b94f6d61309ce",
@@ -24,7 +24,7 @@
       "bridge_timber_beam_01": "9a416c794cb5a56c22eab1960a56ad195306971d223e723f17c831e9be201411"
     },
     "annotation_style_sha256": "3d8574967d7c37a5ff118268aa8bc004eb9d4d3b6871438b3ff38e8ae71f441f",
-    "timing_sha256": "19e480a19af58a0adf88fd5eccf0958cd70afc2b11e9702436ea12a3bb3ca592"
+    "timing_sha256": "e0438827e8368264413d40a07db23b5666576776dfe1d8e5c3e69e8f44905423"
   },
   "family": "bridge",
   "states": {
@@ -92,7 +92,7 @@
     {
       "shot": {
         "id": "SC_001",
-        "duration_seconds": 14.208333333333334,
+        "duration_seconds": 16.291666666666668,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -110,7 +110,7 @@
           "CLM_601",
           "CLM_602"
         ],
-        "narration": "What happens when weight is placed on a bridge? Traffic, people and the bridge's own weight all press down on its deck. To stay standing, the bridge has to carry that load down into the ground.",
+        "narration": "What happens when weight is placed on a bridge? Traffic, people and the weight of the bridge itself all press on its deck. To stay standing, the bridge has to carry that load down into the ground.",
         "visual_purpose": "A whole bridge; the load on its deck and the ground it must reach [HOLD 1/1: hold steel_truss_bridge]",
         "build_variants": [
           "steel_truss_bridge"
@@ -121,8 +121,8 @@
             {
               "id": "CONCEPTUAL_TAG",
               "type": "TAG",
-              "appear": 3.8333,
-              "disappear": 13.875,
+              "appear": 4.125,
+              "disappear": 15.9583,
               "elements": [
                 {
                   "kind": "plate",
@@ -167,8 +167,8 @@
             {
               "id": "B1_load",
               "type": "LOAD_ARROW",
-              "appear": 3.8333,
-              "disappear": 13.875,
+              "appear": 4.125,
+              "disappear": 15.9583,
               "claim_id": "CLM_601",
               "text": "Load",
               "style": null,
@@ -391,8 +391,8 @@
             {
               "id": "B1_ground",
               "type": "COMPONENT_LABEL",
-              "appear": 8.7083,
-              "disappear": 13.875,
+              "appear": 10.125,
+              "disappear": 15.9583,
               "claim_id": null,
               "text": "Ground",
               "style": null,
@@ -536,8 +536,8 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 341,
-        "duration_seconds": 14.208333,
+        "frames": 391,
+        "duration_seconds": 16.291667,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
         "start_seconds": 0.0
@@ -558,8 +558,8 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 3.8333,
-            "disappear": 13.875,
+            "appear": 4.125,
+            "disappear": 15.9583,
             "elements": [
               {
                 "kind": "plate",
@@ -604,8 +604,8 @@
           {
             "id": "B1_load",
             "type": "LOAD_ARROW",
-            "appear": 3.8333,
-            "disappear": 13.875,
+            "appear": 4.125,
+            "disappear": 15.9583,
             "claim_id": "CLM_601",
             "text": "Load",
             "style": null,
@@ -828,8 +828,8 @@
           {
             "id": "B1_ground",
             "type": "COMPONENT_LABEL",
-            "appear": 8.7083,
-            "disappear": 13.875,
+            "appear": 10.125,
+            "disappear": 15.9583,
             "claim_id": null,
             "text": "Ground",
             "style": null,
@@ -952,7 +952,7 @@
     {
       "shot": {
         "id": "SC_002",
-        "duration_seconds": 19.958333333333332,
+        "duration_seconds": 21.833333333333332,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -965,9 +965,9 @@
               "steel_truss_bridge_seat_left",
               "steel_truss_bridge_seat_right"
             ],
-            "start_seconds": 9.4,
+            "start_seconds": 10.25,
             "rise_seconds": 0.4,
-            "hold_seconds": 9.4583,
+            "hold_seconds": 10.4833,
             "fall_seconds": 0.4,
             "strength": 0.45
           }
@@ -995,7 +995,7 @@
               "id": "CONCEPTUAL_TAG",
               "type": "TAG",
               "appear": 0.2917,
-              "disappear": 19.9583,
+              "disappear": 21.8333,
               "elements": [
                 {
                   "kind": "plate",
@@ -1041,7 +1041,7 @@
               "id": "B2_path",
               "type": "CONCEPTUAL_LOAD_PATH",
               "appear": 0.2917,
-              "disappear": 19.9583,
+              "disappear": 21.8333,
               "claim_id": "CLM_604",
               "text": null,
               "style": "LOAD",
@@ -1637,8 +1637,8 @@
             {
               "id": "B2_super",
               "type": "HIGHLIGHT_REGION",
-              "appear": 3.9583,
-              "disappear": 9.5,
+              "appear": 4.3333,
+              "disappear": 10.3333,
               "claim_id": "CLM_603",
               "text": "Superstructure",
               "style": null,
@@ -1758,8 +1758,8 @@
             {
               "id": "B2_abut",
               "type": "COMPONENT_LABEL",
-              "appear": 9.5,
-              "disappear": 19.9583,
+              "appear": 10.3333,
+              "disappear": 21.8333,
               "claim_id": "CLM_604",
               "text": "Abutment",
               "style": null,
@@ -1878,8 +1878,8 @@
             {
               "id": "B2_pier",
               "type": "COMPONENT_LABEL",
-              "appear": 9.5,
-              "disappear": 19.9583,
+              "appear": 10.3333,
+              "disappear": 21.8333,
               "claim_id": "CLM_604",
               "text": "Pier",
               "style": null,
@@ -1998,8 +1998,8 @@
             {
               "id": "B2_found",
               "type": "COMPONENT_LABEL",
-              "appear": 15.5,
-              "disappear": 19.9583,
+              "appear": 16.9167,
+              "disappear": 21.8333,
               "claim_id": "CLM_604",
               "text": "Foundation",
               "style": null,
@@ -2157,11 +2157,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 479,
-        "duration_seconds": 19.958333,
-        "min_seconds": 10.8333,
+        "frames": 524,
+        "duration_seconds": 21.833333,
+        "min_seconds": 11.6667,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 14.208333
+        "start_seconds": 16.291667
       },
       "explanation": "hold steel_truss_bridge, glowing substructure from sentence 2",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -2175,14 +2175,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 120,
-          "mid": 240,
-          "q75": 359,
-          "end": 479,
-          "highlight_end": 473,
-          "highlight_peak": 350,
-          "highlight_start": 227,
-          "middle": 240
+          "q25": 131,
+          "mid": 262,
+          "q75": 393,
+          "end": 524,
+          "highlight_end": 518,
+          "highlight_peak": 382,
+          "highlight_start": 247,
+          "middle": 262
         },
         "explanatory": [
           "highlight_peak"
@@ -2234,7 +2234,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 350,
+            "frame": 382,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -2249,7 +2249,7 @@
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
             "appear": 0.2917,
-            "disappear": 19.9583,
+            "disappear": 21.8333,
             "elements": [
               {
                 "kind": "plate",
@@ -2295,7 +2295,7 @@
             "id": "B2_path",
             "type": "CONCEPTUAL_LOAD_PATH",
             "appear": 0.2917,
-            "disappear": 19.9583,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": null,
             "style": "LOAD",
@@ -2891,8 +2891,8 @@
           {
             "id": "B2_super",
             "type": "HIGHLIGHT_REGION",
-            "appear": 3.9583,
-            "disappear": 9.5,
+            "appear": 4.3333,
+            "disappear": 10.3333,
             "claim_id": "CLM_603",
             "text": "Superstructure",
             "style": null,
@@ -3012,8 +3012,8 @@
           {
             "id": "B2_abut",
             "type": "COMPONENT_LABEL",
-            "appear": 9.5,
-            "disappear": 19.9583,
+            "appear": 10.3333,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": "Abutment",
             "style": null,
@@ -3132,8 +3132,8 @@
           {
             "id": "B2_pier",
             "type": "COMPONENT_LABEL",
-            "appear": 9.5,
-            "disappear": 19.9583,
+            "appear": 10.3333,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": "Pier",
             "style": null,
@@ -3252,8 +3252,8 @@
           {
             "id": "B2_found",
             "type": "COMPONENT_LABEL",
-            "appear": 15.5,
-            "disappear": 19.9583,
+            "appear": 16.9167,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": "Foundation",
             "style": null,
@@ -3376,7 +3376,7 @@
     {
       "shot": {
         "id": "SC_003",
-        "duration_seconds": 18.333333333333332,
+        "duration_seconds": 20.25,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -3390,9 +3390,9 @@
               "timber_beam_bridge_span3_stringers",
               "timber_beam_bridge_span4_stringers"
             ],
-            "start_seconds": 2.825,
+            "start_seconds": 2.975,
             "rise_seconds": 0.4,
-            "hold_seconds": 14.4083,
+            "hold_seconds": 16.175,
             "fall_seconds": 0.4,
             "strength": 0.45,
             "ghost": [
@@ -3426,8 +3426,8 @@
             {
               "id": "CONCEPTUAL_TAG",
               "type": "TAG",
-              "appear": 7.875,
-              "disappear": 18.3333,
+              "appear": 8.875,
+              "disappear": 20.25,
               "elements": [
                 {
                   "kind": "plate",
@@ -3472,8 +3472,8 @@
             {
               "id": "B3_beams",
               "type": "COMPONENT_LABEL",
-              "appear": 2.9167,
-              "disappear": 11.875,
+              "appear": 3.0833,
+              "disappear": 13.2083,
               "claim_id": "CLM_605",
               "text": "Beams",
               "style": null,
@@ -3592,8 +3592,8 @@
             {
               "id": "B3_load",
               "type": "LOAD_ARROW",
-              "appear": 7.875,
-              "disappear": 18.3333,
+              "appear": 8.875,
+              "disappear": 20.25,
               "claim_id": "CLM_601",
               "text": "Load",
               "style": null,
@@ -3757,8 +3757,8 @@
             {
               "id": "B3_bend",
               "type": "CALLOUT",
-              "appear": 7.875,
-              "disappear": 18.3333,
+              "appear": 8.875,
+              "disappear": 20.25,
               "claim_id": "CLM_606",
               "text": "Resists bending",
               "style": null,
@@ -3877,8 +3877,8 @@
             {
               "id": "B3_path",
               "type": "CONCEPTUAL_LOAD_PATH",
-              "appear": 11.875,
-              "disappear": 18.3333,
+              "appear": 13.2083,
+              "disappear": 20.25,
               "claim_id": "CLM_607",
               "text": null,
               "style": "LOAD",
@@ -4066,8 +4066,8 @@
             {
               "id": "B3_cap",
               "type": "COMPONENT_LABEL",
-              "appear": 11.875,
-              "disappear": 18.3333,
+              "appear": 13.2083,
+              "disappear": 20.25,
               "claim_id": "CLM_607",
               "text": "Cap beam",
               "style": null,
@@ -4186,8 +4186,8 @@
             {
               "id": "B3_posts",
               "type": "CALLOUT",
-              "appear": 11.875,
-              "disappear": 18.3333,
+              "appear": 13.2083,
+              "disappear": 20.25,
               "claim_id": "CLM_607",
               "text": "Posts: compression",
               "style": null,
@@ -4377,11 +4377,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 440,
-        "duration_seconds": 18.333333,
-        "min_seconds": 4.25,
+        "frames": 486,
+        "duration_seconds": 20.25,
+        "min_seconds": 4.375,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 34.166667
+        "start_seconds": 38.125
       },
       "explanation": "hold timber_beam_bridge, glowing stringer from sentence 1; repaired (GHOST:plank): stringer was OCCLUDED",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -4399,14 +4399,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 110,
-          "mid": 220,
-          "q75": 330,
-          "end": 440,
-          "highlight_end": 434,
-          "highlight_peak": 251,
-          "highlight_start": 69,
-          "middle": 220
+          "q25": 122,
+          "mid": 243,
+          "q75": 364,
+          "end": 486,
+          "highlight_end": 480,
+          "highlight_peak": 276,
+          "highlight_start": 72,
+          "middle": 243
         },
         "explanatory": [
           "highlight_peak"
@@ -4455,7 +4455,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 251,
+            "frame": 276,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -4488,8 +4488,8 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 7.875,
-            "disappear": 18.3333,
+            "appear": 8.875,
+            "disappear": 20.25,
             "elements": [
               {
                 "kind": "plate",
@@ -4534,8 +4534,8 @@
           {
             "id": "B3_beams",
             "type": "COMPONENT_LABEL",
-            "appear": 2.9167,
-            "disappear": 11.875,
+            "appear": 3.0833,
+            "disappear": 13.2083,
             "claim_id": "CLM_605",
             "text": "Beams",
             "style": null,
@@ -4654,8 +4654,8 @@
           {
             "id": "B3_load",
             "type": "LOAD_ARROW",
-            "appear": 7.875,
-            "disappear": 18.3333,
+            "appear": 8.875,
+            "disappear": 20.25,
             "claim_id": "CLM_601",
             "text": "Load",
             "style": null,
@@ -4819,8 +4819,8 @@
           {
             "id": "B3_bend",
             "type": "CALLOUT",
-            "appear": 7.875,
-            "disappear": 18.3333,
+            "appear": 8.875,
+            "disappear": 20.25,
             "claim_id": "CLM_606",
             "text": "Resists bending",
             "style": null,
@@ -4939,8 +4939,8 @@
           {
             "id": "B3_path",
             "type": "CONCEPTUAL_LOAD_PATH",
-            "appear": 11.875,
-            "disappear": 18.3333,
+            "appear": 13.2083,
+            "disappear": 20.25,
             "claim_id": "CLM_607",
             "text": null,
             "style": "LOAD",
@@ -5128,8 +5128,8 @@
           {
             "id": "B3_cap",
             "type": "COMPONENT_LABEL",
-            "appear": 11.875,
-            "disappear": 18.3333,
+            "appear": 13.2083,
+            "disappear": 20.25,
             "claim_id": "CLM_607",
             "text": "Cap beam",
             "style": null,
@@ -5248,8 +5248,8 @@
           {
             "id": "B3_posts",
             "type": "CALLOUT",
-            "appear": 11.875,
-            "disappear": 18.3333,
+            "appear": 13.2083,
+            "disappear": 20.25,
             "claim_id": "CLM_607",
             "text": "Posts: compression",
             "style": null,
@@ -5404,7 +5404,7 @@
     {
       "shot": {
         "id": "SC_004",
-        "duration_seconds": 3.3333333333333335,
+        "duration_seconds": 3.5,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -5455,7 +5455,7 @@
             ],
             "start_seconds": 0.6,
             "rise_seconds": 0.4,
-            "hold_seconds": 1.6333,
+            "hold_seconds": 1.8,
             "fall_seconds": 0.4,
             "strength": 0.45
           }
@@ -5549,11 +5549,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 80,
-        "duration_seconds": 3.333333,
+        "frames": 84,
+        "duration_seconds": 3.5,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 52.5
+        "start_seconds": 58.375
       },
       "explanation": "establish stone_arch_bridge with arch_ring glowing",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -5567,14 +5567,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 20,
-          "mid": 40,
-          "q75": 60,
-          "end": 80,
-          "highlight_end": 74,
-          "highlight_peak": 45,
+          "q25": 21,
+          "mid": 42,
+          "q75": 63,
+          "end": 84,
+          "highlight_end": 78,
+          "highlight_peak": 47,
           "highlight_start": 15,
-          "middle": 40
+          "middle": 42
         },
         "explanatory": [
           "highlight_peak"
@@ -5806,7 +5806,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 45,
+            "frame": 47,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -5818,7 +5818,7 @@
     {
       "shot": {
         "id": "SC_005",
-        "duration_seconds": 6.166666666666667,
+        "duration_seconds": 6.625,
         "visual_type": "BLENDER_3D",
         "transition": "EXPLODED_VIEW",
         "camera": "ELEVATION",
@@ -5952,7 +5952,7 @@
           "stagger_seconds": 0.18,
           "hold_start_seconds": 0.4,
           "explode_seconds": 1.0,
-          "hold_seconds": 3.1233,
+          "hold_seconds": 3.5817,
           "return_seconds": 1.0,
           "hold_end_seconds": 0.2,
           "highlight": {
@@ -6012,7 +6012,7 @@
               "id": "B4_key",
               "type": "COMPONENT_LABEL",
               "appear": 1.4167,
-              "disappear": 4.9167,
+              "disappear": 5.375,
               "claim_id": "CLM_608",
               "text": "Keystone",
               "style": null,
@@ -6132,7 +6132,7 @@
               "id": "B4_vous",
               "type": "COMPONENT_LABEL",
               "appear": 1.5833,
-              "disappear": 4.75,
+              "disappear": 5.2083,
               "claim_id": "CLM_608",
               "text": "Voussoirs",
               "style": null,
@@ -6322,11 +6322,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 148,
-        "duration_seconds": 6.166667,
+        "frames": 159,
+        "duration_seconds": 6.625,
         "min_seconds": 4.25,
-        "beat_offset_seconds": 3.333333,
-        "start_seconds": 55.833333
+        "beat_offset_seconds": 3.5,
+        "start_seconds": 61.875
       },
       "explanation": "frontal close-up: only the 13 focus pieces (voussoir, keystone) come forward out of the face, spread apart and return, so each piece's shape reads (voussoir, keystone are read as pieces)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6340,15 +6340,15 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 37,
-          "mid": 74,
-          "q75": 111,
-          "end": 148,
+          "q25": 40,
+          "mid": 80,
+          "q75": 119,
+          "end": 159,
           "explode_end": 39,
           "explode_start": 11,
-          "exploded_hold": 76,
-          "return_end": 142,
-          "return_start": 114
+          "exploded_hold": 82,
+          "return_end": 153,
+          "return_start": 125
         },
         "explanatory": [
           "exploded_hold"
@@ -6428,7 +6428,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 76,
+            "frame": 82,
             "label": "exploded_hold",
             "ok": true,
             "verification": "ESTIMATED",
@@ -6447,7 +6447,7 @@
             "occluders": [],
             "components": {},
             "geometry": "MESH",
-            "frame": 76,
+            "frame": 82,
             "label": "exploded_hold",
             "ok": true,
             "verification": "ESTIMATED",
@@ -6462,7 +6462,7 @@
             "id": "B4_key",
             "type": "COMPONENT_LABEL",
             "appear": 1.4167,
-            "disappear": 4.9167,
+            "disappear": 5.375,
             "claim_id": "CLM_608",
             "text": "Keystone",
             "style": null,
@@ -6582,7 +6582,7 @@
             "id": "B4_vous",
             "type": "COMPONENT_LABEL",
             "appear": 1.5833,
-            "disappear": 4.75,
+            "disappear": 5.2083,
             "claim_id": "CLM_608",
             "text": "Voussoirs",
             "style": null,
@@ -6705,7 +6705,7 @@
     {
       "shot": {
         "id": "SC_006",
-        "duration_seconds": 15.625,
+        "duration_seconds": 17.375,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -6756,7 +6756,7 @@
             ],
             "start_seconds": 0.6,
             "rise_seconds": 0.4,
-            "hold_seconds": 13.925,
+            "hold_seconds": 15.675,
             "fall_seconds": 0.4,
             "strength": 0.45
           }
@@ -6783,7 +6783,7 @@
               "id": "CONCEPTUAL_TAG",
               "type": "TAG",
               "appear": 0.2917,
-              "disappear": 15.625,
+              "disappear": 17.375,
               "elements": [
                 {
                   "kind": "plate",
@@ -6829,7 +6829,7 @@
               "id": "B5_load",
               "type": "LOAD_ARROW",
               "appear": 0.2917,
-              "disappear": 15.625,
+              "disappear": 17.375,
               "claim_id": "CLM_609",
               "text": "Load",
               "style": null,
@@ -6938,7 +6938,7 @@
               "id": "B5_thrust",
               "type": "CONCEPTUAL_LOAD_PATH",
               "appear": 0.2917,
-              "disappear": 15.625,
+              "disappear": 17.375,
               "claim_id": "CLM_609",
               "text": null,
               "style": "COMPRESSION",
@@ -7752,8 +7752,8 @@
             {
               "id": "B5_comp",
               "type": "CALLOUT",
-              "appear": 6.1667,
-              "disappear": 15.625,
+              "appear": 6.9167,
+              "disappear": 17.375,
               "claim_id": "CLM_609",
               "text": "Mainly compression",
               "style": null,
@@ -7916,8 +7916,8 @@
             {
               "id": "B5_react",
               "type": "REACTION_ARROW",
-              "appear": 9.5,
-              "disappear": 15.625,
+              "appear": 10.75,
+              "disappear": 17.375,
               "claim_id": "CLM_610",
               "text": "Supports push back",
               "style": null,
@@ -8180,11 +8180,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 375,
-        "duration_seconds": 15.625,
+        "frames": 417,
+        "duration_seconds": 17.375,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 62.0
+        "start_seconds": 68.5
       },
       "explanation": "hold stone_arch_bridge, glowing arch_ring from sentence 0",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -8198,14 +8198,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 94,
-          "mid": 188,
-          "q75": 281,
-          "end": 375,
-          "highlight_end": 369,
-          "highlight_peak": 192,
+          "q25": 104,
+          "mid": 208,
+          "q75": 313,
+          "end": 417,
+          "highlight_end": 411,
+          "highlight_peak": 213,
           "highlight_start": 15,
-          "middle": 188
+          "middle": 209
         },
         "explanatory": [
           "highlight_peak"
@@ -8437,7 +8437,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 192,
+            "frame": 213,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -8452,7 +8452,7 @@
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
             "appear": 0.2917,
-            "disappear": 15.625,
+            "disappear": 17.375,
             "elements": [
               {
                 "kind": "plate",
@@ -8498,7 +8498,7 @@
             "id": "B5_load",
             "type": "LOAD_ARROW",
             "appear": 0.2917,
-            "disappear": 15.625,
+            "disappear": 17.375,
             "claim_id": "CLM_609",
             "text": "Load",
             "style": null,
@@ -8607,7 +8607,7 @@
             "id": "B5_thrust",
             "type": "CONCEPTUAL_LOAD_PATH",
             "appear": 0.2917,
-            "disappear": 15.625,
+            "disappear": 17.375,
             "claim_id": "CLM_609",
             "text": null,
             "style": "COMPRESSION",
@@ -9421,8 +9421,8 @@
           {
             "id": "B5_comp",
             "type": "CALLOUT",
-            "appear": 6.1667,
-            "disappear": 15.625,
+            "appear": 6.9167,
+            "disappear": 17.375,
             "claim_id": "CLM_609",
             "text": "Mainly compression",
             "style": null,
@@ -9585,8 +9585,8 @@
           {
             "id": "B5_react",
             "type": "REACTION_ARROW",
-            "appear": 9.5,
-            "disappear": 15.625,
+            "appear": 10.75,
+            "disappear": 17.375,
             "claim_id": "CLM_610",
             "text": "Supports push back",
             "style": null,
@@ -9778,7 +9778,7 @@
     {
       "shot": {
         "id": "SC_007",
-        "duration_seconds": 25.541666666666668,
+        "duration_seconds": 28.75,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -9798,7 +9798,7 @@
             ],
             "start_seconds": 0.6,
             "rise_seconds": 0.4,
-            "hold_seconds": 23.8417,
+            "hold_seconds": 27.05,
             "fall_seconds": 0.4,
             "strength": 0.45
           }
@@ -9826,8 +9826,8 @@
             {
               "id": "CONCEPTUAL_TAG",
               "type": "TAG",
-              "appear": 6.2917,
-              "disappear": 25.5417,
+              "appear": 6.9583,
+              "disappear": 28.75,
               "elements": [
                 {
                   "kind": "plate",
@@ -9873,7 +9873,7 @@
               "id": "B6_joints",
               "type": "COMPONENT_LABEL",
               "appear": 0.2917,
-              "disappear": 12.2917,
+              "disappear": 13.75,
               "claim_id": "CLM_611",
               "text": "Joints",
               "style": null,
@@ -9992,8 +9992,8 @@
             {
               "id": "B6_legend",
               "type": "TENSION_COMPRESSION_LEGEND",
-              "appear": 6.2917,
-              "disappear": 25.5417,
+              "appear": 6.9583,
+              "disappear": 28.75,
               "claim_id": "CLM_612",
               "text": null,
               "style": null,
@@ -10139,8 +10139,8 @@
             {
               "id": "B6_top",
               "type": "CALLOUT",
-              "appear": 12.2917,
-              "disappear": 25.5417,
+              "appear": 13.75,
+              "disappear": 28.75,
               "claim_id": "CLM_613",
               "text": "Top chord: compression",
               "style": null,
@@ -10291,8 +10291,8 @@
             {
               "id": "B6_bottom",
               "type": "CALLOUT",
-              "appear": 12.2917,
-              "disappear": 25.5417,
+              "appear": 13.75,
+              "disappear": 28.75,
               "claim_id": "CLM_613",
               "text": "Bottom chord: tension",
               "style": null,
@@ -10443,8 +10443,8 @@
             {
               "id": "B6_web",
               "type": "COMPONENT_LABEL",
-              "appear": 19.8333,
-              "disappear": 25.5417,
+              "appear": 22.4583,
+              "disappear": 28.75,
               "claim_id": "CLM_614",
               "text": "Web members",
               "style": null,
@@ -10609,11 +10609,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 613,
-        "duration_seconds": 25.541667,
+        "frames": 690,
+        "duration_seconds": 28.75,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 77.625
+        "start_seconds": 85.875
       },
       "explanation": "hold steel_truss_bridge, glowing truss_members from sentence 0",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -10627,14 +10627,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 153,
-          "mid": 306,
-          "q75": 460,
-          "end": 613,
-          "highlight_end": 607,
-          "highlight_peak": 311,
+          "q25": 172,
+          "mid": 345,
+          "q75": 518,
+          "end": 690,
+          "highlight_end": 684,
+          "highlight_peak": 350,
           "highlight_start": 15,
-          "middle": 307
+          "middle": 345
         },
         "explanatory": [
           "highlight_peak"
@@ -10711,7 +10711,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 311,
+            "frame": 350,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -10725,8 +10725,8 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 6.2917,
-            "disappear": 25.5417,
+            "appear": 6.9583,
+            "disappear": 28.75,
             "elements": [
               {
                 "kind": "plate",
@@ -10772,7 +10772,7 @@
             "id": "B6_joints",
             "type": "COMPONENT_LABEL",
             "appear": 0.2917,
-            "disappear": 12.2917,
+            "disappear": 13.75,
             "claim_id": "CLM_611",
             "text": "Joints",
             "style": null,
@@ -10891,8 +10891,8 @@
           {
             "id": "B6_legend",
             "type": "TENSION_COMPRESSION_LEGEND",
-            "appear": 6.2917,
-            "disappear": 25.5417,
+            "appear": 6.9583,
+            "disappear": 28.75,
             "claim_id": "CLM_612",
             "text": null,
             "style": null,
@@ -11038,8 +11038,8 @@
           {
             "id": "B6_top",
             "type": "CALLOUT",
-            "appear": 12.2917,
-            "disappear": 25.5417,
+            "appear": 13.75,
+            "disappear": 28.75,
             "claim_id": "CLM_613",
             "text": "Top chord: compression",
             "style": null,
@@ -11190,8 +11190,8 @@
           {
             "id": "B6_bottom",
             "type": "CALLOUT",
-            "appear": 12.2917,
-            "disappear": 25.5417,
+            "appear": 13.75,
+            "disappear": 28.75,
             "claim_id": "CLM_613",
             "text": "Bottom chord: tension",
             "style": null,
@@ -11342,8 +11342,8 @@
           {
             "id": "B6_web",
             "type": "COMPONENT_LABEL",
-            "appear": 19.8333,
-            "disappear": 25.5417,
+            "appear": 22.4583,
+            "disappear": 28.75,
             "claim_id": "CLM_614",
             "text": "Web members",
             "style": null,
@@ -11466,7 +11466,7 @@
     {
       "shot": {
         "id": "SC_008",
-        "duration_seconds": 6.958333333333333,
+        "duration_seconds": 7.708333333333333,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -11500,8 +11500,8 @@
             {
               "id": "B7_beam",
               "type": "CALLOUT",
-              "appear": 3.375,
-              "disappear": 6.9583,
+              "appear": 3.7917,
+              "disappear": 7.7083,
               "claim_id": "CLM_606",
               "text": "Bending",
               "style": null,
@@ -11657,11 +11657,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 167,
-        "duration_seconds": 6.958333,
+        "frames": 185,
+        "duration_seconds": 7.708333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 103.166667
+        "start_seconds": 114.625
       },
       "explanation": "1/3: Timber beam bridge alone, captioned, same locked camera and scale as the others",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -11708,8 +11708,8 @@
           {
             "id": "B7_beam",
             "type": "CALLOUT",
-            "appear": 3.375,
-            "disappear": 6.9583,
+            "appear": 3.7917,
+            "disappear": 7.7083,
             "claim_id": "CLM_606",
             "text": "Bending",
             "style": null,
@@ -11842,7 +11842,7 @@
     {
       "shot": {
         "id": "SC_009",
-        "duration_seconds": 5.125,
+        "duration_seconds": 5.5,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -11877,7 +11877,7 @@
               "id": "CONCEPTUAL_TAG",
               "type": "TAG",
               "appear": 0.0833,
-              "disappear": 5.125,
+              "disappear": 5.5,
               "elements": [
                 {
                   "kind": "plate",
@@ -11923,7 +11923,7 @@
               "id": "B7_arch",
               "type": "CALLOUT",
               "appear": 0.0833,
-              "disappear": 5.125,
+              "disappear": 5.5,
               "claim_id": "CLM_609",
               "text": "Compression",
               "style": null,
@@ -12123,11 +12123,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 123,
-        "duration_seconds": 5.125,
+        "frames": 132,
+        "duration_seconds": 5.5,
         "min_seconds": 2.0,
-        "beat_offset_seconds": 6.958333,
-        "start_seconds": 110.125
+        "beat_offset_seconds": 7.708333,
+        "start_seconds": 122.333333
       },
       "explanation": "2/3: Stone arch bridge alone, captioned, same locked camera and scale as the others",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -12175,7 +12175,7 @@
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
             "appear": 0.0833,
-            "disappear": 5.125,
+            "disappear": 5.5,
             "elements": [
               {
                 "kind": "plate",
@@ -12221,7 +12221,7 @@
             "id": "B7_arch",
             "type": "CALLOUT",
             "appear": 0.0833,
-            "disappear": 5.125,
+            "disappear": 5.5,
             "claim_id": "CLM_609",
             "text": "Compression",
             "style": null,
@@ -12398,7 +12398,7 @@
     {
       "shot": {
         "id": "SC_010",
-        "duration_seconds": 6.166666666666667,
+        "duration_seconds": 6.75,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -12433,7 +12433,7 @@
               "id": "B7_truss",
               "type": "CALLOUT",
               "appear": 0.0833,
-              "disappear": 6.1667,
+              "disappear": 6.75,
               "claim_id": "CLM_612",
               "text": "Tension and compression",
               "style": null,
@@ -12589,11 +12589,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 148,
-        "duration_seconds": 6.166667,
+        "frames": 162,
+        "duration_seconds": 6.75,
         "min_seconds": 2.0,
-        "beat_offset_seconds": 12.083333,
-        "start_seconds": 115.25
+        "beat_offset_seconds": 13.208333,
+        "start_seconds": 127.833333
       },
       "explanation": "3/3: Steel truss bridge alone, captioned, same locked camera and scale as the others",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -12641,7 +12641,7 @@
             "id": "B7_truss",
             "type": "CALLOUT",
             "appear": 0.0833,
-            "disappear": 6.1667,
+            "disappear": 6.75,
             "claim_id": "CLM_612",
             "text": "Tension and compression",
             "style": null,
@@ -12774,7 +12774,7 @@
     {
       "shot": {
         "id": "SC_011",
-        "duration_seconds": 14.875,
+        "duration_seconds": 16.75,
         "visual_type": "BLENDER_3D",
         "transition": "SIDE_BY_SIDE",
         "camera": "BRIDGE_STACK",
@@ -12798,7 +12798,7 @@
             "components": "DIFFERENCES",
             "start_seconds": 0.6,
             "rise_seconds": 0.4,
-            "hold_seconds": 13.175,
+            "hold_seconds": 15.05,
             "fall_seconds": 0.4,
             "strength": 0.3
           }
@@ -12835,11 +12835,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 357,
-        "duration_seconds": 14.875,
+        "frames": 402,
+        "duration_seconds": 16.75,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 121.416667
+        "start_seconds": 134.583333
       },
       "explanation": "3 variants at identical scale (ROW, gap 0.2); differing parts glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -12937,7 +12937,7 @@
     {
       "beat_id": "B1",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "What happens when weight is placed on a bridge? Traffic, people and the bridge's own weight all press down on its deck. To stay standing, the bridge has to carry that load down into the ground.",
+      "narration": "What happens when weight is placed on a bridge? Traffic, people and the weight of the bridge itself all press on its deck. To stay standing, the bridge has to carry that load down into the ground.",
       "status": "COVERED",
       "strategy": "HOLD",
       "assets": [
@@ -12955,7 +12955,7 @@
       "shot_ids": [
         "SC_001"
       ],
-      "expected_seconds": 14.2,
+      "expected_seconds": 16.275,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -12970,8 +12970,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            3.85,
-            14.208
+            4.125,
+            16.292
           ],
           "shots": [
             "SC_001"
@@ -12986,8 +12986,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            8.7,
-            14.208
+            10.125,
+            16.292
           ],
           "shots": [
             "SC_001"
@@ -13021,7 +13021,7 @@
       "shot_ids": [
         "SC_002"
       ],
-      "expected_seconds": 19.95,
+      "expected_seconds": 21.8,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -13037,7 +13037,7 @@
           "until": null,
           "window": [
             0.3,
-            19.958
+            21.833
           ],
           "shots": [
             "SC_002"
@@ -13052,8 +13052,8 @@
           "sentence": 1,
           "until": 2,
           "window": [
-            3.95,
-            9.5
+            4.35,
+            10.35
           ],
           "shots": [
             "SC_002"
@@ -13068,8 +13068,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            9.5,
-            19.958
+            10.35,
+            21.833
           ],
           "shots": [
             "SC_002"
@@ -13084,8 +13084,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            9.5,
-            19.958
+            10.35,
+            21.833
           ],
           "shots": [
             "SC_002"
@@ -13100,8 +13100,8 @@
           "sentence": 3,
           "until": null,
           "window": [
-            15.5,
-            19.958
+            16.9,
+            21.833
           ],
           "shots": [
             "SC_002"
@@ -13135,7 +13135,7 @@
       "shot_ids": [
         "SC_003"
       ],
-      "expected_seconds": 18.3,
+      "expected_seconds": 20.225,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -13179,8 +13179,8 @@
           "sentence": 1,
           "until": 3,
           "window": [
-            2.925,
-            11.875
+            3.075,
+            13.2
           ],
           "shots": [
             "SC_003"
@@ -13195,8 +13195,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            7.875,
-            18.333
+            8.875,
+            20.25
           ],
           "shots": [
             "SC_003"
@@ -13211,8 +13211,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            7.875,
-            18.333
+            8.875,
+            20.25
           ],
           "shots": [
             "SC_003"
@@ -13227,8 +13227,8 @@
           "sentence": 3,
           "until": null,
           "window": [
-            11.875,
-            18.333
+            13.2,
+            20.25
           ],
           "shots": [
             "SC_003"
@@ -13243,8 +13243,8 @@
           "sentence": 3,
           "until": null,
           "window": [
-            11.875,
-            18.333
+            13.2,
+            20.25
           ],
           "shots": [
             "SC_003"
@@ -13259,8 +13259,8 @@
           "sentence": 3,
           "until": null,
           "window": [
-            11.875,
-            18.333
+            13.2,
+            20.25
           ],
           "shots": [
             "SC_003"
@@ -13298,7 +13298,7 @@
         "SC_004",
         "SC_005"
       ],
-      "expected_seconds": 9.5,
+      "expected_seconds": 10.1,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -13314,8 +13314,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            3.4,
-            9.5
+            3.6,
+            10.125
           ],
           "shots": [
             "SC_005"
@@ -13327,11 +13327,11 @@
               "shot": "SC_005",
               "requested": [
                 3,
-                148
+                159
               ],
               "static": [
                 39,
-                114
+                125
               ]
             }
           ]
@@ -13343,8 +13343,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            3.4,
-            9.5
+            3.6,
+            10.125
           ],
           "shots": [
             "SC_005"
@@ -13356,11 +13356,11 @@
               "shot": "SC_005",
               "requested": [
                 3,
-                148
+                159
               ],
               "static": [
                 35,
-                118
+                129
               ]
             }
           ]
@@ -13391,7 +13391,7 @@
       "shot_ids": [
         "SC_006"
       ],
-      "expected_seconds": 15.6,
+      "expected_seconds": 17.35,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -13407,7 +13407,7 @@
           "until": null,
           "window": [
             0.3,
-            15.625
+            17.375
           ],
           "shots": [
             "SC_006"
@@ -13423,7 +13423,7 @@
           "until": null,
           "window": [
             0.3,
-            15.625
+            17.375
           ],
           "shots": [
             "SC_006"
@@ -13438,8 +13438,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            6.15,
-            15.625
+            6.925,
+            17.375
           ],
           "shots": [
             "SC_006"
@@ -13454,8 +13454,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            9.5,
-            15.625
+            10.75,
+            17.375
           ],
           "shots": [
             "SC_006"
@@ -13489,7 +13489,7 @@
       "shot_ids": [
         "SC_007"
       ],
-      "expected_seconds": 25.525,
+      "expected_seconds": 28.725,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -13505,7 +13505,7 @@
           "until": 2,
           "window": [
             0.3,
-            12.275
+            13.75
           ],
           "shots": [
             "SC_007"
@@ -13520,8 +13520,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            6.3,
-            25.542
+            6.975,
+            28.75
           ],
           "shots": [
             "SC_007"
@@ -13536,8 +13536,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            12.275,
-            25.542
+            13.75,
+            28.75
           ],
           "shots": [
             "SC_007"
@@ -13552,8 +13552,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            12.275,
-            25.542
+            13.75,
+            28.75
           ],
           "shots": [
             "SC_007"
@@ -13568,8 +13568,8 @@
           "sentence": 3,
           "until": null,
           "window": [
-            19.825,
-            25.542
+            22.45,
+            28.75
           ],
           "shots": [
             "SC_007"
@@ -13617,7 +13617,7 @@
         "SC_009",
         "SC_010"
       ],
-      "expected_seconds": 18.225,
+      "expected_seconds": 19.925,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -13633,8 +13633,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            3.375,
-            18.25
+            3.775,
+            19.958
           ],
           "shots": [
             "SC_008"
@@ -13649,8 +13649,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            7.05,
-            18.25
+            7.8,
+            19.958
           ],
           "shots": [
             "SC_009"
@@ -13665,8 +13665,8 @@
           "sentence": 3,
           "until": null,
           "window": [
-            12.15,
-            18.25
+            13.3,
+            19.958
           ],
           "shots": [
             "SC_010"
@@ -13710,7 +13710,7 @@
       "shot_ids": [
         "SC_011"
       ],
-      "expected_seconds": 14.875,
+      "expected_seconds": 16.725,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [

@@ -1,7 +1,7 @@
 {
   "version": 2,
   "voice": {
-    "id": "kokoro_bf_emma",
+    "id": "kokoro_bm_george",
     "provider": "kokoro",
     "mode": "preset",
     "rights_class": "PENDING_REVIEW",
@@ -3180,277 +3180,3585 @@
           }
         ]
       }
+    },
+    "31c827f94c967b37b5ed33d9ff33072d8886eb4d329bc45d29924279d2927d7d": {
+      "role": "sentence",
+      "beat_id": "B1",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "What happens when weight is placed on a bridge?",
+      "spoken_text": "What happens when weight is placed on a bridge?",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/31c827f94c967b37b5ed.wav",
+      "duration": 3.425,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -9.2,
+      "words_per_second": 2.628,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 4.725,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "wˌɒt hˈapᵊnz wˌɛn wˈAt ɪz plˈAst ˌɒn ɐ bɹˈɪʤ?",
+      "lang_code": "b",
+      "cache_key": "31c827f94c967b37b5ed33d9ff33072d8886eb4d329bc45d29924279d2927d7d",
+      "sha256": "44f64eabc23630d8b1aadf8af2d9701d544dfbd9f08b9a96191b27f76766cdb0",
+      "stored_utc": "2026-10-29T15:33:32.912899+00:00",
+      "asr": {
+        "text": "What happens when weight is placed on a bridge?",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "44f64eabc23630d8b1aadf8af2d9701d544dfbd9f08b9a96191b27f76766cdb0",
+        "heard": "What happens when weight is placed on a bridge?",
+        "words": [
+          {
+            "text": "What",
+            "start": 0.0,
+            "end": 0.4
+          },
+          {
+            "text": "happens",
+            "start": 0.4,
+            "end": 0.8
+          },
+          {
+            "text": "when",
+            "start": 0.8,
+            "end": 1.22
+          },
+          {
+            "text": "weight",
+            "start": 1.22,
+            "end": 1.52
+          },
+          {
+            "text": "is",
+            "start": 1.52,
+            "end": 1.7
+          },
+          {
+            "text": "placed",
+            "start": 1.7,
+            "end": 2.04
+          },
+          {
+            "text": "on",
+            "start": 2.04,
+            "end": 2.24
+          },
+          {
+            "text": "a",
+            "start": 2.24,
+            "end": 2.4
+          },
+          {
+            "text": "bridge?",
+            "start": 2.4,
+            "end": 2.98
+          }
+        ]
+      }
+    },
+    "cc05d8a4f63bd8aa661e79d6032fd7352bb634441becf24c2bf7049e826b9adc": {
+      "role": "sentence",
+      "beat_id": "B1",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Traffic, people and the bridge's own weight all press down on its deck.",
+      "spoken_text": "Traffic, people and the bridge's own weight all press down on its deck.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/cc05d8a4f63bd8aa661e.wav",
+      "duration": 5.05,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -7.7,
+      "words_per_second": 2.574,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.408,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "tɹˈafɪk, pˈiːpᵊl and ðə bɹˈɪʤɪz ˈQn wˈAt ˈɔːl pɹˈɛs dˌWn ˌɒn ɪts dˈɛk.",
+      "lang_code": "b",
+      "cache_key": "cc05d8a4f63bd8aa661e79d6032fd7352bb634441becf24c2bf7049e826b9adc",
+      "sha256": "28a8f4a3881851f56d3006c3b7519622abf863061a17769ca80fae07bf412425",
+      "stored_utc": "2026-10-29T15:33:33.322413+00:00",
+      "asr": {
+        "text": "Traffic, people and the bridges own weight all pressed down on its deck.",
+        "language": "english",
+        "wer": 0.1538,
+        "pass": false,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "28a8f4a3881851f56d3006c3b7519622abf863061a17769ca80fae07bf412425",
+        "heard": "Traffic, people, and the bridges own weight all pressed down on its deck.",
+        "words": [
+          {
+            "text": "Traffic,",
+            "start": 0.0,
+            "end": 0.86
+          },
+          {
+            "text": "people,",
+            "start": 0.86,
+            "end": 1.36
+          },
+          {
+            "text": "and",
+            "start": 1.36,
+            "end": 1.44
+          },
+          {
+            "text": "the",
+            "start": 1.44,
+            "end": 1.54
+          },
+          {
+            "text": "bridges",
+            "start": 1.54,
+            "end": 1.88
+          },
+          {
+            "text": "own",
+            "start": 1.88,
+            "end": 2.54
+          },
+          {
+            "text": "weight",
+            "start": 2.54,
+            "end": 2.84
+          },
+          {
+            "text": "all",
+            "start": 2.84,
+            "end": 3.12
+          },
+          {
+            "text": "pressed",
+            "start": 3.12,
+            "end": 3.48
+          },
+          {
+            "text": "down",
+            "start": 3.48,
+            "end": 3.76
+          },
+          {
+            "text": "on",
+            "start": 3.76,
+            "end": 3.92
+          },
+          {
+            "text": "its",
+            "start": 3.92,
+            "end": 4.08
+          },
+          {
+            "text": "deck.",
+            "start": 4.08,
+            "end": 4.6
+          }
+        ]
+      }
+    },
+    "5d081c0eb6eb43db5568d2b12b83b59bfaf1859a2e9c4ab5ceec020ab910da53": {
+      "role": "sentence",
+      "beat_id": "B1",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "To stay standing, the bridge has to carry that load down into the ground.",
+      "spoken_text": "To stay standing, the bridge has to carry that load down into the ground.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/5d081c0eb6eb43db5568.wav",
+      "duration": 5.25,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -25.0,
+      "peak_db": -9.9,
+      "words_per_second": 2.667,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.418,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "tə stˈA stˈandɪŋ, ðə bɹˈɪʤ haz tə kˈaɹi ðˈat lˈQd dˌWn ˈɪntuː ðə ɡɹˈWnd.",
+      "lang_code": "b",
+      "cache_key": "5d081c0eb6eb43db5568d2b12b83b59bfaf1859a2e9c4ab5ceec020ab910da53",
+      "sha256": "ac6d9993091d144c1b2e9b9da489d6325293d56e6db1ee29b3165c3db061f04f",
+      "stored_utc": "2026-10-29T15:33:33.741262+00:00",
+      "asr": {
+        "text": "To stay standing, the bridge has to carry that load down into the ground.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "ac6d9993091d144c1b2e9b9da489d6325293d56e6db1ee29b3165c3db061f04f",
+        "heard": "To stay standing, the bridge has to carry that load down into the ground.",
+        "words": [
+          {
+            "text": "To",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "stay",
+            "start": 0.36,
+            "end": 0.62
+          },
+          {
+            "text": "standing,",
+            "start": 0.62,
+            "end": 1.42
+          },
+          {
+            "text": "the",
+            "start": 1.42,
+            "end": 1.72
+          },
+          {
+            "text": "bridge",
+            "start": 1.72,
+            "end": 2.04
+          },
+          {
+            "text": "has",
+            "start": 2.04,
+            "end": 2.26
+          },
+          {
+            "text": "to",
+            "start": 2.26,
+            "end": 2.4
+          },
+          {
+            "text": "carry",
+            "start": 2.4,
+            "end": 2.76
+          },
+          {
+            "text": "that",
+            "start": 2.76,
+            "end": 3.06
+          },
+          {
+            "text": "load",
+            "start": 3.06,
+            "end": 3.32
+          },
+          {
+            "text": "down",
+            "start": 3.32,
+            "end": 3.72
+          },
+          {
+            "text": "into",
+            "start": 3.72,
+            "end": 4.0
+          },
+          {
+            "text": "the",
+            "start": 4.0,
+            "end": 4.12
+          },
+          {
+            "text": "ground.",
+            "start": 4.12,
+            "end": 4.5
+          }
+        ]
+      }
+    },
+    "026a74ece35ad4013721465b33c1552ad9f7635a51c2f9aa6ed3ef8a1fd9e40a": {
+      "role": "sentence",
+      "beat_id": "B2",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "The load follows a path down through the structure.",
+      "spoken_text": "The load follows a path down through the structure.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/026a74ece35ad4013721.wav",
+      "duration": 3.65,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -9.4,
+      "words_per_second": 2.466,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.307,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ðə lˈQd fˈɒlQz ɐ pˈɑːθ dˌWn θɹuː ðə stɹˈʌkʧə.",
+      "lang_code": "b",
+      "cache_key": "026a74ece35ad4013721465b33c1552ad9f7635a51c2f9aa6ed3ef8a1fd9e40a",
+      "sha256": "b139990ce3009b09a4b356a48af052441918571c556ea85cd9aed15fb16da2e0",
+      "stored_utc": "2026-10-29T15:33:34.076829+00:00",
+      "asr": {
+        "text": "The load follows a path down through the structure.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "b139990ce3009b09a4b356a48af052441918571c556ea85cd9aed15fb16da2e0",
+        "heard": "The load follows a path down through the structure.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.34
+          },
+          {
+            "text": "load",
+            "start": 0.34,
+            "end": 0.68
+          },
+          {
+            "text": "follows",
+            "start": 0.68,
+            "end": 1.1
+          },
+          {
+            "text": "a",
+            "start": 1.1,
+            "end": 1.3
+          },
+          {
+            "text": "path",
+            "start": 1.3,
+            "end": 1.7
+          },
+          {
+            "text": "down",
+            "start": 1.7,
+            "end": 2.08
+          },
+          {
+            "text": "through",
+            "start": 2.08,
+            "end": 2.34
+          },
+          {
+            "text": "the",
+            "start": 2.34,
+            "end": 2.5
+          },
+          {
+            "text": "structure.",
+            "start": 2.5,
+            "end": 3.24
+          }
+        ]
+      }
+    },
+    "32f979cc01d2e2fbccd60783164168c889557dfd236df05dce92dcbcb346df04": {
+      "role": "sentence",
+      "beat_id": "B2",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+      "spoken_text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/32f979cc01d2e2fbccd6.wav",
+      "duration": 5.6,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.8,
+      "peak_db": -9.5,
+      "words_per_second": 2.857,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.43,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ðə dˈɛk ɪz kˈaɹid bI ðə sˈuːpəstɹˌʌkʧə, ðə pˈɑːt ɒv ðə bɹˈɪʤ ðat spˈanz ðə ɡˈap.",
+      "lang_code": "b",
+      "cache_key": "32f979cc01d2e2fbccd60783164168c889557dfd236df05dce92dcbcb346df04",
+      "sha256": "576cd3d72a4d0dab102b45ae88b27fb0a74df364a834d87a5d1965518fc7fac0",
+      "stored_utc": "2026-10-29T15:33:34.508062+00:00",
+      "asr": {
+        "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "576cd3d72a4d0dab102b45ae88b27fb0a74df364a834d87a5d1965518fc7fac0",
+        "heard": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "deck",
+            "start": 0.36,
+            "end": 0.62
+          },
+          {
+            "text": "is",
+            "start": 0.62,
+            "end": 0.8
+          },
+          {
+            "text": "carried",
+            "start": 0.8,
+            "end": 1.16
+          },
+          {
+            "text": "by",
+            "start": 1.16,
+            "end": 1.46
+          },
+          {
+            "text": "the",
+            "start": 1.46,
+            "end": 1.62
+          },
+          {
+            "text": "superstructure,",
+            "start": 1.62,
+            "end": 2.54
+          },
+          {
+            "text": "the",
+            "start": 2.54,
+            "end": 2.92
+          },
+          {
+            "text": "part",
+            "start": 2.92,
+            "end": 3.12
+          },
+          {
+            "text": "of",
+            "start": 3.12,
+            "end": 3.22
+          },
+          {
+            "text": "the",
+            "start": 3.22,
+            "end": 3.32
+          },
+          {
+            "text": "bridge",
+            "start": 3.32,
+            "end": 3.7
+          },
+          {
+            "text": "that",
+            "start": 3.7,
+            "end": 4.0
+          },
+          {
+            "text": "spans",
+            "start": 4.0,
+            "end": 4.46
+          },
+          {
+            "text": "the",
+            "start": 4.46,
+            "end": 4.66
+          },
+          {
+            "text": "gap.",
+            "start": 4.66,
+            "end": 5.14
+          }
+        ]
+      }
+    },
+    "ce57e223fee505127ea1b35b9b46217a854bf353a56670c8400ed6fe11f24e83": {
+      "role": "sentence",
+      "beat_id": "B2",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "That rests on the substructure: abutments at the ends, and sometimes piers in between.",
+      "spoken_text": "That rests on the substructure: abutments at the ends, and sometimes piers in between.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/ce57e223fee505127ea1.wav",
+      "duration": 6.15,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -8.5,
+      "words_per_second": 2.276,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.478,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ðˈat ɹˈɛsts ˌɒn ðə sˈʌbstɹˌʌkʧə: əbˈʌtmᵊnts at ði ˈɛndz, and sˈʌmtImz pˈɪəz ɪn bɪtwˈiːn.",
+      "lang_code": "b",
+      "cache_key": "ce57e223fee505127ea1b35b9b46217a854bf353a56670c8400ed6fe11f24e83",
+      "sha256": "bcbbd6ba33171e6afc5bdd8382a3bf837ec45bd406568676c64215d9cbcbaf9e",
+      "stored_utc": "2026-10-29T15:33:34.987348+00:00",
+      "asr": {
+        "text": "That rests on the substructure, abutments at the ends, and sometimes peers in between.",
+        "language": "english",
+        "wer": 0.0714,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "bcbbd6ba33171e6afc5bdd8382a3bf837ec45bd406568676c64215d9cbcbaf9e",
+        "heard": "That rests on the substructure, abutments at the ends, and sometimes peers in between.",
+        "words": [
+          {
+            "text": "That",
+            "start": 0.0,
+            "end": 0.42
+          },
+          {
+            "text": "rests",
+            "start": 0.42,
+            "end": 0.76
+          },
+          {
+            "text": "on",
+            "start": 0.76,
+            "end": 0.9
+          },
+          {
+            "text": "the",
+            "start": 0.9,
+            "end": 1.0
+          },
+          {
+            "text": "substructure,",
+            "start": 1.0,
+            "end": 2.18
+          },
+          {
+            "text": "abutments",
+            "start": 2.18,
+            "end": 2.6
+          },
+          {
+            "text": "at",
+            "start": 2.6,
+            "end": 2.74
+          },
+          {
+            "text": "the",
+            "start": 2.74,
+            "end": 2.86
+          },
+          {
+            "text": "ends,",
+            "start": 2.86,
+            "end": 3.38
+          },
+          {
+            "text": "and",
+            "start": 3.38,
+            "end": 3.72
+          },
+          {
+            "text": "sometimes",
+            "start": 3.72,
+            "end": 4.26
+          },
+          {
+            "text": "peers",
+            "start": 4.26,
+            "end": 4.66
+          },
+          {
+            "text": "in",
+            "start": 4.66,
+            "end": 5.02
+          },
+          {
+            "text": "between.",
+            "start": 5.02,
+            "end": 5.68
+          }
+        ]
+      }
+    },
+    "b3eb310f4ee2f124dbefe38a94238cf392fcab8efc6151753a8d87bf25885a64": {
+      "role": "sentence",
+      "beat_id": "B2",
+      "sentence_index": 3,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "The abutments pass the load on to the foundations.",
+      "spoken_text": "The abutments pass the load on to the foundations.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/b3eb310f4ee2f124dbef.wav",
+      "duration": 4.0,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -7.9,
+      "words_per_second": 2.25,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.324,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ði əbˈʌtmᵊnts pˈɑːs ðə lˈQd ˌɒn tə ðə fWndˈAʃᵊnz.",
+      "lang_code": "b",
+      "cache_key": "b3eb310f4ee2f124dbefe38a94238cf392fcab8efc6151753a8d87bf25885a64",
+      "sha256": "8fa1367c8696dedfb2524e1a681e3d3555d54d5ba73ef2a70cf46d9146530165",
+      "stored_utc": "2026-10-29T15:33:35.313809+00:00",
+      "asr": {
+        "text": "The abutments passed the load on to the foundations.",
+        "language": "english",
+        "wer": 0.1111,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "8fa1367c8696dedfb2524e1a681e3d3555d54d5ba73ef2a70cf46d9146530165",
+        "heard": "The abutments passed the load on to the foundations.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "abutments",
+            "start": 0.36,
+            "end": 0.88
+          },
+          {
+            "text": "passed",
+            "start": 0.88,
+            "end": 1.26
+          },
+          {
+            "text": "the",
+            "start": 1.26,
+            "end": 1.44
+          },
+          {
+            "text": "load",
+            "start": 1.44,
+            "end": 1.72
+          },
+          {
+            "text": "on",
+            "start": 1.72,
+            "end": 2.02
+          },
+          {
+            "text": "to",
+            "start": 2.02,
+            "end": 2.36
+          },
+          {
+            "text": "the",
+            "start": 2.36,
+            "end": 2.48
+          },
+          {
+            "text": "foundations.",
+            "start": 2.48,
+            "end": 3.54
+          }
+        ]
+      }
+    },
+    "08a5082502d23c6134feb74e59fa6707a2a32853871fbeea50ad51dc1814ad2e": {
+      "role": "sentence",
+      "beat_id": "B3",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Now take a beam bridge.",
+      "spoken_text": "Now take a beam bridge.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/08a5082502d23c6134fe.wav",
+      "duration": 2.375,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -10.4,
+      "words_per_second": 2.105,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.227,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "nˈW tˈAk ɐ bˈiːm bɹˈɪʤ.",
+      "lang_code": "b",
+      "cache_key": "08a5082502d23c6134feb74e59fa6707a2a32853871fbeea50ad51dc1814ad2e",
+      "sha256": "75ff753e4bcb512a8e89b7db8b49646d6e49bd721554900a66a48747cf359fc2",
+      "stored_utc": "2026-10-29T15:33:35.571921+00:00",
+      "asr": {
+        "text": "Now take a beam bridge.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "75ff753e4bcb512a8e89b7db8b49646d6e49bd721554900a66a48747cf359fc2",
+        "heard": "Now take a beam bridge.",
+        "words": [
+          {
+            "text": "Now",
+            "start": 0.0,
+            "end": 0.46
+          },
+          {
+            "text": "take",
+            "start": 0.46,
+            "end": 0.76
+          },
+          {
+            "text": "a",
+            "start": 0.76,
+            "end": 0.96
+          },
+          {
+            "text": "beam",
+            "start": 0.96,
+            "end": 1.24
+          },
+          {
+            "text": "bridge.",
+            "start": 1.24,
+            "end": 1.92
+          }
+        ]
+      }
+    },
+    "e49113156fe452418d5a8f91b89f5941cb24da623ff51a5375185fb4dbadffe5": {
+      "role": "sentence",
+      "beat_id": "B3",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Its deck rests on long beams that span from one support to the next.",
+      "spoken_text": "Its deck rests on long beams that span from one support to the next.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/e49113156fe452418d5a.wav",
+      "duration": 5.4,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -8.5,
+      "words_per_second": 2.593,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.401,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ˌɪts dˈɛk ɹˈɛsts ˌɒn lˈɒŋ bˈiːmz ðat spˈan fɹɒm wˈʌn səpˈɔːt tə ðə nˈɛkst.",
+      "lang_code": "b",
+      "cache_key": "e49113156fe452418d5a8f91b89f5941cb24da623ff51a5375185fb4dbadffe5",
+      "sha256": "c8ea5a499d59506f808804f292942fcc581c418a3b9024597ad35055d397d77e",
+      "stored_utc": "2026-10-29T15:33:35.973615+00:00",
+      "asr": {
+        "text": "Its deck rests on long beams that span from one support to the next.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "c8ea5a499d59506f808804f292942fcc581c418a3b9024597ad35055d397d77e",
+        "heard": "Its deck rests on long beams that span from one support to the next.",
+        "words": [
+          {
+            "text": "Its",
+            "start": 0.0,
+            "end": 0.42
+          },
+          {
+            "text": "deck",
+            "start": 0.42,
+            "end": 0.72
+          },
+          {
+            "text": "rests",
+            "start": 0.72,
+            "end": 1.16
+          },
+          {
+            "text": "on",
+            "start": 1.16,
+            "end": 1.48
+          },
+          {
+            "text": "long",
+            "start": 1.48,
+            "end": 1.84
+          },
+          {
+            "text": "beams",
+            "start": 1.84,
+            "end": 2.36
+          },
+          {
+            "text": "that",
+            "start": 2.36,
+            "end": 2.86
+          },
+          {
+            "text": "span",
+            "start": 2.86,
+            "end": 3.18
+          },
+          {
+            "text": "from",
+            "start": 3.18,
+            "end": 3.38
+          },
+          {
+            "text": "one",
+            "start": 3.38,
+            "end": 3.62
+          },
+          {
+            "text": "support",
+            "start": 3.62,
+            "end": 4.0
+          },
+          {
+            "text": "to",
+            "start": 4.0,
+            "end": 4.26
+          },
+          {
+            "text": "the",
+            "start": 4.26,
+            "end": 4.38
+          },
+          {
+            "text": "next.",
+            "start": 4.38,
+            "end": 4.98
+          }
+        ]
+      }
+    },
+    "85fd8925a1385d5b2efc19cce55bac8f5049c47a7633a48308b46597020039a2": {
+      "role": "sentence",
+      "beat_id": "B3",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Each beam carries the load by resisting bending.",
+      "spoken_text": "Each beam carries the load by resisting bending.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/85fd8925a1385d5b2efc.wav",
+      "duration": 3.925,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.8,
+      "peak_db": -8.5,
+      "words_per_second": 2.038,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.319,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ˈiːʧ bˈiːm kˈaɹiz ðə lˈQd bI ɹɪzˈɪstɪŋ bˈɛndɪŋ.",
+      "lang_code": "b",
+      "cache_key": "85fd8925a1385d5b2efc19cce55bac8f5049c47a7633a48308b46597020039a2",
+      "sha256": "2bec425f2f6524cae03ccf1eaf1841db2bcd5bfbea0153e174b8d6c481f3e83f",
+      "stored_utc": "2026-10-29T15:33:36.293953+00:00",
+      "asr": {
+        "text": "Each beam carries the load by resisting bending.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "2bec425f2f6524cae03ccf1eaf1841db2bcd5bfbea0153e174b8d6c481f3e83f",
+        "heard": "Each beam carries the load by resisting bending.",
+        "words": [
+          {
+            "text": "Each",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "beam",
+            "start": 0.48,
+            "end": 0.86
+          },
+          {
+            "text": "carries",
+            "start": 0.86,
+            "end": 1.3
+          },
+          {
+            "text": "the",
+            "start": 1.3,
+            "end": 1.48
+          },
+          {
+            "text": "load",
+            "start": 1.48,
+            "end": 1.84
+          },
+          {
+            "text": "by",
+            "start": 1.84,
+            "end": 2.26
+          },
+          {
+            "text": "resisting",
+            "start": 2.26,
+            "end": 2.72
+          },
+          {
+            "text": "bending.",
+            "start": 2.72,
+            "end": 3.42
+          }
+        ]
+      }
+    },
+    "ae8a56115554ad443041c02824db00c94de1446eac450936ae3bc43517000562": {
+      "role": "sentence",
+      "beat_id": "B3",
+      "sentence_index": 3,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "A cap beam spreads the load onto the posts, and the posts carry it down in compression.",
+      "spoken_text": "A cap beam spreads the load onto the posts, and the posts carry it down in compression.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/ae8a56115554ad443041.wav",
+      "duration": 6.125,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -7.7,
+      "words_per_second": 2.776,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.459,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ɐ kˈap bˈiːm spɹˈɛdz ðə lˈQd ˈɒntuː ðə pˈQsts, and ðə pˈQsts kˈaɹi ɪt dˌWn ɪn kəmpɹˈɛʃᵊn.",
+      "lang_code": "b",
+      "cache_key": "ae8a56115554ad443041c02824db00c94de1446eac450936ae3bc43517000562",
+      "sha256": "e6e43c27c37b25fcbf73f4cd393660e064193f98862be8d6b5c550686dc272e8",
+      "stored_utc": "2026-10-29T15:33:36.754448+00:00",
+      "asr": {
+        "text": "A cap beam spreads the load onto the posts and the posts carry it down in compression.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "e6e43c27c37b25fcbf73f4cd393660e064193f98862be8d6b5c550686dc272e8",
+        "heard": "A cap beam spreads the load onto the posts and the posts carry it down in compression.",
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.34
+          },
+          {
+            "text": "cap",
+            "start": 0.34,
+            "end": 0.58
+          },
+          {
+            "text": "beam",
+            "start": 0.58,
+            "end": 0.9
+          },
+          {
+            "text": "spreads",
+            "start": 0.9,
+            "end": 1.34
+          },
+          {
+            "text": "the",
+            "start": 1.34,
+            "end": 1.54
+          },
+          {
+            "text": "load",
+            "start": 1.54,
+            "end": 1.86
+          },
+          {
+            "text": "onto",
+            "start": 1.86,
+            "end": 2.1
+          },
+          {
+            "text": "the",
+            "start": 2.1,
+            "end": 2.26
+          },
+          {
+            "text": "posts",
+            "start": 2.26,
+            "end": 2.7
+          },
+          {
+            "text": "and",
+            "start": 2.7,
+            "end": 3.24
+          },
+          {
+            "text": "the",
+            "start": 3.24,
+            "end": 3.36
+          },
+          {
+            "text": "posts",
+            "start": 3.36,
+            "end": 3.7
+          },
+          {
+            "text": "carry",
+            "start": 3.7,
+            "end": 4.04
+          },
+          {
+            "text": "it",
+            "start": 4.04,
+            "end": 4.24
+          },
+          {
+            "text": "down",
+            "start": 4.24,
+            "end": 4.54
+          },
+          {
+            "text": "in",
+            "start": 4.54,
+            "end": 4.88
+          },
+          {
+            "text": "compression.",
+            "start": 4.88,
+            "end": 5.92
+          }
+        ]
+      }
+    },
+    "97333088d868aad5039c97d7af351f171fd9dc73ded9e6860646a9a00beaecbd": {
+      "role": "sentence",
+      "beat_id": "B4",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "A masonry arch works differently.",
+      "spoken_text": "A masonry arch works differently.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/97333088d868aad5039c.wav",
+      "duration": 2.9,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.5,
+      "peak_db": -10.0,
+      "words_per_second": 1.724,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.259,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ɐ mˈAsᵊnɹi ˈɑːʧ wˈɜːks dˈɪfəɹəntli.",
+      "lang_code": "b",
+      "cache_key": "97333088d868aad5039c97d7af351f171fd9dc73ded9e6860646a9a00beaecbd",
+      "sha256": "2e5ab17be7ee70b7e364d68426293b3e19d3e68c47617e50e4eb291990052a01",
+      "stored_utc": "2026-10-29T15:33:37.044449+00:00",
+      "asr": {
+        "text": "A masonry arch works differently.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "2e5ab17be7ee70b7e364d68426293b3e19d3e68c47617e50e4eb291990052a01",
+        "heard": "A masonry arch works differently.",
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.38
+          },
+          {
+            "text": "masonry",
+            "start": 0.38,
+            "end": 0.84
+          },
+          {
+            "text": "arch",
+            "start": 0.84,
+            "end": 1.22
+          },
+          {
+            "text": "works",
+            "start": 1.22,
+            "end": 1.72
+          },
+          {
+            "text": "differently.",
+            "start": 1.72,
+            "end": 2.48
+          }
+        ]
+      }
+    },
+    "7c4ecab3b7a840af4dd64184617ebc6fe8fb961e06cbe360589eec5894904af9": {
+      "role": "sentence",
+      "beat_id": "B4",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+      "spoken_text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/7c4ecab3b7a840af4dd6.wav",
+      "duration": 5.6,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -9.7,
+      "words_per_second": 2.679,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.412,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ˌɪt ɪz bˈɪlt fɹɒm wˌɛʤʃˈApt stˈQnz kˈɔːld vˈuːswɑːz, wɪð ɐ kˈiːstQn at ðə kɹˈWn.",
+      "lang_code": "b",
+      "cache_key": "7c4ecab3b7a840af4dd64184617ebc6fe8fb961e06cbe360589eec5894904af9",
+      "sha256": "549f796c5b080b8cd9a36c41b435035ac2bc620b737c45592bbd2ec1223ee2b5",
+      "stored_utc": "2026-10-29T15:33:37.457326+00:00",
+      "asr": {
+        "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "549f796c5b080b8cd9a36c41b435035ac2bc620b737c45592bbd2ec1223ee2b5",
+        "heard": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+        "words": [
+          {
+            "text": "It",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "is",
+            "start": 0.36,
+            "end": 0.5
+          },
+          {
+            "text": "built",
+            "start": 0.5,
+            "end": 0.74
+          },
+          {
+            "text": "from",
+            "start": 0.74,
+            "end": 0.96
+          },
+          {
+            "text": "wedge",
+            "start": 0.96,
+            "end": 1.28
+          },
+          {
+            "text": "-shaped",
+            "start": 1.28,
+            "end": 1.6
+          },
+          {
+            "text": "stones",
+            "start": 1.6,
+            "end": 2.1
+          },
+          {
+            "text": "called",
+            "start": 2.1,
+            "end": 2.48
+          },
+          {
+            "text": "voussoirs",
+            "start": 2.48,
+            "end": 3.14
+          },
+          {
+            "text": "with",
+            "start": 3.14,
+            "end": 3.66
+          },
+          {
+            "text": "a",
+            "start": 3.66,
+            "end": 3.78
+          },
+          {
+            "text": "keystone",
+            "start": 3.78,
+            "end": 4.24
+          },
+          {
+            "text": "at",
+            "start": 4.24,
+            "end": 4.4
+          },
+          {
+            "text": "the",
+            "start": 4.4,
+            "end": 4.52
+          },
+          {
+            "text": "crown.",
+            "start": 4.52,
+            "end": 5.18
+          }
+        ]
+      }
+    },
+    "979b192a83e4be0fe38e6e39c4c7d18f608e6ecbd11874f076216d40842b19e3": {
+      "role": "sentence",
+      "beat_id": "B5",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+      "spoken_text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/979b192a83e4be0fe38e.wav",
+      "duration": 6.225,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -9.1,
+      "words_per_second": 2.41,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.49,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ðə kˈɜːv tˈɜːnz ðə dˈWnwəd lˈQd ˈɪntuː θɹˈʌst əlˈɒŋ ði ˈɑːʧ, pɹˈɛsɪŋ ðə stˈQnz təɡˈɛðə.",
+      "lang_code": "b",
+      "cache_key": "979b192a83e4be0fe38e6e39c4c7d18f608e6ecbd11874f076216d40842b19e3",
+      "sha256": "7d0127619c0fb30fc87f5390d9441937fcad9cdf00406ed18488a740f1322e85",
+      "stored_utc": "2026-10-29T15:33:37.974913+00:00",
+      "asr": {
+        "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "7d0127619c0fb30fc87f5390d9441937fcad9cdf00406ed18488a740f1322e85",
+        "heard": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "curve",
+            "start": 0.36,
+            "end": 0.68
+          },
+          {
+            "text": "turns",
+            "start": 0.68,
+            "end": 1.08
+          },
+          {
+            "text": "the",
+            "start": 1.08,
+            "end": 1.3
+          },
+          {
+            "text": "downward",
+            "start": 1.3,
+            "end": 1.72
+          },
+          {
+            "text": "load",
+            "start": 1.72,
+            "end": 2.14
+          },
+          {
+            "text": "into",
+            "start": 2.14,
+            "end": 2.44
+          },
+          {
+            "text": "thrust",
+            "start": 2.44,
+            "end": 2.9
+          },
+          {
+            "text": "along",
+            "start": 2.9,
+            "end": 3.22
+          },
+          {
+            "text": "the",
+            "start": 3.22,
+            "end": 3.4
+          },
+          {
+            "text": "arch,",
+            "start": 3.4,
+            "end": 4.02
+          },
+          {
+            "text": "pressing",
+            "start": 4.02,
+            "end": 4.44
+          },
+          {
+            "text": "the",
+            "start": 4.44,
+            "end": 4.66
+          },
+          {
+            "text": "stones",
+            "start": 4.66,
+            "end": 5.06
+          },
+          {
+            "text": "together.",
+            "start": 5.06,
+            "end": 5.94
+          }
+        ]
+      }
+    },
+    "e1758619155acb9b802c0a8e33a5cf9eb26b71dbb700244a62f17be77956bab8": {
+      "role": "sentence",
+      "beat_id": "B5",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "So the arch works mainly in compression.",
+      "spoken_text": "So the arch works mainly in compression.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/e1758619155acb9b802c.wav",
+      "duration": 3.425,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.5,
+      "peak_db": -8.2,
+      "words_per_second": 2.044,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.292,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "sˌQ ði ˈɑːʧ wˈɜːks mˈAnli ɪn kəmpɹˈɛʃᵊn.",
+      "lang_code": "b",
+      "cache_key": "e1758619155acb9b802c0a8e33a5cf9eb26b71dbb700244a62f17be77956bab8",
+      "sha256": "48a1ce1af515ff9969b9e84951475a685f4dea7650c6c3eed5457cee575af52b",
+      "stored_utc": "2026-10-29T15:33:38.271128+00:00",
+      "asr": {
+        "text": "So the arch works mainly in compression.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "48a1ce1af515ff9969b9e84951475a685f4dea7650c6c3eed5457cee575af52b",
+        "heard": "So the arch works mainly in compression.",
+        "words": [
+          {
+            "text": "So",
+            "start": 0.0,
+            "end": 0.4
+          },
+          {
+            "text": "the",
+            "start": 0.4,
+            "end": 0.56
+          },
+          {
+            "text": "arch",
+            "start": 0.56,
+            "end": 0.9
+          },
+          {
+            "text": "works",
+            "start": 0.9,
+            "end": 1.32
+          },
+          {
+            "text": "mainly",
+            "start": 1.32,
+            "end": 1.7
+          },
+          {
+            "text": "in",
+            "start": 1.7,
+            "end": 2.16
+          },
+          {
+            "text": "compression.",
+            "start": 2.16,
+            "end": 3.0
+          }
+        ]
+      }
+    },
+    "d9f7953f875fb249f8289f19038adaba4c778e3aadc5ca77f23cc9a8dcc5bc17": {
+      "role": "sentence",
+      "beat_id": "B5",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "At each end it pushes outward and down on its supports, and the supports push back.",
+      "spoken_text": "At each end it pushes outward and down on its supports, and the supports push back.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/d9f7953f875fb249f828.wav",
+      "duration": 5.7,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -10.1,
+      "words_per_second": 2.807,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.418,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ˌat ˈiːʧ ˈɛnd ɪt pˈʊʃɪz ˈWtwəd and dˌWn ˌɒn ɪts səpˈɔːts, and ðə səpˈɔːts pˈʊʃ bˈak.",
+      "lang_code": "b",
+      "cache_key": "d9f7953f875fb249f8289f19038adaba4c778e3aadc5ca77f23cc9a8dcc5bc17",
+      "sha256": "f5ea1f6209df19ca7943068731e29ae9ad862b07016583224b38d05878b1d2c6",
+      "stored_utc": "2026-10-29T15:33:38.690479+00:00",
+      "asr": {
+        "text": "At each end it pushes outward and down on its supports and the supports push back.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "f5ea1f6209df19ca7943068731e29ae9ad862b07016583224b38d05878b1d2c6",
+        "heard": "At each end, it pushes outward and down on its supports, and the supports push back.",
+        "words": [
+          {
+            "text": "At",
+            "start": 0.0,
+            "end": 0.38
+          },
+          {
+            "text": "each",
+            "start": 0.38,
+            "end": 0.58
+          },
+          {
+            "text": "end,",
+            "start": 0.58,
+            "end": 0.98
+          },
+          {
+            "text": "it",
+            "start": 0.98,
+            "end": 1.04
+          },
+          {
+            "text": "pushes",
+            "start": 1.04,
+            "end": 1.42
+          },
+          {
+            "text": "outward",
+            "start": 1.42,
+            "end": 1.84
+          },
+          {
+            "text": "and",
+            "start": 1.84,
+            "end": 2.1
+          },
+          {
+            "text": "down",
+            "start": 2.1,
+            "end": 2.38
+          },
+          {
+            "text": "on",
+            "start": 2.38,
+            "end": 2.58
+          },
+          {
+            "text": "its",
+            "start": 2.58,
+            "end": 2.72
+          },
+          {
+            "text": "supports,",
+            "start": 2.72,
+            "end": 3.44
+          },
+          {
+            "text": "and",
+            "start": 3.44,
+            "end": 3.8
+          },
+          {
+            "text": "the",
+            "start": 3.8,
+            "end": 3.9
+          },
+          {
+            "text": "supports",
+            "start": 3.9,
+            "end": 4.34
+          },
+          {
+            "text": "push",
+            "start": 4.34,
+            "end": 4.7
+          },
+          {
+            "text": "back.",
+            "start": 4.7,
+            "end": 5.26
+          }
+        ]
+      }
+    },
+    "e90ce4c20aa0616cf817f82d30101cbf04c7b0018dc7b1e1f16dcfa7045b40df": {
+      "role": "sentence",
+      "beat_id": "B6",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "The truss we started with takes another approach: straight members joined into triangles.",
+      "spoken_text": "The truss we started with takes another approach: straight members joined into triangles.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/e90ce4c20aa0616cf817.wav",
+      "duration": 6.275,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -7.8,
+      "words_per_second": 2.072,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.48,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ðə tɹˈʌs wiː stˈɑːtɪd wɪð tˈAks ənˈʌðə əpɹˈQʧ: stɹˈAt mˈɛmbəz ʤˈYnd ˈɪntuː tɹˈIaŋɡᵊlz.",
+      "lang_code": "b",
+      "cache_key": "e90ce4c20aa0616cf817f82d30101cbf04c7b0018dc7b1e1f16dcfa7045b40df",
+      "sha256": "b7e4f89a764ba5ea711c91608aba82d94f7ff5eecea73a9c78877586cd83c653",
+      "stored_utc": "2026-10-29T15:33:39.199404+00:00",
+      "asr": {
+        "text": "The truss we started with takes another approach, straight members joined into triangles.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "b7e4f89a764ba5ea711c91608aba82d94f7ff5eecea73a9c78877586cd83c653",
+        "heard": "The truss we started with takes another approach, straight members joined into triangles.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "truss",
+            "start": 0.36,
+            "end": 0.68
+          },
+          {
+            "text": "we",
+            "start": 0.68,
+            "end": 0.86
+          },
+          {
+            "text": "started",
+            "start": 0.86,
+            "end": 1.22
+          },
+          {
+            "text": "with",
+            "start": 1.22,
+            "end": 1.54
+          },
+          {
+            "text": "takes",
+            "start": 1.54,
+            "end": 1.88
+          },
+          {
+            "text": "another",
+            "start": 1.88,
+            "end": 2.24
+          },
+          {
+            "text": "approach,",
+            "start": 2.24,
+            "end": 3.16
+          },
+          {
+            "text": "straight",
+            "start": 3.16,
+            "end": 3.52
+          },
+          {
+            "text": "members",
+            "start": 3.52,
+            "end": 4.0
+          },
+          {
+            "text": "joined",
+            "start": 4.0,
+            "end": 4.58
+          },
+          {
+            "text": "into",
+            "start": 4.58,
+            "end": 4.9
+          },
+          {
+            "text": "triangles.",
+            "start": 4.9,
+            "end": 5.8
+          }
+        ]
+      }
+    },
+    "b0f2486fe42e7173f1cb84c4c6aba14c8bb9319fcf3e2c9fe47dbac526d2e70b": {
+      "role": "sentence",
+      "beat_id": "B6",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Each member is mainly pulled or pushed along its length, in tension or in compression.",
+      "spoken_text": "Each member is mainly pulled or pushed along its length, in tension or in compression.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/b0f2486fe42e7173f1cb.wav",
+      "duration": 6.375,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -8.1,
+      "words_per_second": 2.353,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.48,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ˈiːʧ mˈɛmbə ɪz mˈAnli pˈʊld ɔː pˈʊʃt əlˈɒŋ ɪts lˈɛŋθ, ɪn tˈɛnʃᵊn ɔː ɪn kəmpɹˈɛʃᵊn.",
+      "lang_code": "b",
+      "cache_key": "b0f2486fe42e7173f1cb84c4c6aba14c8bb9319fcf3e2c9fe47dbac526d2e70b",
+      "sha256": "e354a32419228bd4cdc8cb31764622031580d7d30a16afebca7c775f6d153d4c",
+      "stored_utc": "2026-10-29T15:33:39.680311+00:00",
+      "asr": {
+        "text": "Each member is mainly pulled or pushed along its length, in tension, or in compression.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "e354a32419228bd4cdc8cb31764622031580d7d30a16afebca7c775f6d153d4c",
+        "heard": "Each member is mainly pulled or pushed along its length, in tension, or in compression.",
+        "words": [
+          {
+            "text": "Each",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "member",
+            "start": 0.48,
+            "end": 0.82
+          },
+          {
+            "text": "is",
+            "start": 0.82,
+            "end": 1.06
+          },
+          {
+            "text": "mainly",
+            "start": 1.06,
+            "end": 1.34
+          },
+          {
+            "text": "pulled",
+            "start": 1.34,
+            "end": 1.78
+          },
+          {
+            "text": "or",
+            "start": 1.78,
+            "end": 2.06
+          },
+          {
+            "text": "pushed",
+            "start": 2.06,
+            "end": 2.38
+          },
+          {
+            "text": "along",
+            "start": 2.38,
+            "end": 2.66
+          },
+          {
+            "text": "its",
+            "start": 2.66,
+            "end": 2.92
+          },
+          {
+            "text": "length,",
+            "start": 2.92,
+            "end": 3.52
+          },
+          {
+            "text": "in",
+            "start": 3.52,
+            "end": 3.96
+          },
+          {
+            "text": "tension,",
+            "start": 3.96,
+            "end": 4.54
+          },
+          {
+            "text": "or",
+            "start": 4.54,
+            "end": 4.92
+          },
+          {
+            "text": "in",
+            "start": 4.92,
+            "end": 5.12
+          },
+          {
+            "text": "compression.",
+            "start": 5.12,
+            "end": 5.9
+          }
+        ]
+      }
+    },
+    "c22f6438fa6ee681d64ce69f4446f6935181ef8664655e77d702d64938bc936d": {
+      "role": "sentence",
+      "beat_id": "B6",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched.",
+      "spoken_text": "Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/c22f6438fa6ee681d64c.wav",
+      "duration": 8.3,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -8.3,
+      "words_per_second": 2.771,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.595,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ˈiːʧ spˈan hˈɪə ɪz ɐ sˈɪmpᵊl spˈan, sˌQ ˈʌndə ɐ dˈWnwəd lˈQd ɪts tˈɒp kˈɔːd ɪz skwˈiːzd and ɪts bˈɒtəm kˈɔːd ɪz stɹˈɛʧt.",
+      "lang_code": "b",
+      "cache_key": "c22f6438fa6ee681d64ce69f4446f6935181ef8664655e77d702d64938bc936d",
+      "sha256": "a8d342a9e30120c05dbefd2ba6b675b72fe600ce441ecc8c68cde23ae5ed60ce",
+      "stored_utc": "2026-10-29T15:33:40.276291+00:00",
+      "asr": {
+        "text": "Each span here is a simple span, so under a downward load, its top cord is squeezed and its bottom cord is stretched.",
+        "language": "english",
+        "wer": 0.087,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "a8d342a9e30120c05dbefd2ba6b675b72fe600ce441ecc8c68cde23ae5ed60ce",
+        "heard": "Each span here is a simple span, so under a downward load its top cord is squeezed and its bottom cord is stretched.",
+        "words": [
+          {
+            "text": "Each",
+            "start": 0.0,
+            "end": 0.44
+          },
+          {
+            "text": "span",
+            "start": 0.44,
+            "end": 0.78
+          },
+          {
+            "text": "here",
+            "start": 0.78,
+            "end": 1.06
+          },
+          {
+            "text": "is",
+            "start": 1.06,
+            "end": 1.28
+          },
+          {
+            "text": "a",
+            "start": 1.28,
+            "end": 1.4
+          },
+          {
+            "text": "simple",
+            "start": 1.4,
+            "end": 1.72
+          },
+          {
+            "text": "span,",
+            "start": 1.72,
+            "end": 2.42
+          },
+          {
+            "text": "so",
+            "start": 2.42,
+            "end": 2.78
+          },
+          {
+            "text": "under",
+            "start": 2.78,
+            "end": 3.04
+          },
+          {
+            "text": "a",
+            "start": 3.04,
+            "end": 3.16
+          },
+          {
+            "text": "downward",
+            "start": 3.16,
+            "end": 3.5
+          },
+          {
+            "text": "load",
+            "start": 3.5,
+            "end": 3.96
+          },
+          {
+            "text": "its",
+            "start": 3.96,
+            "end": 4.44
+          },
+          {
+            "text": "top",
+            "start": 4.44,
+            "end": 4.68
+          },
+          {
+            "text": "cord",
+            "start": 4.68,
+            "end": 4.94
+          },
+          {
+            "text": "is",
+            "start": 4.94,
+            "end": 5.16
+          },
+          {
+            "text": "squeezed",
+            "start": 5.16,
+            "end": 5.54
+          },
+          {
+            "text": "and",
+            "start": 5.54,
+            "end": 6.2
+          },
+          {
+            "text": "its",
+            "start": 6.2,
+            "end": 6.34
+          },
+          {
+            "text": "bottom",
+            "start": 6.34,
+            "end": 6.58
+          },
+          {
+            "text": "cord",
+            "start": 6.58,
+            "end": 6.96
+          },
+          {
+            "text": "is",
+            "start": 6.96,
+            "end": 7.18
+          },
+          {
+            "text": "stretched.",
+            "start": 7.18,
+            "end": 7.84
+          }
+        ]
+      }
+    },
+    "153fddb2434c40867084d1386b6b76ac7a37be714aa3e756c8b0562a12d86817": {
+      "role": "sentence",
+      "beat_id": "B6",
+      "sentence_index": 3,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Inside, some web members are in compression and others are in tension.",
+      "spoken_text": "Inside, some web members are in compression and others are in tension.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/153fddb2434c40867084.wav",
+      "duration": 5.375,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.8,
+      "peak_db": -8.9,
+      "words_per_second": 2.233,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.399,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ˌɪnsˈId, sˌʌm wˈɛb mˈɛmbəz ɑː ɪn kəmpɹˈɛʃᵊn and ˈʌðəz ɑː ɪn tˈɛnʃᵊn.",
+      "lang_code": "b",
+      "cache_key": "153fddb2434c40867084d1386b6b76ac7a37be714aa3e756c8b0562a12d86817",
+      "sha256": "2b9f7a2640774459a6eae5a0846dfffcbcbc0c5581abce7b52596a668cc99c61",
+      "stored_utc": "2026-10-29T15:33:40.678914+00:00",
+      "asr": {
+        "text": "Inside, some web members are in compression and others are in tension.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "2b9f7a2640774459a6eae5a0846dfffcbcbc0c5581abce7b52596a668cc99c61",
+        "heard": "Inside, some web members are in compression and others are in tension.",
+        "words": [
+          {
+            "text": "Inside,",
+            "start": 0.0,
+            "end": 1.02
+          },
+          {
+            "text": "some",
+            "start": 1.02,
+            "end": 1.18
+          },
+          {
+            "text": "web",
+            "start": 1.18,
+            "end": 1.4
+          },
+          {
+            "text": "members",
+            "start": 1.4,
+            "end": 1.8
+          },
+          {
+            "text": "are",
+            "start": 1.8,
+            "end": 2.0
+          },
+          {
+            "text": "in",
+            "start": 2.0,
+            "end": 2.14
+          },
+          {
+            "text": "compression",
+            "start": 2.14,
+            "end": 2.6
+          },
+          {
+            "text": "and",
+            "start": 2.6,
+            "end": 3.26
+          },
+          {
+            "text": "others",
+            "start": 3.26,
+            "end": 3.6
+          },
+          {
+            "text": "are",
+            "start": 3.6,
+            "end": 4.06
+          },
+          {
+            "text": "in",
+            "start": 4.06,
+            "end": 4.3
+          },
+          {
+            "text": "tension.",
+            "start": 4.3,
+            "end": 4.9
+          }
+        ]
+      }
+    },
+    "b763edf6b02228d3cd84e3da41597b966d74a9d533fa0b73d6563e13864e19b3": {
+      "role": "sentence",
+      "beat_id": "B7",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Let's compare them one at a time.",
+      "spoken_text": "Let's compare them one at a time.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/b763edf6b02228d3cd84.wav",
+      "duration": 3.075,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.8,
+      "peak_db": -9.2,
+      "words_per_second": 2.276,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.276,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "lˈɛts kəmpˈɛː ðˌɛm wˈʌn at ɐ tˈIm.",
+      "lang_code": "b",
+      "cache_key": "b763edf6b02228d3cd84e3da41597b966d74a9d533fa0b73d6563e13864e19b3",
+      "sha256": "34a0f71c7bb7cf0a05d0333cd8471c333f3d907a55421e54fd426f3028ca9255",
+      "stored_utc": "2026-10-29T15:33:40.985677+00:00",
+      "asr": {
+        "text": "Let's compare them one at a time.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "34a0f71c7bb7cf0a05d0333cd8471c333f3d907a55421e54fd426f3028ca9255",
+        "heard": "Let's compare them one at a time.",
+        "words": [
+          {
+            "text": "Let's",
+            "start": 0.0,
+            "end": 0.54
+          },
+          {
+            "text": "compare",
+            "start": 0.54,
+            "end": 0.94
+          },
+          {
+            "text": "them",
+            "start": 0.94,
+            "end": 1.12
+          },
+          {
+            "text": "one",
+            "start": 1.12,
+            "end": 1.48
+          },
+          {
+            "text": "at",
+            "start": 1.48,
+            "end": 1.9
+          },
+          {
+            "text": "a",
+            "start": 1.9,
+            "end": 2.02
+          },
+          {
+            "text": "time.",
+            "start": 2.02,
+            "end": 2.62
+          }
+        ]
+      }
+    },
+    "0b33693cb78d1cf494a8bd8849ad0cdc3ca6d989b40f08ad068365992ec25d30": {
+      "role": "sentence",
+      "beat_id": "B7",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "The beam bridge carries its load by bending.",
+      "spoken_text": "The beam bridge carries its load by bending.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/0b33693cb78d1cf494a8.wav",
+      "duration": 3.625,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.8,
+      "peak_db": -9.1,
+      "words_per_second": 2.207,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.309,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ðə bˈiːm bɹˈɪʤ kˈaɹiz ɪts lˈQd bI bˈɛndɪŋ.",
+      "lang_code": "b",
+      "cache_key": "0b33693cb78d1cf494a8bd8849ad0cdc3ca6d989b40f08ad068365992ec25d30",
+      "sha256": "bf01e0ff9be2f9c7ce0d688fb642dfb1cb58c72453f49281379d57f62f65f18f",
+      "stored_utc": "2026-10-29T15:33:41.295638+00:00",
+      "asr": {
+        "text": "The beam bridge carries its load by bending.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "bf01e0ff9be2f9c7ce0d688fb642dfb1cb58c72453f49281379d57f62f65f18f",
+        "heard": "The beam bridge carries its load by bending.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.34
+          },
+          {
+            "text": "beam",
+            "start": 0.34,
+            "end": 0.6
+          },
+          {
+            "text": "bridge",
+            "start": 0.6,
+            "end": 1.04
+          },
+          {
+            "text": "carries",
+            "start": 1.04,
+            "end": 1.64
+          },
+          {
+            "text": "its",
+            "start": 1.64,
+            "end": 1.9
+          },
+          {
+            "text": "load",
+            "start": 1.9,
+            "end": 2.22
+          },
+          {
+            "text": "by",
+            "start": 2.22,
+            "end": 2.5
+          },
+          {
+            "text": "bending.",
+            "start": 2.5,
+            "end": 3.14
+          }
+        ]
+      }
+    },
+    "10f68535d24b4c0b471f74b160ab4ebaa9753f25ed3e510d1741d8fb35ea0fec": {
+      "role": "sentence",
+      "beat_id": "B7",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "The arch carries it mainly in compression, pushing against its supports.",
+      "spoken_text": "The arch carries it mainly in compression, pushing against its supports.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/10f68535d24b4c0b471f.wav",
+      "duration": 5.1,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -9.1,
+      "words_per_second": 2.157,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.39,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ði ˈɑːʧ kˈaɹiz ɪt mˈAnli ɪn kəmpɹˈɛʃᵊn, pˈʊʃɪŋ əɡˈɛnst ɪts səpˈɔːts.",
+      "lang_code": "b",
+      "cache_key": "10f68535d24b4c0b471f74b160ab4ebaa9753f25ed3e510d1741d8fb35ea0fec",
+      "sha256": "313a3f653bb97f8e3d50f59d921948b253b6e6f0328937b307e7be6eecda359d",
+      "stored_utc": "2026-10-29T15:33:41.686921+00:00",
+      "asr": {
+        "text": "The arch carries it mainly in compression, pushing against its supports.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "313a3f653bb97f8e3d50f59d921948b253b6e6f0328937b307e7be6eecda359d",
+        "heard": "The arch carries it mainly in compression, pushing against its supports.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "arch",
+            "start": 0.36,
+            "end": 0.68
+          },
+          {
+            "text": "carries",
+            "start": 0.68,
+            "end": 1.08
+          },
+          {
+            "text": "it",
+            "start": 1.08,
+            "end": 1.26
+          },
+          {
+            "text": "mainly",
+            "start": 1.26,
+            "end": 1.66
+          },
+          {
+            "text": "in",
+            "start": 1.66,
+            "end": 1.94
+          },
+          {
+            "text": "compression,",
+            "start": 1.94,
+            "end": 2.8
+          },
+          {
+            "text": "pushing",
+            "start": 2.8,
+            "end": 3.2
+          },
+          {
+            "text": "against",
+            "start": 3.2,
+            "end": 3.62
+          },
+          {
+            "text": "its",
+            "start": 3.62,
+            "end": 3.88
+          },
+          {
+            "text": "supports.",
+            "start": 3.88,
+            "end": 4.7
+          }
+        ]
+      }
+    },
+    "d112ba606292e41919161368bac8c334c6d026de352273328265e03685a823af": {
+      "role": "sentence",
+      "beat_id": "B7",
+      "sentence_index": 3,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "In the truss, the load is shared between members in tension and in compression.",
+      "spoken_text": "In the truss, the load is shared between members in tension and in compression.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/d112ba606292e4191916.wav",
+      "duration": 5.725,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -9.8,
+      "words_per_second": 2.445,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.42,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ɪn ðə tɹˈʌs, ðə lˈQd ɪz ʃˈɛːd bɪtwˈiːn mˈɛmbəz ɪn tˈɛnʃᵊn and ɪn kəmpɹˈɛʃᵊn.",
+      "lang_code": "b",
+      "cache_key": "d112ba606292e41919161368bac8c334c6d026de352273328265e03685a823af",
+      "sha256": "421457f12ee662494dba02f59737df9971e26cd64151eb47f73e56580488cb5f",
+      "stored_utc": "2026-10-29T15:33:42.107971+00:00",
+      "asr": {
+        "text": "In the truss, the load is shared between members in tension and in compression.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "421457f12ee662494dba02f59737df9971e26cd64151eb47f73e56580488cb5f",
+        "heard": "In the truss, the load is shared between members in tension and in compression.",
+        "words": [
+          {
+            "text": "In",
+            "start": 0.0,
+            "end": 0.36
+          },
+          {
+            "text": "the",
+            "start": 0.36,
+            "end": 0.46
+          },
+          {
+            "text": "truss,",
+            "start": 0.46,
+            "end": 1.0
+          },
+          {
+            "text": "the",
+            "start": 1.0,
+            "end": 1.26
+          },
+          {
+            "text": "load",
+            "start": 1.26,
+            "end": 1.54
+          },
+          {
+            "text": "is",
+            "start": 1.54,
+            "end": 1.76
+          },
+          {
+            "text": "shared",
+            "start": 1.76,
+            "end": 2.1
+          },
+          {
+            "text": "between",
+            "start": 2.1,
+            "end": 2.4
+          },
+          {
+            "text": "members",
+            "start": 2.4,
+            "end": 2.9
+          },
+          {
+            "text": "in",
+            "start": 2.9,
+            "end": 3.22
+          },
+          {
+            "text": "tension",
+            "start": 3.22,
+            "end": 3.52
+          },
+          {
+            "text": "and",
+            "start": 3.52,
+            "end": 4.2
+          },
+          {
+            "text": "in",
+            "start": 4.2,
+            "end": 4.38
+          },
+          {
+            "text": "compression.",
+            "start": 4.38,
+            "end": 5.24
+          }
+        ]
+      }
+    },
+    "89b44a729f4c4d3f8c7974d4d533f7f11034328588b574523cdb7b7d78ce9a16": {
+      "role": "sentence",
+      "beat_id": "B8",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Three arrangements of parts, one job: carrying the load across the gap and down into the ground.",
+      "spoken_text": "Three arrangements of parts, one job: carrying the load across the gap and down into the ground.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/89b44a729f4c4d3f8c79.wav",
+      "duration": 6.775,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -9.3,
+      "words_per_second": 2.509,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.502,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "θɹˈiː əɹˈAnʤmᵊnts ɒv pˈɑːts, wˈʌn ʤˈɒb: kˈaɹiɪŋ ðə lˈQd əkɹˈɒs ðə ɡˈap and dˌWn ˈɪntuː ðə ɡɹˈWnd.",
+      "lang_code": "b",
+      "cache_key": "89b44a729f4c4d3f8c7974d4d533f7f11034328588b574523cdb7b7d78ce9a16",
+      "sha256": "23d6af2f84f14c66496edb3737dc67094c862506bc23112b8d290ecbb0969dda",
+      "stored_utc": "2026-10-29T15:33:42.638369+00:00",
+      "asr": {
+        "text": "Three arrangements of parts, one job, carrying the load across the gap and down into the ground.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "23d6af2f84f14c66496edb3737dc67094c862506bc23112b8d290ecbb0969dda",
+        "heard": "Three arrangements of parts, one job, carrying the load across the gap and down into the ground.",
+        "words": [
+          {
+            "text": "Three",
+            "start": 0.0,
+            "end": 0.44
+          },
+          {
+            "text": "arrangements",
+            "start": 0.44,
+            "end": 0.92
+          },
+          {
+            "text": "of",
+            "start": 0.92,
+            "end": 1.14
+          },
+          {
+            "text": "parts,",
+            "start": 1.14,
+            "end": 1.8
+          },
+          {
+            "text": "one",
+            "start": 1.8,
+            "end": 2.08
+          },
+          {
+            "text": "job,",
+            "start": 2.08,
+            "end": 2.76
+          },
+          {
+            "text": "carrying",
+            "start": 2.76,
+            "end": 3.28
+          },
+          {
+            "text": "the",
+            "start": 3.28,
+            "end": 3.48
+          },
+          {
+            "text": "load",
+            "start": 3.48,
+            "end": 3.76
+          },
+          {
+            "text": "across",
+            "start": 3.76,
+            "end": 4.0
+          },
+          {
+            "text": "the",
+            "start": 4.0,
+            "end": 4.24
+          },
+          {
+            "text": "gap",
+            "start": 4.24,
+            "end": 4.52
+          },
+          {
+            "text": "and",
+            "start": 4.52,
+            "end": 4.94
+          },
+          {
+            "text": "down",
+            "start": 4.94,
+            "end": 5.24
+          },
+          {
+            "text": "into",
+            "start": 5.24,
+            "end": 5.52
+          },
+          {
+            "text": "the",
+            "start": 5.52,
+            "end": 5.66
+          },
+          {
+            "text": "ground.",
+            "start": 5.66,
+            "end": 6.28
+          }
+        ]
+      }
+    },
+    "7bced002c2ed8e19d510d0a49842a59000ed1a9b321b9d3a8024a4a4b0ae903e": {
+      "role": "sentence",
+      "beat_id": "B8",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+      "spoken_text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/7bced002c2ed8e19d510.wav",
+      "duration": 8.35,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.7,
+      "peak_db": -9.9,
+      "words_per_second": 1.796,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.615,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "ðˌiːz mˈɒdᵊlz ɑː ˌɪləstɹˈAʃᵊnz, nˌɒt ˌɛnʤɪnˈɪəɹɪŋ dɪzˈInz, and ði ˈaɹQz ʃˈQ Idˈɪəz, nˌɒt kˈalkjʊlAtɪd fˈɔːsɪz.",
+      "lang_code": "b",
+      "cache_key": "7bced002c2ed8e19d510d0a49842a59000ed1a9b321b9d3a8024a4a4b0ae903e",
+      "sha256": "b766ec76d5d9d3167a8d07a1690c121cc100fb03207cb1ba1105f26abf4a3c50",
+      "stored_utc": "2026-10-29T15:33:43.254612+00:00",
+      "asr": {
+        "text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "b766ec76d5d9d3167a8d07a1690c121cc100fb03207cb1ba1105f26abf4a3c50",
+        "heard": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+        "words": [
+          {
+            "text": "These",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "models",
+            "start": 0.48,
+            "end": 0.8
+          },
+          {
+            "text": "are",
+            "start": 0.8,
+            "end": 1.08
+          },
+          {
+            "text": "illustrations,",
+            "start": 1.08,
+            "end": 2.22
+          },
+          {
+            "text": "not",
+            "start": 2.22,
+            "end": 2.6
+          },
+          {
+            "text": "engineering",
+            "start": 2.6,
+            "end": 3.14
+          },
+          {
+            "text": "designs,",
+            "start": 3.14,
+            "end": 4.06
+          },
+          {
+            "text": "and",
+            "start": 4.06,
+            "end": 4.44
+          },
+          {
+            "text": "the",
+            "start": 4.44,
+            "end": 4.56
+          },
+          {
+            "text": "arrows",
+            "start": 4.56,
+            "end": 4.94
+          },
+          {
+            "text": "show",
+            "start": 4.94,
+            "end": 5.28
+          },
+          {
+            "text": "ideas,",
+            "start": 5.28,
+            "end": 6.08
+          },
+          {
+            "text": "not",
+            "start": 6.08,
+            "end": 6.4
+          },
+          {
+            "text": "calculated",
+            "start": 6.4,
+            "end": 7.04
+          },
+          {
+            "text": "forces.",
+            "start": 7.04,
+            "end": 7.86
+          }
+        ]
+      }
+    },
+    "92537800976ae5035fb2946b9aa8fc91f462b5e5f30620e76412e804aa4a6613": {
+      "role": "sentence",
+      "beat_id": "B1",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Traffic, people and the bridge's own weight all push down on its deck.",
+      "spoken_text": "Traffic, people and the bridge's own weight all push down on its deck.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/92537800976ae5035fb2.wav",
+      "duration": 5.175,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.5,
+      "peak_db": -8.6,
+      "words_per_second": 2.512,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 4.295,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "tɹˈafɪk, pˈiːpᵊl and ðə bɹˈɪʤɪz ˈQn wˈAt ˈɔːl pˈʊʃ dˌWn ˌɒn ɪts dˈɛk.",
+      "lang_code": "b",
+      "cache_key": "92537800976ae5035fb2946b9aa8fc91f462b5e5f30620e76412e804aa4a6613",
+      "sha256": "5678c2ff670f10d80fd4f308eaf583fd9f3c9c3039b121ea309433f504cfa997",
+      "stored_utc": "2026-10-29T15:35:28.353732+00:00",
+      "asr": {
+        "text": "Traffic, people and the bridges, own weight, all pushed down on its deck.",
+        "language": "english",
+        "wer": 0.1538,
+        "pass": false,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "5678c2ff670f10d80fd4f308eaf583fd9f3c9c3039b121ea309433f504cfa997",
+        "heard": "Traffic, people and the bridges, own weight, all pushed down on its deck.",
+        "words": [
+          {
+            "text": "Traffic,",
+            "start": 0.0,
+            "end": 0.86
+          },
+          {
+            "text": "people",
+            "start": 0.86,
+            "end": 1.16
+          },
+          {
+            "text": "and",
+            "start": 1.16,
+            "end": 1.42
+          },
+          {
+            "text": "the",
+            "start": 1.42,
+            "end": 1.54
+          },
+          {
+            "text": "bridges,",
+            "start": 1.54,
+            "end": 2.2
+          },
+          {
+            "text": "own",
+            "start": 2.2,
+            "end": 2.54
+          },
+          {
+            "text": "weight,",
+            "start": 2.54,
+            "end": 3.06
+          },
+          {
+            "text": "all",
+            "start": 3.06,
+            "end": 3.32
+          },
+          {
+            "text": "pushed",
+            "start": 3.32,
+            "end": 3.62
+          },
+          {
+            "text": "down",
+            "start": 3.62,
+            "end": 3.88
+          },
+          {
+            "text": "on",
+            "start": 3.88,
+            "end": 4.04
+          },
+          {
+            "text": "its",
+            "start": 4.04,
+            "end": 4.2
+          },
+          {
+            "text": "deck.",
+            "start": 4.2,
+            "end": 4.72
+          }
+        ]
+      }
+    },
+    "2adea8400a74acc0b61c3b583ace2a9558e9d9f99e5c861786ceacff68aaef27": {
+      "role": "sentence",
+      "beat_id": "B1",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Traffic, people and the weight of the bridge itself all press on its deck.",
+      "spoken_text": "Traffic, people and the weight of the bridge itself all press on its deck.",
+      "voice_id": "kokoro_bm_george",
+      "rights_class": "PENDING_REVIEW",
+      "file": "audio/segments/2adea8400a74acc0b61c.wav",
+      "duration": 5.6,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -24.6,
+      "peak_db": -8.5,
+      "words_per_second": 2.5,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "b"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 4.149,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "bm_george",
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "phonemes": "tɹˈafɪk, pˈiːpᵊl and ðə wˈAt ɒv ðə bɹˈɪʤ ɪtsˈɛlf ˈɔːl pɹˈɛs ˌɒn ɪts dˈɛk.",
+      "lang_code": "b",
+      "cache_key": "2adea8400a74acc0b61c3b583ace2a9558e9d9f99e5c861786ceacff68aaef27",
+      "sha256": "56c4f3675b983cf1e22cb1c058d09d44fb7819ace0596a62dca71d2a11e37a7c",
+      "stored_utc": "2026-10-29T15:36:47.928751+00:00",
+      "asr": {
+        "text": "Traffic, people, and the weight of the bridge itself all press on its deck.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "56c4f3675b983cf1e22cb1c058d09d44fb7819ace0596a62dca71d2a11e37a7c",
+        "heard": "Traffic, people, and the weight of the bridge itself all press on its deck.",
+        "words": [
+          {
+            "text": "Traffic,",
+            "start": 0.0,
+            "end": 0.84
+          },
+          {
+            "text": "people,",
+            "start": 0.84,
+            "end": 1.36
+          },
+          {
+            "text": "and",
+            "start": 1.36,
+            "end": 1.56
+          },
+          {
+            "text": "the",
+            "start": 1.56,
+            "end": 1.66
+          },
+          {
+            "text": "weight",
+            "start": 1.66,
+            "end": 1.9
+          },
+          {
+            "text": "of",
+            "start": 1.9,
+            "end": 2.04
+          },
+          {
+            "text": "the",
+            "start": 2.04,
+            "end": 2.16
+          },
+          {
+            "text": "bridge",
+            "start": 2.16,
+            "end": 2.54
+          },
+          {
+            "text": "itself",
+            "start": 2.54,
+            "end": 3.2
+          },
+          {
+            "text": "all",
+            "start": 3.2,
+            "end": 3.8
+          },
+          {
+            "text": "press",
+            "start": 3.8,
+            "end": 4.12
+          },
+          {
+            "text": "on",
+            "start": 4.12,
+            "end": 4.46
+          },
+          {
+            "text": "its",
+            "start": 4.46,
+            "end": 4.64
+          },
+          {
+            "text": "deck.",
+            "start": 4.64,
+            "end": 5.16
+          }
+        ]
+      }
     }
   },
   "beats": {
     "B1": {
       "file": "audio/beats/B1.wav",
-      "duration": 13.0,
-      "sha256": "6ba2dc6cc668175d3453f555d9f41a6f84591706d90e47af7065afbba4f4b13a",
+      "duration": 15.075,
+      "sha256": "94fc9fe2b81abc8bc8a4846b006c5188b646a41bae0782785a282009db838f46",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "What happens when weight is placed on a bridge?",
           "start": 0.0,
-          "end": 3.15,
-          "cache_key": "0b576080cc25e58f36316d5f7d039d00c9d243c0b2f5106adf709da50b9cc040",
+          "end": 3.425,
+          "cache_key": "31c827f94c967b37b5ed33d9ff33072d8886eb4d329bc45d29924279d2927d7d",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
-          "text": "Traffic, people and the bridge's own weight all press down on its deck.",
-          "start": 3.55,
-          "end": 8.0,
-          "cache_key": "fd12038c4752b20a259bf42901d54e65e38b99710f8241eb02ae43bdef0832e1",
+          "text": "Traffic, people and the weight of the bridge itself all press on its deck.",
+          "start": 3.825,
+          "end": 9.425,
+          "cache_key": "2adea8400a74acc0b61c3b583ace2a9558e9d9f99e5c861786ceacff68aaef27",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 2,
           "text": "To stay standing, the bridge has to carry that load down into the ground.",
-          "start": 8.4,
-          "end": 13.0,
-          "cache_key": "3c6db5cbd8b1d9f4b7048a673e5ab1dcbf9c8abd9cc16febccf3b51002512c38",
+          "start": 9.825,
+          "end": 15.075,
+          "cache_key": "5d081c0eb6eb43db5568d2b12b83b59bfaf1859a2e9c4ab5ceec020ab910da53",
           "rights_class": "PENDING_REVIEW"
         }
       ]
     },
     "B2": {
       "file": "audio/beats/B2.wav",
-      "duration": 18.75,
-      "sha256": "c095391699bd58e17c3c1c188e4798a107211e47b910f709671fdb64ead69693",
+      "duration": 20.6,
+      "sha256": "2b60aa7d5a05ecd92ebee8e552d1be032afd72adda45ef1bd884f9fa8c21e5cf",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "The load follows a path down through the structure.",
           "start": 0.0,
-          "end": 3.25,
-          "cache_key": "d8fab624cabfe26db23a8c33edd06a7007c96bbd8e550d6808a86a32221ce917",
+          "end": 3.65,
+          "cache_key": "026a74ece35ad4013721465b33c1552ad9f7635a51c2f9aa6ed3ef8a1fd9e40a",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
           "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
-          "start": 3.65,
-          "end": 8.8,
-          "cache_key": "86b352fe20a6957be4ebd849699e59dce6ff054e5652cf4b79016c523656a08d",
+          "start": 4.05,
+          "end": 9.65,
+          "cache_key": "32f979cc01d2e2fbccd60783164168c889557dfd236df05dce92dcbcb346df04",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 2,
           "text": "That rests on the substructure: abutments at the ends, and sometimes piers in between.",
-          "start": 9.2,
-          "end": 14.8,
-          "cache_key": "c4c235d5d1ceff8c48defc4cba1d6a544352db2aef3166afe3a7be9e146b7c3d",
+          "start": 10.05,
+          "end": 16.2,
+          "cache_key": "ce57e223fee505127ea1b35b9b46217a854bf353a56670c8400ed6fe11f24e83",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 3,
           "text": "The abutments pass the load on to the foundations.",
-          "start": 15.2,
-          "end": 18.75,
-          "cache_key": "7ec674a15c395858c680ab63bb39aebe57553914ee3fcbe574ce66a65c81f315",
+          "start": 16.6,
+          "end": 20.6,
+          "cache_key": "b3eb310f4ee2f124dbefe38a94238cf392fcab8efc6151753a8d87bf25885a64",
           "rights_class": "PENDING_REVIEW"
         }
       ]
     },
     "B3": {
       "file": "audio/beats/B3.wav",
-      "duration": 17.1,
-      "sha256": "24c25d2b9713d3ffa396ca1af2c7d6e2aafd7e7a54cab591fdd0efd5acf45bd8",
+      "duration": 19.025,
+      "sha256": "893e44040026cc68990ee4a51cfa956081b52d76f43172c248a5c4f802b5556d",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "Now take a beam bridge.",
           "start": 0.0,
-          "end": 2.225,
-          "cache_key": "3ab0151b93ce6884cc0da4037050c64ae6cc56c21d586fb7d87c1530ec9ea4e0",
+          "end": 2.375,
+          "cache_key": "08a5082502d23c6134feb74e59fa6707a2a32853871fbeea50ad51dc1814ad2e",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
           "text": "Its deck rests on long beams that span from one support to the next.",
-          "start": 2.625,
-          "end": 7.175,
-          "cache_key": "11dca35b3e4f54bee06b07536bd721606a4054f5015740335c5c0e35897e2e4e",
+          "start": 2.775,
+          "end": 8.175,
+          "cache_key": "e49113156fe452418d5a8f91b89f5941cb24da623ff51a5375185fb4dbadffe5",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 2,
           "text": "Each beam carries the load by resisting bending.",
-          "start": 7.575,
-          "end": 11.175,
-          "cache_key": "d26e98055d29d8eace44d5db1a5d6d7504b778e36c6082d34af9702fab23e17f",
+          "start": 8.575,
+          "end": 12.5,
+          "cache_key": "85fd8925a1385d5b2efc19cce55bac8f5049c47a7633a48308b46597020039a2",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 3,
           "text": "A cap beam spreads the load onto the posts, and the posts carry it down in compression.",
-          "start": 11.575,
-          "end": 17.1,
-          "cache_key": "f25dba5800710333e9ef06f8b2e8b6197440f4b217bc415da09300250bdd450b",
+          "start": 12.9,
+          "end": 19.025,
+          "cache_key": "ae8a56115554ad443041c02824db00c94de1446eac450936ae3bc43517000562",
           "rights_class": "PENDING_REVIEW"
         }
       ]
     },
     "B4": {
       "file": "audio/beats/B4.wav",
-      "duration": 8.3,
-      "sha256": "0e08d205e846c86213d5a96f45e5e9677f359c98494902a8dd17f0ad6112ead5",
+      "duration": 8.9,
+      "sha256": "369d3b35ce95009c0e401a62646b67ca31e0e4be5d1b0ab83135fd3ab195fd7a",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "A masonry arch works differently.",
           "start": 0.0,
-          "end": 2.7,
-          "cache_key": "994ece96d2f9a08bf4ca713a3a4e568fb23177f52b7876199eee2f38adbbf172",
+          "end": 2.9,
+          "cache_key": "97333088d868aad5039c97d7af351f171fd9dc73ded9e6860646a9a00beaecbd",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
           "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
-          "start": 3.1,
-          "end": 8.3,
-          "cache_key": "b9879cb7419fd2770f80cc23f6c1d508429b69f759400e7f51811eb6d38efc48",
+          "start": 3.3,
+          "end": 8.9,
+          "cache_key": "7c4ecab3b7a840af4dd64184617ebc6fe8fb961e06cbe360589eec5894904af9",
           "rights_class": "PENDING_REVIEW"
         }
       ]
     },
     "B5": {
       "file": "audio/beats/B5.wav",
-      "duration": 14.4,
-      "sha256": "01ff2816debac432e0bc196b5b6f5ab156f9f6135d7dda83135d072a15f514ad",
+      "duration": 16.15,
+      "sha256": "4ff66aed0e06156734b662f6c665c1cd791376bf33123c53fd642b7bea3352cf",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
           "start": 0.0,
-          "end": 5.45,
-          "cache_key": "f2b73ba40ed653ffefc7c6dadce84c86b6e95ed643caf76293b6d6155d004392",
+          "end": 6.225,
+          "cache_key": "979b192a83e4be0fe38e6e39c4c7d18f608e6ecbd11874f076216d40842b19e3",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
           "text": "So the arch works mainly in compression.",
-          "start": 5.85,
-          "end": 8.8,
-          "cache_key": "464c9af6daad644324a815fbf36210118caa6fdd3be1d78b15eb7d7872d85a03",
+          "start": 6.625,
+          "end": 10.05,
+          "cache_key": "e1758619155acb9b802c0a8e33a5cf9eb26b71dbb700244a62f17be77956bab8",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 2,
           "text": "At each end it pushes outward and down on its supports, and the supports push back.",
-          "start": 9.2,
-          "end": 14.4,
-          "cache_key": "d14cad9f1b6273655fb6005742ce474f541d64ec58d3671ce55bbbf42062e09c",
+          "start": 10.45,
+          "end": 16.15,
+          "cache_key": "d9f7953f875fb249f8289f19038adaba4c778e3aadc5ca77f23cc9a8dcc5bc17",
           "rights_class": "PENDING_REVIEW"
         }
       ]
     },
     "B6": {
       "file": "audio/beats/B6.wav",
-      "duration": 24.325,
-      "sha256": "e8ac810563d9d0226c589d0486b524f6c65213bae4221b7adf9839b81d12d671",
+      "duration": 27.525,
+      "sha256": "dad1c8d734b308573a83799547ef9f4ccf4b6e216cd0fcd48e1c2014034fe93d",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "The truss we started with takes another approach: straight members joined into triangles.",
           "start": 0.0,
-          "end": 5.6,
-          "cache_key": "ed924af0e506ddd74c0e910d0a62a24202f0f05e188bfe2b204801e11af0f094",
+          "end": 6.275,
+          "cache_key": "e90ce4c20aa0616cf817f82d30101cbf04c7b0018dc7b1e1f16dcfa7045b40df",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
           "text": "Each member is mainly pulled or pushed along its length, in tension or in compression.",
-          "start": 6.0,
-          "end": 11.575,
-          "cache_key": "d86fb4c26c34026bb99c21cef1d88ca47495191b00e9366b7b929dc40dd1f1f9",
+          "start": 6.675,
+          "end": 13.05,
+          "cache_key": "b0f2486fe42e7173f1cb84c4c6aba14c8bb9319fcf3e2c9fe47dbac526d2e70b",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 2,
           "text": "Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched.",
-          "start": 11.975,
-          "end": 19.125,
-          "cache_key": "86f8caf22b077ae499bd6dd483724a5a66aeb4d702a0324e8384c64b95e9adce",
+          "start": 13.45,
+          "end": 21.75,
+          "cache_key": "c22f6438fa6ee681d64ce69f4446f6935181ef8664655e77d702d64938bc936d",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 3,
           "text": "Inside, some web members are in compression and others are in tension.",
-          "start": 19.525,
-          "end": 24.325,
-          "cache_key": "9135c0ab630c43c06ae9abd21512f86e2ba9bc9027dced50fc5042b8a233f235",
+          "start": 22.15,
+          "end": 27.525,
+          "cache_key": "153fddb2434c40867084d1386b6b76ac7a37be714aa3e756c8b0562a12d86817",
           "rights_class": "PENDING_REVIEW"
         }
       ]
     },
     "B7": {
       "file": "audio/beats/B7.wav",
-      "duration": 17.025,
-      "sha256": "e46550a73854ddad600517dcb9abef031b51352e63dac04ab795b4c49543fcc0",
+      "duration": 18.725,
+      "sha256": "98980ebdc560eab7d77eec7fa0efa417ff2afb5c04f7d525b3f87403619a2ee8",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "Let's compare them one at a time.",
           "start": 0.0,
-          "end": 2.675,
-          "cache_key": "c35d5c8b7550527888c0845517b08ab977c383db8999ad58f0a3a2be49ea8efb",
+          "end": 3.075,
+          "cache_key": "b763edf6b02228d3cd84e3da41597b966d74a9d533fa0b73d6563e13864e19b3",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
           "text": "The beam bridge carries its load by bending.",
-          "start": 3.075,
-          "end": 6.35,
-          "cache_key": "4d4add3594a8acef3d6a0ec48c7c3d4e24e7c0b76d3337648973b41334b08e2b",
+          "start": 3.475,
+          "end": 7.1,
+          "cache_key": "0b33693cb78d1cf494a8bd8849ad0cdc3ca6d989b40f08ad068365992ec25d30",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 2,
           "text": "The arch carries it mainly in compression, pushing against its supports.",
-          "start": 6.75,
-          "end": 11.45,
-          "cache_key": "88514860ea9d1a4a7ac033b2a568ad605d350a5aac155489f534bcec6bd712f5",
+          "start": 7.5,
+          "end": 12.6,
+          "cache_key": "10f68535d24b4c0b471f74b160ab4ebaa9753f25ed3e510d1741d8fb35ea0fec",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 3,
           "text": "In the truss, the load is shared between members in tension and in compression.",
-          "start": 11.85,
-          "end": 17.025,
-          "cache_key": "1109cfb4dae7949f5207dce7b03f0f316ae6f0f18067eea8ce61e7f859598028",
+          "start": 13.0,
+          "end": 18.725,
+          "cache_key": "d112ba606292e41919161368bac8c334c6d026de352273328265e03685a823af",
           "rights_class": "PENDING_REVIEW"
         }
       ]
     },
     "B8": {
       "file": "audio/beats/B8.wav",
-      "duration": 13.675,
-      "sha256": "226ed651500093e3b64b80c956dfb4eb82af6be129453f16e1caf7f8f87fb301",
+      "duration": 15.525,
+      "sha256": "0608ad3015977f9bc105d292df059e45b35cbf62bf93a2319d2d944ae38b16f8",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
           "text": "Three arrangements of parts, one job: carrying the load across the gap and down into the ground.",
           "start": 0.0,
-          "end": 5.95,
-          "cache_key": "1296ca1afb1fdd535369d3acc553c2f5a620d82999d50d696a98216b32cfc9a1",
+          "end": 6.775,
+          "cache_key": "89b44a729f4c4d3f8c7974d4d533f7f11034328588b574523cdb7b7d78ce9a16",
           "rights_class": "PENDING_REVIEW"
         },
         {
           "index": 1,
           "text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
-          "start": 6.35,
-          "end": 13.675,
-          "cache_key": "625b2ef768c6f9a694e0efe4fa27d2838385bb8037add92ecdf3610430de3291",
+          "start": 7.175,
+          "end": 15.525,
+          "cache_key": "7bced002c2ed8e19d510d0a49842a59000ed1a9b321b9d3a8024a4a4b0ae903e",
           "rights_class": "PENDING_REVIEW"
         }
       ]
@@ -3462,5 +6770,5 @@
     "purpose": "internal_preview",
     "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md"
   },
-  "narration_sha256": "b85ec66908b34f351b614c497e65b583456cf964c78c7a3a7946f4dba735766c"
+  "narration_sha256": "fd48ad0ddbe603581c463482de2f2189a0820594301809762b69a234db9b2134"
 }

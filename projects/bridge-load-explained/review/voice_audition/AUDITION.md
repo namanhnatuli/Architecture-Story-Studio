@@ -24,7 +24,8 @@
 ## Kết luận kỹ thuật (không phải quyết định chọn giọng)
 
 - Quy tắc xếp hạng (chỉ dựa trên số đo): VOICES.md overall grade, then max ASR WER, then |wpm - 160|, then level spread.
-- **Giọng mặc định kỹ thuật tạm thời: `bf_emma`.** Lời dẫn pilot `bridge-load-explained` được sinh bằng giọng này.
+- Giọng mặc định kỹ thuật tạm thời trước khi người dùng chọn: `bf_emma`.
+- **Người dùng đã chọn giọng kênh `bm_george` (2026-10-29).** Ghi trong `script/narration.json` → `voice.selection`. Lời dẫn pilot đã được sinh lại bằng giọng này (143.4 wpm cho toàn bài).
 - ASR chỉ chứng minh câu nghe rõ, không chứng minh giọng hay hay phát âm đúng. Thứ hạng không thay cho việc nghe bằng tai.
-- **Người dùng chưa duyệt giọng kênh.** Việc duyệt giọng là của người dùng: nghe bốn file `.m4a`, rồi ghi quyết định (người duyệt, ngày, giọng) vào `script/narration.json` → `voice.license` (`approved_by`, `approved_on`). Agent không được tự ghi bước này.
+- Chọn giọng không phải là cấp quyền: `voice.license.status` vẫn là `LICENSE_REVIEW_REQUIRED`, provider vẫn là `PENDING_REVIEW`.
 - Quyền xuất bản của Kokoro là một bước riêng: `docs/licensing/KOKORO_LICENSE_AUDIT.md` (§5).

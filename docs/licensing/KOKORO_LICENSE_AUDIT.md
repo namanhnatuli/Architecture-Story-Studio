@@ -9,7 +9,7 @@
 |---|---|
 | Kokoro cho **preview nội bộ có lời dẫn** (M6) | Dùng được. Hạng quyền trong `config/tts_providers.json` vẫn là **`PENDING_REVIEW`**. Theo luật của registry, agent không được tự nâng hạng quyền |
 | Kokoro cho **xuất bản thương mại** (YouTube có kiếm tiền) | **Ứng viên mạnh, CHƯA được cấp quyền.** Trọng số và code là Apache-2.0, không có điều khoản nào cấm dùng đầu ra cho mục đích thương mại. Còn các điểm mở ở §5, cần một người có tên ghi `clearance` (cleared_by / cleared_on / evidence) |
-| Giọng kênh | Giọng mặc định kỹ thuật **tạm thời** là `bf_emma`, chọn theo tiêu chí đo được (`projects/bridge-load-explained/review/voice_audition/AUDITION.md`). **Người dùng chưa duyệt giọng.** Việc duyệt giọng là một bước riêng, tách khỏi việc kiểm tra license |
+| Giọng kênh | **Người dùng chọn `bm_george` (2026-10-29)** sau buổi thử giọng (`projects/bridge-load-explained/review/voice_audition/AUDITION.md`; trước đó mặc định kỹ thuật là `bf_emma`). Chọn giọng là bước riêng, **không** cấp quyền xuất bản: các điểm ở §5 vẫn còn mở |
 | OmniVoice | Không đổi: `INTERNAL_PREVIEW_ONLY`, không dùng để sinh lời dẫn M6. Audio cũ của Suffolk giữ nguyên |
 
 ## 2. Phiên bản chính xác

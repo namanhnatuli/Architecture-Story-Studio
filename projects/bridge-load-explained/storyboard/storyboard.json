@@ -1,26 +1,26 @@
 {
   "generated_by": "planner 1.0.0 (tools/cli.py build-shots); edit script/visual_beats.json and re-plan, not this file",
-  "plan_sha256": "d1ebe2b6dee61dc6a6a8810dc2b049a5b95609c294e38cb746f28a152c300d61",
+  "plan_sha256": "903d2533e45b924193fc62bf216943af94297c528d619c0fccba54b20981dcf2",
   "key_stills": [
     {
       "id": "SC_001_B1_hold",
       "shot": "SC_001",
-      "time_seconds": 7.8146
+      "time_seconds": 8.9604
     },
     {
       "id": "SC_002_B2_hold",
       "shot": "SC_002",
-      "time_seconds": 10.9771
+      "time_seconds": 12.0083
     },
     {
       "id": "SC_003_B3_hold",
       "shot": "SC_003",
-      "time_seconds": 10.0833
+      "time_seconds": 11.1375
     },
     {
       "id": "SC_004_B4_hold",
       "shot": "SC_004",
-      "time_seconds": 1.8333
+      "time_seconds": 1.925
     },
     {
       "id": "SC_005_B4_exploded_view",
@@ -30,38 +30,38 @@
     {
       "id": "SC_006_B5_hold",
       "shot": "SC_006",
-      "time_seconds": 8.5938
+      "time_seconds": 9.5563
     },
     {
       "id": "SC_007_B6_hold",
       "shot": "SC_007",
-      "time_seconds": 14.0479
+      "time_seconds": 15.8125
     },
     {
       "id": "SC_008_B7_hold",
       "shot": "SC_008",
-      "time_seconds": 3.8271
+      "time_seconds": 4.2396
     },
     {
       "id": "SC_009_B7_hold",
       "shot": "SC_009",
-      "time_seconds": 2.8188
+      "time_seconds": 3.025
     },
     {
       "id": "SC_010_B7_hold",
       "shot": "SC_010",
-      "time_seconds": 3.3917
+      "time_seconds": 3.7125
     },
     {
       "id": "SC_011_B8_side_by_side",
       "shot": "SC_011",
-      "time_seconds": 8.1813
+      "time_seconds": 9.2125
     }
   ],
   "shots": [
     {
       "id": "SC_001",
-      "duration_seconds": 14.208333333333334,
+      "duration_seconds": 16.291666666666668,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -81,8 +81,8 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 3.8333,
-            "disappear": 13.875,
+            "appear": 4.125,
+            "disappear": 15.9583,
             "elements": [
               {
                 "kind": "plate",
@@ -127,8 +127,8 @@
           {
             "id": "B1_load",
             "type": "LOAD_ARROW",
-            "appear": 3.8333,
-            "disappear": 13.875,
+            "appear": 4.125,
+            "disappear": 15.9583,
             "claim_id": "CLM_601",
             "text": "Load",
             "style": null,
@@ -351,8 +351,8 @@
           {
             "id": "B1_ground",
             "type": "COMPONENT_LABEL",
-            "appear": 8.7083,
-            "disappear": 13.875,
+            "appear": 10.125,
+            "disappear": 15.9583,
             "claim_id": null,
             "text": "Ground",
             "style": null,
@@ -479,7 +479,7 @@
         "CLM_601",
         "CLM_602"
       ],
-      "narration": "What happens when weight is placed on a bridge? Traffic, people and the bridge's own weight all press down on its deck. To stay standing, the bridge has to carry that load down into the ground.",
+      "narration": "What happens when weight is placed on a bridge? Traffic, people and the weight of the bridge itself all press on its deck. To stay standing, the bridge has to carry that load down into the ground.",
       "visual_purpose": "A whole bridge; the load on its deck and the ground it must reach [HOLD 1/1: hold steel_truss_bridge]",
       "editorial": {
         "planned_by": "planner 1.0.0",
@@ -497,7 +497,7 @@
     },
     {
       "id": "SC_002",
-      "duration_seconds": 19.958333333333332,
+      "duration_seconds": 21.833333333333332,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -512,9 +512,9 @@
             "steel_truss_bridge_seat_left",
             "steel_truss_bridge_seat_right"
           ],
-          "start_seconds": 9.4,
+          "start_seconds": 10.25,
           "rise_seconds": 0.4,
-          "hold_seconds": 9.4583,
+          "hold_seconds": 10.4833,
           "fall_seconds": 0.4,
           "strength": 0.45
         }
@@ -530,7 +530,7 @@
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
             "appear": 0.2917,
-            "disappear": 19.9583,
+            "disappear": 21.8333,
             "elements": [
               {
                 "kind": "plate",
@@ -576,7 +576,7 @@
             "id": "B2_path",
             "type": "CONCEPTUAL_LOAD_PATH",
             "appear": 0.2917,
-            "disappear": 19.9583,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": null,
             "style": "LOAD",
@@ -1172,8 +1172,8 @@
           {
             "id": "B2_super",
             "type": "HIGHLIGHT_REGION",
-            "appear": 3.9583,
-            "disappear": 9.5,
+            "appear": 4.3333,
+            "disappear": 10.3333,
             "claim_id": "CLM_603",
             "text": "Superstructure",
             "style": null,
@@ -1293,8 +1293,8 @@
           {
             "id": "B2_abut",
             "type": "COMPONENT_LABEL",
-            "appear": 9.5,
-            "disappear": 19.9583,
+            "appear": 10.3333,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": "Abutment",
             "style": null,
@@ -1413,8 +1413,8 @@
           {
             "id": "B2_pier",
             "type": "COMPONENT_LABEL",
-            "appear": 9.5,
-            "disappear": 19.9583,
+            "appear": 10.3333,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": "Pier",
             "style": null,
@@ -1533,8 +1533,8 @@
           {
             "id": "B2_found",
             "type": "COMPONENT_LABEL",
-            "appear": 15.5,
-            "disappear": 19.9583,
+            "appear": 16.9167,
+            "disappear": 21.8333,
             "claim_id": "CLM_604",
             "text": "Foundation",
             "style": null,
@@ -1653,7 +1653,7 @@
         ],
         "reserved": []
       },
-      "start_seconds": 14.208333,
+      "start_seconds": 16.291667,
       "beat_ids": [
         "B2"
       ],
@@ -1693,7 +1693,7 @@
           {
             "concept": "substructure",
             "label": "highlight_peak",
-            "frame": 350,
+            "frame": 382,
             "visible_share": 0.4697,
             "core_area": 0.02821,
             "visible_area": 0.0366,
@@ -1704,7 +1704,7 @@
     },
     {
       "id": "SC_003",
-      "duration_seconds": 18.333333333333332,
+      "duration_seconds": 20.25,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -1720,9 +1720,9 @@
             "timber_beam_bridge_span3_stringers",
             "timber_beam_bridge_span4_stringers"
           ],
-          "start_seconds": 2.825,
+          "start_seconds": 2.975,
           "rise_seconds": 0.4,
-          "hold_seconds": 14.4083,
+          "hold_seconds": 16.175,
           "fall_seconds": 0.4,
           "strength": 0.45,
           "ghost": [
@@ -1744,8 +1744,8 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 7.875,
-            "disappear": 18.3333,
+            "appear": 8.875,
+            "disappear": 20.25,
             "elements": [
               {
                 "kind": "plate",
@@ -1790,8 +1790,8 @@
           {
             "id": "B3_beams",
             "type": "COMPONENT_LABEL",
-            "appear": 2.9167,
-            "disappear": 11.875,
+            "appear": 3.0833,
+            "disappear": 13.2083,
             "claim_id": "CLM_605",
             "text": "Beams",
             "style": null,
@@ -1910,8 +1910,8 @@
           {
             "id": "B3_load",
             "type": "LOAD_ARROW",
-            "appear": 7.875,
-            "disappear": 18.3333,
+            "appear": 8.875,
+            "disappear": 20.25,
             "claim_id": "CLM_601",
             "text": "Load",
             "style": null,
@@ -2075,8 +2075,8 @@
           {
             "id": "B3_bend",
             "type": "CALLOUT",
-            "appear": 7.875,
-            "disappear": 18.3333,
+            "appear": 8.875,
+            "disappear": 20.25,
             "claim_id": "CLM_606",
             "text": "Resists bending",
             "style": null,
@@ -2195,8 +2195,8 @@
           {
             "id": "B3_path",
             "type": "CONCEPTUAL_LOAD_PATH",
-            "appear": 11.875,
-            "disappear": 18.3333,
+            "appear": 13.2083,
+            "disappear": 20.25,
             "claim_id": "CLM_607",
             "text": null,
             "style": "LOAD",
@@ -2384,8 +2384,8 @@
           {
             "id": "B3_cap",
             "type": "COMPONENT_LABEL",
-            "appear": 11.875,
-            "disappear": 18.3333,
+            "appear": 13.2083,
+            "disappear": 20.25,
             "claim_id": "CLM_607",
             "text": "Cap beam",
             "style": null,
@@ -2504,8 +2504,8 @@
           {
             "id": "B3_posts",
             "type": "CALLOUT",
-            "appear": 11.875,
-            "disappear": 18.3333,
+            "appear": 13.2083,
+            "disappear": 20.25,
             "claim_id": "CLM_607",
             "text": "Posts: compression",
             "style": null,
@@ -2656,7 +2656,7 @@
         ],
         "reserved": []
       },
-      "start_seconds": 34.166667,
+      "start_seconds": 38.125,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B3"
@@ -2698,7 +2698,7 @@
           {
             "concept": "stringer",
             "label": "highlight_peak",
-            "frame": 251,
+            "frame": 276,
             "visible_share": 0.8096,
             "core_area": 0.01669,
             "visible_area": 0.05044,
@@ -2728,7 +2728,7 @@
     },
     {
       "id": "SC_004",
-      "duration_seconds": 3.3333333333333335,
+      "duration_seconds": 3.5,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -2781,7 +2781,7 @@
           ],
           "start_seconds": 0.6,
           "rise_seconds": 0.4,
-          "hold_seconds": 1.6333,
+          "hold_seconds": 1.8,
           "fall_seconds": 0.4,
           "strength": 0.45
         }
@@ -2790,7 +2790,7 @@
       "build_variants": [
         "stone_arch_bridge"
       ],
-      "start_seconds": 52.5,
+      "start_seconds": 58.375,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B4"
@@ -2865,7 +2865,7 @@
           {
             "concept": "arch_ring",
             "label": "highlight_peak",
-            "frame": 45,
+            "frame": 47,
             "visible_share": 0.3094,
             "core_area": 0.01746,
             "visible_area": 0.03178,
@@ -2876,7 +2876,7 @@
     },
     {
       "id": "SC_005",
-      "duration_seconds": 6.166666666666667,
+      "duration_seconds": 6.625,
       "visual_type": "BLENDER_3D",
       "transition": "EXPLODED_VIEW",
       "camera": "ELEVATION",
@@ -3012,7 +3012,7 @@
         "stagger_seconds": 0.18,
         "hold_start_seconds": 0.4,
         "explode_seconds": 1.0,
-        "hold_seconds": 3.1233,
+        "hold_seconds": 3.5817,
         "return_seconds": 1.0,
         "hold_end_seconds": 0.2,
         "highlight": {
@@ -3062,7 +3062,7 @@
             "id": "B4_key",
             "type": "COMPONENT_LABEL",
             "appear": 1.4167,
-            "disappear": 4.9167,
+            "disappear": 5.375,
             "claim_id": "CLM_608",
             "text": "Keystone",
             "style": null,
@@ -3182,7 +3182,7 @@
             "id": "B4_vous",
             "type": "COMPONENT_LABEL",
             "appear": 1.5833,
-            "disappear": 4.75,
+            "disappear": 5.2083,
             "claim_id": "CLM_608",
             "text": "Voussoirs",
             "style": null,
@@ -3301,7 +3301,7 @@
         ],
         "reserved": []
       },
-      "start_seconds": 55.833333,
+      "start_seconds": 61.875,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B4"
@@ -3357,7 +3357,7 @@
           {
             "concept": "voussoir",
             "label": "exploded_hold",
-            "frame": 76,
+            "frame": 82,
             "visible_share": 1.0,
             "core_area": 0.06115,
             "visible_area": 0.08353,
@@ -3366,7 +3366,7 @@
           {
             "concept": "keystone",
             "label": "exploded_hold",
-            "frame": 76,
+            "frame": 82,
             "visible_share": 1.0,
             "core_area": 0.0055,
             "visible_area": 0.00762,
@@ -3377,7 +3377,7 @@
     },
     {
       "id": "SC_006",
-      "duration_seconds": 15.625,
+      "duration_seconds": 17.375,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -3430,7 +3430,7 @@
           ],
           "start_seconds": 0.6,
           "rise_seconds": 0.4,
-          "hold_seconds": 13.925,
+          "hold_seconds": 15.675,
           "fall_seconds": 0.4,
           "strength": 0.45
         }
@@ -3446,7 +3446,7 @@
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
             "appear": 0.2917,
-            "disappear": 15.625,
+            "disappear": 17.375,
             "elements": [
               {
                 "kind": "plate",
@@ -3492,7 +3492,7 @@
             "id": "B5_load",
             "type": "LOAD_ARROW",
             "appear": 0.2917,
-            "disappear": 15.625,
+            "disappear": 17.375,
             "claim_id": "CLM_609",
             "text": "Load",
             "style": null,
@@ -3601,7 +3601,7 @@
             "id": "B5_thrust",
             "type": "CONCEPTUAL_LOAD_PATH",
             "appear": 0.2917,
-            "disappear": 15.625,
+            "disappear": 17.375,
             "claim_id": "CLM_609",
             "text": null,
             "style": "COMPRESSION",
@@ -4415,8 +4415,8 @@
           {
             "id": "B5_comp",
             "type": "CALLOUT",
-            "appear": 6.1667,
-            "disappear": 15.625,
+            "appear": 6.9167,
+            "disappear": 17.375,
             "claim_id": "CLM_609",
             "text": "Mainly compression",
             "style": null,
@@ -4579,8 +4579,8 @@
           {
             "id": "B5_react",
             "type": "REACTION_ARROW",
-            "appear": 9.5,
-            "disappear": 15.625,
+            "appear": 10.75,
+            "disappear": 17.375,
             "claim_id": "CLM_610",
             "text": "Supports push back",
             "style": null,
@@ -4768,7 +4768,7 @@
         ],
         "reserved": []
       },
-      "start_seconds": 62.0,
+      "start_seconds": 68.5,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B5"
@@ -4844,7 +4844,7 @@
           {
             "concept": "arch_ring",
             "label": "highlight_peak",
-            "frame": 192,
+            "frame": 213,
             "visible_share": 0.3094,
             "core_area": 0.01746,
             "visible_area": 0.03178,
@@ -4855,7 +4855,7 @@
     },
     {
       "id": "SC_007",
-      "duration_seconds": 25.541666666666668,
+      "duration_seconds": 28.75,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -4877,7 +4877,7 @@
           ],
           "start_seconds": 0.6,
           "rise_seconds": 0.4,
-          "hold_seconds": 23.8417,
+          "hold_seconds": 27.05,
           "fall_seconds": 0.4,
           "strength": 0.45
         }
@@ -4892,8 +4892,8 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 6.2917,
-            "disappear": 25.5417,
+            "appear": 6.9583,
+            "disappear": 28.75,
             "elements": [
               {
                 "kind": "plate",
@@ -4939,7 +4939,7 @@
             "id": "B6_joints",
             "type": "COMPONENT_LABEL",
             "appear": 0.2917,
-            "disappear": 12.2917,
+            "disappear": 13.75,
             "claim_id": "CLM_611",
             "text": "Joints",
             "style": null,
@@ -5058,8 +5058,8 @@
           {
             "id": "B6_legend",
             "type": "TENSION_COMPRESSION_LEGEND",
-            "appear": 6.2917,
-            "disappear": 25.5417,
+            "appear": 6.9583,
+            "disappear": 28.75,
             "claim_id": "CLM_612",
             "text": null,
             "style": null,
@@ -5205,8 +5205,8 @@
           {
             "id": "B6_top",
             "type": "CALLOUT",
-            "appear": 12.2917,
-            "disappear": 25.5417,
+            "appear": 13.75,
+            "disappear": 28.75,
             "claim_id": "CLM_613",
             "text": "Top chord: compression",
             "style": null,
@@ -5357,8 +5357,8 @@
           {
             "id": "B6_bottom",
             "type": "CALLOUT",
-            "appear": 12.2917,
-            "disappear": 25.5417,
+            "appear": 13.75,
+            "disappear": 28.75,
             "claim_id": "CLM_613",
             "text": "Bottom chord: tension",
             "style": null,
@@ -5509,8 +5509,8 @@
           {
             "id": "B6_web",
             "type": "COMPONENT_LABEL",
-            "appear": 19.8333,
-            "disappear": 25.5417,
+            "appear": 22.4583,
+            "disappear": 28.75,
             "claim_id": "CLM_614",
             "text": "Web members",
             "style": null,
@@ -5629,7 +5629,7 @@
         ],
         "reserved": []
       },
-      "start_seconds": 77.625,
+      "start_seconds": 85.875,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B6"
@@ -5676,7 +5676,7 @@
           {
             "concept": "truss_members",
             "label": "highlight_peak",
-            "frame": 311,
+            "frame": 350,
             "visible_share": 0.8264,
             "core_area": 0.00241,
             "visible_area": 0.03858,
@@ -5687,7 +5687,7 @@
     },
     {
       "id": "SC_008",
-      "duration_seconds": 6.958333333333333,
+      "duration_seconds": 7.708333333333333,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -5711,8 +5711,8 @@
           {
             "id": "B7_beam",
             "type": "CALLOUT",
-            "appear": 3.375,
-            "disappear": 6.9583,
+            "appear": 3.7917,
+            "disappear": 7.7083,
             "claim_id": "CLM_606",
             "text": "Bending",
             "style": null,
@@ -5841,7 +5841,7 @@
           }
         ]
       },
-      "start_seconds": 103.166667,
+      "start_seconds": 114.625,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B7"
@@ -5899,7 +5899,7 @@
     },
     {
       "id": "SC_009",
-      "duration_seconds": 5.125,
+      "duration_seconds": 5.5,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -5924,7 +5924,7 @@
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
             "appear": 0.0833,
-            "disappear": 5.125,
+            "disappear": 5.5,
             "elements": [
               {
                 "kind": "plate",
@@ -5970,7 +5970,7 @@
             "id": "B7_arch",
             "type": "CALLOUT",
             "appear": 0.0833,
-            "disappear": 5.125,
+            "disappear": 5.5,
             "claim_id": "CLM_609",
             "text": "Compression",
             "style": null,
@@ -6143,7 +6143,7 @@
           }
         ]
       },
-      "start_seconds": 110.125,
+      "start_seconds": 122.333333,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B7"
@@ -6201,7 +6201,7 @@
     },
     {
       "id": "SC_010",
-      "duration_seconds": 6.166666666666667,
+      "duration_seconds": 6.75,
       "visual_type": "BLENDER_3D",
       "transition": "HOLD",
       "camera": "BRIDGE_THREE_QUARTER",
@@ -6226,7 +6226,7 @@
             "id": "B7_truss",
             "type": "CALLOUT",
             "appear": 0.0833,
-            "disappear": 6.1667,
+            "disappear": 6.75,
             "claim_id": "CLM_612",
             "text": "Tension and compression",
             "style": null,
@@ -6355,7 +6355,7 @@
           }
         ]
       },
-      "start_seconds": 115.25,
+      "start_seconds": 127.833333,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B7"
@@ -6413,7 +6413,7 @@
     },
     {
       "id": "SC_011",
-      "duration_seconds": 14.875,
+      "duration_seconds": 16.75,
       "visual_type": "BLENDER_3D",
       "transition": "SIDE_BY_SIDE",
       "camera": "BRIDGE_STACK",
@@ -6439,12 +6439,12 @@
           "components": "DIFFERENCES",
           "start_seconds": 0.6,
           "rise_seconds": 0.4,
-          "hold_seconds": 13.175,
+          "hold_seconds": 15.05,
           "fall_seconds": 0.4,
           "strength": 0.3
         }
       },
-      "start_seconds": 121.416667,
+      "start_seconds": 134.583333,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B8"

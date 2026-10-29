@@ -29,7 +29,7 @@
   - nhãn TOP được kiểm.
 - **Báo cáo:** `research-map` (câu → claim → nguồn → asset → bộ phận → chú thích → thời điểm → QA).
 - **Profile:** alias `INTERNAL_NARRATED_PREVIEW` = `NARRATED_INTERNAL_REVIEW`.
-- **Pilot mới `bridge-load-explained`:** "How Does a Bridge Carry Its Load?", 8 beat, 14 claim (ODOT/FHWA/SCI/Yale), 26 câu Kokoro `bf_emma`, 11 shot, 136.29 s, 27 chú thích trên 9 shot (+ thẻ "not to scale").
+- **Pilot mới `bridge-load-explained`:** "How Does a Bridge Carry Its Load?", 8 beat, 14 claim (ODOT/FHWA/SCI/Yale), 26 câu Kokoro `bm_george` (giọng do người dùng chọn; bản đầu dùng `bf_emma`), 11 shot, 151.33 s, 27 chú thích trên 9 shot (+ thẻ "not to scale").
 - **Sửa bridge-story-m5 B7:** "Side by side, …" thành "Let's compare them one at a time: …". Chỉ 3 shot của B7 đổi thời lượng.
 - **Đánh giá planner:** 29 ca (thêm 5 ca M6).
 

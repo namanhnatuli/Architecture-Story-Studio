@@ -240,7 +240,7 @@ def generate(project_dir, client=None, regenerate=False, log=print, purpose="int
     return manifest.data
 
 
-NON_AUDIO_VOICE_KEYS = ("license", "pace_note")
+NON_AUDIO_VOICE_KEYS = ("license", "pace_note", "selection")   # M6: the user's voice choice record
 
 
 def narration_hash(narration, lexicon=None):

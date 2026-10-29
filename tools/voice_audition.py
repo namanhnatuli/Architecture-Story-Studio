@@ -93,7 +93,7 @@ def main():
                "params": {"speed": 1.0, "seed": 0, "lang_code": "b"}, "model_revision": kokoro.REVISION,
                "ranking_rule": "VOICES.md overall grade, then max ASR WER, then |wpm - 160|, then level spread",
                "ranking": order, "provisional_technical_default": order[0],
-               "human_approval": None, "voices": rows,
+               "user_selection": narration["voice"].get("selection"), "voices": rows,
                "measured_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
     (out / "metrics.json").write_text(json.dumps(metrics, indent=2, ensure_ascii=False) + "\n")
     write_md(out, metrics)
@@ -119,13 +119,14 @@ def write_md(out, m):
         lines.append(f"- `{v}`: " + " / ".join(f"\"{a['text']}\" (WER {a['wer']:.3f})" for a in m["voices"][v]["asr"]))
     lines += ["", "## Kết luận kỹ thuật (không phải quyết định chọn giọng)", "",
               f"- Quy tắc xếp hạng (chỉ dựa trên số đo): {m['ranking_rule']}.",
-              f"- **Giọng mặc định kỹ thuật tạm thời: `{m['provisional_technical_default']}`.** Lời dẫn pilot "
-              "`bridge-load-explained` được sinh bằng giọng này.",
+              f"- Giọng mặc định kỹ thuật tạm thời (theo số đo): `{m['provisional_technical_default']}`.",
+              (f"- **Người dùng đã chọn giọng kênh `{m['user_selection']['voice']}` "
+               f"({m['user_selection']['selected_on']}).** Ghi trong `script/narration.json` → `voice.selection`."
+               if m.get("user_selection") else "- **Người dùng chưa chọn giọng kênh.**"),
               "- ASR chỉ chứng minh câu nghe rõ, không chứng minh giọng hay hay phát âm đúng. Thứ hạng không thay cho "
               "việc nghe bằng tai.",
-              "- **Người dùng chưa duyệt giọng kênh.** Việc duyệt giọng là của người dùng: nghe bốn file `.m4a`, rồi ghi "
-              "quyết định (người duyệt, ngày, giọng) vào `script/narration.json` → `voice.license` (`approved_by`, "
-              "`approved_on`). Agent không được tự ghi bước này.",
+              "- Chọn giọng không phải là cấp quyền: `voice.license.status` và hạng quyền provider không đổi. "
+              "Agent không tự chọn giọng thay người dùng.",
               "- Quyền xuất bản của Kokoro là một bước riêng: `docs/licensing/KOKORO_LICENSE_AUDIT.md` (§5)."]
     (out / "AUDITION.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
