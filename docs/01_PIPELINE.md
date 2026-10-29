@@ -33,3 +33,6 @@
 - Có thể làm research draft, mã procedural, demo preview, test/validator không cần duyệt từng bước.
 - Không được khẳng định historical factual pass khi thiếu nguồn.
 - Không được render final dài hoặc đăng YouTube nếu thiếu G1/G4/G5.
+
+## M6 — phim có lời dẫn, khóa theo audio (2026-10-29)
+`research → script (narration.json + visual_beats.json) → narrate → asr-check → align → lock-audio → plan-visuals → validate-plan → build-shots → check-blender → smoke → preview --preset review → assemble → research-map → gates`. Chi tiết: `docs/m6/M6_ARCHITECTURE.md`. Chưa duyệt giọng, chưa cấp quyền TTS và chưa duyệt biên tập thì kết quả luôn chỉ là preview nội bộ.

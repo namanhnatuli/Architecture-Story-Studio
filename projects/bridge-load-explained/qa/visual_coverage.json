@@ -1,0 +1,629 @@
+{
+  "project_id": "bridge-load-explained",
+  "executable": true,
+  "visibility_summary": {
+    "shots_assessed": 6,
+    "target_rows": 7,
+    "rows_passing": 7,
+    "uncertain_rows": 0,
+    "issues_detected": 1,
+    "auto_repaired": 1,
+    "manual_review": 0,
+    "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
+  },
+  "beats": [
+    {
+      "beat_id": "B1",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "HOLD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 14.2,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "HOLD: Hold the structure"
+      ],
+      "assets": [
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "planned_seconds": 14.208,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B2",
+      "visual_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 19.95,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+      ],
+      "assets": [
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [
+        "substructure"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_002"
+      ],
+      "planned_seconds": 19.958,
+      "readable": {
+        "substructure": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_002",
+          "concept": "substructure",
+          "label": "highlight_peak",
+          "frame": 350,
+          "visible_share": 0.4697,
+          "core_area": 0.02821,
+          "visible_area": 0.0366,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
+    },
+    {
+      "beat_id": "B3",
+      "visual_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 18.3,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+      ],
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        }
+      ],
+      "semantic_targets": [
+        "stringer"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_003"
+      ],
+      "planned_seconds": 18.333,
+      "readable": {
+        "stringer": true
+      },
+      "visual_repairs": [
+        {
+          "beat_id": "B3",
+          "shot_id": "SC_003",
+          "concept": "stringer",
+          "problems": [
+            "OCCLUDED"
+          ],
+          "frame": "highlight_peak",
+          "before": {
+            "visible_share": 0.1362,
+            "core_area": 0.0,
+            "visible_area": 0.00849
+          },
+          "after": {
+            "visible_share": 0.8096,
+            "core_area": 0.01669,
+            "visible_area": 0.05044
+          },
+          "evaluated": [
+            {
+              "remedy": "GHOST:plank",
+              "result": "PASS",
+              "detail": "share 0.81, core 1.67%, area 5.04% -> PASS"
+            }
+          ],
+          "chosen": "GHOST:plank"
+        }
+      ],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_003",
+          "concept": "stringer",
+          "label": "highlight_peak",
+          "frame": 251,
+          "visible_share": 0.8096,
+          "core_area": 0.01669,
+          "visible_area": 0.05044,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
+    },
+    {
+      "beat_id": "B4",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "CLOSEUP_EXPLODE",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 9.5,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CLOSEUP_EXPLODE timing: cuts on sentence starts [1]",
+        "CLOSEUP_EXPLODE: Establish the structure, then a close-up in which only the focus pieces separate, showing their individual shape"
+      ],
+      "assets": [
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        }
+      ],
+      "semantic_targets": [
+        "arch_ring",
+        "keystone",
+        "voussoir"
+      ],
+      "templates": [
+        "HOLD",
+        "EXPLODED_VIEW"
+      ],
+      "shot_ids": [
+        "SC_004",
+        "SC_005"
+      ],
+      "planned_seconds": 9.5,
+      "readable": {
+        "arch_ring": true,
+        "keystone": true,
+        "voussoir": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_004",
+          "concept": "arch_ring",
+          "label": "highlight_peak",
+          "frame": 45,
+          "visible_share": 0.3094,
+          "core_area": 0.01746,
+          "visible_area": 0.03178,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_005",
+          "concept": "voussoir",
+          "label": "exploded_hold",
+          "frame": 76,
+          "visible_share": 1.0,
+          "core_area": 0.06115,
+          "visible_area": 0.08353,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_005",
+          "concept": "keystone",
+          "label": "exploded_hold",
+          "frame": 76,
+          "visible_share": 1.0,
+          "core_area": 0.0055,
+          "visible_area": 0.00762,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
+    },
+    {
+      "beat_id": "B5",
+      "visual_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 15.6,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+      ],
+      "assets": [
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        }
+      ],
+      "semantic_targets": [
+        "arch_ring"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_006"
+      ],
+      "planned_seconds": 15.625,
+      "readable": {
+        "arch_ring": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_006",
+          "concept": "arch_ring",
+          "label": "highlight_peak",
+          "frame": 192,
+          "visible_share": 0.3094,
+          "core_area": 0.01746,
+          "visible_area": 0.03178,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
+    },
+    {
+      "beat_id": "B6",
+      "visual_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 25.525,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+      ],
+      "assets": [
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [
+        "truss_members"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_007"
+      ],
+      "planned_seconds": 25.542,
+      "readable": {
+        "truss_members": true
+      },
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": [
+        {
+          "shot_id": "SC_007",
+          "concept": "truss_members",
+          "label": "highlight_peak",
+          "frame": 311,
+          "visible_share": 0.8264,
+          "core_area": 0.00241,
+          "visible_area": 0.03858,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
+    },
+    {
+      "beat_id": "B7",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "SEQUENTIAL_COMPARISON",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 18.225,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "SEQUENTIAL_COMPARISON timing: cuts on sentence starts [2, 3]",
+        "SEQUENTIAL_COMPARISON: One variant at a time under one shared locked camera (same scale), captioned"
+      ],
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        },
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        },
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "HOLD",
+        "HOLD",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_008",
+        "SC_009",
+        "SC_010"
+      ],
+      "planned_seconds": 18.25,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6344,
+                "occupancy": 0.5582,
+                "width_px": 563.2,
+                "detail_m": 0.3,
+                "detail_px": 5.79,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 5.79,
+            "min_width": 0.88
+          },
+          "shot_id": "SC_008"
+        },
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6383,
+                "occupancy": 0.5617,
+                "width_px": 563.2,
+                "detail_m": 0.743,
+                "detail_px": 14.33,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 14.33,
+            "min_width": 0.88
+          },
+          "shot_id": "SC_009"
+        },
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "detail",
+          "scale": "COMMON",
+          "sequence": [
+            "timber_beam_bridge",
+            "stone_arch_bridge",
+            "steel_truss_bridge"
+          ],
+          "metrics": {
+            "px_per_m": 19.29,
+            "models": {
+              "main": {
+                "width": 0.88,
+                "height": 0.6902,
+                "occupancy": 0.6074,
+                "width_px": 563.2,
+                "detail_m": 0.2,
+                "detail_px": 3.86,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 3.86,
+            "min_width": 0.88
+          },
+          "shot_id": "SC_010"
+        }
+      ],
+      "visibility": []
+    },
+    {
+      "beat_id": "B8",
+      "visual_intent": "SUMMARIZE_DIFFERENCES",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 14.875,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CONTINUE_COMPARISON rejected (INVALID_REQUEST): no comparison of the same states to continue",
+        "COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned (layout chosen by planner/composition.py: STACK or ROW, gap)"
+      ],
+      "assets": [
+        {
+          "concept": "timber_beam_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_timber_beam_01",
+          "explanation": "bridge_timber_beam_01 (validated, ILLUSTRATIVE) matches bridge/timber_beam"
+        },
+        {
+          "concept": "stone_arch_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_stone_arch_03",
+          "explanation": "bridge_stone_arch_03 (validated, ILLUSTRATIVE) matches bridge/stone_arch; preferred over ['bridge_stone_arch_05']"
+        },
+        {
+          "concept": "steel_truss_bridge",
+          "status": "REUSE_EXISTING",
+          "asset_id": "bridge_steel_truss_pratt_01",
+          "explanation": "bridge_steel_truss_pratt_01 (validated, ILLUSTRATIVE) matches bridge/steel_truss with {'truss_pattern': 'pratt'}"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [
+        "SIDE_BY_SIDE"
+      ],
+      "shot_ids": [
+        "SC_011"
+      ],
+      "planned_seconds": 14.875,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [
+        {
+          "layout": "SIDE_BY_SIDE_ROW",
+          "gap_ratio": 0.2,
+          "label_band": 0.24,
+          "purpose": "overview",
+          "scale": "COMMON",
+          "metrics": {
+            "px_per_m": 5.75,
+            "models": {
+              "timber_beam_bridge": {
+                "width": 0.2647,
+                "height": 0.1686,
+                "occupancy": 0.0446,
+                "width_px": 169.4,
+                "detail_m": 0.3,
+                "detail_px": 1.73,
+                "clipped": false,
+                "in_label_band": false
+              },
+              "stone_arch_bridge": {
+                "width": 0.2647,
+                "height": 0.1699,
+                "occupancy": 0.045,
+                "width_px": 169.4,
+                "detail_m": 0.743,
+                "detail_px": 4.28,
+                "clipped": false,
+                "in_label_band": false
+              },
+              "steel_truss_bridge": {
+                "width": 0.2647,
+                "height": 0.1853,
+                "occupancy": 0.049,
+                "width_px": 169.4,
+                "detail_m": 0.2,
+                "detail_px": 1.15,
+                "clipped": false,
+                "in_label_band": false
+              }
+            },
+            "overlap": 0.0,
+            "label_clash": false,
+            "scale": "COMMON",
+            "min_detail_px": 1.15,
+            "min_width": 0.2647
+          },
+          "candidates": [
+            {
+              "layout": "STACK",
+              "gap_ratio": 0.5,
+              "ok": false,
+              "problems": [
+                "smallest model 25% of the frame width (< 25%)"
+              ]
+            },
+            {
+              "layout": "STACK",
+              "gap_ratio": 0.25,
+              "ok": false,
+              "problems": [
+                "captions collide with the next row"
+              ]
+            },
+            {
+              "layout": "ROW",
+              "gap_ratio": 0.35,
+              "ok": false,
+              "problems": [
+                "smallest model 24% of the frame width (< 25%)"
+              ]
+            },
+            {
+              "layout": "ROW",
+              "gap_ratio": 0.2,
+              "ok": true,
+              "problems": []
+            }
+          ],
+          "shot_id": "SC_011"
+        }
+      ],
+      "visibility": []
+    }
+  ]
+}

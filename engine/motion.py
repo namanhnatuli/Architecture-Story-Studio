@@ -566,10 +566,11 @@ def split_fades(plan, suffix=FADE_SUFFIX):
 
 
 # ---------------------------------------------------------------- HOLD / SIDE_BY_SIDE
-HOLD_DEFAULTS = {"template": "HOLD", "state": None, "duration_seconds": None, "highlight": None, "label": None}
+HOLD_DEFAULTS = {"template": "HOLD", "state": None, "duration_seconds": None, "highlight": None, "label": None,
+                 "label_position": None}
 SIDE_BY_SIDE_DEFAULTS = {"template": "SIDE_BY_SIDE", "states": None, "duration_seconds": None,
                          "gap_ratio": 0.35, "label_band": 0.12, "highlight": None, "intro": None, "labels": None,
-                         "layout": "ROW"}
+                         "layout": "ROW", "label_position": None}
 INTRO_DEFAULTS = {"from_state": None, "seconds": 1.5, "easing": "SMOOTH", "fade_start": 0.35, "fade_end": 0.9}
 ORTHO = "data.ortho_scale"  # camera data channel (orthographic scale)
 

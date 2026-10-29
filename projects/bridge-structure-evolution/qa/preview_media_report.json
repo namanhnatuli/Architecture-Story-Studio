@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-28T15:36:17.491528+00:00",
+  "utc": "2026-10-29T15:20:06.918459+00:00",
   "preset": "preview",
   "files": {
     "output/shots/SC_001.mp4": {
@@ -16,7 +16,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 76304
+      "size_bytes": 76795
     },
     "output/shots/SC_002.mp4": {
       "codec": "h264",
@@ -32,7 +32,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 209951
+      "size_bytes": 208797
     },
     "output/shots/SC_003.mp4": {
       "codec": "h264",
@@ -48,7 +48,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 51170
+      "size_bytes": 51279
     },
     "output/shots/SC_004.mp4": {
       "codec": "h264",
@@ -64,7 +64,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 261616
+      "size_bytes": 261504
     },
     "output/shots/SC_005.mp4": {
       "codec": "h264",
@@ -80,7 +80,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 58396
+      "size_bytes": 59725
     },
     "output/shots/SC_006.mp4": {
       "codec": "h264",
@@ -96,7 +96,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 146026
+      "size_bytes": 146384
     },
     "output/shots/SC_007.mp4": {
       "codec": "h264",
@@ -112,7 +112,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 52221
+      "size_bytes": 53055
     },
     "output/bridge_structure_evolution_preview.mp4": {
       "codec": "h264",
@@ -128,7 +128,7 @@
         "audio": 0
       },
       "decode_errors": 0,
-      "size_bytes": 764514
+      "size_bytes": 762365
     }
   },
   "expected": {
@@ -180,13 +180,13 @@
   "storyboard_sha256": "7fabfd21076419d9f3ce298a8b7b55cd7f69f04d6af016d52cb4e0c2ec823470",
   "plan_sha256": null,
   "render_keys": {
-    "SC_001": "91f3f2ca9b4a12e8691e9ebdcf49a1dada1ee7a37779d2898abde3e47a3a2d59",
-    "SC_002": "fc3cd5d968cafcf50719ec0fa0466fc9c09aa7edbbb3abe7260c0d50b7ef86de",
-    "SC_003": "559ad3bd04e6b287f8f752e712accd24b91248ea68d023564bb727ae4857fc8c",
-    "SC_004": "65d6ec9a59d25dc3fa595eb3467463e1d9c3b374844ddb4f2856a9e0adba1b62",
-    "SC_005": "0449a7194c29f07e2dace68c40ded0209cb40f71d91587d6a88b344b517af16d",
-    "SC_006": "3fbb1f742e3c818a9eaadeebcfebfa4f316b01e91f14da701333aac0ffcada6a",
-    "SC_007": "d8498b3e218bc24f3db23995e27b2a3e96a6b54d56307292f2ee550139b6354e"
+    "SC_001": "fd7a6711a1daf82170f497760b52c380941967abf19f93ce867af64377d4cca3",
+    "SC_002": "1b5ed78f0a37f67047041ef72a5a93114aa4b6207f9bb01fe406206f41af0a5c",
+    "SC_003": "ea61e4c69e0056ed9813b139f9d63a23b367fd03c446b5588749a204c0978aa0",
+    "SC_004": "aaabe511fde0a28968475b31177dcae4c3a116303b7aa517eafd68039dc8562f",
+    "SC_005": "92ff1c3951ecfda850760433be61e990db5094023a1f7ef9b85bf5f4ef859997",
+    "SC_006": "959ee9db182faf7bf9e4242a680aaa4ff75e1cd41d27d0d3fe15bb249f3d2e8f",
+    "SC_007": "52048335d041b6582d2069db24fcb09da121026ee6bb240030a03a759de4e437"
   },
   "cuts": [
     {
@@ -204,7 +204,7 @@
     {
       "cut": "SC_003->SC_004",
       "mode": "match",
-      "ssim": 1.0,
+      "ssim": 0.99999,
       "ok": true
     },
     {
@@ -222,7 +222,7 @@
     {
       "cut": "SC_006->SC_007",
       "mode": "hard",
-      "ssim": 0.66117,
+      "ssim": 0.66118,
       "ok": true
     }
   ],

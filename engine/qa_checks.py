@@ -23,6 +23,7 @@ FRAME_MARGIN = 0.01   # opaque geometry must stay at least 1% inside the frame
 STRUCTURAL_ROLES = {"rafters", "ridge_beam"}  # members that must not pass through shared parts at rest
 HIGHLIGHT_MIN_VISIBLE = 0.25   # share of a highlighted set's silhouette not hidden behind other opaque parts
 HIGHLIGHT_MIN_FRAME = 0.003    # and visible area as a share of the frame
+HIGHLIGHT_MIN_CORE = 0.002     # or a compact visible face (config/visual_planning.json visibility.min_core_area)
 RAY_GRID = (192, 108)          # one orthographic ray per 3.3 x 3.3 px at 640 x 360
 
 
@@ -95,10 +96,12 @@ def _combined_bvh(objs, depsgraph):
     return BVHTree.FromPolygons(verts, polys), owner
 
 
-def highlight_visibility(ctx, names, frame):
+def highlight_visibility(ctx, names, frame, with_core=False):
     """(visible share of the targets' silhouette, visible share of the frame): orthographic
     rays on a grid over the camera frame; a ray counts when the first opaque surface it
-    meets belongs to a target. Parts at >= 50 % transparency (ghosted) do not occlude."""
+    meets belongs to a target. Parts at >= 50 % transparency (ghosted) do not occlude.
+    with_core: also the compact visible area (visible rays whose 4 neighbours are visible
+    too: not a sliver), the planner/visibility.verdict criterion (M5.5)."""
     ctx.scene.frame_set(frame)
     dg = bpy.context.evaluated_depsgraph_get()
     opaque = [o for o in ctx.render_objects.values() if o.type == "MESH" and _visible(o)]
@@ -114,6 +117,7 @@ def highlight_visibility(ctx, names, frame):
     y0, y1 = min(c.y for c in corners), max(c.y for c in corners)
     nx, ny = RAY_GRID
     silhouette = seen = 0
+    grid = set()
     for j in range(ny):
         for i in range(nx):
             origin = cam.matrix_world @ Vector((x0 + (i + 0.5) / nx * (x1 - x0), y0 + (j + 0.5) / ny * (y1 - y0), 0.0))
@@ -123,6 +127,10 @@ def highlight_visibility(ctx, names, frame):
             idx = every.ray_cast(origin, direction)[2]
             if idx is not None and owner[idx] in names:
                 seen += 1
+                grid.add((i, j))
+    if with_core:
+        core = sum(1 for i, j in grid if {(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)} <= grid)
+        return seen / max(silhouette, 1), seen / (nx * ny), core / (nx * ny)
     return seen / max(silhouette, 1), seen / (nx * ny)
 
 
@@ -156,7 +164,7 @@ def signature(ctx, frames):
     return h.hexdigest()
 
 
-def check_shot(ctx, states, report):
+def check_shot(ctx, states, report, project=None, preset="preview"):
     sid = ctx.shot["id"]
     template = ctx.cfg["template"]
     frames = sample_frames(ctx)
@@ -319,7 +327,7 @@ def check_shot(ctx, states, report):
         report.add(sid, "replace_start_end_states", not issues, "; ".join(issues) or
                    f"{len(out_names)} parts removed, {len(in_names)} landed exactly (tol {TRANSFORM_TOL})")
     elif template == "EXPLODED_VIEW":
-        names = sorted(plan.tracks)
+        names = sorted(n for n in plan.tracks if n in ctx.objects)   # model parts (not M6 annotation fades)
         issues = []
         ctx.scene.frame_set(plan.markers["exploded_hold"])
         dists = {n: math.dist(tuple(ctx.objects[n].location), comps[n].location) for n in names}
@@ -407,13 +415,16 @@ def check_shot(ctx, states, report):
     marker = {"HOLD": "highlight_peak", "EXPLODED_VIEW": "exploded_hold"}.get(template)
     if marker and isinstance(h.get("components"), list) and marker in plan.markers:
         names = {templates.object_name(templates.MAIN_SLOT, i) for i in h["components"]}
-        share, area = highlight_visibility(ctx, names, plan.markers[marker])
+        share, area, core = highlight_visibility(ctx, names, plan.markers[marker], with_core=True)
         ghosts = h.get("ghost") or []
-        report.add(sid, "highlight_targets_visible", share >= HIGHLIGHT_MIN_VISIBLE and area >= HIGHLIGHT_MIN_FRAME,
-                   f"{share * 100:.0f}% of the highlighted silhouette visible, {area * 100:.2f}% of the frame at "
-                   f"frame {plan.markers[marker]}" + (f"; {len(ghosts)} covering part(s) ghosted" if ghosts else "")
-                   + ("" if share >= HIGHLIGHT_MIN_VISIBLE else "; mostly hidden: ghost the covering parts, "
-                      "explode, or choose another camera"))
+        # Same rule as the planner's Level 1 verdict: mostly unhidden, or a compact visible face
+        # (an arch ring set in its spandrel shows only its face); a sliver is neither.
+        reads = share >= HIGHLIGHT_MIN_VISIBLE or core >= HIGHLIGHT_MIN_CORE
+        report.add(sid, "highlight_targets_visible", reads and area >= HIGHLIGHT_MIN_FRAME,
+                   f"{share * 100:.0f}% of the highlighted silhouette visible, {area * 100:.2f}% of the frame, compact "
+                   f"face {core * 100:.2f}% at frame {plan.markers[marker]}"
+                   + (f"; {len(ghosts)} covering part(s) ghosted" if ghosts else "")
+                   + ("" if reads else "; mostly hidden: ghost the covering parts, explode, or choose another camera"))
 
     # 8. The pure-Python framing maths agrees with Blender's projection (settled camera).
     ctx.scene.frame_set(settle)
@@ -478,8 +489,9 @@ def check_shot(ctx, states, report):
                        for c in label.evaluated_get(dg).bound_box]
             xs, ys = [c.x for c in corners], [c.y for c in corners]
             stack = ctx.cfg.get("layout", "ROW") == "STACK"
-            if min(xs) < FRAME_MARGIN or max(xs) > 1 - FRAME_MARGIN or min(ys) < 0.005 or \
-                    (not stack and max(ys) > ctx.bottom_band):
+            top = ctx.cfg.get("label_position") == "TOP"   # M6 narrated: caption at the top of the frame
+            if min(xs) < FRAME_MARGIN or max(xs) > 1 - FRAME_MARGIN or min(ys) < 0.005 or max(ys) > 0.995 or \
+                    (not stack and not top and max(ys) > ctx.bottom_band) or (top and min(ys) < 0.5):
                 issues.append(f"{slot_id}: label box x {min(xs):.3f}-{max(xs):.3f}, y {min(ys):.3f}-{max(ys):.3f} "
                               f"outside the frame/label band {ctx.bottom_band:.2f}")
             for other, parts in ctx.slots.items():   # never on top of a model (any slot)
@@ -505,6 +517,9 @@ def check_shot(ctx, states, report):
                    if a[0] < b[1] and b[0] < a[1] and a[2] < b[3] and b[2] < a[3]]
         report.add(sid, "labels_in_band", not issues, "; ".join(issues) or
                    f"{len(ctx.labels)} captions inside the label band, centred under their models, no overlap")
+    if ctx.shot.get("annotations") or ctx.cfg.get("label_position") == "TOP" or ctx.labels:
+        from engine import qa_annotations   # M6
+        qa_annotations.check(ctx, report, project, preset)
     return frames
 
 
@@ -550,9 +565,9 @@ def run_all(project_dir, preset="preview"):
             signatures[sid] = (check_card(ctx, report), None)
             signatures[sid] = (signatures[sid][0], signature(ctx, signatures[sid][0]))
             continue
-        frames = check_shot(ctx, states, report)
+        frames = check_shot(ctx, spec.shot_states(states, shot), report, data["project"], preset)
         if ctx.cfg["template"] != "SIDE_BY_SIDE":
-            group = (tuple(templates.layout_slots(shot, states)[0][1]), shot.get("camera"),
+            group = (shot.get("scene_context"), tuple(templates.layout_slots(shot, states)[0][1]), shot.get("camera"),
                      tuple(shot.get("camera_focus") or ()), float(shot.get("camera_safe_band", 0.0)))
             cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale, group)
         elif ctx.camera_keys:
@@ -575,8 +590,10 @@ def run_all(project_dir, preset="preview"):
 
     # A SIDE_BY_SIDE intro must open on exactly the single-model framing (seamless cut):
     # the camera of shots that build every variant, without focus or safe band.
-    everything = tuple(spec.variant_map(states))
-    ref_id = next((sid for sid, (m, s, key) in cameras.items() if key[0] == everything and not key[2] and not key[3]),
+    def everything(context):
+        return tuple(spec.variant_map(spec.context_view(states, context) if context else states))
+    ref_id = next((sid for sid, (m, s, key) in cameras.items()
+                   if key[1] == everything(key[0]) and not key[3] and not key[4]),
                   next(iter(cameras), None))
     for sid, (rot, loc, ortho, shift) in intros.items():
         if ref_id is None:

@@ -1,30 +1,30 @@
 # Visual-planning evaluation (M5.5)
 
-24/24 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
+29/29 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
 
 | Dimension | Checks passed |
 |---|---|
-| narrative_relevance | 25/25 |
+| narrative_relevance | 31/31 |
 | asset_selection | 9/9 |
-| target_selection | 14/14 |
+| target_selection | 25/25 |
 | animation_suitability | 14/14 |
 | camera_readability | 5/5 |
 | target_visibility | 9/9 |
 | timing_feasibility | 2/2 |
-| evidence_compatibility | 3/3 |
-| visual_continuity | 4/4 |
+| evidence_compatibility | 5/5 |
+| visual_continuity | 5/5 |
 | cross_family_reuse | 2/2 |
 
 | Kind | Cases passed |
 |---|---|
-| positive | 11/11 |
-| negative | 6/6 |
+| positive | 13/13 |
+| negative | 8/8 |
 | ambiguous | 3/3 |
-| missing_capability | 4/4 |
+| missing_capability | 5/5 |
 
 | Family | Cases passed |
 |---|---|
-| bridge | 18/18 |
+| bridge | 23/23 |
 | roof | 6/6 |
 
 ## Cases
@@ -138,3 +138,28 @@
 - **MISS-04** (missing_capability, bridge) A historically verified arch: illustrative assets cannot stand in: **PASS**
   - ok [asset_selection] status EVIDENCE_BLOCKED (want EVIDENCE_BLOCKED)
   - ok [asset_selection] report mentions 'HISTORICALLY_VERIFIED'
+- **M6-POS-01** (positive, bridge) Audio-locked arch beat: load arrow, compression path, callout and inclined reactions all anchor and place: **PASS**
+  - ok [narrative_relevance] status COVERED (want COVERED)
+  - ok [narrative_relevance] strategy HOLD_HIGHLIGHT (want ['HOLD_HIGHLIGHT'])
+  - ok [evidence_compatibility] evidence INTERNAL_PREVIEW
+  - ok [target_selection] annotation B5_load: PLACED (want PLACED)
+  - ok [target_selection] annotation B5_thrust: PLACED (want PLACED)
+  - ok [target_selection] annotation B5_comp: PLACED (want PLACED)
+  - ok [target_selection] annotation B5_react: PLACED (want PLACED)
+- **M6-POS-02** (positive, bridge) 'One at a time' narration on a sequential comparison is consistent; one locked camera; per-model callouts: **PASS**
+  - ok [narrative_relevance] strategy SEQUENTIAL_COMPARISON (want ['SEQUENTIAL_COMPARISON'])
+  - ok [visual_continuity] one locked camera for the beat's shots
+  - ok [target_selection] annotation B7_beam: PLACED (want PLACED)
+  - ok [target_selection] annotation B7_arch: PLACED (want PLACED)
+  - ok [target_selection] annotation B7_truss: PLACED (want PLACED)
+  - ok [narrative_relevance] SEQUENTIAL: ['CONSISTENT'] (want CONSISTENT)
+- **M6-NEG-01** (negative, bridge) A tension statement on a diagonal backed only by the chord claim (CLM_613) is refused: **PASS**
+  - ok [evidence_compatibility] planning error: beat B6 annotation B6_bottom: claim CLM_613 does not state a force in 'diagonal_members' (its components: ['truss_chord'])
+- **M6-NEG-02** (negative, bridge) 'Side by side' narration while the models are shown one at a time is a blocking contradiction (M5.5 B7): **PASS**
+  - ok [narrative_relevance] strategy SEQUENTIAL_COMPARISON (want ['SEQUENTIAL_COMPARISON'])
+  - ok [narrative_relevance] SIMULTANEOUS: ['CONTRADICTION'] (want CONTRADICTION)
+- **M6-MISS-01** (missing_capability, bridge) An annotation anchored to a component the arch does not have (truss chord) fails instead of floating: **PASS**
+  - ok [target_selection] status PARTIALLY_COVERED (want PARTIALLY_COVERED)
+  - ok [target_selection] annotation B5_comp: FAILED (want FAILED)
+  - ok [target_selection] annotation B5_react: PLACED (want PLACED)
+  - ok [target_selection] report mentions 'anchor target not found'

@@ -67,6 +67,8 @@ class ShotContext:
     fade_twins: dict = None      # original name -> blended twin object
     camera_keys: dict = None     # SIDE_BY_SIDE intro camera start/end, else None
     labels: dict = None          # SIDE_BY_SIDE slot id -> label text object (static, in the label band)
+    annotations: dict = None     # M6: annotation id -> objects (engine/annotations.py)
+    annotation_texts: dict = None  # M6: annotation id -> [(text object, layout element)]
 
 
 def purge_data():
@@ -114,6 +116,7 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     if errors:
         raise ValueError("states.json invalid: " + "; ".join(errors))
     shot = find_shot(data["story"], shot_id)
+    states = spec.shot_states(states, shot)   # M6: the shot's scene context (multi-family projects)
     if shot.get("visual_type", "BLENDER_3D") == "MOTION_GRAPHICS":
         from engine import diagram
         scene = _prepare_scene(shot_id, isolated)
@@ -204,11 +207,21 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
 
     labels = {}
     if cfg["template"] == "SIDE_BY_SIDE" and cfg.get("labels"):
+        layout = cfg.get("layout", "ROW")
+        if layout == "ROW" and cfg.get("label_position") == "BAND_TOP":
+            layout = "BAND_TOP"
         labels = build_labels(cfg["labels"], objects, verts, offsets, fit, basis, aspect, bottom_band, style,
-                              geometry.make_collection("80_LABELS", root), cfg.get("layout", "ROW"))
+                              geometry.make_collection("80_LABELS", root), layout)
     elif cfg["template"] == "HOLD" and cfg.get("label"):   # M5.5: caption of a single model, in the safe band
         labels = build_labels({templates.MAIN_SLOT: cfg["label"]}, objects, verts, offsets, fit, basis, aspect,
-                              bottom_band, style, geometry.make_collection("80_LABELS", root), "ROW")
+                              bottom_band, style, geometry.make_collection("80_LABELS", root),
+                              "TOP" if cfg.get("label_position") == "TOP" else "ROW")
+
+    annotations, annotation_texts = {}, {}
+    if shot.get("annotations"):   # M6: semantic annotations on planes in front of the camera
+        from engine import annotations as ann_mod
+        annotations, annotation_texts = ann_mod.build(shot, fit, basis, aspect,
+                                                      geometry.make_collection("85_ANNOTATIONS", root))
 
     # SIDE_BY_SIDE intro starts on the single-model framing (same fit as every other
     # shot: base + all variants at the origin), shifted onto the intro state's slot.
@@ -234,6 +247,12 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     fade_twins = {}
     if style.get("materials", {}).get("fade_render_method", "DITHERED") == "BLENDED":
         fade_twins = make_fade_twins(plan, objects, render_objects)
+    if annotations:   # after the twins: annotation materials are blended already, no twin needed
+        from engine import annotation_layout, annotations as ann_mod
+        ann_mod.key_fades(plan, annotations, shot, fps, annotation_layout.load_style()["timing"]["fade_seconds"])
+        for objs in annotations.values():
+            for obj in objs:
+                render_objects[obj.name] = obj
     animate.apply_plan(plan, render_objects)
     scene_mod.configure_render(scene, preset, fps, frames, style)
     scene.frame_set(1)
@@ -242,7 +261,8 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                        visible_variants=visible, components=components, camera=camera,
                        camera_fit=fit, camera_basis=basis, aspect=aspect, bottom_band=bottom_band,
                        ground=ground, render_objects=render_objects, fade_twins=fade_twins,
-                       camera_keys=camera_keys, labels=labels)
+                       camera_keys=camera_keys, labels=labels, annotations=annotations,
+                       annotation_texts=annotation_texts)
 
 
 def focus_motion_points(plan, objects, framed, depsgraph):
@@ -289,7 +309,13 @@ def build_labels(texts, objects, verts, offsets, fit, basis, aspect, band, style
         coords = framing.frame_coords(pts, fit, basis, aspect)
         xs = [x for x, _ in coords]
         size = float(cfg.get("size", 0.042))
-        uy = band / 2 if layout != "STACK" else min(y for _, y in coords) - 0.9 * size
+        if layout == "TOP":   # M6 narrated: the caption sits at the top; the bottom is the subtitle zone
+            from engine import annotation_layout
+            uy = annotation_layout.load_style()["safe_area"]["top"] - 0.6 * size
+        elif layout == "BAND_TOP":   # M6 narrated ROW: top of the label band, above the subtitle zone
+            uy = band - 0.9 * size
+        else:
+            uy = band / 2 if layout != "STACK" else min(y for _, y in coords) - 0.9 * size
         # Just in front of the camera plane: deeper placements can sink below the ground plane
         # at the bottom of wide (3-model) frames and be hidden by it.
         pos = framing.frame_to_world((min(xs) + max(xs)) / 2, uy, fit, basis, aspect, toward_camera=0.5)

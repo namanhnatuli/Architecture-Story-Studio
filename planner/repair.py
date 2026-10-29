@@ -72,6 +72,8 @@ def _try(ps, states, vcfg, presets, fps, concept, change, pieces=()):
 def candidates(ps, row, scene, plan_shots, i, cfg, family):
     """[(remedy, change(shot) or None, skip reason)] in preference order."""
     vcfg = cfg["visibility"]
+    if callable(family):   # M6 multi-family: the shot's own scene context
+        family = family(ps)
     problems = set(row["problems"])
     ids = {i for t in ps["semantic_targets"] for i in t["component_ids"]}   # every target stays framed
     if ps["template"] == "EXPLODED_VIEW":   # and every moving part: an explode is never cut by the frame
@@ -126,6 +128,10 @@ def candidates(ps, row, scene, plan_shots, i, cfg, family):
                     p["shot"]["animation"]["highlight"]["ghost"] = ghost
                     p["shot"]["animation"]["highlight"]["ghost_transparency"] = vcfg["ghost_transparency"]
                 out.append((f"GHOST:{'+'.join(sorted(roles))}", gh, None))
+    prefer = ps.get("repair_preference")
+    if prefer:   # M6: a beat may prefer e.g. GHOST (keep the narrated view direction) over ALT_CAMERA
+        rank = {name: k for k, name in enumerate(prefer)}
+        out.sort(key=lambda c: rank.get(c[0].split(":")[0], len(prefer)))
     return out
 
 

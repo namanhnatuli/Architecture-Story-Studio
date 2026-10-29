@@ -513,7 +513,11 @@ def do_tts_check(p):
 
 
 def do_narrate(p, regenerate=False, purpose="internal_preview"):
-    do_validate(p, before_narrate=True)
+    if (p / "script/visual_beats.json").is_file() and not (p / "storyboard/storyboard.json").is_file():
+        # M6 audio-first: the storyboard is planned after the audio lock (narration is validated by `generate`)
+        print("Audio-first project: narration -> lock-audio -> plan-visuals (no storyboard yet)")
+    else:
+        do_validate(p, before_narrate=True)
     from integrations.tts import providers
     from pipeline import narration as nar
     try:
@@ -735,12 +739,47 @@ def do_validate_plan(p):
 
 
 def do_build_shots(p):
-    """Validated plan -> storyboard/states.json + storyboard.json + project.json (engine contract)."""
+    """Validated plan -> storyboard/states.json + storyboard.json + project.json (engine contract);
+    an AUDIO_LOCKED plan also schedules the measured narration onto the shots (script/timing.json)."""
     from planner import compiler
     do_validate_plan(p)
-    for path in compiler.compile_plan(read_json(p / "storyboard" / "visual_plan.json"), p):
+    plan = read_json(p / "storyboard" / "visual_plan.json")
+    for path in compiler.compile_plan(plan, p):
         print("WROTE:", path)
+    if plan["timing_mode"] == "AUDIO_LOCKED":
+        from pipeline import audio_lock
+        try:
+            timing = audio_lock.finalize(p)
+        except audio_lock.AudioLockError as e:
+            raise SystemExit(f"ERROR: {e}")
+        print(f"WROTE: {p / 'script/timing.json'} ({len(timing['shots'])} shots, {timing['total_frames']} frames = "
+              f"{timing['total_seconds']:.3f} s, narration locked)")
     do_validate(p)
+
+
+def do_research_map(p):
+    """M6: sentence -> claim -> source -> asset -> component -> annotation -> timing -> QA."""
+    from planner import research_map
+    print("WROTE:", research_map.write(p))
+
+
+def do_lock_audio(p):
+    """M6: measured narration (narrate + asr-check + align) -> locked beat timing for plan-visuals."""
+    from pipeline import audio_lock
+    try:
+        timing = audio_lock.lock_beats(p)
+    except audio_lock.AudioLockError as e:
+        raise SystemExit(f"ERROR: {e}")
+    lead, tail = timing["pacing"]["beat_lead_in_seconds"], timing["pacing"]["beat_tail_seconds"]
+    for b in timing["beats"]:
+        print(f"  {b['id']}: {b['duration']:.3f} s speech, window {lead + b['duration'] + tail:.3f} s, "
+              f"{len(b['sentences'])} sentences")
+    total = sum(lead + b["duration"] + tail for b in timing["beats"])
+    if not timing["locked"]:
+        for prob in timing["problems"]:
+            print("ERROR:", prob)
+        raise SystemExit("timing NOT locked (fail closed): plan-visuals refuses AUDIO_LOCKED planning")
+    print(f"LOCKED: {len(timing['beats'])} beats, about {total:.2f} s -> {p / 'script/timing.json'}")
 
 
 def do_align(p):
@@ -938,7 +977,8 @@ def main():
                                             "check-blender", "final-gate", "manifest", "tts-check", "narrate",
                                             "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align",
                                             "asset-check", "asset-render", "asset-catalog",
-                                            "plan-visuals", "validate-plan", "build-shots", "verify-visibility",
+                                            "plan-visuals", "validate-plan", "build-shots", "verify-visibility", "lock-audio",
+                                            "research-map",
                                             "evaluate-planning"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
     parser.add_argument("--preset", default="preview", choices=["preview", "review", "production_test", "final"])
@@ -1010,6 +1050,10 @@ def main():
         do_verify_visibility(p, args.preset)
     elif args.command == "build-shots":
         do_build_shots(p)
+    elif args.command == "lock-audio":
+        do_lock_audio(p)
+    elif args.command == "research-map":
+        do_research_map(p)
     elif args.command == "cache-report":
         do_cache_report(p, args.preset)
 

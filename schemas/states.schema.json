@@ -97,6 +97,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "context": {
+            "type": "string",
+            "description": "M6: the variant's scene context (schema 3)"
           }
         },
         "additionalProperties": false
@@ -136,7 +140,8 @@
     "schema_version": {
       "enum": [
         1,
-        2
+        2,
+        3
       ]
     },
     "base": {
@@ -169,6 +174,31 @@
     },
     "note": {
       "type": "string"
+    },
+    "contexts": {
+      "type": "object",
+      "description": "M6 (schema 3, multi-family projects only): one scene context per building family; engine/spec.context_view",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "base",
+          "shared_components"
+        ],
+        "properties": {
+          "building_type": {
+            "type": "string"
+          },
+          "base": {
+            "type": "object"
+          },
+          "shared_components": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   },
   "additionalProperties": false

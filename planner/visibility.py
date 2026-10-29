@@ -148,6 +148,7 @@ class ShotScene:
 
 def build_scene(shot, states, fps, presets, aspect=16 / 9):
     """Offline equivalent of engine/shot_builder.build_shot (geometry, layout, camera, plan)."""
+    states = spec.shot_states(states, shot)
     cfg = templates.animation_config(shot)
     template = cfg["template"]
     parts, shown, slots_parts = {}, {}, {}
@@ -234,9 +235,10 @@ def state_at(scene, frame):
 
 
 # ---------------------------------------------------------------- raster
-def raster(polys, scene, nx, ny):
+def raster(polys, scene, nx, ny, with_depth=False):
     """Depth/id buffer: ids[j][i] is the owner of the nearest polygon at pixel centre (i, j)
-    (j = 0 is the bottom row, as in camera-view coordinates)."""
+    (j = 0 is the bottom row, as in camera-view coordinates). with_depth: (ids, depth),
+    depth = distance along the camera's forward axis (M6 annotation anchors)."""
     fwd = scene.basis[2]
     depth = [[math.inf] * nx for _ in range(ny)]
     ids = [[None] * nx for _ in range(ny)]
@@ -273,7 +275,7 @@ def raster(polys, scene, nx, ny):
                     z = a * (i + 0.5) + b * py + c0
                     if z < row_d[i]:
                         row_d[i], row_i[i] = z, owner
-    return ids
+    return (ids, depth) if with_depth else ids
 
 
 def _projected_outside(polys, scene):

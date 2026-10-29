@@ -1,0 +1,197 @@
+{
+  "passage": [
+    {
+      "beat": "B2",
+      "sentence": 1,
+      "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap."
+    },
+    {
+      "beat": "B5",
+      "sentence": 0,
+      "text": "The curve turns the downward load into thrust along the arch, pressing the stones together."
+    },
+    {
+      "beat": "B6",
+      "sentence": 2,
+      "text": "Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched."
+    }
+  ],
+  "params": {
+    "speed": 1.0,
+    "seed": 0,
+    "lang_code": "b"
+  },
+  "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+  "ranking_rule": "VOICES.md overall grade, then max ASR WER, then |wpm - 160|, then level spread",
+  "ranking": [
+    "bf_emma",
+    "bm_george",
+    "bm_fable",
+    "bm_daniel"
+  ],
+  "provisional_technical_default": "bf_emma",
+  "human_approval": null,
+  "voices": {
+    "bf_emma": {
+      "voice_sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+      "target_quality": "B",
+      "training_duration": "HH hours",
+      "overall_grade": "B-",
+      "speech_seconds": 17.75,
+      "with_pauses_seconds": 18.55,
+      "wpm": 182.5,
+      "mean_db": [
+        -24.1,
+        -24.3,
+        -24.1
+      ],
+      "peak_db": [
+        -6.6,
+        -6.5,
+        -7.1
+      ],
+      "level_spread_db": 0.2,
+      "asr": [
+        {
+          "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+          "wer": 0.0
+        },
+        {
+          "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+          "wer": 0.0
+        },
+        {
+          "text": "Each span here is a simple span, so under a downward load its top cord is squeezed and its bottom cord is stretched.",
+          "wer": 0.087
+        }
+      ],
+      "max_wer": 0.087,
+      "generation_seconds": 6.92,
+      "files": {
+        "wav": "review/voice_audition/bf_emma.wav",
+        "m4a": "review/voice_audition/bf_emma.m4a"
+      }
+    },
+    "bm_daniel": {
+      "voice_sha256": "fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d",
+      "target_quality": "C",
+      "training_duration": "MM minutes",
+      "overall_grade": "D",
+      "speech_seconds": 17.5,
+      "with_pauses_seconds": 18.3,
+      "wpm": 185.1,
+      "mean_db": [
+        -24.6,
+        -24.6,
+        -24.4
+      ],
+      "peak_db": [
+        -7.4,
+        -6.9,
+        -7.9
+      ],
+      "level_spread_db": 0.2,
+      "asr": [
+        {
+          "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+          "wer": 0.0
+        },
+        {
+          "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+          "wer": 0.0
+        },
+        {
+          "text": "Each span here is a simple span, so under a downward load its top cord is squeezed and its bottom cord is stretched.",
+          "wer": 0.087
+        }
+      ],
+      "max_wer": 0.087,
+      "generation_seconds": 1.64,
+      "files": {
+        "wav": "review/voice_audition/bm_daniel.wav",
+        "m4a": "review/voice_audition/bm_daniel.m4a"
+      }
+    },
+    "bm_fable": {
+      "voice_sha256": "d44935f3135257a9064df99f007fc1342ff1aa767552b4a4fa4c3b2e6e59079c",
+      "target_quality": "B",
+      "training_duration": "MM minutes",
+      "overall_grade": "C",
+      "speech_seconds": 17.975,
+      "with_pauses_seconds": 18.775,
+      "wpm": 180.3,
+      "mean_db": [
+        -27.0,
+        -27.1,
+        -27.4
+      ],
+      "peak_db": [
+        -5.8,
+        -7.7,
+        -5.3
+      ],
+      "level_spread_db": 0.4,
+      "asr": [
+        {
+          "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+          "wer": 0.0
+        },
+        {
+          "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+          "wer": 0.0
+        },
+        {
+          "text": "Each span here is a simple span, so under a downward load its top cord is squeezed and its bottom cord is stretched.",
+          "wer": 0.087
+        }
+      ],
+      "max_wer": 0.087,
+      "generation_seconds": 1.53,
+      "files": {
+        "wav": "review/voice_audition/bm_fable.wav",
+        "m4a": "review/voice_audition/bm_fable.m4a"
+      }
+    },
+    "bm_george": {
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "target_quality": "B",
+      "training_duration": "MM minutes",
+      "overall_grade": "C",
+      "speech_seconds": 20.125,
+      "with_pauses_seconds": 20.925,
+      "wpm": 161.0,
+      "mean_db": [
+        -24.8,
+        -24.7,
+        -24.7
+      ],
+      "peak_db": [
+        -9.5,
+        -9.1,
+        -8.3
+      ],
+      "level_spread_db": 0.1,
+      "asr": [
+        {
+          "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+          "wer": 0.0
+        },
+        {
+          "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+          "wer": 0.0
+        },
+        {
+          "text": "Each span here is a simple span, so under a downward load, its top cord is squeezed and its bottom cord is stretched.",
+          "wer": 0.087
+        }
+      ],
+      "max_wer": 0.087,
+      "generation_seconds": 1.84,
+      "files": {
+        "wav": "review/voice_audition/bm_george.wav",
+        "m4a": "review/voice_audition/bm_george.m4a"
+      }
+    }
+  },
+  "measured_utc": "2026-10-29T04:56:48Z"
+}

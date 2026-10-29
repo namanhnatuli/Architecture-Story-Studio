@@ -34,3 +34,14 @@ Dùng file dữ liệu làm giao diện giữa AI và Blender; không truyền t
 
 ## M3 — project có lời dẫn (2026-10-27)
 Xem `docs/m3/M3_PIPELINE.md`. Hợp đồng mới: `script/narration.json` (`schemas/narration.schema.json`), sổ bằng chứng v2 (`schemas/sources.schema.json`: `evidence[{source_id, locator, excerpt}]`, các trạng thái PROVISIONAL / SOURCE_VERIFIED / EDITORIALLY_APPROVED / REJECTED; `verified` của v0.1 vẫn được chấp nhận và tương đương EDITORIALLY_APPROVED), `storyboard.template.json` (có mốc neo) → `storyboard.json` (được sinh ra), `script/timing.json` (khóa: hash của narration, audio beat và storyboard). Shot có `beat_ids`; validator yêu cầu mỗi beat được bao phủ đúng một lần, theo thứ tự.
+
+## M6 — khóa theo audio, chú thích, scene context (2026-10-29)
+Xem `docs/m6/M6_ARCHITECTURE.md` và `docs/m6/ANNOTATION_STYLE_GUIDE.md`.
+- `script/narration.json`: `voice.provider` có thể là `kokoro`, `mode: preset`, `voice: bf_emma`, tham số `speed/seed/lang_code`. `license.rights_class` phải trùng registry (`PENDING_REVIEW`).
+- `script/timing.json` của dự án do planner lập kế hoạch: `schema: timing/2`, `mode: PLANNED_AUDIO_LOCK`.
+  - Giai đoạn `BEATS_LOCKED` (do `lock-audio`): thời lượng beat, khoảng câu tương đối, lock basis.
+  - Giai đoạn `SHOTS_SCHEDULED` (do `build-shots`): shot, mốc beat/câu tuyệt đối, `rel_start/rel_end`, `beats_sha256`, `storyboard_sha256`, `plan_sha256`.
+  - Một beat có thể trải nhiều shot liên tiếp.
+- `script/visual_beats.json`: `annotations[]`, `highlight_at_sentence`, `visual_repair_preference`, intent `EXPLAIN_LOAD_PATH`.
+- Shot do planner sinh có thể có `annotations` (bố cục đã tính sẵn: `items[{id, type, appear, disappear, claim_id, anchors[{world, screen, point, component_ids}], elements[...]}]`, `reserved`, `style_sha256`) và `scene_context`. Animation HOLD có thể có `label_position: TOP`.
+- `states.json` schema 3 (chỉ khi dự án có nhiều họ): `contexts{name: {building_type, base, shared_components}}`, mỗi variant có `context`. Dự án một họ giữ schema 2.

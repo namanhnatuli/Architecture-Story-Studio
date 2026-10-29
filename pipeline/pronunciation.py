@@ -67,6 +67,8 @@ def validate(lexicon):
         for provider, form in (entry.get("speech") or {}).items():
             if provider == "omnivoice" and form.startswith("[") and not re.fullmatch(r"\[[A-Z]+[012]?( [A-Z]+[012]?)*\]", form):
                 errors.append(f"pronunciation {eid}: OmniVoice CMU form must be uppercase phones in brackets, got {form!r}")
+            if provider == "kokoro" and not re.fullmatch(r"\[[^\]]+\]\(/[^/]+/\)", form):
+                errors.append(f"pronunciation {eid}: Kokoro (misaki) form must be [word](/phonemes/), got {form!r}")
     return errors
 
 

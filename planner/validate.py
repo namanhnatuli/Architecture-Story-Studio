@@ -17,6 +17,11 @@ EXECUTABLE_STATUSES = ("COVERED", "PARTIALLY_COVERED")
 
 def _roles(states):
     """component id -> role for the base and every variant (spec functions, not the planner)."""
+    if states.get("contexts"):   # M6 multi-family: every scene context's base and variants
+        out = {}
+        for name in sorted(states["contexts"]):
+            out.update(_roles(spec.context_view(states, name)))
+        return out
     roles = {p["id"]: p["role"] for p in spec.base_parts(states)}
     for v in states.get("variants", []):
         for part in spec.builder_parts(dict(v, structure_from=None)):
@@ -75,7 +80,8 @@ def validate_plan(plan, project_dir, root=ROOT, engine_check=True):
         ev, detail = B.evidence_status(beats_by_id[c["beat_id"]], sources)
         if ev == "EVIDENCE_BLOCKED" and c["status"] != "EVIDENCE_BLOCKED":
             errors.append(f"beat {c['beat_id']}: claims lack evidence ({detail}) but the plan visualises it")
-    executable = all(c["status"] in EXECUTABLE_STATUSES for c in plan["coverage"])
+    executable = all(c["status"] in EXECUTABLE_STATUSES and not c.get("annotation_failures")
+                     and not c.get("consistency_failures") for c in plan["coverage"])
     if plan["executable"] != executable:
         errors.append(f"plan.executable is {plan['executable']} but coverage says {executable}")
 
@@ -116,16 +122,24 @@ def validate_plan(plan, project_dir, root=ROOT, engine_check=True):
                 if needed not in data["animation_support"] + ["HOLD"] and not (template == "REPLACE_PARTS" and
                                                                                ps["states"][0] == SITE_STATE):
                     errors.append(f"{where}: asset {data['asset_id']} does not support {needed}")
+        try:
+            sv = spec.shot_states(states, shot)   # M6: the shot's scene context
+        except ValueError as e:
+            errors.append(f"{where}: {e}")
+            continue
+        if states.get("contexts") and any(variants[s].get("context") != shot.get("scene_context")
+                                          for s in ps["states"] if s in variants):
+            errors.append(f"{where}: shows states of another scene context than {shot.get('scene_context')}")
         if template == "REPLACE_PARTS":
             a, b = ps["states"][0], ps["states"][-1]
             va, vb = variants[a], variants[b]
             ok = va.get("builder") == "none" or vb.get("structure_from") == a or va.get("structure_from") == b or \
-                (va.get("builder") == vb.get("builder") == "gable_roof" and states.get("building_type") in REPLACE_SHARED_BASE_FAMILIES)
+                (va.get("builder") == vb.get("builder") == "gable_roof" and sv.get("building_type") in REPLACE_SHARED_BASE_FAMILIES)
             if not ok:
                 errors.append(f"{where}: REPLACE_PARTS {a} -> {b} between states that share no frame")
-        visible = set(spec.shared_ids(states))
+        visible = set(spec.shared_ids(sv))
         for s in ps["states"]:
-            visible |= set(spec.state_ids(states, s))
+            visible |= set(spec.state_ids(sv, s))
         for tg in ps["semantic_targets"]:
             c = vocab.get(tg["concept"])
             for cid in tg["component_ids"]:
@@ -161,6 +175,7 @@ def validate_plan(plan, project_dir, root=ROOT, engine_check=True):
     if t != plan["total_frames"]:
         errors.append(f"total_frames {plan['total_frames']} differs from the sum of shots {t}")
     errors += visibility_errors(plan, root)
+    errors += annotation_errors(plan, p, doc, sources, vocab, root)
 
     if engine_check and plan["executable"] and not errors:
         errors += [f"engine: {e}" for e in engine_validation(plan, p)]
@@ -176,7 +191,16 @@ def engine_validation(plan, project_dir):
         for sub in ("research", "script", "assets", "planning"):
             if (Path(project_dir) / sub).is_dir():
                 shutil.copytree(Path(project_dir) / sub, dst / sub)
+        if (Path(project_dir) / "project.json").is_file():
+            shutil.copy(Path(project_dir) / "project.json", dst / "project.json")
         compiler.compile_plan(plan, dst)
+        if plan["timing_mode"] == "AUDIO_LOCKED":   # M6: schedule the locked narration as build-shots does
+            from pipeline import audio_lock
+            (dst / "storyboard/visual_plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n")
+            try:
+                audio_lock.finalize(dst)
+            except audio_lock.AudioLockError as e:
+                return [f"audio lock: {e}"]
         errs, _ = validate_project(dst)
         return errs
 
@@ -238,4 +262,95 @@ def visibility_errors(plan, root=ROOT):
                              not any(i.startswith("VISIBILITY_UNRESOLVED") for i in cov[bid]["issues"])):
             errors.append(f"beat {bid}: {concept} does not read in any of its shots, but the beat is not flagged "
                           "(PARTIALLY_COVERED + VISIBILITY_UNRESOLVED)")
+    return errors
+
+
+def annotation_errors(plan, project_dir, doc, sources, vocab, root=ROOT):
+    """M6: stale timing / style inputs; every planned annotation is attached to visible parts of
+    the right concept, projects where it is stored, obeys the layout rules, cites a verified,
+    narrated claim and appears within its sentence window; narration never contradicts the
+    picture (planner/consistency.py, recomputed)."""
+    from engine import annotation_layout as AL, framing
+    from planner import annotations as AN, consistency, timing as T
+    errors = []
+    p = Path(project_dir)
+    cfg = json.loads((Path(root) / "config/visual_planning.json").read_text())
+    if plan["timing_mode"] == "AUDIO_LOCKED":
+        from pipeline import audio_lock
+        tpath = p / "script/timing.json"
+        if not tpath.is_file():
+            return ["AUDIO_LOCKED plan but script/timing.json is missing (run lock-audio)"]
+        if plan["inputs"].get("timing_sha256") != audio_lock.beats_hash(json.loads(tpath.read_text())):
+            errors.append("plan is stale: the locked narration timing changed since plan-visuals (re-run plan-visuals)")
+    style = AL.load_style(Path(root) / "config/annotation_style.json")
+    annotated = any(b.get("annotations") for b in doc["beats"])
+    if annotated and plan["inputs"].get("annotation_style_sha256") != AN.style_hash(style):
+        errors.append("plan is stale: config/annotation_style.json changed since plan-visuals")
+    errors += [f"annotations: {e}" for e in AN.validate_spec(doc, sources, vocab)]
+    try:
+        offsets = T.sentence_offsets(doc, p, cfg["timing"])
+    except Exception as e:   # noqa: BLE001
+        return errors + [f"sentence timing cannot be derived: {e}"]
+    presets = CAM.style_presets(root)
+    states, fps = plan["states"], plan["fps"]
+    beats = {b["beat_id"]: b for b in doc["beats"]}
+    cov = {c["beat_id"]: c for c in plan["coverage"]}
+    placed = {}
+    for ps in plan["shots"]:
+        data = ps.get("annotations")
+        if not data:
+            continue
+        sid, beat = ps["shot_id"], beats[ps["beat_id"]]
+        specs = {a["id"]: a for a in beat.get("annotations", [])}
+        if data != ps["shot"].get("annotations"):
+            errors.append(f"{sid}: plan and storyboard annotations differ")
+        scene = VIS.build_scene(ps["shot"], states, fps, presets)
+        sv = spec.shot_states(states, ps["shot"])
+        visible = set(spec.shared_ids(sv)) | set(spec.state_ids(sv, ps["states"][-1]))
+        roles = _roles(states)
+        reserved = [r["box"] for r in data.get("reserved", [])]
+        for prob in AL.check(data["items"], style, scene.aspect, caption_boxes=reserved):
+            errors.append(f"{sid}: annotation layout: {prob}")
+        dur = ps["timing"]["duration_seconds"]
+        for a in data["items"]:
+            if a["type"] == "TAG":
+                continue
+            s = specs.get(a["id"])
+            if s is None:
+                errors.append(f"{sid}: annotation {a['id']} is not in the beat's annotations")
+                continue
+            placed.setdefault(a["id"], []).append(sid)
+            if not (0 <= a["appear"] < a["disappear"] <= dur + 1e-3):   # stored with 4 decimals
+                errors.append(f"{sid}: annotation {a['id']} timing {a['appear']}-{a['disappear']} s is outside the shot")
+            start = offsets[ps["beat_id"]][s.get("sentence", 0)][0] - style["timing"]["appear_lead_seconds"]
+            if ps["timing"]["beat_offset_seconds"] + a["appear"] + 1 / fps < start - 1e-6:
+                errors.append(f"{sid}: annotation {a['id']} appears before its sentence {s.get('sentence', 0)}")
+            concepts = [V.concept_name(r) for r in AN._refs(s)]
+            allowed = {r for c in concepts for r in (vocab.get(c) or {}).get("roles", [])}
+            for x in a["anchors"]:
+                for cid in x.get("component_ids", []):
+                    if cid not in visible:
+                        errors.append(f"{sid}: annotation {a['id']} is anchored to {cid}, not shown in {ps['states']}")
+                    elif roles.get(cid) not in allowed:
+                        errors.append(f"{sid}: annotation {a['id']} anchor {cid} ({roles.get(cid)}) is not a {concepts}")
+                sx, sy = framing.frame_coords([x["world"]], scene.fit, scene.basis, scene.aspect)[0]
+                if abs(sx - x["screen"][0]) > style["qa"]["anchor_tolerance"] or \
+                        abs(sy - x["screen"][1]) > style["qa"]["anchor_tolerance"]:
+                    errors.append(f"{sid}: annotation {a['id']} anchor world point projects to ({sx:.4f}, {sy:.4f}), "
+                                  f"stored ({x['screen'][0]}, {x['screen'][1]})")
+    for bid, beat in beats.items():
+        c = cov.get(bid)
+        if c is None or c["status"] not in EXECUTABLE_STATUSES:   # a missing beat is reported by the coverage check
+            continue
+        failed = {r["id"] for r in c.get("annotations", []) if r["status"] != "PLACED"}
+        for a in beat.get("annotations", []):
+            if a["id"] not in placed and a["id"] not in failed:
+                errors.append(f"beat {bid}: annotation {a['id']} is neither placed nor reported as failed")
+    rows = consistency.check_plan(plan, doc, offsets, style)
+    if rows != (plan.get("consistency") or {}).get("rows", rows if not rows else None):
+        errors.append("stored narration/visual consistency differs from a recomputation")
+    for r in rows:
+        if r["verdict"] == "CONTRADICTION":
+            errors.append(f"beat {r['beat_id']} sentence {r['sentence']}: narration/visual contradiction ({r['rule']}): "
+                          f"{r['detail']}")
     return errors

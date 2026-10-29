@@ -41,6 +41,9 @@
     "floor_beam":      {"kind": "component", "roles": ["floor_beam"], "label": "floor beams"},
     "beam":            {"kind": "component", "roles": ["stringer", "cap_beam", "floor_beam", "beam"], "ambiguous_if_multiple": true, "label": "beams"},
     "member":          {"kind": "component", "roles": ["truss_chord", "end_post", "truss_vertical", "truss_diagonal"], "ambiguous_if_multiple": true, "label": "members"},
+    "superstructure":  {"kind": "component", "roles": ["deck", "plank", "stringer", "floor_beam", "truss_chord", "end_post", "truss_vertical", "truss_diagonal", "joint", "railing", "voussoir", "keystone", "spandrel", "parapet", "coping"], "label": "superstructure", "note": "M6 (CLM_603): the parts that provide the horizontal span, incl. the deck"},
+    "substructure":    {"kind": "component", "roles": ["abutment", "pier", "support", "cap_beam"], "label": "substructure", "note": "M6 (CLM_604, CLM_607): abutments, piers and bents (posts + caps)"},
+    "ground":          {"kind": "component", "roles": ["ground"], "label": "ground", "note": "M6: the banks of the shared river-crossing site (end of a load path)"},
 
     "roof_covering":   {"kind": "component", "roles": ["roof_covering"], "label": "roof covering"},
     "rafters":         {"kind": "component", "roles": ["rafters"], "label": "rafters"},

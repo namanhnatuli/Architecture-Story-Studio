@@ -58,6 +58,33 @@ def _arch():
     return assets
 
 
+def context_view(states, context):
+    """M6: one scene context of a multi-family states.json (schema 3, "contexts": {name: {base,
+    shared_components, building_type}}; every variant names its "context") as the single-base
+    states dict every builder and template already understands."""
+    contexts = states.get("contexts")
+    if not contexts:
+        return states
+    if context not in contexts:
+        raise ValueError(f"unknown scene context {context!r} (states.json contexts: {', '.join(sorted(contexts))})")
+    c = contexts[context]
+    out = {k: v for k, v in states.items() if k != "contexts"}
+    out.update(base=c["base"], shared_components=c.get("shared_components", []),
+               building_type=c.get("building_type", context),
+               variants=[v for v in states.get("variants", []) if v.get("context") == context])
+    return out
+
+
+def shot_states(states, shot):
+    """The states a shot is built from: its scene context's view (multi-family projects)."""
+    if not states.get("contexts") or shot.get("visual_type") == "MOTION_GRAPHICS":
+        return states
+    if not shot.get("scene_context"):
+        raise ValueError(f"{shot.get('id')}: states.json has scene contexts {sorted(states['contexts'])}; "
+                         "the shot needs scene_context")
+    return context_view(states, shot["scene_context"])
+
+
 def base_params(states):
     params = dict(DEFAULT_BASE)
     params.update(states.get("base") or {})
@@ -161,6 +188,20 @@ def rafter_positions(depth, count, margin=0.25):
 
 def validate_states(states):
     """Structural ownership checks; returns a list of error strings."""
+    if states.get("contexts"):   # M6 multi-family: each scene context on its own, plus the variant bookkeeping
+        errors = []
+        ids = [v.get("id") for v in states.get("variants", [])]
+        if len(ids) != len(set(ids)):
+            errors.append("variant ids must be unique across scene contexts")
+        for v in states.get("variants", []):
+            if v.get("context") not in states["contexts"]:
+                errors.append(f"variant {v.get('id')}: context {v.get('context')!r} is not one of {sorted(states['contexts'])}")
+            elif v.get("structure_from") and next((w.get("context") for w in states["variants"]
+                                                   if w.get("id") == v["structure_from"]), None) != v["context"]:
+                errors.append(f"variant {v.get('id')}: structure_from crosses scene contexts")
+        for name in sorted(states["contexts"]):
+            errors += [f"context {name}: {e}" for e in validate_states(context_view(states, name))]
+        return errors
     errors = []
     params = base_params(states)
     if params["builder"] == ASSET_BUILDER and not params.get("asset"):

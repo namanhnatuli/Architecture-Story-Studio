@@ -123,3 +123,18 @@ python3 tools/cli.py evaluate-planning                              # 24 ca đá
 ```
 Tài liệu: [`docs/m5_5/`](docs/m5_5/).
 
+
+## M6: phim tài liệu có lời dẫn
+Lời dẫn tiếng Anh sinh cục bộ bằng Kokoro-82M, hạng quyền `PENDING_REVIEW` (chưa được phép xuất bản). Hình được lập kế hoạch theo **thời lượng đo được** của từng câu. Chú thích kỹ thuật (mũi tên tải, phản lực, đường truyền tải khái niệm, nhãn, chú giải nén/kéo) bám vào bộ phận nhìn thấy được, và mỗi chú thích về lực đều trích claim. Lời dẫn và hình được kiểm mâu thuẫn. Một dự án có thể chứa nhiều họ kiến trúc nhờ scene context.
+```bash
+P="--project bridge-load-explained"
+python3 tools/cli.py narrate $P && python3 tools/cli.py asr-check $P && python3 tools/cli.py align $P
+python3 tools/cli.py lock-audio $P                                    # timing.json khóa theo audio
+python3 tools/cli.py plan-visuals $P && python3 tools/cli.py build-shots $P
+python3 tools/cli.py check-blender $P --preset review                 # gồm QA chú thích
+python3 tools/cli.py smoke $P --shot SC_003 --preset review           # một cảnh có lời + chú thích
+python3 tools/cli.py preview $P --preset review && python3 tools/cli.py assemble $P --preset review
+python3 tools/cli.py research-map $P && python3 tools/cli.py gates $P --preset review
+python3 tools/voice_audition.py $P                                    # thử 4 giọng; người dùng chọn
+```
+Tài liệu: [`docs/m6/`](docs/m6/), [`docs/licensing/KOKORO_LICENSE_AUDIT.md`](docs/licensing/KOKORO_LICENSE_AUDIT.md).

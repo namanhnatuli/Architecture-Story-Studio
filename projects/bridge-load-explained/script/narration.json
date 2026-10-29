@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "title": "How Does a Bridge Carry Its Load?",
+  "status": "DRAFT - source-verified wording, awaiting editorial approval (G1)",
+  "voice": {
+    "provider": "kokoro",
+    "id": "kokoro_bf_emma",
+    "mode": "preset",
+    "voice": "bf_emma",
+    "language": "en-GB",
+    "params": {
+      "speed": 1.0,
+      "seed": 0,
+      "lang_code": "b"
+    },
+    "license": {
+      "status": "LICENSE_REVIEW_REQUIRED",
+      "rights_class": "PENDING_REVIEW",
+      "permitted_use": "Internal narrated preview (timing, pacing, annotation sync, editorial review). Not cleared for publication until a named human records a clearance in config/tts_providers.json and approves the voice.",
+      "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
+      "reviewed_on": "2026-10-28",
+      "reviewed_by": "agent compliance assessment (not legal advice; no human sign-off)",
+      "components": [
+        {
+          "name": "Kokoro-82M weights (hexgrad/Kokoro-82M @ f3ff3571)",
+          "license": "Apache-2.0",
+          "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
+        },
+        {
+          "name": "Voice bf_emma (voices/bf_emma.pt)",
+          "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
+          "evidence": "VOICES.md SHA256 prefix d0a423de matches the local file"
+        },
+        {
+          "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
+          "license": "Apache-2.0",
+          "evidence": "installed package metadata"
+        },
+        {
+          "name": "espeak-ng 1.52.0 via espeakng-loader; phonemizer-fork 3.3.2 (OOD-word fallback)",
+          "license": "GPL-3.0-or-later",
+          "evidence": "local use only, never redistributed (audit section 3)"
+        },
+        {
+          "name": "Training data",
+          "license": "stated permissive / non-copyrighted, including synthetic audio from closed TTS providers",
+          "evidence": "model card; unresolved, audit section 5"
+        }
+      ],
+      "decision": "Candidate for publication, NOT CLEARED. Rights class stays PENDING_REVIEW; the agent never raises it. The channel voice is a provisional technical default, not approved by the user."
+    },
+    "pace_note": "speed 1.0 for the whole narration; measured 160.8 wpm over the 26 sentences (320 words, 119.38 s of speech, 2026-10-29); the audition passage (dense technical sentences) measured 182.5 wpm. Uniform, never per beat."
+  },
+  "pacing": {
+    "sentence_pause_seconds": 0.4,
+    "beat_lead_in_seconds": 0.4,
+    "beat_tail_seconds": 0.8
+  },
+  "revision": {
+    "version": "m6-r1",
+    "date": "2026-10-29",
+    "status": "DRAFT_FOR_EDITORIAL_REVIEW",
+    "review_package": "review/EDITORIAL_REVIEW_PACKAGE.md"
+  },
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "fact",
+      "claim_ids": ["CLM_601", "CLM_602"],
+      "sentences": [
+        "What happens when weight is placed on a bridge?",
+        "Traffic, people and the bridge's own weight all press down on its deck.",
+        "To stay standing, the bridge has to carry that load down into the ground."
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "fact",
+      "claim_ids": ["CLM_602", "CLM_603", "CLM_604"],
+      "sentences": [
+        "The load follows a path down through the structure.",
+        "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+        "That rests on the substructure: abutments at the ends, and sometimes piers in between.",
+        "The abutments pass the load on to the foundations."
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "fact",
+      "claim_ids": ["CLM_605", "CLM_606", "CLM_607"],
+      "sentences": [
+        "Now take a beam bridge.",
+        "Its deck rests on long beams that span from one support to the next.",
+        "Each beam carries the load by resisting bending.",
+        "A cap beam spreads the load onto the posts, and the posts carry it down in compression."
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "fact",
+      "claim_ids": ["CLM_608"],
+      "sentences": [
+        "A masonry arch works differently.",
+        "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown."
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "fact",
+      "claim_ids": ["CLM_609", "CLM_610"],
+      "sentences": [
+        "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+        "So the arch works mainly in compression.",
+        "At each end it pushes outward and down on its supports, and the supports push back."
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "fact",
+      "claim_ids": ["CLM_611", "CLM_612", "CLM_613", "CLM_614"],
+      "sentences": [
+        "The truss we started with takes another approach: straight members joined into triangles.",
+        "Each member is mainly pulled or pushed along its length, in tension or in compression.",
+        "Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched.",
+        "Inside, some web members are in compression and others are in tension."
+      ]
+    },
+    {
+      "id": "B7",
+      "kind": "interpretation",
+      "claim_ids": ["CLM_606", "CLM_609", "CLM_612"],
+      "sentences": [
+        "Let's compare them one at a time.",
+        "The beam bridge carries its load by bending.",
+        "The arch carries it mainly in compression, pushing against its supports.",
+        "In the truss, the load is shared between members in tension and in compression."
+      ]
+    },
+    {
+      "id": "B8",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Three arrangements of parts, one job: carrying the load across the gap and down into the ground.",
+        "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces."
+      ]
+    }
+  ]
+}

@@ -91,7 +91,7 @@ class BeatSchemaTest(unittest.TestCase):
 
 class IntentTest(unittest.TestCase):
     def test_every_intent_maps_to_known_strategies(self):
-        self.assertEqual(len(intents.INTENTS), 9)
+        self.assertEqual(len(intents.INTENTS), 10)   # M6 added EXPLAIN_LOAD_PATH
         for name, i in intents.INTENTS.items():
             self.assertTrue(i["strategies"], name)
             self.assertTrue(set(i["strategies"]) <= set(intents.STRATEGIES), name)

@@ -13,7 +13,8 @@ from pathlib import Path
 from engine import motion, spec, templates
 from engine.arch import assets, semantic
 from planner import PLANNER_VERSION, beats as B, camera as CAM, catalog, composition, intents, mapper, resolver
-from planner import repair, timing as T, vocabulary as V
+from planner import annotations, consistency, repair, timing as T, vocabulary as V
+from engine import annotation_layout as AL
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_STATE = "site"
@@ -54,32 +55,60 @@ def load_inputs(project_dir, root=ROOT):
 
 # ---------------------------------------------------------------- states
 class Model:
-    """Resolved states, the draft states.json and per-state semantic parts."""
+    """Resolved states, the draft states.json and per-state semantic parts.
+
+    M6: one *scene context* per building family (bridges on the shared river-crossing site,
+    roof assemblies on the shared house); every state belongs to the context of its family.
+    A single-family project has one context and keeps the M5 states.json (schema 2); a
+    multi-family project gets schema 3 ("contexts") and every shot names its scene_context."""
 
     def __init__(self, root, project_dir, vocab, index):
         self.root, self.project_dir, self.vocab, self.index = Path(root), Path(project_dir), vocab, index
-        self.states, self.order, self.resolutions, self.base, self.shared_parts = {}, [], {}, None, []
-        self.family, self.site_entry, self.generated = None, None, {}
+        self.states, self.order, self.resolutions = {}, [], {}
+        self.family, self.generated = None, {}
+        self.contexts, self.context_of = {}, {}
+
+    def ctx(self, family=None):
+        return self.contexts.setdefault(family or self.family, {"base": None, "shared_components": [],
+                                                                "shared_parts": [], "site_entry": None})
+
+    # the primary context (single-family projects: the only one)
+    base = property(lambda self: self.ctx()["base"])
+    shared_parts = property(lambda self: self.ctx()["shared_parts"])
+    shared_components = property(lambda self: self.ctx()["shared_components"])
+    site_entry = property(lambda self: (self.contexts.get("bridge") or {}).get("site_entry"))
+
+    @property
+    def multi(self):
+        return len(self.contexts) > 1
+
+    def state_ctx(self, sid):
+        return self.ctx(self.context_of.get(sid, self.family))
 
     def resolve(self, concept, accuracy):
         key = (concept, accuracy)
         if key not in self.resolutions:
-            self.resolutions[key] = resolver.resolve(concept, self.vocab, self.index, accuracy, self.site_entry)
+            fam = (self.vocab.get(concept) or {}).get("family")   # the site constrains bridges only
+            self.resolutions[key] = resolver.resolve(concept, self.vocab, self.index, accuracy,
+                                                     self.site_entry if fam in ("bridge", "site", None) else None)
         return self.resolutions[key]
 
     def set_base(self, families):
-        if len(families) > 1:
-            raise PlanningError([f"one project can show one building family per shared base; beats mix {sorted(families)}"])
-        self.family = next(iter(families)) if families else None
-        if self.family == "bridge":
+        """families: building families in order of first appearance in the beats."""
+        families = list(dict.fromkeys(families))
+        self.family = families[0] if families else None
+        for fam in families:
+            self.ctx(fam)
+        if "bridge" in families:
             r = resolver.resolve("river_crossing_site", self.vocab, self.index)
             if r["status"] != "REUSE_EXISTING":
                 raise PlanningError([f"bridges need a site asset: {r['explanation']}"])
-            self.site_entry = r["entry"]
-            self.base = {"builder": "architecture_asset", "asset": self.site_entry["path"]}
-            parts = catalog.component_parts(self.site_entry, "shared")
-            self.shared_parts = [dict(p) for p in parts]
-            self.shared_components = sorted({p["group"] for p in parts})
+            c = self.ctx("bridge")
+            c["site_entry"] = r["entry"]
+            c["base"] = {"builder": "architecture_asset", "asset": r["entry"]["path"]}
+            parts = catalog.component_parts(r["entry"], "shared")
+            c["shared_parts"] = [dict(p) for p in parts]
+            c["shared_components"] = sorted({p["group"] for p in parts})
             self.resolutions[("river_crossing_site", "ILLUSTRATIVE")] = r
 
     def add_state(self, concept, resolution):
@@ -99,13 +128,16 @@ class Model:
                      "accuracy": "ILLUSTRATIVE", "animation_support": spec_data["animation_support"],
                      "validation": "GENERATED", "kind": "architecture"}
             self.generated[spec_data["asset_id"]] = entry["path"]
-        if self.base is None and entry["source"] == "legacy_states":
-            self.base = entry["legacy_base"]
-            self.shared_components = list(entry["legacy_shared"])
-            states = {"base": self.base, "shared_components": self.shared_components}
-            self.shared_parts = [{"id": p["id"], "role": p["role"], "group": p["group"], "layer": 0, "replaceable": False}
+        family = (self.vocab.get(concept) or {}).get("family") or self.family
+        c = self.ctx(family)
+        if c["base"] is None and entry["source"] == "legacy_states":
+            c["base"] = entry["legacy_base"]
+            c["shared_components"] = list(entry["legacy_shared"])
+            states = {"base": c["base"], "shared_components": c["shared_components"]}
+            c["shared_parts"] = [{"id": p["id"], "role": p["role"], "group": p["group"], "layer": 0, "replaceable": False}
                                  for p in spec.base_parts(states) if p["id"] in spec.shared_ids(states)]
         sid = concept
+        self.context_of[sid] = family
         self.states[sid] = {"id": sid, "concept": concept, "label": self.vocab.label(concept), "entry": entry,
                             "asset_id": resolution["asset_id"], "resolution": resolution["status"]}
         self.order.append(sid)
@@ -116,6 +148,7 @@ class Model:
             self.states[SITE_STATE] = {"id": SITE_STATE, "concept": "river_crossing_site", "label": "Site",
                                        "entry": None, "asset_id": None, "resolution": "SITE_ONLY"}
             self.order.insert(0, SITE_STATE)
+            self.context_of[SITE_STATE] = "bridge"
 
     def link_frames(self):
         """structure_from between states that differ only in the family's replaceable params."""
@@ -131,6 +164,7 @@ class Model:
 
     def states_json(self):
         variants = []
+        multi = self.multi
         for sid in self.order:
             st = self.states[sid]
             if sid == SITE_STATE:
@@ -144,7 +178,18 @@ class Model:
                 v.update(id=sid, name=st["label"])
             if st.get("structure_from"):
                 v["structure_from"] = st["structure_from"]
+            if multi:
+                v["context"] = self.context_of.get(sid, self.family)
             variants.append(v)
+        if multi:   # M6: one base per scene context (engine/spec.context_view)
+            for v in variants:
+                if v["id"] == SITE_STATE:
+                    v["context"] = "bridge"
+            contexts = {f: {"building_type": f, "base": c["base"], "shared_components": c["shared_components"]}
+                        for f, c in self.contexts.items()}
+            return {"schema_version": 3, "generated_by": "planner", "planner_version": PLANNER_VERSION,
+                    "building_type": "mixed", "contexts": contexts, "base": self.base,
+                    "shared_components": self.shared_components, "variants": variants, "transitions": []}
         return {"schema_version": 2, "generated_by": "planner", "planner_version": PLANNER_VERSION,
                 "building_type": self.family, "base": self.base, "shared_components": self.shared_components,
                 "variants": variants, "transitions": []}
@@ -152,14 +197,15 @@ class Model:
     def parts(self, sid):
         """Visible semantic parts of a state: shared base + own + inherited frame."""
         st = self.states[sid]
+        shared = self.state_ctx(sid)["shared_parts"]
         if sid == SITE_STATE:
-            return list(self.shared_parts)
+            return list(shared)
         own = catalog.component_parts(st["entry"], sid)
         src = st.get("structure_from")
         if src:
             inherited = [p for p in catalog.component_parts(self.states[src]["entry"], src) if not p["replaceable"]]
             own = [p for p in own if p["replaceable"]] + inherited
-        return list(self.shared_parts) + own
+        return list(shared) + own
 
     def pull_out(self, sid, ids, per, preset):
         """Exploded close-up of pieces set in a wall (voussoirs in a spandrel): each piece first
@@ -197,11 +243,12 @@ class Model:
 
 
 # ---------------------------------------------------------------- shot builders
-def _pulse(ids, seconds, m):
-    hold = seconds - m["start"] - m["rise"] - m["fall"] - m["tail"]
+def _pulse(ids, seconds, m, start=None):
+    start = m["start"] if start is None else start
+    hold = seconds - start - m["rise"] - m["fall"] - m["tail"]
     if hold < 0.3:
         raise T.TooShort("highlight")
-    return {"components": ids, "start_seconds": m["start"], "rise_seconds": m["rise"], "hold_seconds": round(hold, 4),
+    return {"components": ids, "start_seconds": round(start, 4), "rise_seconds": m["rise"], "hold_seconds": round(hold, 4),
             "fall_seconds": m["fall"], "strength": m["strength"]}
 
 
@@ -226,6 +273,20 @@ class Draft:
         self.sequence = None      # shots of one sequential comparison share a locked camera
 
 
+def _with_context(d, context):
+    """M6: every shot a draft makes names its scene context (the base the engine builds on)."""
+    def wrap(make):
+        def made(n):
+            shot = make(n)
+            shot["scene_context"] = context
+            return shot
+        return made
+    d.make = wrap(d.make)
+    if d.extend_hold is not None:
+        ext = d.extend_hold
+        d.extend_hold = lambda extra, ext=ext: wrap(ext(extra))
+
+
 def build_strategy(name, ctx):
     """Drafts for a strategy, or StrategyRejected(kind, detail[, capability])."""
     m, fps, model, beat = ctx["cfg"]["motion"], ctx["fps"], ctx["model"], ctx["beat"]
@@ -237,6 +298,11 @@ def build_strategy(name, ctx):
     def need_states(k):
         if len(arch) < k:
             raise StrategyRejected("INVALID_REQUEST", f"{name} needs {k} architecture state(s); beat names {arch}")
+        if k > 1 and name != "SEQUENTIAL_STATES" and model.multi and \
+                len({model.context_of.get(s) for s in arch}) > 1:   # M6: one frame / one camera = one context
+            raise StrategyRejected("INVALID_REQUEST", f"{name}: {arch} belong to different scene contexts "
+                                   f"({', '.join(sorted({model.context_of.get(s) for s in arch}))}); they cannot share "
+                                   "one frame or one locked camera (shown one after the other: SEQUENTIAL_STATES)")
 
     def support(sid, template):
         st = model.states[sid]
@@ -252,19 +318,21 @@ def build_strategy(name, ctx):
     def ids_of(tg):
         return sorted({i for t in tg for i in t["component_ids"]})
 
-    def hold(sid, tg, mode, focus=None, label=None, glow=None, shot_band=None):
+    def hold(sid, tg, mode, focus=None, label=None, glow=None, shot_band=None, glow_start=None):
         ids = ids_of(tg) if glow is None else glow
 
         def make(n):
             anim = {"template": "HOLD", "state": sid}
             if ids:
                 support(sid, "HIGHLIGHT")
-                anim["highlight"] = _pulse(ids, n / fps, m["highlight"])
+                anim["highlight"] = _pulse(ids, n / fps, m["highlight"], glow_start)
             elif n / fps < ctx["cfg"]["timing"]["min_shot_seconds"]:
                 raise T.TooShort("hold")
             if label:
                 anim["label"] = label
-            return _shot("HOLD", {"from_state": sid, "to_state": sid}, anim, n, fps, camera_of(mode), focus,
+                if ctx["caption_top"]:   # M6 narrated: captions at the top, the bottom is the subtitle zone
+                    anim["label_position"] = "TOP"
+            return _shot("HOLD", {"from_state": sid, "to_state": sid}, anim, n, fps, camera_of(mode, sid), focus,
                          band if shot_band is None else shot_band)
         return make
 
@@ -293,8 +361,16 @@ def build_strategy(name, ctx):
         if name == "HOLD_HIGHLIGHT" and not tg:
             raise StrategyRejected("INVALID_REQUEST", "HOLD_HIGHLIGHT needs component concepts to highlight")
         mode = beat.get("camera_mode", "FULL_OBJECT")
-        return [Draft("HOLD", mode, hold(sid, tg, mode), w["HOLD"], [sid], tg,
-                      f"hold {sid}" + (f", glowing {', '.join(t['concept'] for t in tg)}" if tg else ""))]
+        k = beat.get("highlight_at_sentence")
+        glow_start = None
+        if tg and k is not None:   # M6: the glow starts when its sentence does
+            spans = ctx["sentence_offsets"] or []
+            if not 0 <= k < len(spans):
+                raise StrategyRejected("INVALID_REQUEST", f"highlight_at_sentence {k} is not a sentence of the beat")
+            glow_start = max(m["highlight"]["start"], spans[k][0] - 0.2)
+        return [Draft("HOLD", mode, hold(sid, tg, mode, glow_start=glow_start), w["HOLD"], [sid], tg,
+                      f"hold {sid}" + (f", glowing {', '.join(t['concept'] for t in tg)}" if tg else "")
+                      + (f" from sentence {k}" if glow_start is not None else ""))]
 
     if name == "ASSEMBLE_IN":
         need_states(1)
@@ -458,6 +534,8 @@ def build_strategy(name, ctx):
         def make_cmp(n):
             anim = {"template": "SIDE_BY_SIDE", "states": list(states_cmp), "layout": cand["layout"],
                     "gap_ratio": cand["gap_ratio"], "label_band": cand["label_band"], "labels": labels}
+            if ctx["caption_top"] and cand["layout"] == "ROW":   # M6: captions above the subtitle zone
+                anim["label_position"] = "BAND_TOP"
             if glow:
                 anim["highlight"] = dict(_pulse("DIFFERENCES", n / fps, m["highlight"]), strength=0.3)
             elif n / fps < ctx["cfg"]["timing"]["min_shot_seconds"]:
@@ -473,7 +551,11 @@ def build_strategy(name, ctx):
         return d
 
     def choose_layout(states_cmp, use=purpose):
-        rows = composition.evaluate(ctx["draft_states"], states_cmp, camera_of("COMPARISON"), ccfg, use, presets, fps)
+        cc = ccfg
+        if ctx["caption_top"]:   # M6 narrated: captions of the bottom row must stay above the subtitle zone
+            lb = ccfg["narrated_label_band"]
+            cc = dict(ccfg, candidates=[dict(c, label_band=max(c["label_band"], lb)) for c in ccfg["candidates"]])
+        rows = composition.evaluate(ctx["draft_states"], states_cmp, camera_of("COMPARISON"), cc, use, presets, fps)
         chosen = composition.best(rows)
         if chosen is None:
             raise StrategyRejected("UNREADABLE", f"no simultaneous layout of {len(states_cmp)} models reads at "
@@ -484,13 +566,13 @@ def build_strategy(name, ctx):
     def sequence(states_cmp, glow):
         """Each model alone, captioned, under one shared camera (build set = every compared model)."""
         built = [v for v in model.order if v in states_cmp]
-        seq_band = ccfg["sequence_caption_band"]
+        seq_band = ctx["cfg"]["camera"]["subtitle_safe_band"] if ctx["caption_top"] else ccfg["sequence_caption_band"]
         rows = composition.evaluate_sequence(ctx["draft_states"], states_cmp, built, camera_of("FULL_OBJECT"), ccfg,
                                              purpose, presets, fps)
         bad = [r for r in rows if not r["ok"]]
         if bad:
             raise StrategyRejected("UNREADABLE", "one model per frame still does not read: " + composition.summary(bad))
-        shared = {p["id"] for p in model.shared_parts}
+        shared = {p["id"] for p in model.state_ctx(states_cmp[0])["shared_parts"]}
         drafts = []
         for k, (s_id, r) in enumerate(zip(states_cmp, rows), 1):
             own = sorted(p["id"] for p in model.parts(s_id) if p["id"] not in shared) if glow else None
@@ -591,6 +673,26 @@ def allocate(drafts, total, states, fps):
     return alloc, mins
 
 
+SENTENCE_CUT_LEAD = 0.2   # a cut lands this long before the sentence it belongs to starts
+
+
+def align_to_sentences(alloc, mins, spans, fps):
+    """M6: when a beat has at least as many sentences as shots, cut on sentence starts: the
+    last (shots - 1) boundaries fall just before the last (shots - 1) sentences (a sequential
+    comparison shows each model while its sentence is spoken). Falls back to the weighted
+    allocation when a shot would drop below its minimum. Returns (alloc, note)."""
+    k = len(alloc)
+    if k < 2 or not spans or len(spans) < k:
+        return alloc, None
+    total = sum(alloc)
+    cuts = [T.frames(max(spans[len(spans) - (k - 1) + i][0] - SENTENCE_CUT_LEAD, 0.0), fps) for i in range(k - 1)]
+    bounds = [0] + cuts + [total]
+    new = [bounds[i + 1] - bounds[i] for i in range(k)]
+    if any(n < mn for n, mn in zip(new, mins)):
+        return alloc, "weighted (cutting on sentence starts would shorten a shot below its minimum)"
+    return new, (f"cuts on sentence starts {[len(spans) - (k - 1) + i for i in range(k - 1)]}")
+
+
 # ---------------------------------------------------------------- plan
 def plan_project(project_dir, root=ROOT, vocab=None):
     """Plan, assess target visibility, repair (camera, ghosting) and, where a strategy's shots
@@ -613,20 +715,25 @@ def _plan_pass(project_dir, root, vocab, excluded):
     root, project_dir = Path(root), Path(project_dir)
     doc, sources, default_vocab, cfg = load_inputs(project_dir, root)
     vocab = vocab or default_vocab
-    errors = B.validate(doc, sources) + V.validate(vocab)
+    errors = B.validate(doc, sources) + V.validate(vocab) + annotations.validate_spec(doc, sources, vocab)
+    errors += [f"beat {b['beat_id']}: {b['narrative_intent']} needs annotations (what the viewer must see is the "
+               "load path, not only the model)" for b in doc["beats"]
+               if intents.INTENTS.get(b["narrative_intent"], {}).get("needs_annotations") and not b.get("annotations")]
     if errors:
         raise PlanningError(errors)
     fps = int(cfg["timing"]["frame_rate"])
     index = catalog.index(root)
     model = Model(root, project_dir, vocab, index)
-    families = set()
+    families = []
     for b in doc["beats"]:
         for n in mapper.architecture_refs(b, vocab):
             c = vocab.get(n)
-            if c and c["kind"] == "architecture":
-                families.add(c["family"])
+            if c and c["kind"] == "architecture" and c["family"] not in families:
+                families.append(c["family"])
     model.set_base(families)
     windows = T.beat_windows(doc, project_dir, cfg["timing"])
+    offsets = T.sentence_offsets(doc, project_dir, cfg["timing"])
+    caption_top = doc["timing_mode"] == "AUDIO_LOCKED"   # narrated: the bottom of the frame is for subtitles
     presets = CAM.style_presets(root)
 
     coverage, plan_shots, warnings = [], [], []
@@ -689,8 +796,11 @@ def _plan_pass(project_dir, root, vocab, excluded):
         ctx = {"cfg": cfg, "fps": fps, "model": model, "beat": beat, "arch_states": arch_states,
                "site_concept": site_concept, "component_refs": mapper.component_refs(beat, vocab),
                "draft_states": draft_states, "prev_end_state": prev_end_state, "prev_compare": prev_compare,
-               "camera_of": lambda mode: CAM.preset_for(cfg, model.family or "bridge", mode),
-               "presets": presets, "state_of": state_of}
+               "camera_of": lambda mode, sid=None, fam=(model.context_of.get(arch_states[0]) if arch_states else None) or
+               ("bridge" if site_concept else model.family) or "bridge":
+               CAM.preset_for(cfg, model.context_of.get(sid, fam) if sid else fam, mode),
+               "presets": presets, "state_of": state_of, "sentence_offsets": offsets.get(bid),
+               "caption_top": caption_top}
         names = [beat["strategy"]] if beat.get("strategy") else intents.INTENTS[intent]["strategies"]
         if beat.get("strategy") and beat["strategy"] not in intents.STRATEGIES:
             cov.update(status="INVALID_REQUEST")
@@ -703,12 +813,19 @@ def _plan_pass(project_dir, root, vocab, excluded):
                 continue
             try:
                 drafts = build_strategy(name, ctx)
+                if model.multi:
+                    for d in drafts:
+                        if d.states:
+                            _with_context(d, model.context_of.get(d.states[0], model.family))
                 draft_states = model.states_json()
                 alloc, mins = allocate(drafts, D, draft_states, fps)
                 if alloc is None:
                     rejections.append(("TIMING_CONFLICT", name, f"{name} needs {sum(mins) / fps:.2f} s "
                                        f"({' + '.join(f'{x / fps:.2f}' for x in mins)}), the beat has {D / fps:.2f} s"))
                     continue
+                alloc, cut_note = align_to_sentences(alloc, mins, offsets.get(bid) if caption_top else None, fps)
+                if cut_note:
+                    cov["explanation"].append(f"{name} timing: {cut_note}")
                 chosen = (name, drafts, alloc, mins)
                 break
             except StrategyRejected as e:
@@ -743,6 +860,7 @@ def _plan_pass(project_dir, root, vocab, excluded):
         cov["status"] = "PARTIALLY_COVERED" if name in PARTIAL.get(intent, ()) else "COVERED"
         cov["explanation"].append(f"{name}: {intents.STRATEGIES[name][1]}")
         ev_status = "INTERNAL_PREVIEW" if doc["publication"]["restriction"] == "INTERNAL_ONLY" else ev
+        beat_t = 0
         for i, (d, n, mn) in enumerate(zip(drafts, alloc, mins)):
             if getattr(d, "extend_hold", None) is not None:      # REPLACE: extra time is a longer pre-swap hold
                 d.make = d.extend_hold(lambda nn, mn=mn: max(0.0, (nn - mn) / fps * 0.4))
@@ -756,11 +874,14 @@ def _plan_pass(project_dir, root, vocab, excluded):
                                "semantic_targets": [{"concept": t["concept"], "roles": t["roles"], "group": t["group"],
                                                      "component_ids": t["component_ids"]} for t in d.targets],
                                "timing": {"mode": windows[bid][1], "frames": n, "duration_seconds": round(n / fps, 6),
-                                          "min_seconds": round(mn / fps, 4)},
+                                          "min_seconds": round(mn / fps, 4), "beat_offset_seconds": round(beat_t / fps, 6)},
                                "explanation": d.explanation, "evidence_status": ev_status,
                                "composition": d.composition, "sequence": d.sequence,
+                               **({"repair_preference": list(beat["visual_repair_preference"])}
+                                  if beat.get("visual_repair_preference") else {}),
                                "asset_ids": [model.states[s]["asset_id"] for s in d.states if model.states[s]["asset_id"]]})
             cov["templates"].append(d.template)
+            beat_t += n
         cov["semantic_targets"] = sorted({t["concept"] for d in drafts for t in d.targets})
         last = plan_shots[-1]
         prev_end_state = last["states"][-1] if last["template"] != "SIDE_BY_SIDE" else None
@@ -779,7 +900,9 @@ def _plan_pass(project_dir, root, vocab, excluded):
     for cov in coverage:
         cov["shot_ids"] = [ps["shot_id"] for ps in plan_shots if ps["beat_id"] == cov["beat_id"]]
     records, unresolved = repair.repair_plan(plan_shots, model.states_json, lambda: _continuity(plan_shots, model),
-                                             cfg, presets, fps, model.family or "bridge",
+                                             cfg, presets, fps,
+                                             (lambda ps: model.context_of.get(ps["states"][-1], model.family))
+                                             if model.multi else model.family or "bridge",
                                              {k for k, c in vocab.concepts.items() if c.get("read_as") == "pieces"})
     replan = {}
     cov_by = {c["beat_id"]: c for c in coverage}
@@ -811,22 +934,63 @@ def _plan_pass(project_dir, root, vocab, excluded):
             if unc:
                 warnings.append(f"{ps['shot_id']} {', '.join(sorted(set(unc)))}: visibility UNCERTAIN offline "
                                 "(proxy geometry or few samples): verify in Blender (verify-visibility)")
-    executable = all(c["status"] in ("COVERED", "PARTIALLY_COVERED") for c in coverage)
+    _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows, presets, fps, caption_top, warnings)
+    checks = consistency.check_plan({"shots": plan_shots}, doc, offsets, AL.load_style(root / "config/annotation_style.json"))
+    cov_by = {c["beat_id"]: c for c in coverage}
+    for r in checks:   # M6: narration that contradicts the picture blocks the plan (fail closed)
+        if r["verdict"] == "CONTRADICTION":
+            c = cov_by[r["beat_id"]]
+            c["consistency_failures"] = c.get("consistency_failures", 0) + 1
+            c["issues"].append(f"NARRATION_CONTRADICTION ({r['rule']}, sentence {r['sentence']}): {r['detail']}")
+            warnings.append(f"{r['beat_id']}.s{r['sentence']}: narration/visual contradiction: {r['detail']}")
+    executable = all(c["status"] in ("COVERED", "PARTIALLY_COVERED") and not c.get("annotation_failures")
+                     and not c.get("consistency_failures") for c in coverage)
     inputs = {"beats_sha256": B.content_hash(doc), "sources_sha256": B.content_hash(sources),
               "vocabulary_sha256": B.content_hash(vocab.data), "planning_config_sha256": B.content_hash(cfg),
               "assets": {e["asset_id"]: B.content_hash(json.loads((root / e["path"]).read_text()))
                          for e in sorted({s["entry"]["path"]: s["entry"] for s in model.states.values()
                                           if s["entry"]}.values(), key=lambda e: e["asset_id"])}}
+    if any(b.get("annotations") for b in doc["beats"]):
+        inputs["annotation_style_sha256"] = annotations.style_hash(AL.load_style(root / "config/annotation_style.json"))
+    if doc["timing_mode"] == "AUDIO_LOCKED":
+        from pipeline import audio_lock
+        inputs["timing_sha256"] = audio_lock.beats_hash(json.loads((project_dir / "script/timing.json").read_text()))
     return {"schema": "visual_plan/1", "plan_version": "1.0", "planner_version": PLANNER_VERSION,
             "project_id": doc["project_id"], "title": doc.get("title"), "timing_mode": doc["timing_mode"],
             "publication": doc["publication"], "fps": fps, "total_frames": t, "duration_seconds": round(t / fps, 6),
             "executable": executable, "inputs": inputs, "family": model.family,
+            **({"scene_contexts": list(model.contexts)} if model.multi else {}),
             "states": model.states_json(),
             "resolutions": [{k: r.get(k) for k in ("concept", "status", "asset_id", "explanation")}
                             for r in model.resolutions.values()],
             "shots": plan_shots, "coverage": coverage, "warnings": warnings,
             "visibility_summary": _visibility_summary(plan_shots, records, unresolved),
+            "consistency": {"rows": checks, "summary": consistency.summary(checks)},
             "pieces_concepts": sorted(k for k, c in vocab.concepts.items() if c.get("read_as") == "pieces")}, replan
+
+
+def _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows, presets, fps, caption_top, warnings):
+    """M6: semantic annotations of every planned beat (planner/annotations.py); a beat whose
+    annotations cannot be attached, anchored or placed is not executable (fail closed)."""
+    if not any(b.get("annotations") for b in doc["beats"]):
+        return
+    style = AL.load_style()
+    cov_by = {c["beat_id"]: c for c in coverage}
+    match_after = {a["shot_id"] for a, b in zip(plan_shots, plan_shots[1:]) if b["cut_from_previous"] == "match"}
+    for beat in doc["beats"]:
+        cov = cov_by[beat["beat_id"]]
+        if not beat.get("annotations") or cov["status"] not in ("COVERED", "PARTIALLY_COVERED"):
+            continue
+        shots = [(ps, ps["timing"]["beat_offset_seconds"]) for ps in plan_shots if ps["beat_id"] == beat["beat_id"]]
+        seconds = sum(ps["timing"]["frames"] for ps, _ in shots) / fps
+        records, issues = annotations.plan_beat(beat, shots, offsets[beat["beat_id"]], seconds, model, vocab, sources,
+                                                style, presets, fps, caption_top, match_after)
+        cov["annotations"] = records
+        cov["annotation_failures"] = sum(1 for r in records if r["status"] != "PLACED")
+        if issues:
+            cov["status"] = "PARTIALLY_COVERED"
+            cov["issues"] += issues
+            warnings += [f"{beat['beat_id']}: {i}" for i in issues]
 
 
 def _continuity(plan_shots, model):

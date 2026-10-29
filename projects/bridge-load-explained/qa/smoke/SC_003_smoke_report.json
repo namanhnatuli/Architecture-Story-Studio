@@ -1,0 +1,120 @@
+{
+  "output": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/bridge-load-explained/qa/smoke/SC_003_smoke_review.mp4",
+  "subtitles": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/bridge-load-explained/qa/smoke/SC_003_smoke_review.en.srt",
+  "narration_rights": [
+    "PENDING_REVIEW"
+  ],
+  "publication_audio": false,
+  "narration_track": "/Users/trananh/Work/Projects/Architecture-Story-Studio/projects/bridge-load-explained/audio/narration_mix_SC_003.wav",
+  "shots": [
+    "SC_003"
+  ],
+  "frames": 440,
+  "seconds": 18.333333333333332,
+  "video": {
+    "codec_name": "h264",
+    "codec_type": "video",
+    "width": 960,
+    "height": 540,
+    "duration": "18.333333",
+    "nb_read_frames": "440"
+  },
+  "audio": {
+    "codec_name": "aac",
+    "codec_type": "audio",
+    "sample_rate": "48000",
+    "duration": "18.333333",
+    "nb_read_frames": "860"
+  },
+  "loudness_before": {
+    "I": "-23.01",
+    "TP": "-4.86"
+  },
+  "loudness_after": {
+    "integrated_lufs": -16.1,
+    "true_peak_dbtp": -1.5
+  },
+  "subtitle_entries": 5,
+  "subtitle_stats": {
+    "cues": 5,
+    "sentences": 4,
+    "max_line": 38,
+    "lines_over_42": 0,
+    "two_line_cues": 3,
+    "aligned_boundaries": 1,
+    "sentence_fallbacks": 0,
+    "max_cps": 16.9
+  },
+  "subtitle_warnings": [],
+  "subtitle_cues": [
+    {
+      "start": 0.4000003333333382,
+      "end": 2.8750003333333325,
+      "lines": [
+        "Now take a beam bridge."
+      ],
+      "text": "Now take a beam bridge.",
+      "sentence": "B3.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 2.6250003333333325
+    },
+    {
+      "start": 3.025000333333338,
+      "end": 7.825000333333335,
+      "lines": [
+        "Its deck rests on long beams that span",
+        "from one support to the next."
+      ],
+      "text": "Its deck rests on long beams that span from one support to the next.",
+      "sentence": "B3.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 7.575000333333335
+    },
+    {
+      "start": 7.975000333333334,
+      "end": 11.825000333333335,
+      "lines": [
+        "Each beam carries the",
+        "load by resisting bending."
+      ],
+      "text": "Each beam carries the load by resisting bending.",
+      "sentence": "B3.s2",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 11.575000333333335
+    },
+    {
+      "start": 11.975000333333334,
+      "end": 16.180000333333332,
+      "lines": [
+        "A cap beam spreads the load onto the",
+        "posts, and the posts carry it down"
+      ],
+      "text": "A cap beam spreads the load onto the posts, and the posts carry it down",
+      "sentence": "B3.s3",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "down",
+        "before_word": "in",
+        "whisper_boundary": 4.04,
+        "placed_at": 4.205,
+        "rms_db_at_boundary": -38.2
+      }
+    },
+    {
+      "start": 16.180000333333332,
+      "end": 17.750000333333332,
+      "lines": [
+        "in compression."
+      ],
+      "text": "in compression.",
+      "sentence": "B3.s3",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 17.500000333333332
+    }
+  ],
+  "problems": []
+}

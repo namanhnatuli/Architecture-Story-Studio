@@ -84,3 +84,12 @@ If a requested change conflicts with these choices, document the reason and upda
 - **So sánh theo độ đọc được ở màn hình nhỏ (640×360), không phải theo việc chứa đủ mô hình.** Khi không bố cục đồng thời nào đọc được, so sánh tuần tự dưới một camera chung (tỷ lệ chung). Không chuẩn hóa từng mô hình một cách lặng lẽ.
 - **Mục đích của output quyết định gate.** Profile được khai báo rõ và có validate. Profile không lời không bao giờ cho phép xuất bản, và không thể dùng trên dự án có lời dẫn. Không có cờ bỏ qua chung.
 
+
+## Bổ sung 2026-10-29 (M6)
+- **License của model ≠ quyền xuất bản.** Kokoro-82M có trọng số và code Apache-2.0, nhưng dữ liệu huấn luyện gồm audio tổng hợp từ TTS đóng, và fallback G2P là GPL. Hạng quyền vì thế giữ `PENDING_REVIEW` cho tới khi một người có tên ghi clearance. Agent không bao giờ nâng hạng quyền, cũng không duyệt giọng thay người dùng. `bf_emma` chỉ là mặc định kỹ thuật tạm thời, chọn theo số đo.
+- **Audio-first, hai bước khóa.** Planner cần thời lượng đo được; manifest timing lại cần shot đã lập kế hoạch. Nên có `lock-audio` (beat + khoảng câu, chỉ khóa khi ASR đạt và hai file script khớp chữ), rồi `finalize` khi build-shots (idempotent). Lời dẫn không bao giờ bị kéo giãn cho vừa hình.
+- **Chú thích là lớp 2D đặt trước camera, neo vào hình 3D.** Không vẽ chú thích lên hình học kiến trúc, không in phụ đề vào hình. Bố cục được tính một lần, thuần Python, từ raster offline của chính cảnh mà engine dựng. Điểm neo lưu ở dạng tọa độ thế giới, để Blender kiểm bằng tia.
+- **Mỗi đồ họa lực phải có claim gọi đúng bộ phận.** Độ dài mũi tên cố định. Có thẻ "not to scale". Không tô màu từng thanh giàn khi không có trường hợp tải và nguồn. Pilot chỉ gọi tên biên trên/dưới, và chỉ với giả định nhịp giản đơn ghi trong CLM_613.
+- **Mâu thuẫn lời/hình là lỗi chặn (fail closed), không phải cảnh báo.** Luật tất định trên cụm từ gợi ý. Khi không tự quyết được thì báo UNCERTAIN cho người duyệt. Câu chữ được sửa trong script, không bao giờ sửa trong storyboard.
+- **Nhiều họ kiến trúc qua scene context, không qua một base chung giả.** Engine chỉ thấy view của một ngữ cảnh. Dự án một họ giữ schema 2 giống hệt, để không làm hỏng cache và kết quả cũ.
+- **Cắt theo câu khi đã khóa audio.** Ước lượng PROVISIONAL quá thô để cắt theo câu, nên dự án cũ không đổi.

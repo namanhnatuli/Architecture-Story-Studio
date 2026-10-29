@@ -3,7 +3,8 @@
 - The narration track has exactly the video's length (frames / fps); each beat's
   measured audio is placed at its scheduled start, silence elsewhere.
 - Loudness: two-pass ffmpeg loudnorm (linear) to LOUDNESS_TARGET, true peak TRUE_PEAK.
-- Subtitles: sentence-level SRT from measured sentence spans (no invented word timings).
+- Subtitles: sentence-level SRT from measured sentence spans (no invented word timings), also
+  embedded as a selectable mov_text track (M6); never burnt into the picture.
 - QA: A/V duration drift <= 1 frame, loudness within +/-1 LU, true peak, SRT sanity.
 """
 import json
@@ -97,6 +98,17 @@ def mux(video, audio, out, comment=None):
         raise RuntimeError(f"mux failed: {r.stderr[-300:]}")
 
 
+def embed_subtitles(mp4, srt):
+    """Re-mux `mp4` with the SRT as an English mov_text track (streams copied, not re-encoded)."""
+    tmp = Path(mp4).with_suffix(".subs.mp4")
+    r = _ffmpeg("-y", "-i", mp4, "-i", srt, "-map", "0:v:0", "-map", "0:a:0", "-map", "1:0", "-c:v", "copy",
+                "-c:a", "copy", "-c:s", "mov_text", "-metadata:s:s:0", "language=eng", "-map_metadata", "0",
+                "-movflags", "+faststart", tmp)
+    if r.returncode != 0:
+        raise RuntimeError(f"subtitle mux failed: {r.stderr[-300:]}")
+    tmp.replace(mp4)
+
+
 def narration_rights(project_dir):
     """(all segments PUBLICATION_CLEARED?, sorted set of rights classes) of the current narration."""
     path = Path(project_dir) / "audio/narration_manifest.json"
@@ -136,6 +148,7 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print):
     ms = lambda t: int(round(max(0.0, t) * 1000))
     if [(ms(a), ms(b), l) for a, b, l in written] != [(ms(c["start"]), ms(c["end"]), c["lines"]) for c in cues]:
         sub_problems.append("written SRT differs from the computed cues")
+    embed_subtitles(out_mp4, srt)   # M6: the same cues as a selectable soft track (never burnt into the picture)
 
     probe = json.loads(subprocess.run(
         [audio_probe._bin("ffprobe"), "-v", "error", "-count_frames", "-show_entries",
@@ -145,6 +158,9 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print):
     fps = timing["fps"]
     problems = []
     v, a = streams.get("video"), streams.get("audio")
+    s = streams.get("subtitle")
+    if not s or s.get("codec_name") != "mov_text":
+        problems.append("output has no embedded English subtitle track (mov_text)")
     if not v or not a:
         problems.append("output must have one video and one audio stream")
     else:

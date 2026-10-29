@@ -1,0 +1,2015 @@
+{
+  "project_id": "bridge-load-explained",
+  "rows": [
+    {
+      "beat_id": "B1",
+      "sentence": 0,
+      "text": "What happens when weight is placed on a bridge?",
+      "start_seconds": 0.4,
+      "beat_claims": [
+        "CLM_601",
+        "CLM_602"
+      ],
+      "claims": [
+        {
+          "id": "CLM_601",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.365 'live load'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'dead load'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_602",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'deck'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_001"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B1",
+      "sentence": 1,
+      "text": "Traffic, people and the bridge's own weight all press down on its deck.",
+      "start_seconds": 3.95,
+      "beat_claims": [
+        "CLM_601",
+        "CLM_602"
+      ],
+      "claims": [
+        {
+          "id": "CLM_601",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.365 'live load'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'dead load'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_602",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'deck'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_001"
+      ],
+      "annotations": [
+        {
+          "annotation": "B1_load",
+          "type": "LOAD_ARROW",
+          "text": "Load",
+          "claim_id": "CLM_601",
+          "shot": "SC_001",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_span1_deck",
+            "steel_truss_bridge_span2_deck"
+          ],
+          "appear_seconds": 3.833,
+          "disappear_seconds": 13.875,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B1",
+      "sentence": 2,
+      "text": "To stay standing, the bridge has to carry that load down into the ground.",
+      "start_seconds": 8.8,
+      "beat_claims": [
+        "CLM_601",
+        "CLM_602"
+      ],
+      "claims": [
+        {
+          "id": "CLM_601",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.365 'live load'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'dead load'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_602",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'deck'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_001"
+      ],
+      "annotations": [
+        {
+          "annotation": "B1_ground",
+          "type": "COMPONENT_LABEL",
+          "text": "Ground",
+          "claim_id": null,
+          "shot": "SC_001",
+          "state": "steel_truss_bridge",
+          "asset": "site_river_crossing_24",
+          "components": [
+            "bank_right"
+          ],
+          "appear_seconds": 8.708,
+          "disappear_seconds": 13.875,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B2",
+      "sentence": 0,
+      "text": "The load follows a path down through the structure.",
+      "start_seconds": 14.608333,
+      "beat_claims": [
+        "CLM_602",
+        "CLM_603",
+        "CLM_604"
+      ],
+      "claims": [
+        {
+          "id": "CLM_602",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'deck'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_603",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_PBES_CH2",
+              "locator": "Chapter 2 introduction (AASHTO definition)"
+            },
+            {
+              "source": "SRC_FHWA_PBES_GLOSSARY",
+              "locator": "Appendix E 'superstructure'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_604",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.383 'substructure'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.338 'abutment'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.370 'pier'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_002"
+      ],
+      "annotations": [
+        {
+          "annotation": "B2_path",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "text": null,
+          "claim_id": "CLM_604",
+          "shot": "SC_002",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_pier1",
+            "steel_truss_bridge_seat_left",
+            "steel_truss_bridge_seat_right",
+            "steel_truss_bridge_span1_deck",
+            "steel_truss_bridge_span2_deck"
+          ],
+          "appear_seconds": 14.5,
+          "disappear_seconds": 34.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B2",
+      "sentence": 1,
+      "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+      "start_seconds": 18.258333,
+      "beat_claims": [
+        "CLM_602",
+        "CLM_603",
+        "CLM_604"
+      ],
+      "claims": [
+        {
+          "id": "CLM_602",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'deck'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_603",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_PBES_CH2",
+              "locator": "Chapter 2 introduction (AASHTO definition)"
+            },
+            {
+              "source": "SRC_FHWA_PBES_GLOSSARY",
+              "locator": "Appendix E 'superstructure'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_604",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.383 'substructure'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.338 'abutment'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.370 'pier'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_002"
+      ],
+      "annotations": [
+        {
+          "annotation": "B2_super",
+          "type": "HIGHLIGHT_REGION",
+          "text": "Superstructure",
+          "claim_id": "CLM_603",
+          "shot": "SC_002",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_span1_chords_north",
+            "steel_truss_bridge_span1_chords_south",
+            "steel_truss_bridge_span1_deck",
+            "steel_truss_bridge_span1_diagonals_north",
+            "steel_truss_bridge_span1_diagonals_south",
+            "steel_truss_bridge_span1_endposts_north",
+            "steel_truss_bridge_span1_endposts_south",
+            "steel_truss_bridge_span1_floor_beams",
+            "steel_truss_bridge_span1_joints_north",
+            "steel_truss_bridge_span1_joints_south",
+            "steel_truss_bridge_span1_verticals_north",
+            "steel_truss_bridge_span1_verticals_south",
+            "steel_truss_bridge_span2_chords_north",
+            "steel_truss_bridge_span2_chords_south",
+            "steel_truss_bridge_span2_deck",
+            "steel_truss_bridge_span2_diagonals_north",
+            "steel_truss_bridge_span2_diagonals_south",
+            "steel_truss_bridge_span2_endposts_north",
+            "steel_truss_bridge_span2_endposts_south",
+            "steel_truss_bridge_span2_floor_beams",
+            "steel_truss_bridge_span2_joints_north",
+            "steel_truss_bridge_span2_joints_south",
+            "steel_truss_bridge_span2_verticals_north",
+            "steel_truss_bridge_span2_verticals_south"
+          ],
+          "appear_seconds": 18.167,
+          "disappear_seconds": 23.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B2",
+      "sentence": 2,
+      "text": "That rests on the substructure: abutments at the ends, and sometimes piers in between.",
+      "start_seconds": 23.808333,
+      "beat_claims": [
+        "CLM_602",
+        "CLM_603",
+        "CLM_604"
+      ],
+      "claims": [
+        {
+          "id": "CLM_602",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'deck'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_603",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_PBES_CH2",
+              "locator": "Chapter 2 introduction (AASHTO definition)"
+            },
+            {
+              "source": "SRC_FHWA_PBES_GLOSSARY",
+              "locator": "Appendix E 'superstructure'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_604",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.383 'substructure'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.338 'abutment'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.370 'pier'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_002"
+      ],
+      "annotations": [
+        {
+          "annotation": "B2_abut",
+          "type": "COMPONENT_LABEL",
+          "text": "Abutment",
+          "claim_id": "CLM_604",
+          "shot": "SC_002",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_seat_left"
+          ],
+          "appear_seconds": 23.708,
+          "disappear_seconds": 34.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B2_pier",
+          "type": "COMPONENT_LABEL",
+          "text": "Pier",
+          "claim_id": "CLM_604",
+          "shot": "SC_002",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_pier1"
+          ],
+          "appear_seconds": 23.708,
+          "disappear_seconds": 34.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B2",
+      "sentence": 3,
+      "text": "The abutments pass the load on to the foundations.",
+      "start_seconds": 29.808333,
+      "beat_claims": [
+        "CLM_602",
+        "CLM_603",
+        "CLM_604"
+      ],
+      "claims": [
+        {
+          "id": "CLM_602",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'deck'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_603",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_PBES_CH2",
+              "locator": "Chapter 2 introduction (AASHTO definition)"
+            },
+            {
+              "source": "SRC_FHWA_PBES_GLOSSARY",
+              "locator": "Appendix E 'superstructure'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_604",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.383 'substructure'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.338 'abutment'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.370 'pier'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_002"
+      ],
+      "annotations": [
+        {
+          "annotation": "B2_found",
+          "type": "COMPONENT_LABEL",
+          "text": "Foundation",
+          "claim_id": "CLM_604",
+          "shot": "SC_002",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_seat_left"
+          ],
+          "appear_seconds": 29.708,
+          "disappear_seconds": 34.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B3",
+      "sentence": 0,
+      "text": "Now take a beam bridge.",
+      "start_seconds": 34.566667,
+      "beat_claims": [
+        "CLM_605",
+        "CLM_606",
+        "CLM_607"
+      ],
+      "claims": [
+        {
+          "id": "CLM_605",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'beam'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_607",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.344 'cap'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'bent'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.346 'column'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_003"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B3",
+      "sentence": 1,
+      "text": "Its deck rests on long beams that span from one support to the next.",
+      "start_seconds": 37.191667,
+      "beat_claims": [
+        "CLM_605",
+        "CLM_606",
+        "CLM_607"
+      ],
+      "claims": [
+        {
+          "id": "CLM_605",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'beam'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_607",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.344 'cap'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'bent'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.346 'column'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_003"
+      ],
+      "annotations": [
+        {
+          "annotation": "B3_beams",
+          "type": "COMPONENT_LABEL",
+          "text": "Beams",
+          "claim_id": "CLM_605",
+          "shot": "SC_003",
+          "state": "timber_beam_bridge",
+          "asset": "bridge_timber_beam_01",
+          "components": [
+            "timber_beam_bridge_span3_stringers"
+          ],
+          "appear_seconds": 37.083,
+          "disappear_seconds": 46.042,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B3",
+      "sentence": 2,
+      "text": "Each beam carries the load by resisting bending.",
+      "start_seconds": 42.141667,
+      "beat_claims": [
+        "CLM_605",
+        "CLM_606",
+        "CLM_607"
+      ],
+      "claims": [
+        {
+          "id": "CLM_601",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.365 'live load'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.350 'dead load'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_605",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'beam'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_607",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.344 'cap'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'bent'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.346 'column'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_003"
+      ],
+      "annotations": [
+        {
+          "annotation": "B3_load",
+          "type": "LOAD_ARROW",
+          "text": "Load",
+          "claim_id": "CLM_601",
+          "shot": "SC_003",
+          "state": "timber_beam_bridge",
+          "asset": "bridge_timber_beam_01",
+          "components": [
+            "timber_beam_bridge_span3_planks"
+          ],
+          "appear_seconds": 42.042,
+          "disappear_seconds": 52.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B3_bend",
+          "type": "CALLOUT",
+          "text": "Resists bending",
+          "claim_id": "CLM_606",
+          "shot": "SC_003",
+          "state": "timber_beam_bridge",
+          "asset": "bridge_timber_beam_01",
+          "components": [
+            "timber_beam_bridge_span3_stringers"
+          ],
+          "appear_seconds": 42.042,
+          "disappear_seconds": 52.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B3",
+      "sentence": 3,
+      "text": "A cap beam spreads the load onto the posts, and the posts carry it down in compression.",
+      "start_seconds": 46.141667,
+      "beat_claims": [
+        "CLM_605",
+        "CLM_606",
+        "CLM_607"
+      ],
+      "claims": [
+        {
+          "id": "CLM_605",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'beam'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_607",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.344 'cap'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.341 'bent'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.346 'column'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_003"
+      ],
+      "annotations": [
+        {
+          "annotation": "B3_path",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "text": null,
+          "claim_id": "CLM_607",
+          "shot": "SC_003",
+          "state": "timber_beam_bridge",
+          "asset": "bridge_timber_beam_01",
+          "components": [
+            "timber_beam_bridge_bent3",
+            "timber_beam_bridge_bent3_cap",
+            "timber_beam_bridge_span3_planks"
+          ],
+          "appear_seconds": 46.042,
+          "disappear_seconds": 52.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B3_cap",
+          "type": "COMPONENT_LABEL",
+          "text": "Cap beam",
+          "claim_id": "CLM_607",
+          "shot": "SC_003",
+          "state": "timber_beam_bridge",
+          "asset": "bridge_timber_beam_01",
+          "components": [
+            "timber_beam_bridge_bent3_cap"
+          ],
+          "appear_seconds": 46.042,
+          "disappear_seconds": 52.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B3_posts",
+          "type": "CALLOUT",
+          "text": "Posts: compression",
+          "claim_id": "CLM_607",
+          "shot": "SC_003",
+          "state": "timber_beam_bridge",
+          "asset": "bridge_timber_beam_01",
+          "components": [
+            "timber_beam_bridge_bent3"
+          ],
+          "appear_seconds": 46.042,
+          "disappear_seconds": 52.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B4",
+      "sentence": 0,
+      "text": "A masonry arch works differently.",
+      "start_seconds": 52.9,
+      "beat_claims": [
+        "CLM_608"
+      ],
+      "claims": [
+        {
+          "id": "CLM_608",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.388 'voussoir'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.363 'keystone'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_004",
+        "SC_005"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B4",
+      "sentence": 1,
+      "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+      "start_seconds": 56.0,
+      "beat_claims": [
+        "CLM_608"
+      ],
+      "claims": [
+        {
+          "id": "CLM_608",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.388 'voussoir'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.363 'keystone'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_004",
+        "SC_005"
+      ],
+      "annotations": [
+        {
+          "annotation": "B4_key",
+          "type": "COMPONENT_LABEL",
+          "text": "Keystone",
+          "claim_id": "CLM_608",
+          "shot": "SC_005",
+          "state": "stone_arch_bridge",
+          "asset": "bridge_stone_arch_03",
+          "components": [
+            "stone_arch_bridge_arch2_keystone"
+          ],
+          "appear_seconds": 57.25,
+          "disappear_seconds": 60.75,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B4_vous",
+          "type": "COMPONENT_LABEL",
+          "text": "Voussoirs",
+          "claim_id": "CLM_608",
+          "shot": "SC_005",
+          "state": "stone_arch_bridge",
+          "asset": "bridge_stone_arch_03",
+          "components": [
+            "stone_arch_bridge_arch2_voussoir01"
+          ],
+          "appear_seconds": 57.417,
+          "disappear_seconds": 60.583,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B5",
+      "sentence": 0,
+      "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+      "start_seconds": 62.4,
+      "beat_claims": [
+        "CLM_609",
+        "CLM_610"
+      ],
+      "claims": [
+        {
+          "id": "CLM_609",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        },
+        {
+          "id": "CLM_610",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_006"
+      ],
+      "annotations": [
+        {
+          "annotation": "B5_load",
+          "type": "LOAD_ARROW",
+          "text": "Load",
+          "claim_id": "CLM_609",
+          "shot": "SC_006",
+          "state": "stone_arch_bridge",
+          "asset": "bridge_stone_arch_03",
+          "components": [
+            "stone_arch_bridge_arch2_keystone"
+          ],
+          "appear_seconds": 62.292,
+          "disappear_seconds": 77.625,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B5_thrust",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "text": null,
+          "claim_id": "CLM_609",
+          "shot": "SC_006",
+          "state": "stone_arch_bridge",
+          "asset": "bridge_stone_arch_03",
+          "components": [
+            "stone_arch_bridge_arch2_keystone",
+            "stone_arch_bridge_arch2_voussoir01",
+            "stone_arch_bridge_arch2_voussoir02",
+            "stone_arch_bridge_arch2_voussoir03",
+            "stone_arch_bridge_arch2_voussoir04",
+            "stone_arch_bridge_arch2_voussoir05",
+            "stone_arch_bridge_arch2_voussoir06",
+            "stone_arch_bridge_arch2_voussoir08",
+            "stone_arch_bridge_arch2_voussoir09",
+            "stone_arch_bridge_arch2_voussoir10",
+            "stone_arch_bridge_arch2_voussoir11",
+            "stone_arch_bridge_arch2_voussoir12",
+            "stone_arch_bridge_arch2_voussoir13"
+          ],
+          "appear_seconds": 62.292,
+          "disappear_seconds": 77.625,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B5",
+      "sentence": 1,
+      "text": "So the arch works mainly in compression.",
+      "start_seconds": 68.25,
+      "beat_claims": [
+        "CLM_609",
+        "CLM_610"
+      ],
+      "claims": [
+        {
+          "id": "CLM_609",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        },
+        {
+          "id": "CLM_610",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_006"
+      ],
+      "annotations": [
+        {
+          "annotation": "B5_comp",
+          "type": "CALLOUT",
+          "text": "Mainly compression",
+          "claim_id": "CLM_609",
+          "shot": "SC_006",
+          "state": "stone_arch_bridge",
+          "asset": "bridge_stone_arch_03",
+          "components": [
+            "stone_arch_bridge_arch2_keystone",
+            "stone_arch_bridge_arch2_voussoir01",
+            "stone_arch_bridge_arch2_voussoir02",
+            "stone_arch_bridge_arch2_voussoir03",
+            "stone_arch_bridge_arch2_voussoir04",
+            "stone_arch_bridge_arch2_voussoir05",
+            "stone_arch_bridge_arch2_voussoir06",
+            "stone_arch_bridge_arch2_voussoir08",
+            "stone_arch_bridge_arch2_voussoir09",
+            "stone_arch_bridge_arch2_voussoir10",
+            "stone_arch_bridge_arch2_voussoir11",
+            "stone_arch_bridge_arch2_voussoir12",
+            "stone_arch_bridge_arch2_voussoir13"
+          ],
+          "appear_seconds": 68.167,
+          "disappear_seconds": 77.625,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B5",
+      "sentence": 2,
+      "text": "At each end it pushes outward and down on its supports, and the supports push back.",
+      "start_seconds": 71.6,
+      "beat_claims": [
+        "CLM_609",
+        "CLM_610"
+      ],
+      "claims": [
+        {
+          "id": "CLM_609",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        },
+        {
+          "id": "CLM_610",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_006"
+      ],
+      "annotations": [
+        {
+          "annotation": "B5_react",
+          "type": "REACTION_ARROW",
+          "text": "Supports push back",
+          "claim_id": "CLM_610",
+          "shot": "SC_006",
+          "state": "stone_arch_bridge",
+          "asset": "bridge_stone_arch_03",
+          "components": [
+            "stone_arch_bridge_arch2_keystone",
+            "stone_arch_bridge_arch2_voussoir01",
+            "stone_arch_bridge_arch2_voussoir02",
+            "stone_arch_bridge_arch2_voussoir03",
+            "stone_arch_bridge_arch2_voussoir04",
+            "stone_arch_bridge_arch2_voussoir05",
+            "stone_arch_bridge_arch2_voussoir06",
+            "stone_arch_bridge_arch2_voussoir08",
+            "stone_arch_bridge_arch2_voussoir09",
+            "stone_arch_bridge_arch2_voussoir10",
+            "stone_arch_bridge_arch2_voussoir11",
+            "stone_arch_bridge_arch2_voussoir12",
+            "stone_arch_bridge_arch2_voussoir13"
+          ],
+          "appear_seconds": 71.5,
+          "disappear_seconds": 77.625,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B6",
+      "sentence": 0,
+      "text": "The truss we started with takes another approach: straight members joined into triangles.",
+      "start_seconds": 78.025,
+      "beat_claims": [
+        "CLM_611",
+        "CLM_612",
+        "CLM_613",
+        "CLM_614"
+      ],
+      "claims": [
+        {
+          "id": "CLM_611",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.386 'truss'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_613",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "'Types of trusses'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_614",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_007"
+      ],
+      "annotations": [
+        {
+          "annotation": "B6_joints",
+          "type": "COMPONENT_LABEL",
+          "text": "Joints",
+          "claim_id": "CLM_611",
+          "shot": "SC_007",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_span1_joints_south"
+          ],
+          "appear_seconds": 77.917,
+          "disappear_seconds": 89.917,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B6",
+      "sentence": 1,
+      "text": "Each member is mainly pulled or pushed along its length, in tension or in compression.",
+      "start_seconds": 84.025,
+      "beat_claims": [
+        "CLM_611",
+        "CLM_612",
+        "CLM_613",
+        "CLM_614"
+      ],
+      "claims": [
+        {
+          "id": "CLM_611",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.386 'truss'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_613",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "'Types of trusses'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_614",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_007"
+      ],
+      "annotations": [
+        {
+          "annotation": "B6_legend",
+          "type": "TENSION_COMPRESSION_LEGEND",
+          "text": null,
+          "claim_id": "CLM_612",
+          "shot": "SC_007",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [],
+          "appear_seconds": 83.917,
+          "disappear_seconds": 103.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B6",
+      "sentence": 2,
+      "text": "Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched.",
+      "start_seconds": 90.0,
+      "beat_claims": [
+        "CLM_611",
+        "CLM_612",
+        "CLM_613",
+        "CLM_614"
+      ],
+      "claims": [
+        {
+          "id": "CLM_611",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.386 'truss'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_613",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "'Types of trusses'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_614",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_007"
+      ],
+      "annotations": [
+        {
+          "annotation": "B6_top",
+          "type": "CALLOUT",
+          "text": "Top chord: compression",
+          "claim_id": "CLM_613",
+          "shot": "SC_007",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_span1_chords_south"
+          ],
+          "appear_seconds": 89.917,
+          "disappear_seconds": 103.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B6_bottom",
+          "type": "CALLOUT",
+          "text": "Bottom chord: tension",
+          "claim_id": "CLM_613",
+          "shot": "SC_007",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_span1_chords_south"
+          ],
+          "appear_seconds": 89.917,
+          "disappear_seconds": 103.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B6",
+      "sentence": 3,
+      "text": "Inside, some web members are in compression and others are in tension.",
+      "start_seconds": 97.55,
+      "beat_claims": [
+        "CLM_611",
+        "CLM_612",
+        "CLM_613",
+        "CLM_614"
+      ],
+      "claims": [
+        {
+          "id": "CLM_611",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.386 'truss'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_613",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "'Types of trusses'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_614",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_007"
+      ],
+      "annotations": [
+        {
+          "annotation": "B6_web",
+          "type": "COMPONENT_LABEL",
+          "text": "Web members",
+          "claim_id": "CLM_614",
+          "shot": "SC_007",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_span2_diagonals_south"
+          ],
+          "appear_seconds": 97.458,
+          "disappear_seconds": 103.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B7",
+      "sentence": 0,
+      "text": "Let's compare them one at a time.",
+      "start_seconds": 103.566667,
+      "beat_claims": [
+        "CLM_606",
+        "CLM_609",
+        "CLM_612"
+      ],
+      "claims": [
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_609",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_008",
+        "SC_009",
+        "SC_010"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B7",
+      "sentence": 1,
+      "text": "The beam bridge carries its load by bending.",
+      "start_seconds": 106.641667,
+      "beat_claims": [
+        "CLM_606",
+        "CLM_609",
+        "CLM_612"
+      ],
+      "claims": [
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_609",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_008",
+        "SC_009",
+        "SC_010"
+      ],
+      "annotations": [
+        {
+          "annotation": "B7_beam",
+          "type": "CALLOUT",
+          "text": "Bending",
+          "claim_id": "CLM_606",
+          "shot": "SC_008",
+          "state": "timber_beam_bridge",
+          "asset": "bridge_timber_beam_01",
+          "components": [
+            "timber_beam_bridge_span3_stringers"
+          ],
+          "appear_seconds": 106.542,
+          "disappear_seconds": 110.125,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B7",
+      "sentence": 2,
+      "text": "The arch carries it mainly in compression, pushing against its supports.",
+      "start_seconds": 110.316667,
+      "beat_claims": [
+        "CLM_606",
+        "CLM_609",
+        "CLM_612"
+      ],
+      "claims": [
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_609",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_008",
+        "SC_009",
+        "SC_010"
+      ],
+      "annotations": [
+        {
+          "annotation": "B7_arch",
+          "type": "CALLOUT",
+          "text": "Compression",
+          "claim_id": "CLM_609",
+          "shot": "SC_009",
+          "state": "stone_arch_bridge",
+          "asset": "bridge_stone_arch_03",
+          "components": [
+            "stone_arch_bridge_arch2_keystone",
+            "stone_arch_bridge_arch2_voussoir01",
+            "stone_arch_bridge_arch2_voussoir02",
+            "stone_arch_bridge_arch2_voussoir03",
+            "stone_arch_bridge_arch2_voussoir04",
+            "stone_arch_bridge_arch2_voussoir05",
+            "stone_arch_bridge_arch2_voussoir06",
+            "stone_arch_bridge_arch2_voussoir08",
+            "stone_arch_bridge_arch2_voussoir09",
+            "stone_arch_bridge_arch2_voussoir10",
+            "stone_arch_bridge_arch2_voussoir11",
+            "stone_arch_bridge_arch2_voussoir12",
+            "stone_arch_bridge_arch2_voussoir13"
+          ],
+          "appear_seconds": 110.208,
+          "disappear_seconds": 115.25,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B7",
+      "sentence": 3,
+      "text": "In the truss, the load is shared between members in tension and in compression.",
+      "start_seconds": 115.416667,
+      "beat_claims": [
+        "CLM_606",
+        "CLM_609",
+        "CLM_612"
+      ],
+      "claims": [
+        {
+          "id": "CLM_606",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.358 'girder'"
+            }
+          ]
+        },
+        {
+          "id": "CLM_609",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)"
+            },
+            {
+              "source": "SRC_ODOT_MBI",
+              "locator": "Glossary p.339 'arch'"
+            },
+            {
+              "source": "SRC_YALE_PHYSICS",
+              "locator": "'Arch Bridges' section"
+            }
+          ]
+        },
+        {
+          "id": "CLM_612",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_SCI_TRUSSES",
+              "locator": "Introduction"
+            },
+            {
+              "source": "SRC_FHWA_CBM",
+              "locator": "Chapter 2, 'Component Terminology'"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_008",
+        "SC_009",
+        "SC_010"
+      ],
+      "annotations": [
+        {
+          "annotation": "B7_truss",
+          "type": "CALLOUT",
+          "text": "Tension and compression",
+          "claim_id": "CLM_612",
+          "shot": "SC_010",
+          "state": "steel_truss_bridge",
+          "asset": "bridge_steel_truss_pratt_01",
+          "components": [
+            "steel_truss_bridge_span1_chords_south"
+          ],
+          "appear_seconds": 115.333,
+          "disappear_seconds": 121.417,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B8",
+      "sentence": 0,
+      "text": "Three arrangements of parts, one job: carrying the load across the gap and down into the ground.",
+      "start_seconds": 121.816667,
+      "beat_claims": [],
+      "claims": [],
+      "shots": [
+        "SC_011"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B8",
+      "sentence": 1,
+      "text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+      "start_seconds": 128.166667,
+      "beat_claims": [],
+      "claims": [],
+      "shots": [
+        "SC_011"
+      ],
+      "annotations": []
+    }
+  ]
+}

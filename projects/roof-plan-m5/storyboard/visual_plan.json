@@ -16,8 +16,8 @@
   "inputs": {
     "beats_sha256": "58b2e6522f043718e78792a440f55ef289aeac8bd5e1686369f7060c3a07b1b2",
     "sources_sha256": "8f0bb9da8af3d466bf38f710fe2ef3bb6ce17939bfcf7a7f7668359f541eda07",
-    "vocabulary_sha256": "84a1bdc0f475af205aeda8c79c1b4c0e74e74d8249fa7d1bf9411c93407c792d",
-    "planning_config_sha256": "e625bc40216cec2d01edac4149ed205193d7ccb4774e781954ad2c7e8510e403",
+    "vocabulary_sha256": "1db89ce05c3abf2478f0df4e2a6204dd388dc0af13b1831c5f3233c021679953",
+    "planning_config_sha256": "3168becfae2765abfccd8de180d9b194c8faadfbe3498c041b9b94f6d61309ce",
     "assets": {
       "legacy_roof_evolution_roof_B": "39d27ec3a73ec48222312dda7c251a51bd62e85f400fb208e0f21d8b1ed61b3e"
     }
@@ -127,6 +127,7 @@
         "frames": 112,
         "duration_seconds": 4.666667,
         "min_seconds": 2.0,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 0.0
       },
       "explanation": "hold low_pitch_gable_roof",
@@ -269,6 +270,7 @@
         "frames": 158,
         "duration_seconds": 6.583333,
         "min_seconds": 4.625,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 4.666667
       },
       "explanation": "take low_pitch_gable_roof apart by assembly layer (5 components, 3 layers) and back; 3 focus components glow; repaired (REFRAME): ridge_beam was TOO_SMALL",
@@ -464,6 +466,7 @@
         "frames": 130,
         "duration_seconds": 5.416667,
         "min_seconds": 3.625,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 11.25
       },
       "explanation": "swap 7 parts of low_pitch_gable_roof for 7 parts of steep_gable_roof on the shared base",
@@ -533,6 +536,7 @@
         "frames": 103,
         "duration_seconds": 4.291667,
         "min_seconds": 2.0,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 16.666667
       },
       "explanation": "2 variants at identical scale (ROW, gap 0.35)",
@@ -790,6 +794,26 @@
     "auto_repaired": 1,
     "manual_review": 0,
     "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
+  },
+  "consistency": {
+    "rows": [
+      {
+        "beat_id": "R4",
+        "sentence": 0,
+        "text": "Side by side, the two designs differ in pitch.",
+        "rule": "SIMULTANEOUS",
+        "verdict": "CONSISTENT",
+        "detail": "a side-by-side comparison is on screen",
+        "shots": [
+          "SC_004"
+        ]
+      }
+    ],
+    "summary": {
+      "CONSISTENT": 1,
+      "CONTRADICTION": 0,
+      "UNCERTAIN": 0
+    }
   },
   "pieces_concepts": [
     "keystone",

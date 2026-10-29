@@ -219,9 +219,21 @@ class CompositionTest(unittest.TestCase):
         self.assertIn("scale COMMON", " ".join(validate.visibility_errors(bad)))
 
     def test_side_by_side_cue_is_reported_when_shown_one_at_a_time(self):
-        plan = plan_of(BRIDGE)
-        b7 = next(c for c in plan["coverage"] if c["beat_id"] == "B7")
-        self.assertTrue(any("seen together" in i for i in b7["issues"]))
+        # M6 reworded the real B7 ("Let's compare them one at a time"); the M5.5 wording, on a
+        # copy, is still reported - and since M6 it blocks the plan (planner/consistency.py).
+        b7 = next(c for c in plan_of(BRIDGE)["coverage"] if c["beat_id"] == "B7")
+        self.assertFalse(any("seen together" in i for i in b7["issues"]))
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp) / BRIDGE.name
+            shutil.copytree(BRIDGE, p, ignore=shutil.ignore_patterns("renders", "output", "scenes"))
+            doc = json.loads((p / "script/visual_beats.json").read_text())
+            old = next(b for b in doc["beats"] if b["beat_id"] == "B7")
+            old["narration"] = "Side by side, the three models span the same gap in three different ways."
+            (p / "script/visual_beats.json").write_text(json.dumps(doc))
+            plan = pl.plan_project(p)
+            b7 = next(c for c in plan["coverage"] if c["beat_id"] == "B7")
+            self.assertTrue(any("seen together" in i for i in b7["issues"]))
+            self.assertFalse(plan["executable"])
 
 
 class ProfileGateTest(unittest.TestCase):

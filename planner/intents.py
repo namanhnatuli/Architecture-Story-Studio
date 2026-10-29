@@ -49,13 +49,16 @@ INTENTS = {
                      "doc": "Context: the shared site, or a supplied 2D card (maps / sourced imagery are not supported)"},
     "SUMMARIZE_DIFFERENCES": {"strategies": ["CONTINUE_COMPARISON", "COMPARE_SIDE_BY_SIDE", "SEQUENTIAL_COMPARISON"],
                               "doc": "Close on the comparison, glowing the differing parts"},
+    "EXPLAIN_LOAD_PATH": {"strategies": ["HOLD_HIGHLIGHT", "HOLD"], "needs_annotations": True,
+                          "doc": "M6: how a structure carries load - a steady model with semantic annotations "
+                                 "(conceptual load path, load/reaction arrows, labels; planner/annotations.py)"},
 }
 
 MISSING_CAPABILITIES = {
     "MAP_OR_IMAGERY": ("No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py)",
                        "Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)"),
-    "FORCE_DIAGRAM": ("No load-path / force-arrow overlay on 3D models",
-                      "Use a 2D card with arrows, or add an arrow overlay template on semantic components (~2-3 days)"),
+    "FORCE_DIAGRAM": ("No supplied 2D card; force arrows on 3D models are semantic annotations (M6)",
+                      "Use intent EXPLAIN_LOAD_PATH with beat annotations (planner/annotations.py), or supply a card"),
     "VERIFIED_CHRONOLOGY": ("SHOW_EVOLUTION needs editorially approved chronology claims",
                             "Approve the chronology claims, or reframe the beat as COMPARE_VARIANTS"),
 }
@@ -82,6 +85,6 @@ def check(beat):
     """Warning text if the declared intent is not supported by any cue in the narration."""
     hits = suggest(beat.get("narration", ""))
     declared = beat.get("narrative_intent")
-    if hits and declared not in hits and declared not in ("INTRODUCE_ARCHITECTURE", "SHOW_COMPONENT"):
+    if hits and declared not in hits and declared not in ("INTRODUCE_ARCHITECTURE", "SHOW_COMPONENT", "EXPLAIN_LOAD_PATH"):
         return f"declared {declared}, narration cues suggest {hits}"
     return None

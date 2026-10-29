@@ -1,4 +1,4 @@
-"""Visual-planning evaluation suite (M5.5).
+"""Visual-planning evaluation suite (M5.5; M6 adds annotation and consistency checks).
 
 A small, explicit dataset (evaluation/visual_planning/cases.json) of positive, negative,
 ambiguous and missing-capability cases over the bridge and roof projects. Each case edits a
@@ -22,7 +22,8 @@ KINDS = ("positive", "negative", "ambiguous", "missing_capability")
 CHECK_DIMENSION = {"strategy": "narrative_relevance", "assets": "asset_selection", "target_roles": "target_selection",
                    "templates": "animation_suitability", "camera": "camera_readability",
                    "composition": "camera_readability", "readable": "target_visibility", "repair": "target_visibility",
-                   "evidence": "evidence_compatibility", "cuts": "visual_continuity", "one_camera": "visual_continuity"}
+                   "evidence": "evidence_compatibility", "cuts": "visual_continuity", "one_camera": "visual_continuity",
+                   "annotations": "target_selection", "consistency": "narrative_relevance"}   # M6
 
 
 def _copy_project(src, tmp):
@@ -107,6 +108,13 @@ def _checks(case, plan):
         add("repair", (e["repair"] in got) if e["repair"] else not got, f"repairs {got} (want {e['repair']})")
     if "evidence" in e:
         add("evidence", cov.get("evidence_status") == e["evidence"], f"evidence {cov.get('evidence_status')}")
+    for aid, status in e.get("annotations", {}).items():   # M6: PLACED / FAILED per annotation
+        got = next((r["status"] for r in cov.get("annotations", []) if r["id"] == aid), None)
+        add("annotations", got == status, f"annotation {aid}: {got} (want {status})")
+    for rule, verdict in e.get("consistency", {}).items():   # M6: narration/visual rule verdicts of the beat
+        got = [r["verdict"] for r in (plan.get("consistency") or {}).get("rows", [])
+               if r["beat_id"] == bid and r["rule"] == rule]
+        add("consistency", verdict in got, f"{rule}: {got} (want {verdict})")
     text = " ".join(cov["issues"] + cov["explanation"] + plan.get("warnings", []))
     for needle in e.get("mentions", []):
         add("mentions", needle in text, f"report mentions {needle!r}", case.get("status_dimension", "narrative_relevance"))

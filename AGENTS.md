@@ -87,3 +87,17 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - Khi thêm hành vi planner, thêm ca vào `evaluation/visual_planning/cases.json` và chạy `evaluate-planning`. Dataset này không được dùng trong planner.
 - Tài liệu: `docs/m5_5/VISUAL_INTELLIGENCE.md`, `ADAPTIVE_COMPOSITION.md`, `PRODUCTION_PROFILES.md`, `M5_5_QA_REPORT.md`, `M6_READINESS.md`.
 
+
+## Bổ sung M6 (2026-10-29): phim có lời dẫn, chú thích kỹ thuật, nhiều họ kiến trúc
+- **TTS:** lời dẫn M6 dùng Kokoro-82M cục bộ (`integrations/tts/kokoro.py`). Chỉ dùng đúng revision và các giọng đã audit (SHA256 trong adapter). Chạy offline, không mở server. Hạng quyền là `PENDING_REVIEW`: model card Apache-2.0 **không** có nghĩa là đã được phép xuất bản (`docs/licensing/KOKORO_LICENSE_AUDIT.md`). Không dùng OmniVoice cho lời dẫn mới. Không tải model ngoài danh sách. Không dùng trang web bắt chước dự án Kokoro.
+- **Thứ tự audio-first:** `narrate → asr-check → align → lock-audio → plan-visuals → validate-plan → build-shots → check-blender → preview → assemble → gates`. `script/narration.json` và `script/visual_beats.json` phải có cùng câu chữ. Đổi một chữ thì chạy lại từ `narrate`.
+- **Chú thích** (`docs/m6/ANNOTATION_STYLE_GUIDE.md`):
+  - Mỗi đồ họa lực phải trích claim đã đối chiếu và đã được kể. Claim phải áp dụng cho loại cầu đang chiếu và gọi đúng bộ phận.
+  - Không bịa nội lực, tải trọng, ứng suất, độ võng.
+  - Không tô màu thanh giàn khi không có trường hợp tải và nguồn xác minh.
+  - Độ dài mũi tên không mang nghĩa.
+  - Chú thích FAILED nghĩa là plan không chạy được: sửa beat, không sửa ngưỡng.
+- **Lời và hình phải khớp** (`planner/consistency.py`): một CONTRADICTION là lỗi của `validate-plan`. Sửa câu chữ (người duyệt) hoặc sửa hình, không tắt luật.
+- **Nhiều họ kiến trúc:** mỗi họ một scene context (`states.json` schema 3, `scene_context` trên shot). Dự án một họ phải giữ schema 2 giống hệt. Không đặt hai ngữ cảnh chung một khung hay một camera khóa.
+- **Quyết định của người** (agent không làm): duyệt giọng kênh, cấp quyền xuất bản Kokoro, duyệt claim, xác nhận phát âm, chuyển profile sang PUBLICATION_CANDIDATE.
+- Tài liệu: `docs/m6/M6_ARCHITECTURE.md`, `ANNOTATION_STYLE_GUIDE.md`, `M6_QA_REPORT.md`, `PERFORMANCE.md`.

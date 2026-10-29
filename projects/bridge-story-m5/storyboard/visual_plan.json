@@ -10,14 +10,14 @@
     "reason": "Claims are source-verified, not editorially approved; no rights-cleared narration exists (silent preview)."
   },
   "fps": 24,
-  "total_frames": 1737,
-  "duration_seconds": 72.375,
+  "total_frames": 1774,
+  "duration_seconds": 73.916667,
   "executable": true,
   "inputs": {
-    "beats_sha256": "fb6d773bf1c53737b71dd90b15673c0f976ea8e5dd4d47e84fdd68e3bbdc1701",
+    "beats_sha256": "9f9f218eedf6796b002bb8a07553056972207222a26fe1bc5d237450c5c8c64b",
     "sources_sha256": "674c33889b1f782f65bd09c10e5bf6c34b5c890b3b46db7f97f23a25835b6a1e",
-    "vocabulary_sha256": "84a1bdc0f475af205aeda8c79c1b4c0e74e74d8249fa7d1bf9411c93407c792d",
-    "planning_config_sha256": "e625bc40216cec2d01edac4149ed205193d7ccb4774e781954ad2c7e8510e403",
+    "vocabulary_sha256": "1db89ce05c3abf2478f0df4e2a6204dd388dc0af13b1831c5f3233c021679953",
+    "planning_config_sha256": "3168becfae2765abfccd8de180d9b194c8faadfbe3498c041b9b94f6d61309ce",
     "assets": {
       "bridge_steel_truss_pratt_01": "e10493e27819ae3f026b077a5de3d92a968eb9bf1d6aa7de94e9a4ceb6d123d6",
       "bridge_steel_truss_warren_01": "2504840c19ea9729348c78e9d625c4c47adc930de1354b0526f7441e26b0c10b",
@@ -165,6 +165,7 @@
         "frames": 260,
         "duration_seconds": 10.833333,
         "min_seconds": 2.0,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 0.0
       },
       "explanation": "the empty shared site: the gap any of the structures must span",
@@ -246,6 +247,7 @@
         "frames": 140,
         "duration_seconds": 5.833333,
         "min_seconds": 2.3333,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 10.833333
       },
       "explanation": "timber_beam_bridge assembles into the shown empty site (its parts drop in by assembly layer)",
@@ -348,6 +350,7 @@
         "frames": 120,
         "duration_seconds": 5.0,
         "min_seconds": 2.0417,
+        "beat_offset_seconds": 5.833333,
         "start_seconds": 16.666667
       },
       "explanation": "then stringer glow; repaired (GHOST:plank): stringer was OCCLUDED",
@@ -562,6 +565,7 @@
         "frames": 72,
         "duration_seconds": 3.0,
         "min_seconds": 2.0417,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 21.666667
       },
       "explanation": "glow deck_planks, stringer, cap_beam",
@@ -1030,6 +1034,7 @@
         "frames": 160,
         "duration_seconds": 6.666667,
         "min_seconds": 5.0,
+        "beat_offset_seconds": 3.0,
         "start_seconds": 24.666667
       },
       "explanation": "take timber_beam_bridge apart by assembly layer (15 components, 4 layers) and back; 13 focus components glow",
@@ -1371,6 +1376,7 @@
         "frames": 75,
         "duration_seconds": 3.125,
         "min_seconds": 2.0417,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 31.333333
       },
       "explanation": "establish stone_arch_bridge with arch_ring glowing",
@@ -1897,6 +1903,7 @@
         "frames": 148,
         "duration_seconds": 6.166667,
         "min_seconds": 4.25,
+        "beat_offset_seconds": 3.125,
         "start_seconds": 34.458333
       },
       "explanation": "frontal close-up: only the 13 focus pieces (voussoir, keystone) come forward out of the face, spread apart and return, so each piece's shape reads (voussoir, keystone are read as pieces)",
@@ -2118,6 +2125,7 @@
         "frames": 121,
         "duration_seconds": 5.041667,
         "min_seconds": 2.0417,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 40.625
       },
       "explanation": "hold steel_truss_bridge, glowing truss_web",
@@ -2317,6 +2325,7 @@
         "frames": 90,
         "duration_seconds": 3.75,
         "min_seconds": 2.0417,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 45.666667
       },
       "explanation": "glow the parts of steel_truss_bridge that will change",
@@ -2505,6 +2514,7 @@
         "frames": 124,
         "duration_seconds": 5.166667,
         "min_seconds": 3.125,
+        "beat_offset_seconds": 3.75,
         "start_seconds": 49.416667
       },
       "explanation": "swap 8 parts of steel_truss_bridge for 4 parts of warren_truss on the shared frame",
@@ -2602,6 +2612,7 @@
         "frames": 92,
         "duration_seconds": 3.833333,
         "min_seconds": 2.0417,
+        "beat_offset_seconds": 8.916667,
         "start_seconds": 54.583333
       },
       "explanation": "glow the new parts of warren_truss",
@@ -2692,7 +2703,7 @@
     {
       "shot": {
         "id": "SC_012",
-        "duration_seconds": 2.0416666666666665,
+        "duration_seconds": 2.5833333333333335,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -2708,7 +2719,7 @@
           "B7"
         ],
         "claim_ids": [],
-        "narration": "Side by side, the three models span the same gap in three different ways.",
+        "narration": "Let's compare them one at a time: the three models span the same gap in three different ways.",
         "visual_purpose": "All three archetypes at identical scale on identical sites [SEQUENTIAL_COMPARISON 1/3: 1/3: Timber beam bridge alone, captioned, same locked camera and scale as the others]",
         "build_variants": [
           "timber_beam_bridge",
@@ -2742,9 +2753,10 @@
       "semantic_targets": [],
       "timing": {
         "mode": "PROVISIONAL",
-        "frames": 49,
-        "duration_seconds": 2.041667,
+        "frames": 62,
+        "duration_seconds": 2.583333,
         "min_seconds": 2.0,
+        "beat_offset_seconds": 0.0,
         "start_seconds": 58.416667
       },
       "explanation": "1/3: Timber beam bridge alone, captioned, same locked camera and scale as the others",
@@ -2790,7 +2802,7 @@
     {
       "shot": {
         "id": "SC_013",
-        "duration_seconds": 2.0416666666666665,
+        "duration_seconds": 2.5833333333333335,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -2806,7 +2818,7 @@
           "B7"
         ],
         "claim_ids": [],
-        "narration": "Side by side, the three models span the same gap in three different ways.",
+        "narration": "Let's compare them one at a time: the three models span the same gap in three different ways.",
         "visual_purpose": "All three archetypes at identical scale on identical sites [SEQUENTIAL_COMPARISON 2/3: 2/3: Stone arch bridge alone, captioned, same locked camera and scale as the others]",
         "build_variants": [
           "timber_beam_bridge",
@@ -2840,10 +2852,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "PROVISIONAL",
-        "frames": 49,
-        "duration_seconds": 2.041667,
+        "frames": 62,
+        "duration_seconds": 2.583333,
         "min_seconds": 2.0,
-        "start_seconds": 60.458333
+        "beat_offset_seconds": 2.583333,
+        "start_seconds": 61.0
       },
       "explanation": "2/3: Stone arch bridge alone, captioned, same locked camera and scale as the others",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -2888,7 +2901,7 @@
     {
       "shot": {
         "id": "SC_014",
-        "duration_seconds": 2.125,
+        "duration_seconds": 2.5833333333333335,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -2904,7 +2917,7 @@
           "B7"
         ],
         "claim_ids": [],
-        "narration": "Side by side, the three models span the same gap in three different ways.",
+        "narration": "Let's compare them one at a time: the three models span the same gap in three different ways.",
         "visual_purpose": "All three archetypes at identical scale on identical sites [SEQUENTIAL_COMPARISON 3/3: 3/3: Steel truss bridge alone, captioned, same locked camera and scale as the others]",
         "build_variants": [
           "timber_beam_bridge",
@@ -2938,10 +2951,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "PROVISIONAL",
-        "frames": 51,
-        "duration_seconds": 2.125,
+        "frames": 62,
+        "duration_seconds": 2.583333,
         "min_seconds": 2.0,
-        "start_seconds": 62.5
+        "beat_offset_seconds": 5.166667,
+        "start_seconds": 63.583333
       },
       "explanation": "3/3: Steel truss bridge alone, captioned, same locked camera and scale as the others",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -3049,7 +3063,8 @@
         "frames": 186,
         "duration_seconds": 7.75,
         "min_seconds": 2.0417,
-        "start_seconds": 64.625
+        "beat_offset_seconds": 0.0,
+        "start_seconds": 66.166667
       },
       "explanation": "3 variants at identical scale (STACK, gap 0.25); differing parts glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -3387,7 +3402,7 @@
     {
       "beat_id": "B7",
       "visual_intent": "COMPARE_VARIANTS",
-      "narration": "Side by side, the three models span the same gap in three different ways.",
+      "narration": "Let's compare them one at a time: the three models span the same gap in three different ways.",
       "status": "COVERED",
       "strategy": "SEQUENTIAL_COMPARISON",
       "assets": [
@@ -3421,15 +3436,13 @@
         "SC_013",
         "SC_014"
       ],
-      "expected_seconds": 6.185,
+      "expected_seconds": 7.723,
       "timing_source": "PROVISIONAL",
-      "issues": [
-        "narration says the models are seen together, but no simultaneous layout reads at the reference resolution: SEQUENTIAL_COMPARISON (same camera and scale) instead; consider rewording the narration"
-      ],
+      "issues": [],
       "explanation": [
         "COMPARE_SIDE_BY_SIDE rejected (UNREADABLE): no simultaneous layout of 3 models reads at 640x360 (detail): STACK 0.5: members ~1.3 px wide at 640x360 (< 2.5) | STACK 0.25: members ~1.5 px wide at 640x360 (< 2.5) | ROW 0.35: members ~1.1 px wide at 640x360 (< 2.5); smallest model 24% of the frame width (< 25%) | ROW 0.2: members ~1.1 px wide at 640x360 (< 2.5)",
         "FOCUSED_PAIR rejected (INVALID_REQUEST): FOCUSED_PAIR needs focus_states naming two of three or more compared states",
-        "DETAIL_THEN_OVERVIEW rejected (TIMING_CONFLICT): DETAIL_THEN_OVERVIEW needs 8.04 s (2.00 + 2.00 + 2.00 + 2.04), the beat has 6.21 s",
+        "DETAIL_THEN_OVERVIEW rejected (TIMING_CONFLICT): DETAIL_THEN_OVERVIEW needs 8.04 s (2.00 + 2.00 + 2.00 + 2.04), the beat has 7.75 s",
         "SEQUENTIAL_COMPARISON: One variant at a time under one shared locked camera (same scale), captioned"
       ],
       "evidence_status": "FRAMING"
@@ -3477,9 +3490,7 @@
       "evidence_status": "FRAMING"
     }
   ],
-  "warnings": [
-    "B7: narration says the models are seen together, but no simultaneous layout reads at the reference resolution: SEQUENTIAL_COMPARISON (same camera and scale) instead; consider rewording the narration"
-  ],
+  "warnings": [],
   "visibility_summary": {
     "shots_assessed": 8,
     "target_rows": 13,
@@ -3489,6 +3500,28 @@
     "auto_repaired": 1,
     "manual_review": 0,
     "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
+  },
+  "consistency": {
+    "rows": [
+      {
+        "beat_id": "B7",
+        "sentence": 0,
+        "text": "Let's compare them one at a time: the three models span the same gap in three different ways.",
+        "rule": "SEQUENTIAL",
+        "verdict": "CONSISTENT",
+        "detail": "one model per shot",
+        "shots": [
+          "SC_012",
+          "SC_013",
+          "SC_014"
+        ]
+      }
+    ],
+    "summary": {
+      "CONSISTENT": 1,
+      "CONTRADICTION": 0,
+      "UNCERTAIN": 0
+    }
   },
   "pieces_concepts": [
     "keystone",

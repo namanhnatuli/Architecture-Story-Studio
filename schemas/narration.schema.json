@@ -32,7 +32,8 @@
       "properties": {
         "provider": {
           "enum": [
-            "omnivoice"
+            "omnivoice",
+            "kokoro"
           ]
         },
         "id": {
@@ -41,7 +42,8 @@
         "mode": {
           "enum": [
             "design",
-            "clone"
+            "clone",
+            "preset"
           ]
         },
         "language": {
@@ -71,14 +73,27 @@
               "enum": [
                 "APPROVED",
                 "LICENSE_REVIEW_REQUIRED",
+                "NOT_CLEARED",
                 "REJECTED"
               ]
             },
             "components": {
               "type": "array",
               "minItems": 1
+            },
+            "rights_class": {
+              "enum": [
+                "INTERNAL_PREVIEW_ONLY",
+                "PENDING_REVIEW",
+                "PUBLICATION_CLEARED",
+                "REJECTED"
+              ]
             }
           }
+        },
+        "voice": {
+          "type": "string",
+          "description": "Provider voice id (kokoro: an audited voice file, e.g. bf_emma)"
         }
       }
     },

@@ -9,7 +9,7 @@ shot can say which category changed:
                    shots build every variant unless M5 build_variants limits them to one
                    continuity group; the locked camera is fitted to what is built)
   project_render   project fields the engine reads (fps)
-  style            config/visual_style.json
+  style            config/visual_style.json (+ config/annotation_style.json for M6 annotated shots)
   preset           the preset entry (width, height, fps, engine, format)
   engine           engine/**/*.py that run during a render (qa_checks.py and the deprecated
                    transform.py are excluded); recursive since M4 (engine/arch/)
@@ -35,7 +35,7 @@ STATE_NON_VISUAL = ("name", "claim_ids", "note", "notes", "description")
 STATES_TOP_NON_VISUAL = ("note", "transitions", "schema_version")
 PROJECT_NON_VISUAL = ("slug", "title", "mode", "language", "duration_seconds", "render_preset", "factual_review",
                       "audio_timing_locked", "notes", "production_profile", "publication_metadata")
-ENGINE_EXCLUDED = ("qa_checks.py", "qa_visibility.py", "transform.py")
+ENGINE_EXCLUDED = ("qa_checks.py", "qa_visibility.py", "qa_annotations.py", "transform.py")
 CATEGORIES = ("shot_visual", "states_geometry", "project_render", "style", "preset", "engine", "assets")
 MATERIAL_LIBRARY = "asset_library/materials/stylized_materials.json"
 
@@ -89,17 +89,27 @@ def components(p, shot, preset, root=ROOT):
     read = lambda path: json.loads(Path(path).read_text(encoding="utf-8"))
     presets = read(root / "config/render_presets.json")
     states = read(p / "storyboard/states.json")
+    if states.get("contexts"):   # M6: a shot depends on its own scene context only
+        from engine import spec
+        states = spec.shot_states(states, shot)
     built = built_variants(shot, states)
     return {
         "shot_visual": digest(shot_visual(shot)),
         "states_geometry": digest(states_geometry(states, built)),
         "project_render": digest(project_render(read(p / "project.json"))),
-        "style": digest((root / "config/visual_style.json").read_bytes()),
+        "style": digest((root / "config/visual_style.json").read_bytes()) if not uses_annotation_style(shot) else
+        digest({"visual": digest((root / "config/visual_style.json").read_bytes()),
+                "annotation": digest((root / "config/annotation_style.json").read_bytes())}),
         "preset": digest({"name": preset, **presets[preset]}),
         "engine": digest(engine_file_hashes(root)),
         "assets": digest({rel: digest((root / rel).read_bytes()) if (root / rel).is_file() else "missing"
                           for rel in asset_files(states, root, built)}),
     }
+
+
+def uses_annotation_style(shot):
+    """M6: annotated shots and top captions read config/annotation_style.json at render time."""
+    return bool(shot.get("annotations")) or (shot.get("animation") or {}).get("label_position") == "TOP"
 
 
 def engine_file_hashes(root=ROOT):

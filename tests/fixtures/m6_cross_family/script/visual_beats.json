@@ -1,0 +1,25 @@
+{
+  "schema": "narrative_beats/1",
+  "project_id": "m6-cross-family",
+  "title": "Cross-family orchestration fixture",
+  "status": "TEST_FIXTURE",
+  "timing_mode": "PROVISIONAL",
+  "publication": {"restriction": "INTERNAL_ONLY", "reason": "regression fixture (M6 multi-architecture scene contexts)"},
+  "beats": [
+    {"beat_id": "X1", "kind": "framing", "narrative_intent": "INTRODUCE_ARCHITECTURE", "strategy": "HOLD", "claim_ids": [],
+     "narration": "A timber beam bridge carries its deck across the gap.", "visual_goal": "the bridge on its site",
+     "required_concepts": ["timber_beam_bridge"], "expected_complexity": "LOW"},
+    {"beat_id": "X2", "kind": "framing", "narrative_intent": "INTRODUCE_ARCHITECTURE", "strategy": "HOLD", "claim_ids": [],
+     "narration": "A house needs a different structure overhead.", "visual_goal": "a house with a low gable roof",
+     "required_concepts": ["low_pitch_gable_roof"], "expected_complexity": "LOW"},
+    {"beat_id": "X3", "kind": "framing", "narrative_intent": "EXPLAIN_STRUCTURE", "strategy": "HOLD_HIGHLIGHT", "claim_ids": [],
+     "narration": "Its roof rests on rafters and a ridge beam.", "visual_goal": "the roof structure glows",
+     "required_concepts": ["low_pitch_gable_roof", "rafters", "ridge_beam"], "expected_complexity": "MEDIUM"},
+    {"beat_id": "X4", "kind": "framing", "narrative_intent": "COMPARE_VARIANTS", "claim_ids": [],
+     "narration": "We can compare the bridge and the roof one at a time.", "visual_goal": "each structure on its own base",
+     "preferred_states": ["timber_beam_bridge", "low_pitch_gable_roof"], "required_concepts": [], "expected_complexity": "LOW"},
+    {"beat_id": "X5", "kind": "framing", "narrative_intent": "INTRODUCE_ARCHITECTURE", "strategy": "HOLD", "claim_ids": [],
+     "narration": "Back on the river, the beam bridge is unchanged.", "visual_goal": "the bridge again, same camera",
+     "required_concepts": ["timber_beam_bridge"], "expected_complexity": "LOW"}
+  ]
+}

@@ -201,7 +201,11 @@ def validate_project(project_dir, final=False):
         lexicon = pron.load(base)
         errors.extend(f"narration: {e}" for e in nar.validate(narration, sources, registry, lexicon))
         order = [b.get("id") for b in narration.get("beats", [])]
-        covered = [bid for s in shots for bid in s.get("beat_ids", [])]
+        covered = []
+        for s in shots:   # M5/M6 planned projects: one beat may span several consecutive shots
+            for bid in s.get("beat_ids", []):
+                if not covered or covered[-1] != bid or len(s.get("beat_ids", [])) > 1:
+                    covered.append(bid)
         if covered != order:
             errors.append(f"shots must cover every narration beat exactly once, in order (shots {covered}, beats {order})")
         timing_path = base / "script/timing.json"
@@ -308,5 +312,12 @@ def validate_timing(timing, narration, story, fps, duration, lexicon=None):
     for s in timing.get("shots", []):
         if s.get("frames") != round(s.get("duration_seconds", 0) * fps):
             errors.append(f"{s.get('id')}: timing duration is not a whole number of frames")
+    if timing.get("mode") == "PLANNED_AUDIO_LOCK":   # M6: lock-audio + build-shots (pipeline/audio_lock.py)
+        from pipeline import audio_lock
+        if timing.get("stage") != "SHOTS_SCHEDULED":
+            errors.append("timing lock is stale: shots not scheduled yet (run build-shots after lock-audio)")
+        elif timing.get("beats_sha256") != audio_lock.beats_hash(timing):
+            errors.append("timing manifest is inconsistent: beat sentence spans differ from the locked audio")
+        errors.extend(f"timing manifest: {e}" for e in audio_lock.check_consistency(timing))
     return errors
 

@@ -17,7 +17,7 @@ from pipeline import pronunciation as pron
 STATUSES = ("TECHNICALLY_VALIDATED", "EDITORIAL_REVIEW_PENDING", "TTS_RIGHTS_PENDING", "PUBLICATION_READY")
 # M5.5 production profiles (project.json "production_profile"): what the output is FOR decides
 # which gates apply. A technical preview is never publication authorization.
-PROFILES = ("TECHNICAL_SILENT_PREVIEW", "NARRATED_INTERNAL_REVIEW", "PUBLICATION_CANDIDATE")
+PROFILES = ("TECHNICAL_SILENT_PREVIEW", "NARRATED_INTERNAL_REVIEW", "PUBLICATION_CANDIDATE", "INTERNAL_NARRATED_PREVIEW")
 DEFAULT_PROFILE = "NARRATED_INTERNAL_REVIEW"   # projects without a profile get the strict narrated gates
 PUBLICATION_METADATA = ("title", "description", "language", "credits")
 
@@ -27,8 +27,12 @@ def _read(path):
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
 
 
+PROFILE_ALIASES = {"INTERNAL_NARRATED_PREVIEW": "NARRATED_INTERNAL_REVIEW"}   # M6 spec name of the same profile
+
+
 def profile_of(project):
-    return (project or {}).get("production_profile") or DEFAULT_PROFILE
+    profile = (project or {}).get("production_profile") or DEFAULT_PROFILE
+    return PROFILE_ALIASES.get(profile, profile)
 
 
 def plan_gate(p):
@@ -203,8 +207,9 @@ def _evaluate_narrated(p, preset_suffix=""):
             and not pending_pron:
         g1 = ("PASS", [f"{len(used)} claims editorially approved; factual_review verified; pronunciations confirmed"])
     else:
+        package = (narration.get("revision") or {}).get("review_package") or "review/EDITORIAL_APPROVAL_PACKAGE.md"
         notes = [f"{sum(s == 'EDITORIALLY_APPROVED' for s in statuses.values())}/{len(used)} narrated claims "
-                 "editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
+                 f"editorially approved (see {package})",
                  f"factual_review: {project.get('factual_review')}"]
         notes += [f"pronunciation pending: {x}" for x in pending_pron]
         g1 = ("PENDING_EDITORIAL", notes)

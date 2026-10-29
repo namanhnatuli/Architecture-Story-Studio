@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.6.0 — 2026-10-29 — M6: phim tài liệu có lời dẫn, chú thích kỹ thuật, nhiều họ kiến trúc (nhánh `m6-narrated-documentary`)
+- **TTS Kokoro-82M** (`integrations/tts/kokoro.py`, `tools/kokoro_tts.py`):
+  - pin revision `f3ff3571` và 4 giọng Anh–Anh có SHA256 đã kiểm; worker con stdin/stdout (không mở server); offline; seed theo câu;
+  - audit license `docs/licensing/KOKORO_LICENSE_AUDIT.md`; hạng quyền `PENDING_REVIEW`;
+  - `tools/voice_audition.py` (4 giọng, số đo + ASR, không tự duyệt giọng);
+  - dạng phát âm misaki trong `pronunciation.json`; đường dẫn audit lấy từ registry.
+- **Khóa theo audio cho dự án do planner lập kế hoạch:**
+  - `pipeline/audio_lock.py`, lệnh `lock-audio`; `build-shots` gọi finalize;
+  - validator nhận beat trải nhiều shot; `check_consistency`;
+  - plan lưu `timing_sha256` để phát hiện plan cũ.
+- **Chú thích ngữ nghĩa:**
+  - `planner/annotations.py`, `engine/annotation_layout.py`, `engine/annotations.py`, `engine/qa_annotations.py`, `config/annotation_style.json`;
+  - 7 loại: COMPONENT_LABEL, CALLOUT, LOAD_ARROW, REACTION_ARROW, CONCEPTUAL_LOAD_PATH, TENSION_COMPRESSION_LEGEND, HIGHLIGHT_REGION;
+  - kiểm bằng chứng theo claim và bộ phận; điểm neo trên silhouette nhìn thấy được; bố cục tránh vùng phụ đề; fade theo câu;
+  - QA Blender: ray-cast điểm neo, đo bề rộng chữ thật;
+  - `tools/annotation_preview.py`.
+- **Planner:**
+  - intent `EXPLAIN_LOAD_PATH`; `highlight_at_sentence`; `visual_repair_preference`;
+  - cắt theo câu (AUDIO_LOCKED); chú thích tiêu đề đặt trên cùng và dải nhãn 0.24 cho dự án có lời dẫn;
+  - từ vựng `superstructure`, `substructure`, `ground`.
+- **Nhất quán lời/hình** (`planner/consistency.py`): 7 luật, CONTRADICTION làm plan không chạy được, `validate-plan` tính lại.
+- **Nhiều họ kiến trúc:** scene context (`states.json` schema 3, `spec.context_view/shot_states`, `scene_context` trên shot); camera theo ngữ cảnh; từ chối khung chung giữa hai ngữ cảnh; fixture `tests/fixtures/m6_cross_family`.
+- **Lắp ráp:** phụ đề mềm mov_text trong MP4 (ngoài SRT); media QA yêu cầu track phụ đề.
+- **QA Blender:**
+  - kiểm tra glow dùng cùng luật với L1 (share ≥ 0.25 hoặc mặt gọn ≥ 0.2 %);
+  - kiểm tra exploded bỏ qua track chú thích;
+  - nhãn TOP được kiểm.
+- **Báo cáo:** `research-map` (câu → claim → nguồn → asset → bộ phận → chú thích → thời điểm → QA).
+- **Profile:** alias `INTERNAL_NARRATED_PREVIEW` = `NARRATED_INTERNAL_REVIEW`.
+- **Pilot mới `bridge-load-explained`:** "How Does a Bridge Carry Its Load?", 8 beat, 14 claim (ODOT/FHWA/SCI/Yale), 26 câu Kokoro `bf_emma`, 11 shot, 136.29 s, 27 chú thích trên 9 shot (+ thẻ "not to scale").
+- **Sửa bridge-story-m5 B7:** "Side by side, …" thành "Let's compare them one at a time: …". Chỉ 3 shot của B7 đổi thời lượng.
+- **Đánh giá planner:** 29 ca (thêm 5 ca M6).
+
 ## 0.5.5 — 2026-10-28 — M5.5: trí tuệ hình ảnh, bố cục thích ứng, profile sản xuất (nhánh `m5.5-visual-intelligence`)
 - **Level 1, mức nhìn thấy offline** (`planner/visibility.py`): dựng lại cảnh theo luật của engine, rồi raster độ sâu + ID (192×108) tại frame đầu, 25/50/75 %, frame cuối và mọi marker. Các chỉ số: diện tích chiếu, share nhìn thấy, *core* (không phải vệt mảnh), vật che, dải phụ đề, cắt khung, từng viên. Trạng thái ESTIMATED/UNCERTAIN.
 - **Level 2 trong Blender** (`engine/qa_visibility.py`, `verify-visibility`): tia orthographic trên mesh đã evaluate, cùng các frame. Báo cáo so với L1 ở `qa/VISIBILITY.md`. Pilot: 122 dòng, kết luận trùng 100 %, sai số share trung bình 0.006.

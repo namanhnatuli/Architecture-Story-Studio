@@ -93,7 +93,8 @@
               "SHOW_EVOLUTION",
               "EXPLAIN_CAUSE_EFFECT",
               "SHOW_CONTEXT",
-              "SUMMARIZE_DIFFERENCES"
+              "SUMMARIZE_DIFFERENCES",
+              "EXPLAIN_LOAD_PATH"
             ]
           },
           "visual_goal": {
@@ -191,6 +192,110 @@
               "type": "string"
             },
             "description": "M5.5 FOCUSED_PAIR: the two compared concepts the beat is about"
+          },
+          "annotations": {
+            "type": "array",
+            "description": "M6 semantic annotations (planner/annotations.py; docs/m6/ANNOTATION_STYLE_GUIDE.md)",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "type"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "COMPONENT_LABEL",
+                    "CALLOUT",
+                    "LOAD_ARROW",
+                    "REACTION_ARROW",
+                    "CONCEPTUAL_LOAD_PATH",
+                    "TENSION_COMPRESSION_LEGEND",
+                    "HIGHLIGHT_REGION"
+                  ]
+                },
+                "target": {},
+                "point": {
+                  "type": "string"
+                },
+                "points": {
+                  "type": "array"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "sentence": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "until": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "claim_id": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "count": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 5
+                },
+                "direction": {
+                  "enum": [
+                    "DOWN",
+                    "UP",
+                    "UP_INWARD"
+                  ]
+                },
+                "style": {
+                  "enum": [
+                    "LOAD",
+                    "COMPRESSION"
+                  ]
+                },
+                "force": {
+                  "enum": [
+                    "COMPRESSION",
+                    "TENSION"
+                  ]
+                },
+                "path": {
+                  "type": "array"
+                },
+                "along": {},
+                "leaders": {
+                  "enum": [
+                    "EACH"
+                  ]
+                },
+                "entries": {
+                  "type": "array"
+                }
+              }
+            }
+          },
+          "highlight_at_sentence": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "M6: the glow starts with this sentence"
+          },
+          "visual_repair_preference": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "REFRAME",
+                "SAFE_BAND",
+                "ALT_CAMERA",
+                "GHOST"
+              ]
+            },
+            "description": "M6: preferred order of visibility remedies"
           }
         }
       }

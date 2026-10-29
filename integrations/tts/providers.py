@@ -209,6 +209,9 @@ ADAPTERS = {"omnivoice": OmniVoiceAdapter, "human": RecordedNarrationAdapter}
 
 
 def make_adapter(provider, client=None):
+    if provider == "kokoro":   # imported lazily: integrations.tts.kokoro subclasses NarrationAdapter
+        from integrations.tts.kokoro import KokoroAdapter
+        return KokoroAdapter(client)
     if provider not in ADAPTERS:
         raise RightsError(f"no adapter implemented for TTS provider {provider!r} "
                           "(registry entry only; see docs/licensing/TTS_LICENSE_AUDIT.md)")

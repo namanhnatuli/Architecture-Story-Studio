@@ -8,7 +8,8 @@ from pathlib import Path
 from planner.planner import SITE_STATE
 
 SHOT_KEYS = ("id", "duration_seconds", "visual_type", "transition", "camera", "from_state", "to_state",
-             "animation", "graphic", "camera_focus", "camera_safe_band", "build_variants")
+             "animation", "graphic", "camera_focus", "camera_safe_band", "build_variants", "annotations",
+             "scene_context")
 
 
 def storyboard(plan):
@@ -61,7 +62,9 @@ def plan_hash(plan):
 def compile_plan(plan, project_dir):
     """Write the engine files for an executable plan; returns written paths."""
     if not plan["executable"]:
-        bad = [f"{c['beat_id']}: {c['status']}" for c in plan["coverage"] if c["status"] not in ("COVERED", "PARTIALLY_COVERED")]
+        bad = [f"{c['beat_id']}: {c['status']}" + (f" ({c['annotation_failures']} annotation(s) failed)"
+                                                    if c.get("annotation_failures") else "")
+               for c in plan["coverage"] if c["status"] not in ("COVERED", "PARTIALLY_COVERED") or c.get("annotation_failures")]
         raise ValueError("plan is not executable (" + "; ".join(bad) + "); see qa/VISUAL_COVERAGE.md")
     p = Path(project_dir)
     (p / "storyboard").mkdir(parents=True, exist_ok=True)

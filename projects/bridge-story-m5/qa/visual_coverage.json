@@ -464,15 +464,13 @@
       "strategy": "SEQUENTIAL_COMPARISON",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 6.185,
+      "expected_seconds": 7.723,
       "timing_source": "PROVISIONAL",
-      "issues": [
-        "narration says the models are seen together, but no simultaneous layout reads at the reference resolution: SEQUENTIAL_COMPARISON (same camera and scale) instead; consider rewording the narration"
-      ],
+      "issues": [],
       "explanation": [
         "COMPARE_SIDE_BY_SIDE rejected (UNREADABLE): no simultaneous layout of 3 models reads at 640x360 (detail): STACK 0.5: members ~1.3 px wide at 640x360 (< 2.5) | STACK 0.25: members ~1.5 px wide at 640x360 (< 2.5) | ROW 0.35: members ~1.1 px wide at 640x360 (< 2.5); smallest model 24% of the frame width (< 25%) | ROW 0.2: members ~1.1 px wide at 640x360 (< 2.5)",
         "FOCUSED_PAIR rejected (INVALID_REQUEST): FOCUSED_PAIR needs focus_states naming two of three or more compared states",
-        "DETAIL_THEN_OVERVIEW rejected (TIMING_CONFLICT): DETAIL_THEN_OVERVIEW needs 8.04 s (2.00 + 2.00 + 2.00 + 2.04), the beat has 6.21 s",
+        "DETAIL_THEN_OVERVIEW rejected (TIMING_CONFLICT): DETAIL_THEN_OVERVIEW needs 8.04 s (2.00 + 2.00 + 2.00 + 2.04), the beat has 7.75 s",
         "SEQUENTIAL_COMPARISON: One variant at a time under one shared locked camera (same scale), captioned"
       ],
       "assets": [
@@ -506,7 +504,7 @@
         "SC_013",
         "SC_014"
       ],
-      "planned_seconds": 6.208,
+      "planned_seconds": 7.75,
       "readable": {},
       "visual_repairs": [],
       "composition": [

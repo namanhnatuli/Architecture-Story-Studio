@@ -1,0 +1,75 @@
+# Audit license: Kokoro-82M (TTS cục bộ cho tập phim M6)
+
+- Ngày audit: **2026-10-28** (M6, nhánh `m6-narrated-documentary`).
+- Người thực hiện: agent (Claude Code). **Chưa có người duyệt.**
+- **Đây là đánh giá tuân thủ, không thay cho tư vấn pháp lý.** Agent chỉ ghi lại những gì văn bản công khai và metadata của gói đã cài nói ra. Quyết định dùng để xuất bản thuộc về người chịu trách nhiệm kênh.
+
+## 1. Kết luận
+| Mục | Kết luận |
+|---|---|
+| Kokoro cho **preview nội bộ có lời dẫn** (M6) | Dùng được. Hạng quyền trong `config/tts_providers.json` vẫn là **`PENDING_REVIEW`**. Theo luật của registry, agent không được tự nâng hạng quyền |
+| Kokoro cho **xuất bản thương mại** (YouTube có kiếm tiền) | **Ứng viên mạnh, CHƯA được cấp quyền.** Trọng số và code là Apache-2.0, không có điều khoản nào cấm dùng đầu ra cho mục đích thương mại. Còn các điểm mở ở §5, cần một người có tên ghi `clearance` (cleared_by / cleared_on / evidence) |
+| Giọng kênh | Giọng mặc định kỹ thuật **tạm thời** là `bf_emma`, chọn theo tiêu chí đo được (`projects/bridge-load-explained/review/voice_audition/AUDITION.md`). **Người dùng chưa duyệt giọng.** Việc duyệt giọng là một bước riêng, tách khỏi việc kiểm tra license |
+| OmniVoice | Không đổi: `INTERNAL_PREVIEW_ONLY`, không dùng để sinh lời dẫn M6. Audio cũ của Suffolk giữ nguyên |
+
+## 2. Phiên bản chính xác
+| Thành phần | Định danh | Kiểm chứng |
+|---|---|---|
+| Repo model (chính thức) | `hexgrad/Kokoro-82M` trên Hugging Face, không gated | HF API `/api/models/hexgrad/Kokoro-82M` |
+| Revision | `f3ff3571791e39611d31c381e3a41a3af07b4987` (lastModified 2025-04-10), bản phát hành v1.0 (2025-01-27) | HF API `sha`; model card |
+| `kokoro-v1_0.pth` | SHA256 `496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4`: **trùng** với hash in trên model card | tính lại trên máy sau khi tải |
+| `config.json` | SHA256 `5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f` | tính trên máy |
+| Giọng đã chọn để thử | `bf_emma` `d0a423de…`, `bm_fable` `d44935f3…`, `bm_george` `f1bc8122…`, `bm_daniel` `fc3fce4e…` (hash đầy đủ trong `integrations/tts/kokoro.py`): **trùng** với tiền tố SHA256 trong VOICES.md | tính trên máy |
+| Code suy luận | `kokoro==0.9.4`, `misaki[en]==0.9.4` (gói chính thức của hexgrad) | `requirements.lock.txt` |
+| Môi trường | `~/Work/Projects/Kokoro/.venv`: Python 3.12.15 (uv), `torch==2.15.0` (CPU), `transformers==5.21.0`, `spacy==3.8.18`, `en_core_web_sm==3.8.0`. Khóa đầy đủ 96 gói ở `~/Work/Projects/Kokoro/requirements.lock.txt` | `uv pip freeze` |
+| Tải về | Chỉ 4 file + 4 giọng ở đúng revision, qua `hf_hub_download(revision=…)`. Không tải model nào khác. Khi sinh audio thì chạy offline (`HF_HUB_OFFLINE=1`) | `~/Work/Projects/Kokoro/fetch_pinned.py` |
+| Cách nạp | `torch.load(..., weights_only=True)` cho cả trọng số và giọng (trong gói `kokoro`), nên không thực thi pickle | `kokoro/model.py:68`, `kokoro/pipeline.py:147` |
+
+## 3. License từng thành phần
+Các thành phần **không** cùng một license.
+
+| Thành phần | License (theo metadata gói đã cài hoặc trang chính thức) | Có trong đầu ra audio? | Nghĩa vụ |
+|---|---|---|---|
+| Trọng số Kokoro-82M | Apache-2.0 (model card, metadata repo) | Mô hình sinh ra audio | Apache-2.0 không hạn chế đầu ra. Nếu **phân phối lại** trọng số thì phải giữ LICENSE/NOTICE. Dự án không phân phối lại |
+| File giọng `voices/*.pt` | Không có license riêng cho từng giọng tiếng Anh-Anh; repo ghi Apache-2.0. VOICES.md chỉ ghi nguồn CC BY cho một số giọng Nhật và Pháp (không dùng) | Có (vector giọng) | Như trên |
+| `kokoro` 0.9.4 (code) | Apache-2.0 | Không | — |
+| `misaki` 0.9.4 (G2P) | Apache-2.0 | Không | — |
+| `espeakng-loader` 0.2.4 | PyPI **không khai báo license**. Gói **có kèm** thư viện `libespeak-ng 1.52.0` (dylib) và `espeak-ng-data` | Chỉ dùng làm **fallback** phiên âm cho từ ngoài từ điển | eSpeak NG là **GPL-3.0-or-later** (README chính thức). Dùng nội bộ để sinh audio không làm đầu ra phải theo GPL, nhưng **không được phân phối lại** môi trường venv mà không tuân thủ GPL |
+| `phonemizer-fork` 3.3.2 | **GPL-3.0-or-later** | Không | Như trên (chỉ dùng cục bộ, không phân phối) |
+| `num2words` 0.5.14 | LGPL | Không | Dùng không sửa đổi; không phân phối |
+| `spacy` 3.8.18, `en_core_web_sm` 3.8.0, `spacy-curated-transformers` | MIT | Không | — |
+| `torch` 2.15.0 | Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2/3-Clause AND BSL-1.0 AND ISC AND MIT AND Zlib (metadata) | Không | — |
+| `transformers`, `huggingface_hub` | Apache-2.0 | Không | — |
+| `soundfile` 0.14.0 (kèm `libsndfile`) | BSD-3-Clause (libsndfile: LGPL-2.1) | Không (adapter ghi WAV bằng `wave` của stdlib) | — |
+| ASR kiểm tra: `openai/whisper-large-v3-turbo` | MIT | Không | Chỉ đo WER và căn phụ đề; không nằm trong audio |
+
+**Fallback espeak-ng:** misaki chỉ gọi espeak-ng cho những từ không có trong từ điển của nó. Nếu tắt fallback, những từ đó bị **bỏ qua trong im lặng** ("OOD words will be skipped"). Vì vậy giữ fallback bật, và bước ASR (WER ≤ 0.15) cùng với việc nghe lại có nhiệm vụ bắt các từ bị nói sai hoặc bị mất.
+
+## 4. Nguồn gốc dữ liệu huấn luyện (theo lời nhóm tác giả)
+Model card ghi: "trained exclusively on permissive/non-copyrighted audio data and IPA phoneme labels". Các ví dụ được nêu:
+- audio public domain;
+- audio theo license Apache, MIT;
+- **"Synthetic audio generated by closed TTS models from large providers"**, với chú thích "No synthetic audio from open TTS models or 'custom voice clones'".
+
+Tổng cộng khoảng vài trăm giờ. VOICES.md xếp hạng dữ liệu của từng giọng: `bf_emma` có Target Quality B, Training Duration "HH hours" (10–100 giờ), Overall B-.
+
+## 5. Điểm còn mở (chặn việc cấp quyền xuất bản)
+1. **Audio tổng hợp từ TTS đóng trong dữ liệu huấn luyện.** Không rõ nhà cung cấp nào. Điều khoản của các nhà cung cấp đó có thể cấm dùng đầu ra để huấn luyện mô hình cạnh tranh. Rủi ro này thuộc về bên huấn luyện, nhưng **người duyệt cần tự đánh giá** mức chấp nhận rủi ro. Agent không xác minh được.
+2. **Giọng có giống một người thật không?** Model card không nói giọng `bf_emma` được làm từ ai. Chú thích "No … custom voice clones" là bằng chứng gián tiếp. Cần một người nghe và xác nhận rằng giọng không mô phỏng một người dễ nhận ra.
+3. **Chính sách YouTube** về nội dung tổng hợp hoặc chỉnh sửa và về kiếm tiền (nội dung lặp lại, "inauthentic") có thể thay đổi. Phải kiểm tra lại vào thời điểm xuất bản. Ghi trong mô tả video rằng lời dẫn do AI tạo là cách thận trọng.
+4. **Duyệt giọng kênh** (chất lượng, cách đọc, phát âm thuật ngữ) bằng tai người. ASR chỉ chứng minh nghe rõ, không chứng minh phát âm đúng hay giọng hay.
+5. Nếu sau này cần **phân phối lại** môi trường hoặc trọng số (ví dụ trong một gói cài đặt): phải tuân thủ GPL-3.0 của espeak-ng/phonemizer và Apache-2.0 NOTICE. Hiện tại không áp dụng.
+
+## 6. Ghi nhận và thông báo nên có
+- Khi xuất bản: ghi "Narration voice: Kokoro-82M (hexgrad, Apache-2.0)" và "AI-generated narration" trong mô tả hoặc credits. Apache-2.0 không bắt buộc ghi nhận cho đầu ra; đây là khuyến nghị về minh bạch.
+- Mỗi đoạn audio có bản ghi nguồn gốc trong `audio/narration_manifest.json`: provider, revision, SHA256 của model và giọng, tham số sinh, hạng quyền.
+- Bản kê nguồn gốc của dự án: `projects/bridge-load-explained/review/RIGHTS_PROVENANCE.md`.
+
+## 7. Nguồn
+- https://huggingface.co/hexgrad/Kokoro-82M (model card, license apache-2.0, hash v1.0)
+- https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md (hạng giọng, tiền tố SHA256)
+- https://huggingface.co/api/models/hexgrad/Kokoro-82M (revision `f3ff3571…`, danh sách file)
+- https://raw.githubusercontent.com/hexgrad/kokoro/main/pyproject.toml, https://raw.githubusercontent.com/hexgrad/misaki/main/pyproject.toml
+- https://github.com/espeak-ng/espeak-ng (GPL-3.0-or-later)
+- PyPI JSON: `espeakng-loader`, `phonemizer-fork`, `num2words`
+- Metadata các gói đã cài trong `~/Work/Projects/Kokoro/.venv`

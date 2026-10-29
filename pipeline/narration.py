@@ -233,7 +233,8 @@ def generate(project_dir, client=None, regenerate=False, log=print, purpose="int
         log(f"BEAT {beat['id']}: {measured:.2f}s ({len(records)} sentences)")
     manifest.data["beats"] = beats
     manifest.data["rights"] = {"provider": provider, "rights_class": rights, "purpose": purpose,
-                               "audit": "docs/licensing/TTS_LICENSE_AUDIT.md"}
+                               "audit": registry["providers"][provider].get("audit",
+                                                                            "docs/licensing/TTS_LICENSE_AUDIT.md")}
     manifest.data["narration_sha256"] = narration_hash(narration, lexicon)
     manifest.save()
     return manifest.data

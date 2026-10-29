@@ -35,6 +35,39 @@ def beat_windows(doc, project_dir, cfg):
     return {b["beat_id"]: (lead + measured[b["beat_id"]] + tail, "AUDIO_LOCKED") for b in doc["beats"]}
 
 
+def split_sentences(narration):
+    """Sentences of a beat's narration text (the narration script splits the same way)."""
+    import re
+    return [s for s in re.split(r"(?<=[.?!])\s+", narration.strip()) if s]
+
+
+def sentence_offsets(doc, project_dir, cfg):
+    """{beat_id: [(start, end), ...]}: each sentence's span in seconds from the start of its
+    beat window. AUDIO_LOCKED: measured (lead-in + sentence span in the beat audio);
+    PROVISIONAL: word-proportional estimate inside the estimated window."""
+    out = {}
+    if doc["timing_mode"] == "AUDIO_LOCKED":
+        timing = json.loads((Path(project_dir) / "script" / "timing.json").read_text())
+        lead = (timing.get("pacing") or {}).get("beat_lead_in_seconds", 0.0)
+        for b in timing.get("beats", []):
+            out[b["id"]] = [(round(lead + s.get("rel_start", s["start"]), 6), round(lead + s.get("rel_end", s["end"]), 6))
+                            for s in b.get("sentences", [])]
+        return out
+    for b in doc["beats"]:
+        sentences = split_sentences(b["narration"])
+        words = [len(s.split()) for s in sentences]
+        total = B.provisional_seconds(b, cfg)
+        pad = cfg["provisional_padding_seconds"] / 2
+        speech = max(total - 2 * pad, 0.1)
+        t, spans = pad, []
+        for w in words:
+            d = speech * w / max(sum(words), 1)
+            spans.append((round(t, 6), round(t + d, 6)))
+            t += d
+        out[b["beat_id"]] = spans
+    return out
+
+
 def plans(shot, states, fps):
     """True if the storyboard shot plans without a timing error."""
     try:

@@ -83,6 +83,7 @@ def layout_slots(shot, states):
     Single-slot shots build every variant (hidden when inactive) so the locked
     camera is identical across shots; SIDE_BY_SIDE builds one model per state.
     """
+    states = spec.shot_states(states, shot)   # M6: the shot's scene context
     cfg = animation_config(shot)
     all_variants = list(spec.variant_map(states))
     if cfg["template"] == "SIDE_BY_SIDE":
@@ -153,6 +154,7 @@ def object_name(slot_id, component_id):
 
 def placeholder_slots(shot, states):
     """Slots with zero geometry: enough for ownership and timing checks offline."""
+    states = spec.shot_states(states, shot)
     layers = {}
     for variant in states.get("variants", []):
         for part in spec.variant_parts(variant):
@@ -197,6 +199,7 @@ def plan_shot(shot, states, fps, slots, camera=None):
 
     camera: {"name", "start": {location, ortho_scale}, "end": {...}}, needed only by a
     SIDE_BY_SIDE intro; the validator passes a placeholder."""
+    states = spec.shot_states(states, shot)
     sid = shot.get("id", "(missing)")
     cfg = animation_config(shot)
     plan = motion.Plan(fps, frame_count(shot, fps))
@@ -244,7 +247,10 @@ def plan_shot(shot, states, fps, slots, camera=None):
             if label is not None:   # M5.5: caption of a single model (sequential comparisons)
                 if not isinstance(label, str) or not label.strip() or len(label) > 40:
                     raise motion.PlanError(f"{sid}: label must be 1-40 characters")
-                if float(shot.get("camera_safe_band", 0.0)) < 0.08:
+                position = cfg.get("label_position", "BOTTOM")
+                if position not in ("BOTTOM", "TOP"):
+                    raise motion.PlanError(f"{sid}: label_position must be BOTTOM or TOP")
+                if position == "BOTTOM" and float(shot.get("camera_safe_band", 0.0)) < 0.08:
                     raise motion.PlanError(f"{sid}: a HOLD label needs camera_safe_band >= 0.08 (it sits in that band)")
         elif template == "SIDE_BY_SIDE":
             chosen = side_states(shot, cfg, states)
@@ -269,6 +275,8 @@ def plan_shot(shot, states, fps, slots, camera=None):
                         raise motion.PlanError(f"{sid}: label for '{state_id}' must be 1-40 characters")
                 if band < 0.08:
                     raise motion.PlanError(f"{sid}: labels need label_band >= 0.08")
+            if cfg.get("label_position") not in (None, "BAND_TOP"):   # M6: narrated rows keep captions above subtitles
+                raise motion.PlanError(f"{sid}: SIDE_BY_SIDE label_position must be BAND_TOP or omitted")
 
             def names_for(selector):
                 if selector == "DIFFERENCES":

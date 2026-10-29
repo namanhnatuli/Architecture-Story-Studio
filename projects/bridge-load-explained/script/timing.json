@@ -1,0 +1,462 @@
+{
+  "schema": "timing/2",
+  "mode": "PLANNED_AUDIO_LOCK",
+  "stage": "SHOTS_SCHEDULED",
+  "fps": 24,
+  "pacing": {
+    "sentence_pause_seconds": 0.4,
+    "beat_lead_in_seconds": 0.4,
+    "beat_tail_seconds": 0.8
+  },
+  "locked": true,
+  "problems": [],
+  "beats": [
+    {
+      "id": "B1",
+      "duration": 13.0,
+      "audio_file": "audio/beats/B1.wav",
+      "audio_sha256": "6ba2dc6cc668175d3453f555d9f41a6f84591706d90e47af7065afbba4f4b13a",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "What happens when weight is placed on a bridge?",
+          "start": 0.4,
+          "end": 3.55,
+          "rel_start": 0.0,
+          "rel_end": 3.15
+        },
+        {
+          "index": 1,
+          "text": "Traffic, people and the bridge's own weight all press down on its deck.",
+          "start": 3.95,
+          "end": 8.4,
+          "rel_start": 3.55,
+          "rel_end": 8.0
+        },
+        {
+          "index": 2,
+          "text": "To stay standing, the bridge has to carry that load down into the ground.",
+          "start": 8.8,
+          "end": 13.4,
+          "rel_start": 8.4,
+          "rel_end": 13.0
+        }
+      ],
+      "shot": "SC_001",
+      "shots": [
+        "SC_001"
+      ],
+      "start_seconds": 0.4
+    },
+    {
+      "id": "B2",
+      "duration": 18.75,
+      "audio_file": "audio/beats/B2.wav",
+      "audio_sha256": "c095391699bd58e17c3c1c188e4798a107211e47b910f709671fdb64ead69693",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "The load follows a path down through the structure.",
+          "start": 14.608333,
+          "end": 17.858333,
+          "rel_start": 0.0,
+          "rel_end": 3.25
+        },
+        {
+          "index": 1,
+          "text": "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
+          "start": 18.258333,
+          "end": 23.408333,
+          "rel_start": 3.65,
+          "rel_end": 8.8
+        },
+        {
+          "index": 2,
+          "text": "That rests on the substructure: abutments at the ends, and sometimes piers in between.",
+          "start": 23.808333,
+          "end": 29.408333,
+          "rel_start": 9.2,
+          "rel_end": 14.8
+        },
+        {
+          "index": 3,
+          "text": "The abutments pass the load on to the foundations.",
+          "start": 29.808333,
+          "end": 33.358333,
+          "rel_start": 15.2,
+          "rel_end": 18.75
+        }
+      ],
+      "shot": "SC_002",
+      "shots": [
+        "SC_002"
+      ],
+      "start_seconds": 14.608333
+    },
+    {
+      "id": "B3",
+      "duration": 17.1,
+      "audio_file": "audio/beats/B3.wav",
+      "audio_sha256": "24c25d2b9713d3ffa396ca1af2c7d6e2aafd7e7a54cab591fdd0efd5acf45bd8",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Now take a beam bridge.",
+          "start": 34.566667,
+          "end": 36.791667,
+          "rel_start": 0.0,
+          "rel_end": 2.225
+        },
+        {
+          "index": 1,
+          "text": "Its deck rests on long beams that span from one support to the next.",
+          "start": 37.191667,
+          "end": 41.741667,
+          "rel_start": 2.625,
+          "rel_end": 7.175
+        },
+        {
+          "index": 2,
+          "text": "Each beam carries the load by resisting bending.",
+          "start": 42.141667,
+          "end": 45.741667,
+          "rel_start": 7.575,
+          "rel_end": 11.175
+        },
+        {
+          "index": 3,
+          "text": "A cap beam spreads the load onto the posts, and the posts carry it down in compression.",
+          "start": 46.141667,
+          "end": 51.666667,
+          "rel_start": 11.575,
+          "rel_end": 17.1
+        }
+      ],
+      "shot": "SC_003",
+      "shots": [
+        "SC_003"
+      ],
+      "start_seconds": 34.566667
+    },
+    {
+      "id": "B4",
+      "duration": 8.3,
+      "audio_file": "audio/beats/B4.wav",
+      "audio_sha256": "0e08d205e846c86213d5a96f45e5e9677f359c98494902a8dd17f0ad6112ead5",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "A masonry arch works differently.",
+          "start": 52.9,
+          "end": 55.6,
+          "rel_start": 0.0,
+          "rel_end": 2.7
+        },
+        {
+          "index": 1,
+          "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+          "start": 56.0,
+          "end": 61.2,
+          "rel_start": 3.1,
+          "rel_end": 8.3
+        }
+      ],
+      "shot": "SC_004",
+      "shots": [
+        "SC_004",
+        "SC_005"
+      ],
+      "start_seconds": 52.9
+    },
+    {
+      "id": "B5",
+      "duration": 14.4,
+      "audio_file": "audio/beats/B5.wav",
+      "audio_sha256": "01ff2816debac432e0bc196b5b6f5ab156f9f6135d7dda83135d072a15f514ad",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+          "start": 62.4,
+          "end": 67.85,
+          "rel_start": 0.0,
+          "rel_end": 5.45
+        },
+        {
+          "index": 1,
+          "text": "So the arch works mainly in compression.",
+          "start": 68.25,
+          "end": 71.2,
+          "rel_start": 5.85,
+          "rel_end": 8.8
+        },
+        {
+          "index": 2,
+          "text": "At each end it pushes outward and down on its supports, and the supports push back.",
+          "start": 71.6,
+          "end": 76.8,
+          "rel_start": 9.2,
+          "rel_end": 14.4
+        }
+      ],
+      "shot": "SC_006",
+      "shots": [
+        "SC_006"
+      ],
+      "start_seconds": 62.4
+    },
+    {
+      "id": "B6",
+      "duration": 24.325,
+      "audio_file": "audio/beats/B6.wav",
+      "audio_sha256": "e8ac810563d9d0226c589d0486b524f6c65213bae4221b7adf9839b81d12d671",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "The truss we started with takes another approach: straight members joined into triangles.",
+          "start": 78.025,
+          "end": 83.625,
+          "rel_start": 0.0,
+          "rel_end": 5.6
+        },
+        {
+          "index": 1,
+          "text": "Each member is mainly pulled or pushed along its length, in tension or in compression.",
+          "start": 84.025,
+          "end": 89.6,
+          "rel_start": 6.0,
+          "rel_end": 11.575
+        },
+        {
+          "index": 2,
+          "text": "Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched.",
+          "start": 90.0,
+          "end": 97.15,
+          "rel_start": 11.975,
+          "rel_end": 19.125
+        },
+        {
+          "index": 3,
+          "text": "Inside, some web members are in compression and others are in tension.",
+          "start": 97.55,
+          "end": 102.35,
+          "rel_start": 19.525,
+          "rel_end": 24.325
+        }
+      ],
+      "shot": "SC_007",
+      "shots": [
+        "SC_007"
+      ],
+      "start_seconds": 78.025
+    },
+    {
+      "id": "B7",
+      "duration": 17.025,
+      "audio_file": "audio/beats/B7.wav",
+      "audio_sha256": "e46550a73854ddad600517dcb9abef031b51352e63dac04ab795b4c49543fcc0",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Let's compare them one at a time.",
+          "start": 103.566667,
+          "end": 106.241667,
+          "rel_start": 0.0,
+          "rel_end": 2.675
+        },
+        {
+          "index": 1,
+          "text": "The beam bridge carries its load by bending.",
+          "start": 106.641667,
+          "end": 109.916667,
+          "rel_start": 3.075,
+          "rel_end": 6.35
+        },
+        {
+          "index": 2,
+          "text": "The arch carries it mainly in compression, pushing against its supports.",
+          "start": 110.316667,
+          "end": 115.016667,
+          "rel_start": 6.75,
+          "rel_end": 11.45
+        },
+        {
+          "index": 3,
+          "text": "In the truss, the load is shared between members in tension and in compression.",
+          "start": 115.416667,
+          "end": 120.591667,
+          "rel_start": 11.85,
+          "rel_end": 17.025
+        }
+      ],
+      "shot": "SC_008",
+      "shots": [
+        "SC_008",
+        "SC_009",
+        "SC_010"
+      ],
+      "start_seconds": 103.566667
+    },
+    {
+      "id": "B8",
+      "duration": 13.675,
+      "audio_file": "audio/beats/B8.wav",
+      "audio_sha256": "226ed651500093e3b64b80c956dfb4eb82af6be129453f16e1caf7f8f87fb301",
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Three arrangements of parts, one job: carrying the load across the gap and down into the ground.",
+          "start": 121.816667,
+          "end": 127.766667,
+          "rel_start": 0.0,
+          "rel_end": 5.95
+        },
+        {
+          "index": 1,
+          "text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+          "start": 128.166667,
+          "end": 135.491667,
+          "rel_start": 6.35,
+          "rel_end": 13.675
+        }
+      ],
+      "shot": "SC_011",
+      "shots": [
+        "SC_011"
+      ],
+      "start_seconds": 121.816667
+    }
+  ],
+  "lock_basis": {
+    "narration_sha256": "b85ec66908b34f351b614c497e65b583456cf964c78c7a3a7946f4dba735766c",
+    "beat_audio_sha256": {
+      "B1": "6ba2dc6cc668175d3453f555d9f41a6f84591706d90e47af7065afbba4f4b13a",
+      "B2": "c095391699bd58e17c3c1c188e4798a107211e47b910f709671fdb64ead69693",
+      "B3": "24c25d2b9713d3ffa396ca1af2c7d6e2aafd7e7a54cab591fdd0efd5acf45bd8",
+      "B4": "0e08d205e846c86213d5a96f45e5e9677f359c98494902a8dd17f0ad6112ead5",
+      "B5": "01ff2816debac432e0bc196b5b6f5ab156f9f6135d7dda83135d072a15f514ad",
+      "B6": "e8ac810563d9d0226c589d0486b524f6c65213bae4221b7adf9839b81d12d671",
+      "B7": "e46550a73854ddad600517dcb9abef031b51352e63dac04ab795b4c49543fcc0",
+      "B8": "226ed651500093e3b64b80c956dfb4eb82af6be129453f16e1caf7f8f87fb301"
+    },
+    "asr_checked_sentences": 26,
+    "asr_all_pass": true
+  },
+  "beats_sha256": "19e480a19af58a0adf88fd5eccf0958cd70afc2b11e9702436ea12a3bb3ca592",
+  "shots": [
+    {
+      "id": "SC_001",
+      "start_frame": 0,
+      "frames": 341,
+      "start_seconds": 0.0,
+      "duration_seconds": 14.208333333333334,
+      "beat_ids": [
+        "B1"
+      ]
+    },
+    {
+      "id": "SC_002",
+      "start_frame": 341,
+      "frames": 479,
+      "start_seconds": 14.208333333333334,
+      "duration_seconds": 19.958333333333332,
+      "beat_ids": [
+        "B2"
+      ]
+    },
+    {
+      "id": "SC_003",
+      "start_frame": 820,
+      "frames": 440,
+      "start_seconds": 34.166666666666664,
+      "duration_seconds": 18.333333333333332,
+      "beat_ids": [
+        "B3"
+      ]
+    },
+    {
+      "id": "SC_004",
+      "start_frame": 1260,
+      "frames": 80,
+      "start_seconds": 52.5,
+      "duration_seconds": 3.3333333333333335,
+      "beat_ids": [
+        "B4"
+      ]
+    },
+    {
+      "id": "SC_005",
+      "start_frame": 1340,
+      "frames": 148,
+      "start_seconds": 55.833333333333336,
+      "duration_seconds": 6.166666666666667,
+      "beat_ids": [
+        "B4"
+      ]
+    },
+    {
+      "id": "SC_006",
+      "start_frame": 1488,
+      "frames": 375,
+      "start_seconds": 62.0,
+      "duration_seconds": 15.625,
+      "beat_ids": [
+        "B5"
+      ]
+    },
+    {
+      "id": "SC_007",
+      "start_frame": 1863,
+      "frames": 613,
+      "start_seconds": 77.625,
+      "duration_seconds": 25.541666666666668,
+      "beat_ids": [
+        "B6"
+      ]
+    },
+    {
+      "id": "SC_008",
+      "start_frame": 2476,
+      "frames": 167,
+      "start_seconds": 103.16666666666667,
+      "duration_seconds": 6.958333333333333,
+      "beat_ids": [
+        "B7"
+      ]
+    },
+    {
+      "id": "SC_009",
+      "start_frame": 2643,
+      "frames": 123,
+      "start_seconds": 110.125,
+      "duration_seconds": 5.125,
+      "beat_ids": [
+        "B7"
+      ]
+    },
+    {
+      "id": "SC_010",
+      "start_frame": 2766,
+      "frames": 148,
+      "start_seconds": 115.25,
+      "duration_seconds": 6.166666666666667,
+      "beat_ids": [
+        "B7"
+      ]
+    },
+    {
+      "id": "SC_011",
+      "start_frame": 2914,
+      "frames": 357,
+      "start_seconds": 121.41666666666667,
+      "duration_seconds": 14.875,
+      "beat_ids": [
+        "B8"
+      ]
+    }
+  ],
+  "total_frames": 3271,
+  "total_seconds": 136.29166666666666,
+  "storyboard_sha256": "415c1120c0ae1fb37bfee28de07a01fd9826dfcfca9d92f14b8bf6ae1884c9ea",
+  "plan_sha256": "d1ebe2b6dee61dc6a6a8810dc2b049a5b95609c294e38cb746f28a152c300d61"
+}

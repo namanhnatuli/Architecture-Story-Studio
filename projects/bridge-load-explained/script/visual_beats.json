@@ -1,0 +1,201 @@
+{
+  "schema": "narrative_beats/1",
+  "project_id": "bridge-load-explained",
+  "title": "How Does a Bridge Carry Its Load?",
+  "status": "INTERNAL_NARRATED_PREVIEW",
+  "timing_mode": "AUDIO_LOCKED",
+  "publication": {
+    "restriction": "INTERNAL_ONLY",
+    "reason": "Claims are source-verified, not editorially approved; the narration provider (Kokoro-82M) is PENDING_REVIEW and the voice is not approved by the user."
+  },
+  "beats": [
+    {
+      "beat_id": "B1",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "HOLD",
+      "claim_ids": ["CLM_601", "CLM_602"],
+      "narration": "What happens when weight is placed on a bridge? Traffic, people and the bridge's own weight all press down on its deck. To stay standing, the bridge has to carry that load down into the ground.",
+      "visual_goal": "A whole bridge; the load on its deck and the ground it must reach",
+      "required_concepts": ["steel_truss_bridge"],
+      "expected_complexity": "LOW",
+      "annotations": [
+        {"id": "B1_load", "type": "LOAD_ARROW", "target": "deck", "point": "TOP", "count": 3, "text": "Load",
+         "sentence": 1, "claim_id": "CLM_601"},
+        {"id": "B1_ground", "type": "COMPONENT_LABEL", "target": {"concept": "ground", "pick": "RIGHTMOST"},
+         "point": "TOP", "text": "Ground", "sentence": 2}
+      ]
+    },
+    {
+      "beat_id": "B2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "claim_ids": ["CLM_602", "CLM_603", "CLM_604"],
+      "narration": "The load follows a path down through the structure. The deck is carried by the superstructure, the part of the bridge that spans the gap. That rests on the substructure: abutments at the ends, and sometimes piers in between. The abutments pass the load on to the foundations.",
+      "visual_goal": "Superstructure over substructure; a conceptual path from the deck through the supports to the ground",
+      "required_concepts": ["steel_truss_bridge", "substructure"],
+      "highlight_at_sentence": 2,
+      "expected_complexity": "MEDIUM",
+      "annotations": [
+        {"id": "B2_path", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 0, "claim_id": "CLM_604",
+         "path": [
+           [{"target": {"concept": "deck", "pick": "LEFTMOST"}, "point": "TOP"},
+            {"target": {"concept": "abutment", "pick": "LEFTMOST"}, "point": "TOP"},
+            {"target": {"concept": "abutment", "pick": "LEFTMOST"}, "point": "BOTTOM"}],
+           [{"target": {"concept": "deck", "pick": "LEFTMOST"}, "point": "TOP"},
+            {"target": "pier", "point": "TOP"},
+            {"target": "pier", "point": "BOTTOM"}],
+           [{"target": {"concept": "deck", "pick": "RIGHTMOST"}, "point": "TOP"},
+            {"target": "pier", "point": "TOP"}],
+           [{"target": {"concept": "deck", "pick": "RIGHTMOST"}, "point": "TOP"},
+            {"target": {"concept": "abutment", "pick": "RIGHTMOST"}, "point": "TOP"},
+            {"target": {"concept": "abutment", "pick": "RIGHTMOST"}, "point": "BOTTOM"}]
+         ]},
+        {"id": "B2_super", "type": "HIGHLIGHT_REGION", "target": "superstructure", "text": "Superstructure",
+         "sentence": 1, "until": 2, "claim_id": "CLM_603"},
+        {"id": "B2_abut", "type": "COMPONENT_LABEL", "target": {"concept": "abutment", "pick": "LEFTMOST"},
+         "point": "CENTER", "text": "Abutment", "sentence": 2, "claim_id": "CLM_604"},
+        {"id": "B2_pier", "type": "COMPONENT_LABEL", "target": "pier", "point": "CENTER", "text": "Pier",
+         "sentence": 2, "claim_id": "CLM_604"},
+        {"id": "B2_found", "type": "COMPONENT_LABEL", "target": {"concept": "abutment", "pick": "LEFTMOST"},
+         "point": "BOTTOM", "text": "Foundation", "sentence": 3, "claim_id": "CLM_604"}
+      ]
+    },
+    {
+      "beat_id": "B3",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "claim_ids": ["CLM_605", "CLM_606", "CLM_607"],
+      "narration": "Now take a beam bridge. Its deck rests on long beams that span from one support to the next. Each beam carries the load by resisting bending. A cap beam spreads the load onto the posts, and the posts carry it down in compression.",
+      "visual_goal": "Beams spanning between supports; the conceptual path deck - beam - cap beam - posts - ground",
+      "required_concepts": ["timber_beam_bridge", "stringer"],
+      "highlight_at_sentence": 1,
+      "visual_repair_preference": ["GHOST", "REFRAME"],
+      "expected_complexity": "MEDIUM",
+      "annotations": [
+        {"id": "B3_beams", "type": "COMPONENT_LABEL", "target": {"concept": "stringer", "pick": "CENTERMOST"},
+         "point": "CENTER", "text": "Beams", "sentence": 1, "until": 3, "claim_id": "CLM_605"},
+        {"id": "B3_load", "type": "LOAD_ARROW", "target": {"concept": "deck_planks", "pick": "CENTERMOST"},
+         "point": "TOP", "count": 2, "text": "Load", "sentence": 2, "claim_id": "CLM_601"},
+        {"id": "B3_bend", "type": "CALLOUT", "target": {"concept": "stringer", "pick": "CENTERMOST"},
+         "point": "BOTTOM", "text": "Resists bending", "sentence": 2, "claim_id": "CLM_606"},
+        {"id": "B3_path", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 3, "claim_id": "CLM_607",
+         "path": [
+           [{"target": {"concept": "deck_planks", "pick": "CENTERMOST"}, "point": "TOP"},
+            {"target": {"concept": "cap_beam", "pick": "CENTERMOST"}, "point": "TOP"},
+            {"target": {"concept": "trestle_bent", "pick": "CENTERMOST"}, "point": "BOTTOM"}]
+         ]},
+        {"id": "B3_cap", "type": "COMPONENT_LABEL", "target": {"concept": "cap_beam", "pick": "CENTERMOST"},
+         "point": "CENTER", "text": "Cap beam", "sentence": 3, "claim_id": "CLM_607"},
+        {"id": "B3_posts", "type": "CALLOUT", "target": {"concept": "trestle_bent", "pick": "CENTERMOST"},
+         "point": "CENTER", "text": "Posts: compression", "force": "COMPRESSION", "sentence": 3,
+         "claim_id": "CLM_607"}
+      ]
+    },
+    {
+      "beat_id": "B4",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": ["CLM_608"],
+      "narration": "A masonry arch works differently. It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+      "visual_goal": "Introduce the masonry arch; one arch ring's voussoirs and keystone read as separate wedge-shaped pieces",
+      "required_concepts": ["stone_arch_bridge", "arch_ring"],
+      "focus_concepts": [{"concept": "voussoir", "group": "arch_2"}, {"concept": "keystone", "group": "arch_2"}],
+      "expected_complexity": "MEDIUM",
+      "annotations": [
+        {"id": "B4_vous", "type": "COMPONENT_LABEL",
+         "target": {"concept": "voussoir", "group": "arch_2", "pick": "LEFTMOST"}, "point": "CENTER",
+         "text": "Voussoirs", "sentence": 1, "claim_id": "CLM_608"},
+        {"id": "B4_key", "type": "COMPONENT_LABEL", "target": {"concept": "keystone", "group": "arch_2"},
+         "point": "TOP", "text": "Keystone", "sentence": 1, "claim_id": "CLM_608"}
+      ]
+    },
+    {
+      "beat_id": "B5",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "claim_ids": ["CLM_609", "CLM_610"],
+      "narration": "The curve turns the downward load into thrust along the arch, pressing the stones together. So the arch works mainly in compression. At each end it pushes outward and down on its supports, and the supports push back.",
+      "visual_goal": "Conceptual thrust along one arch ring to its springings; inclined reactions of the supports",
+      "required_concepts": ["stone_arch_bridge", "arch_ring"],
+      "highlight_at_sentence": 0,
+      "expected_complexity": "MEDIUM",
+      "annotations": [
+        {"id": "B5_load", "type": "LOAD_ARROW", "target": {"concept": "keystone", "group": "arch_2"},
+         "point": "TOP", "count": 1, "text": "Load", "sentence": 0, "claim_id": "CLM_609"},
+        {"id": "B5_thrust", "type": "CONCEPTUAL_LOAD_PATH", "style": "COMPRESSION", "sentence": 0,
+         "claim_id": "CLM_609", "along": {"concept": "arch_ring", "group": "arch_2"}},
+        {"id": "B5_comp", "type": "CALLOUT", "target": {"concept": "arch_ring", "group": "arch_2"},
+         "point": "TOP_LEFT", "text": "Mainly compression", "force": "COMPRESSION", "sentence": 1,
+         "claim_id": "CLM_609"},
+        {"id": "B5_react", "type": "REACTION_ARROW", "target": {"concept": "arch_ring", "group": "arch_2"},
+         "points": ["BOTTOM_LEFT", "BOTTOM_RIGHT"], "direction": "UP_INWARD", "text": "Supports push back",
+         "sentence": 2, "claim_id": "CLM_610"}
+      ]
+    },
+    {
+      "beat_id": "B6",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD_HIGHLIGHT",
+      "claim_ids": ["CLM_611", "CLM_612", "CLM_613", "CLM_614"],
+      "narration": "The truss we started with takes another approach: straight members joined into triangles. Each member is mainly pulled or pushed along its length, in tension or in compression. Each span here is a simple span, so under a downward load its top chord is squeezed and its bottom chord is stretched. Inside, some web members are in compression and others are in tension.",
+      "visual_goal": "Triangulated members and joints; axial tension/compression explained conceptually; chords named, web members not colour-coded",
+      "required_concepts": ["steel_truss_bridge", {"concept": "truss_members", "group": "truss_south"}],
+      "highlight_at_sentence": 0,
+      "expected_complexity": "HIGH",
+      "annotations": [
+        {"id": "B6_joints", "type": "COMPONENT_LABEL",
+         "target": {"concept": "truss_joint", "group": "truss_south", "pick": "LEFTMOST"}, "point": "TOP_LEFT",
+         "text": "Joints", "sentence": 0, "until": 2, "claim_id": "CLM_611"},
+        {"id": "B6_legend", "type": "TENSION_COMPRESSION_LEGEND", "sentence": 1, "claim_id": "CLM_612"},
+        {"id": "B6_top", "type": "CALLOUT", "target": {"concept": "truss_chord", "group": "truss_south", "pick": "LEFTMOST"},
+         "point": "TOP", "text": "Top chord: compression", "force": "COMPRESSION", "sentence": 2,
+         "claim_id": "CLM_613"},
+        {"id": "B6_bottom", "type": "CALLOUT",
+         "target": {"concept": "truss_chord", "group": "truss_south", "pick": "LEFTMOST"}, "point": "BOTTOM",
+         "text": "Bottom chord: tension", "force": "TENSION", "sentence": 2, "claim_id": "CLM_613"},
+        {"id": "B6_web", "type": "COMPONENT_LABEL",
+         "target": {"concept": "diagonal_members", "group": "truss_south", "pick": "RIGHTMOST"}, "point": "CENTER",
+         "text": "Web members", "sentence": 3, "claim_id": "CLM_614"}
+      ]
+    },
+    {
+      "beat_id": "B7",
+      "kind": "interpretation",
+      "narrative_intent": "COMPARE_VARIANTS",
+      "strategy": "SEQUENTIAL_COMPARISON",
+      "claim_ids": ["CLM_606", "CLM_609", "CLM_612"],
+      "narration": "Let's compare them one at a time. The beam bridge carries its load by bending. The arch carries it mainly in compression, pushing against its supports. In the truss, the load is shared between members in tension and in compression.",
+      "visual_goal": "Each structure alone under one locked camera, with the one idea that describes how it carries load",
+      "preferred_states": ["timber_beam_bridge", "stone_arch_bridge", "steel_truss_bridge"],
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "annotations": [
+        {"id": "B7_beam", "type": "CALLOUT", "state": "timber_beam_bridge",
+         "target": {"concept": "stringer", "pick": "CENTERMOST"}, "point": "BOTTOM", "text": "Bending",
+         "sentence": 1, "claim_id": "CLM_606"},
+        {"id": "B7_arch", "type": "CALLOUT", "state": "stone_arch_bridge",
+         "target": {"concept": "arch_ring", "group": "arch_2"}, "point": "TOP_LEFT", "text": "Compression",
+         "force": "COMPRESSION", "sentence": 2, "claim_id": "CLM_609"},
+        {"id": "B7_truss", "type": "CALLOUT", "state": "steel_truss_bridge",
+         "target": {"concept": "truss_chord", "group": "truss_south", "pick": "LEFTMOST"}, "point": "TOP",
+         "text": "Tension and compression", "sentence": 3, "claim_id": "CLM_612"}
+      ]
+    },
+    {
+      "beat_id": "B8",
+      "kind": "framing",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [],
+      "narration": "Three arrangements of parts, one job: carrying the load across the gap and down into the ground. These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+      "visual_goal": "Close on the three structures at a common scale",
+      "preferred_states": ["timber_beam_bridge", "stone_arch_bridge", "steel_truss_bridge"],
+      "required_concepts": [],
+      "expected_complexity": "LOW"
+    }
+  ]
+}

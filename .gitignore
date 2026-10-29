@@ -41,3 +41,8 @@ projects/*/audio/narration_mix_*.wav
 # --- M4: asset previews (JPEG copies are tracked; PNG originals are local) ---
 asset_library/architecture/**/previews/**/*.png
 asset_library/catalog/qa/*.log
+
+# --- M6: voice audition (WAV/parts are rebuilt deterministically by tools/voice_audition.py;
+# the .m4a listening copies, metrics.json and AUDITION.md are tracked) ---
+projects/*/review/voice_audition/*.wav
+projects/*/review/voice_audition/parts/

@@ -1,19 +1,19 @@
 {
  "dataset": "M5.5 evaluation dataset for planner/ (python3 tools/cli.py evaluate-planning). Each case edits a temporary copy of a project; narration or concept edits are SYNTHETIC test inputs, not factual content. The planner never reads this file.",
- "cases": 24,
- "passed": 24,
+ "cases": 29,
+ "passed": 29,
  "dimensions": {
   "narrative_relevance": {
-   "passed": 25,
-   "checks": 25
+   "passed": 31,
+   "checks": 31
   },
   "asset_selection": {
    "passed": 9,
    "checks": 9
   },
   "target_selection": {
-   "passed": 14,
-   "checks": 14
+   "passed": 25,
+   "checks": 25
   },
   "animation_suitability": {
    "passed": 14,
@@ -32,12 +32,12 @@
    "checks": 2
   },
   "evidence_compatibility": {
-   "passed": 3,
-   "checks": 3
+   "passed": 5,
+   "checks": 5
   },
   "visual_continuity": {
-   "passed": 4,
-   "checks": 4
+   "passed": 5,
+   "checks": 5
   },
   "cross_family_reuse": {
    "passed": 2,
@@ -46,26 +46,26 @@
  },
  "by_kind": {
   "positive": {
-   "passed": 11,
-   "cases": 11
+   "passed": 13,
+   "cases": 13
   },
   "negative": {
-   "passed": 6,
-   "cases": 6
+   "passed": 8,
+   "cases": 8
   },
   "ambiguous": {
    "passed": 3,
    "cases": 3
   },
   "missing_capability": {
-   "passed": 4,
-   "cases": 4
+   "passed": 5,
+   "cases": 5
   }
  },
  "by_family": {
   "bridge": {
-   "passed": 18,
-   "cases": 18
+   "passed": 23,
+   "cases": 23
   },
   "roof": {
    "passed": 6,
@@ -795,6 +795,171 @@
      "check": "mentions",
      "ok": true,
      "detail": "report mentions 'HISTORICALLY_VERIFIED'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "M6-POS-01",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "Audio-locked arch beat: load arrow, compression path, callout and inclined reactions all anchor and place",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy HOLD_HIGHLIGHT (want ['HOLD_HIGHLIGHT'])"
+    },
+    {
+     "dimension": "evidence_compatibility",
+     "check": "evidence",
+     "ok": true,
+     "detail": "evidence INTERNAL_PREVIEW"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B5_load: PLACED (want PLACED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B5_thrust: PLACED (want PLACED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B5_comp: PLACED (want PLACED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B5_react: PLACED (want PLACED)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "M6-POS-02",
+   "kind": "positive",
+   "family": "bridge",
+   "title": "'One at a time' narration on a sequential comparison is consistent; one locked camera; per-model callouts",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy SEQUENTIAL_COMPARISON (want ['SEQUENTIAL_COMPARISON'])"
+    },
+    {
+     "dimension": "visual_continuity",
+     "check": "one_camera",
+     "ok": true,
+     "detail": "one locked camera for the beat's shots"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B7_beam: PLACED (want PLACED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B7_arch: PLACED (want PLACED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B7_truss: PLACED (want PLACED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "consistency",
+     "ok": true,
+     "detail": "SEQUENTIAL: ['CONSISTENT'] (want CONSISTENT)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "M6-NEG-01",
+   "kind": "negative",
+   "family": "bridge",
+   "title": "A tension statement on a diagonal backed only by the chord claim (CLM_613) is refused",
+   "checks": [
+    {
+     "dimension": "evidence_compatibility",
+     "check": "planning_error",
+     "ok": true,
+     "detail": "planning error: beat B6 annotation B6_bottom: claim CLM_613 does not state a force in 'diagonal_members' (its components: ['truss_chord'])"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "M6-NEG-02",
+   "kind": "negative",
+   "family": "bridge",
+   "title": "'Side by side' narration while the models are shown one at a time is a blocking contradiction (M5.5 B7)",
+   "checks": [
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy SEQUENTIAL_COMPARISON (want ['SEQUENTIAL_COMPARISON'])"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "consistency",
+     "ok": true,
+     "detail": "SIMULTANEOUS: ['CONTRADICTION'] (want CONTRADICTION)"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "M6-MISS-01",
+   "kind": "missing_capability",
+   "family": "bridge",
+   "title": "An annotation anchored to a component the arch does not have (truss chord) fails instead of floating",
+   "checks": [
+    {
+     "dimension": "target_selection",
+     "check": "status",
+     "ok": true,
+     "detail": "status PARTIALLY_COVERED (want PARTIALLY_COVERED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B5_comp: FAILED (want FAILED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "annotations",
+     "ok": true,
+     "detail": "annotation B5_react: PLACED (want PLACED)"
+    },
+    {
+     "dimension": "target_selection",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'anchor target not found'"
     }
    ],
    "ok": true
