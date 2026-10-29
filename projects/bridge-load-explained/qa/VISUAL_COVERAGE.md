@@ -7,13 +7,13 @@
 
 | Beat | Intent | Strategy | Assets | Semantic targets | Templates (shots) | Expected / planned s | Evidence | Readable | Coverage | Issues |
 |---|---|---|---|---|---|---|---|---|---|---|
-| B1 | INTRODUCE_ARCHITECTURE | HOLD | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_001) | 16.27 / 16.29 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B2 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | substructure | HOLD (SC_002) | 21.80 / 21.83 | INTERNAL_PREVIEW | substructure: reads | **COVERED** | — |
-| B3 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | stringer | HOLD (SC_003) | 20.23 / 20.25 | INTERNAL_PREVIEW | stringer: reads | **COVERED** | — |
-| B4 | SHOW_COMPONENT | CLOSEUP_EXPLODE | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring, keystone, voussoir | HOLD (SC_004), EXPLODED_VIEW (SC_005) | 10.10 / 10.12 | INTERNAL_PREVIEW | arch_ring: reads<br>keystone: reads<br>voussoir: reads | **COVERED** | — |
-| B5 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring | HOLD (SC_006) | 17.35 / 17.38 | INTERNAL_PREVIEW | arch_ring: reads | **COVERED** | — |
-| B6 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | truss_members | HOLD (SC_007) | 28.73 / 28.75 | INTERNAL_PREVIEW | truss_members: reads | **COVERED** | — |
-| B7 | COMPARE_VARIANTS | SEQUENTIAL_COMPARISON | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_008), HOLD (SC_009), HOLD (SC_010) | 19.93 / 19.96 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B1 | INTRODUCE_ARCHITECTURE | HOLD | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_001) | 16.27 / 16.29 | APPROVED | — | **COVERED** | — |
+| B2 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | substructure | HOLD (SC_002) | 21.80 / 21.83 | APPROVED | substructure: reads | **COVERED** | — |
+| B3 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | stringer | HOLD (SC_003) | 20.23 / 20.25 | APPROVED | stringer: reads | **COVERED** | — |
+| B4 | SHOW_COMPONENT | CLOSEUP_EXPLODE | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring, keystone, voussoir | HOLD (SC_004), EXPLODED_VIEW (SC_005) | 10.10 / 10.12 | APPROVED | arch_ring: reads<br>keystone: reads<br>voussoir: reads | **COVERED** | — |
+| B5 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring | HOLD (SC_006) | 17.35 / 17.38 | APPROVED | arch_ring: reads | **COVERED** | — |
+| B6 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | truss_members | HOLD (SC_007) | 28.73 / 28.75 | APPROVED | truss_members: reads | **COVERED** | — |
+| B7 | COMPARE_VARIANTS | SEQUENTIAL_COMPARISON | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_008), HOLD (SC_009), HOLD (SC_010) | 19.93 / 19.96 | APPROVED | — | **COVERED** | — |
 | B8 | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | SIDE_BY_SIDE (SC_011) | 16.73 / 16.75 | FRAMING | — | **COVERED** | — |
 
 ## Planner decisions

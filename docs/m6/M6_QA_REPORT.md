@@ -59,7 +59,7 @@ Nhánh `m6-narrated-documentary` (tách từ `35aa2c0`). Ngày 2026-10-29. Mọi
   - Safe mode từ chối `import os`.
 
 ## 6. Hồi quy
-- Test: **249/249 OK**: 233 offline (`python3 -m unittest discover -s tests -p "test_[!b]*.py"`) + 16 Blender (`tests.test_blender_*`). M6 thêm 38 test offline (`tests/test_m6_narrated.py`), đủ các ca âm mà spec yêu cầu:
+- Test: **250/250 OK**: 234 offline (`python3 -m unittest discover -s tests -p "test_[!b]*.py"`) + 16 Blender (`tests.test_blender_*`). M6 thêm 38 test offline (`tests/test_m6_narrated.py`), đủ các ca âm mà spec yêu cầu:
   - asset TTS chưa có quyền; claim thiếu nguồn; điểm neo không tồn tại;
   - nhãn ra ngoài khung; chú thích chồng phụ đề;
   - manifest timing không nhất quán; chuyển cảnh không khớp lời dẫn;
@@ -91,3 +91,14 @@ Nhánh `m6-narrated-documentary` (tách từ `35aa2c0`). Ngày 2026-10-29. Mọi
 5. Chú thích chỉ gắn vào phần đứng yên. Điểm neo chưa đi theo bộ phận đang chuyển động; ví dụ B4 hiện nhãn trong đoạn giữ khi các viên đá tách ra.
 6. Font: chưa xác minh file font cụ thể đứng sau `<builtin>` của Blender (mọi font Blender kèm theo đều OFL hoặc Bitstream Vera).
 
+
+## 8. Sau quyết định của chủ kênh (2026-10-29)
+- Đã ghi:
+  - Kokoro `PUBLICATION_CLEARED` (clearance: Tran Nam Anh, 2026-10-29);
+  - license giọng `bm_george` APPROVED;
+  - 14 claim EDITORIALLY_APPROVED cho narration `m6-r2`;
+  - phát âm được chấp nhận; `factual_review: verified`.
+- `narrate --purpose publication`: 26/26 câu được sinh lại dưới hạng quyền mới, **giống hệt từng bit** bản preview (seed cố định). ASR PASS, timing không đổi (3632 frame).
+- Kế hoạch lập lại vì `sources.json` đổi. Không shot nào đổi về hình (11/11 CACHED). QA Blender 176/176, media QA PASS.
+- Lắp ráp bản mới `output/bridge_load_explained_pilot_review.mp4`: không nhãn INTERNAL, −16.0 LUFS, 35 câu phụ đề.
+- `gates --preset review`: **G0, G1, G2, G3, G4, G5, G6, GV đều PASS**. Profile `NARRATED_INTERNAL_REVIEW`, nên kết luận là "INTERNAL REVIEW — ALL GATES PASS; set production_profile PUBLICATION_CANDIDATE…". Agent không tự đổi profile.

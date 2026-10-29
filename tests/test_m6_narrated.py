@@ -48,24 +48,37 @@ class KokoroRightsTest(unittest.TestCase):
     def setUp(self):
         self.registry = providers.load_registry()
 
-    def test_registry_keeps_kokoro_pending_review(self):
+    def test_kokoro_clearance_is_a_named_human_record(self):
+        # Cleared on 2026-10-29 by the channel owner (in-session instruction), never by the agent.
         info = self.registry["providers"]["kokoro"]
-        self.assertEqual(info["rights_class"], "PENDING_REVIEW")
-        self.assertIn("NOT CLEARED", info["license"]["commercial_publication"])
+        self.assertEqual(info["rights_class"], "PUBLICATION_CLEARED")
+        self.assertTrue(all(info["clearance"].get(k) for k in ("cleared_by", "cleared_on", "evidence")))
+        self.assertIn("Tran Nam Anh", info["clearance"]["cleared_by"])
         self.assertEqual(providers.validate_registry(self.registry), [])
-        self.assertEqual(providers.check_purpose("kokoro", "internal_preview", self.registry), "PENDING_REVIEW")
+        self.assertEqual(providers.check_purpose("kokoro", "publication", self.registry), "PUBLICATION_CLEARED")
+        self.assertEqual(self.registry["providers"]["omnivoice"]["rights_class"], "INTERNAL_PREVIEW_ONLY")
         with self.assertRaises(providers.RightsError):
-            providers.check_purpose("kokoro", "publication", self.registry)
+            providers.check_purpose("omnivoice", "publication", self.registry)
+
+    def test_pending_provider_is_refused_for_publication(self):
+        reg = copy.deepcopy(self.registry)
+        reg["providers"]["kokoro"]["rights_class"] = "PENDING_REVIEW"
+        reg["providers"]["kokoro"].pop("clearance")
+        reg["workflow"]["publication"] = []
+        with self.assertRaises(providers.RightsError):
+            providers.check_purpose("kokoro", "publication", reg)
 
     def test_unlicensed_tts_asset_is_refused(self):
         reg = copy.deepcopy(self.registry)
-        reg["providers"]["kokoro"]["rights_class"] = "PUBLICATION_CLEARED"   # no named human clearance
+        reg["providers"]["kokoro"].pop("clearance")      # PUBLICATION_CLEARED without a named human
         self.assertTrue(any("human clearance" in e for e in providers.validate_registry(reg)))
+        pending = copy.deepcopy(self.registry)            # the registry before the owner's clearance
+        pending["providers"]["kokoro"]["rights_class"] = "PENDING_REVIEW"
         narration = read(PILOT / "script/narration.json")
-        narration["voice"]["license"]["rights_class"] = "PUBLICATION_CLEARED"
-        errs = nar.validate(narration, read(PILOT / "research/sources.json"), self.registry)
+        errs = nar.validate(narration, read(PILOT / "research/sources.json"), pending)
         self.assertTrue(any("disagrees" in e for e in errs))
-        narration["voice"]["license"]["status"] = "APPROVED"     # self-approval without a reviewer
+        self.assertTrue(any("APPROVED but provider kokoro is PENDING_REVIEW" in e for e in errs))
+        narration["voice"]["license"].pop("approved_by")  # approval without a reviewer
         errs = nar.validate(narration, read(PILOT / "research/sources.json"), self.registry)
         self.assertTrue(any("approved_by" in e for e in errs))
 
@@ -91,12 +104,20 @@ class KokoroRightsTest(unittest.TestCase):
         self.assertNotEqual(k1, cache_key(*args, "INTERNAL_PREVIEW_ONLY", None))
         self.assertNotEqual(k1, cache_key("omnivoice", *args[1:], "PENDING_REVIEW", None))
 
-    def test_pilot_audio_is_pending_review_kokoro(self):
+    def test_pilot_audio_is_publication_cleared_kokoro(self):
         m = read(PILOT / "audio/narration_manifest.json")
         current = {s["cache_key"] for b in m["beats"].values() for s in b["sentences"]}
         recs = [m["segments"][k] for k in current]
         self.assertEqual({r["provider"] for r in recs}, {"kokoro"})
-        self.assertEqual({r["rights_class"] for r in recs}, {"PENDING_REVIEW"})
+        self.assertEqual({r["voice"] for r in recs}, {"bm_george"})
+        self.assertEqual({r["rights_class"] for r in recs}, {"PUBLICATION_CLEARED"})
+        self.assertEqual(m["rights"]["purpose"], "publication")
+        older = [r for k, r in m["segments"].items() if r.get("role") == "sentence" and k not in current
+                 and r.get("rights_class") == "PENDING_REVIEW" and r.get("voice") == "bm_george"]
+        by_sentence = {(r["beat_id"], r["sentence_index"]): r for r in recs}
+        same = [r for r in older if by_sentence.get((r["beat_id"], r["sentence_index"]), {}).get("text") == r["text"]]
+        self.assertTrue(same)   # seeded Kokoro: the cleared takes are bit-identical to the preview takes
+        self.assertTrue(all(by_sentence[(r["beat_id"], r["sentence_index"])]["sha256"] == r["sha256"] for r in same))
         self.assertEqual({r["model_sha256"] for r in recs}, {kokoro.MODEL_SHA256})
         self.assertTrue(all(r["asr"]["pass"] for r in recs))
         self.assertEqual(m["rights"]["audit"], "docs/licensing/KOKORO_LICENSE_AUDIT.md")
@@ -481,14 +502,24 @@ class GateTest(unittest.TestCase):
         from pipeline import gates
         tmp, p = copy_project(PILOT, ignore=("renders", "output", "scenes"))
         try:
+            # every gate passes, but an internal-review profile is never reported publication-ready
+            result = gates.evaluate(p, "_review")
+            self.assertEqual(result["statuses"], ["TECHNICALLY_VALIDATED"])
+            self.assertIn("set production_profile PUBLICATION_CANDIDATE", result["verdict"])
             project = read(p / "project.json")
             project["production_profile"] = "PUBLICATION_CANDIDATE"
             project["publication_metadata"] = {"title": "t", "description": "d", "language": "en", "credits": "c"}
             (p / "project.json").write_text(json.dumps(project))
+            src = read(p / "research/sources.json")       # one claim loses its editorial approval
+            src["claims"][0]["review_status"] = "SOURCE_VERIFIED"
+            (p / "research/sources.json").write_text(json.dumps(src))
+            narration = read(p / "script/narration.json")  # and the voice licence record is withdrawn
+            narration["voice"]["license"]["status"] = "LICENSE_REVIEW_REQUIRED"
+            (p / "script/narration.json").write_text(json.dumps(narration))
             result = gates.evaluate(p, "_review")
             self.assertNotIn("PUBLICATION_READY", result["statuses"])
-            self.assertIn("TTS_RIGHTS_PENDING", result["statuses"])
             self.assertIn("EDITORIAL_REVIEW_PENDING", result["statuses"])
+            self.assertIn("TTS_RIGHTS_PENDING", result["statuses"])
             self.assertNotEqual(result["gates"]["G6 final publication readiness"]["status"], "PASS")
         finally:
             tmp.cleanup()

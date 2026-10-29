@@ -48,7 +48,13 @@ class ProviderRightsTest(unittest.TestCase):
         reg = providers.load_registry()
         self.assertEqual(providers.validate_registry(reg), [])
         self.assertEqual(providers.rights_class("omnivoice", reg), "INTERNAL_PREVIEW_ONLY")
-        self.assertEqual(reg["workflow"]["publication"], [])
+        # Only human-cleared providers may be in the publication workflow (M6: Kokoro, cleared by the
+        # channel owner on 2026-10-29); OmniVoice never is.
+        self.assertNotIn("omnivoice", reg["workflow"]["publication"])
+        for name in reg["workflow"]["publication"]:
+            info = reg["providers"][name]
+            self.assertEqual(info["rights_class"], "PUBLICATION_CLEARED")
+            self.assertTrue(all((info.get("clearance") or {}).get(k) for k in ("cleared_by", "cleared_on", "evidence")))
 
     def test_publication_purpose_is_refused_unless_cleared(self):
         self.assertEqual(providers.check_purpose("omnivoice", "internal_preview", registry()), "INTERNAL_PREVIEW_ONLY")

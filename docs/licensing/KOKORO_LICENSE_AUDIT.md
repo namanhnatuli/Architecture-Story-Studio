@@ -7,9 +7,9 @@
 ## 1. Kết luận
 | Mục | Kết luận |
 |---|---|
-| Kokoro cho **preview nội bộ có lời dẫn** (M6) | Dùng được. Hạng quyền trong `config/tts_providers.json` vẫn là **`PENDING_REVIEW`**. Theo luật của registry, agent không được tự nâng hạng quyền |
-| Kokoro cho **xuất bản thương mại** (YouTube có kiếm tiền) | **Ứng viên mạnh, CHƯA được cấp quyền.** Trọng số và code là Apache-2.0, không có điều khoản nào cấm dùng đầu ra cho mục đích thương mại. Còn các điểm mở ở §5, cần một người có tên ghi `clearance` (cleared_by / cleared_on / evidence) |
-| Giọng kênh | **Người dùng chọn `bm_george` (2026-10-29)** sau buổi thử giọng (`projects/bridge-load-explained/review/voice_audition/AUDITION.md`; trước đó mặc định kỹ thuật là `bf_emma`). Chọn giọng là bước riêng, **không** cấp quyền xuất bản: các điểm ở §5 vẫn còn mở |
+| Kokoro cho **preview nội bộ có lời dẫn** (M6) | Dùng được |
+| Kokoro cho **xuất bản thương mại** (YouTube có kiếm tiền) | **ĐÃ CẤP QUYỀN ngày 2026-10-29 bởi chủ kênh (Tran Nam Anh)**, ghi trong `config/tts_providers.json` → `clearance`; hạng quyền `PUBLICATION_CLEARED`. Phạm vi: đúng revision `f3ff3571` và các giọng đã audit, sinh cục bộ, có ghi rõ lời dẫn do AI tạo. Agent chỉ ghi lại quyết định, **không** tự cấp quyền. Trước quyết định này, hạng quyền là `PENDING_REVIEW` |
+| Giọng kênh | **Người dùng chọn `bm_george` (2026-10-29)** sau buổi thử giọng (`projects/bridge-load-explained/review/voice_audition/AUDITION.md`; trước đó mặc định kỹ thuật là `bf_emma`). License giọng `APPROVED` (approved_by/approved_on trong `script/narration.json`); phát âm thuật ngữ được chủ kênh nghe và chấp nhận |
 | OmniVoice | Không đổi: `INTERNAL_PREVIEW_ONLY`, không dùng để sinh lời dẫn M6. Audio cũ của Suffolk giữ nguyên |
 
 ## 2. Phiên bản chính xác
@@ -53,7 +53,7 @@ Model card ghi: "trained exclusively on permissive/non-copyrighted audio data an
 
 Tổng cộng khoảng vài trăm giờ. VOICES.md xếp hạng dữ liệu của từng giọng: `bf_emma` có Target Quality B, Training Duration "HH hours" (10–100 giờ), Overall B-.
 
-## 5. Điểm còn mở (chặn việc cấp quyền xuất bản)
+## 5. Điểm còn mở (chủ kênh đã chấp nhận ngày 2026-10-29; vẫn chưa được giải quyết, vẫn ghi lại đây)
 1. **Audio tổng hợp từ TTS đóng trong dữ liệu huấn luyện.** Không rõ nhà cung cấp nào. Điều khoản của các nhà cung cấp đó có thể cấm dùng đầu ra để huấn luyện mô hình cạnh tranh. Rủi ro này thuộc về bên huấn luyện, nhưng **người duyệt cần tự đánh giá** mức chấp nhận rủi ro. Agent không xác minh được.
 2. **Giọng có giống một người thật không?** Model card không nói giọng `bf_emma` được làm từ ai. Chú thích "No … custom voice clones" là bằng chứng gián tiếp. Cần một người nghe và xác nhận rằng giọng không mô phỏng một người dễ nhận ra.
 3. **Chính sách YouTube** về nội dung tổng hợp hoặc chỉnh sửa và về kiếm tiền (nội dung lặp lại, "inauthentic") có thể thay đổi. Phải kiểm tra lại vào thời điểm xuất bản. Ghi trong mô tả video rằng lời dẫn do AI tạo là cách thận trọng.

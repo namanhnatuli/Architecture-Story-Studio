@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.1 — 2026-10-29 — M6: quyết định của chủ kênh
+- Giọng kênh `bm_george` (do người dùng chọn). Lời dẫn được sinh lại, 143.4 wpm. B1.s1 viết lại vì ASR nghe nhầm. Pilot dài 151.33 s.
+- Chủ kênh cấp quyền xuất bản cho Kokoro (`clearance` trong registry, `PUBLICATION_CLEARED`); license giọng APPROVED; 14 claim EDITORIALLY_APPROVED (narration `m6-r2`); phát âm được chấp nhận; `factual_review: verified`.
+- Lời dẫn được sinh lại dưới hạng quyền mới. Seed cố định nên giống hệt từng bit bản preview; khung hình không cần render lại.
+- `bridge_load_explained_pilot_review.mp4`: gate G0–G6 + GV PASS. Profile vẫn là NARRATED_INTERNAL_REVIEW.
+- Test được cập nhật theo trạng thái đã duyệt; các ca âm (thiếu clearance, provider đang chờ duyệt, rút lại một phê duyệt) vẫn bị chặn.
+
 ## 0.6.0 — 2026-10-29 — M6: phim tài liệu có lời dẫn, chú thích kỹ thuật, nhiều họ kiến trúc (nhánh `m6-narrated-documentary`)
 - **TTS Kokoro-82M** (`integrations/tts/kokoro.py`, `tools/kokoro_tts.py`):
   - pin revision `f3ff3571` và 4 giọng Anh–Anh có SHA256 đã kiểm; worker con stdin/stdout (không mở server); offline; seed theo câu;

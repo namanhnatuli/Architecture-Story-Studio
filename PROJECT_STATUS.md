@@ -1,18 +1,19 @@
 # Current project status
 
-- Phase: **M6: phim tài liệu có lời dẫn. Xong phần kỹ thuật (2026-10-29) trên nhánh `m6-narrated-documentary`** (tách từ `m5.5-visual-intelligence` `35aa2c0`; chưa merge, chưa push). Trạng thái: **M6_TECHNICALLY_VALIDATED — PUBLICATION_APPROVAL_PENDING**.
+- Phase: **M6: phim tài liệu có lời dẫn. Xong (2026-10-29).** Nhánh `m6-narrated-documentary` đã merge fast-forward vào `master` theo yêu cầu của chủ kênh (repo không có remote, không push).
+- **Quyết định của chủ kênh (Tran Nam Anh), 2026-10-29:** cấp quyền xuất bản cho Kokoro; duyệt 14 claim (narration `m6-r2`); chấp nhận phát âm; giọng `bm_george`. Mọi gate G0–G6 + GV PASS. Profile vẫn `NARRATED_INTERNAL_REVIEW`: cần chuyển sang `PUBLICATION_CANDIDATE` + `publication_metadata` để đánh giá PUBLICATION_READY.
 - **Pilot `bridge-load-explained`** "How Does a Bridge Carry Its Load?":
-  - 8 beat, 14 claim SOURCE_VERIFIED (ODOT/FHWA/SCI/Yale);
+  - 8 beat, 14 claim EDITORIALLY_APPROVED (ODOT/FHWA/SCI/Yale);
   - 26 câu Kokoro **`bm_george`** (giọng do người dùng chọn ngày 2026-10-29; 143.4 wpm);
   - 11 shot, 151.33 s, 27 chú thích kỹ thuật;
   - QA Blender 176/176; media QA PASS; assemble −16.0 LUFS, 35 câu phụ đề (SRT + mov_text);
-  - trạng thái `TECHNICALLY_VALIDATED` · `EDITORIAL_REVIEW_PENDING` · `TTS_RIGHTS_PENDING`.
-  - Video: `projects/bridge-load-explained/output/bridge_load_explained_pilot_INTERNAL_review.mp4`.
-- **TTS:** Kokoro-82M được audit, hạng quyền `PENDING_REVIEW` (chưa được phép xuất bản). Giọng kênh `bm_george` do người dùng chọn; chọn giọng không thay cho việc cấp quyền. OmniVoice không đổi, không dùng cho M6.
+  - gate: G0–G6 + GV PASS, trạng thái `TECHNICALLY_VALIDATED`; kết luận "INTERNAL REVIEW — ALL GATES PASS" (chờ đổi profile).
+  - Video: `projects/bridge-load-explained/output/bridge_load_explained_pilot_review.mp4` (lời dẫn PUBLICATION_CLEARED).
+- **TTS:** Kokoro-82M được audit và **được chủ kênh cấp quyền xuất bản** (`PUBLICATION_CLEARED`, clearance 2026-10-29; các điểm mở của audit §5 vẫn ghi lại). Giọng kênh `bm_george`, license giọng APPROVED. OmniVoice không đổi (`INTERNAL_PREVIEW_ONLY`), không dùng cho M6.
 - **Đa họ kiến trúc:** scene context (schema 3). Fixture cầu + mái: QA Blender 69/69. Dự án một họ giữ schema 2 giống hệt.
 - **bridge-story-m5:** B7 đổi thành "Let's compare them one at a time: …"; bộ kiểm nhất quán báo CONSISTENT.
 - **Suffolk-roofs:** không đổi: `TECHNICALLY_VALIDATED` · `EDITORIAL_REVIEW_PENDING` · `TTS_RIGHTS_PENDING`.
-- Test: 249/249 (233 offline + 16 Blender). Đánh giá planner 29/29.
+- Test: 250/250 (234 offline + 16 Blender). Đánh giá planner 29/29.
 - Hồi quy QA Blender:
 
   | Dự án | QA Blender |
@@ -40,10 +41,8 @@ python3 -m unittest discover -s tests
 ```
 
 ## Việc người dùng cần quyết định (M6)
-1. ~~Chọn giọng kênh~~: đã chọn `bm_george` (2026-10-29). Còn lại: một người nghe xác nhận phát âm thuật ngữ (voussoirs, piers, chord…).
-2. Quyết định cấp quyền xuất bản cho Kokoro (`docs/licensing/KOKORO_LICENSE_AUDIT.md` §5), ghi clearance trong `config/tts_providers.json`.
-3. Duyệt biên tập 14 claim (`review/EDITORIAL_REVIEW_PACKAGE.md`). Đặc biệt xem giả định nhịp giản đơn (CLM_613), vị trí phản lực ở vòm giữa (CLM_610), cách gọi "posts" (CLM_607).
-4. Xem video pilot, rồi merge các nhánh theo thứ tự M3.5 → M4 → M5 → M5.5 → M6 khi đã hài lòng (agent không merge, không push).
+1. ~~Chọn giọng kênh~~, ~~cấp quyền xuất bản Kokoro~~, ~~duyệt 14 claim~~, ~~xác nhận phát âm~~, ~~merge vào master~~: đã xong ngày 2026-10-29.
+2. Còn lại để đăng: chuyển `production_profile` sang `PUBLICATION_CANDIDATE` với `publication_metadata` (title, description, language, credits; nên ghi "AI-generated narration (Kokoro-82M)"), chạy lại `gates`, rồi render bản final nếu muốn độ phân giải cao hơn review 960×540.
 
 ## Lệnh tái tạo M5
 ```bash

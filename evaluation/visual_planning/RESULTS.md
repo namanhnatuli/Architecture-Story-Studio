@@ -141,7 +141,7 @@
 - **M6-POS-01** (positive, bridge) Audio-locked arch beat: load arrow, compression path, callout and inclined reactions all anchor and place: **PASS**
   - ok [narrative_relevance] status COVERED (want COVERED)
   - ok [narrative_relevance] strategy HOLD_HIGHLIGHT (want ['HOLD_HIGHLIGHT'])
-  - ok [evidence_compatibility] evidence INTERNAL_PREVIEW
+  - ok [evidence_compatibility] evidence APPROVED
   - ok [target_selection] annotation B5_load: PLACED (want PLACED)
   - ok [target_selection] annotation B5_thrust: PLACED (want PLACED)
   - ok [target_selection] annotation B5_comp: PLACED (want PLACED)

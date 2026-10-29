@@ -1,8 +1,8 @@
-# Gói duyệt biên tập: "How Does a Bridge Carry Its Load?" (M6, narration `m6-r1`)
+# Gói duyệt biên tập: "How Does a Bridge Carry Its Load?" (M6, narration `m6-r2`)
 
-> **Agent không tự duyệt.** 14 claim (CLM_601–CLM_614) đều ở trạng thái `SOURCE_VERIFIED`: câu trích đã được đối chiếu nguyên văn, nhưng chưa được duyệt biên tập. Gate G1 và G6 chặn cho tới khi một người có tên duyệt (mục 5).
+> **Đã duyệt:** chủ kênh (Tran Nam Anh) duyệt cả 14 claim (CLM_601–CLM_614) theo đề xuất, ngày 2026-10-29, cho narration `m6-r2`. Ghi ở `research/sources.json` → `editorial_approval`. Agent chỉ soạn gói này và ghi lại quyết định, không tự duyệt.
 
-- Ngày soạn: 2026-10-29. Người soạn: agent. Người duyệt: _(chưa có)_.
+- Ngày soạn: 2026-10-29. Người soạn: agent. Người duyệt: **Tran Nam Anh** (2026-10-29).
 - Phạm vi: câu chữ lời dẫn (`script/narration.json`), chữ trên màn hình (nhãn, callout, chú giải, thẻ 'Conceptual load path — not to scale') và cách thể hiện bằng hình (mũi tên tải, phản lực, đường truyền tải).
 - Không có con số nào về nội lực, sức chịu tải, hệ số an toàn, ứng suất hay độ võng. Độ dài mũi tên là cố định, không biểu diễn độ lớn.
 
@@ -255,4 +255,4 @@ Câu chữ đã sửa vì ASR nghe nhầm (sửa bản nháp, không phải duy�
 
 ## 5. Cách ghi quyết định (chỉ người duyệt)
 
-Với mỗi claim được duyệt, trong `research/sources.json`: đặt `review_status` thành `EDITORIALLY_APPROVED` và thêm `editorial_approval: {approved_by, approved_on, narration_revision: "m6-r1"}`. Claim bị bác: đặt `REJECTED`; planner sẽ chặn mọi beat và chú thích dùng nó. Sửa câu chữ: sửa `script/narration.json` và `script/visual_beats.json` (hai file phải khớp nhau), rồi chạy `narrate → asr-check → align → lock-audio → plan-visuals → build-shots`. Khi mọi claim đã duyệt, đặt `factual_review: "verified"` trong `project.json`.
+Với mỗi claim được duyệt, trong `research/sources.json`: đặt `review_status` thành `EDITORIALLY_APPROVED` và thêm `editorial_approval: {approved_by, approved_on, narration_revision: "m6-r2"}`. Claim bị bác: đặt `REJECTED`; planner sẽ chặn mọi beat và chú thích dùng nó. Sửa câu chữ: sửa `script/narration.json` và `script/visual_beats.json` (hai file phải khớp nhau), rồi chạy `narrate → asr-check → align → lock-audio → plan-visuals → build-shots`. Khi mọi claim đã duyệt, đặt `factual_review: "verified"` trong `project.json`.

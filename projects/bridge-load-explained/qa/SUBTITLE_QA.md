@@ -1,6 +1,6 @@
 # Subtitle QA
 
-- File: `output/bridge_load_explained_pilot_INTERNAL_review.en.srt` — 35 cues for 26 sentences; 22 two-line cues; longest line 42 chars (limit 42); max reading speed 16.4 chars/s.
+- File: `output/bridge_load_explained_pilot_review.en.srt` — 35 cues for 26 sentences; 22 two-line cues; longest line 42 chars (limit 42); max reading speed 16.4 chars/s.
 - Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: 9; sentence-span fallbacks: 0.
 - Text comes from the script (official spellings kept); ASR text is never used as subtitle text.
 - Problems: none

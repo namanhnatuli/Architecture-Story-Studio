@@ -2,7 +2,7 @@
   "schema_version": 1,
   "language": "en",
   "title": "How Does a Bridge Carry Its Load?",
-  "status": "DRAFT - source-verified wording, awaiting editorial approval (G1)",
+  "status": "APPROVED - editorially approved by the channel owner on 2026-10-29 (revision m6-r2)",
   "voice": {
     "provider": "kokoro",
     "id": "kokoro_bm_george",
@@ -22,9 +22,9 @@
       "lang_code": "b"
     },
     "license": {
-      "status": "LICENSE_REVIEW_REQUIRED",
-      "rights_class": "PENDING_REVIEW",
-      "permitted_use": "Internal narrated preview (timing, pacing, annotation sync, editorial review). Not cleared for publication until a named human records a clearance in config/tts_providers.json and approves the voice.",
+      "status": "APPROVED",
+      "rights_class": "PUBLICATION_CLEARED",
+      "permitted_use": "Publication of the bridge-load-explained narration (monetised YouTube included), under the clearance in config/tts_providers.json; disclose AI-generated narration.",
       "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
       "reviewed_on": "2026-10-28",
       "reviewed_by": "agent compliance assessment (not legal advice; no human sign-off)",
@@ -55,9 +55,26 @@
           "evidence": "model card; unresolved, audit section 5"
         }
       ],
-      "decision": "Candidate for publication, NOT CLEARED. Rights class stays PENDING_REVIEW; the agent never raises it. The channel voice bm_george was chosen by the user on 2026-10-29; that choice does not clear the provider for publication."
+      "decision": "APPROVED by the channel owner on 2026-10-29 (voice bm_george and Kokoro publication clearance). The open points of the audit (section 5) remain documented and were accepted by the owner.",
+      "approved_by": "Tran Nam Anh (channel owner)",
+      "approved_on": "2026-10-29"
     },
-    "pace_note": "speed 1.0 for the whole narration; bm_george measured 143.4 wpm over the 26 sentences (321 words, 134.32 s of speech, 2026-10-29); the audition passage measured 161.0 wpm. Uniform, never per beat."
+    "pace_note": "speed 1.0 for the whole narration; bm_george measured 143.4 wpm over the 26 sentences (321 words, 134.32 s of speech, 2026-10-29); the audition passage measured 161.0 wpm. Uniform, never per beat.",
+    "pronunciation_review": {
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-10-29",
+      "terms": [
+        "voussoirs",
+        "keystone",
+        "abutments",
+        "piers",
+        "superstructure",
+        "substructure",
+        "truss",
+        "chord"
+      ],
+      "note": "listened and accepted as spoken by bm_george; no pronunciation overrides in use"
+    }
   },
   "pacing": {
     "sentence_pause_seconds": 0.4,
@@ -65,16 +82,35 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "m6-r1",
+    "version": "m6-r2",
     "date": "2026-10-29",
-    "status": "DRAFT_FOR_EDITORIAL_REVIEW",
-    "review_package": "review/EDITORIAL_REVIEW_PACKAGE.md"
+    "status": "EDITORIALLY_APPROVED",
+    "review_package": "review/EDITORIAL_REVIEW_PACKAGE.md",
+    "approved_by": "Tran Nam Anh (channel owner)",
+    "approved_on": "2026-10-29",
+    "edits": [
+      {
+        "sentence": "B7.s3",
+        "m6-r1": "The truss shares it between members in tension and in compression.",
+        "m6-r2": "In the truss, the load is shared between members in tension and in compression.",
+        "why": "ASR heard 'trust' (bf_emma)"
+      },
+      {
+        "sentence": "B1.s1",
+        "m6-r1": "Traffic, people and the bridge's own weight all press down on its deck.",
+        "m6-r2": "Traffic, people and the weight of the bridge itself all press on its deck.",
+        "why": "ASR heard 'pressed'/'pushed' (bm_george); WER above 0.15"
+      }
+    ]
   },
   "beats": [
     {
       "id": "B1",
       "kind": "fact",
-      "claim_ids": ["CLM_601", "CLM_602"],
+      "claim_ids": [
+        "CLM_601",
+        "CLM_602"
+      ],
       "sentences": [
         "What happens when weight is placed on a bridge?",
         "Traffic, people and the weight of the bridge itself all press on its deck.",
@@ -84,7 +120,11 @@
     {
       "id": "B2",
       "kind": "fact",
-      "claim_ids": ["CLM_602", "CLM_603", "CLM_604"],
+      "claim_ids": [
+        "CLM_602",
+        "CLM_603",
+        "CLM_604"
+      ],
       "sentences": [
         "The load follows a path down through the structure.",
         "The deck is carried by the superstructure, the part of the bridge that spans the gap.",
@@ -95,7 +135,11 @@
     {
       "id": "B3",
       "kind": "fact",
-      "claim_ids": ["CLM_605", "CLM_606", "CLM_607"],
+      "claim_ids": [
+        "CLM_605",
+        "CLM_606",
+        "CLM_607"
+      ],
       "sentences": [
         "Now take a beam bridge.",
         "Its deck rests on long beams that span from one support to the next.",
@@ -106,7 +150,9 @@
     {
       "id": "B4",
       "kind": "fact",
-      "claim_ids": ["CLM_608"],
+      "claim_ids": [
+        "CLM_608"
+      ],
       "sentences": [
         "A masonry arch works differently.",
         "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown."
@@ -115,7 +161,10 @@
     {
       "id": "B5",
       "kind": "fact",
-      "claim_ids": ["CLM_609", "CLM_610"],
+      "claim_ids": [
+        "CLM_609",
+        "CLM_610"
+      ],
       "sentences": [
         "The curve turns the downward load into thrust along the arch, pressing the stones together.",
         "So the arch works mainly in compression.",
@@ -125,7 +174,12 @@
     {
       "id": "B6",
       "kind": "fact",
-      "claim_ids": ["CLM_611", "CLM_612", "CLM_613", "CLM_614"],
+      "claim_ids": [
+        "CLM_611",
+        "CLM_612",
+        "CLM_613",
+        "CLM_614"
+      ],
       "sentences": [
         "The truss we started with takes another approach: straight members joined into triangles.",
         "Each member is mainly pulled or pushed along its length, in tension or in compression.",
@@ -136,7 +190,11 @@
     {
       "id": "B7",
       "kind": "interpretation",
-      "claim_ids": ["CLM_606", "CLM_609", "CLM_612"],
+      "claim_ids": [
+        "CLM_606",
+        "CLM_609",
+        "CLM_612"
+      ],
       "sentences": [
         "Let's compare them one at a time.",
         "The beam bridge carries its load by bending.",

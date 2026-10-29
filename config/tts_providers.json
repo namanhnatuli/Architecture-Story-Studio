@@ -14,7 +14,9 @@
       "omnivoice",
       "kokoro"
     ],
-    "publication": []
+    "publication": [
+      "kokoro"
+    ]
   },
   "providers": {
     "omnivoice": {
@@ -54,16 +56,22 @@
         "bm_daniel": "fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d"
       },
       "runtime": "~/Work/Projects/Kokoro/.venv (Python 3.12, kokoro 0.9.4, misaki 0.9.4, torch 2.15.0 CPU); offline",
-      "rights_class": "PENDING_REVIEW",
+      "rights_class": "PUBLICATION_CLEARED",
       "license": {
         "weights": "Apache-2.0 (model card + repo metadata); voices: no separate licence for en-GB voices",
         "code": "kokoro 0.9.4 Apache-2.0; misaki 0.9.4 Apache-2.0",
         "g2p_fallback": "espeak-ng 1.52.0 bundled by espeakng-loader (GPL-3.0-or-later; loader declares no licence); phonemizer-fork GPL-3.0+; num2words LGPL - local use only, never redistributed",
         "training_data": "stated permissive/non-copyrighted incl. synthetic audio from closed TTS providers (unresolved, see audit §5)",
-        "commercial_publication": "candidate - NOT CLEARED: needs a named human clearance (audit §5) and a listening approval of the voice"
+        "commercial_publication": "CLEARED 2026-10-29 by the channel owner (see clearance); the open points of audit section 5 remain documented, accepted by the owner, not resolved by the agent"
       },
       "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
-      "available": true
+      "available": true,
+      "clearance": {
+        "cleared_by": "Tran Nam Anh (channel owner, in-session instruction)",
+        "cleared_on": "2026-10-29",
+        "evidence": "docs/licensing/KOKORO_LICENSE_AUDIT.md (weights/code Apache-2.0, pinned revision f3ff3571 and voice hashes); the owner accepted the open points of audit section 5 (training-data provenance, synthetic-content disclosure, GPL fallback used locally only)",
+        "scope": "hexgrad/Kokoro-82M @ f3ff3571 with the audited voices only; local generation; disclose AI-generated narration"
+      }
     },
     "piper": {
       "kind": "local_model",
