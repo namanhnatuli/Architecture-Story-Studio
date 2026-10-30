@@ -4,7 +4,7 @@
 > **Mức sẵn sàng xuất bản:** CHƯA. INTERNAL REVIEW, vì còn chờ duyệt biên tập 41 claim, xác nhận giọng cho phim và xác nhận phát âm. G6 BLOCKED.
 
 ## 1. Nhánh và commit
-Nhánh `m7-first-full-documentary`, tách từ `master` @ `f68c61a` (M6 đã duyệt). Commit M7 nằm trên nhánh này (xem `git log -2`). **Không merge, không push.**
+Nhánh `m7-first-full-documentary`, tách từ `master` @ `f68c61a` (M6 đã duyệt). Commit M7: `b7e5b0a` (nội dung), commit tiếp theo chỉ ghi mã này vào bản bàn giao. **Không merge, không push.**
 
 ## 2. Độ dài thực tế
 **646,458 s = 10,77 phút** (15.515 frame ở 24 fps). Nằm trong khoảng mục tiêu 10–12 phút.
