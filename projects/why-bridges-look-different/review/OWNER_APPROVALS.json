@@ -1,0 +1,83 @@
+{
+  "schema": "owner_approvals/1",
+  "project": "why-bridges-look-different",
+  "owner": "Tran Nam Anh (channel owner)",
+  "recorded_by": "agent (records the owner's explicit decisions; approves nothing itself)",
+  "decisions": [
+    {
+      "id": "APP-CLAIMS",
+      "subject": "41 claims used by the narration",
+      "scope": "why-bridges-look-different",
+      "source_revision": {
+        "narration_revision": "m7-r1",
+        "narration_sha256": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8",
+        "record": "research/editorial_approval.json (claims_text_sha256)"
+      },
+      "decision": "EDITORIALLY_APPROVED",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.1 (preserving the approval of 2026-10-30)",
+      "applicable_publication": "public YouTube release",
+      "conditions": "claim texts and narration unchanged",
+      "invalidation": "changed claim text or narration revision"
+    },
+    {
+      "id": "APP-VOICE",
+      "subject": "Kokoro-82M @ f3ff3571, voice am_michael",
+      "scope": "why-bridges-look-different",
+      "source_revision": {
+        "voice_sha256": "9a443b79...",
+        "model_sha256": "496dba11..."
+      },
+      "decision": "APPROVED for public YouTube release incl. potential monetization",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.2",
+      "applicable_publication": "public YouTube release",
+      "conditions": "disclose AI-generated narration; third-party licences unchanged (Apache-2.0; GPL fallback local only)",
+      "invalidation": "different voice hash, model revision or project",
+      "records": [
+        "config/tts_providers.json providers.kokoro.clearance.voice_approvals",
+        "script/narration.json voice.license (APPROVED, owner_confirmation_for_this_film CONFIRMED)"
+      ]
+    },
+    {
+      "id": "APP-PRONUNCIATION",
+      "subject": "16 items in review/PRONUNCIATION_REVIEW.md",
+      "scope": "current audio revision",
+      "source_revision": {
+        "narration_sha256": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8"
+      },
+      "decision": "ACCEPTED_BY_OWNER (acceptance of the reviewed audio delivery; no per-item listening or phonetic verification is claimed)",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.3",
+      "applicable_publication": "public YouTube release",
+      "conditions": "audio unchanged",
+      "invalidation": "any narration audio change (narration hash)",
+      "records": [
+        "script/narration.json voice.pronunciation_review"
+      ]
+    },
+    {
+      "id": "DISP-CLM_747",
+      "subject": "CLM_747 (stone availability; Kansas and Michigan)",
+      "scope": "research archive",
+      "decision": "NOT USED in the publication artifact (verified against narration, visual beats, annotations, plan, storyboard, chapter manifest, description, subtitles and MP4 metadata); stays SOURCE_VERIFIED in research/sources.json; no approval invented",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.4",
+      "consequence": "the final gate checks the claims the film uses (tools/validator.used_claim_ids)"
+    },
+    {
+      "id": "APP-B35",
+      "subject": "card B35 credits",
+      "decision": "narration credit line removed (2026-10-30 owner request); AI-narration disclosure kept in the description",
+      "date": "2026-10-30",
+      "evidence": "owner instruction of 2026-10-30"
+    },
+    {
+      "id": "REQ-PUBLICATION-EVALUATION",
+      "subject": "publication readiness",
+      "decision": "owner asked for the real final publication gates and a native 4K final; production_profile set to PUBLICATION_CANDIDATE with publication_metadata. This is not an upload: the Studio never publishes.",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §4, §7"
+    }
+  ]
+}

@@ -90,10 +90,10 @@ def ebur128(path):
     return {"integrated_lufs": float(i[-1]), "true_peak_dbtp": float(tp[-1]) if tp and tp[-1] != "-inf" else None}
 
 
-def mux(video, audio, out, comment=None):
+def mux(video, audio, out, comment=None, audio_bitrate="160k"):
     meta = ["-metadata", f"comment={comment}"] if comment else []
     r = _ffmpeg("-y", "-i", video, "-i", audio, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy",
-                "-c:a", "aac", "-b:a", "160k", *meta, "-movflags", "+faststart", out)
+                "-c:a", "aac", "-b:a", audio_bitrate, *meta, "-movflags", "+faststart", out)
     if r.returncode != 0:
         raise RuntimeError(f"mux failed: {r.stderr[-300:]}")
 
@@ -120,7 +120,7 @@ def narration_rights(project_dir):
     return classes == {"PUBLICATION_CLEARED"}, sorted(classes)
 
 
-def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None):
+def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None, audio_bitrate="160k"):
     """Build narration track (+loudnorm), mux with `video`, write SRT, verify; returns a report."""
     p = Path(project_dir)
     timing = json.loads((p / "script/timing.json").read_text())
@@ -134,7 +134,7 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None
     out_mp4.parent.mkdir(parents=True, exist_ok=True)
     cleared, classes = narration_rights(p)
     mux(video, mixed, out_mp4, comment if comment else None if cleared else
-        f"INTERNAL PREVIEW - narration audio rights: {', '.join(classes)} - not for publication")
+        f"INTERNAL PREVIEW - narration audio rights: {', '.join(classes)} - not for publication", audio_bitrate)
     srt = out_mp4.with_suffix(".en.srt")
     from pipeline import pronunciation as pron, subtitles
     manifest_path = p / "audio/narration_manifest.json"

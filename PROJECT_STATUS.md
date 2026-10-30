@@ -1,5 +1,37 @@
 # Current project status
 
+- Phase: **M7 finalization và hệ thống sản xuất V1: xong (2026-10-31).** Nhánh `m7-finalization-4k-production` (tách từ `24d13c1`), chưa merge, chưa push, chưa upload.
+- **Phim `why-bridges-look-different`** "Why Bridges Don't All Look the Same":
+  - bản cuối **native 4K** `output/why_bridges_look_different_FINAL_4K_2160p.mp4`:
+    - 3840×2160, 24 fps, H.264 BT.709, AAC, phụ đề SRT + mov_text;
+    - 10,69 phút, 15.395 frame;
+    - kèm WAV master và `.sha256`;
+  - cổng `gates --preset final_4k`: **G0–G6 + GL + GV PASS → `PUBLICATION_READY`**, profile `PUBLICATION_CANDIDATE`.
+- **Hồ sơ duyệt của chủ kênh** (`review/OWNER_APPROVALS.json`), mỗi quyết định gắn với revision:
+  - 41 claim được phim dùng;
+  - giọng `am_michael` cho dự án này (đăng YouTube công khai, kể cả kiếm tiền);
+  - chấp nhận audio hiện tại cho 16 mục phát âm, không ghi là đã nghe từng mục;
+  - CLM_747 không dùng trong phim và không được duyệt hộ.
+- **Render 4K:**
+  - theo chương, dùng lại frame tĩnh: 5.218/15.395 frame được render;
+  - 3 giờ 59 phút, không lần nào máy ngủ;
+  - PNG chiếm tối đa 14,3 GB, Blender RSS tối đa 3,9 GB.
+- **Kiểm chứng:** MP4 cuối so với render trực tiếp đạt PSNR 49–57 dB (1080p phóng to: 35–38 dB). Audio và phụ đề giống từng byte với bản review.
+- **Dọn dẹp:** `projects/` chỉ còn phim này. Các pilot M2–M6 ở `tests/fixtures/legacy_projects/`; bản lưu trữ ngoài repo có checksum và `git bundle`.
+- **Phim mới:** `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`, `prompts/NEW_DOCUMENTARY_AUTOPILOT.md`, `tools/episode.py` (`new-episode` / `episode-status` trong CLI). Mới kiểm chứng phần nhận chủ đề và theo dõi giai đoạn, chưa làm thử một phim mới trọn vẹn.
+- **Test:** offline 303 OK; Blender 21 OK; `evaluate-planning` 29/29.
+- Tài liệu: `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`, `docs/production/CLEANUP_REPORT.md`.
+
+## Việc của chủ kênh
+1. Xem bản 4K trước khi đăng.
+2. Nếu đăng: tự upload MP4 + `.en.srt` + `review/YOUTUBE_DESCRIPTION.md` và chọn các thiết lập YouTube. Studio không upload.
+3. Merge hay push nhánh cần một lệnh riêng.
+4. Phim tiếp theo: đưa một chủ đề, theo `prompts/NEW_DOCUMENTARY_AUTOPILOT.md`.
+
+---
+
+## M7 bản review nội bộ cuối (2026-10-30, trạng thái lúc đó)
+
 - Phase: **M7: phim tài liệu dài đầu tiên. Bản review nội bộ cuối 1080p xong (2026-10-30), chưa sẵn sàng xuất bản.** Nhánh `m7-final-internal-review` (tách từ `m7-first-full-documentary`), chưa merge, chưa push. Bản `bm_george` trước đó: tag `m7-review-bm_george`.
 - **Phim `why-bridges-look-different`** "Why Bridges Don't All Look the Same":
   - **10,69 phút** (641,46 s, 15.395 frame); 8 chương, 39 beat, 103 câu, 47 shot;
@@ -16,14 +48,14 @@
 - **Render 1080p:** dùng lại frame tĩnh, chỉ render 5.206/15.395 frame; khoảng 1,26 giờ render khi máy thức; 82 phút wall cho C2–C8 + ghép.
 - Tài liệu: `docs/m7/` (đặc biệt `FINAL_INTERNAL_REVIEW.md`).
 
-## Việc người dùng cần quyết định (M7)
+### Việc cần quyết định lúc đó (đã giải quyết ở M7 finalization)
 1. ~~Duyệt 41 claim~~ (đã xong, 2026-10-30). Còn CLM_747 (không dùng trong phim): duyệt, hoặc loại khỏi registry. Cổng cuối đòi mọi claim trong registry phải được duyệt.
 2. Cấp quyền xuất bản cho `am_michael` (thêm vào `voices_cleared`) và xác nhận cho phim (`owner_confirmation_for_this_film`).
 3. Nghe phát âm 16 thuật ngữ với `am_michael` (`review/PRONUNCIATION_REVIEW.md`). ASR nghe sai tên riêng (Bollman, Corinne, Gwynns Falls).
 4. Sau đó: profile `PUBLICATION_CANDIDATE` + `publication_metadata`, rồi render bằng preset `final`.
 5. Có sửa ghi chú chân trang của `suffolk-roofs` SC_004 hay không (lỗi bố cục có từ M3).
 
-## Lệnh tái tạo M7
+### Lệnh tái tạo M7
 Xem `docs/m7/REPRODUCIBILITY.md` (lệnh đầy đủ + kế hoạch kiểm tra build sạch).
 
 ---

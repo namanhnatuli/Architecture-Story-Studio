@@ -1,0 +1,84 @@
+{
+  "preset": "final_4k",
+  "file": "output/why_bridges_look_different_FINAL_4K_2160p.mp4",
+  "codec": "h264",
+  "width": 3840,
+  "height": 2160,
+  "pix_fmt": "yuv420p",
+  "fps": "24/1",
+  "frames": 15395,
+  "duration": 641.458333,
+  "color": {
+    "profile": "High",
+    "level": 51,
+    "color_range": "tv",
+    "color_space": "bt709",
+    "color_transfer": "bt709",
+    "color_primaries": "bt709"
+  },
+  "decode_errors": 0,
+  "black_segments": 0,
+  "chapter_intermediates": [
+    "output/chapters_final_4k/why_bridges_look_different_C1_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C2_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C3_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C4_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C5_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C6_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C7_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C8_silent.mp4"
+  ],
+  "chapter_boundaries": [
+    {
+      "cut": "C1->C2",
+      "frame": 807,
+      "mode": "hard",
+      "ssim": 0.85425,
+      "ok": true
+    },
+    {
+      "cut": "C2->C3",
+      "frame": 1973,
+      "mode": "match",
+      "ssim": 0.99697,
+      "ok": true
+    },
+    {
+      "cut": "C3->C4",
+      "frame": 3573,
+      "mode": "hard",
+      "ssim": 0.8366,
+      "ok": true
+    },
+    {
+      "cut": "C4->C5",
+      "frame": 5542,
+      "mode": "hard",
+      "ssim": 0.84411,
+      "ok": true
+    },
+    {
+      "cut": "C5->C6",
+      "frame": 7566,
+      "mode": "hard",
+      "ssim": 0.86712,
+      "ok": true
+    },
+    {
+      "cut": "C6->C7",
+      "frame": 10571,
+      "mode": "hard",
+      "ssim": 0.94933,
+      "ok": true
+    },
+    {
+      "cut": "C7->C8",
+      "frame": 13611,
+      "mode": "hard",
+      "ssim": 0.79385,
+      "ok": true
+    }
+  ],
+  "expected_total_frames": 15395,
+  "problems": []
+}

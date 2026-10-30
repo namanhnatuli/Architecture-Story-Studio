@@ -96,10 +96,10 @@ PHOTO_CROP = {
     "IMG_HAER_CARROLLTON": [0.17, 0.11, 0.83, 0.89], "IMG_HAER_PROMONTORY": [0.025, 0.045, 0.955, 0.955],
     "IMG_HAER_BOLLMAN": [0.035, 0.045, 0.965, 0.955], "IMG_HAER_HUMPBACK": [0.035, 0.05, 0.968, 0.95]}
 PHOTO_PATH = {
-    "IMG_HAER_CARROLLTON": "assets/external/haer_md9_carrollton_viaduct_west.jpg",
-    "IMG_HAER_PROMONTORY": "assets/external/haer_ut64_promontory_trestle_790b.jpg",
-    "IMG_HAER_BOLLMAN": "assets/external/haer_md1_bollman_truss_east.jpg",
-    "IMG_HAER_HUMPBACK": "assets/external/haer_va_humpback_covered_bridge_west.jpg"}
+    "IMG_HAER_CARROLLTON": "assets/external/haer_md9_carrollton_viaduct_west_3840.jpg",
+    "IMG_HAER_PROMONTORY": "assets/external/haer_ut64_promontory_trestle_790b_3840.jpg",
+    "IMG_HAER_BOLLMAN": "assets/external/haer_md1_bollman_truss_east_3840.jpg",
+    "IMG_HAER_HUMPBACK": "assets/external/haer_va_humpback_covered_bridge_west_3840.jpg"}
 
 
 def photo_card(name, asset, title, lines, credit, chapter=None):

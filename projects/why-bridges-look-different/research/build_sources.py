@@ -230,7 +230,13 @@ CLAIMS = [
 approval_path = Path(sys.argv[1]).parent / "editorial_approval.json"
 approval = json.loads(approval_path.read_text()) if approval_path.is_file() else None
 if approval:
+    import hashlib
+    texts_sha = approval.get("claims_text_sha256", {})
     for c in CLAIMS:
+        if c["id"] in approval["claims"] and texts_sha.get(c["id"], hashlib.sha256(c["text"].encode()).hexdigest()) \
+                != hashlib.sha256(c["text"].encode()).hexdigest():
+            print(f"{c['id']}: claim text changed since the approval; approval NOT applied")
+            continue
         if c["id"] in approval["claims"]:
             c["review_status"] = "EDITORIALLY_APPROVED"
             c["caveat"] = (f"Editorially approved {approval['approved_on']} for narration "

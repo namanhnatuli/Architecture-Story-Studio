@@ -1,6 +1,7 @@
 """Asset index for planning: M4 library specs (asset_library/architecture) plus a minimal
-compatibility adapter for legacy house/roof states (projects/*/storyboard/states.json with
-the M2 gable_roof builder). Read-only: the planner never edits the catalog."""
+compatibility adapter for legacy house/roof states with the M2 gable_roof builder: the states
+of archived pilots kept in asset_library/legacy_states/<slug>/ (M7) and of any active project
+(projects/*/storyboard/states.json). Read-only: the planner never edits the catalog."""
 import json
 from pathlib import Path
 
@@ -9,7 +10,7 @@ from engine.arch import assets
 
 ROOT = Path(__file__).resolve().parent.parent
 LEGACY_TEMPLATES = ["HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "REPLACE_PARTS", "SIDE_BY_SIDE"]
-# Exploded-view rule of the validated M2 roof pilot (projects/roof-evolution SC_002): role -> distance
+# Exploded-view rule of the validated M2 roof pilot (roof-evolution SC_002, archived): role -> distance
 # along the builder's explode hint; gable walls stay with the house.
 LEGACY_EXPLODE = {"roof_covering": 1.6, "rafters": 0.8, "ridge_beam": 0.5}
 
@@ -42,15 +43,21 @@ def index(root=ROOT):
                         "accuracy": data["accuracy"], "animation_support": data["animation_support"],
                         "validation": _blender_validation(catalog, data["asset_id"]),
                         "kind": "site" if data["family"] == "site" else "architecture"})
-    for states_path in sorted((root / "projects").glob("*/storyboard/states.json")):
+    sources = [(p, p.parent / "blender_checks_summary.json", p.parts[-2])
+               for p in sorted((root / "asset_library/legacy_states").glob("*/states.json"))]
+    sources += [(p, p.parents[1] / "qa" / "blender_checks.json", p.parts[-3])
+                for p in sorted((root / "projects").glob("*/storyboard/states.json"))]
+    seen = set()
+    for states_path, qa, project in sources:
+        if project in seen:
+            continue
         states = json.loads(states_path.read_text())
         if states.get("generated_by") == "planner":     # M5 output, not a source
             continue
         base = spec.base_params(states)
         if base["builder"] != "rectangular_house_base":
             continue
-        project = states_path.parts[-3]
-        qa = root / "projects" / project / "qa" / "blender_checks.json"
+        seen.add(project)
         summary = json.loads(qa.read_text()).get("summary", {}) if qa.is_file() else {}
         validated = "VALIDATED" if summary and not summary.get("failed") else "OFFLINE_ONLY"
         for v in states.get("variants", []):

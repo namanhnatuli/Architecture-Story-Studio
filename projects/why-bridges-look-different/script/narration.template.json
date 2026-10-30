@@ -26,9 +26,9 @@
       "lang_code": "a"
     },
     "license": {
-      "status": "LICENSE_REVIEW_REQUIRED",
+      "status": "APPROVED",
       "rights_class": "PUBLICATION_CLEARED",
-      "permitted_use": "Internal review of why-bridges-look-different. Publication needs the owner to extend the Kokoro clearance (config/tts_providers.json voices_cleared) to am_michael.",
+      "permitted_use": "Public YouTube release of why-bridges-look-different (monetization included), under the owner's am_michael voice approval in config/tts_providers.json; disclose AI-generated narration.",
       "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
       "reviewed_on": "2026-10-30",
       "reviewed_by": "agent technical audit of am_michael (hash, licence files; not legal advice)",
@@ -59,13 +59,20 @@
           "evidence": "model card; unresolved, audit section 5"
         }
       ],
-      "decision": "LICENSE_REVIEW_REQUIRED: am_michael is audited (SHA256 9a443b79... matches VOICES.md; Apache-2.0 repository licence, no per-voice licence or attribution term for American English voices) and chosen by the owner as narrator, but the 2026-10-29 publication clearance named only bf_emma/bm_fable/bm_george/bm_daniel. The agent does not extend it.",
-      "basis": "config/tts_providers.json providers.kokoro.clearance (voices_cleared, voices_pending)",
-      "owner_confirmation_for_this_film": "PENDING"
+      "decision": "APPROVED by the channel owner on 2026-10-30 for this documentary (voice am_michael, Kokoro-82M @ f3ff3571). Third-party terms rechecked by the agent: Apache-2.0 weights, code and voice file (no attribution term for American voices); GPL G2P fallback local only; training-data open points (audit §5) accepted by the owner on 2026-10-29. No external restriction found.",
+      "basis": "config/tts_providers.json providers.kokoro.clearance.voice_approvals (am_michael)",
+      "owner_confirmation_for_this_film": "CONFIRMED",
+      "approved_by": "Tran Nam Anh (channel owner)",
+      "approved_on": "2026-10-30",
+      "owner_confirmation": {
+        "by": "Tran Nam Anh (channel owner)",
+        "on": "2026-10-30",
+        "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.2"
+      }
     },
     "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
     "pronunciation_review": {
-      "status": "PENDING",
+      "status": "ACCEPTED_BY_OWNER",
       "terms": [
         "voussoirs",
         "falsework",
@@ -84,7 +91,19 @@
         "trestle",
         "viaduct"
       ],
-      "note": "am_michael with American G2P (misaki lang_code a, espeak-ng en-us fallback); none of the terms has been listened to by the owner with this voice"
+      "note": "am_michael with American G2P (misaki lang_code a, espeak-ng en-us fallback); none of the terms has been listened to by the owner with this voice",
+      "accepted_by": "Tran Nam Anh (channel owner)",
+      "accepted_on": "2026-10-30",
+      "basis": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.3: the owner accepts the existing reviewed audio delivery for the 16 items in review/PRONUNCIATION_REVIEW.md. No per-item listening session or phonetic verification is recorded here.",
+      "audio_revision": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8",
+      "asr_uncertainties": [
+        "Bollman heard as 'Bauman'/'Bowman'",
+        "Corinne heard as 'Kareen'",
+        "Gwynns Falls heard as \"Gwyn's Falls\"",
+        "'site' heard as 'sight', 'chord' as 'cord' (homophones)",
+        "'support it' heard as 'supported' (B06.s1)"
+      ],
+      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids this acceptance"
     }
   },
   "pacing": {

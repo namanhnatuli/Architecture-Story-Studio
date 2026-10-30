@@ -87,3 +87,22 @@ python3 tools/cli.py gates $P --preset internal_1080p
 - Hồ sơ duyệt claim (`research/editorial_approval.json`) là dữ liệu của người duyệt. `build_sources.py` chỉ áp hồ sơ này vào registry.
 - Frame lặp là hardlink. Muốn sao chép thư mục `renders/` sang máy khác thì dùng công cụ giữ hardlink (`rsync -H`); nếu không, dung lượng tăng khoảng 3 lần.
 - `--no-reuse` render đủ mọi frame. Dùng khi nghi ngờ hoặc để so sánh.
+
+## 8. Bản cuối native 4K (M7 finalization, 2026-10-31)
+Điều kiện trước: hồ sơ duyệt của chủ kênh có đủ (`review/OWNER_APPROVALS.json`, `research/editorial_approval.json`, `clearance.voice_approvals`, `voice.pronunciation_review`) và profile là `PUBLICATION_CANDIDATE`. Thiếu thì `final-gate` từ chối preset `final_4k`.
+```bash
+P="--project why-bridges-look-different"
+python3 projects/why-bridges-look-different/research/build_sources.py      # áp hồ sơ duyệt claim vào registry
+python3 tools/cli.py final-gate $P
+python3 tools/cli.py check-blender $P --preset final_4k
+python3 tools/cli.py shot $P --shot SC_016 --preset final_4k              # benchmark 1-4 shot trước
+for c in C1 C2 C3 C4 C5 C6 C7 C8; do python3 tools/cli.py chapter $P --chapter $c --preset final_4k --release-frames; done
+python3 tools/cli.py final-assemble $P --preset final_4k
+python3 tools/cli.py chapters $P --preset final_4k                         # QA phim dài trên timing hiện tại
+python3 tools/cli.py gates $P --preset final_4k
+python3 tools/frame_times.py projects/why-bridges-look-different/qa final_4k   # tốc độ render từ log Blender
+shasum -a 256 -c projects/why-bridges-look-different/output/why_bridges_look_different_FINAL_4K_2160p.sha256
+```
+- Lệnh `chapter` làm tiếp được: chạy lại đúng lệnh thì chương nào có bản trung gian hợp lệ được CACHED, shot dở được làm tiếp từ PNG hoàn chỉnh.
+- PNG chỉ bị xóa sau khi bản trung gian được kiểm chứng; dừng nếu đĩa trống dưới 8 GB.
+- Khoảng 4 giờ trên Mac Apple Silicon; dùng tối đa khoảng 15 GB đĩa cho PNG (`docs/m7/PERFORMANCE_4K.md`).

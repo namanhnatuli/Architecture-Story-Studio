@@ -211,7 +211,7 @@ def validate_project(project_dir, final=False):
         registry = providers.load_registry()
         errors.extend(f"tts_providers: {e}" for e in providers.validate_registry(registry))
         lexicon = pron.load(base)
-        errors.extend(f"narration: {e}" for e in nar.validate(narration, sources, registry, lexicon))
+        errors.extend(f"narration: {e}" for e in nar.validate(narration, sources, registry, lexicon, base.name))
         order = [b.get("id") for b in narration.get("beats", [])]
         covered = []
         for s in shots:   # M5/M6 planned projects: one beat may span several consecutive shots
@@ -241,8 +241,15 @@ def validate_project(project_dir, final=False):
     if final:
         if not project.get("audio_timing_locked"):
             errors.append("FINAL gate: audio timing not locked")
-        if any(c.get("review_status") not in APPROVED_CLAIM | {"REJECTED"} for c in sources.get("claims", [])):
-            errors.append("FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)")
+        used = used_claim_ids(base, narration, story)   # M7: what the film actually says or shows
+        checked = [c for c in sources.get("claims", []) if not used or c.get("id") in used]
+        unapproved = sorted(c.get("id") for c in checked if c.get("review_status") not in APPROVED_CLAIM | {"REJECTED"})
+        if unapproved:
+            errors.append("FINAL gate: unverified claims used in the film (claims must be EDITORIALLY_APPROVED): "
+                          + ", ".join(unapproved[:8]))
+        missing = sorted(used - {c.get("id") for c in sources.get("claims", [])})
+        if missing:
+            errors.append("FINAL gate: the film uses claims missing from the registry: " + ", ".join(missing))
         if narration is not None:
             status = ((narration.get("voice") or {}).get("license") or {}).get("status")
             if status != "APPROVED":
@@ -253,6 +260,21 @@ def validate_project(project_dir, final=False):
         if project.get("factual_review") != "verified":
             errors.append("FINAL gate: factual_review is not verified")
     return errors, warnings
+
+
+def used_claim_ids(base, narration, story):
+    """Claims the publication artifact uses: narration beats, visual beats (beat claims and annotation
+    claims) and storyboard shots. Empty when the project records none (then every claim is checked)."""
+    used = {c for b in (narration or {}).get("beats", []) for c in b.get("claim_ids", [])}
+    beats_path = Path(base) / "script/visual_beats.json"
+    if beats_path.is_file():
+        vb = read_json(beats_path)
+        for b in vb.get("beats", []):
+            used |= set(b.get("claim_ids", []))
+            used |= {a["claim_id"] for a in b.get("annotations", []) or [] if a.get("claim_id")}
+    for s in (story or {}).get("shots", []):
+        used |= set(s.get("claim_ids", []) or [])
+    return used
 
 
 def publication_audio_errors(base, narration, registry, lexicon):

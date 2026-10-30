@@ -9,8 +9,8 @@
 1. Đọc [`QUICKSTART_MAC.md`](QUICKSTART_MAC.md).
 2. Mở nguyên thư mục này bằng Codex hoặc Claude Code. AI phải đọc [`AGENTS.md`](AGENTS.md) **trước** khi chỉnh file.
 3. Trong Terminal: `python3 tools/cli.py doctor` và `python3 tools/cli.py validate`.
-4. Khi đã cài Blender: `python3 tools/cli.py still` để tạo **ảnh preview** của cảnh biến đổi mái nhà.
-5. Sau khi xem ảnh: `python3 tools/cli.py preview` để render ảnh tuần tự rồi tạo MP4 qua FFmpeg.
+4. `python3 tools/episode.py status --project why-bridges-look-different`: xem phim đang làm đang ở giai đoạn nào.
+5. Làm phim mới từ một chủ đề: [`docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`](docs/production/NEW_DOCUMENTARY_PLAYBOOK.md) và [`prompts/NEW_DOCUMENTARY_AUTOPILOT.md`](prompts/NEW_DOCUMENTARY_AUTOPILOT.md).
 
 Không cần tự cài package Python ngoài cho MVP; mã Python thuần phục vụ orchestration, còn `bpy` chạy bên trong Blender.
 
@@ -39,8 +39,8 @@ Architecture-Story-Studio/
 ├── tools/                     # CLI, validation, orchestration (stdlib Python)
 ├── scripts/                   # macOS convenience scripts
 ├── asset_library/             # Asset *được phép dùng* và manifest
-├── projects/roof-evolution/   # Pilot có dữ liệu + mã render
-└── tests/                     # Offline unit tests
+├── projects/                  # Chỉ phim đang làm (hiện: why-bridges-look-different)
+└── tests/                     # Unit tests; tests/fixtures/legacy_projects/ = pilot M2–M6 (chỉ đọc)
 ```
 
 ## Quy tắc sản xuất
@@ -55,6 +55,8 @@ Architecture-Story-Studio/
 - Assets có giấy phép không rõ = không được đưa vào final.
 
 ## Pilot có thể chạy
+
+> Từ 2026-10-30 các pilot M2–M6 là fixture test ở `tests/fixtures/legacy_projects/<slug>/`. Các mục dưới đây mô tả chúng theo lịch sử; đường dẫn `projects/<slug>` cũ giờ đổi thành đường dẫn fixture. Cách khôi phục: `docs/production/CLEANUP_REPORT.md`.
 
 Dự án `roof-evolution` là **prototype minh họa kỹ thuật**, không phải lời khẳng định rằng mái dốc cao luôn tốt hơn mái dốc thấp. Từ M2 (2026-10-26), đây là chuỗi 20 giây, 24 fps, gồm 5 shot:
 
@@ -153,3 +155,8 @@ python3 tools/cli.py preview $P --preset review && python3 tools/cli.py assemble
 python3 tools/longform_reports.py $P && python3 tools/cli.py gates $P --preset review
 ```
 Tài liệu: [`docs/m7/`](docs/m7/).
+
+### Bản cuối 4K và phim tiếp theo (M7 finalization, 2026-10-31)
+- `output/why_bridges_look_different_FINAL_4K_2160p.mp4`: native 3840×2160, cổng `gates --preset final_4k` → PUBLICATION_READY. Chưa đăng; việc đăng là quyết định của chủ kênh.
+- Lệnh render theo chương: `docs/m7/REPRODUCIBILITY.md` §8. Báo cáo: `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`.
+- Phim mới từ một chủ đề: `python3 tools/cli.py new-episode --topic "<chủ đề>"`, rồi `python3 tools/cli.py episode-status --project <slug>`. Quy trình đầy đủ ở `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`.

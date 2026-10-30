@@ -204,11 +204,16 @@ def _evaluate_narrated(p, preset_suffix=""):
     review = (narration.get("voice") or {}).get("pronunciation_review") or {}
     if review.get("status") == "PENDING":   # M7: new names not yet heard by the owner
         pending_pron.append(f"voice.pronunciation_review PENDING ({len(review.get('terms', []))} terms)")
+    elif review.get("status") == "ACCEPTED_BY_OWNER" and review.get("audio_revision") != nar.narration_hash(narration, lexicon):
+        # an acceptance covers exactly the audio it was given for; regenerated narration needs a new one
+        pending_pron.append("voice.pronunciation_review was accepted for another audio revision")
     if any(s in (None, "REJECTED", "PROVISIONAL", "provisional") for s in statuses.values()):
         g1 = ("FAIL", [f"{c}: {s}" for c, s in statuses.items() if s not in ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED")])
     elif all(s == "EDITORIALLY_APPROVED" for s in statuses.values()) and project.get("factual_review") == "verified" \
             and not pending_pron:
-        g1 = ("PASS", [f"{len(used)} claims editorially approved; factual_review verified; pronunciations confirmed"])
+        heard = ("pronunciation: current audio accepted by the owner (no per-item listening recorded)"
+                 if review.get("status") == "ACCEPTED_BY_OWNER" else "pronunciations confirmed")
+        g1 = ("PASS", [f"{len(used)} claims editorially approved; factual_review verified; {heard}"])
     else:
         package = (narration.get("revision") or {}).get("review_package") or "review/EDITORIAL_APPROVAL_PACKAGE.md"
         notes = [f"{sum(s == 'EDITORIALLY_APPROVED' for s in statuses.values())}/{len(used)} narrated claims "

@@ -1,6 +1,6 @@
 # Subtitle QA
 
-- File: `output/why_bridges_look_different_M7_FINAL_INTERNAL_REVIEW_1080p.en.srt` — 145 cues for 103 sentences; 92 two-line cues; longest line 42 chars (limit 42); max reading speed 18.0 chars/s.
+- File: `output/why_bridges_look_different_FINAL_4K_2160p.en.srt` — 145 cues for 103 sentences; 92 two-line cues; longest line 42 chars (limit 42); max reading speed 18.0 chars/s.
 - Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: 42; sentence-span fallbacks: 0.
 - Text comes from the script (official spellings kept); ASR text is never used as subtitle text.
 - Problems: none

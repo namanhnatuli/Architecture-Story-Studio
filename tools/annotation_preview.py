@@ -2,7 +2,7 @@
 silhouettes in grey, the visible annotation targets darker, and every laid-out annotation
 primitive (plates as boxes, text as bars, lines, arrows, dots) at the given time.
 
-  python3 tools/annotation_preview.py --project bridge-load-explained --shot SC_002 [--time 12.0]
+  python3 tools/annotation_preview.py --project why-bridges-look-different --shot SC_002 [--time 12.0]
 
 Writes qa/annotations/<shot>_layout_<t>.png. For layout debugging and the QA report; the
 rendered Blender frames remain the reference."""

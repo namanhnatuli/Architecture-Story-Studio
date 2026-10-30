@@ -108,7 +108,7 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **Ảnh ngoài:** chỉ dùng khi có hồ sơ `origin: external` đầy đủ `EXTERNAL_LICENSE_FIELDS`, `credit_keys`, SHA256 và bằng chứng giấy phép kiểm được (không suy từ kết quả tìm kiếm, không fair use, không ảnh có watermark). Ghi công phải xuất hiện trên card hoặc trong mô tả.
 - **Mô hình cạnh cầu thật** phải mang NOTE "Illustrative model, not the …". Không bịa số (tải, ứng suất, nội lực, độ võng, hệ số an toàn, xếp hạng độ bền). Không kể chuyện tiến bộ tuyến tính, không nói một kiểu luôn tốt hơn.
 - **QA phim dài** (`qa/longform_qa.json`, cổng GL): sửa đoạn tĩnh và sự đơn điệu bằng nội dung (tách câu, NOTE theo câu, phần tử theo từ, push-in có lý do). Không nới ngưỡng. Không thêm người, máy móc hay cảnh phá hủy cho "sinh động".
-- **Render dài:** mỗi lúc một Blender. `render_progress.json` cho phép làm tiếp sau khi bị ngắt nếu khóa cache không đổi. Không render 4K. 1080p chỉ dùng cho still chọn lọc hoặc đoạn ngắn, khi đã có ước lượng dung lượng.
+- **Render dài:** mỗi lúc một Blender. `render_progress.json` cho phép làm tiếp sau khi bị ngắt nếu khóa cache không đổi. Không render 4K trước khi chủ kênh duyệt; 4K chỉ qua `--preset final_4k` theo chương (xem bổ sung M7 finalization). 1080p chỉ dùng cho still chọn lọc hoặc đoạn ngắn, khi đã có ước lượng dung lượng.
 - **Quyết định của người** (agent không làm): duyệt claim M7, xác nhận áp dụng quyền giọng cho phim, xác nhận phát âm tên mới, chuyển profile, đăng.
 - Tài liệu: `docs/m7/M7_ARCHITECTURE.md`, `M7_QA_REPORT.md`, `PERFORMANCE.md`, `M7_HANDOFF.md`.
 - **Bổ sung (bản review nội bộ cuối M7):**
@@ -116,3 +116,20 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
   - Video 1080p trước khi được duyệt dùng `--preset internal_1080p`; tên file luôn có `INTERNAL_REVIEW`.
   - Không tự đưa giọng mới vào `voices_cleared`.
   - Không ghi đè báo cáo QA của dự án khác khi chạy hồi quy; lưu kết quả vào `qa/regression/` của milestone đang làm.
+
+## Bổ sung M7 finalization (2026-10-30): hồ sơ duyệt, 4K, quy trình phim mới
+- **Hồ sơ duyệt của chủ kênh** gắn với đúng revision và tự mất hiệu lực khi revision đổi:
+  - claim: `research/editorial_approval.json` (`claims_text_sha256`, `narration_sha256`);
+  - giọng: `config/tts_providers.json` → `clearance.voice_approvals`, theo dự án, kèm SHA256 của giọng. `voices_cleared` vẫn chỉ gồm các giọng đã được cấp chung;
+  - phát âm: `ACCEPTED_BY_OWNER` gắn với `audio_revision` (hash lời dẫn). Đây là chấp nhận audio hiện tại, không phải xác nhận đã nghe từng mục;
+  - tổng hợp: `review/OWNER_APPROVALS.json` (phạm vi, đối tượng, revision, quyết định, ngày, bằng chứng, điều kiện, điều kiện mất hiệu lực).
+  - Agent chỉ ghi lại đúng lời chủ kênh. Không bịa tên, chữ ký hay một buổi nghe.
+- **Cổng cuối** chỉ đòi duyệt các claim mà phim dùng (lời dẫn, beat hình, chú thích, shot). Claim không dùng vẫn ở trong sổ nhưng không được duyệt hộ.
+- **4K:** `chapter --preset final_4k --release-frames` cho từng chương, rồi `final-assemble`, rồi `gates --preset final_4k`.
+  - PNG của một chương chỉ được xóa sau khi bản trung gian đã kiểm chứng và đăng ký ở `qa/chapter_intermediates_final_4k.json`.
+  - Lệnh tự dừng khi đĩa trống dưới 8 GB.
+  - Không phóng to bản 1080p, không dùng frame 1080p làm frame 4K.
+  - Không ghi đè bản review 1080p.
+- **Dự án đang làm:** `projects/` chỉ chứa phim đang sản xuất. Pilot cũ là fixture ở `tests/fixtures/legacy_projects/`; states mái cũ ở `asset_library/legacy_states/` (giữ nguyên asset id). Lưu trữ bằng `tools/archive_projects.py` (ra ngoài repo, có checksum). Không xóa code dùng chung chỉ vì nó ra đời cho một pilot cũ.
+- **Phim mới:** `prompts/NEW_DOCUMENTARY_AUTOPILOT.md` + `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` + `tools/episode.py` (`new`, `status`, `next`). Agent dừng ở OWNER_APPROVAL. Scaffold chạy được không có nghĩa là quy trình tự động đã được kiểm chứng trọn vẹn.
+- Tài liệu: `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`, `docs/production/CLEANUP_REPORT.md`.

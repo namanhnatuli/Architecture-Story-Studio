@@ -15,10 +15,12 @@ from tools import render_cache
 from tools.cli import ROOT
 from tools.validator import validate_project
 
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
 LIB = ROOT / "asset_library" / "architecture"
 BRIDGES = {p.stem: p for p in (LIB / "bridges").glob("*.json")}
 SITE = LIB / "sites" / "site_river_crossing_24.json"
-PILOT = ROOT / "projects" / "bridge-structure-evolution"
+PILOT = LEGACY / "bridge-structure-evolution"
 
 
 def spec_of(name):

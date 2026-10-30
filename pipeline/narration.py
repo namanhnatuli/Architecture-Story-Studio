@@ -28,7 +28,16 @@ def load(project_dir):
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
 
 
-def validate(narration, sources, registry=None, lexicon=None):
+def voice_cleared(clearance, voice_id, project_id=None):
+    """True when the provider clearance covers this voice: listed in voices_cleared, or approved by the
+    owner for this project (clearance.voice_approvals, M7). No voices_cleared list = legacy clearance."""
+    if clearance.get("voices_cleared") is None or voice_id in clearance["voices_cleared"]:
+        return True
+    return any(a.get("voice") == voice_id and (project_id is None or project_id in a.get("projects", []))
+               for a in clearance.get("voice_approvals", []))
+
+
+def validate(narration, sources, registry=None, lexicon=None, project_id=None):
     """Errors in narration.json against the claim ledger, the TTS rights registry and the
     pronunciation lexicon (empty list when valid). registry/lexicon checks run when given."""
     errors = []
@@ -55,10 +64,10 @@ def validate(narration, sources, registry=None, lexicon=None):
     if lic.get("status") == "APPROVED" and not (lic.get("approved_by") and lic.get("approved_on")):
         errors.append("narration.voice.license: APPROVED needs approved_by/approved_on (a named human reviewer)")
     cleared = ((registry or {}).get("providers", {}).get(voice.get("provider", "omnivoice")) or {}).get("clearance", {})
-    if lic.get("status") == "APPROVED" and cleared.get("voices_cleared") is not None \
-            and voice.get("voice") not in cleared["voices_cleared"]:   # M7: the clearance names its voices
-        errors.append(f"narration.voice.license: APPROVED but voice {voice.get('voice')!r} is not in the provider "
-                      f"clearance {cleared['voices_cleared']} (the owner must extend it)")
+    if lic.get("status") == "APPROVED" and not voice_cleared(cleared, voice.get("voice"), project_id):
+        errors.append(f"narration.voice.license: APPROVED but voice {voice.get('voice')!r} is not covered by the "
+                      f"provider clearance {cleared.get('voices_cleared')} or an owner voice approval for "
+                      f"{project_id or 'this project'} (the owner must extend it)")
     if lexicon is not None:
         errors.extend(pron.validate(lexicon))
     if voice.get("mode") == "clone" and not (voice.get("reference") or {}).get("text"):
@@ -195,7 +204,7 @@ def generate(project_dir, client=None, regenerate=False, log=print, purpose="int
     sources = json.loads((project_dir / "research" / "sources.json").read_text(encoding="utf-8"))
     registry = registry or providers.load_registry()
     lexicon = pron.load(project_dir)
-    errors = validate(narration, sources, registry, lexicon)
+    errors = validate(narration, sources, registry, lexicon, project_dir.name)
     if errors:
         raise ValueError("narration.json invalid: " + "; ".join(errors))
     v = narration["voice"]

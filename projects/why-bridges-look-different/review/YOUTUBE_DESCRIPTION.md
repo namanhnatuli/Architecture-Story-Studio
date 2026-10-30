@@ -1,4 +1,4 @@
-<!-- DRAFT: not for publication until the editorial approval package is approved. -->
+<!-- PUBLICATION CANDIDATE: description for the owner's own upload (approvals in review/OWNER_APPROVALS.json). The Studio never uploads. -->
 
 # Why Bridges Don't All Look the Same
 

@@ -1,0 +1,222 @@
+{
+  "output": "output/chapters_final_4k/why_bridges_look_different_C1_documentary.mp4",
+  "subtitles": "output/chapters_final_4k/why_bridges_look_different_C1_documentary.en.srt",
+  "narration_rights": [
+    "PUBLICATION_CLEARED"
+  ],
+  "publication_audio": true,
+  "narration_track": "audio/narration_mix_SC_001-SC_005.wav",
+  "shots": [
+    "SC_001",
+    "SC_002",
+    "SC_003",
+    "SC_004",
+    "SC_005"
+  ],
+  "frames": 807,
+  "seconds": 33.625,
+  "video": {
+    "codec_name": "h264",
+    "codec_type": "video",
+    "width": 3840,
+    "height": 2160,
+    "duration": "33.625000",
+    "nb_read_frames": "807"
+  },
+  "audio": {
+    "codec_name": "aac",
+    "codec_type": "audio",
+    "sample_rate": "48000",
+    "duration": "33.625000",
+    "nb_read_frames": "1577"
+  },
+  "loudness_before": {
+    "I": "-27.05",
+    "TP": "-6.50"
+  },
+  "loudness_after": {
+    "integrated_lufs": -16.4,
+    "true_peak_dbtp": -1.5
+  },
+  "subtitle_entries": 8,
+  "subtitle_stats": {
+    "cues": 8,
+    "sentences": 7,
+    "max_line": 41,
+    "lines_over_42": 0,
+    "two_line_cues": 3,
+    "aligned_boundaries": 1,
+    "sentence_fallbacks": 0,
+    "max_cps": 16.1
+  },
+  "subtitle_warnings": [],
+  "subtitle_cues": [
+    {
+      "start": 0.4,
+      "end": 4.15,
+      "lines": [
+        "One bridge rests on rows of timber posts."
+      ],
+      "text": "One bridge rests on rows of timber posts.",
+      "sentence": "B01.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 3.9
+    },
+    {
+      "start": 4.3,
+      "end": 7.75,
+      "lines": [
+        "Another leaps the gap in curves of stone."
+      ],
+      "text": "Another leaps the gap in curves of stone.",
+      "sentence": "B01.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 7.5
+    },
+    {
+      "start": 7.9,
+      "end": 11.575,
+      "lines": [
+        "A third is a lattice of steel triangles."
+      ],
+      "text": "A third is a lattice of steel triangles.",
+      "sentence": "B01.s2",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 11.325
+    },
+    {
+      "start": 11.725,
+      "end": 15.2,
+      "lines": [
+        "All three cross exactly the same gap."
+      ],
+      "text": "All three cross exactly the same gap.",
+      "sentence": "B01.s3",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 14.95
+    },
+    {
+      "start": 16.15,
+      "end": 19.375,
+      "lines": [
+        "So why don't bridges all look the same?"
+      ],
+      "text": "So why don't bridges all look the same?",
+      "sentence": "B02.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 19.125
+    },
+    {
+      "start": 19.525,
+      "end": 24.175,
+      "lines": [
+        "It isn't because one design is",
+        "simply better than the others."
+      ],
+      "text": "It isn't because one design is simply better than the others.",
+      "sentence": "B02.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 23.925
+    },
+    {
+      "start": 24.325,
+      "end": 27.56,
+      "lines": [
+        "Each form is a different",
+        "answer to the same problem,"
+      ],
+      "text": "Each form is a different answer to the same problem,",
+      "sentence": "B02.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "problem,",
+        "before_word": "shaped",
+        "whisper_boundary": 3.38,
+        "placed_at": 3.235,
+        "rms_db_at_boundary": -71.9
+      }
+    },
+    {
+      "start": 27.56,
+      "end": 33.075,
+      "lines": [
+        "shaped by materials, by the site,",
+        "and by the time it was built in."
+      ],
+      "text": "shaped by materials, by the site, and by the time it was built in.",
+      "sentence": "B02.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 32.825
+    }
+  ],
+  "problems": [],
+  "media": {
+    "chapter": "C1",
+    "video": "output/chapters_final_4k/why_bridges_look_different_C1_silent.mp4",
+    "shots": [
+      "SC_001",
+      "SC_002",
+      "SC_003",
+      "SC_004",
+      "SC_005"
+    ],
+    "expected_frames": 807,
+    "probe": {
+      "codec": "h264",
+      "width": 3840,
+      "height": 2160,
+      "pix_fmt": "yuv420p",
+      "fps": "24/1",
+      "frames": 807,
+      "duration": 33.625,
+      "black_segments": 0,
+      "decode_errors": 0,
+      "streams": {
+        "video": 1,
+        "audio": 0
+      }
+    },
+    "cuts": [
+      {
+        "cut": "SC_001->SC_002",
+        "mode": "hard",
+        "ssim": 0.88149,
+        "ok": true
+      },
+      {
+        "cut": "SC_002->SC_003",
+        "mode": "hard",
+        "ssim": 0.89176,
+        "ok": true
+      },
+      {
+        "cut": "SC_003->SC_004",
+        "mode": "hard",
+        "ssim": 0.86097,
+        "ok": true
+      },
+      {
+        "cut": "SC_004->SC_005",
+        "mode": "hard",
+        "ssim": 0.93255,
+        "ok": true
+      }
+    ],
+    "problems": []
+  },
+  "render_results": {
+    "SC_001": "rendered",
+    "SC_002": "rendered",
+    "SC_003": "rendered",
+    "SC_004": "rendered",
+    "SC_005": "rendered"
+  },
+  "chapter_audio": "output/chapters_final_4k/why_bridges_look_different_C1_narration.wav"
+}

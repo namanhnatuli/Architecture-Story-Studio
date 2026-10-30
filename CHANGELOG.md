@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.8.0 — 2026-10-31 — M7 finalization: hồ sơ duyệt, cổng xuất bản, bản cuối 4K, hệ thống sản xuất V1 (nhánh `m7-finalization-4k-production`)
+- **Hồ sơ duyệt của chủ kênh** (`review/OWNER_APPROVALS.json`), mỗi quyết định gắn với revision và tự mất hiệu lực khi revision đổi:
+  - 41 claim (`claims_text_sha256` + `narration_sha256`);
+  - giọng `am_michael` cho riêng dự án này (`clearance.voice_approvals`, kèm SHA256 giọng). `voices_cleared` không đổi;
+  - phát âm `ACCEPTED_BY_OWNER`, gắn với hash audio, không ghi là đã nghe từng mục;
+  - CLM_747: không dùng trong phim, không duyệt hộ.
+- **Cổng:**
+  - cổng cuối chỉ đòi duyệt các claim mà phim dùng (`validator.used_claim_ids`);
+  - validator từ chối licence APPROVED cho giọng không có trong `voices_cleared` cũng không có duyệt cho dự án;
+  - G1 báo đúng cơ sở phát âm ("accepted by the owner, no per-item listening recorded").
+  - `gates --preset final_4k`: **PUBLICATION_READY**. Lần chạy đầu GL FAIL vì báo cáo phim dài đã cũ; kiểm tra được chạy lại trên timing hiện tại, không nới luật nào.
+- **Preset `final_4k`** (3840×2160, CRF 16, x264 `slow`, BT.709, AAC 256k):
+  - `chapter --release-frames`: render → bản trung gian H.264 (ghi nguyên tử) → kiểm chứng (SHA256, khóa cache từng shot, số frame, giải mã) → registry `qa/chapter_intermediates_final_4k.json` → mới xóa PNG;
+  - dừng khi đĩa còn dưới 8 GB;
+  - `final-assemble`: ghép stream copy, thêm lời dẫn và phụ đề, QA media (thẻ màu, giải mã, đoạn đen, SSIM ranh giới chương), WAV master, `.sha256`.
+- **Sửa lỗi:** PNG sRGB làm luồng H.264 bị gắn transfer `iec61966-2-1`. Bộ lọc giờ ghi rõ BT.709 (`setparams`).
+- **Bản cuối 4K** `why_bridges_look_different_FINAL_4K_2160p.mp4`:
+  - 5.218/15.395 frame được render, 3 giờ 59 phút;
+  - so với render trực tiếp: PSNR 49–57 dB;
+  - audio và phụ đề giống từng byte với bản review.
+  - Bản review 1080p giữ nguyên. Ảnh HAER được thay bằng rendition 3840 px (có `previous_rendition`).
+- **Dọn dẹp:**
+  - `projects/` chỉ còn phim đang làm. 6 pilot cũ được `git mv` sang `tests/fixtures/legacy_projects/`; 13 module test đọc fixture, assertion giữ nguyên;
+  - file sinh ra (3,36 GB) chuyển ra ngoài repo bằng `tools/archive_projects.py` (checksum trước và sau), kèm `git bundle --all`;
+  - states mái cũ ở `asset_library/legacy_states/`, catalog giữ asset id.
+- **Sản xuất V1:**
+  - `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`, `prompts/NEW_DOCUMENTARY_AUTOPILOT.md`, `config/production_defaults.json`, `docs/production/templates/`;
+  - `tools/episode.py` (`new`, `status`, `next`; giai đoạn suy từ file) và alias CLI `new-episode`, `episode-status`;
+  - `--project` mặc định là dự án duy nhất trong `projects/`; `evaluate-planning` không cần dự án; `pronunciation_test.py` bắt buộc `--project`.
+- **Tài liệu:** `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`, `docs/production/CLEANUP_REPORT.md`; cập nhật `AGENTS.md`, `CLAUDE.md`, `PROJECT_BRIEF.md`, `README.md`, `QUICKSTART_MAC.md`.
+
 ## 0.7.1 — 2026-10-30 — M7: bản review nội bộ cuối (giọng `am_michael`, 1080p, nhánh `m7-final-internal-review`)
 - **Quyết định của chủ kênh:**
   - Duyệt 41 claim được lời dẫn dùng (`research/editorial_approval.json`, được `build_sources.py` áp vào; `factual_review: verified`).

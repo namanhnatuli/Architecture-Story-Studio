@@ -28,6 +28,20 @@
     "engine": "EEVEE",
     "format": "PNG"
   },
+  "final_4k": {
+    "width": 3840,
+    "height": 2160,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG",
+    "crf": 16,
+    "x264_preset": "slow",
+    "color": "bt709",
+    "audio_bitrate": "256k",
+    "stream_chapters": true,
+    "est_png_mb": 6.0,
+    "note": "Native UHD final. Requires the FINAL gate (claims, voice licence, pronunciation, factual review, assets) like `final`; rendered chapter by chapter, PNGs released after a verified chapter intermediate. Colour: sRGB 8-bit PNG -> H.264 BT.709 (matrix, primaries, transfer tags), limited range."
+  },
   "internal_1080p": {
     "width": 1920,
     "height": 1080,

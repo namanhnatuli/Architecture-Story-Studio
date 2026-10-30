@@ -177,7 +177,12 @@ def editorial_package(p, d):
 def youtube_description(p, d, manifest):
     sources = d["sources"]["sources"]
     photos = [a for a in d["assets"]["assets"] if a.get("origin") == "external"]
-    lines = ["<!-- DRAFT: not for publication until the editorial approval package is approved. -->", "",
+    project = read(p / "project.json")
+    candidate = project.get("production_profile") == "PUBLICATION_CANDIDATE" and (p / "review/OWNER_APPROVALS.json").is_file()
+    marker = ("<!-- PUBLICATION CANDIDATE: description for the owner's own upload (approvals in review/OWNER_APPROVALS.json). "
+              "The Studio never uploads. -->" if candidate else
+              "<!-- DRAFT: not for publication until the editorial approval package is approved. -->")
+    lines = [marker, "",
              f"# {d['narration']['title']}", "",
              "Why does one bridge rest on rows of timber posts, another leap the gap in stone curves, and a third "
              "become a lattice of iron or steel triangles? This documentary explains how beam, arch and truss bridges "

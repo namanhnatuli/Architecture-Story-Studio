@@ -4,7 +4,10 @@ in several spoken forms; clips + Whisper transcripts + a listening checklist go 
 projects/<slug>/qa/pronunciation/. ASR output is indicative only; a person must
 listen and record the decision in script/pronunciation.json (status/confirmed_by).
 
-    python3 tools/pronunciation_test.py --project suffolk-roofs --entry PRON_001
+    python3 tools/pronunciation_test.py --project <slug> --entry PRON_001 --beat <beat id>
+
+Built for the M3 OmniVoice pilot (suffolk-roofs, now a test fixture); the active films use
+Kokoro and tools/longform_reports.py for their pronunciation review.
 """
 import argparse
 import json
@@ -80,7 +83,7 @@ def run(project, entry_id, beat_id, index, log=print):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--project", default="suffolk-roofs")
+    ap.add_argument("--project", required=True)
     ap.add_argument("--entry", default="PRON_001")
     ap.add_argument("--beat", default="B1")
     ap.add_argument("--index", type=int, default=0)

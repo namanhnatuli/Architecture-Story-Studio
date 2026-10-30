@@ -1,7 +1,7 @@
 """Kokoro voice audition (M6): the same narration passage in every audited British voice,
 measured objectively, for a HUMAN listening decision.
 
-  python3 tools/voice_audition.py --project bridge-load-explained
+  python3 tools/voice_audition.py --project why-bridges-look-different --voices us --passage B02:0
 
 Writes review/voice_audition/<voice>.wav + .m4a (listening copies), metrics.json and
 AUDITION.md. The agent ranks the voices on measured criteria only (VOICES.md grade, ASR

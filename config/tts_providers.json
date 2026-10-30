@@ -78,9 +78,27 @@
           "bm_george",
           "bm_daniel"
         ],
-        "voices_pending": {
-          "am_michael": "audited 2026-10-30 (SHA256 9a443b79..., VOICES.md B / H hours / C+); chosen by the owner as the M7 narrator for the final internal review; publication clearance for this voice not yet confirmed by the owner"
-        }
+        "voices_pending": {},
+        "voice_approvals": [
+          {
+            "voice": "am_michael",
+            "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+            "projects": [
+              "why-bridges-look-different"
+            ],
+            "purpose": "public YouTube release, including potential monetization",
+            "approved_by": "Tran Nam Anh (channel owner)",
+            "approved_on": "2026-10-30",
+            "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.2",
+            "conditions": [
+              "pinned hexgrad/Kokoro-82M @ f3ff3571 and this voice hash",
+              "local generation",
+              "disclose AI-generated narration (description)",
+              "third-party licences unchanged: Apache-2.0 weights/code/voice; GPL G2P fallback used locally, never redistributed"
+            ],
+            "invalidation": "a different voice hash, model revision or project needs a new owner approval"
+          }
+        ]
       }
     },
     "piper": {

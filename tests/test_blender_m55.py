@@ -10,7 +10,9 @@ from pathlib import Path
 from planner import camera as CAM, visibility as VIS
 from tools.cli import ROOT, blender_bin
 
-PILOT = ROOT / "projects" / "bridge-story-m5"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+PILOT = LEGACY / "bridge-story-m5"
 CFG = json.loads((ROOT / "config/visual_planning.json").read_text())["visibility"]
 
 

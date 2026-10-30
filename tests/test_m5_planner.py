@@ -13,8 +13,10 @@ from planner import compiler
 from tools import render_cache
 from tools.cli import ROOT
 
-BRIDGE = ROOT / "projects" / "bridge-story-m5"
-ROOF = ROOT / "projects" / "roof-plan-m5"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+BRIDGE = LEGACY / "bridge-story-m5"
+ROOF = LEGACY / "roof-plan-m5"
 VOCAB = V.Vocabulary()
 INDEX = catalog.index()
 

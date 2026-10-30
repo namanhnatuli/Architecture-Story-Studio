@@ -127,23 +127,47 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
             errors, _ = validator.validate_project(p)
             self.assertTrue(any("approval is for narration 'm7-r1'" in e for e in errors))
 
-    def test_am_michael_is_the_owner_choice_but_not_cleared_for_publication(self):
+    def test_am_michael_approval_is_the_owners_and_project_scoped(self):
+        # Approved by the owner on 2026-10-30 for this documentary only (finalization request, section 3.2).
         from integrations.tts import providers
         n = read(FILM / "script/narration.json")
         voice, lic = n["voice"], n["voice"]["license"]
         self.assertEqual((voice["voice"], voice["params"]["lang_code"]), ("am_michael", "a"))
-        self.assertIn("Tran Nam Anh", voice["selection"]["selected_by"])
-        self.assertEqual(lic["status"], "LICENSE_REVIEW_REQUIRED")
-        self.assertEqual(lic["owner_confirmation_for_this_film"], "PENDING")
-        self.assertEqual(voice["pronunciation_review"]["status"], "PENDING")
+        self.assertEqual(lic["status"], "APPROVED")
+        self.assertIn("Tran Nam Anh", lic["approved_by"])
+        self.assertEqual(lic["owner_confirmation_for_this_film"], "CONFIRMED")
         registry = providers.load_registry()
         clearance = registry["providers"]["kokoro"]["clearance"]
-        self.assertNotIn("am_michael", clearance["voices_cleared"])
-        self.assertIn("am_michael", clearance["voices_pending"])
-        forged = copy.deepcopy(n)   # the agent cannot approve it: an APPROVED record for an uncleared voice is refused
-        forged["voice"]["license"].update(status="APPROVED", approved_by="someone", approved_on="2026-10-30")
-        errors = nar.validate(forged, read(FILM / "research/sources.json"), registry)
-        self.assertTrue(any("not in the provider clearance" in e for e in errors))
+        self.assertNotIn("am_michael", clearance["voices_cleared"])   # not a channel-wide clearance
+        approval = next(a for a in clearance["voice_approvals"] if a["voice"] == "am_michael")
+        self.assertEqual(approval["projects"], ["why-bridges-look-different"])
+        self.assertEqual(approval["voice_sha256"], registry["providers"]["kokoro"]["voices"]["am_michael"])
+        sources = read(FILM / "research/sources.json")
+        self.assertEqual(nar.validate(n, sources, registry, project_id="why-bridges-look-different"), [])
+        errors = nar.validate(n, sources, registry, project_id="another-documentary")   # scope is enforced
+        self.assertTrue(any("not covered by the provider clearance" in e for e in errors))
+        unapproved = copy.deepcopy(n)
+        unapproved["voice"].update(voice="am_puck", id="kokoro_am_puck")
+        errors = nar.validate(unapproved, sources, registry, project_id="why-bridges-look-different")
+        self.assertTrue(any("'am_puck' is not covered" in e for e in errors))
+
+    def test_pronunciation_acceptance_is_bound_to_the_audio_revision(self):
+        from pipeline import pronunciation as pron
+        n = read(FILM / "script/narration.json")
+        review = n["voice"]["pronunciation_review"]
+        self.assertEqual(review["status"], "ACCEPTED_BY_OWNER")
+        self.assertIn("No per-item listening session or phonetic verification is", review["basis"])
+        self.assertEqual(review["audio_revision"], nar.narration_hash(n, pron.load(FILM)))
+        self.assertTrue(review["asr_uncertainties"])
+        g1 = gates.evaluate(FILM, "_final_4k")["gates"]["G1 evidence, script & pronunciation review"]
+        self.assertEqual(g1["status"], "PASS")
+        self.assertIn("no per-item listening recorded", g1["notes"][0])   # never reported as "confirmed"
+        tmp, p = copy_film()
+        with tmp:
+            n["beats"][3]["sentences"][0] += " Indeed."
+            (p / "script/narration.json").write_text(json.dumps(n))
+            notes = gates.evaluate(p, "_review")["gates"]["G1 evidence, script & pronunciation review"]["notes"]
+            self.assertTrue(any("accepted for another audio revision" in x for x in notes))
 
     def test_every_sentence_is_am_michael_audio(self):
         from integrations.tts import kokoro
@@ -571,7 +595,9 @@ class ReviewDocumentsTest(unittest.TestCase):
             d = LR._load(p)
             rows, manifest = CH.longform_qa(p)
             desc = LR.youtube_description(p, d, manifest).read_text()
-            self.assertTrue(desc.startswith("<!-- DRAFT"))
+            candidate = read(p / "project.json").get("production_profile") == "PUBLICATION_CANDIDATE"
+            self.assertTrue(desc.startswith("<!-- PUBLICATION CANDIDATE" if candidate else "<!-- DRAFT"))
+            self.assertIn("never uploads" if candidate else "not for publication", desc.splitlines()[0])
             stamps = [l.split(" ", 1)[0] for l in desc.split("Chapters\n\n")[1].split("\n\n")[0].splitlines()]
             self.assertEqual(stamps[0], "0:00")
             self.assertEqual(len(stamps), 8)
@@ -726,26 +752,59 @@ class SubtitleAndMediaTest(unittest.TestCase):
 
 
 class InternalReviewGateTest(unittest.TestCase):
-    def test_pending_editorial_review_names_the_output_internal(self):
-        self.assertEqual(cli.output_label(FILM), "documentary_INTERNAL_REVIEW")
+    def test_output_name_is_clean_only_with_every_approval(self):
+        self.assertEqual(cli.output_label(FILM), "documentary")
         self.assertIn("INTERNAL REVIEW", cli.internal_comment("documentary_INTERNAL_REVIEW"))
         self.assertIsNone(cli.internal_comment("documentary"))
+        for field, value in (("pronunciation_review", {"status": "PENDING"}),
+                             ("license", {"owner_confirmation_for_this_film": "PENDING"}),
+                             ("license", {"status": "LICENSE_REVIEW_REQUIRED"})):
+            tmp, p = copy_film()
+            with tmp:
+                n = read(p / "script/narration.json")
+                n["voice"][field].update(value)
+                (p / "script/narration.json").write_text(json.dumps(n))
+                self.assertEqual(cli.output_label(p), "documentary_INTERNAL_REVIEW", (field, value))
 
-    def test_film_is_never_publication_ready_while_claims_are_pending(self):
-        result = gates.evaluate(FILM, "_review")
-        self.assertNotIn("PUBLICATION_READY", result["statuses"])
-        self.assertIn("EDITORIAL_REVIEW_PENDING", result["statuses"])
-        self.assertNotEqual(result["gates"]["G6 final publication readiness"]["status"], "PASS")
-        self.assertIn("GL long-form chapters & rights", result["gates"])
+    def test_withdrawn_approvals_block_publication(self):
+        cases = []
+        tmp, p = copy_film()
+        with tmp:
+            src = read(p / "research/sources.json")
+            next(c for c in src["claims"] if c["id"] == "CLM_709")["review_status"] = "SOURCE_VERIFIED"
+            (p / "research/sources.json").write_text(json.dumps(src))
+            cases.append(gates.evaluate(p, "_final_4k"))
+        tmp, p = copy_film()
+        with tmp:
+            n = read(p / "script/narration.json")
+            n["voice"]["license"].update(owner_confirmation_for_this_film="PENDING")
+            n["voice"]["pronunciation_review"].update(status="PENDING")
+            (p / "script/narration.json").write_text(json.dumps(n))
+            cases.append(gates.evaluate(p, "_final_4k"))
+        claims, voice = cases
+        self.assertIn("EDITORIAL_REVIEW_PENDING", claims["statuses"])
+        self.assertTrue(any("CLM_709" in x for x in claims["gates"]["G6 final publication readiness"]["notes"]))
+        self.assertIn("TTS_RIGHTS_PENDING", voice["statuses"])
+        self.assertTrue(any("owner confirmation for this film PENDING" in x
+                            for x in voice["gates"]["G2 narration audio & TTS rights"]["notes"]))
+        self.assertTrue(any("pronunciation_review PENDING" in x
+                            for x in voice["gates"]["G1 evidence, script & pronunciation review"]["notes"]))
+        for r in cases:
+            self.assertNotIn("PUBLICATION_READY", r["statuses"])
+            self.assertNotEqual(r["gates"]["G6 final publication readiness"]["status"], "PASS")
 
-    def test_pending_film_voice_confirmation_and_pronunciation_block_publication(self):
-        result = gates.evaluate(FILM, "_review")
-        self.assertIn("TTS_RIGHTS_PENDING", result["statuses"])
-        self.assertNotEqual(result["gates"]["G2 narration audio & TTS rights"]["status"], "PASS")
-        self.assertTrue(any("owner confirmation for this film PENDING" in n
-                            for n in result["gates"]["G2 narration audio & TTS rights"]["notes"]))
-        self.assertTrue(any("pronunciation_review PENDING" in n
-                            for n in result["gates"]["G1 evidence, script & pronunciation review"]["notes"]))
+    def test_final_gate_checks_the_claims_the_film_uses(self):
+        # CLM_747 is in the research archive only; a claim the film uses must be approved.
+        errors, warnings = validator.validate_project(FILM, final=True)
+        self.assertEqual([e for e in errors if e.startswith("FINAL gate")], [])
+        tmp, p = copy_film()
+        with tmp:
+            vb = read(p / "script/visual_beats.json")
+            vb["beats"][0].setdefault("annotations", []).append(
+                {"id": "x", "type": "NOTE", "text": "x", "sentence": 0, "claim_id": "CLM_747"})
+            (p / "script/visual_beats.json").write_text(json.dumps(vb))
+            errors, _ = validator.validate_project(p, final=True)
+            self.assertTrue(any("CLM_747" in e and "FINAL gate" in e for e in errors))
 
     def test_missing_long_form_qa_fails_the_gate(self):
         tmp, p = copy_film()
