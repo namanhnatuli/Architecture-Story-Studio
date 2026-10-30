@@ -3,8 +3,8 @@
   "preset": "preview",
   "summary": {
     "passed": 71,
-    "failed": 0,
-    "total": 71
+    "failed": 1,
+    "total": 72
   },
   "results": [
     {
@@ -233,7 +233,7 @@
       "shot": "SC_004",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "11 elements x 38 frames, max error 1.15e-07"
+      "detail": "11 objects x 38 frames, max error 1.15e-07"
     },
     {
       "shot": "SC_004",
@@ -245,7 +245,13 @@
       "shot": "SC_004",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "every element visible on the last frame"
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_004",
+      "check": "card_layout",
+      "status": "FAIL",
+      "detail": "note@1: text box x 0.254-0.746 y 0.029-0.057 outside the safe area; note@401: text box x 0.254-0.746 y 0.029-0.057 outside the safe area"
     },
     {
       "shot": "SC_005",

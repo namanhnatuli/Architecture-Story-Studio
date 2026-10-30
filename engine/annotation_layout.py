@@ -320,6 +320,31 @@ def layout_shot(items, style, aspect, reserved=()):
                 elements.append({"kind": "text", "text": r, "size": ls, "color": style["colors"]["text"],
                                  "center": [round(tx0 + tw / 2, 6), round(cy, 6)],
                                  "box": [round(tx0, 6), round(cy - ls * 0.6, 6), round(tx0 + tw, 6), round(cy + ls * 0.6, 6)]})
+        elif kind == "NOTE":   # M7: screen-fixed caption ("Illustrative model", chapter title) in a corner
+            ns = style.get("note", {}).get("size", 0.03)
+            w, h = text_box_size(it["text"], ns, style, aspect)
+            safe = style["safe_area"]
+            bottom = style["subtitle_zone"] + 0.01
+            corners = {"TOP_LEFT": [safe["left"], safe["top"] - h], "TOP_RIGHT": [safe["right"] - w, safe["top"] - h],
+                       "BOTTOM_LEFT": [safe["left"], bottom], "BOTTOM_RIGHT": [safe["right"] - w, bottom]}
+            order = [it.get("position", "TOP_RIGHT")] + [c for c in corners if c != it.get("position", "TOP_RIGHT")]
+            placed = None
+            for corner in order:   # the requested corner, stepping inwards past other texts, then the others
+                x, y = corners[corner]
+                for step in range(4):
+                    dy = -step * (h + 0.012) if corner.startswith("TOP") else step * (h + 0.012)
+                    box = [x, y + dy, x + w, y + dy + h]
+                    if L._free(box, t0, t1, owner):
+                        placed = box
+                        break
+                if placed:
+                    break
+            if placed is None:
+                L.problems.append(f"{owner}: no free corner for the note '{it['text']}'")
+            else:
+                L.occupy(placed, t0, t1, owner, "text")
+                boxes.append(placed)
+                elements.extend(L.plate_text(it["text"], placed, ns, style["colors"]["tag"]))
         elif kind in ("COMPONENT_LABEL", "CALLOUT"):
             text = it["text"]
             box = text_near(text, anchors, prefer=it.get("prefer"),

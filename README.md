@@ -138,3 +138,18 @@ python3 tools/cli.py research-map $P && python3 tools/cli.py gates $P --preset r
 python3 tools/voice_audition.py $P                                    # thử 4 giọng; người dùng chọn
 ```
 Tài liệu: [`docs/m6/`](docs/m6/), [`docs/licensing/KOKORO_LICENSE_AUDIT.md`](docs/licensing/KOKORO_LICENSE_AUDIT.md).
+
+## M7: phim tài liệu dài "Why Bridges Don't All Look the Same"
+Khoảng 10,7 phút, 8 chương, 38 beat, 102 câu. Phim trộn hình 3D, sơ đồ/bản đồ/dòng thời gian tự vẽ và 4 ảnh lưu trữ HAER (phạm vi công cộng, có hồ sơ quyền). Mọi bản dựng là **INTERNAL REVIEW** cho tới khi chủ kênh duyệt gói biên tập.
+```bash
+P="--project why-bridges-look-different"
+python3 projects/why-bridges-look-different/script/story.py          # sinh narration/visual_beats/chapters
+python3 tools/cli.py narrate $P --purpose publication && python3 tools/cli.py asr-check $P && python3 tools/cli.py align $P
+python3 tools/cli.py lock-audio $P && python3 tools/cli.py plan-visuals $P && python3 tools/cli.py build-shots $P
+python3 tools/cli.py chapters $P --preset review                      # manifest chương + QA phim dài
+python3 tools/cli.py check-blender $P --preset review
+python3 tools/cli.py chapter $P --chapter C4 --preset review          # một chương hoàn chỉnh
+python3 tools/cli.py preview $P --preset review && python3 tools/cli.py assemble $P --preset review
+python3 tools/longform_reports.py $P && python3 tools/cli.py gates $P --preset review
+```
+Tài liệu: [`docs/m7/`](docs/m7/).

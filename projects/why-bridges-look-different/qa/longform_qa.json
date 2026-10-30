@@ -1,0 +1,93 @@
+{
+  "utc": "2026-10-30T13:18:37.978052+00:00",
+  "preset": "review",
+  "timing_sha256": "f499a1d51a319d7c6b61b7885441899499d14e85e75f63e2645a0698d303cf8e",
+  "results": [
+    {
+      "check": "chapters_structure",
+      "status": "PASS",
+      "detail": "8 chapters cover every beat contiguously, in order"
+    },
+    {
+      "check": "chapter_durations",
+      "status": "PASS",
+      "detail": "C1 35s, C2 50s, C3 68s, C4 82s, C5 84s, C6 125s, C7 127s, C8 75s"
+    },
+    {
+      "check": "runtime",
+      "status": "PASS",
+      "detail": "10.77 min (15515 frames); acceptable 8-15 min"
+    },
+    {
+      "check": "no_duplicate_shots",
+      "status": "PASS",
+      "detail": "47 unique shots"
+    },
+    {
+      "check": "no_repeated_sentences",
+      "status": "WARN",
+      "detail": "so why don't bridges all look the same?"
+    },
+    {
+      "check": "narration_sentences_complete",
+      "status": "PASS",
+      "detail": "103 sentences scheduled, same text and order as narration.json"
+    },
+    {
+      "check": "audio_no_overlap",
+      "status": "PASS",
+      "detail": "no two beats' speech overlaps"
+    },
+    {
+      "check": "narration_silences",
+      "status": "PASS",
+      "detail": "longest gap 1.23s (limit 4.0s), after the last line 0.83s"
+    },
+    {
+      "check": "no_static_stretches",
+      "status": "PASS",
+      "detail": "longest stretch without a visual change 13.0s at 604.5s (limit 14.0s)"
+    },
+    {
+      "check": "visual_variety",
+      "status": "PASS",
+      "detail": "longest run of one visual kind: 3 x 3D_HOLD (limit 4); 3D_EXPLODED_VIEW 3, 3D_HOLD 20, 3D_PUSH_IN 4, 3D_REPLACE_PARTS 2, 3D_SIDE_BY_SIDE 2, DIAGRAM 8, PHOTO 5, TITLE 3"
+    },
+    {
+      "check": "no_repeated_visuals",
+      "status": "PASS",
+      "detail": "no two consecutive shots show the same picture"
+    },
+    {
+      "check": "chapter_openings",
+      "status": "PASS",
+      "detail": "chapters 2-8 open with a numbered title on their first shot"
+    },
+    {
+      "check": "annotations_consistent",
+      "status": "PASS",
+      "detail": "narration/visual consistency: no contradiction; 2 UNCERTAIN for the reviewer (B33.s2 SIDE, B34.s2 ARROWS); every annotation placed"
+    },
+    {
+      "check": "render_cache_current",
+      "status": "PASS",
+      "detail": "all 47 shots rendered at review with current cache keys"
+    },
+    {
+      "check": "chapter_variety",
+      "status": "WARN",
+      "detail": "C2"
+    },
+    {
+      "check": "image_licences",
+      "status": "PASS",
+      "detail": "4 external images, all approved with matching files"
+    },
+    {
+      "check": "image_attribution",
+      "status": "PASS",
+      "detail": "every external image is credited (credit card or description)"
+    }
+  ],
+  "failed": 0
+}

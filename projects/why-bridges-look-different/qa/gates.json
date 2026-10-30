@@ -1,0 +1,70 @@
+{
+  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (EDITORIAL_REVIEW_PENDING; TTS_RIGHTS_PENDING)",
+  "statuses": [
+    "TECHNICALLY_VALIDATED",
+    "EDITORIAL_REVIEW_PENDING",
+    "TTS_RIGHTS_PENDING"
+  ],
+  "gates": {
+    "G0 project & schema validation": {
+      "status": "PASS",
+      "notes": [
+        "validate passes"
+      ]
+    },
+    "G1 evidence, script & pronunciation review": {
+      "status": "PENDING_EDITORIAL",
+      "notes": [
+        "0/41 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
+        "factual_review: pending",
+        "pronunciation pending: voice.pronunciation_review PENDING (16 terms)"
+      ]
+    },
+    "G2 narration audio & TTS rights": {
+      "status": "BLOCKED_RIGHTS",
+      "notes": [
+        "102 sentences generated + ASR-verified",
+        "provider kokoro: rights class PUBLICATION_CLEARED; voice licence APPROVED; owner confirmation for this film PENDING"
+      ]
+    },
+    "G3 narration timing lock": {
+      "status": "PASS",
+      "notes": [
+        "15515 frames, locked=True"
+      ]
+    },
+    "G4 Blender visual preview": {
+      "status": "PASS",
+      "notes": [
+        "Blender QA 577/577",
+        "media QA PASS"
+      ]
+    },
+    "G5 media assembly & subtitles": {
+      "status": "PASS",
+      "notes": [
+        "15515 frames, -16.0 LUFS, 145 subtitle cues"
+      ]
+    },
+    "GL long-form chapters & rights": {
+      "status": "PASS",
+      "notes": [
+        "17 checks pass, 2 warnings"
+      ]
+    },
+    "G6 final publication readiness": {
+      "status": "BLOCKED",
+      "notes": [
+        "FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)",
+        "FINAL gate: factual_review is not verified"
+      ]
+    },
+    "GV visual plan & coverage": {
+      "status": "PASS",
+      "notes": [
+        "visual plan valid: 47 shots, coverage COVERED 39"
+      ]
+    }
+  },
+  "profile": "NARRATED_INTERNAL_REVIEW"
+}

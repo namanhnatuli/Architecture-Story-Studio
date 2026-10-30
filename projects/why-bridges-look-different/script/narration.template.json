@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "title": "Why Bridges Don't All Look the Same",
+  "status": "INTERNAL_REVIEW_DRAFT - claims source-verified, not editorially approved (revision m7-r1)",
+  "voice": {
+    "provider": "kokoro",
+    "id": "kokoro_bm_george",
+    "mode": "preset",
+    "voice": "bm_george",
+    "selection": {
+      "voice": "bm_george",
+      "selected_by": "Tran Nam Anh (channel owner, in-session instruction)",
+      "selected_on": "2026-10-29",
+      "basis": "channel voice choice (bridge-load-explained voice audition)",
+      "scope": "channel voice; reused unchanged for M7"
+    },
+    "language": "en-GB",
+    "params": {
+      "speed": 1.0,
+      "seed": 0,
+      "lang_code": "b"
+    },
+    "license": {
+      "status": "APPROVED",
+      "rights_class": "PUBLICATION_CLEARED",
+      "permitted_use": "Narration of why-bridges-look-different under the provider clearance in config/tts_providers.json (hexgrad/Kokoro-82M @ f3ff3571, audited voices, local generation); disclose AI-generated narration.",
+      "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
+      "reviewed_on": "2026-10-30",
+      "reviewed_by": "agent check that the M7 voice and model are inside the recorded clearance scope (not legal advice)",
+      "components": [
+        {
+          "name": "Kokoro-82M weights (hexgrad/Kokoro-82M @ f3ff3571)",
+          "license": "Apache-2.0",
+          "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
+        },
+        {
+          "name": "Voice bm_george (voices/bm_george.pt)",
+          "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
+          "evidence": "VOICES.md SHA256 prefix f1bc8122 matches the local file"
+        },
+        {
+          "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
+          "license": "Apache-2.0",
+          "evidence": "installed package metadata"
+        },
+        {
+          "name": "espeak-ng 1.52.0 via espeakng-loader; phonemizer-fork 3.3.2 (OOD-word fallback)",
+          "license": "GPL-3.0-or-later",
+          "evidence": "local use only, never redistributed (audit section 3)"
+        },
+        {
+          "name": "Training data",
+          "license": "stated permissive / non-copyrighted, including synthetic audio from closed TTS providers",
+          "evidence": "model card; unresolved, audit section 5"
+        }
+      ],
+      "decision": "APPROVED by the channel owner on 2026-10-29 at provider level (Kokoro publication clearance, voice bm_george chosen as the channel voice). M7 applies that clearance unchanged: same pinned revision, same voice hash. The agent made no new rights decision; the owner is asked to confirm it covers this film.",
+      "approved_by": "Tran Nam Anh (channel owner)",
+      "approved_on": "2026-10-29",
+      "basis": "config/tts_providers.json providers.kokoro.clearance (cleared_by Tran Nam Anh, 2026-10-29)",
+      "owner_confirmation_for_this_film": "PENDING"
+    },
+    "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (as the pilot).",
+    "pronunciation_review": {
+      "status": "PENDING",
+      "terms": [
+        "voussoirs",
+        "falsework",
+        "superstructure",
+        "substructure",
+        "abutments",
+        "Pratt",
+        "Warren",
+        "Bollman",
+        "Carrollton",
+        "Gwynns Falls",
+        "Corinne",
+        "Promontory",
+        "Dunlap Creek",
+        "Humpback",
+        "trestle",
+        "viaduct"
+      ],
+      "note": "the pilot terms were accepted on 2026-10-29; the new M7 names have not been listened to by the owner"
+    }
+  },
+  "pacing": {
+    "sentence_pause_seconds": 0.4,
+    "beat_lead_in_seconds": 0.4,
+    "beat_tail_seconds": 0.8
+  },
+  "revision": {
+    "version": "m7-r1",
+    "date": "2026-10-30",
+    "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+    "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
+    "edits": [
+      {
+        "sentence": "B18.s2",
+        "draft": "By 1860, railroads relied almost entirely on these prefabricated parts.",
+        "m7-r1": "And by 1860, the railroads relied almost entirely on these prefabricated parts.",
+        "why": "bm_george spoke it at 1.47 written words/s (below the 1.5 truncation guard; ASR text was exact)"
+      },
+      {
+        "sentence": "B20.s0",
+        "draft": "Start with materials.",
+        "m7-r1": "Start with the materials themselves.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B22.s0",
+        "draft": "The site matters too.",
+        "m7-r1": "The site of a bridge matters too.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B35.s0",
+        "draft": "Thanks for watching.",
+        "m7-r1": "Thank you very much for watching.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B15.s0",
+        "draft": "The truss takes yet another approach.",
+        "m7-r1": "A third approach is the truss.",
+        "why": "ASR heard 'The Trust takes' (WER 0.17)"
+      },
+      {
+        "sentence": "B23.s2",
+        "draft": "spans two hundred and twenty feet, and some through trusses approach four hundred.",
+        "m7-r1": "spans 220 feet, and some through trusses approach 400.",
+        "why": "numbers written as digits so the subtitles read '220' and ASR text matches (WER 0.23 from spelled-out numbers)"
+      },
+      {
+        "sentence": "B20B.s0-s1",
+        "draft": "A truss needs members that can work in tension as well as compression, and wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
+        "m7-r1": "A truss needs members that can work in tension as well as compression. Wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
+        "why": "split in two so the picture can change with the second idea (15 s single-sentence hold)"
+      },
+      {
+        "sentence": "B35.s1",
+        "draft": "(none)",
+        "m7-r1": "The sources and photo credits are listed in the description.",
+        "why": "rough-cut review: the 6-line credits card was on screen for 4 s only"
+      }
+    ]
+  },
+  "beats": []
+}

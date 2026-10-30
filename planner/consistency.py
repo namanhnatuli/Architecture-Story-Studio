@@ -56,7 +56,7 @@ def _windows(beat_shots, span):
 
 def _visible_annotations(ps, t0, t1):
     return [a for a in ((ps.get("annotations") or {}).get("items") or [])
-            if a["appear"] < t1 and a["disappear"] > t0 and a["type"] != "TAG"]
+            if a["appear"] < t1 and a["disappear"] > t0 and a["type"] not in ("TAG", "NOTE")]
 
 
 def _glowing(ps, t0, t1):

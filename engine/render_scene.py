@@ -5,7 +5,8 @@
 
 keystills  render every storyboard key still (also the legacy output/<slug>_still.png)
 still      one frame of one shot: --shot plus --frame or --time, written to --output
-animation  one shot (or all shots without --shot) as renders/<preset>/<shot>/frame_####.png
+animation  one shot (or all shots without --shot) as renders/<preset>/<shot>/frame_####.png;
+           --resume keeps frame files already on disk (M7 interrupted-render recovery)
 check      run engine/qa_checks.py and write a JSON report (--report)
 """
 import argparse
@@ -67,6 +68,7 @@ def main():
     parser.add_argument("--time", type=float)
     parser.add_argument("--output")
     parser.add_argument("--report")
+    parser.add_argument("--resume", action="store_true", help="animation: skip frames already on disk")
     args = parser.parse_args(argv)
     if args.mode == "animation" and args.preset == "production_test":
         parser.error("production_test is for selected stills only, never a full sequence")
@@ -138,6 +140,9 @@ def main():
         seq = project_dir / "renders" / args.preset / shot_id
         seq.mkdir(parents=True, exist_ok=True)
         ctx.scene.render.filepath = str(seq / "frame_")
+        # The caller (tools/cli.py) removed every frame that is not a complete PNG of the same inputs.
+        ctx.scene.render.use_overwrite = not args.resume
+        ctx.scene.render.use_placeholder = False
         bpy.ops.render.render(animation=True)
         print(f"[SUCCESS] {shot_id}: {ctx.frame_count} frames => {seq}")
         print("[MARKERS] " + json.dumps({"shot": shot_id, **ctx.plan.markers}))

@@ -1,0 +1,1320 @@
+{
+  "note": "M7 evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720+ are new. Every excerpt was matched verbatim against the downloaded source text (gen/build_sources.py). Nothing here is editorially approved.",
+  "sources": [
+    {
+      "id": "SRC_ODOT_MBI",
+      "title": "Manual of Bridge Inspection (Part 2 Ratings; Glossary)",
+      "publisher": "Ohio Department of Transportation (working group incl. FHWA)",
+      "kind": "transport agency manual",
+      "edition": "Published 1973, revised 2010",
+      "url": "https://www.dot.state.oh.us/Divisions/Engineering/Structures/News%20Document/Manual%20of%20Bridge%20Inspection_2010.pdf",
+      "accessed": "2026-10-28",
+      "verification": "PDF downloaded 2026-10-28, text extracted with pdftotext; every excerpt matched verbatim; page = PDF page.",
+      "license": "Public agency document; quoted for research/citation only."
+    },
+    {
+      "id": "SRC_FHWA_CBM",
+      "title": "Covered Bridge Manual (FHWA-HRT-04-098), Chapter 2. Covered Bridges: Form, Use, and Terminology",
+      "publisher": "Federal Highway Administration",
+      "kind": "transport agency manual",
+      "edition": "April 2005",
+      "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/structures/04098/02.cfm",
+      "accessed": "2026-10-28",
+      "verification": "Page HTML fetched 2026-10-28; excerpts matched verbatim in the page text.",
+      "license": "US government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_FHWA_PBES_GLOSSARY",
+      "title": "Connection Details for Prefabricated Bridge Elements and Systems (FHWA-IF-09-010), Appendix E: Glossary",
+      "publisher": "Federal Highway Administration",
+      "kind": "transport agency manual",
+      "url": "https://www.fhwa.dot.gov/bridge/prefab/if09010/appe.cfm",
+      "accessed": "2026-10-28",
+      "verification": "Page HTML fetched 2026-10-28; excerpts matched verbatim.",
+      "license": "US government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_FHWA_PBES_CH2",
+      "title": "Connection Details for Prefabricated Bridge Elements and Systems (FHWA-IF-09-010), Chapter 2: Superstructure Connections",
+      "publisher": "Federal Highway Administration",
+      "kind": "transport agency manual",
+      "url": "https://www.fhwa.dot.gov/bridge/prefab/if09010/02.cfm",
+      "accessed": "2026-10-28",
+      "verification": "Read with a web-fetch tool 2026-10-28 (introduction, AASHTO definition quoted).",
+      "license": "US government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_SCI_TRUSSES",
+      "title": "Trusses: types, design and applications in buildings",
+      "publisher": "steelconstruction.info (Steel Construction Institute resource)",
+      "kind": "professional engineering reference",
+      "url": "https://www.steelconstruction.info/Trusses",
+      "accessed": "2026-10-28",
+      "verification": "Page HTML fetched 2026-10-28; excerpts matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_YALE_PHYSICS",
+      "title": "The Physics of Bridges (curriculum unit 01.05.08), Theresa Matthews",
+      "publisher": "Yale-New Haven Teachers Institute (Yale University)",
+      "kind": "university-published teaching unit (secondary; supporting only)",
+      "edition": "2001, Volume V",
+      "url": "https://teachersinstitute.yale.edu/curriculum/units/2001/5/01.05.08/6",
+      "accessed": "2026-10-28",
+      "verification": "Pages re-fetched 2026-10-29 (units/2001/5/01.05.08/6); excerpts matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_NCHRP_CONTEXT",
+      "title": "A Context for Common Historic Bridge Types (NCHRP Project 25-25, Task 15)",
+      "publisher": "Transportation Research Board / National Cooperative Highway Research Program; prepared by Parsons Brinckerhoff and Engineering and Industrial Heritage",
+      "kind": "national research report (historic context study, AASHTO/FHWA-sponsored)",
+      "edition": "October 2005",
+      "url": "https://onlinepubs.trb.org/onlinepubs/archive/notesdocs/25-25(15)_FR.pdf",
+      "accessed": "2026-10-29",
+      "verification": "PDF downloaded 2026-10-29 (11.1 MB), text extracted with pdftotext -layout; every excerpt matched verbatim (whitespace-normalised); page = printed report page.",
+      "notes": "The cover carries the standard NCHRP 'privileged document' legend; the final report is publicly posted by TRB. Quoted for research and citation only.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_ASCE_BOLLMAN",
+      "title": "Bollman Truss Bridge (Historic Civil Engineering Landmark)",
+      "publisher": "American Society of Civil Engineers",
+      "kind": "professional engineering society landmark page",
+      "edition": "web page, accessed 2026-10-29",
+      "url": "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/bollman-truss-bridge",
+      "accessed": "2026-10-29",
+      "verification": "HTML downloaded 2026-10-29; excerpts matched verbatim. Note: the page gives 1852 for the present bridge (moved 1882); other records give c. 1869, so the film does not state the construction year.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_HAER_CARROLLTON",
+      "title": "Baltimore & Ohio Railroad, Carrollton Viaduct, Spanning Gwynn's Falls near Carroll Park, Baltimore (HAER MD-9)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress Prints & Photographs (item md0908)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photographs 1970-1971 (William E. Barrett)",
+      "url": "https://www.loc.gov/item/md0908/",
+      "accessed": "2026-10-29",
+      "verification": "loc.gov blocks automated access (HTTP 403); the photograph and its LOC source link (hhh.md0908/photos.086090p) were taken from the Wikimedia Commons file page, licence template PD-USGov-NPS.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_PROMONTORY",
+      "title": "Promontory Route Railroad Trestles, Trestle 790B, Corinne vicinity, Box Elder County, Utah (HAER UT-64)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ut0393)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "documentation compiled after 1968",
+      "url": "https://www.loc.gov/pictures/item/ut0393.photos.367543p",
+      "accessed": "2026-10-29",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (PD-USGov-NPS); loc.gov itself returned HTTP 403 to automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_BOLLMAN",
+      "title": "Baltimore & Ohio Railroad, Bollman Truss Bridge, Spanning Little Patuxent River, Savage, Howard County, MD (HAER MD-1)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item md0583)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photograph 1970 (William E. Barrett)",
+      "url": "https://www.loc.gov/pictures/item/md0583.photos.082178p",
+      "accessed": "2026-10-29",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (PD-USGov-NPS); loc.gov returned HTTP 403 to automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_HUMPBACK",
+      "title": "Humpback Covered Bridge, spanning Dunlap Creek, Covington, VA (HAER VA, Survey va0239)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item va0239)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photograph 1971 (Jack E. Boucher)",
+      "url": "https://www.loc.gov/pictures/item/va0239.photos.161261p",
+      "accessed": "2026-10-29",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (PD-USGov-NPS); loc.gov returned HTTP 403 to automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM_701",
+      "text": "Loads on a bridge include live loads such as traffic and the dead load of the structure's own weight.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.365 'live load'",
+          "excerpt": "live load - a temporary dynamic load such as vehicular traffic that is applied to a structure"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.350 'dead load'",
+          "excerpt": "dead load - a static load due to the weight of the structure itself"
+        }
+      ],
+      "assumptions": "Generic definition of load types; no magnitudes.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "deck_planks",
+        "deck"
+      ],
+      "intended_visual": "LOAD_ARROW on the deck labelled 'Load' (qualitative, not to scale)",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_702",
+      "text": "The deck directly supports traffic and is itself supported by the superstructure.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.350 'deck'",
+          "excerpt": "deck - that portion of a bridge which provides direct support for vehicular and pedestrian traffic, supported by a superstructure"
+        }
+      ],
+      "assumptions": "Definition.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "deck_planks",
+        "deck"
+      ],
+      "intended_visual": "COMPONENT_LABEL 'Deck'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_703",
+      "text": "The superstructure is the part of a bridge that provides the horizontal span; it typically includes beams, girders, trusses and the deck.",
+      "source_ids": [
+        "SRC_FHWA_PBES_CH2",
+        "SRC_FHWA_PBES_GLOSSARY"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_PBES_CH2",
+          "locator": "Chapter 2 introduction (AASHTO definition)",
+          "excerpt": "Structural parts of the bridge that provide the horizontal span."
+        },
+        {
+          "source_id": "SRC_FHWA_PBES_GLOSSARY",
+          "locator": "Appendix E 'superstructure'",
+          "excerpt": "It typically includes beams, girders, trusses, and the bridge deck."
+        }
+      ],
+      "assumptions": "Definition; the cap beams of a timber bent belong to the substructure (pier cap).",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "superstructure"
+      ],
+      "intended_visual": "HIGHLIGHT + COMPONENT_LABEL 'Superstructure'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_704",
+      "text": "The substructure - abutments at the ends and piers in between - supports the superstructure, and abutments transfer loads from the superstructure to the foundation.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.383 'substructure'",
+          "excerpt": "substructure - the abutments and piers built to support the span of a bridge superstructure"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.338 'abutment'",
+          "excerpt": "abutment - part of bridge substructure at either end of bridge which transfers loads from superstructure to foundation"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.370 'pier'",
+          "excerpt": "pier - a substructure unit that supports the spans of a multi-span superstructure at an intermediate location between its abutments"
+        }
+      ],
+      "assumptions": "Definitions; in the timber model the trestle bents play the role of piers and the banks of the site the role of abutments (illustrative).",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "substructure",
+        "ground"
+      ],
+      "intended_visual": "CONCEPTUAL_LOAD_PATH from deck through supports to the ground",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_705",
+      "text": "A beam spans from one support to another and supports vertical loads.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.341 'beam'",
+          "excerpt": "beam - a linear structural member designed to span from one support to another and support vertical loads"
+        }
+      ],
+      "assumptions": "Definition.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "HIGHLIGHT stringers (ghosted planks) + COMPONENT_LABEL 'Beams'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_706",
+      "text": "A beam carries load through its resistance to bending.",
+      "source_ids": [
+        "SRC_FHWA_CBM",
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "As a beam has strength from its bending resistance"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.358 'girder'",
+          "excerpt": "girder - a horizontal flexural member that is the main or primary support for a structure"
+        }
+      ],
+      "assumptions": "Qualitative; no stresses, deflections or capacities. The procedural model has not been analysed.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "CALLOUT 'Beams resist bending' on a stringer",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_707",
+      "text": "A cap at the top of a bent distributes the loads onto its columns, and columns are vertical members resisting compression.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.344 'cap'",
+          "excerpt": "cap - the topmost portion of a pier or a pile bent serving to distribute the loads upon the columns or piles"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.341 'bent'",
+          "excerpt": "bent - a substructure unit made up of two or more column or column-like members connected at their top-most ends by a cap"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.346 'column'",
+          "excerpt": "column - a general term applying to a vertical member resisting compressive stresses"
+        }
+      ],
+      "assumptions": "Definitions; the posts of the illustrative trestle bents are treated as columns.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "cap_beam",
+        "trestle_bent"
+      ],
+      "intended_visual": "CONCEPTUAL_LOAD_PATH stringer -> cap beam -> posts -> ground; REACTION_ARROW at the ground",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_708",
+      "text": "A stone arch ring is made of wedge-shaped stones called voussoirs; the keystone is the wedge-like stone at the crown.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.388 'voussoir'",
+          "excerpt": "Voussoir - one of the truncated wedge-shaped stones composing a ring course in a stone arch"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.363 'keystone'",
+          "excerpt": "keystone - the symmetrically shaped, wedge-like stone located in a head ring course at the crown of an arch"
+        }
+      ],
+      "assumptions": "Definitions.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "voussoir",
+        "keystone"
+      ],
+      "intended_visual": "Frontal exploded close-up of one arch ring; COMPONENT_LABEL 'Voussoirs', 'Keystone'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_709",
+      "text": "The curve of an arch converts vertical loads into horizontal and vertical thrusts at its ends, so the forces within the arch are generally compression.",
+      "source_ids": [
+        "SRC_ODOT_MBI",
+        "SRC_YALE_PHYSICS"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)",
+          "excerpt": "The curve converts vertical (gravity) loads within the span to horizontal and vertical thrusts at the spring lines. As a result, the forces within the arch are generally compression"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.339 'arch'",
+          "excerpt": "arch - a curved structure element primarily in compression that transfers vertical loads through inclined reactions to its end supports"
+        },
+        {
+          "source_id": "SRC_YALE_PHYSICS",
+          "locator": "'Arch Bridges' section",
+          "excerpt": "Arch bridges rely primarily on compression"
+        }
+      ],
+      "assumptions": "General principle for masonry arches under gravity load; no thrust line, magnitudes or stability assessment of the illustrative model.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "CONCEPTUAL_LOAD_PATH along the arch ring from the crown to both springings, styled 'compression'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_710",
+      "text": "An arch transfers vertical loads through inclined reactions to its end supports, and the abutments push inward on the arch.",
+      "source_ids": [
+        "SRC_ODOT_MBI",
+        "SRC_YALE_PHYSICS"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.339 'arch'",
+          "excerpt": "transfers vertical loads through inclined reactions to its end supports"
+        },
+        {
+          "source_id": "SRC_YALE_PHYSICS",
+          "locator": "'Arch Bridges' section",
+          "excerpt": "creating two equal and opposite horizontal forces that push inward on the arch"
+        }
+      ],
+      "assumptions": "Direction only (inclined, upward and inward on the arch); no magnitudes; the arrow is a support REACTION, distinct from the applied load.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "abutment",
+        "pier"
+      ],
+      "intended_visual": "REACTION_ARROW at each springing, pointing up and inward",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_711",
+      "text": "A truss is a jointed structure of members arranged in triangles, primarily carrying axial loads.",
+      "source_ids": [
+        "SRC_ODOT_MBI",
+        "SRC_SCI_TRUSSES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.386 'truss'",
+          "excerpt": "truss - a jointed structure made up of individual members primarily carrying axial loads arranged and connected in triangular panels"
+        },
+        {
+          "source_id": "SRC_SCI_TRUSSES",
+          "locator": "Introduction",
+          "excerpt": "A truss is essentially a triangulated system of (usually) straight interconnected structural elements"
+        }
+      ],
+      "assumptions": "Definition.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members",
+        "truss_joint"
+      ],
+      "intended_visual": "HIGHLIGHT truss members; COMPONENT_LABEL 'Joints'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_712",
+      "text": "The principal force in each truss member is axial tension or compression.",
+      "source_ids": [
+        "SRC_FHWA_CBM",
+        "SRC_SCI_TRUSSES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_SCI_TRUSSES",
+          "locator": "Introduction",
+          "excerpt": "The principal force in each element in a truss is axial tension or compression."
+        },
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "These axial forces are either compression or tension."
+        }
+      ],
+      "assumptions": "Idealisation (pinned joints); the source notes real joints are not perfectly pinned. No member-by-member forces are shown.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "TENSION_COMPRESSION_LEGEND (conceptual)",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_713",
+      "text": "In a simple-span truss under downward loads, the top chord is in compression and the bottom chord is in tension.",
+      "source_ids": [
+        "SRC_FHWA_CBM",
+        "SRC_SCI_TRUSSES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "The upper, or top, chords are in compression. The bottom, or lower, chords are in tension."
+        },
+        {
+          "source_id": "SRC_SCI_TRUSSES",
+          "locator": "'Types of trusses'",
+          "excerpt": "Under gravity loads, the top and bottom chords of the truss provide the compression and tension resistance to overall bending"
+        }
+      ],
+      "assumptions": "ASSUMPTION: each truss span of the illustrative model is treated as a simple span (separate truss on its own bearings) carrying a downward load. The FHWA source calls this a simplified characterization for the common single-span bridge; continuous spans behave differently. Qualitative only.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_chord"
+      ],
+      "intended_visual": "CALLOUT on the top chord 'compression (pushed)' and on the bottom chord 'tension (pulled)'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_714",
+      "text": "In a truss, some web members are in compression and others in tension.",
+      "source_ids": [
+        "SRC_FHWA_CBM"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "Some of these web members will usually be in compression; others will consistently be in tension."
+        }
+      ],
+      "assumptions": "General statement; which web member carries which force is NOT shown (no load case analysed).",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_web"
+      ],
+      "intended_visual": "HIGHLIGHT web members without a tension/compression colour",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_720",
+      "text": "Timber stringer (beam) bridges are a very old type that dates back to the origins of bridge building.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.3.1 Timber Stringer, p. 3-80",
+          "excerpt": "Wood stringer (or beam) bridges are a very old type of design that dates back to the origins of bridge building."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "Timber beam model; no historical reconstruction",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_721",
+      "text": "Because of their simplicity and readily available wood, timber beam bridges were still built long after wood trusses stopped being competitive, and today they are built on low-traffic rural roads, private roads, forests and parks.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.3.1 Timber Stringer, p. 3-80",
+          "excerpt": "Long after wood truss bridges had ceased to be competitive with metal truss bridges for use in short spans in the nineteenth century, timber beam bridges were still being built. Because of the structure’s simplicity and readily available material (wood), the timber beam has endured to the present day"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.3.1 Timber Stringer, p. 3-80",
+          "excerpt": "Today, these structures are built on low-trafficked, rural backcountry roads, private roads, or in national forests and parks."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "Timber beam model; caption 'Illustrative model'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_722",
+      "text": "Many early timber bridges had relatively short spans.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2 (North Dakota, quoted), p. 2-9",
+          "excerpt": "Most were built of timber with relatively short spans."
+        }
+      ],
+      "assumptions": "The quoted passage describes early bridges west of the Mississippi (North Dakota); used only as 'many early timber bridges had relatively short spans'.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "trestle_bent"
+      ],
+      "intended_visual": "Timber model: several short spans on bents",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_723",
+      "text": "Falsework (temporary supports, built by carpenters) is erected to support a stone arch during construction, and the masonry is laid by skilled masons.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-48",
+          "excerpt": "the skills necessary for erection of falsework to support arch construction (carpentry) and for the laying of stones (masonry) were commonly found within the local labor pool"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "2D diagram: arch ring on temporary falsework (conceptual)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_724",
+      "text": "Stone arch bridges were generally more expensive to build than timber bridges, but were favoured for heavily travelled routes or important locations; elsewhere the lower cost of timber offset its lack of permanence.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "Stone arch bridges were generally more expensive to build than were timber bridges, but their use for roads and highways was favored for heavily traveled routes or locations of high visibility and importance; otherwise, the cost savings of timber bridges tended to offset their relative lack of permanence."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch",
+        "beam"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "2D comparison panel: cost vs permanence (qualitative, no numbers)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_725",
+      "text": "Where durability and permanence were required, stone was the preferred bridge material over wood.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-48",
+          "excerpt": "Stone and wood were often the most readily available building materials for bridges long before fabricated metal was introduced towards the middle of the nineteenth century, and of the two, stone was by far the preferred choice where durability and permanence were required."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Comparison panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_726",
+      "text": "Arch bridges need materials that are strong under compression, such as stone, concrete or steel.",
+      "source_ids": [
+        "SRC_YALE_PHYSICS"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_YALE_PHYSICS",
+          "locator": "unit 01.05.08, section 6",
+          "excerpt": "When selecting a building material for an arch bridge, engineers must consider only materials that are strong under compression. These materials include stone, concrete, or steel."
+        }
+      ],
+      "assumptions": "Educational secondary source (teacher curriculum unit); used for the general principle only.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Materials panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_727",
+      "text": "The Pratt truss was patented in 1844; its original form combined vertical timber members in compression with diagonal iron rods in tension, a principle used well into the twentieth century in all-steel trusses.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-7",
+          "excerpt": "In 1844, Thomas and Caleb Pratt patented the Pratt Truss, which reversed the Howe system and incorporated vertical timber members in compression and diagonal iron rods in tension, a “combination” structure. The structural principle in this design was used well into the twentieth century when all parts were made in steel."
+        }
+      ],
+      "assumptions": "Historical design description of the 1844 patent; the film does not mark the model's members as in tension or compression.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_web"
+      ],
+      "intended_visual": "Pratt pattern highlighted (no member colouring)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_728",
+      "text": "The Warren truss was patented in 1848 by James Warren and Willoughby Monzani, with alternating diagonals.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-7",
+          "excerpt": "the Warren truss was patented by two British engineers, James Warren and Willoughby Monzani. This truss design had alternating diagonals in either tension or compression"
+        }
+      ],
+      "assumptions": "The model's Warren variant has no verticals; the film says only that the diagonals alternate.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_web"
+      ],
+      "intended_visual": "Warren pattern on the shared chords (illustrative variant without verticals)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_729",
+      "text": "From mid-century, fabricating shops formed, drilled and test-assembled truss members and shipped them to the bridge site; by 1860 railroads relied almost exclusively on such prefabricated parts.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2 'Foundries and Fabricators', p. 2-11",
+          "excerpt": "These shops formed bridge members, drilled the members and assembled and connected the truss members, before packaging and shipping them to the bridge site. By 1860, the railroads were almost exclusively relying on these private concerns to fill their bridge needs with pre-fabricated parts."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Exploded truss (members as separate prefabricated pieces)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_730",
+      "text": "Through trusses carry heavier loads than pony trusses and are longer in span, some approaching 400 feet.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1 Trusses, p. 3-4",
+          "excerpt": "Through trusses are designed to carry heavier traffic loads than the pony truss and are longer in span, some approaching 400 feet."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Span scale panel (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_731",
+      "text": "Simple king post trusses spanned only very short distances, up to about 30 feet.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1.1 King Post, p. 3-7",
+          "excerpt": "Simple king post trusses were used only to span very short distances up to about 30 feet"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Span scale panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_732",
+      "text": "The 220-foot span Cabin John Aqueduct Bridge (1864) was the longest arch bridge in the world until 1905.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-48",
+          "excerpt": "America’s greatest stone arch is the 220-foot span Cabin John Aqueduct Bridge (1864) over Cabin John Creek in suburban Maryland outside Washington, DC. It was the longest arch bridge in the world until 1905."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Span scale panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_733",
+      "text": "Many timber truss bridges were covered by a roof and siding to protect them from the weather.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1.1 King Post, p. 3-7",
+          "excerpt": "the most common extant king post truss bridges are covered by a roof and siding to protect them from the weather"
+        }
+      ],
+      "assumptions": "Stated for king post trusses; the film says 'many timber truss bridges'.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "HAER photograph of the Humpback Covered Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_734",
+      "text": "Wooden bridges were vulnerable to decay.",
+      "source_ids": [
+        "SRC_ASCE_BOLLMAN"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "Replacing wooden bridges, which were cumbersome to build and vulnerable to decay"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam",
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "Materials panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_735",
+      "text": "Wrought iron was valued as a material strong equally in tension and in compression (Plowden, quoted in NCHRP).",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-8",
+          "excerpt": "realized that a great advantage would be gained by the substitution of wrought iron [for cast iron], a material strong equally in tension and in compression"
+        }
+      ],
+      "assumptions": "A historian's characterisation (David Plowden) quoted in the report.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Materials panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_736",
+      "text": "Viaducts and trestles were the engineering solution for keeping a railway line nearly straight and level where a valley was too deep and wide for embankments, because engines have limited traction.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "both have design attributes that were generated by the need of railroad engineers to maintain easy gradients, especially when crossing deep ravines or depressions, to compensate for the limited traction of railroad engines."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "“Viaducts and trestles were the engineering solution for maintaining a nearly straight and horizontal line where the depth and width of the valley or gorge rendered embankments impracticable.”"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [],
+      "intended_visual": "2D diagram: valley profile with a level line on piers (schematic)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_737",
+      "text": "A trestle is a succession of towers of steel, timber or reinforced concrete supporting short spans.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "a trestle consists of a succession of towers of steel, timber, or reinforced concrete, supporting short spans"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "trestle_bent"
+      ],
+      "intended_visual": "Timber model bents highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_738",
+      "text": "Stone arch construction declined with the spread of metal truss bridges, fewer skilled masons and reinforced concrete, then briefly revived in the Great Depression.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "Increased use of metal truss bridges on highways from the late 1800s into the early twentieth century, coupled with a decrease in the number of skilled masons, and advancements in reinforced concrete construction technology in the early decades of the twentieth century, led to a decline in stone arch bridge construction. A brief resurgence in construction of this type occurred during the Great Depression"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Timeline card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_739",
+      "text": "The Carrollton Viaduct, completed in 1829 across Gwynn's Falls west of Baltimore, was built of about 12,000 granite blocks; the 312-foot bridge has an 80-foot arch over the waterway.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "The first major engineered railroad bridge was the Carrollton Viaduct, completed in 1829 across Gwynn’s Falls, west of Baltimore City. Constructed of approximately 12,000 granite blocks, the 312-foot long bridge featured an 80-foot arch over the waterway."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "HAER photograph of the Carrollton Viaduct",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_740",
+      "text": "The Carrollton Viaduct is the earliest stone arch railroad bridge built in the United States and, as of 2005, the world's oldest stone railroad span still in service; it is a National Historic Landmark.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "The earliest stone arch railroad bridge built in the United States, and the world’s oldest stone railroad span still in service, is the Carrollton Viaduct over Gwynn’s Falls on the old B & O Railroad line near Baltimore, Maryland. Completed in 1829, this National Historic Landmark"
+        }
+      ],
+      "assumptions": "'Still in service' is as of the 2005 report; the film attributes it to the report.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_741",
+      "text": "Railroads needed more sophisticated designs and durable materials for the heavy loads of railcars; in the East they built massive stone viaducts.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "The railroad companies revolutionized bridge design, as they required more sophisticated designs and durable materials for carrying the heavy loads of the railcars."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "In the east, the railroads built massive high and/or long stone viaducts along the Baltimore and Ohio (B&O) Railroad."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [],
+      "intended_visual": "Arch model with 'Illustrative model' note",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_742",
+      "text": "Western bridge builders generally used timber because of the pressure to open new railroads quickly and economically, and because timber was abundant and cheap.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "While stone was often used in the East, timber was generally used by the western bridge builders because of the pressure to quickly and economically get new railroads on line, and timber was generally abundant and cheap."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Promontory trestle; schematic map",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_743",
+      "text": "Promontory Route Railroad Trestle 790B (1872), near Corinne in Box Elder County, Utah, was built by the Central Pacific Railroad Company.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "List of figures, 3-106",
+          "excerpt": "Promontory Route Railroad Trestles 790B (1872), Corinne vicinity, Box Elder County, Utah. This nineteenth century structure was built by the Central Pacific Railroad Company."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_744",
+      "text": "The Bollman truss design, patented in 1852, was one of the first to use iron exclusively in all essential structural elements and could be built relatively quickly and inexpensively while providing the long-lasting qualities of metal.",
+      "source_ids": [
+        "SRC_ASCE_BOLLMAN"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "patented in 1852 and one of the first to use iron exclusively in all essential structural elements"
+        },
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "the Bollman Truss Bridge could be built relatively quickly and inexpensively, while providing the long-lasting qualities associated with metal."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Bollman truss at Savage",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_745",
+      "text": "The Bollman Truss Bridge at Savage, Maryland, is the only remaining example of a patented design used extensively on the Baltimore & Ohio and other railroads.",
+      "source_ids": [
+        "SRC_ASCE_BOLLMAN"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "The Bollman Truss Bridge is the only remaining example of a patented design that was used extensively on the Baltimore & Ohio and other railroads."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_746",
+      "text": "The Humpback Covered Bridge (1857), spanning Dunlap Creek, is an example of a multiple king post truss used for a covered bridge.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "List of figures, 3-5",
+          "excerpt": "Humpback Covered Bridge (1857), Humpback Bridge spanning Dunlap"
+        }
+      ],
+      "assumptions": "Only the name, date and crossing are narrated.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_747",
+      "text": "Stone arch bridges were popular where good stone was available locally, yet some states with abundant stone built few of them.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "stone arch bridges were popular in Kansas for many reasons, a major one being that the stone was often available locally."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "despite an abundance of stone in various forms through the state and an indigenous tradition of masonry construction, stone bridges were never built in abundance in Michigan."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [],
+      "intended_visual": "Materials/site panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    }
+  ]
+}

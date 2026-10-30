@@ -25,13 +25,14 @@ from engine import annotation_layout as AL, framing, templates
 from planner import mapper, timing as T, vocabulary as V, visibility as VIS
 
 TYPES = ("COMPONENT_LABEL", "CALLOUT", "LOAD_ARROW", "REACTION_ARROW", "CONCEPTUAL_LOAD_PATH",
-         "TENSION_COMPRESSION_LEGEND", "HIGHLIGHT_REGION")
+         "TENSION_COMPRESSION_LEGEND", "HIGHLIGHT_REGION", "NOTE")   # NOTE (M7): screen-fixed caption
 POINTS = {"TOP": (0, 1), "BOTTOM": (0, -1), "CENTER": (0, 0), "LEFT": (-1, 0), "RIGHT": (1, 0),
           "TOP_LEFT": (-1, 1), "TOP_RIGHT": (1, 1), "BOTTOM_LEFT": (-1, -1), "BOTTOM_RIGHT": (1, -1)}
 PICKS = ("ALL", "LEFTMOST", "RIGHTMOST", "CENTERMOST")
 FORCES = ("COMPRESSION", "TENSION")
 MAX_TEXT = {"COMPONENT_LABEL": 28, "CALLOUT": 36, "HIGHLIGHT_REGION": 28, "LOAD_ARROW": 16, "REACTION_ARROW": 24,
-            "CONCEPTUAL_LOAD_PATH": 24}
+            "CONCEPTUAL_LOAD_PATH": 24, "NOTE": 52}
+NOTE_POSITIONS = ("TOP_LEFT", "TOP_RIGHT", "BOTTOM_LEFT", "BOTTOM_RIGHT")
 NEEDS_TARGET = ("COMPONENT_LABEL", "CALLOUT", "LOAD_ARROW", "REACTION_ARROW", "HIGHLIGHT_REGION")
 CLAIM_OK = ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED", "verified")
 VARIANT_TYPE = {"timber_beam": "beam", "stone_arch": "arch", "steel_truss": "truss"}
@@ -112,7 +113,9 @@ def validate_spec(doc, sources, vocab):
                     errors.append(f"{where}: pick must be one of {PICKS}")
             text = a.get("text")
             limit = MAX_TEXT.get(kind)
-            if kind in ("COMPONENT_LABEL", "CALLOUT", "HIGHLIGHT_REGION") and not (text or "").strip():
+            if kind == "NOTE" and a.get("position", "TOP_RIGHT") not in NOTE_POSITIONS:
+                errors.append(f"{where}: NOTE position must be one of {NOTE_POSITIONS}")
+            if kind in ("COMPONENT_LABEL", "CALLOUT", "HIGHLIGHT_REGION", "NOTE") and not (text or "").strip():
                 errors.append(f"{where}: {kind} needs text")
             if text and limit and len(text) > limit:
                 errors.append(f"{where}: text longer than {limit} characters")
@@ -287,7 +290,7 @@ def _static_window(scene, comp_ids, f0, f1, min_frames):
 
 # ---------------------------------------------------------------- planning
 def plan_beat(beat, beat_shots, offsets, window_seconds, model, vocab, sources, style, presets, fps, caption_top,
-              match_after=()):
+              match_after=(), words=None):
     """Attach resolved, laid-out annotations to the beat's plan shots (ps["annotations"]).
     beat_shots: [(plan_shot, start seconds within the beat)]; match_after: ids of shots followed by
     a match cut, whose annotations finish fading out before the cut (an invisible cut stays
@@ -298,7 +301,19 @@ def plan_beat(beat, beat_shots, offsets, window_seconds, model, vocab, sources, 
     per_shot = {id(ps): [] for ps, _ in beat_shots}
     for order, a in enumerate(beat.get("annotations", []) or []):
         aid, kind = a["id"], a["type"]
-        w0 = max(0.0, offsets[a.get("sentence", 0)][0] - tm["appear_lead_seconds"])
+        start = offsets[a.get("sentence", 0)][0]
+        if a.get("word"):   # M7: appear when the word is spoken (Whisper alignment of the current audio)
+            from planner import timing as T
+            hits = [t for w, t, _ in ((words or [])[a.get("sentence", 0)] if a.get("sentence", 0) < len(words or []) else [])
+                    if w == T.norm_word(a["word"])]
+            if not hits:
+                records.append({"id": aid, "type": kind, "claim_id": a.get("claim_id"), "sentence": a.get("sentence", 0),
+                                "until": a.get("until"), "window": None, "shots": [], "status": "FAILED",
+                                "issues": [f"word {a['word']!r} has no aligned timestamp in sentence {a.get('sentence', 0)}"]})
+                issues.append(f"{beat['beat_id']}: annotation {aid}: word {a['word']!r} is not aligned")
+                continue
+            start = hits[0]
+        w0 = max(0.0, start - tm["appear_lead_seconds"])
         # ends when the next sentence's annotations start (touching windows never overlap)
         w1 = offsets[a["until"]][0] - tm["appear_lead_seconds"] if a.get("until") is not None else window_seconds
         rec = {"id": aid, "type": kind, "claim_id": a.get("claim_id"), "sentence": a.get("sentence", 0),
@@ -306,6 +321,8 @@ def plan_beat(beat, beat_shots, offsets, window_seconds, model, vocab, sources, 
                "issues": []}
         records.append(rec)
         want_state = a.get("state")
+        skipped = []
+        fixed = kind in ("NOTE", "TENSION_COMPRESSION_LEGEND")   # screen-fixed, never anchored to parts
         for ps, s0 in beat_shots:
             s1 = s0 + ps["timing"]["duration_seconds"]
             if ps["shot_id"] in match_after:   # nothing may pop off at a match cut
@@ -313,24 +330,39 @@ def plan_beat(beat, beat_shots, offsets, window_seconds, model, vocab, sources, 
             lo, hi = max(w0, s0), min(w1, s1)
             if hi - lo < tm["min_display_seconds"]:
                 continue
-            if ps["template"] in ("SIDE_BY_SIDE", "MOTION_GRAPHICS") or (ps["template"] == "REPLACE_PARTS"):
-                rec["issues"].append(f"{ps['shot_id']}: {ps['template']} shots are not annotated (parts change or "
-                                     "several models share the frame)")
+            if ps["template"] == "MOTION_GRAPHICS" or (not fixed and ps["template"] in ("SIDE_BY_SIDE", "REPLACE_PARTS")):
+                skipped.append(f"{ps['shot_id']}: {ps['template']} shots are not annotated (parts change or "
+                               "several models share the frame)")
                 continue
             sid = ps["states"][-1]
             if want_state is not None and want_state != sid:
                 continue
+            if (ps["shot"].get("animation") or {}).get("camera_move") and not fixed:
+                skipped.append(f"{ps['shot_id']}: anchored annotations cannot ride a camera move (push-in)")
+                continue
             per_shot[id(ps)].append((order, a, rec, lo - s0, hi - s0))
         if not any(rec is r for lst in per_shot.values() for _, _, r, _, _ in lst):
             rec["status"] = "FAILED"
-            if not rec["issues"]:
-                rec["issues"].append(f"no shot of the beat shows {want_state or 'the structure'} for "
-                                     f"{tm['min_display_seconds']} s during sentence {a.get('sentence', 0)}")
+            rec["issues"] += skipped or [f"no shot of the beat shows {want_state or 'the structure'} for "
+                                         f"{tm['min_display_seconds']} s during sentence {a.get('sentence', 0)}"]
     for ps, s0 in beat_shots:
         items = per_shot[id(ps)]
         if not items:
             continue
         shot = ps["shot"]
+        if ps["template"] == "SIDE_BY_SIDE":   # screen-fixed notes only: no single-model raster/anchors
+            resolved = [dict(order=o, id=a["id"], type=a["type"], appear=round(t0, 4), disappear=round(t1, 4),
+                             text=a.get("text"), claim_id=a.get("claim_id"), style=None, force=None, direction=None,
+                             entries=a.get("entries"), anchors=[], target_boxes=[], position=a.get("position", "TOP_RIGHT"))
+                        for o, a, rec, t0, t1 in items]
+            laid, problems = AL.layout_shot(resolved, style, 16 / 9)
+            problems += AL.check(laid, style, 16 / 9)
+            for o, a, rec, t0, t1 in items:
+                rec["shots"].append(ps["shot_id"])
+                rec["issues"] += [f"{ps['shot_id']}: {p}" for p in problems if p.startswith(a["id"])]
+            ps["annotations"] = {"style_sha256": style_hash(style), "items": laid, "reserved": []}
+            shot["annotations"] = ps["annotations"]
+            continue
         scene = VIS.build_scene(shot, model.states_json(), fps, presets)
         sid = ps["states"][-1]
         parts = model.parts(sid)
@@ -435,7 +467,8 @@ def _resolve(a, rec, ps, scene, parts, vocab, sid, btype, claims, rasters, style
     item = {"id": a["id"], "type": kind, "appear": round((f0 - 1) / fps, 4), "disappear": round(f1 / fps, 4),
             "text": a.get("text"), "claim_id": a.get("claim_id"), "style": a.get("style"), "force": a.get("force"),
             "direction": a.get("direction"), "entries": a.get("entries"), "anchors": [], "target_boxes": []}
-    if kind == "TENSION_COMPRESSION_LEGEND":
+    if kind in ("TENSION_COMPRESSION_LEGEND", "NOTE"):
+        item["position"] = a.get("position", "TOP_RIGHT")
         return item
     if kind == "CONCEPTUAL_LOAD_PATH":
         branches = []

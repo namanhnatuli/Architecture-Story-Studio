@@ -1,0 +1,4828 @@
+{
+  "schema": "narrative_beats/1",
+  "project_id": "why-bridges-look-different",
+  "title": "Why Bridges Don't All Look the Same",
+  "status": "INTERNAL_REVIEW_DRAFT",
+  "timing_mode": "AUDIO_LOCKED",
+  "publication": {
+    "restriction": "INTERNAL_ONLY",
+    "reason": "M7 claims are source-verified, not editorially approved; review cut only."
+  },
+  "beats": [
+    {
+      "beat_id": "B01",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "COMPARE_VARIANTS",
+      "claim_ids": [],
+      "narration": "One bridge rests on rows of timber posts. Another leaps the gap in curves of stone. A third is a lattice of steel triangles. All three cross exactly the same gap.",
+      "visual_goal": "Each structure alone, then all three at one scale",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "DETAIL_THEN_OVERVIEW",
+      "preferred_states": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "So why don't bridges all look the same? It isn't because one design is simply better than the others. Each form is a different answer to the same problem, shaped by materials, by the site, and by the time it was built in.",
+      "visual_goal": "Title card: the central question",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B02_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Why Bridges Don't All Look the Same",
+            "position": [
+              0.5,
+              0.64
+            ],
+            "size": 0.072,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B02_01",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.28,
+                0.585
+              ],
+              [
+                0.72,
+                0.585
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B02_02",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Same problem. Different answers.",
+            "position": [
+              0.5,
+              0.5
+            ],
+            "size": 0.04,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B02_03",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Materials",
+            "position": [
+              0.32,
+              0.36
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "materials"
+          },
+          {
+            "id": "B02_04",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Site",
+            "position": [
+              0.5,
+              0.36
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "site"
+          },
+          {
+            "id": "B02_05",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Time",
+            "position": [
+              0.68,
+              0.36
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "time"
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B03",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_701",
+        "CLM_702"
+      ],
+      "narration": "Every bridge has the same basic job. It has to carry loads: the traffic crossing it, and the weight of the bridge itself. And it has to pass all of that down into the ground on either side.",
+      "visual_goal": "A whole bridge; the load on its deck and the ground it must reach",
+      "required_concepts": [
+        "steel_truss_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD",
+      "annotations": [
+        {
+          "id": "B03_ch",
+          "type": "NOTE",
+          "text": "2 · The problem every bridge must solve",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 2
+        },
+        {
+          "id": "B03_load",
+          "type": "LOAD_ARROW",
+          "target": "deck",
+          "point": "TOP",
+          "count": 3,
+          "text": "Load",
+          "sentence": 1,
+          "claim_id": "CLM_701"
+        },
+        {
+          "id": "B03_ground",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "ground",
+            "pick": "RIGHTMOST"
+          },
+          "point": "TOP",
+          "text": "Ground",
+          "sentence": 2
+        }
+      ]
+    },
+    {
+      "beat_id": "B04",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "claim_ids": [
+        "CLM_702",
+        "CLM_703",
+        "CLM_704"
+      ],
+      "narration": "Engineers often describe a bridge in two parts. The superstructure is the part that spans the gap, including the deck. The substructure is what holds it up: abutments at the ends, and sometimes piers in between. Load follows a path from the deck, through both parts, into the foundations.",
+      "visual_goal": "Superstructure over substructure; a conceptual path to the foundations",
+      "required_concepts": [
+        "steel_truss_bridge",
+        "substructure"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 2,
+      "annotations": [
+        {
+          "id": "B04_super",
+          "type": "HIGHLIGHT_REGION",
+          "target": "superstructure",
+          "text": "Superstructure",
+          "sentence": 1,
+          "until": 2,
+          "claim_id": "CLM_703"
+        },
+        {
+          "id": "B04_abut",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "abutment",
+            "pick": "LEFTMOST"
+          },
+          "point": "CENTER",
+          "text": "Abutment",
+          "sentence": 2,
+          "claim_id": "CLM_704"
+        },
+        {
+          "id": "B04_pier",
+          "type": "COMPONENT_LABEL",
+          "target": "pier",
+          "point": "CENTER",
+          "text": "Pier",
+          "sentence": 2,
+          "claim_id": "CLM_704"
+        },
+        {
+          "id": "B04_path",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "style": "LOAD",
+          "sentence": 3,
+          "claim_id": "CLM_704",
+          "path": [
+            [
+              {
+                "target": {
+                  "concept": "deck",
+                  "pick": "LEFTMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": {
+                  "concept": "abutment",
+                  "pick": "LEFTMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": {
+                  "concept": "abutment",
+                  "pick": "LEFTMOST"
+                },
+                "point": "BOTTOM"
+              }
+            ],
+            [
+              {
+                "target": {
+                  "concept": "deck",
+                  "pick": "LEFTMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": "pier",
+                "point": "TOP"
+              },
+              {
+                "target": "pier",
+                "point": "BOTTOM"
+              }
+            ],
+            [
+              {
+                "target": {
+                  "concept": "deck",
+                  "pick": "RIGHTMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": "pier",
+                "point": "TOP"
+              }
+            ],
+            [
+              {
+                "target": {
+                  "concept": "deck",
+                  "pick": "RIGHTMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": {
+                  "concept": "abutment",
+                  "pick": "RIGHTMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": {
+                  "concept": "abutment",
+                  "pick": "RIGHTMOST"
+                },
+                "point": "BOTTOM"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "B04_found",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "abutment",
+            "pick": "LEFTMOST"
+          },
+          "point": "BOTTOM",
+          "text": "Foundation",
+          "sentence": 3,
+          "claim_id": "CLM_704"
+        }
+      ]
+    },
+    {
+      "beat_id": "B05",
+      "chapter": "C2",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "What changes from one bridge to the next is how that path is arranged. So let's start again with an empty gap.",
+      "visual_goal": "The empty site: the gap any structure must span",
+      "required_concepts": [
+        "river_crossing_site"
+      ],
+      "expected_complexity": "MEDIUM"
+    },
+    {
+      "beat_id": "B06",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_705",
+        "CLM_720"
+      ],
+      "narration": "The first answer is the beam. Lay a strong member across the gap, support it at each end, and you have a bridge. It is one of the oldest ideas in bridge building.",
+      "visual_goal": "A timber beam bridge appears on the empty site",
+      "required_concepts": [
+        "timber_beam_bridge",
+        "stringer"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "ASSEMBLE_IN",
+      "visual_repair_preference": [
+        "GHOST",
+        "REFRAME"
+      ],
+      "annotations": [
+        {
+          "id": "B06_ch",
+          "type": "NOTE",
+          "text": "3 · The beam",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B07",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_705",
+        "CLM_707"
+      ],
+      "narration": "This timber bridge is a row of short beam spans. Planks form the deck, long beams carry the planks, cap beams carry the beams, and posts carry the caps.",
+      "visual_goal": "Taken apart by layer",
+      "required_concepts": [
+        "timber_beam_bridge",
+        "deck_planks",
+        "stringer",
+        "cap_beam"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HIGHLIGHT_THEN_EXPLODE"
+    },
+    {
+      "beat_id": "B08",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "claim_ids": [
+        "CLM_706",
+        "CLM_707"
+      ],
+      "narration": "Each beam carries its load by resisting bending. At each support, a cap beam spreads the load onto the posts. The posts then carry it down into the ground in compression.",
+      "visual_goal": "Beam, cap, posts: the path to the ground",
+      "required_concepts": [
+        "timber_beam_bridge",
+        "stringer"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 0,
+      "visual_repair_preference": [
+        "GHOST",
+        "REFRAME"
+      ],
+      "annotations": [
+        {
+          "id": "B08_load",
+          "type": "LOAD_ARROW",
+          "target": {
+            "concept": "deck_planks",
+            "pick": "CENTERMOST"
+          },
+          "point": "TOP",
+          "count": 2,
+          "text": "Load",
+          "sentence": 0,
+          "claim_id": "CLM_701"
+        },
+        {
+          "id": "B08_bend",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "stringer",
+            "pick": "CENTERMOST"
+          },
+          "point": "BOTTOM",
+          "text": "Beam resists bending",
+          "sentence": 0,
+          "until": 1,
+          "claim_id": "CLM_706"
+        },
+        {
+          "id": "B08_path",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "style": "LOAD",
+          "sentence": 1,
+          "claim_id": "CLM_707",
+          "path": [
+            [
+              {
+                "target": {
+                  "concept": "deck_planks",
+                  "pick": "CENTERMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": {
+                  "concept": "cap_beam",
+                  "pick": "CENTERMOST"
+                },
+                "point": "TOP"
+              },
+              {
+                "target": {
+                  "concept": "trestle_bent",
+                  "pick": "CENTERMOST"
+                },
+                "point": "BOTTOM"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "B08_cap",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "cap_beam",
+            "pick": "CENTERMOST"
+          },
+          "point": "CENTER",
+          "text": "Cap beam",
+          "sentence": 1,
+          "claim_id": "CLM_707"
+        },
+        {
+          "id": "B08_posts",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "trestle_bent",
+            "pick": "CENTERMOST"
+          },
+          "point": "CENTER",
+          "text": "Posts: compression",
+          "force": "COMPRESSION",
+          "sentence": 2,
+          "claim_id": "CLM_707"
+        }
+      ]
+    },
+    {
+      "beat_id": "B09",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_721",
+        "CLM_722"
+      ],
+      "narration": "Beams are simple, and wood was usually easy to find. That is why timber beam bridges were still being built long after timber trusses fell out of use, and why they are still built on quiet rural roads and in parks today. But many early timber bridges had relatively short spans, which is why this one needs so many posts.",
+      "visual_goal": "The posts that short spans require",
+      "required_concepts": [
+        "timber_beam_bridge",
+        "trestle_bent"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 2,
+      "camera_move": {
+        "type": "PUSH_IN",
+        "amount": 0.12
+      },
+      "annotations": [
+        {
+          "id": "B09_note",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "sentence": 0,
+          "position": "BOTTOM_RIGHT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B10",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": [
+        "CLM_708"
+      ],
+      "narration": "A masonry arch takes a different approach. It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+      "visual_goal": "One arch ring's voussoirs and keystone read as separate wedge-shaped pieces",
+      "required_concepts": [
+        "stone_arch_bridge",
+        "arch_ring"
+      ],
+      "expected_complexity": "MEDIUM",
+      "focus_concepts": [
+        {
+          "concept": "voussoir",
+          "group": "arch_2"
+        },
+        {
+          "concept": "keystone",
+          "group": "arch_2"
+        }
+      ],
+      "annotations": [
+        {
+          "id": "B10_ch",
+          "type": "NOTE",
+          "text": "4 · The arch",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
+        {
+          "id": "B10_vous",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "voussoir",
+            "group": "arch_2",
+            "pick": "LEFTMOST"
+          },
+          "point": "CENTER",
+          "text": "Voussoirs",
+          "sentence": 1,
+          "claim_id": "CLM_708"
+        },
+        {
+          "id": "B10_key",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "keystone",
+            "group": "arch_2"
+          },
+          "point": "TOP",
+          "text": "Keystone",
+          "sentence": 1,
+          "claim_id": "CLM_708"
+        }
+      ]
+    },
+    {
+      "beat_id": "B11",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "claim_ids": [
+        "CLM_709",
+        "CLM_710"
+      ],
+      "narration": "The curve turns the downward load into thrust along the arch, pressing the stones together. So the arch works mainly in compression. At each end it pushes outward and down on its supports, and the supports push back.",
+      "visual_goal": "Thrust along one ring; inclined reactions",
+      "required_concepts": [
+        "stone_arch_bridge",
+        "arch_ring"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 0,
+      "annotations": [
+        {
+          "id": "B11_load",
+          "type": "LOAD_ARROW",
+          "target": {
+            "concept": "keystone",
+            "group": "arch_2"
+          },
+          "point": "TOP",
+          "count": 1,
+          "text": "Load",
+          "sentence": 0,
+          "claim_id": "CLM_709"
+        },
+        {
+          "id": "B11_thrust",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "style": "COMPRESSION",
+          "sentence": 0,
+          "claim_id": "CLM_709",
+          "along": {
+            "concept": "arch_ring",
+            "group": "arch_2"
+          }
+        },
+        {
+          "id": "B11_comp",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "arch_ring",
+            "group": "arch_2"
+          },
+          "point": "TOP_LEFT",
+          "text": "Mainly compression",
+          "force": "COMPRESSION",
+          "sentence": 1,
+          "claim_id": "CLM_709"
+        },
+        {
+          "id": "B11_react",
+          "type": "REACTION_ARROW",
+          "target": {
+            "concept": "arch_ring",
+            "group": "arch_2"
+          },
+          "points": [
+            "BOTTOM_LEFT",
+            "BOTTOM_RIGHT"
+          ],
+          "direction": "UP_INWARD",
+          "text": "Supports push back",
+          "sentence": 2,
+          "claim_id": "CLM_710"
+        }
+      ]
+    },
+    {
+      "beat_id": "B12",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_726",
+        "CLM_709",
+        "CLM_710"
+      ],
+      "narration": "That is why arches suit materials that are strong under compression, like stone. And it is why the supports matter so much: the abutments have to push inward on the arch, against its thrust.",
+      "visual_goal": "The supports that hold the arch's ends",
+      "required_concepts": [
+        "stone_arch_bridge",
+        "abutment",
+        "pier"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD",
+      "camera_mode": "SIDE_ELEVATION",
+      "annotations": [
+        {
+          "id": "B12_abut",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "abutment",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Abutment",
+          "sentence": 1,
+          "claim_id": "CLM_710"
+        },
+        {
+          "id": "B12_pier",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "pier",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Pier",
+          "sentence": 1,
+          "claim_id": "CLM_710"
+        }
+      ]
+    },
+    {
+      "beat_id": "B13",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_723"
+      ],
+      "narration": "Building an arch takes support of its own. While a stone arch is being built, a temporary timber frame called falsework holds the stones in place. So building one called for carpenters as well as skilled masons.",
+      "visual_goal": "Falsework under an arch ring (diagram)",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B13_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Conceptual diagram — not to scale",
+            "position": [
+              0.055,
+              0.915
+            ],
+            "size": 0.024,
+            "align": "LEFT",
+            "color": "#55524A",
+            "plate": true
+          },
+          {
+            "id": "B13_01",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.12,
+                0.28
+              ],
+              [
+                0.88,
+                0.28
+              ]
+            ],
+            "color": "#C9CCBA",
+            "width": 0.012,
+            "layer": 0
+          },
+          {
+            "id": "B13_02",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.24,
+              0.28,
+              0.3341,
+              0.36
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B13_03",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.6659,
+              0.28,
+              0.76,
+              0.36
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B13_04",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.6687,
+                0.36
+              ],
+              [
+                0.7081,
+                0.36
+              ],
+              [
+                0.7021,
+                0.4485
+              ],
+              [
+                0.6638,
+                0.4318
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_05",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.6638,
+                0.4318
+              ],
+              [
+                0.7021,
+                0.4485
+              ],
+              [
+                0.6843,
+                0.5319
+              ],
+              [
+                0.6494,
+                0.4994
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_06",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.6494,
+                0.4994
+              ],
+              [
+                0.6843,
+                0.5319
+              ],
+              [
+                0.6558,
+                0.6054
+              ],
+              [
+                0.6263,
+                0.5589
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_07",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.6263,
+                0.5589
+              ],
+              [
+                0.6558,
+                0.6054
+              ],
+              [
+                0.6182,
+                0.6645
+              ],
+              [
+                0.5959,
+                0.6069
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_08",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.5959,
+                0.6069
+              ],
+              [
+                0.6182,
+                0.6645
+              ],
+              [
+                0.5738,
+                0.706
+              ],
+              [
+                0.5598,
+                0.6405
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_09",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.5598,
+                0.6405
+              ],
+              [
+                0.5738,
+                0.706
+              ],
+              [
+                0.5251,
+                0.7273
+              ],
+              [
+                0.5203,
+                0.6578
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_10",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.5203,
+                0.6578
+              ],
+              [
+                0.5251,
+                0.7273
+              ],
+              [
+                0.4749,
+                0.7273
+              ],
+              [
+                0.4797,
+                0.6578
+              ]
+            ],
+            "color": "#8D7B5A",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_11",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.4797,
+                0.6578
+              ],
+              [
+                0.4749,
+                0.7273
+              ],
+              [
+                0.4262,
+                0.706
+              ],
+              [
+                0.4402,
+                0.6405
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_12",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.4402,
+                0.6405
+              ],
+              [
+                0.4262,
+                0.706
+              ],
+              [
+                0.3818,
+                0.6645
+              ],
+              [
+                0.4041,
+                0.6069
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_13",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.4041,
+                0.6069
+              ],
+              [
+                0.3818,
+                0.6645
+              ],
+              [
+                0.3442,
+                0.6054
+              ],
+              [
+                0.3737,
+                0.5589
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_14",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.3737,
+                0.5589
+              ],
+              [
+                0.3442,
+                0.6054
+              ],
+              [
+                0.3157,
+                0.5319
+              ],
+              [
+                0.3506,
+                0.4994
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_15",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.3506,
+                0.4994
+              ],
+              [
+                0.3157,
+                0.5319
+              ],
+              [
+                0.2979,
+                0.4485
+              ],
+              [
+                0.3362,
+                0.4318
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_16",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.3362,
+                0.4318
+              ],
+              [
+                0.2979,
+                0.4485
+              ],
+              [
+                0.2919,
+                0.36
+              ],
+              [
+                0.3312,
+                0.36
+              ]
+            ],
+            "color": "#B9A887",
+            "layer": 1,
+            "border": "#7A6E58",
+            "border_width": 0.0025
+          },
+          {
+            "id": "B13_17",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.365,
+                0.28
+              ],
+              [
+                0.365,
+                0.5315
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": -1
+          },
+          {
+            "id": "B13_18",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.41,
+                0.28
+              ],
+              [
+                0.41,
+                0.6078
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": -1
+          },
+          {
+            "id": "B13_19",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.455,
+                0.28
+              ],
+              [
+                0.455,
+                0.6439
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": -1
+          },
+          {
+            "id": "B13_20",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.5,
+                0.28
+              ],
+              [
+                0.5,
+                0.655
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": -1
+          },
+          {
+            "id": "B13_21",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.545,
+                0.28
+              ],
+              [
+                0.545,
+                0.6439
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": -1
+          },
+          {
+            "id": "B13_22",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.59,
+                0.28
+              ],
+              [
+                0.59,
+                0.6078
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": -1
+          },
+          {
+            "id": "B13_23",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.635,
+                0.28
+              ],
+              [
+                0.635,
+                0.5315
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": -1
+          },
+          {
+            "id": "B13_24",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.6659,
+                0.36
+              ],
+              [
+                0.6645,
+                0.3985
+              ],
+              [
+                0.6603,
+                0.4364
+              ],
+              [
+                0.6533,
+                0.4729
+              ],
+              [
+                0.6437,
+                0.5075
+              ],
+              [
+                0.6316,
+                0.5396
+              ],
+              [
+                0.6173,
+                0.5686
+              ],
+              [
+                0.601,
+                0.594
+              ],
+              [
+                0.583,
+                0.6155
+              ],
+              [
+                0.5635,
+                0.6325
+              ],
+              [
+                0.5429,
+                0.6449
+              ],
+              [
+                0.5217,
+                0.6525
+              ],
+              [
+                0.5,
+                0.655
+              ],
+              [
+                0.4783,
+                0.6525
+              ],
+              [
+                0.4571,
+                0.6449
+              ],
+              [
+                0.4365,
+                0.6325
+              ],
+              [
+                0.417,
+                0.6155
+              ],
+              [
+                0.399,
+                0.594
+              ],
+              [
+                0.3827,
+                0.5686
+              ],
+              [
+                0.3684,
+                0.5396
+              ],
+              [
+                0.3563,
+                0.5075
+              ],
+              [
+                0.3467,
+                0.4729
+              ],
+              [
+                0.3397,
+                0.4364
+              ],
+              [
+                0.3355,
+                0.3985
+              ],
+              [
+                0.3341,
+                0.36
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.008,
+            "layer": 0
+          },
+          {
+            "id": "B13_25",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.3369,
+                0.36
+              ],
+              [
+                0.6631,
+                0.36
+              ]
+            ],
+            "color": "#8C654D",
+            "width": 0.007,
+            "layer": 0
+          },
+          {
+            "id": "B13_26",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Keystone",
+            "position": [
+              0.5,
+              0.8
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B13_27",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Falsework (temporary)",
+            "position": [
+              0.5,
+              0.47
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B13_28",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Carpenters build the frame",
+            "position": [
+              0.205,
+              0.66
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B13_29",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Masons lay the stones",
+            "position": [
+              0.795,
+              0.66
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B14",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_724",
+        "CLM_725"
+      ],
+      "narration": "Stone arches were generally more expensive to build than timber bridges. But stone was the preferred choice where durability and permanence were required, so arches were favoured on busy routes and in important places. Elsewhere, the lower cost of timber made up for its lack of permanence.",
+      "visual_goal": "Cost versus permanence panel",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B14_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "A trade-off",
+            "position": [
+              0.5,
+              0.86
+            ],
+            "size": 0.05,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B14_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Timber beam",
+            "position": [
+              0.3,
+              0.73
+            ],
+            "size": 0.04,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B14_02",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Stone arch",
+            "position": [
+              0.7,
+              0.73
+            ],
+            "size": 0.04,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B14_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Cost to build",
+            "position": [
+              0.5,
+              0.6
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false,
+            "word": "expensive"
+          },
+          {
+            "id": "B14_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "lower",
+            "position": [
+              0.3,
+              0.555
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false,
+            "word": "expensive"
+          },
+          {
+            "id": "B14_05",
+            "kind": "text",
+            "sentence": 0,
+            "text": "higher",
+            "position": [
+              0.7,
+              0.555
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false,
+            "word": "expensive"
+          },
+          {
+            "id": "B14_06",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Permanence",
+            "position": [
+              0.5,
+              0.48
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false,
+            "word": "permanence"
+          },
+          {
+            "id": "B14_07",
+            "kind": "text",
+            "sentence": 1,
+            "text": "lower",
+            "position": [
+              0.3,
+              0.435
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false,
+            "word": "permanence"
+          },
+          {
+            "id": "B14_08",
+            "kind": "text",
+            "sentence": 1,
+            "text": "higher",
+            "position": [
+              0.7,
+              0.435
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false,
+            "word": "permanence"
+          },
+          {
+            "id": "B14_09",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Favoured for",
+            "position": [
+              0.5,
+              0.36
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false,
+            "word": "busy"
+          },
+          {
+            "id": "B14_10",
+            "kind": "text",
+            "sentence": 1,
+            "text": "other crossings",
+            "position": [
+              0.3,
+              0.315
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false,
+            "word": "busy"
+          },
+          {
+            "id": "B14_11",
+            "kind": "text",
+            "sentence": 1,
+            "text": "busy, important routes",
+            "position": [
+              0.7,
+              0.315
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false,
+            "word": "busy"
+          },
+          {
+            "id": "B14_12",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.17,
+              0.29,
+              0.43,
+              0.775
+            ],
+            "layer": -1,
+            "border": "#8C654D",
+            "border_width": 0.005
+          },
+          {
+            "id": "B14_13",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Lower cost made up for less permanence",
+            "position": [
+              0.3,
+              0.235
+            ],
+            "size": 0.024,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "cost"
+          },
+          {
+            "id": "B14_14",
+            "kind": "text",
+            "sentence": 0,
+            "text": "After NCHRP 25-25(15), 2005",
+            "position": [
+              0.7,
+              0.235
+            ],
+            "size": 0.02,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B15",
+      "chapter": "C5",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_711",
+        "CLM_712"
+      ],
+      "narration": "A third approach is the truss. It builds a structure out of straight members, joined into triangles. Each member is mainly pulled or pushed along its length, in tension or in compression.",
+      "visual_goal": "Triangulated members and joints",
+      "required_concepts": [
+        "steel_truss_bridge",
+        {
+          "concept": "truss_members",
+          "group": "truss_south"
+        }
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 1,
+      "annotations": [
+        {
+          "id": "B15_ch",
+          "type": "NOTE",
+          "text": "5 · The truss",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
+        {
+          "id": "B15_joints",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "truss_joint",
+            "group": "truss_south",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP_LEFT",
+          "text": "Joints",
+          "sentence": 1,
+          "claim_id": "CLM_711"
+        },
+        {
+          "id": "B15_legend",
+          "type": "TENSION_COMPRESSION_LEGEND",
+          "sentence": 2,
+          "claim_id": "CLM_712"
+        }
+      ]
+    },
+    {
+      "beat_id": "B16",
+      "chapter": "C5",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "claim_ids": [
+        "CLM_713",
+        "CLM_714"
+      ],
+      "narration": "In a simple span like these, under a downward load, the top chord is squeezed and the bottom chord is stretched. Inside, some web members are in compression and others are in tension.",
+      "visual_goal": "Chords named, web members not colour-coded",
+      "required_concepts": [
+        "steel_truss_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD",
+      "camera_mode": "SIDE_ELEVATION",
+      "annotations": [
+        {
+          "id": "B16_legend",
+          "type": "TENSION_COMPRESSION_LEGEND",
+          "sentence": 0,
+          "claim_id": "CLM_712"
+        },
+        {
+          "id": "B16_top",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "truss_chord",
+            "group": "truss_south",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Top chord: compression",
+          "force": "COMPRESSION",
+          "sentence": 0,
+          "word": "top",
+          "claim_id": "CLM_713"
+        },
+        {
+          "id": "B16_bottom",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "truss_chord",
+            "group": "truss_south",
+            "pick": "LEFTMOST"
+          },
+          "point": "BOTTOM",
+          "text": "Bottom chord: tension",
+          "force": "TENSION",
+          "sentence": 0,
+          "word": "bottom",
+          "claim_id": "CLM_713"
+        },
+        {
+          "id": "B16_web",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "diagonal_members",
+            "group": "truss_south",
+            "pick": "RIGHTMOST"
+          },
+          "point": "CENTER",
+          "text": "Web members",
+          "sentence": 1,
+          "claim_id": "CLM_714"
+        }
+      ]
+    },
+    {
+      "beat_id": "B17",
+      "chapter": "C5",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_727",
+        "CLM_728",
+        "CLM_711"
+      ],
+      "narration": "The triangles can be arranged in different patterns. This is a Pratt truss. In the original design, patented in 1844, its verticals were timber and its diagonals were iron rods. Swap the web for diagonals that alternate in direction, and you have a Warren truss, patented in 1848. Both patterns carry load through triangles; they simply arrange the members differently.",
+      "visual_goal": "Pratt and Warren web patterns on the same chords",
+      "required_concepts": [
+        "truss_web"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT",
+      "preferred_states": [
+        "pratt_truss",
+        "warren_truss"
+      ],
+      "annotations": [
+        {
+          "id": "B17_pratt",
+          "type": "NOTE",
+          "text": "Pratt truss (patented 1844)",
+          "sentence": 1,
+          "position": "TOP_LEFT",
+          "until": 3,
+          "claim_id": "CLM_727"
+        },
+        {
+          "id": "B17_warren",
+          "type": "NOTE",
+          "text": "Warren truss (patented 1848)",
+          "sentence": 3,
+          "position": "TOP_LEFT",
+          "claim_id": "CLM_728"
+        }
+      ]
+    },
+    {
+      "beat_id": "B18",
+      "chapter": "C5",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_729"
+      ],
+      "narration": "Trusses also changed how bridges were built. By the middle of the nineteenth century, shops were making and drilling truss members, then shipping them to the bridge site, ready to assemble. And by 1860, the railroads relied almost entirely on these prefabricated parts.",
+      "visual_goal": "The truss as separate prefabricated members",
+      "required_concepts": [
+        "steel_truss_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "EXPLODE",
+      "annotations": [
+        {
+          "id": "B18_shop",
+          "type": "NOTE",
+          "text": "Members made and drilled in shops",
+          "sentence": 1,
+          "position": "TOP_LEFT",
+          "until": 2,
+          "claim_id": "CLM_729"
+        },
+        {
+          "id": "B18_1860",
+          "type": "NOTE",
+          "text": "By 1860: prefabricated parts",
+          "sentence": 2,
+          "position": "TOP_LEFT",
+          "claim_id": "CLM_729"
+        }
+      ]
+    },
+    {
+      "beat_id": "B19",
+      "chapter": "C6",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "So which design is best? The honest answer is that it depends. Materials, the site, the span, cost, and the skills available all pull in different directions.",
+      "visual_goal": "The factors that shape a bridge",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B19_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "6 · Why different designs exist",
+            "position": [
+              0.055,
+              0.915
+            ],
+            "size": 0.024,
+            "align": "LEFT",
+            "color": "#55524A",
+            "plate": true
+          },
+          {
+            "id": "B19_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Which design is best?",
+            "position": [
+              0.5,
+              0.66
+            ],
+            "size": 0.068,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B19_02",
+            "kind": "text",
+            "sentence": 1,
+            "text": "It depends.",
+            "position": [
+              0.5,
+              0.53
+            ],
+            "size": 0.048,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B19_03",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Materials",
+            "position": [
+              0.2,
+              0.38
+            ],
+            "size": 0.034,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "materials"
+          },
+          {
+            "id": "B19_04",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Site",
+            "position": [
+              0.35,
+              0.38
+            ],
+            "size": 0.034,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "site"
+          },
+          {
+            "id": "B19_05",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Span",
+            "position": [
+              0.5,
+              0.38
+            ],
+            "size": 0.034,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "span"
+          },
+          {
+            "id": "B19_06",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Cost",
+            "position": [
+              0.65,
+              0.38
+            ],
+            "size": 0.034,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "cost"
+          },
+          {
+            "id": "B19_07",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Skills",
+            "position": [
+              0.8,
+              0.38
+            ],
+            "size": 0.034,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "skills"
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B20A",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_726"
+      ],
+      "narration": "Start with the materials themselves. An arch needs a material that is strong under compression, and stone is.",
+      "visual_goal": "Stone in compression: the arch rings",
+      "required_concepts": [
+        "stone_arch_bridge",
+        "arch_ring"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 1,
+      "annotations": [
+        {
+          "id": "B20A_note",
+          "type": "NOTE",
+          "text": "Stone: strong under compression",
+          "sentence": 1,
+          "position": "TOP_LEFT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B20B",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_712",
+        "CLM_735"
+      ],
+      "narration": "A truss needs members that can work in tension as well as compression. Wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
+      "visual_goal": "Truss members that work both ways",
+      "required_concepts": [
+        "steel_truss_bridge",
+        {
+          "concept": "truss_members",
+          "group": "truss_south"
+        }
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 0,
+      "annotations": [
+        {
+          "id": "B20B_note",
+          "type": "NOTE",
+          "text": "Truss members: tension and compression",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
+        {
+          "id": "B20B_iron",
+          "type": "NOTE",
+          "text": "Wrought iron: valued in tension and compression",
+          "sentence": 1,
+          "position": "TOP_LEFT",
+          "claim_id": "CLM_735"
+        }
+      ]
+    },
+    {
+      "beat_id": "B20C",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_742",
+        "CLM_734"
+      ],
+      "narration": "Wood was often plentiful and cheap, but wooden bridges were vulnerable to decay.",
+      "visual_goal": "The timber structure",
+      "required_concepts": [
+        "timber_beam_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD",
+      "annotations": [
+        {
+          "id": "B20C_note",
+          "type": "NOTE",
+          "text": "Timber: plentiful and cheap, but it decays",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B21",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_733",
+        "CLM_746"
+      ],
+      "narration": "That is one reason many timber truss bridges were covered with a roof and siding, to protect them from the weather. This is the Humpback Covered Bridge, built in 1857 over Dunlap Creek.",
+      "visual_goal": "Archival photograph of a covered timber bridge",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B21_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_HUMPBACK",
+            "path": "assets/external/haer_va_humpback_covered_bridge_west.jpg",
+            "box": [
+              0.05,
+              0.21,
+              0.64,
+              0.88
+            ],
+            "crop": [
+              0.035,
+              0.05,
+              0.968,
+              0.95
+            ],
+            "drift": [
+              0.012,
+              0.0
+            ]
+          },
+          {
+            "id": "B21_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Humpback Covered Bridge",
+            "position": [
+              0.805,
+              0.82
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B21_02",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.69,
+                0.785
+              ],
+              [
+                0.92,
+                0.785
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B21_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Roof and siding protect",
+            "position": [
+              0.805,
+              0.72
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B21_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "the timber trusses",
+            "position": [
+              0.805,
+              0.658
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B21_05",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Dunlap Creek, built 1857",
+            "position": [
+              0.805,
+              0.596
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B21_06",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Covington, Virginia",
+            "position": [
+              0.805,
+              0.534
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B21_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: Jack E. Boucher, HAER, Library of Congress (public domain)",
+            "position": [
+              0.805,
+              0.235
+            ],
+            "size": 0.019,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B22",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_736"
+      ],
+      "narration": "The site of a bridge matters too. Railway engines have limited traction, so railways need gentle gradients. Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level.",
+      "visual_goal": "Valley profile with a level line on piers",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B22_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Schematic — not to scale",
+            "position": [
+              0.055,
+              0.915
+            ],
+            "size": 0.024,
+            "align": "LEFT",
+            "color": "#55524A",
+            "plate": true
+          },
+          {
+            "id": "B22_01",
+            "kind": "polygon",
+            "sentence": 0,
+            "points": [
+              [
+                0.05,
+                0.6
+              ],
+              [
+                0.24,
+                0.58
+              ],
+              [
+                0.36,
+                0.33
+              ],
+              [
+                0.5,
+                0.26
+              ],
+              [
+                0.64,
+                0.33
+              ],
+              [
+                0.76,
+                0.58
+              ],
+              [
+                0.95,
+                0.6
+              ],
+              [
+                0.95,
+                0.21
+              ],
+              [
+                0.05,
+                0.21
+              ]
+            ],
+            "color": "#C9CCBA",
+            "layer": 0
+          },
+          {
+            "id": "B22_02",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.25,
+                0.6
+              ],
+              [
+                0.37,
+                0.355
+              ],
+              [
+                0.5,
+                0.285
+              ],
+              [
+                0.63,
+                0.355
+              ],
+              [
+                0.75,
+                0.6
+              ]
+            ],
+            "color": "#A3263A",
+            "width": 0.005,
+            "layer": 0,
+            "dash": [
+              0.02,
+              0.012
+            ]
+          },
+          {
+            "id": "B22_03",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Down and up again: too steep for trains",
+            "position": [
+              0.5,
+              0.42
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "until": 2
+          },
+          {
+            "id": "B22_04",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.318,
+              0.38,
+              0.342,
+              0.64
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B22_05",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.398,
+              0.3,
+              0.422,
+              0.64
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B22_06",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.488,
+              0.27,
+              0.512,
+              0.64
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B22_07",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.578,
+              0.3,
+              0.602,
+              0.64
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B22_08",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.658,
+              0.38,
+              0.682,
+              0.64
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B22_09",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.05,
+                0.645
+              ],
+              [
+                0.95,
+                0.645
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.008,
+            "layer": 0
+          },
+          {
+            "id": "B22_10",
+            "kind": "text",
+            "sentence": 2,
+            "text": "A viaduct keeps the line nearly level",
+            "position": [
+              0.5,
+              0.74
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B23",
+      "chapter": "C6",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "Then there is span: how far a single structure has to reach.",
+      "visual_goal": "The gap itself: the distance one structure must cross",
+      "required_concepts": [
+        "river_crossing_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "annotations": [
+        {
+          "id": "B23_note",
+          "type": "NOTE",
+          "text": "Span: how far one structure reaches",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B23B",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_731",
+        "CLM_732",
+        "CLM_730"
+      ],
+      "narration": "A simple king post truss could span only about thirty feet. What one report calls America's greatest stone arch, the Cabin John Aqueduct Bridge, spans 220 feet, and some through trusses approach 400.",
+      "visual_goal": "Span scale (sourced values)",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B23B_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "How far one structure can reach",
+            "position": [
+              0.5,
+              0.86
+            ],
+            "size": 0.045,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B23B_01",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.12,
+              0.655,
+              0.174,
+              0.705
+            ],
+            "layer": 0,
+            "color": "#8C654D"
+          },
+          {
+            "id": "B23B_02",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Simple king post truss: about 30 ft",
+            "position": [
+              0.12,
+              0.745
+            ],
+            "size": 0.028,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B23B_03",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.12,
+              0.475,
+              0.516,
+              0.525
+            ],
+            "layer": 0,
+            "color": "#B9A887",
+            "word": "cabin"
+          },
+          {
+            "id": "B23B_04",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Cabin John Aqueduct, stone arch (1864): 220 ft",
+            "position": [
+              0.12,
+              0.565
+            ],
+            "size": 0.028,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": false,
+            "word": "cabin"
+          },
+          {
+            "id": "B23B_05",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.12,
+              0.295,
+              0.84,
+              0.345
+            ],
+            "layer": 0,
+            "color": "#4F5A64",
+            "word": "trusses"
+          },
+          {
+            "id": "B23B_06",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Some through trusses: approaching 400 ft",
+            "position": [
+              0.12,
+              0.385
+            ],
+            "size": 0.028,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": false,
+            "word": "trusses"
+          },
+          {
+            "id": "B23B_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Spans as given in NCHRP 25-25(15), 2005 — bars to scale",
+            "position": [
+              0.5,
+              0.22
+            ],
+            "size": 0.02,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B24",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_738",
+        "CLM_739",
+        "CLM_727",
+        "CLM_728",
+        "CLM_729"
+      ],
+      "narration": "Finally, every bridge belongs to its time. As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined. Then, during the Great Depression, it briefly returned.",
+      "visual_goal": "Timeline (dates from the evidence registry)",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B24_00",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.08,
+                0.5
+              ],
+              [
+                0.92,
+                0.5
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.006,
+            "layer": 0
+          },
+          {
+            "id": "B24_01",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.08,
+                0.485
+              ],
+              [
+                0.08,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B24_02",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1820",
+            "position": [
+              0.08,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B24_03",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2144,
+                0.485
+              ],
+              [
+                0.2144,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B24_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1840",
+            "position": [
+              0.2144,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B24_05",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.3488,
+                0.485
+              ],
+              [
+                0.3488,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B24_06",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1860",
+            "position": [
+              0.3488,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B24_07",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.4832,
+                0.485
+              ],
+              [
+                0.4832,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B24_08",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1880",
+            "position": [
+              0.4832,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B24_09",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.6176,
+                0.485
+              ],
+              [
+                0.6176,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B24_10",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1900",
+            "position": [
+              0.6176,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B24_11",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.752,
+                0.485
+              ],
+              [
+                0.752,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B24_12",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1920",
+            "position": [
+              0.752,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B24_13",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.8864,
+                0.485
+              ],
+              [
+                0.8864,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B24_14",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1940",
+            "position": [
+              0.8864,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B24_15",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1405,
+                0.5
+              ],
+              [
+                0.1405,
+                0.61
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B24_16",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.1405,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B24_17",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1829  Carrollton Viaduct (stone)",
+            "position": [
+              0.174,
+              0.64
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B24_18",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2413,
+                0.5
+              ],
+              [
+                0.2413,
+                0.39
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B24_19",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.2413,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B24_20",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1844  Pratt truss patented",
+            "position": [
+              0.2413,
+              0.36
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B24_21",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2682,
+                0.5
+              ],
+              [
+                0.2682,
+                0.69
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B24_22",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.2682,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B24_23",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1848  Warren truss patented",
+            "position": [
+              0.2682,
+              0.72
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B24_24",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.3488,
+                0.5
+              ],
+              [
+                0.3488,
+                0.31
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B24_25",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.3488,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B24_26",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1860  Prefabricated truss parts",
+            "position": [
+              0.3488,
+              0.28
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B24_27",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.4832,
+              0.53,
+              0.7856,
+              0.56
+            ],
+            "layer": 0,
+            "color": "#4F5A64"
+          },
+          {
+            "id": "B24_28",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Metal trusses spread; stone arches decline",
+            "position": [
+              0.6344,
+              0.78
+            ],
+            "size": 0.024,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B24_29",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.8125,
+              0.53,
+              0.8797,
+              0.56
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B24_30",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Great Depression: stone arches return",
+            "position": [
+              0.8146,
+              0.7
+            ],
+            "size": 0.024,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B25",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_741",
+        "CLM_742"
+      ],
+      "narration": "These trade-offs played out across nineteenth-century America as the railways spread. In the East, railroads built massive stone viaducts, while western builders generally used timber. Three documented examples show how differently builders answered.",
+      "visual_goal": "Schematic map: East and West",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B25_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "7 · Real-world decisions",
+            "position": [
+              0.055,
+              0.915
+            ],
+            "size": 0.024,
+            "align": "LEFT",
+            "color": "#55524A",
+            "plate": true
+          },
+          {
+            "id": "B25_01",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.08,
+              0.3,
+              0.92,
+              0.8
+            ],
+            "layer": 0,
+            "color": "#E2DFD6"
+          },
+          {
+            "id": "B25_02",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.08,
+              0.3,
+              0.92,
+              0.8
+            ],
+            "layer": 0,
+            "border": "#9C988D",
+            "border_width": 0.003
+          },
+          {
+            "id": "B25_03",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.5,
+                0.31
+              ],
+              [
+                0.5,
+                0.79
+              ]
+            ],
+            "color": "#B8B4A9",
+            "width": 0.003,
+            "layer": 0,
+            "dash": [
+              0.015,
+              0.012
+            ]
+          },
+          {
+            "id": "B25_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "WEST",
+            "position": [
+              0.29,
+              0.74
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B25_05",
+            "kind": "text",
+            "sentence": 0,
+            "text": "EAST",
+            "position": [
+              0.71,
+              0.74
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B25_06",
+            "kind": "text",
+            "sentence": 0,
+            "text": "United States — schematic, not to scale",
+            "position": [
+              0.5,
+              0.25
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B25_07",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Timber, built fast",
+            "position": [
+              0.29,
+              0.62
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B25_08",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Massive stone viaducts",
+            "position": [
+              0.71,
+              0.62
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B25_09",
+            "kind": "circle",
+            "sentence": 2,
+            "center": [
+              0.27,
+              0.46
+            ],
+            "radius": 0.012,
+            "color": "#8C654D"
+          },
+          {
+            "id": "B25_10",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Corinne, Utah",
+            "position": [
+              0.27,
+              0.405
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B25_11",
+            "kind": "circle",
+            "sentence": 2,
+            "center": [
+              0.84,
+              0.47
+            ],
+            "radius": 0.012,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B25_12",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Baltimore",
+            "position": [
+              0.84,
+              0.415
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B25_13",
+            "kind": "circle",
+            "sentence": 2,
+            "center": [
+              0.81,
+              0.53
+            ],
+            "radius": 0.012,
+            "color": "#4F5A64"
+          },
+          {
+            "id": "B25_14",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Savage, Maryland",
+            "position": [
+              0.765,
+              0.54
+            ],
+            "size": 0.025,
+            "align": "RIGHT",
+            "color": "#24231F",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B26",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_739",
+        "CLM_740"
+      ],
+      "narration": "Near Baltimore, the Carrollton Viaduct was completed in 1829. Built of roughly twelve thousand granite blocks, it carries the railway over Gwynns Falls on an eighty foot arch. A national report in 2005 called it the world's oldest stone railroad span still in service.",
+      "visual_goal": "Archival photograph of the Carrollton Viaduct",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B26_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_CARROLLTON",
+            "path": "assets/external/haer_md9_carrollton_viaduct_west.jpg",
+            "box": [
+              0.05,
+              0.21,
+              0.64,
+              0.88
+            ],
+            "crop": [
+              0.17,
+              0.11,
+              0.83,
+              0.89
+            ],
+            "drift": [
+              0.012,
+              0.0
+            ]
+          },
+          {
+            "id": "B26_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Carrollton Viaduct",
+            "position": [
+              0.805,
+              0.82
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B26_02",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.69,
+                0.785
+              ],
+              [
+                0.92,
+                0.785
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B26_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Baltimore, Maryland",
+            "position": [
+              0.805,
+              0.72
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B26_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "completed 1829",
+            "position": [
+              0.805,
+              0.658
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B26_05",
+            "kind": "text",
+            "sentence": 1,
+            "text": "about 12,000 granite blocks",
+            "position": [
+              0.805,
+              0.596
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B26_06",
+            "kind": "text",
+            "sentence": 1,
+            "text": "80 ft arch over Gwynns Falls",
+            "position": [
+              0.805,
+              0.534
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B26_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: William E. Barrett, HAER, Library of Congress (public domain)",
+            "position": [
+              0.805,
+              0.235
+            ],
+            "size": 0.019,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B27",
+      "chapter": "C7",
+      "kind": "interpretation",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_741",
+        "CLM_725"
+      ],
+      "narration": "Early railroads needed durable bridges to carry heavy trains. For a line meant to last, stone was the answer.",
+      "visual_goal": "The stone arch archetype",
+      "required_concepts": [
+        "stone_arch_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD",
+      "camera_move": {
+        "type": "PUSH_IN",
+        "amount": 0.14
+      },
+      "annotations": [
+        {
+          "id": "B27_note",
+          "type": "NOTE",
+          "text": "Illustrative model, not the Carrollton Viaduct",
+          "sentence": 0,
+          "position": "BOTTOM_RIGHT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B28",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_742",
+        "CLM_743"
+      ],
+      "narration": "In the West, the pressure was different. Railroads had to open new lines quickly and economically, and timber was abundant and cheap. This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad.",
+      "visual_goal": "Archival photograph of a timber trestle",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B28_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_PROMONTORY",
+            "path": "assets/external/haer_ut64_promontory_trestle_790b.jpg",
+            "box": [
+              0.05,
+              0.21,
+              0.64,
+              0.88
+            ],
+            "crop": [
+              0.025,
+              0.045,
+              0.955,
+              0.955
+            ],
+            "drift": [
+              0.012,
+              0.0
+            ]
+          },
+          {
+            "id": "B28_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Promontory Route trestle",
+            "position": [
+              0.805,
+              0.82
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B28_02",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.69,
+                0.785
+              ],
+              [
+                0.92,
+                0.785
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B28_03",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Timber: abundant, cheap",
+            "position": [
+              0.805,
+              0.72
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B28_04",
+            "kind": "text",
+            "sentence": 1,
+            "text": "and quick to build",
+            "position": [
+              0.805,
+              0.658
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B28_05",
+            "kind": "text",
+            "sentence": 2,
+            "text": "near Corinne, Utah",
+            "position": [
+              0.805,
+              0.596
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B28_06",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Central Pacific, 1872",
+            "position": [
+              0.805,
+              0.534
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B28_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: HAER, Library of Congress (public domain)",
+            "position": [
+              0.805,
+              0.235
+            ],
+            "size": 0.019,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B29",
+      "chapter": "C7",
+      "kind": "interpretation",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_737"
+      ],
+      "narration": "A trestle is a succession of towers supporting short spans. It is the same beam idea as our timber model, repeated as often as the crossing needs.",
+      "visual_goal": "The timber archetype's repeated bents",
+      "required_concepts": [
+        "timber_beam_bridge",
+        "trestle_bent"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 0,
+      "camera_move": {
+        "type": "PUSH_IN",
+        "amount": 0.1
+      },
+      "annotations": [
+        {
+          "id": "B29_note",
+          "type": "NOTE",
+          "text": "Illustrative model, not the Promontory trestle",
+          "sentence": 0,
+          "position": "BOTTOM_RIGHT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B30",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_744",
+        "CLM_745"
+      ],
+      "narration": "Iron offered a third path. The Bollman truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts. It could be built relatively quickly and inexpensively, while offering the long-lasting qualities of metal. The bridge at Savage, Maryland, is the only remaining example of the design.",
+      "visual_goal": "Archival photograph of the Bollman truss",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B30_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_BOLLMAN",
+            "path": "assets/external/haer_md1_bollman_truss_east.jpg",
+            "box": [
+              0.05,
+              0.21,
+              0.64,
+              0.88
+            ],
+            "crop": [
+              0.035,
+              0.045,
+              0.965,
+              0.955
+            ],
+            "drift": [
+              0.012,
+              0.0
+            ]
+          },
+          {
+            "id": "B30_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Bollman Truss Bridge",
+            "position": [
+              0.805,
+              0.82
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B30_02",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.69,
+                0.785
+              ],
+              [
+                0.92,
+                0.785
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B30_03",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Patented 1852",
+            "position": [
+              0.805,
+              0.72
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B30_04",
+            "kind": "text",
+            "sentence": 1,
+            "text": "iron in all essential parts",
+            "position": [
+              0.805,
+              0.658
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B30_05",
+            "kind": "text",
+            "sentence": 2,
+            "text": "quick, inexpensive,",
+            "position": [
+              0.805,
+              0.596
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B30_06",
+            "kind": "text",
+            "sentence": 2,
+            "text": "long-lasting",
+            "position": [
+              0.805,
+              0.534
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B30_07",
+            "kind": "text",
+            "sentence": 3,
+            "text": "Savage, Maryland",
+            "position": [
+              0.805,
+              0.472
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B30_08",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: William E. Barrett, HAER, Library of Congress (public domain)",
+            "position": [
+              0.805,
+              0.235
+            ],
+            "size": 0.019,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B31",
+      "chapter": "C7",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_741",
+        "CLM_742",
+        "CLM_744"
+      ],
+      "narration": "Stone for permanence, timber for speed and economy, and iron trusses that offered some of both. Three places, three sets of constraints, three different bridges.",
+      "visual_goal": "Three answers, side by side",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B31_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_CARROLLTON",
+            "path": "assets/external/haer_md9_carrollton_viaduct_west.jpg",
+            "box": [
+              0.06,
+              0.42,
+              0.33,
+              0.86
+            ],
+            "crop": [
+              0.17,
+              0.11,
+              0.83,
+              0.89
+            ],
+            "drift": [
+              0.004,
+              0.0
+            ]
+          },
+          {
+            "id": "B31_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Stone: permanence",
+            "position": [
+              0.195,
+              0.355
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B31_02",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_PROMONTORY",
+            "path": "assets/external/haer_ut64_promontory_trestle_790b.jpg",
+            "box": [
+              0.365,
+              0.42,
+              0.635,
+              0.86
+            ],
+            "crop": [
+              0.025,
+              0.045,
+              0.955,
+              0.955
+            ],
+            "drift": [
+              0.004,
+              0.0
+            ]
+          },
+          {
+            "id": "B31_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Timber: speed and economy",
+            "position": [
+              0.5,
+              0.355
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B31_04",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_BOLLMAN",
+            "path": "assets/external/haer_md1_bollman_truss_east.jpg",
+            "box": [
+              0.67,
+              0.42,
+              0.94,
+              0.86
+            ],
+            "crop": [
+              0.035,
+              0.045,
+              0.965,
+              0.955
+            ],
+            "drift": [
+              0.004,
+              0.0
+            ]
+          },
+          {
+            "id": "B31_05",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Iron: some of both",
+            "position": [
+              0.805,
+              0.355
+            ],
+            "size": 0.03,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B31_06",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Three places, three sets of constraints",
+            "position": [
+              0.5,
+              0.27
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B31_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photos: HAER, Library of Congress (public domain)",
+            "position": [
+              0.5,
+              0.215
+            ],
+            "size": 0.018,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B32",
+      "chapter": "C8",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_706",
+        "CLM_709",
+        "CLM_712"
+      ],
+      "narration": "So why don't bridges all look the same? Because a bridge's form comes from two things working together. One is how its structure carries load: beams resist bending, arches work in compression, and trusses share load among members in tension and compression.",
+      "visual_goal": "The three structures at one scale",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "preferred_states": [
+        "timber_beam_bridge",
+        "stone_arch_bridge",
+        "steel_truss_bridge"
+      ],
+      "annotations": [
+        {
+          "id": "B32_ch",
+          "type": "NOTE",
+          "text": "8 · Why they look different",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 2
+        },
+        {
+          "id": "B32_one",
+          "type": "NOTE",
+          "text": "1 · How the structure carries load",
+          "sentence": 2,
+          "position": "TOP_LEFT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B32B",
+      "chapter": "C8",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_742",
+        "CLM_724"
+      ],
+      "narration": "The other is the world it was built in: its materials, its site, its span, its budget and its builders.",
+      "visual_goal": "The second answer: the world around it",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B32B_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "2 · The world it was built in",
+            "position": [
+              0.5,
+              0.66
+            ],
+            "size": 0.056,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B32B_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Materials",
+            "position": [
+              0.18,
+              0.46
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "materials"
+          },
+          {
+            "id": "B32B_02",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Site",
+            "position": [
+              0.34,
+              0.46
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "site"
+          },
+          {
+            "id": "B32B_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Span",
+            "position": [
+              0.5,
+              0.46
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "span"
+          },
+          {
+            "id": "B32B_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Budget",
+            "position": [
+              0.66,
+              0.46
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "budget"
+          },
+          {
+            "id": "B32B_05",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Builders",
+            "position": [
+              0.82,
+              0.46
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "builders"
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B33",
+      "chapter": "C8",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_721",
+        "CLM_738"
+      ],
+      "narration": "And it is not a simple story of progress. Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression. Each form can still be the right answer in the right place.",
+      "visual_goal": "Not a linear progression (timeline)",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B33_00",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.08,
+                0.5
+              ],
+              [
+                0.92,
+                0.5
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.006,
+            "layer": 0
+          },
+          {
+            "id": "B33_01",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.08,
+                0.485
+              ],
+              [
+                0.08,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B33_02",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1820",
+            "position": [
+              0.08,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B33_03",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2144,
+                0.485
+              ],
+              [
+                0.2144,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B33_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1840",
+            "position": [
+              0.2144,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B33_05",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.3488,
+                0.485
+              ],
+              [
+                0.3488,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B33_06",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1860",
+            "position": [
+              0.3488,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B33_07",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.4832,
+                0.485
+              ],
+              [
+                0.4832,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B33_08",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1880",
+            "position": [
+              0.4832,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B33_09",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.6176,
+                0.485
+              ],
+              [
+                0.6176,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B33_10",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1900",
+            "position": [
+              0.6176,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B33_11",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.752,
+                0.485
+              ],
+              [
+                0.752,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B33_12",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1920",
+            "position": [
+              0.752,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B33_13",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.8864,
+                0.485
+              ],
+              [
+                0.8864,
+                0.515
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B33_14",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1940",
+            "position": [
+              0.8864,
+              0.455
+            ],
+            "size": 0.022,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B33_15",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1405,
+                0.5
+              ],
+              [
+                0.1405,
+                0.61
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B33_16",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.1405,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B33_17",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1829  Carrollton Viaduct (stone)",
+            "position": [
+              0.174,
+              0.64
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B33_18",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2413,
+                0.5
+              ],
+              [
+                0.2413,
+                0.39
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B33_19",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.2413,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B33_20",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1844  Pratt truss patented",
+            "position": [
+              0.2413,
+              0.36
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B33_21",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2682,
+                0.5
+              ],
+              [
+                0.2682,
+                0.69
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B33_22",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.2682,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B33_23",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1848  Warren truss patented",
+            "position": [
+              0.2682,
+              0.72
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B33_24",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.3488,
+                0.5
+              ],
+              [
+                0.3488,
+                0.31
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B33_25",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.3488,
+              0.5
+            ],
+            "radius": 0.009,
+            "color": "#24231F"
+          },
+          {
+            "id": "B33_26",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1860  Prefabricated truss parts",
+            "position": [
+              0.3488,
+              0.28
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B33_27",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.8125,
+              0.53,
+              0.8797,
+              0.56
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B33_28",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Stone arches return briefly",
+            "position": [
+              0.8458,
+              0.7
+            ],
+            "size": 0.024,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B33_29",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Today: timber beam bridges",
+            "position": [
+              0.8,
+              0.86
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B33_30",
+            "kind": "text",
+            "sentence": 1,
+            "text": "are still built on quiet roads",
+            "position": [
+              0.8,
+              0.805
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B34",
+      "chapter": "C8",
+      "kind": "framing",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [],
+      "narration": "Next time you cross a bridge, look at its shape. It shows how the load reaches the ground, and something about the people who built it. These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
+      "visual_goal": "A last look at a bridge",
+      "required_concepts": [
+        "stone_arch_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD",
+      "camera_move": {
+        "type": "PUSH_IN",
+        "amount": 0.12
+      },
+      "annotations": [
+        {
+          "id": "B34_note",
+          "type": "NOTE",
+          "text": "Models are illustrations, not engineering designs",
+          "sentence": 2,
+          "position": "BOTTOM_RIGHT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B35",
+      "chapter": "C8",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "Thank you very much for watching. The sources and photo credits are listed in the description.",
+      "visual_goal": "Credits",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B35_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Why Bridges Don't All Look the Same",
+            "position": [
+              0.5,
+              0.84
+            ],
+            "size": 0.05,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B35_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Narration: AI-generated voice (Kokoro-82M, voice bm_george)",
+            "position": [
+              0.5,
+              0.71
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B35_02",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Archival photographs: Historic American Engineering Record,",
+            "position": [
+              0.5,
+              0.64
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B35_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Library of Congress Prints & Photographs Division (public domain)",
+            "position": [
+              0.5,
+              0.57
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B35_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Sources: TRB NCHRP 25-25(15); FHWA; Ohio DOT; ASCE;",
+            "position": [
+              0.5,
+              0.5
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B35_05",
+            "kind": "text",
+            "sentence": 0,
+            "text": "SteelConstruction.info; Yale-New Haven Teachers Institute",
+            "position": [
+              0.5,
+              0.43
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B35_06",
+            "kind": "text",
+            "sentence": 0,
+            "text": "3D models and diagrams are illustrative, not engineering designs",
+            "position": [
+              0.5,
+              0.36
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B35_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Architecture Story Studio",
+            "position": [
+              0.5,
+              0.26
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          }
+        ]
+      }
+    }
+  ]
+}

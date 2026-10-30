@@ -142,3 +142,20 @@ def layout_side_by_side(footprints, axis, gap_ratio):
         offsets.append((shift * ax[0], shift * ax[1], 0.0))
         cursor += w + gap
     return offsets, gap
+
+
+def push_in_keys(fit, basis, aspect, points, amount):
+    """M7 HOLD camera_move PUSH_IN: (start, end) camera keys. Start = the locked fit; end = the
+    orthographic scale reduced by `amount`, shifted towards the centre of `points` (frame
+    coordinates) but never past the start frame, so the end view lies inside the start view."""
+    right, up, _ = basis
+    coords = frame_coords(points, fit, basis, aspect) if points else [(0.5, 0.5)]
+    cx = sum(x for x, _ in coords) / len(coords)
+    cy = sum(y for _, y in coords) / len(coords)
+    lim = amount / 2.0
+    sx = max(-lim, min(lim, cx - 0.5))
+    sy = max(-lim, min(lim, cy - 0.5))
+    ortho = fit["ortho_scale"]
+    loc = tuple(fit["location"][i] + right[i] * sx * ortho + up[i] * sy * ortho / aspect for i in range(3))
+    return ({"location": tuple(fit["location"]), "ortho_scale": ortho},
+            {"location": loc, "ortho_scale": ortho * (1.0 - amount)})

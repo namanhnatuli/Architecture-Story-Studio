@@ -318,11 +318,13 @@ def build_strategy(name, ctx):
     def ids_of(tg):
         return sorted({i for t in tg for i in t["component_ids"]})
 
-    def hold(sid, tg, mode, focus=None, label=None, glow=None, shot_band=None, glow_start=None):
+    def hold(sid, tg, mode, focus=None, label=None, glow=None, shot_band=None, glow_start=None, move=None):
         ids = ids_of(tg) if glow is None else glow
 
         def make(n):
             anim = {"template": "HOLD", "state": sid}
+            if move:   # M7: slow push-in (no anchored annotations on this shot)
+                anim["camera_move"] = dict(move)
             if ids:
                 support(sid, "HIGHLIGHT")
                 anim["highlight"] = _pulse(ids, n / fps, m["highlight"], glow_start)
@@ -349,10 +351,35 @@ def build_strategy(name, ctx):
             cap = "FORCE_DIAGRAM" if beat["narrative_intent"] == "EXPLAIN_CAUSE_EFFECT" else "MAP_OR_IMAGERY"
             raise StrategyRejected("MISSING_TEMPLATE", intents.MISSING_CAPABILITIES[cap][0], cap)
 
+        spans = ctx["sentence_offsets"] or []
+        lead = ctx["annotation_lead"]
+        graphic = {k: v for k, v in g.items() if k != "elements"}
+        graphic["elements"] = []
+        words = ctx.get("word_offsets") or []
+        for e in g["elements"]:   # M7: element timing by sentence (measured when AUDIO_LOCKED), or by word
+            e = dict(e)
+            word = e.pop("word", None)
+            for key, field in (("sentence", "appear"), ("until", "disappear")):
+                if key in e:
+                    k = e.pop(key)
+                    if not isinstance(k, int) or not 0 <= k < len(spans):
+                        raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: {key} {k!r} is not a "
+                                               f"sentence of the beat (0..{len(spans) - 1})")
+                    t = spans[k][0]
+                    if key == "sentence" and word:   # the aligned moment the word is spoken
+                        hits = [x for x in (words[k] if k < len(words) else []) if x[0] == T.norm_word(word)]
+                        if not hits:
+                            raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: word {word!r} "
+                                                   f"has no aligned timestamp in sentence {k} (run align)")
+                        t = hits[0][1]
+                    e[field] = round(max(0.0, t - lead), 4)
+            graphic["elements"].append(e)
+
         def make(n):
             return {"id": "PLAN", "duration_seconds": n / fps, "visual_type": "MOTION_GRAPHICS", "transition": "CARD",
-                    "camera": "CARD", "graphic": g, "from_state": None, "to_state": None}
-        return [Draft("MOTION_GRAPHICS", "CARD", make, 1.0, [], [], "2D card supplied by the beat")]
+                    "camera": "CARD", "graphic": graphic, "from_state": None, "to_state": None}
+        return [Draft("MOTION_GRAPHICS", "CARD", make, 1.0, [], [], "2D card supplied by the beat"
+                      + (f" ({len(graphic['elements'])} elements)" if graphic["elements"] else ""))]
 
     if name in ("HOLD", "HOLD_HIGHLIGHT"):
         need_states(1)
@@ -368,9 +395,11 @@ def build_strategy(name, ctx):
             if not 0 <= k < len(spans):
                 raise StrategyRejected("INVALID_REQUEST", f"highlight_at_sentence {k} is not a sentence of the beat")
             glow_start = max(m["highlight"]["start"], spans[k][0] - 0.2)
-        return [Draft("HOLD", mode, hold(sid, tg, mode, glow_start=glow_start), w["HOLD"], [sid], tg,
+        move = beat.get("camera_move")
+        return [Draft("HOLD", mode, hold(sid, tg, mode, glow_start=glow_start, move=move), w["HOLD"], [sid], tg,
                       f"hold {sid}" + (f", glowing {', '.join(t['concept'] for t in tg)}" if tg else "")
-                      + (f" from sentence {k}" if glow_start is not None else ""))]
+                      + (f" from sentence {k}" if glow_start is not None else "")
+                      + (f"; slow push-in ({move.get('amount', 0.1):.0%})" if move else ""))]
 
     if name == "ASSEMBLE_IN":
         need_states(1)
@@ -733,6 +762,7 @@ def _plan_pass(project_dir, root, vocab, excluded):
     model.set_base(families)
     windows = T.beat_windows(doc, project_dir, cfg["timing"])
     offsets = T.sentence_offsets(doc, project_dir, cfg["timing"])
+    word_times = T.word_offsets(doc, project_dir)
     caption_top = doc["timing_mode"] == "AUDIO_LOCKED"   # narrated: the bottom of the frame is for subtitles
     presets = CAM.style_presets(root)
 
@@ -800,7 +830,8 @@ def _plan_pass(project_dir, root, vocab, excluded):
                ("bridge" if site_concept else model.family) or "bridge":
                CAM.preset_for(cfg, model.context_of.get(sid, fam) if sid else fam, mode),
                "presets": presets, "state_of": state_of, "sentence_offsets": offsets.get(bid),
-               "caption_top": caption_top}
+               "word_offsets": word_times.get(bid),
+               "caption_top": caption_top, "annotation_lead": AL.load_style()["timing"]["appear_lead_seconds"]}
         names = [beat["strategy"]] if beat.get("strategy") else intents.INTENTS[intent]["strategies"]
         if beat.get("strategy") and beat["strategy"] not in intents.STRATEGIES:
             cov.update(status="INVALID_REQUEST")
@@ -884,7 +915,7 @@ def _plan_pass(project_dir, root, vocab, excluded):
             beat_t += n
         cov["semantic_targets"] = sorted({t["concept"] for d in drafts for t in d.targets})
         last = plan_shots[-1]
-        prev_end_state = last["states"][-1] if last["template"] != "SIDE_BY_SIDE" else None
+        prev_end_state = last["states"][-1] if last["template"] != "SIDE_BY_SIDE" and last["states"] else None
         prev_compare = ({"states": last["states"], "cand": {k: last["shot"]["animation"][k] for k in
                                                            ("layout", "gap_ratio", "label_band")}
                          | {"metrics": (last["composition"] or {}).get("metrics")}}
@@ -934,7 +965,8 @@ def _plan_pass(project_dir, root, vocab, excluded):
             if unc:
                 warnings.append(f"{ps['shot_id']} {', '.join(sorted(set(unc)))}: visibility UNCERTAIN offline "
                                 "(proxy geometry or few samples): verify in Blender (verify-visibility)")
-    _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows, presets, fps, caption_top, warnings)
+    _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows, presets, fps, caption_top, warnings,
+              word_times=word_times)
     checks = consistency.check_plan({"shots": plan_shots}, doc, offsets, AL.load_style(root / "config/annotation_style.json"))
     cov_by = {c["beat_id"]: c for c in coverage}
     for r in checks:   # M6: narration that contradicts the picture blocks the plan (fail closed)
@@ -969,7 +1001,8 @@ def _plan_pass(project_dir, root, vocab, excluded):
             "pieces_concepts": sorted(k for k, c in vocab.concepts.items() if c.get("read_as") == "pieces")}, replan
 
 
-def _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows, presets, fps, caption_top, warnings):
+def _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows, presets, fps, caption_top, warnings,
+              word_times=None):
     """M6: semantic annotations of every planned beat (planner/annotations.py); a beat whose
     annotations cannot be attached, anchored or placed is not executable (fail closed)."""
     if not any(b.get("annotations") for b in doc["beats"]):
@@ -984,7 +1017,8 @@ def _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows
         shots = [(ps, ps["timing"]["beat_offset_seconds"]) for ps in plan_shots if ps["beat_id"] == beat["beat_id"]]
         seconds = sum(ps["timing"]["frames"] for ps, _ in shots) / fps
         records, issues = annotations.plan_beat(beat, shots, offsets[beat["beat_id"]], seconds, model, vocab, sources,
-                                                style, presets, fps, caption_top, match_after)
+                                                style, presets, fps, caption_top, match_after,
+                                                words=(word_times or {}).get(beat["beat_id"]))
         cov["annotations"] = records
         cov["annotation_failures"] = sum(1 for r in records if r["status"] != "PLACED")
         if issues:
@@ -1000,7 +1034,10 @@ def _continuity(plan_shots, model):
     group, prev = 0, None
     for ps in plan_shots:
         single = ps["template"] not in ("SIDE_BY_SIDE", "MOTION_GRAPHICS")
-        if prev is not None and ps.get("sequence") and prev.get("sequence") == ps["sequence"]:
+        if prev is not None and (prev["shot"].get("animation") or {}).get("camera_move"):
+            cut = "hard"    # M7: after a push-in the view is closer than the locked framing
+            group += 1
+        elif prev is not None and ps.get("sequence") and prev.get("sequence") == ps["sequence"]:
             cut = "hard"    # next model of a sequential comparison: same locked camera, new state
         elif prev is not None and single and prev["template"] not in ("SIDE_BY_SIDE", "MOTION_GRAPHICS") and \
                 prev["camera"]["preset"] == ps["camera"]["preset"] and prev["camera"]["focus"] == ps["camera"]["focus"] \

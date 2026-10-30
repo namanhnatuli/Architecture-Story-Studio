@@ -1,0 +1,32 @@
+{
+  "note": "Source downloads used to verify research/sources.json. The files themselves are not committed (size / third-party copyright); re-download from the URLs and compare the SHA256, then run build_sources.py with M7_SOURCE_SNAPSHOTS pointing at the folder.",
+  "snapshots": [
+    {
+      "file": "nchrp/nchrp_25-25-15.pdf",
+      "url": "https://onlinepubs.trb.org/onlinepubs/archive/notesdocs/25-25(15)_FR.pdf",
+      "bytes": 11101464,
+      "sha256": "c7b437b67745ce7325e265e719feae798a5432b23cbd9fe65259d10dc2073eaa",
+      "downloaded": "2026-10-29",
+      "text": "nchrp/nchrp.txt",
+      "extraction": "pdftotext -layout"
+    },
+    {
+      "file": "web/asce_bollman.html",
+      "url": "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/bollman-truss-bridge",
+      "bytes": 131589,
+      "sha256": "7e5eef68ede193e8519a47b60052bb0a2cf0a811ae83dbcf0b65f022d0fbdad7",
+      "downloaded": "2026-10-29",
+      "text": "web/asce_bollman.txt",
+      "extraction": "HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "file": "web/yale_6.html",
+      "url": "https://teachersinstitute.yale.edu/curriculum/units/2001/5/01.05.08/6",
+      "bytes": 45422,
+      "sha256": "6ea10c5f54156a7e73899885389d7e2180a73d6abfcae809e3c96ac77ad174b0",
+      "downloaded": "2026-10-29",
+      "text": "web/yale_6.txt",
+      "extraction": "HTML tags stripped, entities unescaped, whitespace collapsed"
+    }
+  ]
+}

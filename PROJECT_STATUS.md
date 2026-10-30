@@ -1,5 +1,36 @@
 # Current project status
 
+- Phase: **M7: phim tài liệu dài đầu tiên. Xong về kỹ thuật (2026-10-30), chưa sẵn sàng xuất bản.** Nhánh `m7-first-full-documentary`, chưa merge, chưa push.
+- **Phim `why-bridges-look-different`** "Why Bridges Don't All Look the Same":
+  - 10,77 phút (646,46 s, 15.515 frame); 8 chương, 39 beat, 103 câu (1320 từ), 47 shot;
+  - hình trộn: 3D (giữ, tách lớp, thay bộ phận, push-in, cạnh nhau), sơ đồ, bản đồ sơ lược, dòng thời gian, 4 ảnh HAER phạm vi công cộng;
+  - 12 nguồn, 42 claim `SOURCE_VERIFIED` (41 claim được lời dẫn dùng), **chưa claim nào được duyệt biên tập**;
+  - lời dẫn Kokoro `bm_george` (`PUBLICATION_CLEARED` ở mức provider), ASR đạt 103/103;
+  - QA Blender 577/577; media QA PASS; −16,0 LUFS; 145 câu phụ đề; QA phim dài PASS (2 cảnh báo có chủ ý).
+- **Trạng thái:** `TECHNICALLY_VALIDATED` · `EDITORIAL_REVIEW_PENDING` · `TTS_RIGHTS_PENDING`. G6 BLOCKED. Kết luận: INTERNAL PREVIEW — NOT PUBLICATION-READY.
+- **Đầu ra** (không commit; `projects/why-bridges-look-different/output/`):
+  - `why_bridges_look_different_documentary_INTERNAL_REVIEW_review.mp4` (960×540) + `.en.srt`;
+  - rough cut 640×360;
+  - 8 chương MP4/SRT/WAV (`chapters_review/`);
+  - master audio;
+  - 47 still 1080p (`stills_production_test/`).
+- **Thử giọng Anh–Mỹ (2026-10-30):** 20 giọng (11 nữ, 9 nam) đã kiểm hash, file nghe ở `review/voice_audition_us/`. Chỉ dùng để nghe; lời dẫn vẫn dùng `bm_george`.
+- Tài liệu: `docs/m7/` (kiến trúc, QA, hiệu năng, tái lập, bàn giao).
+
+## Việc người dùng cần quyết định (M7)
+1. Duyệt 41 claim theo `review/EDITORIAL_APPROVAL_PACKAGE.md` (gồm 2 dòng nhất quán lời/hình đang UNCERTAIN), rồi đặt `factual_review: verified`.
+2. Xác nhận quyền Kokoro/`bm_george` áp dụng cho phim này (`voice.license.owner_confirmation_for_this_film`), hoặc chọn một giọng Anh–Mỹ. Đổi giọng thì phải render lại toàn phim.
+3. Nghe phát âm 16 thuật ngữ và tên riêng (`review/PRONUNCIATION_REVIEW.md`). ASR nghe "Bollman" thành "Bowman" và "Corinne" thành "Kareen".
+4. Dòng "Narration: AI-generated voice (Kokoro-82M, voice bm_george)" trên card ghi công B35: giữ, rút gọn, hay chỉ ghi trong mô tả.
+5. Sau khi duyệt: chuyển profile sang `PUBLICATION_CANDIDATE` + `publication_metadata`; video 1080p cần preset `final` (G6 sẽ mở khi đủ duyệt).
+
+## Lệnh tái tạo M7
+Xem `docs/m7/REPRODUCIBILITY.md` (lệnh đầy đủ + kế hoạch kiểm tra build sạch).
+
+---
+
+## M6 (đã xong, 2026-10-29)
+
 - Phase: **M6: phim tài liệu có lời dẫn. Xong (2026-10-29).** Nhánh `m6-narrated-documentary` đã merge fast-forward vào `master` theo yêu cầu của chủ kênh (repo không có remote, không push).
 - **Quyết định của chủ kênh (Tran Nam Anh), 2026-10-29:** cấp quyền xuất bản cho Kokoro; duyệt 14 claim (narration `m6-r2`); chấp nhận phát âm; giọng `bm_george`. Mọi gate G0–G6 + GV PASS. Profile vẫn `NARRATED_INTERNAL_REVIEW`: cần chuyển sang `PUBLICATION_CANDIDATE` + `publication_metadata` để đánh giá PUBLICATION_READY.
 - **Pilot `bridge-load-explained`** "How Does a Bridge Carry Its Load?":

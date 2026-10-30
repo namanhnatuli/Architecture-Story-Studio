@@ -1,0 +1,1007 @@
+{
+  "passage": [
+    {
+      "beat": "B02",
+      "sentence": 0,
+      "text": "So why don't bridges all look the same?"
+    },
+    {
+      "beat": "B10",
+      "sentence": 1,
+      "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown."
+    },
+    {
+      "beat": "B28",
+      "sentence": 2,
+      "text": "This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad."
+    }
+  ],
+  "params": {
+    "speed": 1.0,
+    "seed": 0,
+    "lang_code": "a (af_/am_) or b (bf_/bm_)"
+  },
+  "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+  "ranking_rule": "VOICES.md overall grade, then max ASR WER, then |wpm - 160|, then level spread",
+  "ranking": [
+    "af_heart",
+    "af_bella",
+    "af_nicole",
+    "am_puck",
+    "am_fenrir",
+    "af_aoede",
+    "af_kore",
+    "af_sarah",
+    "am_michael",
+    "af_nova",
+    "af_alloy",
+    "bm_george",
+    "af_sky",
+    "am_eric",
+    "af_jessica",
+    "af_river",
+    "am_liam",
+    "am_onyx",
+    "am_echo",
+    "am_santa",
+    "am_adam"
+  ],
+  "provisional_technical_default": "af_heart",
+  "user_selection": {
+    "voice": "bm_george",
+    "selected_by": "Tran Nam Anh (channel owner, in-session instruction)",
+    "selected_on": "2026-10-29",
+    "basis": "channel voice choice (bridge-load-explained voice audition)",
+    "scope": "channel voice; reused unchanged for M7"
+  },
+  "voices": {
+    "af_alloy": {
+      "voice_sha256": "6d877149dd8b348fbad12e5845b7e43d975390e9f3b68a811d1d86168bef5aa3",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "MM minutes",
+      "overall_grade": "C",
+      "speech_seconds": 15.75,
+      "with_pauses_seconds": 16.55,
+      "wpm": 141.0,
+      "mean_db": [
+        -24.7,
+        -25.5,
+        -26.1
+      ],
+      "peak_db": [
+        -4.1,
+        -5.9,
+        -4.5
+      ],
+      "level_spread_db": 1.4,
+      "generation_seconds": 4.8,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_alloy.wav",
+        "m4a": "review/voice_audition_us/af_alloy.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_aoede": {
+      "voice_sha256": "c03bd1a4c3716c2d8eaa3d50022f62d5c31cfbd6e15933a00b17fefe13841cc4",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "H hours",
+      "overall_grade": "C+",
+      "speech_seconds": 15.05,
+      "with_pauses_seconds": 15.85,
+      "wpm": 147.5,
+      "mean_db": [
+        -21.3,
+        -21.3,
+        -21.3
+      ],
+      "peak_db": [
+        -3.0,
+        -3.9,
+        -4.5
+      ],
+      "level_spread_db": 0.0,
+      "generation_seconds": 1.23,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_aoede.wav",
+        "m4a": "review/voice_audition_us/af_aoede.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Corrine, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_bella": {
+      "voice_sha256": "8cb64e02fcc8de0327a8e13817e49c76c945ecf0052ceac97d3081480e8e48d6",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "A",
+      "training_duration": "HH hours",
+      "overall_grade": "A-",
+      "speech_seconds": 16.25,
+      "with_pauses_seconds": 17.05,
+      "wpm": 136.6,
+      "mean_db": [
+        -26.6,
+        -26.0,
+        -25.0
+      ],
+      "peak_db": [
+        -9.6,
+        -7.7,
+        -7.3
+      ],
+      "level_spread_db": 1.6,
+      "generation_seconds": 1.21,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_bella.wav",
+        "m4a": "review/voice_audition_us/af_bella.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voossoirs, with a keystone at the crown.",
+          "wer": 0.0667
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_heart": {
+      "voice_sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": null,
+      "training_duration": "",
+      "overall_grade": "A",
+      "speech_seconds": 14.85,
+      "with_pauses_seconds": 15.65,
+      "wpm": 149.5,
+      "mean_db": [
+        -26.5,
+        -26.4,
+        -26.1
+      ],
+      "peak_db": [
+        -9.9,
+        -9.1,
+        -7.4
+      ],
+      "level_spread_db": 0.4,
+      "generation_seconds": 1.08,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_heart.wav",
+        "m4a": "review/voice_audition_us/af_heart.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_jessica": {
+      "voice_sha256": "cdfdccb8cc975aa34ee6b89642963b0064237675de0e41a30ae64cc958dd4e87",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "C",
+      "training_duration": "MM minutes",
+      "overall_grade": "D",
+      "speech_seconds": 13.75,
+      "with_pauses_seconds": 14.55,
+      "wpm": 161.5,
+      "mean_db": [
+        -24.8,
+        -25.2,
+        -25.6
+      ],
+      "peak_db": [
+        -5.4,
+        -7.4,
+        -5.1
+      ],
+      "level_spread_db": 0.8,
+      "generation_seconds": 1.01,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_jessica.wav",
+        "m4a": "review/voice_audition_us/af_jessica.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_kore": {
+      "voice_sha256": "8bfbc512321c3db49dff984ac675fa5ac7eaed5a96cc31104d3a9080e179d69d",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "H hours",
+      "overall_grade": "C+",
+      "speech_seconds": 15.275,
+      "with_pauses_seconds": 16.075,
+      "wpm": 145.3,
+      "mean_db": [
+        -22.3,
+        -21.9,
+        -21.8
+      ],
+      "peak_db": [
+        -6.4,
+        -5.3,
+        -6.8
+      ],
+      "level_spread_db": 0.5,
+      "generation_seconds": 1.23,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_kore.wav",
+        "m4a": "review/voice_audition_us/af_kore.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called veussoirs with a keystone at the crown.",
+          "wer": 0.0667
+        },
+        {
+          "text": "This timber trestle near Corrine, Utah was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_nicole": {
+      "voice_sha256": "c5561808bcf5250fe8c5f5de32caf2d94f27e57e95befdb098c5c85991d4c5da",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "HH hours",
+      "overall_grade": "B-",
+      "speech_seconds": 21.65,
+      "with_pauses_seconds": 22.45,
+      "wpm": 102.5,
+      "mean_db": [
+        -25.6,
+        -26.2,
+        -26.1
+      ],
+      "peak_db": [
+        -4.3,
+        -7.5,
+        -6.0
+      ],
+      "level_spread_db": 0.6,
+      "generation_seconds": 1.78,
+      "speech_check_failures": [
+        "af_nicole.s2.wav: 1.432 words/s is outside 1.5-4.5; generation is likely truncated or garbled"
+      ],
+      "files": {
+        "wav": "review/voice_audition_us/af_nicole.wav",
+        "m4a": "review/voice_audition_us/af_nicole.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called foossoirs, with a keystone at the crown.",
+          "wer": 0.0667
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_nova": {
+      "voice_sha256": "e0233676ddc21908c37a1f102f6b88a59e4e5c1bd764983616eb9eda629dbcd2",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "MM minutes",
+      "overall_grade": "C",
+      "speech_seconds": 15.275,
+      "with_pauses_seconds": 16.075,
+      "wpm": 145.3,
+      "mean_db": [
+        -29.8,
+        -30.5,
+        -30.9
+      ],
+      "peak_db": [
+        -12.6,
+        -12.4,
+        -12.3
+      ],
+      "level_spread_db": 1.1,
+      "generation_seconds": 1.11,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_nova.wav",
+        "m4a": "review/voice_audition_us/af_nova.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_river": {
+      "voice_sha256": "e149459bd9c084416b74756b9bd3418256a8b839088abb07d463730c369dab8f",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "C",
+      "training_duration": "MM minutes",
+      "overall_grade": "D",
+      "speech_seconds": 14.05,
+      "with_pauses_seconds": 14.85,
+      "wpm": 158.0,
+      "mean_db": [
+        -24.4,
+        -24.9,
+        -25.2
+      ],
+      "peak_db": [
+        -6.7,
+        -4.7,
+        -5.7
+      ],
+      "level_spread_db": 0.8,
+      "generation_seconds": 1.05,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_river.wav",
+        "m4a": "review/voice_audition_us/af_river.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_sarah": {
+      "voice_sha256": "49bd364ea3be9eb3e9685e8f9a15448c4883112a7c0ff7ab139fa4088b08cef9",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "H hours",
+      "overall_grade": "C+",
+      "speech_seconds": 16.325,
+      "with_pauses_seconds": 17.125,
+      "wpm": 136.0,
+      "mean_db": [
+        -24.9,
+        -24.7,
+        -24.7
+      ],
+      "peak_db": [
+        -6.8,
+        -5.1,
+        -6.1
+      ],
+      "level_spread_db": 0.2,
+      "generation_seconds": 1.19,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_sarah.wav",
+        "m4a": "review/voice_audition_us/af_sarah.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Corrine, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "af_sky": {
+      "voice_sha256": "c799548aed06e0cb0d655a85a01b48e7f10484d71663f9a3045a5b9362e8512c",
+      "accent": "American English",
+      "gender": "female",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "_M minutes_ 🤏",
+      "overall_grade": "C-",
+      "speech_seconds": 15.525,
+      "with_pauses_seconds": 16.325,
+      "wpm": 143.0,
+      "mean_db": [
+        -27.0,
+        -27.3,
+        -27.7
+      ],
+      "peak_db": [
+        -8.3,
+        -8.3,
+        -6.8
+      ],
+      "level_spread_db": 0.7,
+      "generation_seconds": 1.11,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/af_sky.wav",
+        "m4a": "review/voice_audition_us/af_sky.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Corrine, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_adam": {
+      "voice_sha256": "ced7e284aba12472891be1da3ab34db84cc05cc02b5889535796dbf2d8b0cb34",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "D",
+      "training_duration": "H hours",
+      "overall_grade": "F+",
+      "speech_seconds": 15.375,
+      "with_pauses_seconds": 16.175,
+      "wpm": 144.4,
+      "mean_db": [
+        -21.9,
+        -21.8,
+        -22.0
+      ],
+      "peak_db": [
+        -3.5,
+        -3.2,
+        -3.0
+      ],
+      "level_spread_db": 0.2,
+      "generation_seconds": 1.12,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_adam.wav",
+        "m4a": "review/voice_audition_us/am_adam.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_echo": {
+      "voice_sha256": "8bcfdc852bc985fb45c396c561e571ffb9183930071f962f1b50df5c97b161e8",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "C",
+      "training_duration": "MM minutes",
+      "overall_grade": "D",
+      "speech_seconds": 15.95,
+      "with_pauses_seconds": 16.75,
+      "wpm": 139.2,
+      "mean_db": [
+        -25.1,
+        -26.0,
+        -26.3
+      ],
+      "peak_db": [
+        -7.4,
+        -9.1,
+        -6.4
+      ],
+      "level_spread_db": 1.2,
+      "generation_seconds": 1.16,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_echo.wav",
+        "m4a": "review/voice_audition_us/am_echo.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_eric": {
+      "voice_sha256": "ada66f0eefff34ec921b1d7474d7ac8bec00cd863c170f1c534916e9b8212aae",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "C",
+      "training_duration": "MM minutes",
+      "overall_grade": "D",
+      "speech_seconds": 13.875,
+      "with_pauses_seconds": 14.675,
+      "wpm": 160.0,
+      "mean_db": [
+        -24.4,
+        -24.6,
+        -25.0
+      ],
+      "peak_db": [
+        -9.6,
+        -9.9,
+        -8.9
+      ],
+      "level_spread_db": 0.6,
+      "generation_seconds": 1.07,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_eric.wav",
+        "m4a": "review/voice_audition_us/am_eric.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_fenrir": {
+      "voice_sha256": "98e507eca1db08230ae3b6232d59c10aec9630022d19accac4f5d12fcec3c37a",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "H hours",
+      "overall_grade": "C+",
+      "speech_seconds": 14.95,
+      "with_pauses_seconds": 15.75,
+      "wpm": 148.5,
+      "mean_db": [
+        -22.7,
+        -22.6,
+        -22.5
+      ],
+      "peak_db": [
+        -1.2,
+        -3.8,
+        -0.7
+      ],
+      "level_spread_db": 0.2,
+      "generation_seconds": 1.11,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_fenrir.wav",
+        "m4a": "review/voice_audition_us/am_fenrir.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Corrine, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_liam": {
+      "voice_sha256": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "C",
+      "training_duration": "MM minutes",
+      "overall_grade": "D",
+      "speech_seconds": 14.475,
+      "with_pauses_seconds": 15.275,
+      "wpm": 153.4,
+      "mean_db": [
+        -24.9,
+        -25.2,
+        -25.4
+      ],
+      "peak_db": [
+        -7.7,
+        -8.3,
+        -7.8
+      ],
+      "level_spread_db": 0.5,
+      "generation_seconds": 1.07,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_liam.wav",
+        "m4a": "review/voice_audition_us/am_liam.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_michael": {
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "H hours",
+      "overall_grade": "C+",
+      "speech_seconds": 17.0,
+      "with_pauses_seconds": 17.8,
+      "wpm": 130.6,
+      "mean_db": [
+        -27.6,
+        -27.6,
+        -27.9
+      ],
+      "peak_db": [
+        -8.7,
+        -8.7,
+        -7.6
+      ],
+      "level_spread_db": 0.3,
+      "generation_seconds": 1.34,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_michael.wav",
+        "m4a": "review/voice_audition_us/am_michael.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voossoirs with a keystone at the crown.",
+          "wer": 0.0667
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_onyx": {
+      "voice_sha256": "e8452be16cd0f6da7b4579eaf7b1e4506e92524882053d86d72b96b9a7fed584",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "C",
+      "training_duration": "MM minutes",
+      "overall_grade": "D",
+      "speech_seconds": 15.475,
+      "with_pauses_seconds": 16.275,
+      "wpm": 143.5,
+      "mean_db": [
+        -25.1,
+        -25.9,
+        -26.8
+      ],
+      "peak_db": [
+        -5.9,
+        -6.3,
+        -6.2
+      ],
+      "level_spread_db": 1.7,
+      "generation_seconds": 1.13,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_onyx.wav",
+        "m4a": "review/voice_audition_us/am_onyx.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called bussoirs with a keystone at the crown.",
+          "wer": 0.0667
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_puck": {
+      "voice_sha256": "dd1d8973f4ce4b7d8ae407c77a435f485dabc052081b80ea75c4f30b84f36223",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "B",
+      "training_duration": "H hours",
+      "overall_grade": "C+",
+      "speech_seconds": 14.825,
+      "with_pauses_seconds": 15.625,
+      "wpm": 149.7,
+      "mean_db": [
+        -22.0,
+        -21.8,
+        -22.4
+      ],
+      "peak_db": [
+        -3.6,
+        -3.1,
+        -1.9
+      ],
+      "level_spread_db": 0.6,
+      "generation_seconds": 1.1,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_puck.wav",
+        "m4a": "review/voice_audition_us/am_puck.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called veussoirs with a keystone at the crown.",
+          "wer": 0.0667
+        },
+        {
+          "text": "This timber trestle near Corrine, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "am_santa": {
+      "voice_sha256": "7f2f7582fa2b1f160e90aafe6d0b442a685e773608b6667e545d743b073e97a7",
+      "accent": "American English",
+      "gender": "male",
+      "lang_code": "a",
+      "audited_for_narration": false,
+      "target_quality": "C",
+      "training_duration": "_M minutes_ 🤏",
+      "overall_grade": "D-",
+      "speech_seconds": 15.625,
+      "with_pauses_seconds": 16.425,
+      "wpm": 142.1,
+      "mean_db": [
+        -25.4,
+        -25.7,
+        -25.9
+      ],
+      "peak_db": [
+        -7.6,
+        -7.1,
+        -5.0
+      ],
+      "level_spread_db": 0.5,
+      "generation_seconds": 1.14,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/am_santa.wav",
+        "m4a": "review/voice_audition_us/am_santa.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    },
+    "bm_george": {
+      "voice_sha256": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
+      "accent": "British English",
+      "gender": "male",
+      "lang_code": "b",
+      "audited_for_narration": true,
+      "target_quality": "B",
+      "training_duration": "MM minutes",
+      "overall_grade": "C",
+      "speech_seconds": 16.85,
+      "with_pauses_seconds": 17.65,
+      "wpm": 131.8,
+      "mean_db": [
+        -24.6,
+        -24.7,
+        -24.7
+      ],
+      "peak_db": [
+        -7.6,
+        -9.7,
+        -6.4
+      ],
+      "level_spread_db": 0.1,
+      "generation_seconds": 1.96,
+      "speech_check_failures": [],
+      "files": {
+        "wav": "review/voice_audition_us/bm_george.wav",
+        "m4a": "review/voice_audition_us/bm_george.m4a"
+      },
+      "asr": [
+        {
+          "text": "So why don't bridges all look the same?",
+          "wer": 0.0
+        },
+        {
+          "text": "It is built from wedge-shaped stones called voussoirs with a keystone at the crown.",
+          "wer": 0.0
+        },
+        {
+          "text": "This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad.",
+          "wer": 0.0667
+        }
+      ],
+      "max_wer": 0.0667
+    }
+  },
+  "measured_utc": "2026-10-30T12:26:04Z"
+}

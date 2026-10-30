@@ -201,6 +201,9 @@ def _evaluate_narrated(p, preset_suffix=""):
     pending_pron = [f"{eid} ({entries[eid]['written']}) {entries[eid].get('status')}"
                     for eid in pron.used_entries(narration, lexicon, provider)
                     if entries[eid].get("status") != "CONFIRMED"]
+    review = (narration.get("voice") or {}).get("pronunciation_review") or {}
+    if review.get("status") == "PENDING":   # M7: new names not yet heard by the owner
+        pending_pron.append(f"voice.pronunciation_review PENDING ({len(review.get('terms', []))} terms)")
     if any(s in (None, "REJECTED", "PROVISIONAL", "provisional") for s in statuses.values()):
         g1 = ("FAIL", [f"{c}: {s}" for c, s in statuses.items() if s not in ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED")])
     elif all(s == "EDITORIALLY_APPROVED" for s in statuses.values()) and project.get("factual_review") == "verified" \
@@ -222,13 +225,16 @@ def _evaluate_narrated(p, preset_suffix=""):
     tech_ok = bool(asr) and all(asr)
     registry = providers.load_registry()
     rights_errors = publication_audio_errors(p, narration, registry, {"entries": []})  # pronunciation is G1
-    licence = ((narration.get("voice") or {}).get("license") or {}).get("status")
-    rights_ok = not rights_errors and licence == "APPROVED"
+    lic = (narration.get("voice") or {}).get("license") or {}
+    licence = lic.get("status")
+    film_pending = lic.get("owner_confirmation_for_this_film") == "PENDING"   # M7: provider clearance not yet confirmed for this film
+    rights_ok = not rights_errors and licence == "APPROVED" and not film_pending
     classes = sorted({r.get("rights_class") or "UNKNOWN" for r in recs})
     gates["G2 narration audio & TTS rights"] = (
         "PASS" if tech_ok and rights_ok else ("BLOCKED_RIGHTS" if tech_ok else "FAIL"),
         [f"{len(asr)} sentences generated + ASR-verified" if tech_ok else "ASR check missing/failing",
-         f"provider {provider}: rights class {', '.join(classes) or 'n/a'}; voice licence {licence}"]
+         f"provider {provider}: rights class {', '.join(classes) or 'n/a'}; voice licence {licence}"
+         + ("; owner confirmation for this film PENDING" if film_pending else "")]
         + rights_errors[:2])
 
     timing = _read(p / "script/timing.json") or {}
@@ -253,6 +259,19 @@ def _evaluate_narrated(p, preset_suffix=""):
         a["problems"] if a and a["problems"] else
         ([f"{a['frames']} frames, {a['loudness_after']['integrated_lufs']} LUFS, "
           f"{a.get('subtitle_entries')} subtitle cues"] if a else ["not assembled"]))
+    if project.get("chapters"):   # M7 long-form: chapters, silences, variety, image licences, attribution
+        import hashlib
+        lf = _read(p / "qa/longform_qa.json")
+        tpath = p / "script/timing.json"
+        lf_stale = bool(lf) and tpath.is_file() and lf.get("timing_sha256") != hashlib.sha256(tpath.read_bytes()).hexdigest()
+        failed = [f"{r['check']}: {r['detail']}" for r in (lf or {}).get("results", []) if r["status"] == "FAIL"]
+        gates["GL long-form chapters & rights"] = (
+            "PASS" if lf and not failed and not lf_stale else "FAIL",
+            ["long-form QA missing (run `chapters`)"] if not lf else
+            ["long-form QA is stale (run for a different timing)"] if lf_stale else
+            failed or [f"{len(lf['results'])} checks pass"
+                       + (f", {sum(r['status'] == 'WARN' for r in lf['results'])} warnings"
+                          if any(r["status"] == "WARN" for r in lf["results"]) else "")])
     final_errors, _ = validate_project(p, final=True)
     final_errors = [e for e in final_errors if e.startswith("FINAL gate")]
     others_pass = all(v[0] == "PASS" for v in gates.values())
@@ -260,7 +279,7 @@ def _evaluate_narrated(p, preset_suffix=""):
                                                final_errors or ["all gates pass"])
 
     flags = []
-    technical = all(gates[g][0] == "PASS" for g in gates if g.startswith(("G0", "G3", "G4", "G5"))) and tech_ok
+    technical = all(gates[g][0] == "PASS" for g in gates if g.startswith(("G0", "G3", "G4", "G5", "GL"))) and tech_ok
     if technical:
         flags.append("TECHNICALLY_VALIDATED")
     if g1[0] != "PASS":

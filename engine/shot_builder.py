@@ -236,6 +236,14 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                                  "ortho_scale": single["ortho_scale"]},
                        "end": {"location": tuple(fit["location"]), "ortho_scale": fit["ortho_scale"]}}
 
+    move = cfg.get("camera_move") if cfg["template"] == "HOLD" else None
+    if move:   # M7: slow push-in from the group's locked framing towards the focus parts
+        focus_ids = set(move.get("focus") or [])
+        pts = [p for name, obj in objects.items() if not obj.hide_render
+               and (not focus_ids or obj["component_id"] in focus_ids) for p in verts[name]]
+        start, end = framing.push_in_keys(fit, basis, aspect, pts, float(move.get("amount", 0.1)))
+        camera_keys = {"name": camera.name, "start": start, "end": end}
+
     slot_components = {sid: {cid: components[obj.name] for cid, obj in parts.items()}
                        for sid, parts in slots.items()}
     plan = templates.plan_shot(shot, states, fps, slot_components, camera_keys)
@@ -247,6 +255,9 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     fade_twins = {}
     if style.get("materials", {}).get("fade_render_method", "DITHERED") == "BLENDED":
         fade_twins = make_fade_twins(plan, objects, render_objects)
+    if annotations and move:   # M7: screen-fixed overlays ride with the pushing camera
+        annotation_rig(plan, annotations, camera, camera_keys, {**motion.CAMERA_MOVE_DEFAULTS, **move}["easing"],
+                       render_objects, next(iter(annotations.values()))[0].users_collection[0])
     if annotations:   # after the twins: annotation materials are blended already, no twin needed
         from engine import annotation_layout, annotations as ann_mod
         ann_mod.key_fades(plan, annotations, shot, fps, annotation_layout.load_style()["timing"]["fade_seconds"])
@@ -263,6 +274,30 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                        ground=ground, render_objects=render_objects, fade_twins=fade_twins,
                        camera_keys=camera_keys, labels=labels, annotations=annotations,
                        annotation_texts=annotation_texts)
+
+
+def annotation_rig(plan, annotations, camera, camera_keys, easing, render_objects, collection):
+    """Parent every annotation object to an empty at the camera, keyed with the camera's own move:
+    location as the camera, uniform scale = ortho(t) / ortho(start). Under an orthographic camera a
+    point's frame position is (camera-local offset) / ortho_scale, so the overlays keep their
+    frame position and size while the model is pushed in on (M7 push-in)."""
+    rig = bpy.data.objects.new("ANN_RIG", None)
+    collection.objects.link(rig)
+    rig.matrix_world = camera.matrix_world.copy()
+    inverse = rig.matrix_world.inverted()
+    for objs in annotations.values():
+        for obj in objs:
+            obj.parent = rig
+            obj.matrix_parent_inverse = inverse
+    start, end = camera_keys["start"], camera_keys["end"]
+    ratio = end["ortho_scale"] / start["ortho_scale"]
+    last = plan.frame_count
+    plan.key(rig.name, motion.LOC, 1, tuple(start["location"]), easing)
+    plan.key(rig.name, motion.LOC, last, tuple(end["location"]))
+    plan.key(rig.name, motion.SCALE, 1, (1.0, 1.0, 1.0), easing)
+    plan.key(rig.name, motion.SCALE, last, (ratio, ratio, ratio))
+    render_objects[rig.name] = rig
+    return rig
 
 
 def focus_motion_points(plan, objects, framed, depsgraph):

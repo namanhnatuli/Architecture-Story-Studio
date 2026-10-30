@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.7.0 — 2026-10-30 — M7: phim tài liệu dài đầu tiên, "Why Bridges Don't All Look the Same" (nhánh `m7-first-full-documentary`)
+- **Phim** `projects/why-bridges-look-different`: 10,77 phút, 8 chương, 39 beat, 103 câu, 47 shot.
+  - Hình trộn: 3D, sơ đồ, bản đồ sơ lược, dòng thời gian, 4 ảnh HAER phạm vi công cộng.
+  - Bản review 960×540, MP4 cho từng chương, rough cut 640×360, 47 still 1080p.
+  - Trạng thái INTERNAL REVIEW (`TECHNICALLY_VALIDATED`, `EDITORIAL_REVIEW_PENDING`, `TTS_RIGHTS_PENDING`).
+- **Nghiên cứu:** `research/build_sources.py` → 12 nguồn, 42 claim khớp nguyên văn (NCHRP 25-25(15), ASCE, Yale, FHWA, ODOT, SCI, HAER), kèm báo cáo nghiên cứu, ma trận bằng chứng và gói duyệt biên tập. Chưa claim nào được duyệt.
+- **Kịch bản một nguồn:** `script/story.py` sinh `narration.json`, `visual_beats.json` và `chapters.json`.
+- **Chương** (`pipeline/chapters.py`):
+  - validate (fail closed), dải shot/frame của từng chương, manifest kèm bằng chứng theo chương;
+  - QA phim dài với 17 kiểm tra; cổng GL;
+  - CLI `chapters` và `chapter --chapter Cn` (render + mã hóa + ghép + QA một chương, có WAV);
+  - mode `documentary`.
+- **Card 2D** (`engine/diagram.py`): phần tử rect/line/circle/polygon/image (vùng cắt, trôi chậm), `disappear`, tấm nền chữ. Planner lập kế hoạch thời lượng card (`templates.plan_card`). Phần tử card và chú thích hiện theo **từ được đọc** (word timestamp Whisper). QA `card_layout`: vùng an toàn, vùng phụ đề, chữ không chồng nhau.
+- **Ảnh ngoài:** hồ sơ quyền đầy đủ (`EXTERNAL_LICENSE_FIELDS` + `credit_keys` + SHA256). Validator từ chối ảnh thiếu hồ sơ, sai đường dẫn hoặc thiếu file. QA kiểm giấy phép và ghi công. Byte ảnh là đầu vào render.
+- **Camera và chú thích:**
+  - HOLD `camera_move` PUSH_IN; shot kế tiếp luôn cắt cứng;
+  - chú thích NOTE cố định trên màn hình;
+  - rig chú thích đi theo camera trong push-in (kênh `scale`, QA `overlays_screen_fixed`).
+- **Render:** khôi phục render bị ngắt cùng khóa cache (`render_progress.json`, kiểm PNG hoàn chỉnh, `--resume`). Mã hóa cả phim từ một chuỗi frame liên kết. Contact sheet giới hạn số ô. Hồ sơ quyền, chương và trạng thái claim không làm cũ frame.
+- **Âm thanh:** ASR dùng lại bản chép cho audio giống hệt. `narrate` không còn bị chặn khi beat của dự án audio-first đổi. Worker Kokoro giữ G2P riêng cho mỗi `lang_code`. Xuất master lời dẫn và audio từng chương. Tên file có `_INTERNAL_REVIEW` và metadata ghi rõ khi còn thiếu duyệt.
+- **Cổng:** G2 tôn trọng `owner_confirmation_for_this_film: PENDING`; G1 tôn trọng `pronunciation_review.status: PENDING`; GL bắt buộc cho dự án có chương.
+- **Thử giọng Anh–Mỹ:** `tools/kokoro_fetch_voices.py` + `tools/voice_audition.py --voices us`. 20 giọng đã kiểm hash, chỉ dùng để nghe.
+- **Công cụ:** `tools/longform_reports.py` (ma trận bằng chứng, gói duyệt, mô tả YouTube bản nháp, kiểm tra đa dạng hình, gói nghe phát âm), `tools/frame_times.py` (tốc độ render không tính lúc máy ngủ).
+- **Test:** 310 test đạt (290 offline + 20 Blender), gồm 60 test M7 mới có ca âm. Đánh giá planner 29/29.
+- **Phát hiện:** kiểm tra `card_layout` mới chỉ ra ghi chú chân trang của card `suffolk-roofs` SC_004 nằm dưới vùng an toàn từ M3. Chưa sửa vì dự án M3 giữ nguyên trạng thái.
+
 ## 0.6.1 — 2026-10-29 — M6: quyết định của chủ kênh
 - Giọng kênh `bm_george` (do người dùng chọn). Lời dẫn được sinh lại, 143.4 wpm. B1.s1 viết lại vì ASR nghe nhầm. Pilot dài 151.33 s.
 - Chủ kênh cấp quyền xuất bản cho Kokoro (`clearance` trong registry, `PUBLICATION_CLEARED`); license giọng APPROVED; 14 claim EDITORIALLY_APPROVED (narration `m6-r2`); phát âm được chấp nhận; `factual_review: verified`.

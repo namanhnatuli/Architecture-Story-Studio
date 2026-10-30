@@ -101,3 +101,13 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **Nhiều họ kiến trúc:** mỗi họ một scene context (`states.json` schema 3, `scene_context` trên shot). Dự án một họ phải giữ schema 2 giống hệt. Không đặt hai ngữ cảnh chung một khung hay một camera khóa.
 - **Quyết định của người** (agent không làm): duyệt giọng kênh, cấp quyền xuất bản Kokoro, duyệt claim, xác nhận phát âm, chuyển profile sang PUBLICATION_CANDIDATE.
 - Tài liệu: `docs/m6/M6_ARCHITECTURE.md`, `ANNOTATION_STYLE_GUIDE.md`, `M6_QA_REPORT.md`, `PERFORMANCE.md`.
+
+## Bổ sung M7 (2026-10-30): phim tài liệu dài (8–15 phút)
+- **Kịch bản một nguồn:** sửa `projects/<slug>/script/story.py`, rồi chạy nó để sinh lại `narration.json`, `visual_beats.json`, `chapters.json`. Không sửa tay ba file này. Mỗi sửa câu được ghi vào `narration.template.json` → `revision.edits`.
+- **Chương:** mode `documentary` bắt buộc có `project.chapters`. Mỗi chương là các beat liên tiếp, đúng thứ tự lời dẫn. Dùng `chapters` (manifest + QA phim dài, không cần Blender) và `chapter --chapter Cn` (render + ghép + QA một chương) trước khi render cả phim.
+- **Ảnh ngoài:** chỉ dùng khi có hồ sơ `origin: external` đầy đủ `EXTERNAL_LICENSE_FIELDS`, `credit_keys`, SHA256 và bằng chứng giấy phép kiểm được (không suy từ kết quả tìm kiếm, không fair use, không ảnh có watermark). Ghi công phải xuất hiện trên card hoặc trong mô tả.
+- **Mô hình cạnh cầu thật** phải mang NOTE "Illustrative model, not the …". Không bịa số (tải, ứng suất, nội lực, độ võng, hệ số an toàn, xếp hạng độ bền). Không kể chuyện tiến bộ tuyến tính, không nói một kiểu luôn tốt hơn.
+- **QA phim dài** (`qa/longform_qa.json`, cổng GL): sửa đoạn tĩnh và sự đơn điệu bằng nội dung (tách câu, NOTE theo câu, phần tử theo từ, push-in có lý do). Không nới ngưỡng. Không thêm người, máy móc hay cảnh phá hủy cho "sinh động".
+- **Render dài:** mỗi lúc một Blender. `render_progress.json` cho phép làm tiếp sau khi bị ngắt nếu khóa cache không đổi. Không render 4K. 1080p chỉ dùng cho still chọn lọc hoặc đoạn ngắn, khi đã có ước lượng dung lượng.
+- **Quyết định của người** (agent không làm): duyệt claim M7, xác nhận áp dụng quyền giọng cho phim, xác nhận phát âm tên mới, chuyển profile, đăng.
+- Tài liệu: `docs/m7/M7_ARCHITECTURE.md`, `M7_QA_REPORT.md`, `PERFORMANCE.md`, `M7_HANDOFF.md`.

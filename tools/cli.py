@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import shutil
@@ -122,13 +123,19 @@ def do_doctor():
 
 
 DOWNSTREAM_OF_NARRATION = ("timing lock is stale", "project duration differs from timing.json")
+# M7 audio-first: plan-visuals + build-shots rebuild the storyboard from the new narration beats
+DOWNSTREAM_OF_AUDIO_FIRST_NARRATION = DOWNSTREAM_OF_NARRATION + ("shots must cover every narration beat",
+                                                                 "Storyboard end", "timing manifest")
 
 
 def do_validate(p, final=False, before_narrate=False):
-    """`before_narrate`: ignore errors that `narrate` + `schedule` themselves resolve (stale timing lock)."""
+    """`before_narrate`: ignore errors that `narrate` + `schedule` themselves resolve (stale timing lock);
+    for an audio-first project also the storyboard's beat coverage, which plan-visuals rebuilds."""
     errors, warnings = validate_project(p, final)
     if before_narrate:
-        errors = [e for e in errors if not e.startswith(DOWNSTREAM_OF_NARRATION)]
+        downstream = DOWNSTREAM_OF_AUDIO_FIRST_NARRATION if (p / "script/visual_beats.json").is_file() \
+            else DOWNSTREAM_OF_NARRATION
+        errors = [e for e in errors if not e.startswith(downstream)]
     for msg in warnings:
         print("WARNING:", msg)
     for msg in errors:
@@ -155,33 +162,72 @@ def do_still(p, preset):
 
 
 # ---------------------------------------------------------------- shots
+PNG_END = b"\x00\x00\x00\x00IEND\xaeB`\x82"
+
+
+def complete_png(path):
+    """A frame Blender finished writing: PNG signature and a final IEND chunk."""
+    try:
+        with open(path, "rb") as f:
+            head = f.read(8)
+            f.seek(-12, 2)
+            return head == b"\x89PNG\r\n\x1a\n" and f.read(12) == PNG_END
+    except OSError:
+        return False
+
+
 def render_shot(p, shot, preset, force=False):
-    """Render one shot unless its visual inputs are unchanged (tools/render_cache.py categories)."""
+    """Render one shot unless its visual inputs are unchanged (tools/render_cache.py categories).
+
+    M7 recovery: render_progress.json records the cache key before Blender starts. If a render
+    of the same key was interrupted (power, sleep, kill), the complete frames are kept and only
+    the missing ones are rendered; a truncated last frame is deleted first."""
     from tools import render_cache
     sid = shot["id"]
     seq = p / "renders" / preset / sid
-    manifest_path = seq / "render_manifest.json"
+    manifest_path, progress_path = seq / "render_manifest.json", seq / "render_progress.json"
     parts = render_cache.components(p, shot, preset)
+    key, engine_hashes = render_cache.cache_key(parts), render_cache.engine_file_hashes()
     expected = expected_frames(p, shot)
     frames = sorted(seq.glob("frame_*.png"))
     manifest = read_json(manifest_path) if manifest_path.is_file() else None
-    reasons = render_cache.stale_reasons(manifest, parts, render_cache.engine_file_hashes())
+    reasons = render_cache.stale_reasons(manifest, parts, engine_hashes)
     if not force and not reasons and len(frames) == expected:
         print(f"CACHED: {sid} ({expected} frames, visual inputs unchanged)")
         return "cached"
-    print(f"RENDER: {sid} ({'forced' if force else '; '.join(reasons) or f'{len(frames)}/{expected} frames on disk'})")
-    for frame in frames:  # stale frames of this shot only, inside the project
-        frame.unlink()
-    run_logged(blender_command(p, "animation", preset, "--shot", sid), p / "qa" / f"render_{sid}_{preset}.log")
+    progress = read_json(progress_path) if progress_path.is_file() else None
+    resume = (not force and progress is not None and progress.get("cache_key") == key
+              and progress.get("frames") == expected)
+    if resume:
+        broken = [f for f in frames if not complete_png(f)]
+        extra = [f for f in frames if not f.name[6:10].isdigit() or not 1 <= int(f.name[6:10]) <= expected]
+        for frame in broken + extra:
+            frame.unlink()
+        kept = len(frames) - len(set(broken + extra))
+        print(f"RESUME: {sid} (interrupted render of the same inputs: {kept}/{expected} frames kept, "
+              f"{len(broken)} incomplete removed)")
+    else:
+        print(f"RENDER: {sid} ({'forced' if force else '; '.join(reasons) or f'{len(frames)}/{expected} frames on disk'})")
+        for frame in frames:  # stale frames of this shot only, inside the project
+            frame.unlink()
+    if manifest_path.is_file():
+        manifest_path.unlink()   # never leave a manifest that vouches for frames being replaced
+    seq.mkdir(parents=True, exist_ok=True)
+    progress_path.write_text(json.dumps({"shot": sid, "cache_key": key, "frames": expected,
+                                         "started_utc": datetime.now(timezone.utc).isoformat()}, indent=2))
+    run_logged(blender_command(p, "animation", preset, "--shot", sid, *(["--resume"] if resume else [])),
+               p / "qa" / f"render_{sid}_{preset}.log")
     frames = sorted(seq.glob("frame_*.png"))
-    if len(frames) != expected:
-        raise SystemExit(f"{sid}: expected {expected} frames, found {len(frames)}. See logs.")
+    if len(frames) != expected or not all(complete_png(f) for f in frames):
+        raise SystemExit(f"{sid}: expected {expected} complete frames, found {len(frames)}. See logs.")
     manifest_path.write_text(json.dumps({"shot": sid, "key_version": render_cache.KEY_VERSION,
-                                         "cache_key": render_cache.cache_key(parts), "components": parts,
-                                         "engine_files": render_cache.engine_file_hashes(), "frames": expected,
+                                         "cache_key": key, "components": parts,
+                                         "engine_files": engine_hashes, "frames": expected,
+                                         "resumed": resume,
                                          "rendered_utc": datetime.now(timezone.utc).isoformat()}, indent=2))
-    print(f"SUCCESS: {sid} {len(frames)} PNG frames")
-    return "rendered"
+    progress_path.unlink()
+    print(f"SUCCESS: {sid} {len(frames)} PNG frames{' (resumed)' if resume else ''}")
+    return "resumed" if resume else "rendered"
 
 
 def do_cache_report(p, preset):
@@ -217,24 +263,37 @@ def encode_shot(p, shot, preset):
     return target
 
 
-def encode_full(p, preset):
+def encode_sequence(p, preset, shot_list, target, log_name):
+    """One H.264 file from the PNG frames of consecutive shots (M7): the frames are linked into one
+    numbered sequence, so a 100-shot film is a single image input, not 100 parallel decoders."""
     ff = ffmpeg_bin()
     project = read_json(p / "project.json")
     settings = read_json(ROOT / "config/render_presets.json")
-    cmd = [ff, "-y"]
-    all_shots = shots(p)
-    for shot in all_shots:
-        seq = require_frames(p, shot, preset)
-        cmd += ["-framerate", str(project["fps"]), "-start_number", "1", "-i", str(seq / "frame_%04d.png")]
-    chain = "".join(f"[{i}:v]" for i in range(len(all_shots)))
-    target = p / "output" / f"{slug_name(p)}_preview{suffix(preset)}.mp4"
-    cmd += ["-filter_complex", f"{chain}concat=n={len(all_shots)}:v=1:a=0[v]", "-map", "[v]",
-            "-c:v", settings["output_codec"], "-crf", str(settings["output_crf"]), "-pix_fmt", "yuv420p",
-            "-movflags", "+faststart", str(target)]
-    run_logged(cmd, p / "qa" / f"ffmpeg_encode{suffix(preset)}.log")
+    link_dir = p / "renders" / preset / f"_sequence_{target.stem}"
+    if link_dir.exists():
+        shutil.rmtree(link_dir)
+    link_dir.mkdir(parents=True)
+    n = 0
+    try:
+        for shot in shot_list:
+            seq = require_frames(p, shot, preset)
+            for k in range(1, expected_frames(p, shot) + 1):
+                n += 1
+                (link_dir / f"f_{n:06d}.png").symlink_to((seq / f"frame_{k:04d}.png").resolve())
+        target.parent.mkdir(parents=True, exist_ok=True)
+        run_logged([ff, "-y", "-framerate", str(project["fps"]), "-start_number", "1", "-i", str(link_dir / "f_%06d.png"),
+                    "-c:v", settings["output_codec"], "-crf", str(settings["output_crf"]), "-pix_fmt", "yuv420p",
+                    "-movflags", "+faststart", str(target)], p / "qa" / f"{log_name}.log")
+    finally:
+        shutil.rmtree(link_dir, ignore_errors=True)
     if not target.is_file() or target.stat().st_size == 0:
-        raise SystemExit("FFmpeg returned success but preview MP4 is missing/empty")
+        raise SystemExit(f"FFmpeg returned success but {target.name} is missing/empty")
     return target
+
+
+def encode_full(p, preset):
+    target = p / "output" / f"{slug_name(p)}_preview{suffix(preset)}.mp4"
+    return encode_sequence(p, preset, shots(p), target, f"ffmpeg_encode{suffix(preset)}")
 
 
 def probe(path):
@@ -268,13 +327,13 @@ def black_segments(path):
     return out.stderr.count("black_start")
 
 
-def boundary_ssim(p, preset):
+def boundary_ssim(p, preset, shot_list=None):
     """SSIM between the last frame of each shot and the first frame of the next one.
 
     Shots are cut together; unless a shot declares "cut_from_previous": "hard", the cut
     must be invisible (same camera and state), so SSIM must stay >= CUT_SSIM_MIN."""
     results = []
-    all_shots = shots(p)
+    all_shots = shot_list or shots(p)
     for prev, nxt in zip(all_shots, all_shots[1:]):
         a = p / "renders" / preset / prev["id"] / f"frame_{expected_frames(p, prev):04d}.png"
         b = p / "renders" / preset / nxt["id"] / "frame_0001.png"
@@ -288,6 +347,7 @@ def boundary_ssim(p, preset):
 
 
 CUT_SSIM_MIN = 0.98
+MAX_SHEET_TILES = 150
 
 
 def qa_sheets(p, preset):
@@ -296,8 +356,9 @@ def qa_sheets(p, preset):
     project = read_json(p / "project.json")
     sheets = []
     full = p / "output" / f"{slug_name(p)}_preview{suffix(preset)}.mp4"
-    every = project["fps"]
-    tiles = max(1, round(project["duration_seconds"]))
+    step = max(1, math.ceil(project["duration_seconds"] / MAX_SHEET_TILES))   # M7: long films sample sparser
+    every = project["fps"] * step
+    tiles = max(1, math.ceil(project["duration_seconds"] / step))
     cols = 5
     rows = (tiles + cols - 1) // cols
     contact = p / "qa" / f"contact_sheet_preview{suffix(preset)}.png"
@@ -826,14 +887,134 @@ def do_assemble(p, preset):
     if not video.is_file():
         raise SystemExit(f"Missing {video}; run `preview --project {p.name}` first")
     cleared, classes = assemble.narration_rights(p)
-    # Never give restricted narration a publishable-looking name.
-    out = p / "output" / f"{slug_name(p)}_pilot{'' if cleared else '_INTERNAL'}{suffix(preset)}.mp4"
-    report = assemble.assemble(p, video, out)
-    (p / "qa" / f"assembly_report{suffix(preset)}.json").write_text(json.dumps(report, indent=2))
+    # Never give restricted narration (M7: or unapproved claims) a publishable-looking name.
+    label = output_label(p)
+    out = p / "output" / f"{slug_name(p)}_{label}{suffix(preset)}.mp4"
+    report = assemble.assemble(p, video, out, comment=internal_comment(label) if label.startswith("documentary") else None)
+    if label.startswith("documentary"):   # M7: clean narration master + loudness-normalised full audio next to the film
+        raw = Path(report["narration_track"]).with_name("narration_track_full.wav")
+        for src, name in ((raw, "narration_master_clean"), (Path(report["narration_track"]), "audio_master")):
+            target = out.with_name(f"{slug_name(p)}_{name}{suffix(preset)}.wav")
+            shutil.copyfile(src, target)
+            report[name] = str(target.relative_to(p))
+    (p / "qa" / f"assembly_report{suffix(preset)}.json").write_text(json.dumps(portable(report, p), indent=2))
     if report["problems"]:
         raise SystemExit("Assembly QA FAILED: " + "; ".join(report["problems"]))
     write_subtitle_qa(p, report)
     print(f"SUCCESS: {out} (+ {Path(report['subtitles']).name}); narration rights: {', '.join(classes)}")
+
+
+def portable(report, p):
+    """Copy of an assembly report with project paths made project-relative (M7: no absolute local
+    paths in tracked QA data)."""
+    out = dict(report)
+    for key in ("output", "subtitles", "narration_track"):
+        if out.get(key) and Path(out[key]).is_absolute() and Path(out[key]).is_relative_to(p):
+            out[key] = str(Path(out[key]).relative_to(p))
+    return out
+
+
+def output_label(p):
+    """Name part of an assembled film: never publishable-looking while anything is pending (M7)."""
+    from pipeline import assemble
+    project = read_json(p / "project.json")
+    cleared, _ = assemble.narration_rights(p)
+    if project.get("mode") != "documentary":
+        return "pilot" if cleared else "pilot_INTERNAL"
+    claims = {c["id"]: c.get("review_status") for c in read_json(p / "research/sources.json")["claims"]}
+    used = {c for b in read_json(p / "script/narration.json")["beats"] for c in b.get("claim_ids", [])}
+    approved = all(claims.get(c) == "EDITORIALLY_APPROVED" for c in used) and project.get("factual_review") == "verified"
+    return "documentary" if cleared and approved else "documentary_INTERNAL_REVIEW"
+
+
+def internal_comment(label):
+    return None if not label.endswith(("_INTERNAL", "_INTERNAL_REVIEW")) else \
+        "INTERNAL REVIEW - editorial approval and/or rights pending - not for publication"
+
+
+def chapter_shots(p, chapter):
+    from pipeline import chapters as CH
+    doc = CH.load(p)
+    if not doc:
+        raise SystemExit(f"{p.name} has no chapters file")
+    ranges, errors = CH.shot_ranges(doc, read_json(p / "script/timing.json"))
+    if errors:
+        raise SystemExit("chapters invalid: " + "; ".join(errors))
+    if chapter not in ranges:
+        raise SystemExit(f"Unknown chapter {chapter}; chapters: {', '.join(ranges)}")
+    ids = set(ranges[chapter]["shots"])
+    return [s for s in shots(p) if s["id"] in ids]
+
+
+def chapter_media_qa(p, preset, chapter, video, chapter_list):
+    """Per-chapter silent-video checks: frame count, format, decode errors, black segments, cuts."""
+    want = read_json(ROOT / "config/render_presets.json")[preset]
+    fps = read_json(p / "project.json")["fps"]
+    expected = sum(expected_frames(p, s) for s in chapter_list)
+    info = probe(video)
+    info.update(black_segments=black_segments(video), decode_errors=decode_errors(video), streams=stream_types(video))
+    problems = []
+    if info["frames"] != expected:
+        problems.append(f"{info['frames']} frames, expected {expected}")
+    if (info["width"], info["height"]) != (want["width"], want["height"]) or info["fps"] != f"{fps}/1":
+        problems.append(f"{info['width']}x{info['height']} {info['fps']}")
+    if info["decode_errors"] or info["black_segments"]:
+        problems.append(f"decode errors {info['decode_errors']}, black segments {info['black_segments']}")
+    ids = [s["id"] for s in chapter_list]
+    cuts = [c for c in boundary_ssim(p, preset, chapter_list)]
+    problems += [f"cut {c['cut']}: SSIM {c['ssim']} < {CUT_SSIM_MIN}" for c in cuts if not c["ok"]]
+    return {"chapter": chapter, "video": str(video.relative_to(p)), "shots": ids, "expected_frames": expected,
+            "probe": info, "cuts": cuts, "problems": problems}
+
+
+def do_chapter(p, chapter, preset, force=False):
+    """M7: render, encode, assemble (narration + subtitles) and check one chapter on its own."""
+    if preset in STILLS_ONLY_PRESETS:
+        raise SystemExit(f"--preset {preset} renders selected stills only (`still`), never a full sequence")
+    from pipeline import assemble
+    do_validate(p, final=(preset == "final"))
+    chapter_list = chapter_shots(p, chapter)
+    results = [render_shot(p, s, preset, force) for s in chapter_list]
+    folder = p / "output" / f"chapters{suffix(preset)}"
+    video = encode_sequence(p, preset, chapter_list, folder / f"{slug_name(p)}_{chapter}_silent.mp4",
+                            f"ffmpeg_{chapter}{suffix(preset)}")
+    media = chapter_media_qa(p, preset, chapter, video, chapter_list)
+    label = output_label(p)
+    out = folder / f"{slug_name(p)}_{chapter}_{label}.mp4"
+    report = assemble.assemble(p, video, out, [s["id"] for s in chapter_list], comment=internal_comment(label))
+    report["media"] = media
+    report["render_results"] = {s["id"]: r for s, r in zip(chapter_list, results)}
+    audio_out = folder / f"{slug_name(p)}_{chapter}_narration.wav"   # chapter audio (loudness-normalised)
+    shutil.copyfile(report["narration_track"], audio_out)
+    report["chapter_audio"] = str(audio_out.relative_to(p))
+    report["problems"] = media["problems"] + report["problems"]
+    (p / "qa" / f"chapter_{chapter}{suffix(preset)}.json").write_text(json.dumps(portable(report, p), indent=2))
+    if report["problems"]:
+        raise SystemExit(f"Chapter {chapter} QA FAILED: " + "; ".join(report["problems"]))
+    print(f"SUCCESS: {out} ({media['expected_frames']} frames, {len(chapter_list)} shots: "
+          + ", ".join(f"{k} {list(report['render_results'].values()).count(k)}" for k in ("rendered", "resumed", "cached")) + ")")
+
+
+def do_chapters(p, preset):
+    """M7: validate chapters, write chapters/chapter_manifest.json + qa/longform_qa.json."""
+    from pipeline import chapters as CH
+    try:
+        rows, m = CH.longform_qa(p, preset)
+    except ValueError as e:
+        raise SystemExit(f"ERROR: {e}")
+    (p / "chapters").mkdir(exist_ok=True)
+    (p / "chapters" / "chapter_manifest.json").write_text(json.dumps(m, indent=2, ensure_ascii=False) + "\n")
+    for c in m["chapters"]:
+        print(f"  {c['id']} {c['start_seconds']:7.1f}s {c['duration_seconds']:6.1f}s  {len(c['shots']):>2} shots  "
+              f"{c['render']['frames_on_disk']:>5}/{c['frames']} frames [{preset}]  {c['title']}")
+    for r in rows:
+        print(f"{r['status']:>5}  {r['check']}: {r['detail']}")
+    report = {"utc": datetime.now(timezone.utc).isoformat(), "preset": preset, "timing_sha256": m["timing_sha256"],
+              "results": rows, "failed": sum(r["status"] == "FAIL" for r in rows)}
+    (p / "qa" / "longform_qa.json").write_text(json.dumps(report, indent=2, ensure_ascii=False))
+    if report["failed"]:
+        raise SystemExit(f"Long-form QA: {report['failed']} check(s) FAILED")
+    print(f"Long-form QA: PASS => {p / 'qa/longform_qa.json'}")
 
 
 def write_subtitle_qa(p, report):
@@ -978,11 +1159,12 @@ def main():
                                             "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align",
                                             "asset-check", "asset-render", "asset-catalog",
                                             "plan-visuals", "validate-plan", "build-shots", "verify-visibility", "lock-audio",
-                                            "research-map",
+                                            "research-map", "chapters", "chapter",
                                             "evaluate-planning"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
     parser.add_argument("--preset", default="preview", choices=["preview", "review", "production_test", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
+    parser.add_argument("--chapter", help="chapter: chapter id from script/chapters.json, e.g. C4")
     parser.add_argument("--asset", help="asset-*: one asset spec path (default: every spec in asset_library/architecture)")
     parser.add_argument("--force", action="store_true", help="Re-render shots even if cached")
     parser.add_argument("--check", action="store_true", help="manifest: verify instead of rewriting")
@@ -1054,6 +1236,12 @@ def main():
         do_lock_audio(p)
     elif args.command == "research-map":
         do_research_map(p)
+    elif args.command == "chapters":
+        do_chapters(p, args.preset)
+    elif args.command == "chapter":
+        if not args.chapter:
+            raise SystemExit("--chapter is required, e.g. --chapter C4")
+        do_chapter(p, args.chapter, args.preset, args.force)
     elif args.command == "cache-report":
         do_cache_report(p, args.preset)
 

@@ -120,11 +120,12 @@ def narration_rights(project_dir):
     return classes == {"PUBLICATION_CLEARED"}, sorted(classes)
 
 
-def assemble(project_dir, video, out_mp4, shot_ids=None, log=print):
+def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None):
     """Build narration track (+loudnorm), mux with `video`, write SRT, verify; returns a report."""
     p = Path(project_dir)
     timing = json.loads((p / "script/timing.json").read_text())
-    tag = "full" if shot_ids is None else "_".join(shot_ids)
+    tag = "full" if shot_ids is None else "_".join(shot_ids) if len(shot_ids) <= 3 else \
+        f"{shot_ids[0]}-{shot_ids[-1]}"
     raw = p / "audio" / f"narration_track_{tag}.wav"
     track = build_narration_track(p, timing, raw, shot_ids)
     mixed = p / "audio" / f"narration_mix_{tag}.wav"
@@ -132,7 +133,7 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print):
     out_mp4 = Path(out_mp4)
     out_mp4.parent.mkdir(parents=True, exist_ok=True)
     cleared, classes = narration_rights(p)
-    mux(video, mixed, out_mp4, None if cleared else
+    mux(video, mixed, out_mp4, comment if comment else None if cleared else
         f"INTERNAL PREVIEW - narration audio rights: {', '.join(classes)} - not for publication")
     srt = out_mp4.with_suffix(".en.srt")
     from pipeline import pronunciation as pron, subtitles

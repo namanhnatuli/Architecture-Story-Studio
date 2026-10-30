@@ -1,0 +1,626 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "title": "Why Bridges Don't All Look the Same",
+  "status": "INTERNAL_REVIEW_DRAFT - claims source-verified, not editorially approved (revision m7-r1)",
+  "voice": {
+    "provider": "kokoro",
+    "id": "kokoro_bm_george",
+    "mode": "preset",
+    "voice": "bm_george",
+    "selection": {
+      "voice": "bm_george",
+      "selected_by": "Tran Nam Anh (channel owner, in-session instruction)",
+      "selected_on": "2026-10-29",
+      "basis": "channel voice choice (bridge-load-explained voice audition)",
+      "scope": "channel voice; reused unchanged for M7"
+    },
+    "language": "en-GB",
+    "params": {
+      "speed": 1.0,
+      "seed": 0,
+      "lang_code": "b"
+    },
+    "license": {
+      "status": "APPROVED",
+      "rights_class": "PUBLICATION_CLEARED",
+      "permitted_use": "Narration of why-bridges-look-different under the provider clearance in config/tts_providers.json (hexgrad/Kokoro-82M @ f3ff3571, audited voices, local generation); disclose AI-generated narration.",
+      "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
+      "reviewed_on": "2026-10-30",
+      "reviewed_by": "agent check that the M7 voice and model are inside the recorded clearance scope (not legal advice)",
+      "components": [
+        {
+          "name": "Kokoro-82M weights (hexgrad/Kokoro-82M @ f3ff3571)",
+          "license": "Apache-2.0",
+          "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
+        },
+        {
+          "name": "Voice bm_george (voices/bm_george.pt)",
+          "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
+          "evidence": "VOICES.md SHA256 prefix f1bc8122 matches the local file"
+        },
+        {
+          "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
+          "license": "Apache-2.0",
+          "evidence": "installed package metadata"
+        },
+        {
+          "name": "espeak-ng 1.52.0 via espeakng-loader; phonemizer-fork 3.3.2 (OOD-word fallback)",
+          "license": "GPL-3.0-or-later",
+          "evidence": "local use only, never redistributed (audit section 3)"
+        },
+        {
+          "name": "Training data",
+          "license": "stated permissive / non-copyrighted, including synthetic audio from closed TTS providers",
+          "evidence": "model card; unresolved, audit section 5"
+        }
+      ],
+      "decision": "APPROVED by the channel owner on 2026-10-29 at provider level (Kokoro publication clearance, voice bm_george chosen as the channel voice). M7 applies that clearance unchanged: same pinned revision, same voice hash. The agent made no new rights decision; the owner is asked to confirm it covers this film.",
+      "approved_by": "Tran Nam Anh (channel owner)",
+      "approved_on": "2026-10-29",
+      "basis": "config/tts_providers.json providers.kokoro.clearance (cleared_by Tran Nam Anh, 2026-10-29)",
+      "owner_confirmation_for_this_film": "PENDING"
+    },
+    "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (as the pilot).",
+    "pronunciation_review": {
+      "status": "PENDING",
+      "terms": [
+        "voussoirs",
+        "falsework",
+        "superstructure",
+        "substructure",
+        "abutments",
+        "Pratt",
+        "Warren",
+        "Bollman",
+        "Carrollton",
+        "Gwynns Falls",
+        "Corinne",
+        "Promontory",
+        "Dunlap Creek",
+        "Humpback",
+        "trestle",
+        "viaduct"
+      ],
+      "note": "the pilot terms were accepted on 2026-10-29; the new M7 names have not been listened to by the owner"
+    }
+  },
+  "pacing": {
+    "sentence_pause_seconds": 0.4,
+    "beat_lead_in_seconds": 0.4,
+    "beat_tail_seconds": 0.8
+  },
+  "revision": {
+    "version": "m7-r1",
+    "date": "2026-10-30",
+    "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+    "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
+    "edits": [
+      {
+        "sentence": "B18.s2",
+        "draft": "By 1860, railroads relied almost entirely on these prefabricated parts.",
+        "m7-r1": "And by 1860, the railroads relied almost entirely on these prefabricated parts.",
+        "why": "bm_george spoke it at 1.47 written words/s (below the 1.5 truncation guard; ASR text was exact)"
+      },
+      {
+        "sentence": "B20.s0",
+        "draft": "Start with materials.",
+        "m7-r1": "Start with the materials themselves.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B22.s0",
+        "draft": "The site matters too.",
+        "m7-r1": "The site of a bridge matters too.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B35.s0",
+        "draft": "Thanks for watching.",
+        "m7-r1": "Thank you very much for watching.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B15.s0",
+        "draft": "The truss takes yet another approach.",
+        "m7-r1": "A third approach is the truss.",
+        "why": "ASR heard 'The Trust takes' (WER 0.17)"
+      },
+      {
+        "sentence": "B23.s2",
+        "draft": "spans two hundred and twenty feet, and some through trusses approach four hundred.",
+        "m7-r1": "spans 220 feet, and some through trusses approach 400.",
+        "why": "numbers written as digits so the subtitles read '220' and ASR text matches (WER 0.23 from spelled-out numbers)"
+      },
+      {
+        "sentence": "B20B.s0-s1",
+        "draft": "A truss needs members that can work in tension as well as compression, and wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
+        "m7-r1": "A truss needs members that can work in tension as well as compression. Wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
+        "why": "split in two so the picture can change with the second idea (15 s single-sentence hold)"
+      },
+      {
+        "sentence": "B35.s1",
+        "draft": "(none)",
+        "m7-r1": "The sources and photo credits are listed in the description.",
+        "why": "rough-cut review: the 6-line credits card was on screen for 4 s only"
+      }
+    ]
+  },
+  "beats": [
+    {
+      "id": "B01",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "One bridge rests on rows of timber posts.",
+        "Another leaps the gap in curves of stone.",
+        "A third is a lattice of steel triangles.",
+        "All three cross exactly the same gap."
+      ]
+    },
+    {
+      "id": "B02",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "So why don't bridges all look the same?",
+        "It isn't because one design is simply better than the others.",
+        "Each form is a different answer to the same problem, shaped by materials, by the site, and by the time it was built in."
+      ]
+    },
+    {
+      "id": "B03",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_701",
+        "CLM_702"
+      ],
+      "sentences": [
+        "Every bridge has the same basic job.",
+        "It has to carry loads: the traffic crossing it, and the weight of the bridge itself.",
+        "And it has to pass all of that down into the ground on either side."
+      ]
+    },
+    {
+      "id": "B04",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_702",
+        "CLM_703",
+        "CLM_704"
+      ],
+      "sentences": [
+        "Engineers often describe a bridge in two parts.",
+        "The superstructure is the part that spans the gap, including the deck.",
+        "The substructure is what holds it up: abutments at the ends, and sometimes piers in between.",
+        "Load follows a path from the deck, through both parts, into the foundations."
+      ]
+    },
+    {
+      "id": "B05",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "What changes from one bridge to the next is how that path is arranged.",
+        "So let's start again with an empty gap."
+      ]
+    },
+    {
+      "id": "B06",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_705",
+        "CLM_720"
+      ],
+      "sentences": [
+        "The first answer is the beam.",
+        "Lay a strong member across the gap, support it at each end, and you have a bridge.",
+        "It is one of the oldest ideas in bridge building."
+      ]
+    },
+    {
+      "id": "B07",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_705",
+        "CLM_707"
+      ],
+      "sentences": [
+        "This timber bridge is a row of short beam spans.",
+        "Planks form the deck, long beams carry the planks, cap beams carry the beams, and posts carry the caps."
+      ]
+    },
+    {
+      "id": "B08",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_706",
+        "CLM_707"
+      ],
+      "sentences": [
+        "Each beam carries its load by resisting bending.",
+        "At each support, a cap beam spreads the load onto the posts.",
+        "The posts then carry it down into the ground in compression."
+      ]
+    },
+    {
+      "id": "B09",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_721",
+        "CLM_722"
+      ],
+      "sentences": [
+        "Beams are simple, and wood was usually easy to find.",
+        "That is why timber beam bridges were still being built long after timber trusses fell out of use, and why they are still built on quiet rural roads and in parks today.",
+        "But many early timber bridges had relatively short spans, which is why this one needs so many posts."
+      ]
+    },
+    {
+      "id": "B10",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_708"
+      ],
+      "sentences": [
+        "A masonry arch takes a different approach.",
+        "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown."
+      ]
+    },
+    {
+      "id": "B11",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_709",
+        "CLM_710"
+      ],
+      "sentences": [
+        "The curve turns the downward load into thrust along the arch, pressing the stones together.",
+        "So the arch works mainly in compression.",
+        "At each end it pushes outward and down on its supports, and the supports push back."
+      ]
+    },
+    {
+      "id": "B12",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_726",
+        "CLM_709",
+        "CLM_710"
+      ],
+      "sentences": [
+        "That is why arches suit materials that are strong under compression, like stone.",
+        "And it is why the supports matter so much: the abutments have to push inward on the arch, against its thrust."
+      ]
+    },
+    {
+      "id": "B13",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_723"
+      ],
+      "sentences": [
+        "Building an arch takes support of its own.",
+        "While a stone arch is being built, a temporary timber frame called falsework holds the stones in place.",
+        "So building one called for carpenters as well as skilled masons."
+      ]
+    },
+    {
+      "id": "B14",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_724",
+        "CLM_725"
+      ],
+      "sentences": [
+        "Stone arches were generally more expensive to build than timber bridges.",
+        "But stone was the preferred choice where durability and permanence were required, so arches were favoured on busy routes and in important places.",
+        "Elsewhere, the lower cost of timber made up for its lack of permanence."
+      ]
+    },
+    {
+      "id": "B15",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_711",
+        "CLM_712"
+      ],
+      "sentences": [
+        "A third approach is the truss.",
+        "It builds a structure out of straight members, joined into triangles.",
+        "Each member is mainly pulled or pushed along its length, in tension or in compression."
+      ]
+    },
+    {
+      "id": "B16",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_713",
+        "CLM_714"
+      ],
+      "sentences": [
+        "In a simple span like these, under a downward load, the top chord is squeezed and the bottom chord is stretched.",
+        "Inside, some web members are in compression and others are in tension."
+      ]
+    },
+    {
+      "id": "B17",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_727",
+        "CLM_728",
+        "CLM_711"
+      ],
+      "sentences": [
+        "The triangles can be arranged in different patterns.",
+        "This is a Pratt truss.",
+        "In the original design, patented in 1844, its verticals were timber and its diagonals were iron rods.",
+        "Swap the web for diagonals that alternate in direction, and you have a Warren truss, patented in 1848.",
+        "Both patterns carry load through triangles; they simply arrange the members differently."
+      ]
+    },
+    {
+      "id": "B18",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_729"
+      ],
+      "sentences": [
+        "Trusses also changed how bridges were built.",
+        "By the middle of the nineteenth century, shops were making and drilling truss members, then shipping them to the bridge site, ready to assemble.",
+        "And by 1860, the railroads relied almost entirely on these prefabricated parts."
+      ]
+    },
+    {
+      "id": "B19",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "So which design is best?",
+        "The honest answer is that it depends.",
+        "Materials, the site, the span, cost, and the skills available all pull in different directions."
+      ]
+    },
+    {
+      "id": "B20A",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_726"
+      ],
+      "sentences": [
+        "Start with the materials themselves.",
+        "An arch needs a material that is strong under compression, and stone is."
+      ]
+    },
+    {
+      "id": "B20B",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_712",
+        "CLM_735"
+      ],
+      "sentences": [
+        "A truss needs members that can work in tension as well as compression.",
+        "Wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression."
+      ]
+    },
+    {
+      "id": "B20C",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_742",
+        "CLM_734"
+      ],
+      "sentences": [
+        "Wood was often plentiful and cheap, but wooden bridges were vulnerable to decay."
+      ]
+    },
+    {
+      "id": "B21",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_733",
+        "CLM_746"
+      ],
+      "sentences": [
+        "That is one reason many timber truss bridges were covered with a roof and siding, to protect them from the weather.",
+        "This is the Humpback Covered Bridge, built in 1857 over Dunlap Creek."
+      ]
+    },
+    {
+      "id": "B22",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_736"
+      ],
+      "sentences": [
+        "The site of a bridge matters too.",
+        "Railway engines have limited traction, so railways need gentle gradients.",
+        "Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level."
+      ]
+    },
+    {
+      "id": "B23",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Then there is span: how far a single structure has to reach."
+      ]
+    },
+    {
+      "id": "B23B",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_731",
+        "CLM_732",
+        "CLM_730"
+      ],
+      "sentences": [
+        "A simple king post truss could span only about thirty feet.",
+        "What one report calls America's greatest stone arch, the Cabin John Aqueduct Bridge, spans 220 feet, and some through trusses approach 400."
+      ]
+    },
+    {
+      "id": "B24",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_738",
+        "CLM_739",
+        "CLM_727",
+        "CLM_728",
+        "CLM_729"
+      ],
+      "sentences": [
+        "Finally, every bridge belongs to its time.",
+        "As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined.",
+        "Then, during the Great Depression, it briefly returned."
+      ]
+    },
+    {
+      "id": "B25",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_741",
+        "CLM_742"
+      ],
+      "sentences": [
+        "These trade-offs played out across nineteenth-century America as the railways spread.",
+        "In the East, railroads built massive stone viaducts, while western builders generally used timber.",
+        "Three documented examples show how differently builders answered."
+      ]
+    },
+    {
+      "id": "B26",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_739",
+        "CLM_740"
+      ],
+      "sentences": [
+        "Near Baltimore, the Carrollton Viaduct was completed in 1829.",
+        "Built of roughly twelve thousand granite blocks, it carries the railway over Gwynns Falls on an eighty foot arch.",
+        "A national report in 2005 called it the world's oldest stone railroad span still in service."
+      ]
+    },
+    {
+      "id": "B27",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_741",
+        "CLM_725"
+      ],
+      "sentences": [
+        "Early railroads needed durable bridges to carry heavy trains.",
+        "For a line meant to last, stone was the answer."
+      ]
+    },
+    {
+      "id": "B28",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_742",
+        "CLM_743"
+      ],
+      "sentences": [
+        "In the West, the pressure was different.",
+        "Railroads had to open new lines quickly and economically, and timber was abundant and cheap.",
+        "This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad."
+      ]
+    },
+    {
+      "id": "B29",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_737"
+      ],
+      "sentences": [
+        "A trestle is a succession of towers supporting short spans.",
+        "It is the same beam idea as our timber model, repeated as often as the crossing needs."
+      ]
+    },
+    {
+      "id": "B30",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_744",
+        "CLM_745"
+      ],
+      "sentences": [
+        "Iron offered a third path.",
+        "The Bollman truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts.",
+        "It could be built relatively quickly and inexpensively, while offering the long-lasting qualities of metal.",
+        "The bridge at Savage, Maryland, is the only remaining example of the design."
+      ]
+    },
+    {
+      "id": "B31",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_741",
+        "CLM_742",
+        "CLM_744"
+      ],
+      "sentences": [
+        "Stone for permanence, timber for speed and economy, and iron trusses that offered some of both.",
+        "Three places, three sets of constraints, three different bridges."
+      ]
+    },
+    {
+      "id": "B32",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_706",
+        "CLM_709",
+        "CLM_712"
+      ],
+      "sentences": [
+        "So why don't bridges all look the same?",
+        "Because a bridge's form comes from two things working together.",
+        "One is how its structure carries load: beams resist bending, arches work in compression, and trusses share load among members in tension and compression."
+      ]
+    },
+    {
+      "id": "B32B",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_742",
+        "CLM_724"
+      ],
+      "sentences": [
+        "The other is the world it was built in: its materials, its site, its span, its budget and its builders."
+      ]
+    },
+    {
+      "id": "B33",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_721",
+        "CLM_738"
+      ],
+      "sentences": [
+        "And it is not a simple story of progress.",
+        "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression.",
+        "Each form can still be the right answer in the right place."
+      ]
+    },
+    {
+      "id": "B34",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Next time you cross a bridge, look at its shape.",
+        "It shows how the load reaches the ground, and something about the people who built it.",
+        "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces."
+      ]
+    },
+    {
+      "id": "B35",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Thank you very much for watching.",
+        "The sources and photo credits are listed in the description."
+      ]
+    }
+  ]
+}

@@ -14,6 +14,7 @@ from dataclasses import dataclass
 
 LOC = "location"
 ROT = "rotation_euler"
+SCALE = "scale"     # M7: the annotation rig of a push-in shot
 TRANSPARENCY = '["ass_transparency"]'
 HIGHLIGHT = '["ass_highlight"]'
 HIDE = "hide_render"  # also mirrored to hide_viewport when applied in Blender
@@ -567,7 +568,10 @@ def split_fades(plan, suffix=FADE_SUFFIX):
 
 # ---------------------------------------------------------------- HOLD / SIDE_BY_SIDE
 HOLD_DEFAULTS = {"template": "HOLD", "state": None, "duration_seconds": None, "highlight": None, "label": None,
-                 "label_position": None}
+                 "label_position": None, "camera_move": None}
+# M7: a slow push-in on a single-model HOLD: it starts on the locked framing of the shot's
+# continuity group and ends `amount` closer (orthographic scale), drifting towards `focus`.
+CAMERA_MOVE_DEFAULTS = {"type": "PUSH_IN", "amount": 0.1, "focus": None, "easing": "SMOOTH"}
 SIDE_BY_SIDE_DEFAULTS = {"template": "SIDE_BY_SIDE", "states": None, "duration_seconds": None,
                          "gap_ratio": 0.35, "label_band": 0.12, "highlight": None, "intro": None, "labels": None,
                          "layout": "ROW", "label_position": None}
@@ -602,6 +606,20 @@ def plan_intro(plan, cfg, camera, fade_names):
         plan.key(n, TRANSPARENCY, last, 0.0)
     plan.markers.update({"intro_end": end})
     return end
+
+
+def plan_camera_move(plan, cfg, camera):
+    """HOLD camera_move: the camera eases from its start keys (the locked framing) to its end keys."""
+    c = merge_config(CAMERA_MOVE_DEFAULTS, cfg, "HOLD.camera_move", free_form=("focus",))
+    if c["type"] != "PUSH_IN":
+        raise PlanError(f"HOLD.camera_move.type must be PUSH_IN, got {c['type']!r}")
+    _number(c, "amount", "HOLD.camera_move", minimum=0.02, maximum=0.3)
+    last = plan.frame_count
+    for channel, key in ((LOC, "location"), (ORTHO, "ortho_scale")):
+        plan.key(camera["name"], channel, 1, camera["start"][key], c["easing"])
+        plan.key(camera["name"], channel, last, camera["end"][key])
+    plan.markers["camera_move_end"] = last
+    return last
 
 
 def plan_highlight_only(plan, cfg, defaults, names_for, where):

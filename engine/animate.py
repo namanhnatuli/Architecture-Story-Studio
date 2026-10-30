@@ -30,6 +30,8 @@ def _assign(obj, channel, value):
         obj.location = value
     elif channel == motion.ROT:
         obj.rotation_euler = value
+    elif channel == motion.SCALE:
+        obj.scale = value
     elif channel in PROPS:
         obj[PROPS[channel]] = value[0]
     elif channel == motion.HIDE:

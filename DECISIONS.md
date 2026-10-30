@@ -93,3 +93,16 @@ If a requested change conflicts with these choices, document the reason and upda
 - **Mâu thuẫn lời/hình là lỗi chặn (fail closed), không phải cảnh báo.** Luật tất định trên cụm từ gợi ý. Khi không tự quyết được thì báo UNCERTAIN cho người duyệt. Câu chữ được sửa trong script, không bao giờ sửa trong storyboard.
 - **Nhiều họ kiến trúc qua scene context, không qua một base chung giả.** Engine chỉ thấy view của một ngữ cảnh. Dự án một họ giữ schema 2 giống hệt, để không làm hỏng cache và kết quả cũ.
 - **Cắt theo câu khi đã khóa audio.** Ước lượng PROVISIONAL quá thô để cắt theo câu, nên dự án cũ không đổi.
+
+## Bổ sung 2026-10-30 (M7): phim tài liệu dài
+- **Chương là đơn vị sản xuất, không phải đơn vị nội dung riêng.** `script/chapters.json` chỉ nhóm các beat liên tiếp của một lời dẫn duy nhất. Mỗi chương render, ghép và QA được riêng, nhưng audio, timing và storyboard vẫn là một khối khóa chung. Nhờ đó phim ghép từ các chương luôn khớp từng frame với phim render liền.
+- **Một nguồn kịch bản.** `script/story.py` sinh `narration.json`, `visual_beats.json` và `chapters.json`, nên câu chữ lời dẫn và beat hình không thể lệch nhau. Mọi sửa câu (ASR, tốc độ đọc) được ghi vào `revision.edits`.
+- **Ảnh ngoài chỉ khi có hồ sơ quyền đầy đủ và bằng chứng giấy phép.** Ảnh xuất hiện trong kết quả tìm kiếm không có nghĩa là được dùng. Không dựa vào fair use. M7 chỉ dùng ảnh HAER (phạm vi công cộng của chính phủ Mỹ) có liên kết về hồ sơ LOC. Ảnh có nguồn là người tải lên bị loại (Cornish–Windsor). Byte của ảnh là đầu vào render; hồ sơ quyền thì không.
+- **Mô hình 3D luôn là minh họa.** Khi lời dẫn nói về một cây cầu có thật, mô hình mang nhãn "Illustrative model, not the …". Ảnh lưu trữ cho thấy cây cầu thật.
+- **Không xếp hạng, không kể chuyện tiến bộ tuyến tính.** Kịch bản nói rõ "không phải vì một kiểu tốt hơn" (B02), "it depends" (B19), "not a simple story of progress" (B33). Dòng thời gian là thẻ bối cảnh. Gate SHOW_EVOLUTION của planner (cần claim niên đại đã duyệt) được giữ nguyên: phim không có hình "tiến hóa" nào.
+- **Nhịp hình theo từ được nói.** Phần tử card có thể hiện theo word timestamp Whisper của chính đoạn audio hiện tại, không đoán độ trễ. Từ không có trong alignment thì chiến lược bị từ chối.
+- **Đoạn tĩnh là lỗi đo được.** QA phim dài coi một đoạn > 14 s không có thay đổi hình nào là FAIL. Đổi hình được tính từ chuyển động thật của template, không từ mốc giả. Cách sửa là đổi hình theo nội dung (tách câu, NOTE theo câu, phần tử theo từ), không thêm người, máy móc hay hiệu ứng phá hủy cho "sinh động".
+- **Render bị ngắt thì làm tiếp, nhưng chỉ với cùng khóa cache.** Frame PNG phải hoàn chỉnh (chunk IEND). Khác khóa thì render lại cả shot. Không bao giờ chạy hai Blender cùng lúc.
+- **ASR không nghe lại audio giống hệt.** Bản chép cũ chỉ được dùng lại khi byte audio, chữ và model đều trùng; kết quả vẫn được chấm lại theo luật WER hiện hành.
+- **Quyền giọng ở mức provider ≠ duyệt phim.** Clearance Kokoro/bm_george ngày 2026-10-29 có phạm vi "audited voices; local generation; disclose AI narration". M7 áp dụng nguyên clearance đó và ghi rõ là chờ chủ kênh xác nhận cho phim này. Claim M7 chưa được duyệt, nên mọi bản dựng mang nhãn INTERNAL REVIEW và G6 bị chặn.
+- Tài liệu: `docs/m7/M7_ARCHITECTURE.md`, `M7_QA_REPORT.md`, `PERFORMANCE.md`, `M7_HANDOFF.md`.
