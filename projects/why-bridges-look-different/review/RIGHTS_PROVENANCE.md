@@ -1,11 +1,17 @@
 # Bản kê quyền và nguồn gốc: why-bridges-look-different (M7)
 
-- Ngày lập: 2026-10-30. Người lập: agent. Đây là bản kê, **không phải tư vấn pháp lý**.
-- Phim đang là **INTERNAL REVIEW**: claim chưa được duyệt biên tập. Chủ kênh cũng chưa xác nhận việc áp dụng quyết định giọng nói cho phim này.
+- Ngày lập: 2026-10-30, cập nhật cho bản review nội bộ cuối (giọng `am_michael`). Người lập: agent. Đây là bản kê, **không phải tư vấn pháp lý**.
+- **Đã duyệt:** chủ kênh duyệt 41 claim được lời dẫn dùng (2026-10-30, `research/editorial_approval.json`), chọn giọng `am_michael`, và yêu cầu bỏ dòng ghi giọng đọc khỏi card B35.
+- **Chưa duyệt:**
+  - quyền xuất bản cho giọng `am_michael` (clearance ngày 2026-10-29 chỉ nêu tên 4 giọng Anh–Anh);
+  - xác nhận phát âm.
+
+  Vì vậy phim vẫn là **INTERNAL REVIEW**.
+- Bản trước dùng `bm_george` được giữ làm mốc: git tag `m7-review-bm_george`; file đầu ra cũ ở `output/baseline_bm_george_m7r1/`.
 
 | Thành phần | Nguồn gốc | Quyền / license | Trạng thái |
 |---|---|---|---|
-| Lời dẫn (102 câu) | Sinh cục bộ bằng Kokoro-82M (`hexgrad/Kokoro-82M` @ `f3ff3571`, giọng `bm_george` SHA256 `f1bc8122…`, speed 1.0, seed 0). Mỗi câu có bản ghi provider/revision/hash/tham số/hạng quyền trong `audio/narration_manifest.json` | Apache-2.0 (trọng số, code). Fallback G2P là GPL, chỉ dùng cục bộ. Các điểm mở về dữ liệu huấn luyện: `docs/licensing/KOKORO_LICENSE_AUDIT.md` §5 | Hạng quyền `PUBLICATION_CLEARED`, do chủ kênh cấp ở mức provider ngày 2026-10-29 (`config/tts_providers.json` → `clearance`). Phạm vi cấp là "audited voices; local generation; disclose AI narration", nên bao gồm phim này. **Chờ chủ kênh xác nhận** (`voice.license.owner_confirmation_for_this_film: PENDING`) |
+| Lời dẫn (103 câu, 102 đoạn audio) | Sinh cục bộ bằng Kokoro-82M (`hexgrad/Kokoro-82M` @ `f3ff3571`, giọng **`am_michael`** SHA256 `9a443b79…`, G2P Anh–Mỹ `lang_code='a'`, speed 1.0, seed 0). Mỗi câu có bản ghi provider/revision/hash/tham số trong `audio/narration_manifest.json`; không câu nào dùng `bm_george` | Apache-2.0 (trọng số, code, giọng). Không có điều khoản ghi công cho giọng Anh–Mỹ trong VOICES.md. Fallback G2P là GPL, chỉ dùng cục bộ. Các điểm mở về dữ liệu huấn luyện: `docs/licensing/KOKORO_LICENSE_AUDIT.md` §5, §8 | Giọng do chủ kênh chọn (2026-10-30), đã audit. **Licence `LICENSE_REVIEW_REQUIRED`**: chờ chủ kênh mở rộng clearance Kokoro cho `am_michael` (`voices_pending` trong `config/tts_providers.json`) |
 | Kịch bản | Agent viết từ 42 claim đã đối chiếu (`research/sources.json`) | Nội dung của dự án | **Chưa duyệt biên tập** (`SOURCE_VERIFIED`) |
 | Mô hình 3D (cầu dầm gỗ, vòm đá 3 nhịp, giàn Pratt/Warren 2 nhịp, địa hình sông) | Sinh thủ tục trong dự án (M4, `asset_library/architecture/…`) | `generated_in_project` | Mô hình minh họa. Khi đứng cạnh cầu có thật thì mang nhãn "Illustrative model, not the …" (B27, B29) |
 | Sơ đồ, bản đồ, dòng thời gian, thanh tỉ lệ nhịp | Agent vẽ bằng phần tử phẳng (`engine/diagram.py`) từ giá trị trong claim | Của dự án | Có nhãn "Conceptual diagram — not to scale" hoặc "Schematic — not to scale". Riêng thanh nhịp vẽ đúng tỉ lệ theo giá trị NCHRP |
@@ -18,6 +24,11 @@
 | ASR (chỉ dùng cho QA) | `openai/whisper-large-v3-turbo` cục bộ | MIT | Không nằm trong video |
 | Nhạc / hiệu ứng âm thanh | **Không có** | — | Chưa có nhạc nào được xác minh quyền, nên không dùng |
 | Footage / ảnh khác | **Không có** | — | Ảnh Cornish–Windsor bị loại: nguồn là người tải lên Commons, không phải hồ sơ liên bang |
+
+## Ghi công và công bố
+- **Dòng "Narration: AI-generated voice (Kokoro-82M, voice bm_george)" đã bỏ khỏi card B35** theo yêu cầu của chủ kênh (2026-10-30). Không còn chữ nào trên hình nhắc tới giọng đọc.
+- Kokoro (Apache-2.0) **không** yêu cầu ghi công cho audio tạo ra, nên bỏ dòng này không vi phạm giấy phép nào.
+- Phạm vi clearance Kokoro yêu cầu "disclose AI-generated narration". Việc công bố này **vẫn còn** trong bản nháp mô tả (`review/YOUTUBE_DESCRIPTION.md`: "Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael)"). Metadata MP4 chỉ có nhãn INTERNAL REVIEW. Khi đăng, phải giữ dòng này trong mô tả.
 
 ## Ghi công bắt buộc
 - Mỗi card ảnh mang dòng "Photo: …, HAER, Library of Congress (public domain)". Card cuối ghi "Historic American Engineering Record, Library of Congress Prints & Photographs Division (public domain)". QA `image_attribution` kiểm mọi `credit_keys`.

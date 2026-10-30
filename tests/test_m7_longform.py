@@ -100,21 +100,61 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         self.assertGreaterEqual(timing["total_seconds"], lo)
         self.assertLessEqual(timing["total_seconds"], hi)
 
-    def test_every_narrated_claim_is_source_verified_and_none_self_approved(self):
+    def test_narrated_claims_carry_the_owner_approval_record(self):
+        # Approved by the channel owner on 2026-10-30 (in-session instruction); the agent only recorded it.
         claims = {c["id"]: c for c in read(FILM / "research/sources.json")["claims"]}
-        used = {c for b in read(FILM / "script/narration.json")["beats"] for c in b["claim_ids"]}
+        narration = read(FILM / "script/narration.json")
+        used = {c for b in narration["beats"] for c in b["claim_ids"]}
+        record = read(FILM / "research/editorial_approval.json")
         self.assertTrue(used <= set(claims), used - set(claims))
-        self.assertEqual({claims[c]["review_status"] for c in used}, {"SOURCE_VERIFIED"})
+        self.assertEqual(set(record["claims"]), used)
+        self.assertIn("Tran Nam Anh", record["approved_by"])
+        for cid in used:
+            approval = claims[cid]["editorial_approval"]
+            self.assertEqual(claims[cid]["review_status"], "EDITORIALLY_APPROVED")
+            self.assertEqual(approval["narration_revision"], narration["revision"]["version"])
+            self.assertIn("Tran Nam Anh", approval["approved_by"])
+        self.assertEqual({claims[c]["review_status"] for c in set(claims) - used}, {"SOURCE_VERIFIED"})
         for c in claims.values():
             self.assertTrue(c["evidence"] and all(e["excerpt"] for e in c["evidence"]), c["id"])
 
-    def test_voice_licence_applies_the_owner_clearance_and_flags_confirmation(self):
-        lic = read(FILM / "script/narration.json")["voice"]["license"]
-        self.assertEqual(lic["rights_class"], "PUBLICATION_CLEARED")
-        self.assertIn("providers.kokoro.clearance", lic["basis"])
+    def test_changed_wording_invalidates_the_approval(self):
+        tmp, p = copy_film()
+        with tmp:
+            n = read(p / "script/narration.json")
+            n["revision"]["version"] = "m7-r2"
+            (p / "script/narration.json").write_text(json.dumps(n))
+            errors, _ = validator.validate_project(p)
+            self.assertTrue(any("approval is for narration 'm7-r1'" in e for e in errors))
+
+    def test_am_michael_is_the_owner_choice_but_not_cleared_for_publication(self):
+        from integrations.tts import providers
+        n = read(FILM / "script/narration.json")
+        voice, lic = n["voice"], n["voice"]["license"]
+        self.assertEqual((voice["voice"], voice["params"]["lang_code"]), ("am_michael", "a"))
+        self.assertIn("Tran Nam Anh", voice["selection"]["selected_by"])
+        self.assertEqual(lic["status"], "LICENSE_REVIEW_REQUIRED")
         self.assertEqual(lic["owner_confirmation_for_this_film"], "PENDING")
-        self.assertIn("Tran Nam Anh", lic["approved_by"])
-        self.assertEqual(read(FILM / "script/narration.json")["voice"]["pronunciation_review"]["status"], "PENDING")
+        self.assertEqual(voice["pronunciation_review"]["status"], "PENDING")
+        registry = providers.load_registry()
+        clearance = registry["providers"]["kokoro"]["clearance"]
+        self.assertNotIn("am_michael", clearance["voices_cleared"])
+        self.assertIn("am_michael", clearance["voices_pending"])
+        forged = copy.deepcopy(n)   # the agent cannot approve it: an APPROVED record for an uncleared voice is refused
+        forged["voice"]["license"].update(status="APPROVED", approved_by="someone", approved_on="2026-10-30")
+        errors = nar.validate(forged, read(FILM / "research/sources.json"), registry)
+        self.assertTrue(any("not in the provider clearance" in e for e in errors))
+
+    def test_every_sentence_is_am_michael_audio(self):
+        from integrations.tts import kokoro
+        manifest = read(FILM / "audio/narration_manifest.json")
+        keys = [s["cache_key"] for b in manifest["beats"].values() for s in b["sentences"]]
+        self.assertEqual(len(keys), 103)
+        for k in set(keys):
+            seg = manifest["segments"][k]
+            self.assertEqual((seg["voice"], seg["voice_sha256"], seg["lang_code"]),
+                             ("am_michael", kokoro.VOICE_SHA256["am_michael"], "a"), k)
+            self.assertTrue(seg["asr"]["pass"], k)
 
     def test_no_invented_quantities_on_cards_or_annotations(self):
         story = read(FILM / "storyboard/storyboard.json")
@@ -539,10 +579,23 @@ class ReviewDocumentsTest(unittest.TestCase):
             for name in ("William E. Barrett", "Jack E. Boucher", "Historic American Engineering Record"):
                 self.assertIn(name, desc)
             pkg = LR.editorial_package(p, d).read_text()
-            self.assertIn("Đang chờ duyệt", pkg)
-            self.assertNotIn("EDITORIALLY_APPROVED\n", pkg)
+            self.assertIn("Đã duyệt claim", pkg)
+            self.assertIn("Phát âm và quyền giọng cho phim vẫn là các bước duyệt riêng", pkg)
             matrix = LR.evidence_matrix(p, d).read_text()
-            self.assertEqual(matrix.count("| SOURCE_VERIFIED |"), 42)
+            self.assertEqual(matrix.count("| EDITORIALLY_APPROVED |"), 41)
+            self.assertEqual(matrix.count("| SOURCE_VERIFIED |"), 1)
+            self.assertIn("voice am_michael", desc)
+
+    def test_b35_credits_no_longer_name_the_narration_but_keep_the_other_credits(self):
+        story = read(FILM / "storyboard/storyboard.json")
+        card = next(s for s in story["shots"] if s["beat_ids"] == ["B35"])
+        texts = [e["text"] for e in card["graphic"]["elements"] if e.get("kind") == "text"]
+        self.assertFalse([t for t in texts if "Narration" in t or "AI-generated" in t])
+        for keep in ("Historic American Engineering Record", "Library of Congress", "NCHRP", "illustrative"):
+            self.assertTrue(any(keep in t for t in texts), keep)
+        visual = {s["id"] for s in story["shots"] for e in (s.get("graphic") or {}).get("elements", [])
+                  if "AI-generated" in e.get("text", "")}
+        self.assertEqual(visual, set())
 
 
 class LongFormNegativeTest(unittest.TestCase):
@@ -606,7 +659,7 @@ class ChapterEvidenceTest(unittest.TestCase):
             self.assertEqual(ev["missing_claims"], [], c["id"])
             self.assertTrue(ev["sources_known"], c["id"])
             self.assertEqual(ev["narration_revision"], "m7-r1")
-            self.assertIn(ev["editorial_status"], ("PENDING_EDITORIAL_REVIEW", "NO_CLAIMS (framing only)"), c["id"])
+            self.assertIn(ev["editorial_status"], ("EDITORIALLY_APPROVED", "NO_CLAIMS (framing only)"), c["id"])
             self.assertTrue(ev["historical_accuracy"], c["id"])
         c7 = next(c for c in m["chapters"] if c["id"] == "C7")
         self.assertIn("Illustrative model, not the Carrollton Viaduct", c7["evidence"]["visual_assumptions"])
@@ -656,17 +709,18 @@ class SubtitleAndMediaTest(unittest.TestCase):
             self.assertLessEqual(c["end"], b + 0.6, c)   # a cue may linger briefly after the sentence, never before
         self.assertEqual([c["start"] for c in cues], sorted(c["start"] for c in cues))
 
-    def test_review_cut_assembly_matches_the_locked_timing(self):
-        report = FILM / "qa" / "assembly_report_review.json"
+    def test_final_internal_review_assembly_matches_the_locked_timing(self):
+        report = FILM / "qa" / "assembly_report_internal_1080p.json"
         if not report.is_file():
-            self.skipTest("review cut not assembled yet")
+            self.skipTest("1080p internal review not assembled yet")
         r = read(report)
         timing = read(FILM / "script/timing.json")
         self.assertEqual(r["problems"], [])
         self.assertEqual(r["frames"], timing["total_frames"])
+        self.assertEqual((r["video"]["width"], r["video"]["height"]), (1920, 1080))
         lo, hi = CH.RUNTIME_RANGE
         self.assertTrue(lo <= r["seconds"] <= hi)
-        self.assertIn("INTERNAL_REVIEW", Path(r["output"]).name)
+        self.assertIn("M7_FINAL_INTERNAL_REVIEW_1080p", Path(r["output"]).name)
         self.assertAlmostEqual(r["loudness_after"]["integrated_lufs"], -16.0, delta=1.0)
         self.assertEqual(r["subtitle_entries"], r["subtitle_stats"]["cues"])
 

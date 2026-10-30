@@ -226,7 +226,20 @@ CLAIMS = [
           ["arch"], [], "Materials/site panel"),
 ]
 
-out = {"note": "M7 evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720+ are new. Every excerpt was matched verbatim against the downloaded source text (gen/build_sources.py). Nothing here is editorially approved.",
+# The owner's editorial decision (a human record, never written by this script) is applied on top.
+approval_path = Path(sys.argv[1]).parent / "editorial_approval.json"
+approval = json.loads(approval_path.read_text()) if approval_path.is_file() else None
+if approval:
+    for c in CLAIMS:
+        if c["id"] in approval["claims"]:
+            c["review_status"] = "EDITORIALLY_APPROVED"
+            c["caveat"] = (f"Editorially approved {approval['approved_on']} for narration "
+                           f"{approval['narration_revision']}; illustrative models, conceptual forces only.")
+            c["editorial_approval"] = {k: approval[k] for k in ("approved_by", "approved_on", "narration_revision", "basis")}
+
+out = {"note": "M7 evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720+ are new. Every excerpt was matched verbatim against the downloaded source text (gen/build_sources.py). "
+               + (f"{len(approval['claims'])} narrated claims editorially approved by {approval['approved_by']} on {approval['approved_on']} (research/editorial_approval.json)."
+                  if approval else "Nothing here is editorially approved."),
        "sources": SOURCES, "claims": CLAIMS}
 Path(sys.argv[1]).write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
 print(len(SOURCES), "sources", len(CLAIMS), "claims")

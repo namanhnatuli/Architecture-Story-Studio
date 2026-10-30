@@ -111,3 +111,8 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **Render dài:** mỗi lúc một Blender. `render_progress.json` cho phép làm tiếp sau khi bị ngắt nếu khóa cache không đổi. Không render 4K. 1080p chỉ dùng cho still chọn lọc hoặc đoạn ngắn, khi đã có ước lượng dung lượng.
 - **Quyết định của người** (agent không làm): duyệt claim M7, xác nhận áp dụng quyền giọng cho phim, xác nhận phát âm tên mới, chuyển profile, đăng.
 - Tài liệu: `docs/m7/M7_ARCHITECTURE.md`, `M7_QA_REPORT.md`, `PERFORMANCE.md`, `M7_HANDOFF.md`.
+- **Bổ sung (bản review nội bộ cuối M7):**
+  - Render dùng lại frame tĩnh theo mặc định (`render_strategy.json` trong mỗi thư mục frame). `--no-reuse` buộc render đủ mọi frame. `verify-reuse --shot` so frame dùng lại với bản render trực tiếp. `--mode reuse-report` ước lượng trước số frame cần render.
+  - Video 1080p trước khi được duyệt dùng `--preset internal_1080p`; tên file luôn có `INTERNAL_REVIEW`.
+  - Không tự đưa giọng mới vào `voices_cleared`.
+  - Không ghi đè báo cáo QA của dự án khác khi chạy hồi quy; lưu kết quả vào `qa/regression/` của milestone đang làm.

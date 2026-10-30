@@ -7,13 +7,13 @@ Why does one bridge rest on rows of timber posts, another leap the gap in stone 
 Chapters
 
 0:00 Hook
-0:35 The problem every bridge must solve
-1:25 The beam
-2:33 The arch
-3:55 The truss
-5:19 Why different designs exist
-7:24 Real-world decisions
-9:31 Why they look different
+0:33 The problem every bridge must solve
+1:22 The beam
+2:28 The arch
+3:50 The truss
+5:15 Why different designs exist
+7:20 Real-world decisions
+9:27 Why they look different
 
 Sources
 
@@ -35,7 +35,7 @@ Archival photographs
 
 Credits and disclosures
 
-- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice bm_george).
+- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael).
 - 3D models and diagrams are illustrative visualisations made for this video, not engineering designs or reconstructions of the bridges shown in the photographs.
 - Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given.
 - Historic American Engineering Record (HAER), National Park Service; Library of Congress Prints & Photographs Division. Photographs are public-domain works of the U.S. Government.

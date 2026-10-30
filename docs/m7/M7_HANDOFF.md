@@ -121,3 +121,17 @@ Xem `docs/m7/REPRODUCIBILITY.md`: môi trường, lệnh đầy đủ, vị trí
 - **Chọn giọng trước khi khóa audio.** Đổi giọng sau khi khóa thì phải render lại toàn bộ.
 - **Bản đồ có giấy phép** (ví dụ dữ liệu Natural Earth, phạm vi công cộng) cho các chương địa lý.
 - Thêm preset video 1080p INTERNAL REVIEW tách khỏi `final`, nếu muốn xem 1080p trước khi duyệt.
+
+---
+
+## Bổ sung: bản review nội bộ cuối (2026-10-30)
+Chi tiết trong `docs/m7/FINAL_INTERNAL_REVIEW.md`. Tóm tắt:
+- Nhánh `m7-final-internal-review`.
+- Giọng `am_michael` (Kokoro-82M @ `f3ff3571`, đã audit; quyền xuất bản cho giọng này **đang chờ**).
+- Độ dài 641,46 s.
+- 41/41 claim đã duyệt.
+- Card B35 đã sửa.
+- 1080p: render 5.206 frame, dùng lại 10.177 frame.
+- File: `output/why_bridges_look_different_M7_FINAL_INTERNAL_REVIEW_1080p.mp4`.
+
+Còn chặn xuất bản: quyền giọng `am_michael`, phát âm, CLM_747 (không dùng), profile và preset `final`.

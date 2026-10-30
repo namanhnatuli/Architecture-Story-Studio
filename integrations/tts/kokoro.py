@@ -39,6 +39,10 @@ VOICE_SHA256 = {   # VOICES.md prefixes verified on 2026-10-28
     "bm_fable": "d44935f3135257a9064df99f007fc1342ff1aa767552b4a4fa4c3b2e6e59079c",
     "bm_george": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
     "bm_daniel": "fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d",
+    # M7 (2026-10-30): American narrator chosen by the channel owner for the M7 final internal review;
+    # SHA256 checked against the VOICES.md prefix 9a443b79 (docs/licensing/KOKORO_LICENSE_AUDIT.md §8).
+    # Audited for narration does not mean cleared for publication: that remains the owner's decision.
+    "am_michael": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
 }
 # M7 listening test only: American English voices (lang_code "a"), SHA256 checked against the
 # VOICES.md prefixes of the pinned revision on 2026-10-30 (tools/kokoro_fetch_voices.py). They are

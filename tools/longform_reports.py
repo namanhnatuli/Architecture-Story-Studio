@@ -93,14 +93,26 @@ CHECKLIST = [
 ]
 
 
+def approval_note(p, claims, d):
+    used = sorted({c for b in d["narration"]["beats"] for c in b["claim_ids"]})
+    rec = p / "research" / "editorial_approval.json"
+    if used and all(claims[c]["review_status"] == "EDITORIALLY_APPROVED" for c in used) and rec.is_file():
+        r = read(rec)
+        return (f"> **Đã duyệt claim:** {r['approved_by']} duyệt {len(r['claims'])} claim được lời dẫn dùng, ngày "
+                f"{r['approved_on']}, cho narration `{r['narration_revision']}` (`research/editorial_approval.json`). "
+                "Agent chỉ ghi lại quyết định. Phát âm và quyền giọng cho phim vẫn là các bước duyệt riêng; tới khi "
+                "đủ, mọi bản dựng mang nhãn INTERNAL REVIEW.")
+    return ("> **Đang chờ duyệt.** Agent soạn gói này nhưng không tự duyệt claim, giọng hay phát âm. "
+            "Tới khi chủ kênh duyệt, mọi bản dựng mang nhãn INTERNAL REVIEW.")
+
+
 def editorial_package(p, d):
     claims = {c["id"]: c for c in d["sources"]["claims"]}
     times = sentence_times(d)
     rev = d["narration"].get("revision") or {}
     lines = ["# Gói duyệt biên tập: \"Why Bridges Don't All Look the Same\" (M7, narration "
              f"`{rev.get('version')}`)", "",
-             "> **Đang chờ duyệt.** Agent soạn gói này nhưng không tự duyệt claim, giọng hay phát âm. "
-             "Tới khi chủ kênh duyệt, mọi bản dựng mang nhãn INTERNAL REVIEW.", "",
+             approval_note(p, claims, d), "",
              "## Cần chủ kênh quyết định", ""]
     lines += [f"{i}. {x}" for i, x in enumerate(CHECKLIST, 1)]
     lines += ["", "Cách ghi quyết định giống M6: `research/sources.json` → `review_status: EDITORIALLY_APPROVED` + "
@@ -183,7 +195,7 @@ def youtube_description(p, d, manifest):
         lines.append(f"- {a.get('title') or a['id']}: {a['attribution']}. {a['license']}. Original record: "
                      f"{a.get('original_record') or a['source_url']}")
     lines += ["", "Credits and disclosures", "",
-              "- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice bm_george).",
+              f"- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice {d['narration']['voice']['voice']}).",
               "- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs "
               "or reconstructions of the bridges shown in the photographs.",
               "- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given.",

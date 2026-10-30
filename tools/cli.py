@@ -176,6 +176,9 @@ def complete_png(path):
         return False
 
 
+NO_REUSE = False   # M7: --no-reuse renders every frame (verification / fallback)
+
+
 def render_shot(p, shot, preset, force=False):
     """Render one shot unless its visual inputs are unchanged (tools/render_cache.py categories).
 
@@ -215,15 +218,21 @@ def render_shot(p, shot, preset, force=False):
     seq.mkdir(parents=True, exist_ok=True)
     progress_path.write_text(json.dumps({"shot": sid, "cache_key": key, "frames": expected,
                                          "started_utc": datetime.now(timezone.utc).isoformat()}, indent=2))
-    run_logged(blender_command(p, "animation", preset, "--shot", sid, *(["--resume"] if resume else [])),
+    run_logged(blender_command(p, "animation", preset, "--shot", sid, *(["--resume"] if resume else []),
+                               *(["--no-reuse"] if NO_REUSE else [])),
                p / "qa" / f"render_{sid}_{preset}.log")
     frames = sorted(seq.glob("frame_*.png"))
     if len(frames) != expected or not all(complete_png(f) for f in frames):
         raise SystemExit(f"{sid}: expected {expected} complete frames, found {len(frames)}. See logs.")
+    strategy_path = seq / "render_strategy.json"
+    strategy = read_json(strategy_path) if strategy_path.is_file() else {"strategy": "FALLBACK_FULL_BLENDER"}
     manifest_path.write_text(json.dumps({"shot": sid, "key_version": render_cache.KEY_VERSION,
                                          "cache_key": key, "components": parts,
                                          "engine_files": engine_hashes, "frames": expected,
                                          "resumed": resume,
+                                         "strategy": {k: strategy.get(k) for k in
+                                                      ("strategy", "reason", "distinct_frames", "rendered",
+                                                       "reused", "kept")},
                                          "rendered_utc": datetime.now(timezone.utc).isoformat()}, indent=2))
     progress_path.unlink()
     print(f"SUCCESS: {sid} {len(frames)} PNG frames{' (resumed)' if resume else ''}")
@@ -890,7 +899,13 @@ def do_assemble(p, preset):
     # Never give restricted narration (M7: or unapproved claims) a publishable-looking name.
     label = output_label(p)
     out = p / "output" / f"{slug_name(p)}_{label}{suffix(preset)}.mp4"
+    if preset == "internal_1080p":   # M7: an internal review at delivery resolution, never publication-named
+        review_label = read_json(p / "project.json").get("review_label", "FINAL_INTERNAL_REVIEW")
+        out = p / "output" / f"{slug_name(p)}_{review_label}_1080p.mp4"
+        label = "documentary_INTERNAL_REVIEW"
     report = assemble.assemble(p, video, out, comment=internal_comment(label) if label.startswith("documentary") else None)
+    if preset == "internal_1080p" and "INTERNAL_REVIEW" not in out.name:
+        raise SystemExit(f"refusing an internal_1080p output without INTERNAL_REVIEW in its name: {out.name}")
     if label.startswith("documentary"):   # M7: clean narration master + loudness-normalised full audio next to the film
         raw = Path(report["narration_track"]).with_name("narration_track_full.wav")
         for src, name in ((raw, "narration_master_clean"), (Path(report["narration_track"]), "audio_master")):
@@ -922,9 +937,14 @@ def output_label(p):
     if project.get("mode") != "documentary":
         return "pilot" if cleared else "pilot_INTERNAL"
     claims = {c["id"]: c.get("review_status") for c in read_json(p / "research/sources.json")["claims"]}
-    used = {c for b in read_json(p / "script/narration.json")["beats"] for c in b.get("claim_ids", [])}
+    narration = read_json(p / "script/narration.json")
+    used = {c for b in narration["beats"] for c in b.get("claim_ids", [])}
     approved = all(claims.get(c) == "EDITORIALLY_APPROVED" for c in used) and project.get("factual_review") == "verified"
-    return "documentary" if cleared and approved else "documentary_INTERNAL_REVIEW"
+    voice = narration.get("voice") or {}
+    lic = voice.get("license") or {}
+    voice_ok = lic.get("status") == "APPROVED" and lic.get("owner_confirmation_for_this_film") != "PENDING" \
+        and (voice.get("pronunciation_review") or {}).get("status") != "PENDING"
+    return "documentary" if cleared and approved and voice_ok else "documentary_INTERNAL_REVIEW"
 
 
 def internal_comment(label):
@@ -993,6 +1013,31 @@ def do_chapter(p, chapter, preset, force=False):
         raise SystemExit(f"Chapter {chapter} QA FAILED: " + "; ".join(report["problems"]))
     print(f"SUCCESS: {out} ({media['expected_frames']} frames, {len(chapter_list)} shots: "
           + ", ".join(f"{k} {list(report['render_results'].values()).count(k)}" for k in ("rendered", "resumed", "cached")) + ")")
+
+
+def do_verify_reuse(p, preset, shot_id):
+    """M7: re-render up to three reused frames of a rendered shot directly and compare pixels."""
+    seq = p / "renders" / preset / shot_id
+    strategy = read_json(seq / "render_strategy.json")
+    runs = sorted(strategy.get("reused_runs") or [], key=lambda r: r[2] - r[1], reverse=True)
+    if not runs:
+        raise SystemExit(f"{shot_id}: no reused frames ({strategy.get('strategy')})")
+    picks = sorted({runs[0][1], (runs[0][1] + runs[0][2]) // 2, runs[-1][2]})
+    out = p / "qa" / "reuse_verification"
+    out.mkdir(parents=True, exist_ok=True)
+    report = out / f"{shot_id}_{preset}.json"
+    run_logged(blender_command(p, "verify-reuse", preset, "--shot", shot_id, "--frames", ",".join(map(str, picks)),
+                               "--output", str(out), "--report", str(report)), p / "qa" / f"verify_{shot_id}_{preset}.log")
+    rows = read_json(report)["frames"]
+    for r in rows:
+        nf = r["noise_floor"]
+        print(f"  frame {r['frame']} (reuses {r['source_frame']}): max |diff| {r['max_abs_diff']:.2e}, "
+              f"{r['differing_pixels']} px differ, PSNR {r['psnr_db']} dB | noise floor of a re-render of the same "
+              f"frame: max {nf['max_abs_diff']:.2e}, {nf['differing_pixels']} px, PSNR {nf['psnr_db']} dB")
+    if not all(r["identical"] or r["within_render_noise"] for r in rows):
+        raise SystemExit(f"{shot_id}: a reused frame differs from its direct render beyond the render noise")
+    print(f"PASS: {len(rows)} reused frames of {shot_id} match direct renders "
+          f"({'identical' if all(r['identical'] for r in rows) else 'within EEVEE render noise'}; {strategy['strategy']})")
 
 
 def do_chapters(p, preset):
@@ -1159,14 +1204,16 @@ def main():
                                             "asr-check", "schedule", "smoke", "assemble", "gates", "cache-report", "align",
                                             "asset-check", "asset-render", "asset-catalog",
                                             "plan-visuals", "validate-plan", "build-shots", "verify-visibility", "lock-audio",
-                                            "research-map", "chapters", "chapter",
+                                            "research-map", "chapters", "chapter", "verify-reuse",
                                             "evaluate-planning"])
     parser.add_argument("--project", default="roof-evolution", help="Project slug in projects/")
-    parser.add_argument("--preset", default="preview", choices=["preview", "review", "production_test", "final"])
+    parser.add_argument("--preset", default="preview",
+                        choices=["preview", "review", "production_test", "internal_1080p", "final"])
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
     parser.add_argument("--chapter", help="chapter: chapter id from script/chapters.json, e.g. C4")
     parser.add_argument("--asset", help="asset-*: one asset spec path (default: every spec in asset_library/architecture)")
     parser.add_argument("--force", action="store_true", help="Re-render shots even if cached")
+    parser.add_argument("--no-reuse", action="store_true", help="render every frame (no static-frame reuse)")
     parser.add_argument("--check", action="store_true", help="manifest: verify instead of rewriting")
     parser.add_argument("--regenerate", action="store_true", help="narrate: ignore the audio cache")
     parser.add_argument("--purpose", default="internal_preview", choices=["internal_preview", "publication"],
@@ -1187,6 +1234,8 @@ def main():
     if args.command == "asset-catalog":
         do_asset_catalog()
         return
+    global NO_REUSE
+    NO_REUSE = args.no_reuse
     p = project_path(args.project)
     if args.command == "validate":
         do_validate(p)
@@ -1242,6 +1291,10 @@ def main():
         if not args.chapter:
             raise SystemExit("--chapter is required, e.g. --chapter C4")
         do_chapter(p, args.chapter, args.preset, args.force)
+    elif args.command == "verify-reuse":
+        if not args.shot:
+            raise SystemExit("--shot is required, e.g. --shot SC_017")
+        do_verify_reuse(p, args.preset, args.shot)
     elif args.command == "cache-report":
         do_cache_report(p, args.preset)
 

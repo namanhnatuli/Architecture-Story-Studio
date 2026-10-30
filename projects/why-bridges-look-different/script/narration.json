@@ -5,29 +5,33 @@
   "status": "INTERNAL_REVIEW_DRAFT - claims source-verified, not editorially approved (revision m7-r1)",
   "voice": {
     "provider": "kokoro",
-    "id": "kokoro_bm_george",
+    "id": "kokoro_am_michael",
     "mode": "preset",
-    "voice": "bm_george",
+    "voice": "am_michael",
     "selection": {
-      "voice": "bm_george",
+      "voice": "am_michael",
       "selected_by": "Tran Nam Anh (channel owner, in-session instruction)",
-      "selected_on": "2026-10-29",
-      "basis": "channel voice choice (bridge-load-explained voice audition)",
-      "scope": "channel voice; reused unchanged for M7"
+      "selected_on": "2026-10-30",
+      "basis": "chose am_michael after the American voice audition (review/voice_audition_us/AUDITION.md)",
+      "scope": "narrator of the M7 final internal review; replaces bm_george for this film only",
+      "previous": {
+        "voice": "bm_george",
+        "baseline": "git tag m7-review-bm_george"
+      }
     },
-    "language": "en-GB",
+    "language": "en-US",
     "params": {
       "speed": 1.0,
       "seed": 0,
-      "lang_code": "b"
+      "lang_code": "a"
     },
     "license": {
-      "status": "APPROVED",
+      "status": "LICENSE_REVIEW_REQUIRED",
       "rights_class": "PUBLICATION_CLEARED",
-      "permitted_use": "Narration of why-bridges-look-different under the provider clearance in config/tts_providers.json (hexgrad/Kokoro-82M @ f3ff3571, audited voices, local generation); disclose AI-generated narration.",
+      "permitted_use": "Internal review of why-bridges-look-different. Publication needs the owner to extend the Kokoro clearance (config/tts_providers.json voices_cleared) to am_michael.",
       "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
       "reviewed_on": "2026-10-30",
-      "reviewed_by": "agent check that the M7 voice and model are inside the recorded clearance scope (not legal advice)",
+      "reviewed_by": "agent technical audit of am_michael (hash, licence files; not legal advice)",
       "components": [
         {
           "name": "Kokoro-82M weights (hexgrad/Kokoro-82M @ f3ff3571)",
@@ -35,9 +39,9 @@
           "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
         },
         {
-          "name": "Voice bm_george (voices/bm_george.pt)",
+          "name": "Voice am_michael (voices/am_michael.pt)",
           "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
-          "evidence": "VOICES.md SHA256 prefix f1bc8122 matches the local file"
+          "evidence": "VOICES.md SHA256 prefix 9a443b79 matches the local file (tools/kokoro_fetch_voices.py)"
         },
         {
           "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
@@ -55,13 +59,11 @@
           "evidence": "model card; unresolved, audit section 5"
         }
       ],
-      "decision": "APPROVED by the channel owner on 2026-10-29 at provider level (Kokoro publication clearance, voice bm_george chosen as the channel voice). M7 applies that clearance unchanged: same pinned revision, same voice hash. The agent made no new rights decision; the owner is asked to confirm it covers this film.",
-      "approved_by": "Tran Nam Anh (channel owner)",
-      "approved_on": "2026-10-29",
-      "basis": "config/tts_providers.json providers.kokoro.clearance (cleared_by Tran Nam Anh, 2026-10-29)",
+      "decision": "LICENSE_REVIEW_REQUIRED: am_michael is audited (SHA256 9a443b79... matches VOICES.md; Apache-2.0 repository licence, no per-voice licence or attribution term for American English voices) and chosen by the owner as narrator, but the 2026-10-29 publication clearance named only bf_emma/bm_fable/bm_george/bm_daniel. The agent does not extend it.",
+      "basis": "config/tts_providers.json providers.kokoro.clearance (voices_cleared, voices_pending)",
       "owner_confirmation_for_this_film": "PENDING"
     },
-    "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (as the pilot).",
+    "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
     "pronunciation_review": {
       "status": "PENDING",
       "terms": [
@@ -82,7 +84,7 @@
         "trestle",
         "viaduct"
       ],
-      "note": "the pilot terms were accepted on 2026-10-29; the new M7 names have not been listened to by the owner"
+      "note": "am_michael with American G2P (misaki lang_code a, espeak-ng en-us fallback); none of the terms has been listened to by the owner with this voice"
     }
   },
   "pacing": {
@@ -144,7 +146,31 @@
         "m7-r1": "The sources and photo credits are listed in the description.",
         "why": "rough-cut review: the 6-line credits card was on screen for 4 s only"
       }
-    ]
+    ],
+    "voice_change": {
+      "date": "2026-10-30",
+      "from": {
+        "id": "kokoro_bm_george",
+        "voice": "bm_george",
+        "language": "en-GB",
+        "params": {
+          "speed": 1.0,
+          "seed": 0,
+          "lang_code": "b"
+        }
+      },
+      "to": {
+        "id": "kokoro_am_michael",
+        "voice": "am_michael",
+        "language": "en-US",
+        "params": {
+          "speed": 1.0,
+          "seed": 0,
+          "lang_code": "a"
+        }
+      },
+      "text_changed": false
+    }
   },
   "beats": [
     {

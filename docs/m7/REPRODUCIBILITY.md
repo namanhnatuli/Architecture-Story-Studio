@@ -66,3 +66,24 @@ python3 -m unittest discover -s tests
 - Bộ nhớ đo được: CLI render ≤ 0,58 GB RSS; Blender QA 0,37 GB; worker Kokoro ≈ 2,7 GB (M6).
 - File tạm: chuỗi symlink để mã hóa (`renders/<preset>/_sequence_*`) bị xóa ngay sau khi mã hóa. Frame PNG đo được: 0,18 MB/frame ở 640×360 (2,7 GB cho 15.391 frame); 960×540 xem `docs/m7/PERFORMANCE.md`.
 - Render lại toàn phim chỉ khi khóa cache đổi. Ước lượng thời gian lấy từ shot và chương đại diện (SC_015 rồi C4), trước khi render cả phim.
+
+## 7. Bản review nội bộ cuối (giọng `am_michael`, 1080p)
+```bash
+P="--project why-bridges-look-different"
+# tải giọng Anh–Mỹ đúng revision và kiểm hash (dùng interpreter của Kokoro)
+~/Work/Projects/Kokoro/.venv/bin/python tools/kokoro_fetch_voices.py am_michael
+python3 projects/why-bridges-look-different/script/story.py
+python3 tools/cli.py narrate $P --purpose publication && python3 tools/cli.py asr-check $P && python3 tools/cli.py align $P
+python3 tools/cli.py lock-audio $P && python3 tools/cli.py plan-visuals $P && python3 tools/cli.py build-shots $P
+python3 tools/cli.py check-blender $P --preset internal_1080p
+/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --python engine/render_scene.py -- \
+  --project projects/why-bridges-look-different --mode reuse-report --preset internal_1080p \
+  --report projects/why-bridges-look-different/qa/perf/reuse_report_internal_1080p.json    # ước lượng trước
+for c in C1 C2 C3 C4 C5 C6 C7 C8; do python3 tools/cli.py chapter $P --chapter $c --preset internal_1080p; done
+python3 tools/cli.py preview $P --preset internal_1080p && python3 tools/cli.py assemble $P --preset internal_1080p
+python3 tools/cli.py verify-reuse $P --shot SC_017 --preset internal_1080p
+python3 tools/cli.py gates $P --preset internal_1080p
+```
+- Hồ sơ duyệt claim (`research/editorial_approval.json`) là dữ liệu của người duyệt. `build_sources.py` chỉ áp hồ sơ này vào registry.
+- Frame lặp là hardlink. Muốn sao chép thư mục `renders/` sang máy khác thì dùng công cụ giữ hardlink (`rsync -H`); nếu không, dung lượng tăng khoảng 3 lần.
+- `--no-reuse` render đủ mọi frame. Dùng khi nghi ngờ hoặc để so sánh.

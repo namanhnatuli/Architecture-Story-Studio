@@ -54,5 +54,37 @@ class DocumentaryBlenderQATest(unittest.TestCase):
         self.assertTrue(all(r["status"] == "PASS" for r in rows.values()))
 
 
+
+@unittest.skipUnless(blender_bin(), "Blender not installed")
+class StaticFrameReuseTest(unittest.TestCase):
+    """M7 render optimisation: a repeated frame is a hard link to a frame that a direct render reproduces."""
+
+    def test_static_card_renders_once_and_reused_frames_equal_direct_renders(self):
+        import os
+        import subprocess
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp) / FILM.name
+            shutil.copytree(FILM, p, ignore=shutil.ignore_patterns("renders", "output", "scenes", "qa", "audio"))
+            story = json.loads((p / "storyboard/storyboard.json").read_text())
+            card = next(s for s in story["shots"] if s["beat_ids"] == ["B35"])
+            cmd = [blender_bin(), "--background", "--factory-startup", "--python-exit-code", "1", "--python",
+                   str(ROOT / "engine/render_scene.py"), "--", "--project", str(p), "--preset", "preview",
+                   "--shot", card["id"]]
+            subprocess.run(cmd + ["--mode", "animation"], cwd=ROOT, capture_output=True, check=True, timeout=900)
+            seq = p / "renders" / "preview" / card["id"]
+            info = json.loads((seq / "render_strategy.json").read_text())
+            frames = sorted(seq.glob("frame_*.png"))
+            self.assertEqual(len(frames), info["frames"])
+            self.assertIn(info["strategy"], ("STATIC_2D", "HYBRID", "ANIMATED_2D"))
+            self.assertLess(info["rendered"], info["frames"] // 4)   # a credits card is almost entirely static
+            src, first, last = max(info["reused_runs"], key=lambda r: r[2] - r[1])
+            self.assertTrue(os.path.samefile(seq / f"frame_{src:04d}.png", seq / f"frame_{last:04d}.png"))
+            report = Path(tmp) / "verify.json"
+            subprocess.run(cmd + ["--mode", "verify-reuse", "--frames", f"{first},{last}", "--output", tmp,
+                                  "--report", str(report)], cwd=ROOT, capture_output=True, check=True, timeout=900)
+            rows = json.loads(report.read_text())["frames"]
+            self.assertEqual([r["identical"] for r in rows], [True, True])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -54,6 +54,11 @@ def validate(narration, sources, registry=None, lexicon=None):
                               f"{info.get('rights_class')}")
     if lic.get("status") == "APPROVED" and not (lic.get("approved_by") and lic.get("approved_on")):
         errors.append("narration.voice.license: APPROVED needs approved_by/approved_on (a named human reviewer)")
+    cleared = ((registry or {}).get("providers", {}).get(voice.get("provider", "omnivoice")) or {}).get("clearance", {})
+    if lic.get("status") == "APPROVED" and cleared.get("voices_cleared") is not None \
+            and voice.get("voice") not in cleared["voices_cleared"]:   # M7: the clearance names its voices
+        errors.append(f"narration.voice.license: APPROVED but voice {voice.get('voice')!r} is not in the provider "
+                      f"clearance {cleared['voices_cleared']} (the owner must extend it)")
     if lexicon is not None:
         errors.extend(pron.validate(lexicon))
     if voice.get("mode") == "clone" and not (voice.get("reference") or {}).get("text"):

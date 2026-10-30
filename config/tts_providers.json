@@ -53,7 +53,8 @@
         "bf_emma": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
         "bm_fable": "d44935f3135257a9064df99f007fc1342ff1aa767552b4a4fa4c3b2e6e59079c",
         "bm_george": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
-        "bm_daniel": "fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d"
+        "bm_daniel": "fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d",
+        "am_michael": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37"
       },
       "runtime": "~/Work/Projects/Kokoro/.venv (Python 3.12, kokoro 0.9.4, misaki 0.9.4, torch 2.15.0 CPU); offline",
       "rights_class": "PUBLICATION_CLEARED",
@@ -70,7 +71,16 @@
         "cleared_by": "Tran Nam Anh (channel owner, in-session instruction)",
         "cleared_on": "2026-10-29",
         "evidence": "docs/licensing/KOKORO_LICENSE_AUDIT.md (weights/code Apache-2.0, pinned revision f3ff3571 and voice hashes); the owner accepted the open points of audit section 5 (training-data provenance, synthetic-content disclosure, GPL fallback used locally only)",
-        "scope": "hexgrad/Kokoro-82M @ f3ff3571 with the audited voices only; local generation; disclose AI-generated narration"
+        "scope": "hexgrad/Kokoro-82M @ f3ff3571 with the audited voices only; local generation; disclose AI-generated narration",
+        "voices_cleared": [
+          "bf_emma",
+          "bm_fable",
+          "bm_george",
+          "bm_daniel"
+        ],
+        "voices_pending": {
+          "am_michael": "audited 2026-10-30 (SHA256 9a443b79..., VOICES.md B / H hours / C+); chosen by the owner as the M7 narrator for the final internal review; publication clearance for this voice not yet confirmed by the owner"
+        }
       }
     },
     "piper": {

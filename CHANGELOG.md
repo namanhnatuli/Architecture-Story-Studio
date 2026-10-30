@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.7.1 — 2026-10-30 — M7: bản review nội bộ cuối (giọng `am_michael`, 1080p, nhánh `m7-final-internal-review`)
+- **Quyết định của chủ kênh:**
+  - Duyệt 41 claim được lời dẫn dùng (`research/editorial_approval.json`, được `build_sources.py` áp vào; `factual_review: verified`).
+  - Đổi giọng đọc sang `am_michael`.
+  - Bỏ dòng ghi giọng đọc khỏi card B35.
+- **Lời dẫn:** sinh lại toàn bộ bằng `am_michael` (G2P Anh–Mỹ): 103 câu, ASR 102/102 đạt, căn từ lại, timing khóa lại. Phim dài **641,46 s**.
+- **Quyền giọng:** `am_michael` đã audit (hash khớp VOICES.md) nhưng **chưa được cấp quyền xuất bản**.
+  - Clearance của Kokoro giờ ghi rõ `voices_cleared` và `voices_pending`.
+  - Validator từ chối licence APPROVED cho giọng chưa được cấp quyền.
+  - Tên file chỉ "sạch" khi đủ cả claim, licence, xác nhận cho phim và phát âm.
+- **Tối ưu render:** dùng lại frame tĩnh dựa trên motion plan.
+  - Phân loại STATIC/ANIMATED 2D/3D, HYBRID, FALLBACK_FULL_BLENDER; frame lặp là hardlink.
+  - Thêm `--no-reuse`, `verify-reuse` (so với mức nhiễu nền của EEVEE) và `--mode reuse-report`.
+  - Ở 1080p chỉ render 5.206/15.395 frame.
+- **Preset `internal_1080p`:** 1920×1080 cho review nội bộ; tên `…_M7_FINAL_INTERNAL_REVIEW_1080p.mp4`; `final` vẫn sau G6.
+- **Worker và gói tạo giọng:** worker Kokoro giữ G2P riêng cho mỗi `lang_code`. Thêm `tools/kokoro_fetch_voices.py`; `voice_audition.py` hỗ trợ `--voices us`, `--passage` và ghi nhận clip không qua kiểm tra mà không dừng.
+- **Sửa lỗi:** commit `b7e5b0a` đã ghi đè báo cáo QA chính thức của `suffolk-roofs` bằng kết quả hồi quy 71/72, làm `test_suffolk_statuses_are_unchanged` thất bại. Báo cáo của `suffolk-roofs` được khôi phục; kết quả hồi quy được giữ ở `qa/regression/` của M7.
+- Tài liệu: `docs/m7/FINAL_INTERNAL_REVIEW.md`; bổ sung audit Kokoro §8.
+
 ## 0.7.0 — 2026-10-30 — M7: phim tài liệu dài đầu tiên, "Why Bridges Don't All Look the Same" (nhánh `m7-first-full-documentary`)
 - **Phim** `projects/why-bridges-look-different`: 10,77 phút, 8 chương, 39 beat, 103 câu, 47 shot.
   - Hình trộn: 3D, sơ đồ, bản đồ sơ lược, dòng thời gian, 4 ảnh HAER phạm vi công cộng.

@@ -73,3 +73,22 @@ Tổng cộng khoảng vài trăm giờ. VOICES.md xếp hạng dữ liệu củ
 - https://github.com/espeak-ng/espeak-ng (GPL-3.0-or-later)
 - PyPI JSON: `espeakng-loader`, `phonemizer-fork`, `num2words`
 - Metadata các gói đã cài trong `~/Work/Projects/Kokoro/.venv`
+
+## 8. Bổ sung 2026-10-30 (M7): giọng Anh–Mỹ và `am_michael`
+- **Tải về:** 20 giọng Anh–Mỹ (`af_*`, `am_*`), lấy từ đúng revision `f3ff3571` bằng `tools/kokoro_fetch_voices.py` (`hf_hub_download`). SHA256 của cả 20 file **khớp** tiền tố trong VOICES.md của revision đó. Các giọng này được ghi trong `kokoro.AUDITION_VOICE_SHA256` và **chỉ dùng để nghe thử**.
+- **License:**
+  - Repo vẫn là Apache-2.0. README nói rõ model "has been deployed in numerous projects and commercial APIs".
+  - VOICES.md **không** có cột CC BY cho giọng Anh–Mỹ (cột này chỉ có ở phần giọng Nhật và giọng Pháp), nên không có nghĩa vụ ghi công cho các giọng này.
+  - Audio tạo ra không bị Apache-2.0 hạn chế.
+  - Các điểm mở ở §5 (dữ liệu huấn luyện có audio tổng hợp từ TTS đóng; không rõ giọng mô phỏng ai) áp dụng y như với các giọng Anh–Anh.
+- **`am_michael`:**
+  - Chủ kênh chọn làm giọng đọc cho bản review nội bộ cuối của M7 (2026-10-30), sau khi nghe `review/voice_audition_us/`.
+  - SHA256 `9a443b79…` (đầy đủ trong `integrations/tts/kokoro.py`). VOICES.md: Target Quality B, Training Duration H hours, Overall C+.
+  - Dùng G2P Anh–Mỹ (`lang_code='a'`; fallback espeak-ng `en-us`).
+  - Đã đưa vào danh sách giọng **đã audit để đọc lời dẫn** (`VOICE_SHA256`).
+- **Quyền xuất bản: CHƯA mở rộng.**
+  - Clearance ngày 2026-10-29 giờ ghi rõ `voices_cleared` = `bf_emma`, `bm_fable`, `bm_george`, `bm_daniel`.
+  - `am_michael` nằm trong `voices_pending`.
+  - Licence của lời dẫn M7 là `LICENSE_REVIEW_REQUIRED`. Validator từ chối mọi bản ghi `APPROVED` cho một giọng ngoài `voices_cleared`.
+  - Chỉ chủ kênh mới mở rộng được clearance.
+- **Mẫu thử trước khi sinh toàn bộ:** 6 câu nhiều thuật ngữ (`review/voice_sample_am_michael/`): 136 wpm, mức âm giữa các câu chênh 0,5 dB, WER lớn nhất 0,105, không câu nào bị ngưỡng tốc độ hay độ dài từ chối. ASR nghe sai tên riêng (Gwynns, Corinne, Bollman) giống như với `bm_george`, nên cần người nghe.

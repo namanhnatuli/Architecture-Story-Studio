@@ -54,3 +54,20 @@ Tốc độ theo loại shot, chỉ tính lúc máy thức:
 - **Không làm cũ frame** (có test riêng): hồ sơ quyền ảnh, trạng thái claim, `factual_review`, đường dẫn `chapters`. Đổi byte của một ảnh chỉ làm cũ các card dùng ảnh đó.
 - **Audio:** đổi hoặc thêm câu chỉ sinh lại câu đó. ASR không nghe lại audio giống hệt.
 - **Khôi phục khi bị ngắt:** có `render_progress.json` cùng khóa cache thì giữ các PNG hoàn chỉnh và render tiếp (có test). Trong lượt render thật chưa xảy ra lần ngắt nào: máy ngủ chỉ làm chậm, không làm chết tiến trình.
+
+## Bản review nội bộ cuối 1080p (giọng `am_michael`, có dùng lại frame tĩnh)
+| Bước | Kết quả |
+|---|---|
+| `narrate` 102 đoạn `am_michael` | 48,9 s wall, 107,8 s CPU |
+| `asr-check` (102 đoạn mới) | 181,8 s wall |
+| `align` (102 câu) | 128,6 s wall |
+| Ước lượng trước (`reuse-report`) | 5.218/15.395 frame cần render |
+| Benchmark 1080p | SC_016 (tách lớp): 71/163 frame render, 1,61 s/frame. SC_017 (3D có chú thích): 42/414, 1,54 s/frame. SC_047 (card): 10/210, 0,24 s/frame |
+| Render thật | **5.206 frame render + 12 giữ lại khi làm tiếp; 10.177 hardlink**. 4540 s máy thức (0,873 s cho mỗi frame thật sự render). Không lần ngủ nào |
+| Wall C2–C8 + mã hóa + media QA + ghép | 82 phút |
+| Mã hóa cả phim 1080p + media QA | 218 s |
+| Ghép | 42 s |
+| RSS lớn nhất | ≈ 1,0 GB |
+| Đĩa | 7,7 GB cho 15.395 frame 1080p (5.218 file thật). Không dùng lại thì khoảng 24 GB (ước lượng) |
+
+So với render đủ mọi frame (ước lượng ≈ 4,3 giờ máy thức), dùng lại frame tĩnh tiết kiệm khoảng 70% thời gian render. Phần tiết kiệm lớn nhất ở card tĩnh và cảnh 3D giữ có chú thích. Card có ảnh trôi chậm và push-in thì gần như không tiết kiệm được.

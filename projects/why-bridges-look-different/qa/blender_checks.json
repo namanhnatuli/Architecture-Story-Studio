@@ -1,6 +1,6 @@
 {
   "blender": "5.2.2 LTS",
-  "preset": "review",
+  "preset": "internal_1080p",
   "summary": {
     "passed": 577,
     "failed": 0,
@@ -89,13 +89,13 @@
       "shot": "SC_002",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "0 animated objects x 6 frames, max error 0.00e+00"
+      "detail": "0 animated objects x 5 frames, max error 0.00e+00"
     },
     {
       "shot": "SC_002",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "101 objects (3 shared) unchanged on 6 frames"
+      "detail": "101 objects (3 shared) unchanged on 5 frames"
     },
     {
       "shot": "SC_002",
@@ -311,7 +311,7 @@
       "shot": "SC_005",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "12 objects x 37 frames, max error 5.74e-08"
+      "detail": "12 objects x 38 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_005",
@@ -407,7 +407,7 @@
       "shot": "SC_006",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 14.0 px at review"
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 28.1 px at internal_1080p"
     },
     {
       "shot": "SC_006",
@@ -461,7 +461,7 @@
       "shot": "SC_007",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.044 at ANN_CONCEPTUAL_TAG_00_plate_border@426; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+      "detail": "min margin 0.044 at ANN_CONCEPTUAL_TAG_00_plate_border@419; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
     },
     {
       "shot": "SC_007",
@@ -473,7 +473,7 @@
       "shot": "SC_007",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "46% of the highlighted silhouette visible, 3.58% of the frame, compact face 2.57% at frame 411"
+      "detail": "46% of the highlighted silhouette visible, 3.58% of the frame, compact face 2.57% at frame 398"
     },
     {
       "shot": "SC_007",
@@ -497,7 +497,7 @@
       "shot": "SC_007",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "5 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 14.0 px at review"
+      "detail": "5 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 28.1 px at internal_1080p"
     },
     {
       "shot": "SC_007",
@@ -629,7 +629,7 @@
       "shot": "SC_009",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "20 twins visible only mid-fade, never with their original or on frames 1/229"
+      "detail": "20 twins visible only mid-fade, never with their original or on frames 1/225"
     },
     {
       "shot": "SC_009",
@@ -653,7 +653,7 @@
       "shot": "SC_009",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_009",
@@ -719,13 +719,13 @@
       "shot": "SC_010",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "4 twins visible only mid-fade, never with their original or on frames 1/119"
+      "detail": "4 twins visible only mid-fade, never with their original or on frames 1/114"
     },
     {
       "shot": "SC_010",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "82% of the highlighted silhouette visible, 5.13% of the frame, compact face 1.78% at frame 64; 4 covering part(s) ghosted"
+      "detail": "82% of the highlighted silhouette visible, 5.13% of the frame, compact face 1.78% at frame 62; 4 covering part(s) ghosted"
     },
     {
       "shot": "SC_010",
@@ -749,7 +749,7 @@
       "shot": "SC_010",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_010",
@@ -815,7 +815,7 @@
       "shot": "SC_011",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "84% of the highlighted silhouette visible, 6.28% of the frame, compact face 2.79% at frame 62"
+      "detail": "84% of the highlighted silhouette visible, 6.28% of the frame, compact face 2.79% at frame 58"
     },
     {
       "shot": "SC_011",
@@ -833,13 +833,13 @@
       "shot": "SC_012",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "15 animated objects x 60 frames, max error 9.77e-08"
+      "detail": "15 animated objects x 61 frames, max error 9.77e-08"
     },
     {
       "shot": "SC_012",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "8 objects (3 shared) unchanged on 60 frames"
+      "detail": "8 objects (3 shared) unchanged on 61 frames"
     },
     {
       "shot": "SC_012",
@@ -893,7 +893,7 @@
       "shot": "SC_012",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "94% of the highlighted silhouette visible, 9.96% of the frame, compact face 7.74% at frame 101"
+      "detail": "94% of the highlighted silhouette visible, 9.96% of the frame, compact face 7.74% at frame 102"
     },
     {
       "shot": "SC_012",
@@ -959,13 +959,13 @@
       "shot": "SC_013",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "4 twins visible only mid-fade, never with their original or on frames 1/363"
+      "detail": "4 twins visible only mid-fade, never with their original or on frames 1/358"
     },
     {
       "shot": "SC_013",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "74% of the highlighted silhouette visible, 4.60% of the frame, compact face 1.63% at frame 186; 4 covering part(s) ghosted"
+      "detail": "74% of the highlighted silhouette visible, 4.60% of the frame, compact face 1.63% at frame 184; 4 covering part(s) ghosted"
     },
     {
       "shot": "SC_013",
@@ -989,7 +989,7 @@
       "shot": "SC_013",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "5 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 14.0 px at review"
+      "detail": "5 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 28.1 px at internal_1080p"
     },
     {
       "shot": "SC_013",
@@ -1007,13 +1007,13 @@
       "shot": "SC_014",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "10 animated objects x 26 frames, max error 2.75e-06"
+      "detail": "10 animated objects x 27 frames, max error 2.65e-06"
     },
     {
       "shot": "SC_014",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "18 objects (3 shared) unchanged on 26 frames"
+      "detail": "18 objects (3 shared) unchanged on 27 frames"
     },
     {
       "shot": "SC_014",
@@ -1055,13 +1055,13 @@
       "shot": "SC_014",
       "check": "overlays_screen_fixed",
       "status": "PASS",
-      "detail": "3 annotation objects keep their frame position during the push-in (max drift 1.2e-07)"
+      "detail": "3 annotation objects keep their frame position during the push-in (max drift 8.9e-08)"
     },
     {
       "shot": "SC_014",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "60% of the highlighted silhouette visible, 3.34% of the frame, compact face 1.15% at frame 505"
+      "detail": "60% of the highlighted silhouette visible, 3.33% of the frame, compact face 1.14% at frame 494"
     },
     {
       "shot": "SC_014",
@@ -1085,7 +1085,7 @@
       "shot": "SC_014",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_014",
@@ -1103,13 +1103,13 @@
       "shot": "SC_015",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "42 animated objects x 22 frames, max error 3.89e-08"
+      "detail": "42 animated objects x 23 frames, max error 3.89e-08"
     },
     {
       "shot": "SC_015",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "13 objects (3 shared) unchanged on 22 frames"
+      "detail": "13 objects (3 shared) unchanged on 23 frames"
     },
     {
       "shot": "SC_015",
@@ -1151,7 +1151,7 @@
       "shot": "SC_015",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "31% of the highlighted silhouette visible, 3.14% of the frame, compact face 1.71% at frame 53"
+      "detail": "31% of the highlighted silhouette visible, 3.14% of the frame, compact face 1.71% at frame 50"
     },
     {
       "shot": "SC_015",
@@ -1175,7 +1175,7 @@
       "shot": "SC_015",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_015",
@@ -1253,7 +1253,7 @@
       "shot": "SC_016",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "95% of the highlighted silhouette visible, 8.63% of the frame, compact face 6.03% at frame 82"
+      "detail": "95% of the highlighted silhouette visible, 8.63% of the frame, compact face 6.03% at frame 84"
     },
     {
       "shot": "SC_016",
@@ -1277,7 +1277,7 @@
       "shot": "SC_016",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 19.4 px at review"
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 38.9 px at internal_1080p"
     },
     {
       "shot": "SC_016",
@@ -1295,13 +1295,13 @@
       "shot": "SC_017",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "86 animated objects x 36 frames, max error 3.89e-08"
+      "detail": "86 animated objects x 35 frames, max error 3.89e-08"
     },
     {
       "shot": "SC_017",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "13 objects (3 shared) unchanged on 36 frames"
+      "detail": "13 objects (3 shared) unchanged on 35 frames"
     },
     {
       "shot": "SC_017",
@@ -1343,7 +1343,7 @@
       "shot": "SC_017",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "26% of the highlighted silhouette visible, 2.61% of the frame, compact face 1.28% at frame 213"
+      "detail": "26% of the highlighted silhouette visible, 2.61% of the frame, compact face 1.28% at frame 212"
     },
     {
       "shot": "SC_017",
@@ -1367,7 +1367,7 @@
       "shot": "SC_017",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 14.0 px at review"
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 28.1 px at internal_1080p"
     },
     {
       "shot": "SC_017",
@@ -1385,13 +1385,13 @@
       "shot": "SC_018",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "12 animated objects x 14 frames, max error 3.89e-08"
+      "detail": "12 animated objects x 13 frames, max error 3.89e-08"
     },
     {
       "shot": "SC_018",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "52 objects (3 shared) unchanged on 14 frames"
+      "detail": "52 objects (3 shared) unchanged on 13 frames"
     },
     {
       "shot": "SC_018",
@@ -1451,7 +1451,7 @@
       "shot": "SC_018",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 19.4 px at review"
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 38.9 px at internal_1080p"
     },
     {
       "shot": "SC_018",
@@ -1469,7 +1469,7 @@
       "shot": "SC_019",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "53 objects x 26 frames, max error 5.74e-08"
+      "detail": "53 objects x 25 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_019",
@@ -1577,7 +1577,7 @@
       "shot": "SC_021",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "82% of the highlighted silhouette visible, 3.88% of the frame, compact face 0.23% at frame 232"
+      "detail": "82% of the highlighted silhouette visible, 3.88% of the frame, compact face 0.23% at frame 226"
     },
     {
       "shot": "SC_021",
@@ -1601,7 +1601,7 @@
       "shot": "SC_021",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "6 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 14.0 px at review"
+      "detail": "6 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 28.1 px at internal_1080p"
     },
     {
       "shot": "SC_021",
@@ -1685,7 +1685,7 @@
       "shot": "SC_022",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "7 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 14.0 px at review"
+      "detail": "7 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 28.1 px at internal_1080p"
     },
     {
       "shot": "SC_022",
@@ -1703,13 +1703,13 @@
       "shot": "SC_023",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "11 animated objects x 30 frames, max error 6.37e-08"
+      "detail": "11 animated objects x 29 frames, max error 6.37e-08"
     },
     {
       "shot": "SC_023",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "28 objects (3 shared) unchanged on 30 frames"
+      "detail": "28 objects (3 shared) unchanged on 29 frames"
     },
     {
       "shot": "SC_023",
@@ -1739,7 +1739,7 @@
       "shot": "SC_023",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.044 at ANN_B17_pratt_00_plate_border@119; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+      "detail": "min margin 0.044 at ANN_B17_pratt_00_plate_border@117; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
     },
     {
       "shot": "SC_023",
@@ -1751,7 +1751,7 @@
       "shot": "SC_023",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "80% of the highlighted silhouette visible, 3.12% of the frame, compact face 0.06% at frame 199"
+      "detail": "80% of the highlighted silhouette visible, 3.12% of the frame, compact face 0.06% at frame 202"
     },
     {
       "shot": "SC_023",
@@ -1775,7 +1775,7 @@
       "shot": "SC_023",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_023",
@@ -1793,7 +1793,7 @@
       "shot": "SC_024",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "27 animated objects x 39 frames, max error 3.53e-07"
+      "detail": "27 animated objects x 39 frames, max error 2.86e-07"
     },
     {
       "shot": "SC_024",
@@ -1847,7 +1847,7 @@
       "shot": "SC_024",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "12 twins visible only mid-fade, never with their original or on frames 1/199"
+      "detail": "12 twins visible only mid-fade, never with their original or on frames 1/207"
     },
     {
       "shot": "SC_024",
@@ -1871,7 +1871,7 @@
       "shot": "SC_024",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_024",
@@ -1937,7 +1937,7 @@
       "shot": "SC_025",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "78% of the highlighted silhouette visible, 1.86% of the frame, compact face 0.00% at frame 88"
+      "detail": "78% of the highlighted silhouette visible, 1.86% of the frame, compact face 0.00% at frame 90"
     },
     {
       "shot": "SC_025",
@@ -1961,7 +1961,7 @@
       "shot": "SC_025",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_025",
@@ -2027,7 +2027,7 @@
       "shot": "SC_026",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.044 at ANN_B18_shop_00_plate_border@113; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
+      "detail": "min margin 0.044 at ANN_B18_shop_00_plate_border@106; lowest point y=0.205 (label band 0.10); ortho_scale 33.110"
     },
     {
       "shot": "SC_026",
@@ -2057,7 +2057,7 @@
       "shot": "SC_026",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_026",
@@ -2141,7 +2141,7 @@
       "shot": "SC_028",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.044 at ANN_B20A_note_00_plate_border@96; lowest point y=0.231 (label band 0.10); ortho_scale 33.110"
+      "detail": "min margin 0.044 at ANN_B20A_note_00_plate_border@90; lowest point y=0.231 (label band 0.10); ortho_scale 33.110"
     },
     {
       "shot": "SC_028",
@@ -2153,7 +2153,7 @@
       "shot": "SC_028",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "31% of the highlighted silhouette visible, 3.14% of the frame, compact face 1.71% at frame 160"
+      "detail": "31% of the highlighted silhouette visible, 3.14% of the frame, compact face 1.71% at frame 154"
     },
     {
       "shot": "SC_028",
@@ -2177,7 +2177,7 @@
       "shot": "SC_028",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_028",
@@ -2195,13 +2195,13 @@
       "shot": "SC_029",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "14 animated objects x 33 frames, max error 3.89e-08"
+      "detail": "14 animated objects x 34 frames, max error 3.89e-08"
     },
     {
       "shot": "SC_029",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "24 objects (3 shared) unchanged on 33 frames"
+      "detail": "24 objects (3 shared) unchanged on 34 frames"
     },
     {
       "shot": "SC_029",
@@ -2243,7 +2243,7 @@
       "shot": "SC_029",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "82% of the highlighted silhouette visible, 3.88% of the frame, compact face 0.23% at frame 194"
+      "detail": "82% of the highlighted silhouette visible, 3.88% of the frame, compact face 0.23% at frame 195"
     },
     {
       "shot": "SC_029",
@@ -2267,7 +2267,7 @@
       "shot": "SC_029",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_029",
@@ -2285,13 +2285,13 @@
       "shot": "SC_030",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "3 animated objects x 14 frames, max error 3.89e-08"
+      "detail": "3 animated objects x 13 frames, max error 3.89e-08"
     },
     {
       "shot": "SC_030",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "23 objects (3 shared) unchanged on 14 frames"
+      "detail": "23 objects (3 shared) unchanged on 13 frames"
     },
     {
       "shot": "SC_030",
@@ -2351,7 +2351,7 @@
       "shot": "SC_030",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_030",
@@ -2369,7 +2369,7 @@
       "shot": "SC_031",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "8 objects x 20 frames, max error 5.74e-08"
+      "detail": "8 objects x 19 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_031",
@@ -2429,13 +2429,13 @@
       "shot": "SC_033",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "3 animated objects x 13 frames, max error 3.89e-08"
+      "detail": "3 animated objects x 14 frames, max error 3.89e-08"
     },
     {
       "shot": "SC_033",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "3 objects (3 shared) unchanged on 13 frames"
+      "detail": "3 objects (3 shared) unchanged on 14 frames"
     },
     {
       "shot": "SC_033",
@@ -2495,7 +2495,7 @@
       "shot": "SC_033",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_033",
@@ -2513,7 +2513,7 @@
       "shot": "SC_034",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "8 objects x 25 frames, max error 5.74e-08"
+      "detail": "8 objects x 26 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_034",
@@ -2573,7 +2573,7 @@
       "shot": "SC_036",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "21 objects x 25 frames, max error 5.74e-08"
+      "detail": "21 objects x 26 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_036",
@@ -2633,7 +2633,7 @@
       "shot": "SC_038",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "5 animated objects x 13 frames, max error 2.57e-06"
+      "detail": "5 animated objects x 13 frames, max error 2.36e-06"
     },
     {
       "shot": "SC_038",
@@ -2705,7 +2705,7 @@
       "shot": "SC_038",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_038",
@@ -2723,7 +2723,7 @@
       "shot": "SC_039",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "8 objects x 26 frames, max error 5.74e-08"
+      "detail": "8 objects x 25 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_039",
@@ -2753,7 +2753,7 @@
       "shot": "SC_040",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "10 animated objects x 23 frames, max error 2.44e-06"
+      "detail": "10 animated objects x 23 frames, max error 1.88e-06"
     },
     {
       "shot": "SC_040",
@@ -2807,7 +2807,7 @@
       "shot": "SC_040",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "59% of the highlighted silhouette visible, 2.91% of the frame, compact face 0.87% at frame 162"
+      "detail": "59% of the highlighted silhouette visible, 2.91% of the frame, compact face 0.87% at frame 155"
     },
     {
       "shot": "SC_040",
@@ -2831,7 +2831,7 @@
       "shot": "SC_040",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_040",
@@ -2849,7 +2849,7 @@
       "shot": "SC_041",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "9 objects x 31 frames, max error 5.74e-08"
+      "detail": "9 objects x 32 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_041",
@@ -2993,7 +2993,7 @@
       "shot": "SC_043",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_043",
@@ -3011,7 +3011,7 @@
       "shot": "SC_044",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "16 objects x 42 frames, max error 5.74e-08"
+      "detail": "16 objects x 43 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_044",
@@ -3071,13 +3071,13 @@
       "shot": "SC_046",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "5 animated objects x 14 frames, max error 1.84e-06"
+      "detail": "5 animated objects x 13 frames, max error 1.82e-06"
     },
     {
       "shot": "SC_046",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "52 objects (3 shared) unchanged on 14 frames"
+      "detail": "52 objects (3 shared) unchanged on 13 frames"
     },
     {
       "shot": "SC_046",
@@ -3143,7 +3143,7 @@
       "shot": "SC_046",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 16.2 px at review"
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 32.4 px at internal_1080p"
     },
     {
       "shot": "SC_046",
@@ -3155,13 +3155,13 @@
       "shot": "SC_047",
       "check": "card_elements_built",
       "status": "PASS",
-      "detail": "8 elements"
+      "detail": "7 elements"
     },
     {
       "shot": "SC_047",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "8 objects x 14 frames, max error 5.74e-08"
+      "detail": "7 objects x 13 frames, max error 5.74e-08"
     },
     {
       "shot": "SC_047",
@@ -3179,7 +3179,7 @@
       "shot": "SC_047",
       "check": "card_layout",
       "status": "PASS",
-      "detail": "8 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+      "detail": "7 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
     },
     {
       "shot": "ALL",
@@ -3191,283 +3191,283 @@
       "shot": "SC_001",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 3b89784ac7c78fdc"
+      "detail": "sha256 6b507e3cc634f33f"
     },
     {
       "shot": "SC_002",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 5c8de7d72a8cd076"
+      "detail": "sha256 436c89a2b268f174"
     },
     {
       "shot": "SC_003",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 35592670d65f772f"
+      "detail": "sha256 41dafeb338d2c0ed"
     },
     {
       "shot": "SC_004",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 566583dbe2b6e2be"
+      "detail": "sha256 4a4066cc5c1f3130"
     },
     {
       "shot": "SC_005",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 df6a9df0a1538925"
+      "detail": "sha256 8e1562d9fa6187fb"
     },
     {
       "shot": "SC_006",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 f4bb6e5e282334d6"
+      "detail": "sha256 f01b4336ecd15e70"
     },
     {
       "shot": "SC_007",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 645de9cbf76f2439"
+      "detail": "sha256 50d0963e2945c0f1"
     },
     {
       "shot": "SC_008",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 604ab04da0058799"
+      "detail": "sha256 8ceab3c8501cd4fe"
     },
     {
       "shot": "SC_009",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 cf320c5a229cb6aa"
+      "detail": "sha256 0d939f934c10623c"
     },
     {
       "shot": "SC_010",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 ef0a17ec8b289dc0"
+      "detail": "sha256 c496bc3ae96c3cc3"
     },
     {
       "shot": "SC_011",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 75b85ce99c3a316f"
+      "detail": "sha256 e356454a9eca13c5"
     },
     {
       "shot": "SC_012",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 f68199d8f16655ef"
+      "detail": "sha256 088c6b3c60311dfd"
     },
     {
       "shot": "SC_013",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 8c6094fa326503f5"
+      "detail": "sha256 1058a8e9b2a1c4be"
     },
     {
       "shot": "SC_014",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 736b07ed10ed9770"
+      "detail": "sha256 8763917c04762d65"
     },
     {
       "shot": "SC_015",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 c215018544989f09"
+      "detail": "sha256 6b5a1583e1184f0d"
     },
     {
       "shot": "SC_016",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 c1b0be5db923f93d"
+      "detail": "sha256 2b5f1f884f16b822"
     },
     {
       "shot": "SC_017",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 bb051bdaf0da2809"
+      "detail": "sha256 72f11df9cb7828cf"
     },
     {
       "shot": "SC_018",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 d072830dffdd16b6"
+      "detail": "sha256 eb101537b6a52576"
     },
     {
       "shot": "SC_019",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 2e116e4195402980"
+      "detail": "sha256 cfc35b7f7bf6196f"
     },
     {
       "shot": "SC_020",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 64a0a5016ca1d6f2"
+      "detail": "sha256 6c869a30e2adf77d"
     },
     {
       "shot": "SC_021",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 830349b5e4a1fb17"
+      "detail": "sha256 39780a311dc92982"
     },
     {
       "shot": "SC_022",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 a9c109855671aad8"
+      "detail": "sha256 00a60e6b633b9511"
     },
     {
       "shot": "SC_023",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 a2667ebd871c5da7"
+      "detail": "sha256 93d1d7048152bb68"
     },
     {
       "shot": "SC_024",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 51eb933a6aa80fbd"
+      "detail": "sha256 246fce85370a555a"
     },
     {
       "shot": "SC_025",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 5dcf5c04ba526c96"
+      "detail": "sha256 a102788ec0cdd5b1"
     },
     {
       "shot": "SC_026",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 120fa561a508b3b4"
+      "detail": "sha256 8dd1d20bd008e962"
     },
     {
       "shot": "SC_027",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 afeade1043bafaa0"
+      "detail": "sha256 8f176398f61f9eca"
     },
     {
       "shot": "SC_028",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 03d420ec543e1c72"
+      "detail": "sha256 a8e81003fdb81532"
     },
     {
       "shot": "SC_029",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 82bdf66113a6dd38"
+      "detail": "sha256 e72b0e08388a59f9"
     },
     {
       "shot": "SC_030",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 8964e5c91076f991"
+      "detail": "sha256 854432cd504f1232"
     },
     {
       "shot": "SC_031",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 32357acf3ceb3fdd"
+      "detail": "sha256 f89b19954a74b749"
     },
     {
       "shot": "SC_032",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 692799d0c3874d6c"
+      "detail": "sha256 aea706ea09f632dd"
     },
     {
       "shot": "SC_033",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 7c3ad810549ed319"
+      "detail": "sha256 b730290b75ca2309"
     },
     {
       "shot": "SC_034",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 d3f55f00a24e26b8"
+      "detail": "sha256 0698a7e8cbf406a1"
     },
     {
       "shot": "SC_035",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 d06db41034b4b7dd"
+      "detail": "sha256 bbd324602f50347a"
     },
     {
       "shot": "SC_036",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 5791ccb10af19daf"
+      "detail": "sha256 5e063cf1ec179607"
     },
     {
       "shot": "SC_037",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 9a1087bd284972ae"
+      "detail": "sha256 a82dcbe35ac88364"
     },
     {
       "shot": "SC_038",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 7c441591bee9a0fb"
+      "detail": "sha256 bea67ef4a65127b8"
     },
     {
       "shot": "SC_039",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 a43885d72f0e6058"
+      "detail": "sha256 c5cc989028c89c54"
     },
     {
       "shot": "SC_040",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 bb2a07772b5cc83a"
+      "detail": "sha256 8b8028c0f10acf05"
     },
     {
       "shot": "SC_041",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 304ebdaec9209cad"
+      "detail": "sha256 34b958b58846cc17"
     },
     {
       "shot": "SC_042",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 d0dfef0c109cc0b4"
+      "detail": "sha256 6c2e687043d20f1f"
     },
     {
       "shot": "SC_043",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 64e58627cb4f54d7"
+      "detail": "sha256 4c191b2240d57cd0"
     },
     {
       "shot": "SC_044",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 d0bc931951d87749"
+      "detail": "sha256 ec6494a784c237ec"
     },
     {
       "shot": "SC_045",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 9242b8ef18836e10"
+      "detail": "sha256 d24ca8fc26893ab0"
     },
     {
       "shot": "SC_046",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 055dadf2b526142c"
+      "detail": "sha256 9d95624cad452b3b"
     },
     {
       "shot": "SC_047",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 b284fe15f30bd4b2"
+      "detail": "sha256 09ab654caa9f9eba"
     }
   ]
 }

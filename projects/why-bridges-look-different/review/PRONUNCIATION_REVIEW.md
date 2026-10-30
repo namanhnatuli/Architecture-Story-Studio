@@ -4,19 +4,19 @@ Trạng thái: **PENDING**. Agent không xác nhận phát âm. Chủ kênh nghe
 
 | Thuật ngữ | Câu | Mốc trong phim | File audio | Âm vị Kokoro (cả câu) | ASR nghe thấy từ này? |
 |---|---|---|---|---|---|
-| voussoirs | B10.s1 | 2:37 | `audio/segments/07c5b6839cd2f4bca651.wav` | `ˌɪt ɪz bˈɪlt fɹɒm wˌɛʤʃˈApt stˈQnz kˈɔːld vˈuːswɑːz, wɪð ɐ kˈiːstQn at ðə kɹˈWn.` | có |
-| falsework | B13.s1 | 3:19 | `audio/segments/23993f1624d819e1c25c.wav` | `wˌIl ɐ stˈQn ˈɑːʧ ɪz bˈiːɪŋ bˈɪlt, ɐ tˈɛmpəɹəɹi tˈɪmbə fɹˈAm kˈɔːld fˈɔːlswəːk hˈQldz ðə stˈQnz ɪn plˈAs.` | có |
-| superstructure | B04.s1 | 0:56 | `audio/segments/c38ab7ed0641b0e556a2.wav` | `ðə sˈuːpəstɹˌʌkʧə ɪz ðə pˈɑːt ðat spˈanz ðə ɡˈap, ɪnklˈuːdɪŋ ðə dˈɛk.` | có |
-| substructure | B04.s2 | 1:01 | `audio/segments/5b83bc7828afa0f12f46.wav` | `ðə sˈʌbstɹˌʌkʧə ɪz wˌɒt hˈQldz ɪt ˌʌp: əbˈʌtmᵊnts at ði ˈɛndz, and sˈʌmtImz pˈɪəz ɪn bɪtwˈiːn.` | có |
-| abutments | B04.s2 | 1:01 | `audio/segments/5b83bc7828afa0f12f46.wav` | `ðə sˈʌbstɹˌʌkʧə ɪz wˌɒt hˈQldz ɪt ˌʌp: əbˈʌtmᵊnts at ði ˈɛndz, and sˈʌmtImz pˈɪəz ɪn bɪtwˈiːn.` | có |
-| Pratt | B17.s1 | 4:31 | `audio/segments/b6674d3e01985835b328.wav` | `ðˌɪs ɪz ɐ pɹˈat tɹˈʌs.` | có |
-| Warren | B17.s3 | 4:42 | `audio/segments/b71551f4c10adab25bda.wav` | `swˈɒp ðə wˈɛb fɔː dIˈaɡᵊnᵊlz ðat ˈɔːltənAt ɪn dɪɹˈɛkʃᵊn, and juː hav ɐ wˈɒɹən tɹˈʌs, pˈatᵊntɪd ɪn ˌAtˈiːn fˈɔːti ˈAt.` | có |
-| Bollman | B30.s1 | 8:54 | `audio/segments/f717d5c5301831969f32.wav` | `ðə bˈɒlmən tɹˈʌs, pˈatᵊntɪd ɪn ˌAtˈiːn fˈɪfti tˈuː, wɒz wˈʌn ɒv ðə fˈɜːst dɪzˈInz tə jˈuːz ˈIən ɪn ˈɔːl ɒv ɪts ɪsˈɛnʃl stɹˈʌkʧəɹəl pˈɑːts.` | KHÔNG: The Bowman Truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts. |
-| Carrollton | B26.s0 | 7:45 | `audio/segments/473e8e66d8a46d6c3d36.wav` | `nˌɪə bˈɔːltɪmɔː, ðə kˈaɹQltən vˈIədʌkt wɒz kəmplˈiːtɪd ɪn ˌAtˈiːn twˈɛnti nˈIn.` | có |
-| Gwynns Falls | B26.s1 | 7:51 | `audio/segments/f7d984ba8ed2840d1061.wav` | `bˈɪlt ɒv ɹˈʌfli twˈɛlv θˈWzᵊnd ɡɹˈanɪt blˈɒks, ɪt kˈaɹiz ðə ɹˈAlwA ˈQvə ɡwˈɪnz fˈɔːlz ˌɒn ɐn ˈAti fˈʊt ˈɑːʧ.` | KHÔNG: Built of roughly 12,000 granite blocks, it carries the railway over Gwyn's Falls on an 80-foot arch. |
-| Corinne | B28.s2 | 8:29 | `audio/segments/f72d226333f183e9464a.wav` | `ðˌɪs tˈɪmbə tɹˈɛsᵊl nˌɪə kəɹˈiːn, jˈuːtɔː, wɒz bˈɪlt ɪn ˌAtˈiːn sˈɛvnti tˈuː bI ðə sˈɛntɹᵊl pəsˈɪfɪk ɹˈAlɹQd.` | KHÔNG: This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad. |
+| voussoirs | B10.s1 | 2:32 | `audio/segments/7e7ac7c60ed07eeec9ae.wav` | `ˌɪt ɪz bˈɪlt fɹʌm wˌɛʤʃˈApt stˈOnz kˈɔld vuswˈɑɹz, wɪð ɐ kˈistˌOn æt ðə kɹˈWn.` | KHÔNG: It is built from wedge-shaped stones called voossoirs with a keystone at the crown. |
+| falsework | B13.s1 | 3:15 | `audio/segments/21b3622abbcc5a5a4f8c.wav` | `wˌIl ɐ stˈOn ˈɑɹʧ ɪz bˈiɪŋ bˈɪlt, ɐ tˈɛmpəɹˌɛɹi tˈɪmbəɹ fɹˈAm kˈɔld fˈɔlswˌɜɹk hˈOldz ðə stˈOnz ɪn plˈAs.` | có |
+| superstructure | B04.s1 | 0:53 | `audio/segments/b875fe18c9be9f03a776.wav` | `ðə sˈupəɹstɹˌʌkʧəɹ ɪz ðə pˈɑɹt ðæt spˈænz ðə ɡˈæp, ɪnklˈudɪŋ ðə dˈɛk.` | có |
+| substructure | B04.s2 | 0:59 | `audio/segments/55936233158c823d4180.wav` | `ðə sˈʌbstɹˌʌkʧəɹ ɪz wˌʌt hˈOldz ɪt ˌʌp: əbˈʌtmᵊnts æt ði ˈɛndz, ænd sˈʌmtˌImz pˈɪɹz ɪn bətwˈin.` | có |
+| abutments | B04.s2 | 0:59 | `audio/segments/55936233158c823d4180.wav` | `ðə sˈʌbstɹˌʌkʧəɹ ɪz wˌʌt hˈOldz ɪt ˌʌp: əbˈʌtmᵊnts æt ði ˈɛndz, ænd sˈʌmtˌImz pˈɪɹz ɪn bətwˈin.` | có |
+| Pratt | B17.s1 | 4:26 | `audio/segments/3a6b58be314c8899c225.wav` | `ðˌɪs ɪz ɐ pɹˈæt tɹˈʌs.` | có |
+| Warren | B17.s3 | 4:38 | `audio/segments/6efa07db434fb503ccea.wav` | `swˈɑp ðə wˈɛb fɔɹ dIˈæɡənᵊlz ðæt ˈɔltəɹnˌAt ɪn dəɹˈɛkʃən, ænd ju hæv ɐ wˈɔɹən tɹˈʌs, pˈætntᵻd ɪn ˌAtˈin fˈɔɹTi ˈAt.` | có |
+| Bollman | B30.s1 | 8:49 | `audio/segments/dc363a3442dfaddc61d1.wav` | `ðə bˈɑlmən tɹˈʌs, pˈætntᵻd ɪn ˌAtˈin fˈɪfti tˈu, wʌz wˈʌn ʌv ðə fˈɜɹst dəzˈInz tə jˈuz ˈIəɹn ɪn ˈɔl ʌv ɪts əsˈɛnʧᵊl stɹˈʌkʧəɹəl pˈɑɹts.` | KHÔNG: The Bauman Truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts. |
+| Carrollton | B26.s0 | 7:41 | `audio/segments/2fbced98b1a884299fbd.wav` | `nˌɪɹ bˈɔltəmˌɔɹ, ðə kˈɛɹəltən vˈIədˌʌkt wʌz kəmplˈiTᵻd ɪn ˌAtˈin twˈɛnti nˈIn.` | có |
+| Gwynns Falls | B26.s1 | 7:47 | `audio/segments/c077f2365c5af5e3bd48.wav` | `bˈɪlt ʌv ɹˈʌfli twˈɛlv θˈWzᵊnd ɡɹˈænət blˈɑks, ɪt kˈɛɹiz ðə ɹˈAlwˌA ˈOvəɹ ɡwˈɪnz fˈɔlz ˌɔn ɐn ˈATi fˈʊt ˈɑɹʧ.` | KHÔNG: Built of roughly 12,000 granite blocks, it carries the railway over Gwyn's Falls on an 80-foot arch. |
+| Corinne | B28.s2 | 8:24 | `audio/segments/ae22a511868feda58b97.wav` | `ðˌɪs tˈɪmbəɹ tɹˈɛsᵊl nˌɪɹ kəɹɹˈin, jˈutˌɔ, wʌz bˈɪlt ɪn ˌAtˈin sˈɛvənti tˈu bI ðə sˈɛntɹəl pəsˈɪfɪk ɹˈAlɹˌOd.` | KHÔNG: This timber trestle near Kareen, Utah, was built in 1872 by the Central Pacific Railroad. |
 | Promontory | — | — | — | — | không có trong lời dẫn |
-| Dunlap Creek | B21.s1 | 6:15 | `audio/segments/541c27146a99c0f91e8e.wav` | `ðˌɪs ɪz ðə hˈʌmpbak kˈʌvəd bɹˈɪʤ, bˈɪlt ɪn ˌAtˈiːn fˈɪfti sˈɛvᵊn ˈQvə dˈʌnlap kɹˈiːk.` | có |
-| Humpback | B21.s1 | 6:15 | `audio/segments/541c27146a99c0f91e8e.wav` | `ðˌɪs ɪz ðə hˈʌmpbak kˈʌvəd bɹˈɪʤ, bˈɪlt ɪn ˌAtˈiːn fˈɪfti sˈɛvᵊn ˈQvə dˈʌnlap kɹˈiːk.` | có |
-| trestle | B22.s2 | 6:32 | `audio/segments/0d1202786b22eeb60265.wav` | `wˌɛː ɐ vˈali wɒz tˈuː dˈiːp and wˈId tə fˈɪl wɪð ɐn ɪmbˈaŋkmᵊnt, ˌɛnʤɪnˈɪəz bˈɪlt vˈIədʌkts and tɹˈɛsᵊlz tə kˈiːp ðə lˈIn nˈɪəli stɹˈAt and lˈɛvᵊl.` | có |
-| viaduct | B22.s2 | 6:32 | `audio/segments/0d1202786b22eeb60265.wav` | `wˌɛː ɐ vˈali wɒz tˈuː dˈiːp and wˈId tə fˈɪl wɪð ɐn ɪmbˈaŋkmᵊnt, ˌɛnʤɪnˈɪəz bˈɪlt vˈIədʌkts and tɹˈɛsᵊlz tə kˈiːp ðə lˈIn nˈɪəli stɹˈAt and lˈɛvᵊl.` | có |
+| Dunlap Creek | B21.s1 | 6:11 | `audio/segments/da3f77d90267ff2b010a.wav` | `ðˌɪs ɪz ðə hˈʌmpbˌæk kˈʌvəɹd bɹˈɪʤ, bˈɪlt ɪn ˌAtˈin fˈɪfti sˈɛvən ˈOvəɹ dˈʌnlæp kɹˈik.` | có |
+| Humpback | B21.s1 | 6:11 | `audio/segments/da3f77d90267ff2b010a.wav` | `ðˌɪs ɪz ðə hˈʌmpbˌæk kˈʌvəɹd bɹˈɪʤ, bˈɪlt ɪn ˌAtˈin fˈɪfti sˈɛvən ˈOvəɹ dˈʌnlæp kɹˈik.` | có |
+| trestle | B22.s2 | 6:28 | `audio/segments/98f218c749de609ba941.wav` | `wˌɛɹ ɐ vˈæli wʌz tˈu dˈip ænd wˈId tə fˈɪl wɪð ɐn əmbˈæŋkmənt, ˌɛnʤənˈɪɹz bˈɪlt vˈIədˌʌkts ænd tɹˈɛsᵊlz tə kˈip ðə lˈIn nˈɪɹli stɹˈAt ænd lˈɛvᵊl.` | có |
+| viaduct | B22.s2 | 6:28 | `audio/segments/98f218c749de609ba941.wav` | `wˌɛɹ ɐ vˈæli wʌz tˈu dˈip ænd wˈId tə fˈɪl wɪð ɐn əmbˈæŋkmənt, ˌɛnʤənˈɪɹz bˈɪlt vˈIədˌʌkts ænd tɹˈɛsᵊlz tə kˈip ðə lˈIn nˈɪɹli stɹˈAt ænd lˈɛvᵊl.` | có |

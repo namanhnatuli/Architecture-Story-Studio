@@ -18,7 +18,7 @@
       "strategy": "DETAIL_THEN_OVERVIEW",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 17.025,
+      "expected_seconds": 15.75,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared COMPARE_VARIANTS, narration cues suggest ['SHOW_CONTEXT']"
@@ -60,7 +60,7 @@
         "SC_003",
         "SC_004"
       ],
-      "planned_seconds": 17.042,
+      "planned_seconds": 15.75,
       "readable": {},
       "visual_repairs": [],
       "composition": [
@@ -214,7 +214,7 @@
       "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 18.275,
+      "expected_seconds": 17.875,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -228,7 +228,7 @@
       "shot_ids": [
         "SC_005"
       ],
-      "planned_seconds": 18.292,
+      "planned_seconds": 17.875,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -239,8 +239,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 15.75,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 15.625,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -261,7 +261,7 @@
       "shot_ids": [
         "SC_006"
       ],
-      "planned_seconds": 15.75,
+      "planned_seconds": 15.625,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -272,8 +272,8 @@
       "visual_intent": "EXPLAIN_LOAD_PATH",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 24.075,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 23.5,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -296,7 +296,7 @@
       "shot_ids": [
         "SC_007"
       ],
-      "planned_seconds": 24.083,
+      "planned_seconds": 23.5,
       "readable": {
         "substructure": true
       },
@@ -307,7 +307,7 @@
           "shot_id": "SC_007",
           "concept": "substructure",
           "label": "highlight_peak",
-          "frame": 411,
+          "frame": 398,
           "visible_share": 0.4697,
           "core_area": 0.02821,
           "visible_area": 0.0366,
@@ -323,7 +323,7 @@
       "strategy": "SITE_HOLD",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 10.325,
+      "expected_seconds": 9.425,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -344,7 +344,7 @@
       "shot_ids": [
         "SC_008"
       ],
-      "planned_seconds": 10.333,
+      "planned_seconds": 9.458,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -355,8 +355,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "ASSEMBLE_IN",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 14.475,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 14.1,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -382,7 +382,7 @@
         "SC_009",
         "SC_010"
       ],
-      "planned_seconds": 14.5,
+      "planned_seconds": 14.125,
       "readable": {
         "stringer": true
       },
@@ -421,7 +421,7 @@
           "shot_id": "SC_010",
           "concept": "stringer",
           "label": "highlight_peak",
-          "frame": 64,
+          "frame": 62,
           "visible_share": 0.8096,
           "core_area": 0.01669,
           "visible_area": 0.05044,
@@ -436,8 +436,8 @@
       "visual_intent": "EXPLAIN_STRUCTURE",
       "strategy": "HIGHLIGHT_THEN_EXPLODE",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 12.925,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 12.725,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -465,7 +465,7 @@
         "SC_011",
         "SC_012"
       ],
-      "planned_seconds": 12.958,
+      "planned_seconds": 12.75,
       "readable": {
         "cap_beam": true,
         "deck_planks": true,
@@ -478,7 +478,7 @@
           "shot_id": "SC_011",
           "concept": "deck_planks",
           "label": "highlight_peak",
-          "frame": 62,
+          "frame": 58,
           "visible_share": 0.8184,
           "core_area": 0.01741,
           "visible_area": 0.0515,
@@ -490,7 +490,7 @@
           "shot_id": "SC_011",
           "concept": "stringer",
           "label": "highlight_peak",
-          "frame": 62,
+          "frame": 58,
           "visible_share": 0.1362,
           "core_area": 0.0,
           "visible_area": 0.00849,
@@ -504,7 +504,7 @@
           "shot_id": "SC_011",
           "concept": "cap_beam",
           "label": "highlight_peak",
-          "frame": 62,
+          "frame": 58,
           "visible_share": 0.1733,
           "core_area": 0.00029,
           "visible_area": 0.00169,
@@ -518,7 +518,7 @@
           "shot_id": "SC_012",
           "concept": "deck_planks",
           "label": "exploded_hold",
-          "frame": 101,
+          "frame": 102,
           "visible_share": 1.0,
           "core_area": 0.04977,
           "visible_area": 0.06284,
@@ -530,7 +530,7 @@
           "shot_id": "SC_012",
           "concept": "stringer",
           "label": "exploded_hold",
-          "frame": 101,
+          "frame": 102,
           "visible_share": 0.5031,
           "core_area": 0.0137,
           "visible_area": 0.03135,
@@ -542,7 +542,7 @@
           "shot_id": "SC_012",
           "concept": "cap_beam",
           "label": "exploded_hold",
-          "frame": 101,
+          "frame": 102,
           "visible_share": 0.4877,
           "core_area": 0.00101,
           "visible_area": 0.00477,
@@ -557,8 +557,8 @@
       "visual_intent": "EXPLAIN_LOAD_PATH",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 15.1,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 14.9,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -581,7 +581,7 @@
       "shot_ids": [
         "SC_013"
       ],
-      "planned_seconds": 15.125,
+      "planned_seconds": 14.917,
       "readable": {
         "stringer": true
       },
@@ -620,7 +620,7 @@
           "shot_id": "SC_013",
           "concept": "stringer",
           "label": "highlight_peak",
-          "frame": 186,
+          "frame": 184,
           "visible_share": 0.8096,
           "core_area": 0.01669,
           "visible_area": 0.05044,
@@ -635,8 +635,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 25.325,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 24.85,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -659,7 +659,7 @@
       "shot_ids": [
         "SC_014"
       ],
-      "planned_seconds": 25.333,
+      "planned_seconds": 24.875,
       "readable": {
         "trestle_bent": true
       },
@@ -670,7 +670,7 @@
           "shot_id": "SC_014",
           "concept": "trestle_bent",
           "label": "highlight_peak",
-          "frame": 505,
+          "frame": 494,
           "visible_share": 0.6063,
           "core_area": 0.00907,
           "visible_area": 0.02763,
@@ -685,8 +685,8 @@
       "visual_intent": "SHOW_COMPONENT",
       "strategy": "CLOSEUP_EXPLODE",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 10.6,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 10.55,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -714,7 +714,7 @@
         "SC_015",
         "SC_016"
       ],
-      "planned_seconds": 10.625,
+      "planned_seconds": 10.583,
       "readable": {
         "arch_ring": true,
         "keystone": true,
@@ -727,7 +727,7 @@
           "shot_id": "SC_015",
           "concept": "arch_ring",
           "label": "highlight_peak",
-          "frame": 53,
+          "frame": 50,
           "visible_share": 0.3094,
           "core_area": 0.01746,
           "visible_area": 0.03178,
@@ -739,7 +739,7 @@
           "shot_id": "SC_016",
           "concept": "voussoir",
           "label": "exploded_hold",
-          "frame": 82,
+          "frame": 84,
           "visible_share": 1.0,
           "core_area": 0.06115,
           "visible_area": 0.08353,
@@ -751,7 +751,7 @@
           "shot_id": "SC_016",
           "concept": "keystone",
           "label": "exploded_hold",
-          "frame": 82,
+          "frame": 84,
           "visible_share": 1.0,
           "core_area": 0.0055,
           "visible_area": 0.00762,
@@ -766,8 +766,8 @@
       "visual_intent": "EXPLAIN_LOAD_PATH",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 17.35,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 17.225,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -790,7 +790,7 @@
       "shot_ids": [
         "SC_017"
       ],
-      "planned_seconds": 17.375,
+      "planned_seconds": 17.25,
       "readable": {
         "arch_ring": true
       },
@@ -801,7 +801,7 @@
           "shot_id": "SC_017",
           "concept": "arch_ring",
           "label": "highlight_peak",
-          "frame": 213,
+          "frame": 212,
           "visible_share": 0.3094,
           "core_area": 0.01746,
           "visible_area": 0.03178,
@@ -816,8 +816,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 14.35,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 14.6,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -838,7 +838,7 @@
       "shot_ids": [
         "SC_018"
       ],
-      "planned_seconds": 14.375,
+      "planned_seconds": 14.625,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -849,8 +849,8 @@
       "visual_intent": "EXPLAIN_STRUCTURE",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 17.375,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 17.225,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -864,7 +864,7 @@
       "shot_ids": [
         "SC_019"
       ],
-      "planned_seconds": 17.375,
+      "planned_seconds": 17.25,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -875,8 +875,8 @@
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 22.475,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 22.3,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -890,7 +890,7 @@
       "shot_ids": [
         "SC_020"
       ],
-      "planned_seconds": 22.5,
+      "planned_seconds": 22.333,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -901,8 +901,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 16.1,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 15.9,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -925,7 +925,7 @@
       "shot_ids": [
         "SC_021"
       ],
-      "planned_seconds": 16.125,
+      "planned_seconds": 15.917,
       "readable": {
         "truss_members": true
       },
@@ -936,7 +936,7 @@
           "shot_id": "SC_021",
           "concept": "truss_members",
           "label": "highlight_peak",
-          "frame": 232,
+          "frame": 226,
           "visible_share": 0.8264,
           "core_area": 0.00241,
           "visible_area": 0.03858,
@@ -951,8 +951,8 @@
       "visual_intent": "EXPLAIN_LOAD_PATH",
       "strategy": "HOLD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 14.45,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 14.575,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -973,7 +973,7 @@
       "shot_ids": [
         "SC_022"
       ],
-      "planned_seconds": 14.458,
+      "planned_seconds": 14.583,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -984,8 +984,8 @@
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
       "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 31.45,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 32.15,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1019,7 +1019,7 @@
         "SC_024",
         "SC_025"
       ],
-      "planned_seconds": 31.458,
+      "planned_seconds": 32.167,
       "readable": {
         "truss_web": true
       },
@@ -1030,7 +1030,7 @@
           "shot_id": "SC_023",
           "concept": "truss_web",
           "label": "highlight_peak",
-          "frame": 199,
+          "frame": 202,
           "visible_share": 0.791,
           "core_area": 0.00053,
           "visible_area": 0.03048,
@@ -1042,7 +1042,7 @@
           "shot_id": "SC_025",
           "concept": "truss_web",
           "label": "highlight_peak",
-          "frame": 88,
+          "frame": 90,
           "visible_share": 0.7884,
           "core_area": 0.0,
           "visible_area": 0.01905,
@@ -1057,8 +1057,8 @@
       "visual_intent": "EXPLAIN_STRUCTURE",
       "strategy": "EXPLODE",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 21.6,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 21.65,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['EXPLAIN_DESIGN_CHANGE', 'SHOW_CONTEXT', 'SHOW_EVOLUTION']"
@@ -1081,7 +1081,7 @@
       "shot_ids": [
         "SC_026"
       ],
-      "planned_seconds": 21.625,
+      "planned_seconds": 21.667,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1093,7 +1093,7 @@
       "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 14.875,
+      "expected_seconds": 14.4,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1107,7 +1107,7 @@
       "shot_ids": [
         "SC_027"
       ],
-      "planned_seconds": 14.875,
+      "planned_seconds": 14.417,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1118,8 +1118,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 9.9,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 9.65,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1142,7 +1142,7 @@
       "shot_ids": [
         "SC_028"
       ],
-      "planned_seconds": 9.917,
+      "planned_seconds": 9.667,
       "readable": {
         "arch_ring": true
       },
@@ -1153,7 +1153,7 @@
           "shot_id": "SC_028",
           "concept": "arch_ring",
           "label": "highlight_peak",
-          "frame": 160,
+          "frame": 154,
           "visible_share": 0.3094,
           "core_area": 0.01746,
           "visible_area": 0.03178,
@@ -1168,8 +1168,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 15.775,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 15.875,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1192,7 +1192,7 @@
       "shot_ids": [
         "SC_029"
       ],
-      "planned_seconds": 15.792,
+      "planned_seconds": 15.875,
       "readable": {
         "truss_members": true
       },
@@ -1203,7 +1203,7 @@
           "shot_id": "SC_029",
           "concept": "truss_members",
           "label": "highlight_peak",
-          "frame": 194,
+          "frame": 195,
           "visible_share": 0.8264,
           "core_area": 0.00241,
           "visible_area": 0.03858,
@@ -1218,8 +1218,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 7.175,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 7.225,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1240,7 +1240,7 @@
       "shot_ids": [
         "SC_030"
       ],
-      "planned_seconds": 7.208,
+      "planned_seconds": 7.25,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1251,8 +1251,8 @@
       "visual_intent": "SHOW_CONTEXT",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 15.525,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 16.0,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1266,7 +1266,7 @@
       "shot_ids": [
         "SC_031"
       ],
-      "planned_seconds": 15.542,
+      "planned_seconds": 16.0,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1277,8 +1277,8 @@
       "visual_intent": "SHOW_CONTEXT",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 20.425,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 20.05,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1292,7 +1292,7 @@
       "shot_ids": [
         "SC_032"
       ],
-      "planned_seconds": 20.458,
+      "planned_seconds": 20.083,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1304,7 +1304,7 @@
       "strategy": "SITE_HOLD",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 5.45,
+      "expected_seconds": 5.525,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1325,7 +1325,7 @@
       "shot_ids": [
         "SC_033"
       ],
-      "planned_seconds": 5.458,
+      "planned_seconds": 5.542,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1336,8 +1336,8 @@
       "visual_intent": "EXPLAIN_STRUCTURE",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 17.45,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 17.675,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1351,7 +1351,7 @@
       "shot_ids": [
         "SC_034"
       ],
-      "planned_seconds": 17.458,
+      "planned_seconds": 17.708,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1362,8 +1362,8 @@
       "visual_intent": "SHOW_CONTEXT",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 18.55,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 18.65,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1377,7 +1377,7 @@
       "shot_ids": [
         "SC_035"
       ],
-      "planned_seconds": 18.583,
+      "planned_seconds": 18.667,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1388,8 +1388,8 @@
       "visual_intent": "SHOW_CONTEXT",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 20.0,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 20.375,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION']"
@@ -1405,7 +1405,7 @@
       "shot_ids": [
         "SC_036"
       ],
-      "planned_seconds": 20.0,
+      "planned_seconds": 20.375,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1416,8 +1416,8 @@
       "visual_intent": "SHOW_CONTEXT",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 23.275,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 23.125,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1431,7 +1431,7 @@
       "shot_ids": [
         "SC_037"
       ],
-      "planned_seconds": 23.292,
+      "planned_seconds": 23.125,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1442,8 +1442,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 10.5,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 10.1,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1464,7 +1464,7 @@
       "shot_ids": [
         "SC_038"
       ],
-      "planned_seconds": 10.5,
+      "planned_seconds": 10.125,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1475,8 +1475,8 @@
       "visual_intent": "SHOW_CONTEXT",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 19.525,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 19.75,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1490,7 +1490,7 @@
       "shot_ids": [
         "SC_039"
       ],
-      "planned_seconds": 19.542,
+      "planned_seconds": 19.75,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1501,8 +1501,8 @@
       "visual_intent": "INTRODUCE_ARCHITECTURE",
       "strategy": "HOLD_HIGHLIGHT",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 13.075,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 12.475,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1525,7 +1525,7 @@
       "shot_ids": [
         "SC_040"
       ],
-      "planned_seconds": 13.083,
+      "planned_seconds": 12.5,
       "readable": {
         "trestle_bent": true
       },
@@ -1536,7 +1536,7 @@
           "shot_id": "SC_040",
           "concept": "trestle_bent",
           "label": "highlight_peak",
-          "frame": 162,
+          "frame": 155,
           "visible_share": 0.6063,
           "core_area": 0.00907,
           "visible_area": 0.02763,
@@ -1551,8 +1551,8 @@
       "visual_intent": "SHOW_CONTEXT",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 27.45,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 27.7,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1566,7 +1566,7 @@
       "shot_ids": [
         "SC_041"
       ],
-      "planned_seconds": 27.458,
+      "planned_seconds": 27.708,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1577,8 +1577,8 @@
       "visual_intent": "SUMMARIZE_DIFFERENCES",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 12.8,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 13.05,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['COMPARE_VARIANTS']"
@@ -1594,7 +1594,7 @@
       "shot_ids": [
         "SC_042"
       ],
-      "planned_seconds": 12.833,
+      "planned_seconds": 13.083,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1605,8 +1605,8 @@
       "visual_intent": "SUMMARIZE_DIFFERENCES",
       "strategy": "COMPARE_SIDE_BY_SIDE",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 20.4,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 20.425,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1639,7 +1639,7 @@
       "shot_ids": [
         "SC_043"
       ],
-      "planned_seconds": 20.417,
+      "planned_seconds": 20.458,
       "readable": {},
       "visual_repairs": [],
       "composition": [
@@ -1731,8 +1731,8 @@
       "visual_intent": "SUMMARIZE_DIFFERENCES",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 8.625,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 8.65,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT']"
@@ -1748,7 +1748,7 @@
       "shot_ids": [
         "SC_044"
       ],
-      "planned_seconds": 8.625,
+      "planned_seconds": 8.667,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1759,8 +1759,8 @@
       "visual_intent": "SUMMARIZE_DIFFERENCES",
       "strategy": "CARD",
       "status": "COVERED",
-      "evidence_status": "INTERNAL_PREVIEW",
-      "expected_seconds": 17.15,
+      "evidence_status": "APPROVED",
+      "expected_seconds": 16.475,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1774,7 +1774,7 @@
       "shot_ids": [
         "SC_045"
       ],
-      "planned_seconds": 17.167,
+      "planned_seconds": 16.5,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1786,7 +1786,7 @@
       "strategy": "HOLD",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 19.7,
+      "expected_seconds": 19.925,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1807,7 +1807,7 @@
       "shot_ids": [
         "SC_046"
       ],
-      "planned_seconds": 19.708,
+      "planned_seconds": 19.958,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1819,7 +1819,7 @@
       "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "FRAMING",
-      "expected_seconds": 9.175,
+      "expected_seconds": 8.75,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -1833,7 +1833,7 @@
       "shot_ids": [
         "SC_047"
       ],
-      "planned_seconds": 9.208,
+      "planned_seconds": 8.75,
       "readable": {},
       "visual_repairs": [],
       "composition": [],

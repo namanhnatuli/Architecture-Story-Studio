@@ -1,28 +1,27 @@
 # Current project status
 
-- Phase: **M7: phim tài liệu dài đầu tiên. Xong về kỹ thuật (2026-10-30), chưa sẵn sàng xuất bản.** Nhánh `m7-first-full-documentary`, chưa merge, chưa push.
+- Phase: **M7: phim tài liệu dài đầu tiên. Bản review nội bộ cuối 1080p xong (2026-10-30), chưa sẵn sàng xuất bản.** Nhánh `m7-final-internal-review` (tách từ `m7-first-full-documentary`), chưa merge, chưa push. Bản `bm_george` trước đó: tag `m7-review-bm_george`.
 - **Phim `why-bridges-look-different`** "Why Bridges Don't All Look the Same":
-  - 10,77 phút (646,46 s, 15.515 frame); 8 chương, 39 beat, 103 câu (1320 từ), 47 shot;
-  - hình trộn: 3D (giữ, tách lớp, thay bộ phận, push-in, cạnh nhau), sơ đồ, bản đồ sơ lược, dòng thời gian, 4 ảnh HAER phạm vi công cộng;
-  - 12 nguồn, 42 claim `SOURCE_VERIFIED` (41 claim được lời dẫn dùng), **chưa claim nào được duyệt biên tập**;
-  - lời dẫn Kokoro `bm_george` (`PUBLICATION_CLEARED` ở mức provider), ASR đạt 103/103;
-  - QA Blender 577/577; media QA PASS; −16,0 LUFS; 145 câu phụ đề; QA phim dài PASS (2 cảnh báo có chủ ý).
-- **Trạng thái:** `TECHNICALLY_VALIDATED` · `EDITORIAL_REVIEW_PENDING` · `TTS_RIGHTS_PENDING`. G6 BLOCKED. Kết luận: INTERNAL PREVIEW — NOT PUBLICATION-READY.
+  - **10,69 phút** (641,46 s, 15.395 frame); 8 chương, 39 beat, 103 câu, 47 shot;
+  - lời dẫn **`am_michael`** (Kokoro-82M @ `f3ff3571`, G2P Anh–Mỹ);
+  - **41/41 claim được lời dẫn dùng đã được chủ kênh duyệt** (2026-10-30); `factual_review: verified`;
+  - card B35 không còn dòng ghi giọng đọc;
+  - QA Blender 577/577; media QA PASS; −16,4 LUFS; 145 câu phụ đề; QA phim dài PASS.
+- **Trạng thái:** `TECHNICALLY_VALIDATED` · `EDITORIAL_REVIEW_PENDING` (phát âm) · `TTS_RIGHTS_PENDING` (`am_michael` chưa được cấp quyền xuất bản). G6 BLOCKED.
 - **Đầu ra** (không commit; `projects/why-bridges-look-different/output/`):
-  - `why_bridges_look_different_documentary_INTERNAL_REVIEW_review.mp4` (960×540) + `.en.srt`;
-  - rough cut 640×360;
-  - 8 chương MP4/SRT/WAV (`chapters_review/`);
+  - `why_bridges_look_different_M7_FINAL_INTERNAL_REVIEW_1080p.mp4` + `.en.srt`;
+  - 8 chương 1080p (`chapters_internal_1080p/`);
   - master audio;
-  - 47 still 1080p (`stills_production_test/`).
-- **Thử giọng Anh–Mỹ (2026-10-30):** 20 giọng (11 nữ, 9 nam) đã kiểm hash, file nghe ở `review/voice_audition_us/`. Chỉ dùng để nghe; lời dẫn vẫn dùng `bm_george`.
-- Tài liệu: `docs/m7/` (kiến trúc, QA, hiệu năng, tái lập, bàn giao).
+  - bản `bm_george` cũ (`baseline_bm_george_m7r1/`).
+- **Render 1080p:** dùng lại frame tĩnh, chỉ render 5.206/15.395 frame; khoảng 1,26 giờ render khi máy thức; 82 phút wall cho C2–C8 + ghép.
+- Tài liệu: `docs/m7/` (đặc biệt `FINAL_INTERNAL_REVIEW.md`).
 
 ## Việc người dùng cần quyết định (M7)
-1. Duyệt 41 claim theo `review/EDITORIAL_APPROVAL_PACKAGE.md` (gồm 2 dòng nhất quán lời/hình đang UNCERTAIN), rồi đặt `factual_review: verified`.
-2. Xác nhận quyền Kokoro/`bm_george` áp dụng cho phim này (`voice.license.owner_confirmation_for_this_film`), hoặc chọn một giọng Anh–Mỹ. Đổi giọng thì phải render lại toàn phim.
-3. Nghe phát âm 16 thuật ngữ và tên riêng (`review/PRONUNCIATION_REVIEW.md`). ASR nghe "Bollman" thành "Bowman" và "Corinne" thành "Kareen".
-4. Dòng "Narration: AI-generated voice (Kokoro-82M, voice bm_george)" trên card ghi công B35: giữ, rút gọn, hay chỉ ghi trong mô tả.
-5. Sau khi duyệt: chuyển profile sang `PUBLICATION_CANDIDATE` + `publication_metadata`; video 1080p cần preset `final` (G6 sẽ mở khi đủ duyệt).
+1. ~~Duyệt 41 claim~~ (đã xong, 2026-10-30). Còn CLM_747 (không dùng trong phim): duyệt, hoặc loại khỏi registry. Cổng cuối đòi mọi claim trong registry phải được duyệt.
+2. Cấp quyền xuất bản cho `am_michael` (thêm vào `voices_cleared`) và xác nhận cho phim (`owner_confirmation_for_this_film`).
+3. Nghe phát âm 16 thuật ngữ với `am_michael` (`review/PRONUNCIATION_REVIEW.md`). ASR nghe sai tên riêng (Bollman, Corinne, Gwynns Falls).
+4. Sau đó: profile `PUBLICATION_CANDIDATE` + `publication_metadata`, rồi render bằng preset `final`.
+5. Có sửa ghi chú chân trang của `suffolk-roofs` SC_004 hay không (lỗi bố cục có từ M3).
 
 ## Lệnh tái tạo M7
 Xem `docs/m7/REPRODUCIBILITY.md` (lệnh đầy đủ + kế hoạch kiểm tra build sạch).

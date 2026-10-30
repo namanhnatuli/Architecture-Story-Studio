@@ -1,7 +1,7 @@
 {
-  "utc": "2026-10-30T13:18:37.978052+00:00",
-  "preset": "review",
-  "timing_sha256": "f499a1d51a319d7c6b61b7885441899499d14e85e75f63e2645a0698d303cf8e",
+  "utc": "2026-10-30T15:53:58.539764+00:00",
+  "preset": "internal_1080p",
+  "timing_sha256": "1fb4afa304d6287352b798e5130b9753c7662eb9229220f71c3f002df463b748",
   "results": [
     {
       "check": "chapters_structure",
@@ -11,12 +11,12 @@
     {
       "check": "chapter_durations",
       "status": "PASS",
-      "detail": "C1 35s, C2 50s, C3 68s, C4 82s, C5 84s, C6 125s, C7 127s, C8 75s"
+      "detail": "C1 34s, C2 49s, C3 67s, C4 82s, C5 84s, C6 125s, C7 127s, C8 74s"
     },
     {
       "check": "runtime",
       "status": "PASS",
-      "detail": "10.77 min (15515 frames); acceptable 8-15 min"
+      "detail": "10.69 min (15395 frames); acceptable 8-15 min"
     },
     {
       "check": "no_duplicate_shots",
@@ -41,12 +41,12 @@
     {
       "check": "narration_silences",
       "status": "PASS",
-      "detail": "longest gap 1.23s (limit 4.0s), after the last line 0.83s"
+      "detail": "longest gap 1.23s (limit 4.0s), after the last line 0.80s"
     },
     {
       "check": "no_static_stretches",
       "status": "PASS",
-      "detail": "longest stretch without a visual change 13.0s at 604.5s (limit 14.0s)"
+      "detail": "longest stretch without a visual change 12.5s at 600.2s (limit 14.0s)"
     },
     {
       "check": "visual_variety",
@@ -71,7 +71,7 @@
     {
       "check": "render_cache_current",
       "status": "PASS",
-      "detail": "all 47 shots rendered at review with current cache keys"
+      "detail": "all 47 shots rendered at internal_1080p with current cache keys"
     },
     {
       "check": "chapter_variety",

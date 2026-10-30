@@ -643,15 +643,16 @@ beat("C8", "B34", "framing", "INTRODUCE_ARCHITECTURE", [
     annotations=[note("B34_note", "Models are illustrations, not engineering designs", 2, position="BOTTOM_RIGHT")])
 
 c = Card("B35")
-c.text("Why Bridges Don't All Look the Same", 0.5, 0.84, 0.05, 0)
-for k, line in enumerate(["Narration: AI-generated voice (Kokoro-82M, voice bm_george)",
-                          "Archival photographs: Historic American Engineering Record,",
-                          "Library of Congress Prints & Photographs Division (public domain)",
-                          "Sources: TRB NCHRP 25-25(15); FHWA; Ohio DOT; ASCE;",
-                          "SteelConstruction.info; Yale-New Haven Teachers Institute",
-                          "3D models and diagrams are illustrative, not engineering designs"]):
-    c.text(line, 0.5, 0.71 - k * 0.07, 0.026, 0, color=MUTED if k else INK)
-c.text("Architecture Story Studio", 0.5, 0.26, 0.032, 0)
+c.text("Why Bridges Don't All Look the Same", 0.5, 0.8, 0.05, 0)
+# The narration credit line was removed on the owner's instruction (2026-10-30); the AI-narration
+# disclosure the Kokoro clearance asks for stays in review/YOUTUBE_DESCRIPTION.md.
+for y, line in ((0.665, "Archival photographs: Historic American Engineering Record,"),
+                (0.615, "Library of Congress Prints & Photographs Division (public domain)"),
+                (0.525, "Sources: TRB NCHRP 25-25(15); FHWA; Ohio DOT; ASCE;"),
+                (0.475, "SteelConstruction.info; Yale-New Haven Teachers Institute"),
+                (0.385, "3D models and diagrams are illustrative, not engineering designs")):
+    c.text(line, 0.5, y, 0.026, 0, color=MUTED)
+c.text("Architecture Story Studio", 0.5, 0.28, 0.032, 0)
 beat("C8", "B35", "framing", "SHOW_CONTEXT", ["Thank you very much for watching.", "The sources and photo credits are listed in the description."], strategy="CARD", graphic=c.spec(),
      visual_goal="Credits", required_concepts=[])
 
