@@ -2,7 +2,7 @@
   "schema": "visual_planning/1",
   "note": "Deterministic planner settings (planner/). Camera modes map to existing presets in config/visual_style.json per aspect class; timing values are the provisional-estimate rules and the motion budgets the compiler may stretch (holds only, never motion speed).",
   "aspect_classes": {
-    "long": {"families": ["bridge", "site"],
+    "long": {"families": ["bridge", "site", "long_span"],
              "camera": {"FULL_OBJECT": "BRIDGE_THREE_QUARTER", "THREE_QUARTER": "BRIDGE_THREE_QUARTER",
                         "SIDE_ELEVATION": "ELEVATION", "COMPONENT_CLOSEUP": "BRIDGE_THREE_QUARTER",
                         "COMPARISON": "BRIDGE_STACK", "LOCKED_TRANSFORMATION": "BRIDGE_THREE_QUARTER"},

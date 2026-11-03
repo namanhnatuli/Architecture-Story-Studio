@@ -5,473 +5,261 @@
     "PUBLICATION_CLEARED"
   ],
   "publication_audio": true,
-  "narration_track": "audio/narration_mix_SC_036-SC_042.wav",
+  "narration_track": "audio/narration_mix_SC_035-SC_039.wav",
   "shots": [
+    "SC_035",
     "SC_036",
     "SC_037",
     "SC_038",
-    "SC_039",
-    "SC_040",
-    "SC_041",
-    "SC_042"
+    "SC_039"
   ],
-  "frames": 3040,
-  "seconds": 126.66666666666667,
+  "frames": 1495,
+  "seconds": 62.291666666666664,
   "video": {
     "codec_name": "h264",
     "codec_type": "video",
     "width": 1920,
     "height": 1080,
-    "duration": "126.666667",
-    "nb_read_frames": "3040"
+    "duration": "62.291667",
+    "nb_read_frames": "1495"
   },
   "audio": {
     "codec_name": "aac",
     "codec_type": "audio",
     "sample_rate": "48000",
-    "duration": "126.666667",
-    "nb_read_frames": "5938"
+    "duration": "62.291667",
+    "nb_read_frames": "2920"
   },
   "loudness_before": {
-    "I": "-27.36",
-    "TP": "-4.36"
+    "I": "-27.30",
+    "TP": "-5.08"
   },
   "loudness_after": {
     "integrated_lufs": -16.4,
-    "true_peak_dbtp": -1.3
+    "true_peak_dbtp": -1.2
   },
-  "subtitle_entries": 29,
+  "subtitle_entries": 14,
   "subtitle_stats": {
-    "cues": 29,
-    "sentences": 19,
-    "max_line": 41,
+    "cues": 14,
+    "sentences": 8,
+    "max_line": 40,
     "lines_over_42": 0,
-    "two_line_cues": 19,
-    "aligned_boundaries": 10,
+    "two_line_cues": 10,
+    "aligned_boundaries": 6,
     "sentence_fallbacks": 0,
-    "max_cps": 18.0
+    "max_cps": 17.3
   },
   "subtitle_warnings": [
-    "cue 1 (B25.s0): 17.4 characters/s (> 17.0)",
-    "cue 24 (B30.s2): 18.0 characters/s (> 17.0)"
+    "cue 8 (B47.s1): 17.3 characters/s (> 17.0)"
   ],
   "subtitle_cues": [
     {
       "start": 0.3999996666667016,
-      "end": 3.9149996666667017,
+      "end": 5.274999666666702,
       "lines": [
-        "These trade-offs played out",
-        "across nineteenth-century America"
+        "For the longest spans of all,",
+        "engineers hung the deck instead."
       ],
-      "text": "These trade-offs played out across nineteenth-century America",
-      "sentence": "B25.s0",
+      "text": "For the longest spans of all, engineers hung the deck instead.",
+      "sentence": "B45.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 5.024999666666702
+    },
+    {
+      "start": 5.424999666666679,
+      "end": 7.219999666666679,
+      "lines": [
+        "In a suspension bridge,"
+      ],
+      "text": "In a suspension bridge,",
+      "sentence": "B45.s1",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "America",
-        "before_word": "as",
-        "whisper_boundary": 3.56,
-        "placed_at": 3.515,
-        "rms_db_at_boundary": -74.8
+        "after_word": "bridge,",
+        "before_word": "the",
+        "whisper_boundary": 1.88,
+        "placed_at": 1.795,
+        "rms_db_at_boundary": -80.7
       }
     },
     {
-      "start": 3.9149996666667017,
-      "end": 6.59999966666669,
+      "start": 7.219999666666679,
+      "end": 12.549999666666679,
       "lines": [
-        "as the railways spread."
+        "the deck hangs from vertical suspenders",
+        "attached to great main cables."
       ],
-      "text": "as the railways spread.",
-      "sentence": "B25.s0",
+      "text": "the deck hangs from vertical suspenders attached to great main cables.",
+      "sentence": "B45.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 6.34999966666669
+      "speech_end": 12.299999666666679
     },
     {
-      "start": 6.7499996666666675,
-      "end": 10.614999666666668,
+      "start": 13.524999666666702,
+      "end": 19.199999666666713,
       "lines": [
-        "In the East, railroads built",
-        "massive stone viaducts,"
+        "The cables are in tension, and they pass",
+        "over towers that are in compression."
       ],
-      "text": "In the East, railroads built massive stone viaducts,",
-      "sentence": "B25.s1",
+      "text": "The cables are in tension, and they pass over towers that are in compression.",
+      "sentence": "B46.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 18.949999666666713
+    },
+    {
+      "start": 19.34999966666669,
+      "end": 20.45499966666669,
+      "lines": [
+        "At each end,"
+      ],
+      "text": "At each end,",
+      "sentence": "B46.s1",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "viaducts,",
-        "before_word": "while",
-        "whisper_boundary": 3.92,
-        "placed_at": 3.865,
-        "rms_db_at_boundary": -72.7
+        "after_word": "end,",
+        "before_word": "the",
+        "whisper_boundary": 1.06,
+        "placed_at": 1.105,
+        "rms_db_at_boundary": -61.5
       }
     },
     {
-      "start": 10.614999666666668,
-      "end": 14.374999666666668,
+      "start": 20.45499966666669,
+      "end": 25.874999666666668,
       "lines": [
-        "while western builders",
-        "generally used timber."
+        "the cables are anchored, usually",
+        "in large masses of stone or concrete."
       ],
-      "text": "while western builders generally used timber.",
-      "sentence": "B25.s1",
+      "text": "the cables are anchored, usually in large masses of stone or concrete.",
+      "sentence": "B46.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 14.124999666666668
+      "speech_end": 25.624999666666668
     },
     {
-      "start": 14.524999666666702,
-      "end": 19.824999666666713,
+      "start": 26.85833366666668,
+      "end": 32.35833366666668,
       "lines": [
-        "Three documented examples show",
-        "how differently builders answered."
+        "A suspension deck is light for its span,",
+        "and it can be very flexible."
       ],
-      "text": "Three documented examples show how differently builders answered.",
-      "sentence": "B25.s2",
+      "text": "A suspension deck is light for its span, and it can be very flexible.",
+      "sentence": "B47.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 19.574999666666713
+      "speech_end": 32.10833366666668
     },
     {
-      "start": 20.7749996666667,
-      "end": 26.699999666666713,
+      "start": 32.50833366666666,
+      "end": 35.69333366666666,
       "lines": [
-        "Near Baltimore, the Carrollton",
-        "Viaduct was completed in 1829."
+        "So a stiffening truss is",
+        "commonly built under the deck,"
       ],
-      "text": "Near Baltimore, the Carrollton Viaduct was completed in 1829.",
-      "sentence": "B26.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 26.449999666666713
-    },
-    {
-      "start": 26.84999966666669,
-      "end": 29.95499966666669,
-      "lines": [
-        "Built of roughly twelve",
-        "thousand granite blocks,"
-      ],
-      "text": "Built of roughly twelve thousand granite blocks,",
-      "sentence": "B26.s1",
+      "text": "So a stiffening truss is commonly built under the deck,",
+      "sentence": "B47.s1",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "blocks,",
-        "before_word": "it",
-        "whisper_boundary": 3.14,
-        "placed_at": 3.105,
-        "rms_db_at_boundary": -75.6
+        "after_word": "deck,",
+        "before_word": "against",
+        "whisper_boundary": 3.2,
+        "placed_at": 3.185,
+        "rms_db_at_boundary": -81.0
       }
     },
     {
-      "start": 29.95499966666669,
-      "end": 35.12499966666667,
+      "start": 35.69333366666666,
+      "end": 38.65833366666669,
       "lines": [
-        "it carries the railway over Gwynns",
-        "Falls on an eighty foot arch."
+        "against wind and earthquakes."
       ],
-      "text": "it carries the railway over Gwynns Falls on an eighty foot arch.",
-      "sentence": "B26.s1",
+      "text": "against wind and earthquakes.",
+      "sentence": "B47.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 34.87499966666667
+      "speech_end": 38.40833366666669
     },
     {
-      "start": 35.2749996666667,
-      "end": 41.2599996666667,
+      "start": 39.60833366666668,
+      "end": 44.53333366666668,
       "lines": [
-        "A national report in 2005 called it the",
-        "world's oldest stone railroad span still"
+        "Towers, cables and suspenders,",
+        "anchorages and a stiffening truss:"
       ],
-      "text": "A national report in 2005 called it the world's oldest stone railroad span still",
-      "sentence": "B26.s2",
+      "text": "Towers, cables and suspenders, anchorages and a stiffening truss:",
+      "sentence": "B48.s0",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "still",
-        "before_word": "in",
-        "whisper_boundary": 6.06,
-        "placed_at": 5.985,
-        "rms_db_at_boundary": -77.8
+        "after_word": "truss:",
+        "before_word": "these",
+        "whisper_boundary": 4.77,
+        "placed_at": 4.925,
+        "rms_db_at_boundary": -81.4
       }
     },
     {
-      "start": 41.2599996666667,
-      "end": 42.94999966666671,
+      "start": 44.53333366666668,
+      "end": 48.68333366666667,
       "lines": [
-        "in service."
+        "these are the features",
+        "that define a suspension bridge."
       ],
-      "text": "in service.",
-      "sentence": "B26.s2",
+      "text": "these are the features that define a suspension bridge.",
+      "sentence": "B48.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 42.69999966666671
+      "speech_end": 48.43333366666667
     },
     {
-      "start": 43.8999996666667,
-      "end": 48.87499966666667,
+      "start": 48.833333666666704,
+      "end": 54.3683336666667,
       "lines": [
-        "Early railroads needed durable",
-        "bridges to carry heavy trains."
+        "The Brooklyn Bridge in New York,",
+        "completed in 1883, has them all,"
       ],
-      "text": "Early railroads needed durable bridges to carry heavy trains.",
-      "sentence": "B27.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 48.62499966666667
-    },
-    {
-      "start": 49.0249996666667,
-      "end": 53.04999966666668,
-      "lines": [
-        "For a line meant to last,",
-        "stone was the answer."
-      ],
-      "text": "For a line meant to last, stone was the answer.",
-      "sentence": "B27.s1",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 52.79999966666668
-    },
-    {
-      "start": 54.0249996666667,
-      "end": 57.12499966666667,
-      "lines": [
-        "In the West, the pressure was different."
-      ],
-      "text": "In the West, the pressure was different.",
-      "sentence": "B28.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 56.87499966666667
-    },
-    {
-      "start": 57.2749996666667,
-      "end": 61.0399996666667,
-      "lines": [
-        "Railroads had to open new",
-        "lines quickly and economically,"
-      ],
-      "text": "Railroads had to open new lines quickly and economically,",
-      "sentence": "B28.s1",
+      "text": "The Brooklyn Bridge in New York, completed in 1883, has them all,",
+      "sentence": "B48.s1",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "economically,",
+        "after_word": "all,",
         "before_word": "and",
-        "whisper_boundary": 3.9,
-        "placed_at": 3.765,
-        "rms_db_at_boundary": -82.8
+        "whisper_boundary": 5.38,
+        "placed_at": 5.535,
+        "rms_db_at_boundary": -80.7
       }
     },
     {
-      "start": 61.0399996666667,
-      "end": 64.17499966666668,
+      "start": 54.3683336666667,
+      "end": 55.988333666666705,
       "lines": [
-        "and timber was abundant and cheap."
+        "and one report says"
       ],
-      "text": "and timber was abundant and cheap.",
-      "sentence": "B28.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 63.92499966666668
-    },
-    {
-      "start": 64.32499966666671,
-      "end": 67.55999966666671,
-      "lines": [
-        "This timber trestle near Corinne, Utah,"
-      ],
-      "text": "This timber trestle near Corinne, Utah,",
-      "sentence": "B28.s2",
+      "text": "and one report says",
+      "sentence": "B48.s1",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "Utah,",
-        "before_word": "was",
-        "whisper_boundary": 3.32,
-        "placed_at": 3.235,
-        "rms_db_at_boundary": -79.7
+        "after_word": "says",
+        "before_word": "few",
+        "whisper_boundary": 7.01,
+        "placed_at": 7.155,
+        "rms_db_at_boundary": -46.3
       }
     },
     {
-      "start": 67.55999966666671,
-      "end": 72.82499966666666,
+      "start": 55.988333666666705,
+      "end": 61.708333666666704,
       "lines": [
-        "was built in 1872 by the",
-        "Central Pacific Railroad."
+        "few suspension bridges since can claim",
+        "to stand entirely clear of its shadow."
       ],
-      "text": "was built in 1872 by the Central Pacific Railroad.",
-      "sentence": "B28.s2",
+      "text": "few suspension bridges since can claim to stand entirely clear of its shadow.",
+      "sentence": "B48.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 72.57499966666666
-    },
-    {
-      "start": 73.7749996666667,
-      "end": 78.47499966666663,
-      "lines": [
-        "A trestle is a succession of",
-        "towers supporting short spans."
-      ],
-      "text": "A trestle is a succession of towers supporting short spans.",
-      "sentence": "B29.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 78.22499966666663
-    },
-    {
-      "start": 78.62499966666672,
-      "end": 83.16999966666673,
-      "lines": [
-        "It is the same beam idea as our",
-        "timber model, repeated as often"
-      ],
-      "text": "It is the same beam idea as our timber model, repeated as often",
-      "sentence": "B29.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "often",
-        "before_word": "as",
-        "whisper_boundary": 4.58,
-        "placed_at": 4.545,
-        "rms_db_at_boundary": -48.0
-      }
-    },
-    {
-      "start": 83.16999966666673,
-      "end": 85.29999966666668,
-      "lines": [
-        "as the crossing needs."
-      ],
-      "text": "as the crossing needs.",
-      "sentence": "B29.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 85.04999966666668
-    },
-    {
-      "start": 86.2749996666667,
-      "end": 89.0249996666667,
-      "lines": [
-        "Iron offered a third path."
-      ],
-      "text": "Iron offered a third path.",
-      "sentence": "B30.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 88.7749996666667
-    },
-    {
-      "start": 89.17499966666668,
-      "end": 92.78999966666667,
-      "lines": [
-        "The Bollman truss, patented in 1852,"
-      ],
-      "text": "The Bollman truss, patented in 1852,",
-      "sentence": "B30.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "1852,",
-        "before_word": "was",
-        "whisper_boundary": 3.68,
-        "placed_at": 3.615,
-        "rms_db_at_boundary": -69.6
-      }
-    },
-    {
-      "start": 92.78999966666667,
-      "end": 98.97499966666663,
-      "lines": [
-        "was one of the first designs to use iron",
-        "in all of its essential structural parts."
-      ],
-      "text": "was one of the first designs to use iron in all of its essential structural parts.",
-      "sentence": "B30.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 98.72499966666663
-    },
-    {
-      "start": 99.12499966666672,
-      "end": 101.11999966666673,
-      "lines": [
-        "It could be built relatively quickly"
-      ],
-      "text": "It could be built relatively quickly",
-      "sentence": "B30.s2",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "quickly",
-        "before_word": "and",
-        "whisper_boundary": 2.08,
-        "placed_at": 1.995,
-        "rms_db_at_boundary": -73.7
-      }
-    },
-    {
-      "start": 101.11999966666673,
-      "end": 106.67499966666668,
-      "lines": [
-        "and inexpensively, while offering",
-        "the long-lasting qualities of metal."
-      ],
-      "text": "and inexpensively, while offering the long-lasting qualities of metal.",
-      "sentence": "B30.s2",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 106.42499966666668
-    },
-    {
-      "start": 106.82499966666666,
-      "end": 113.0249996666667,
-      "lines": [
-        "The bridge at Savage, Maryland, is the",
-        "only remaining example of the design."
-      ],
-      "text": "The bridge at Savage, Maryland, is the only remaining example of the design.",
-      "sentence": "B30.s3",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 112.7749996666667
-    },
-    {
-      "start": 113.98333366666674,
-      "end": 115.80833366666674,
-      "lines": [
-        "Stone for permanence,"
-      ],
-      "text": "Stone for permanence,",
-      "sentence": "B31.s0",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "permanence,",
-        "before_word": "timber",
-        "whisper_boundary": 1.76,
-        "placed_at": 1.825,
-        "rms_db_at_boundary": -81.2
-      }
-    },
-    {
-      "start": 115.80833366666674,
-      "end": 121.05833366666667,
-      "lines": [
-        "timber for speed and economy, and iron",
-        "trusses that offered some of both."
-      ],
-      "text": "timber for speed and economy, and iron trusses that offered some of both.",
-      "sentence": "B31.s0",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 120.80833366666667
-    },
-    {
-      "start": 121.20833366666665,
-      "end": 126.08333366666665,
-      "lines": [
-        "Three places, three sets of constraints,",
-        "three different bridges."
-      ],
-      "text": "Three places, three sets of constraints, three different bridges.",
-      "sentence": "B31.s1",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 125.83333366666665
+      "speech_end": 61.458333666666704
     }
   ],
   "problems": [],
@@ -479,23 +267,21 @@
     "chapter": "C7",
     "video": "output/chapters_internal_1080p/why_bridges_look_different_C7_silent.mp4",
     "shots": [
+      "SC_035",
       "SC_036",
       "SC_037",
       "SC_038",
-      "SC_039",
-      "SC_040",
-      "SC_041",
-      "SC_042"
+      "SC_039"
     ],
-    "expected_frames": 3040,
+    "expected_frames": 1495,
     "probe": {
       "codec": "h264",
       "width": 1920,
       "height": 1080,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 3040,
-      "duration": 126.666667,
+      "frames": 1495,
+      "duration": 62.291667,
       "black_segments": 0,
       "decode_errors": 0,
       "streams": {
@@ -505,52 +291,38 @@
     },
     "cuts": [
       {
+        "cut": "SC_035->SC_036",
+        "mode": "match",
+        "ssim": 1.0,
+        "ok": true
+      },
+      {
         "cut": "SC_036->SC_037",
-        "mode": "hard",
-        "ssim": 0.94908,
+        "mode": "match",
+        "ssim": 1.0,
         "ok": true
       },
       {
         "cut": "SC_037->SC_038",
-        "mode": "hard",
-        "ssim": 0.74842,
+        "mode": "match",
+        "ssim": 1.0,
         "ok": true
       },
       {
         "cut": "SC_038->SC_039",
         "mode": "hard",
-        "ssim": 0.85461,
-        "ok": true
-      },
-      {
-        "cut": "SC_039->SC_040",
-        "mode": "hard",
-        "ssim": 0.77547,
-        "ok": true
-      },
-      {
-        "cut": "SC_040->SC_041",
-        "mode": "hard",
-        "ssim": 0.79828,
-        "ok": true
-      },
-      {
-        "cut": "SC_041->SC_042",
-        "mode": "hard",
-        "ssim": 0.76178,
+        "ssim": 0.8827,
         "ok": true
       }
     ],
     "problems": []
   },
   "render_results": {
+    "SC_035": "rendered",
     "SC_036": "rendered",
     "SC_037": "rendered",
     "SC_038": "rendered",
-    "SC_039": "rendered",
-    "SC_040": "rendered",
-    "SC_041": "rendered",
-    "SC_042": "rendered"
+    "SC_039": "rendered"
   },
   "chapter_audio": "output/chapters_internal_1080p/why_bridges_look_different_C7_narration.wav"
 }

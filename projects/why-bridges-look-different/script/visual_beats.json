@@ -6,7 +6,7 @@
   "timing_mode": "AUDIO_LOCKED",
   "publication": {
     "restriction": "INTERNAL_ONLY",
-    "reason": "M7 claims are source-verified, not editorially approved; review cut only."
+    "reason": "M8 revision m8-r1: claims are source-verified, not yet editorially approved; review cut only."
   },
   "beats": [
     {
@@ -27,12 +27,54 @@
       ]
     },
     {
+      "beat_id": "B01B",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [],
+      "narration": "Over wider water, the answers change again. One bridge reaches out from its piers.",
+      "visual_goal": "The cantilever truss on the wide crossing",
+      "required_concepts": [
+        "cantilever_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B01C",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [],
+      "narration": "Another hangs from huge draped cables.",
+      "visual_goal": "The suspension bridge on the wide crossing",
+      "required_concepts": [
+        "suspension_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B01D",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [],
+      "narration": "A third is held up by straight lines of steel.",
+      "visual_goal": "The cable-stayed bridge on the wide crossing",
+      "required_concepts": [
+        "cable_stayed_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD"
+    },
+    {
       "beat_id": "B02",
       "chapter": "C1",
       "kind": "framing",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [],
-      "narration": "So why don't bridges all look the same? It isn't because one design is simply better than the others. Each form is a different answer to the same problem, shaped by materials, by the site, and by the time it was built in.",
+      "narration": "So why don't bridges all look the same? It isn't because one design is simply better than the others. Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
       "visual_goal": "Title card: the central question",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
@@ -92,7 +134,7 @@
             "sentence": 2,
             "text": "Materials",
             "position": [
-              0.32,
+              0.26,
               0.36
             ],
             "size": 0.036,
@@ -107,7 +149,7 @@
             "sentence": 2,
             "text": "Site",
             "position": [
-              0.5,
+              0.42,
               0.36
             ],
             "size": 0.036,
@@ -120,9 +162,24 @@
             "id": "B02_05",
             "kind": "text",
             "sentence": 2,
+            "text": "Span",
+            "position": [
+              0.58,
+              0.36
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "span"
+          },
+          {
+            "id": "B02_06",
+            "kind": "text",
+            "sentence": 2,
             "text": "Time",
             "position": [
-              0.68,
+              0.74,
               0.36
             ],
             "size": 0.036,
@@ -1892,8 +1949,2327 @@
       ]
     },
     {
-      "beat_id": "B19",
+      "beat_id": "B40",
       "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_752",
+        "CLM_757"
+      ],
+      "narration": "To cross wide rivers and deep gorges, bridges needed longer spans. Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+      "visual_goal": "The wide crossing, empty",
+      "required_concepts": [
+        "wide_river_crossing_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "camera_move": {
+        "type": "PUSH_IN",
+        "amount": 0.1
+      },
+      "annotations": [
+        {
+          "id": "B40_ch",
+          "type": "NOTE",
+          "text": "6 · The cantilever",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        },
+        {
+          "id": "B40_note",
+          "type": "NOTE",
+          "text": "A wider crossing (illustrative, not to scale)",
+          "sentence": 1,
+          "position": "BOTTOM_RIGHT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B41",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_750"
+      ],
+      "narration": "One answer was the cantilever. Hold your arm straight out from your shoulder, and it is acting as a cantilever: supported at one end, free at the other, like a diving board.",
+      "visual_goal": "A cantilever truss assembles on the wide crossing",
+      "required_concepts": [
+        "cantilever_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "ASSEMBLE_IN",
+      "annotations": [
+        {
+          "id": "B41_note",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "sentence": 1,
+          "position": "BOTTOM_RIGHT"
+        }
+      ]
+    },
+    {
+      "beat_id": "B42",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_750",
+        "CLM_751"
+      ],
+      "narration": "A cantilever bridge is a modified beam. Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+      "visual_goal": "Anchor arms, cantilever arms and the suspended span",
+      "required_concepts": [
+        "cantilever_bridge",
+        "cantilever_truss"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 1,
+      "camera_mode": "SIDE_ELEVATION",
+      "annotations": [
+        {
+          "id": "B42_anchor",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "anchor_arm",
+            "group": "truss_south",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Anchor arm",
+          "sentence": 1,
+          "word": "anchor",
+          "claim_id": "CLM_751"
+        },
+        {
+          "id": "B42_arm",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "cantilever_arm",
+            "group": "truss_south",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Cantilever arm",
+          "sentence": 1,
+          "word": "cantilever",
+          "claim_id": "CLM_751"
+        },
+        {
+          "id": "B42_span",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "suspended_span",
+            "group": "truss_south"
+          },
+          "point": "TOP",
+          "text": "Suspended span",
+          "sentence": 1,
+          "word": "suspended",
+          "claim_id": "CLM_751"
+        }
+      ]
+    },
+    {
+      "beat_id": "B43",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_753"
+      ],
+      "narration": "Its great advantage came during construction. The arms could be built outward from the piers with no falsework blocking the channel below, and then the suspended span was lifted into place.",
+      "visual_goal": "The suspended span lifts out of the arms and returns",
+      "required_concepts": [
+        "cantilever_bridge",
+        "suspended_span"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "EXPLODE",
+      "annotations": [
+        {
+          "id": "B43_note",
+          "type": "NOTE",
+          "text": "Built outward: no falsework in the channel",
+          "sentence": 1,
+          "position": "TOP_LEFT",
+          "claim_id": "CLM_753"
+        }
+      ]
+    },
+    {
+      "beat_id": "B44",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_754",
+        "CLM_756"
+      ],
+      "narration": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s. The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+      "visual_goal": "Archival photograph of the Queensboro Bridge",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B44_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_QUEENSBORO",
+            "path": "assets/external/haer_ny19_queensboro_bridge_aerial_3840.jpg",
+            "box": [
+              0.05,
+              0.21,
+              0.64,
+              0.88
+            ],
+            "crop": [
+              0.2,
+              0.22,
+              0.913,
+              0.78
+            ],
+            "drift": [
+              0.012,
+              0.0
+            ]
+          },
+          {
+            "id": "B44_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Queensboro Bridge",
+            "position": [
+              0.805,
+              0.82
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B44_02",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.69,
+                0.785
+              ],
+              [
+                0.92,
+                0.785
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B44_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "A standard U.S. type,",
+            "position": [
+              0.805,
+              0.72
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B44_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1880s to 1960s",
+            "position": [
+              0.805,
+              0.658
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B44_05",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Longest U.S. cantilever",
+            "position": [
+              0.805,
+              0.596
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B44_06",
+            "kind": "text",
+            "sentence": 1,
+            "text": "when completed, 1909",
+            "position": [
+              0.805,
+              0.534
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B44_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: Jet Lowe, HAER, Library of Congress (public domain)",
+            "position": [
+              0.805,
+              0.235
+            ],
+            "size": 0.019,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B45",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_763",
+        "CLM_760"
+      ],
+      "narration": "For the longest spans of all, engineers hung the deck instead. In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+      "visual_goal": "The deck hanging from the cables",
+      "required_concepts": [
+        "suspension_bridge",
+        "hanger"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 1,
+      "annotations": [
+        {
+          "id": "B45_ch",
+          "type": "NOTE",
+          "text": "7 · The suspension bridge",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        },
+        {
+          "id": "B45_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "sentence": 0,
+          "position": "BOTTOM_RIGHT"
+        },
+        {
+          "id": "B45_hangers",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "hanger",
+            "pick": "LEFTMOST"
+          },
+          "point": "CENTER",
+          "text": "Suspenders",
+          "sentence": 1,
+          "word": "suspenders",
+          "claim_id": "CLM_760"
+        },
+        {
+          "id": "B45_cable",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "main_cable",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Main cable",
+          "sentence": 1,
+          "word": "attached",
+          "claim_id": "CLM_760"
+        }
+      ]
+    },
+    {
+      "beat_id": "B46",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_LOAD_PATH",
+      "claim_ids": [
+        "CLM_760",
+        "CLM_761"
+      ],
+      "narration": "The cables are in tension, and they pass over towers that are in compression. At each end, the cables are anchored, usually in large masses of stone or concrete.",
+      "visual_goal": "Cables in tension, towers in compression, the anchorages",
+      "required_concepts": [
+        "suspension_bridge"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD",
+      "annotations": [
+        {
+          "id": "B46_load",
+          "type": "LOAD_ARROW",
+          "target": {
+            "concept": "deck",
+            "pick": "CENTERMOST"
+          },
+          "point": "TOP",
+          "count": 2,
+          "text": "Load",
+          "sentence": 0,
+          "claim_id": "CLM_760"
+        },
+        {
+          "id": "B46_cable",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "main_cable",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Cables: tension",
+          "force": "TENSION",
+          "sentence": 0,
+          "word": "tension",
+          "claim_id": "CLM_760"
+        },
+        {
+          "id": "B46_tower",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "tower",
+            "pick": "RIGHTMOST"
+          },
+          "point": "TOP",
+          "text": "Towers: compression",
+          "force": "COMPRESSION",
+          "sentence": 0,
+          "word": "compression",
+          "claim_id": "CLM_760"
+        },
+        {
+          "id": "B46_anchor",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "anchorage",
+            "pick": "LEFTMOST"
+          },
+          "point": "TOP",
+          "text": "Anchorage",
+          "sentence": 1,
+          "word": "anchored",
+          "claim_id": "CLM_761"
+        }
+      ]
+    },
+    {
+      "beat_id": "B47",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_765"
+      ],
+      "narration": "A suspension deck is light for its span, and it can be very flexible. So a stiffening truss is commonly built under the deck, against wind and earthquakes.",
+      "visual_goal": "The stiffening truss under the deck",
+      "required_concepts": [
+        "suspension_bridge",
+        "stiffening_truss"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HIGHLIGHT_THEN_EXPLODE",
+      "annotations": [
+        {
+          "id": "B47_note",
+          "type": "NOTE",
+          "text": "Stiffening truss under the deck",
+          "sentence": 1,
+          "position": "TOP_LEFT",
+          "claim_id": "CLM_765"
+        }
+      ]
+    },
+    {
+      "beat_id": "B48",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_764",
+        "CLM_768"
+      ],
+      "narration": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge. The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+      "visual_goal": "Archival photograph of the Brooklyn Bridge",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B48_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_HAER_BROOKLYN",
+            "path": "assets/external/haer_ny18_brooklyn_bridge_from_brooklyn_3840.jpg",
+            "box": [
+              0.05,
+              0.21,
+              0.64,
+              0.88
+            ],
+            "crop": [
+              0.035,
+              0.293,
+              0.6,
+              0.744
+            ],
+            "drift": [
+              0.012,
+              0.0
+            ]
+          },
+          {
+            "id": "B48_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Brooklyn Bridge",
+            "position": [
+              0.805,
+              0.82
+            ],
+            "size": 0.036,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B48_02",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.69,
+                0.785
+              ],
+              [
+                0.92,
+                0.785
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B48_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Towers, cables, suspenders,",
+            "position": [
+              0.805,
+              0.72
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B48_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "anchorages, stiffening truss",
+            "position": [
+              0.805,
+              0.658
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B48_05",
+            "kind": "text",
+            "sentence": 1,
+            "text": "East River, New York",
+            "position": [
+              0.805,
+              0.596
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B48_06",
+            "kind": "text",
+            "sentence": 1,
+            "text": "completed 1883",
+            "position": [
+              0.805,
+              0.534
+            ],
+            "size": 0.028,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B48_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: HAER, Library of Congress (public domain)",
+            "position": [
+              0.805,
+              0.235
+            ],
+            "size": 0.019,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B50",
+      "chapter": "C8",
+      "kind": "fact",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [
+        "CLM_770",
+        "CLM_771"
+      ],
+      "narration": "A cable-stayed bridge also relies on steel cables, but it uses them differently. Straight stay cables run from tall towers directly down to the edges of the deck.",
+      "visual_goal": "Stays running from the towers to the deck edges",
+      "required_concepts": [
+        "cable_stayed_bridge",
+        "stay_cable"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT",
+      "highlight_at_sentence": 1,
+      "annotations": [
+        {
+          "id": "B50_ch",
+          "type": "NOTE",
+          "text": "8 · The cable-stayed bridge",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        },
+        {
+          "id": "B50_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "sentence": 0,
+          "position": "BOTTOM_RIGHT"
+        },
+        {
+          "id": "B50_stays",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "stay_cable",
+            "pick": "LEFTMOST"
+          },
+          "point": "CENTER",
+          "text": "Stay cables",
+          "sentence": 1,
+          "word": "stay",
+          "claim_id": "CLM_770"
+        },
+        {
+          "id": "B50_tower",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "pylon",
+            "pick": "RIGHTMOST"
+          },
+          "point": "TOP",
+          "text": "Tower",
+          "sentence": 1,
+          "word": "towers",
+          "claim_id": "CLM_770"
+        }
+      ]
+    },
+    {
+      "beat_id": "B51",
+      "chapter": "C8",
+      "kind": "fact",
+      "narrative_intent": "COMPARE_VARIANTS",
+      "claim_ids": [
+        "CLM_763",
+        "CLM_761",
+        "CLM_770",
+        "CLM_771"
+      ],
+      "narration": "Seen in outline, the difference is clear. The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end. The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+      "visual_goal": "Suspension and cable-stayed elevations compared (diagram)",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B51_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Conceptual diagram — not to scale",
+            "position": [
+              0.055,
+              0.915
+            ],
+            "size": 0.024,
+            "align": "LEFT",
+            "color": "#55524A",
+            "plate": true
+          },
+          {
+            "id": "B51_01",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1,
+                0.6
+              ],
+              [
+                0.9,
+                0.6
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.007,
+            "layer": 0
+          },
+          {
+            "id": "B51_02",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.06,
+              0.555,
+              0.1,
+              0.6
+            ],
+            "layer": 0,
+            "color": "#C9CCBA"
+          },
+          {
+            "id": "B51_03",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.9,
+              0.555,
+              0.94,
+              0.6
+            ],
+            "layer": 0,
+            "color": "#C9CCBA"
+          },
+          {
+            "id": "B51_04",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1,
+                0.27
+              ],
+              [
+                0.9,
+                0.27
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.007,
+            "layer": 0
+          },
+          {
+            "id": "B51_05",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.06,
+              0.225,
+              0.1,
+              0.27
+            ],
+            "layer": 0,
+            "color": "#C9CCBA"
+          },
+          {
+            "id": "B51_06",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.9,
+              0.225,
+              0.94,
+              0.27
+            ],
+            "layer": 0,
+            "color": "#C9CCBA"
+          },
+          {
+            "id": "B51_07",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.294,
+              0.575,
+              0.306,
+              0.75
+            ],
+            "layer": 0,
+            "color": "#4F5A64"
+          },
+          {
+            "id": "B51_08",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.694,
+              0.575,
+              0.706,
+              0.75
+            ],
+            "layer": 0,
+            "color": "#4F5A64"
+          },
+          {
+            "id": "B51_09",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.035,
+              0.6,
+              0.075,
+              0.65
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B51_10",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.925,
+              0.6,
+              0.965,
+              0.65
+            ],
+            "layer": 0,
+            "color": "#B9A887"
+          },
+          {
+            "id": "B51_11",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.055,
+                0.645
+              ],
+              [
+                0.3,
+                0.75
+              ],
+              [
+                0.3,
+                0.75
+              ],
+              [
+                0.32,
+                0.7263
+              ],
+              [
+                0.34,
+                0.705
+              ],
+              [
+                0.36,
+                0.6863
+              ],
+              [
+                0.38,
+                0.67
+              ],
+              [
+                0.4,
+                0.6562
+              ],
+              [
+                0.42,
+                0.645
+              ],
+              [
+                0.44,
+                0.6362
+              ],
+              [
+                0.46,
+                0.63
+              ],
+              [
+                0.48,
+                0.6262
+              ],
+              [
+                0.5,
+                0.625
+              ],
+              [
+                0.52,
+                0.6262
+              ],
+              [
+                0.54,
+                0.63
+              ],
+              [
+                0.56,
+                0.6362
+              ],
+              [
+                0.58,
+                0.645
+              ],
+              [
+                0.6,
+                0.6562
+              ],
+              [
+                0.62,
+                0.67
+              ],
+              [
+                0.64,
+                0.6863
+              ],
+              [
+                0.66,
+                0.705
+              ],
+              [
+                0.68,
+                0.7262
+              ],
+              [
+                0.7,
+                0.75
+              ],
+              [
+                0.7,
+                0.75
+              ],
+              [
+                0.945,
+                0.645
+              ]
+            ],
+            "color": "#4F5A64",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B51_12",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.32,
+                0.6
+              ],
+              [
+                0.32,
+                0.7263
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_13",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.34,
+                0.6
+              ],
+              [
+                0.34,
+                0.705
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_14",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.36,
+                0.6
+              ],
+              [
+                0.36,
+                0.6863
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_15",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.38,
+                0.6
+              ],
+              [
+                0.38,
+                0.67
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_16",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.4,
+                0.6
+              ],
+              [
+                0.4,
+                0.6562
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_17",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.42,
+                0.6
+              ],
+              [
+                0.42,
+                0.645
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_18",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.44,
+                0.6
+              ],
+              [
+                0.44,
+                0.6362
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_19",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.46,
+                0.6
+              ],
+              [
+                0.46,
+                0.63
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_20",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.48,
+                0.6
+              ],
+              [
+                0.48,
+                0.6262
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_21",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.5,
+                0.6
+              ],
+              [
+                0.5,
+                0.625
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_22",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.52,
+                0.6
+              ],
+              [
+                0.52,
+                0.6262
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_23",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.54,
+                0.6
+              ],
+              [
+                0.54,
+                0.63
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_24",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.56,
+                0.6
+              ],
+              [
+                0.56,
+                0.6362
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_25",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.58,
+                0.6
+              ],
+              [
+                0.58,
+                0.645
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_26",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.6,
+                0.6
+              ],
+              [
+                0.6,
+                0.6562
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_27",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.62,
+                0.6
+              ],
+              [
+                0.62,
+                0.67
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_28",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.64,
+                0.6
+              ],
+              [
+                0.64,
+                0.6863
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_29",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.66,
+                0.6
+              ],
+              [
+                0.66,
+                0.705
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_30",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.68,
+                0.6
+              ],
+              [
+                0.68,
+                0.7262
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_31",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.1,
+                0.6
+              ],
+              [
+                0.1,
+                0.6643
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_32",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.9,
+                0.6
+              ],
+              [
+                0.9,
+                0.6643
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_33",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.125,
+                0.6
+              ],
+              [
+                0.125,
+                0.675
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_34",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.875,
+                0.6
+              ],
+              [
+                0.875,
+                0.675
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_35",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.15,
+                0.6
+              ],
+              [
+                0.15,
+                0.6857
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_36",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.85,
+                0.6
+              ],
+              [
+                0.85,
+                0.6857
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_37",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.175,
+                0.6
+              ],
+              [
+                0.175,
+                0.6964
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_38",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.825,
+                0.6
+              ],
+              [
+                0.825,
+                0.6964
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_39",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.2,
+                0.6
+              ],
+              [
+                0.2,
+                0.7071
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_40",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.8,
+                0.6
+              ],
+              [
+                0.8,
+                0.7071
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_41",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.225,
+                0.6
+              ],
+              [
+                0.225,
+                0.7179
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_42",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.775,
+                0.6
+              ],
+              [
+                0.775,
+                0.7179
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_43",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.25,
+                0.6
+              ],
+              [
+                0.25,
+                0.7286
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_44",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.75,
+                0.6
+              ],
+              [
+                0.75,
+                0.7286
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_45",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.275,
+                0.6
+              ],
+              [
+                0.275,
+                0.7393
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_46",
+            "kind": "line",
+            "sentence": 1,
+            "points": [
+              [
+                0.725,
+                0.6
+              ],
+              [
+                0.725,
+                0.7393
+              ]
+            ],
+            "color": "#8A867C",
+            "width": 0.0022,
+            "layer": 0
+          },
+          {
+            "id": "B51_47",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Suspension: shorter towers, main cables to anchorages",
+            "position": [
+              0.5,
+              0.82
+            ],
+            "size": 0.027,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "suspension"
+          },
+          {
+            "id": "B51_48",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.293,
+              0.225,
+              0.307,
+              0.5
+            ],
+            "layer": 0,
+            "color": "#9C988D"
+          },
+          {
+            "id": "B51_49",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.416
+              ],
+              [
+                0.263,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_50",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.416
+              ],
+              [
+                0.337,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_51",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.434
+              ],
+              [
+                0.226,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_52",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.434
+              ],
+              [
+                0.374,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_53",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.452
+              ],
+              [
+                0.189,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_54",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.452
+              ],
+              [
+                0.411,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_55",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.47
+              ],
+              [
+                0.152,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_56",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.47
+              ],
+              [
+                0.448,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_57",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.488
+              ],
+              [
+                0.115,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_58",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.3,
+                0.488
+              ],
+              [
+                0.485,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_59",
+            "kind": "rect",
+            "sentence": 2,
+            "box": [
+              0.693,
+              0.225,
+              0.707,
+              0.5
+            ],
+            "layer": 0,
+            "color": "#9C988D"
+          },
+          {
+            "id": "B51_60",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.416
+              ],
+              [
+                0.663,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_61",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.416
+              ],
+              [
+                0.737,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_62",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.434
+              ],
+              [
+                0.626,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_63",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.434
+              ],
+              [
+                0.774,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_64",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.452
+              ],
+              [
+                0.589,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_65",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.452
+              ],
+              [
+                0.811,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_66",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.47
+              ],
+              [
+                0.552,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_67",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.47
+              ],
+              [
+                0.848,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_68",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.488
+              ],
+              [
+                0.515,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_69",
+            "kind": "line",
+            "sentence": 2,
+            "points": [
+              [
+                0.7,
+                0.488
+              ],
+              [
+                0.885,
+                0.27
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 0
+          },
+          {
+            "id": "B51_70",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Cable-stayed: taller towers, stays end at the deck",
+            "position": [
+              0.5,
+              0.535
+            ],
+            "size": 0.027,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "cable"
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B52",
+      "chapter": "C8",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_772",
+        "CLM_773"
+      ],
+      "narration": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet. The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+      "visual_goal": "The deck segments return outward from the towers",
+      "required_concepts": [
+        "cable_stayed_bridge",
+        "deck_segment"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "EXPLODE",
+      "annotations": [
+        {
+          "id": "B52_note",
+          "type": "NOTE",
+          "text": "Built outward from the towers",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1,
+          "claim_id": "CLM_772"
+        },
+        {
+          "id": "B52_deck",
+          "type": "CALLOUT",
+          "target": {
+            "concept": "deck_segment",
+            "pick": "CENTERMOST"
+          },
+          "point": "TOP",
+          "text": "Deck: squeezed by the stays",
+          "force": "COMPRESSION",
+          "sentence": 1,
+          "word": "squeeze",
+          "claim_id": "CLM_773"
+        }
+      ]
+    },
+    {
+      "beat_id": "B53",
+      "chapter": "C8",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_775",
+        "CLM_774"
+      ],
+      "narration": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet. By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet, and that suspension bridges pay off only as main spans approach 3,000.",
+      "visual_goal": "Span economics (sourced values only)",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B53_00",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Where long spans pay off (United States)",
+            "position": [
+              0.5,
+              0.86
+            ],
+            "size": 0.042,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": false
+          },
+          {
+            "id": "B53_01",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1,
+                0.3
+              ],
+              [
+                0.9,
+                0.3
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.004,
+            "layer": 0
+          },
+          {
+            "id": "B53_02",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1,
+                0.29
+              ],
+              [
+                0.1,
+                0.31
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B53_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "0 ft",
+            "position": [
+              0.1,
+              0.255
+            ],
+            "size": 0.02,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B53_04",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.3667,
+                0.29
+              ],
+              [
+                0.3667,
+                0.31
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B53_05",
+            "kind": "text",
+            "sentence": 0,
+            "text": "1,000 ft",
+            "position": [
+              0.3667,
+              0.255
+            ],
+            "size": 0.02,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B53_06",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.6333,
+                0.29
+              ],
+              [
+                0.6333,
+                0.31
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B53_07",
+            "kind": "text",
+            "sentence": 0,
+            "text": "2,000 ft",
+            "position": [
+              0.6333,
+              0.255
+            ],
+            "size": 0.02,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B53_08",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.9,
+                0.29
+              ],
+              [
+                0.9,
+                0.31
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.003,
+            "layer": 0
+          },
+          {
+            "id": "B53_09",
+            "kind": "text",
+            "sentence": 0,
+            "text": "3,000 ft",
+            "position": [
+              0.9,
+              0.255
+            ],
+            "size": 0.02,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          },
+          {
+            "id": "B53_10",
+            "kind": "rect",
+            "sentence": 0,
+            "box": [
+              0.42,
+              0.658,
+              0.9,
+              0.702
+            ],
+            "layer": 0,
+            "color": "#4F5A64",
+            "word": "suspension"
+          },
+          {
+            "id": "B53_11",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Before 1970: suspension above about 1,200 ft",
+            "position": [
+              0.1,
+              0.74
+            ],
+            "size": 0.027,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": false,
+            "word": "suspension"
+          },
+          {
+            "id": "B53_12",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.3,
+              0.508,
+              0.9,
+              0.552
+            ],
+            "layer": 0,
+            "color": "#1E5C96",
+            "word": "competitive"
+          },
+          {
+            "id": "B53_13",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Cable-stayed: very competitive above 750 ft",
+            "position": [
+              0.1,
+              0.59
+            ],
+            "size": 0.027,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": false,
+            "word": "competitive"
+          },
+          {
+            "id": "B53_14",
+            "kind": "rect",
+            "sentence": 1,
+            "box": [
+              0.86,
+              0.358,
+              0.9,
+              0.402
+            ],
+            "layer": 0,
+            "color": "#4F5A64",
+            "word": "approach"
+          },
+          {
+            "id": "B53_15",
+            "kind": "text",
+            "sentence": 1,
+            "text": "Suspension now: as spans approach 3,000 ft",
+            "position": [
+              0.1,
+              0.44
+            ],
+            "size": 0.027,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": false,
+            "word": "approach"
+          },
+          {
+            "id": "B53_16",
+            "kind": "text",
+            "sentence": 0,
+            "text": "After FHWA, Steel Bridge Design Handbook (FHWA-IF-12-052), 2012",
+            "position": [
+              0.5,
+              0.205
+            ],
+            "size": 0.019,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false
+          }
+        ]
+      }
+    },
+    {
+      "beat_id": "B19",
+      "chapter": "C9",
       "kind": "framing",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [],
@@ -1909,7 +4285,7 @@
             "id": "B19_00",
             "kind": "text",
             "sentence": 0,
-            "text": "6 · Why different designs exist",
+            "text": "9 · Why different designs exist",
             "position": [
               0.055,
               0.915
@@ -2027,7 +4403,7 @@
     },
     {
       "beat_id": "B20A",
-      "chapter": "C6",
+      "chapter": "C9",
       "kind": "fact",
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [
@@ -2054,7 +4430,7 @@
     },
     {
       "beat_id": "B20B",
-      "chapter": "C6",
+      "chapter": "C9",
       "kind": "fact",
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [
@@ -2094,7 +4470,7 @@
     },
     {
       "beat_id": "B20C",
-      "chapter": "C6",
+      "chapter": "C9",
       "kind": "fact",
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [
@@ -2120,7 +4496,7 @@
     },
     {
       "beat_id": "B21",
-      "chapter": "C6",
+      "chapter": "C9",
       "kind": "fact",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
@@ -2265,7 +4641,7 @@
     },
     {
       "beat_id": "B22",
-      "chapter": "C6",
+      "chapter": "C9",
       "kind": "fact",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
@@ -2488,164 +4864,8 @@
       }
     },
     {
-      "beat_id": "B23",
-      "chapter": "C6",
-      "kind": "framing",
-      "narrative_intent": "SHOW_CONTEXT",
-      "claim_ids": [],
-      "narration": "Then there is span: how far a single structure has to reach.",
-      "visual_goal": "The gap itself: the distance one structure must cross",
-      "required_concepts": [
-        "river_crossing_site"
-      ],
-      "expected_complexity": "MEDIUM",
-      "annotations": [
-        {
-          "id": "B23_note",
-          "type": "NOTE",
-          "text": "Span: how far one structure reaches",
-          "sentence": 0,
-          "position": "TOP_LEFT"
-        }
-      ]
-    },
-    {
-      "beat_id": "B23B",
-      "chapter": "C6",
-      "kind": "fact",
-      "narrative_intent": "EXPLAIN_STRUCTURE",
-      "claim_ids": [
-        "CLM_731",
-        "CLM_732",
-        "CLM_730"
-      ],
-      "narration": "A simple king post truss could span only about thirty feet. What one report calls America's greatest stone arch, the Cabin John Aqueduct Bridge, spans 220 feet, and some through trusses approach 400.",
-      "visual_goal": "Span scale (sourced values)",
-      "required_concepts": [],
-      "expected_complexity": "MEDIUM",
-      "strategy": "CARD",
-      "graphic": {
-        "fade_seconds": 0.35,
-        "elements": [
-          {
-            "id": "B23B_00",
-            "kind": "text",
-            "sentence": 0,
-            "text": "How far one structure can reach",
-            "position": [
-              0.5,
-              0.86
-            ],
-            "size": 0.045,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": false
-          },
-          {
-            "id": "B23B_01",
-            "kind": "rect",
-            "sentence": 0,
-            "box": [
-              0.12,
-              0.655,
-              0.174,
-              0.705
-            ],
-            "layer": 0,
-            "color": "#8C654D"
-          },
-          {
-            "id": "B23B_02",
-            "kind": "text",
-            "sentence": 0,
-            "text": "Simple king post truss: about 30 ft",
-            "position": [
-              0.12,
-              0.745
-            ],
-            "size": 0.028,
-            "align": "LEFT",
-            "color": "#24231F",
-            "plate": false
-          },
-          {
-            "id": "B23B_03",
-            "kind": "rect",
-            "sentence": 1,
-            "box": [
-              0.12,
-              0.475,
-              0.516,
-              0.525
-            ],
-            "layer": 0,
-            "color": "#B9A887",
-            "word": "cabin"
-          },
-          {
-            "id": "B23B_04",
-            "kind": "text",
-            "sentence": 1,
-            "text": "Cabin John Aqueduct, stone arch (1864): 220 ft",
-            "position": [
-              0.12,
-              0.565
-            ],
-            "size": 0.028,
-            "align": "LEFT",
-            "color": "#24231F",
-            "plate": false,
-            "word": "cabin"
-          },
-          {
-            "id": "B23B_05",
-            "kind": "rect",
-            "sentence": 1,
-            "box": [
-              0.12,
-              0.295,
-              0.84,
-              0.345
-            ],
-            "layer": 0,
-            "color": "#4F5A64",
-            "word": "trusses"
-          },
-          {
-            "id": "B23B_06",
-            "kind": "text",
-            "sentence": 1,
-            "text": "Some through trusses: approaching 400 ft",
-            "position": [
-              0.12,
-              0.385
-            ],
-            "size": 0.028,
-            "align": "LEFT",
-            "color": "#24231F",
-            "plate": false,
-            "word": "trusses"
-          },
-          {
-            "id": "B23B_07",
-            "kind": "text",
-            "sentence": 0,
-            "text": "Spans as given in NCHRP 25-25(15), 2005 — bars to scale",
-            "position": [
-              0.5,
-              0.22
-            ],
-            "size": 0.02,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false
-          }
-        ]
-      }
-    },
-    {
       "beat_id": "B24",
-      "chapter": "C6",
+      "chapter": "C9",
       "kind": "fact",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
@@ -3136,7 +5356,7 @@
     },
     {
       "beat_id": "B25",
-      "chapter": "C7",
+      "chapter": "C10",
       "kind": "fact",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
@@ -3155,7 +5375,7 @@
             "id": "B25_00",
             "kind": "text",
             "sentence": 0,
-            "text": "7 · Real-world decisions",
+            "text": "10 · Real-world decisions",
             "position": [
               0.055,
               0.915
@@ -3364,7 +5584,7 @@
     },
     {
       "beat_id": "B26",
-      "chapter": "C7",
+      "chapter": "C10",
       "kind": "fact",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
@@ -3509,7 +5729,7 @@
     },
     {
       "beat_id": "B27",
-      "chapter": "C7",
+      "chapter": "C10",
       "kind": "interpretation",
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [
@@ -3539,7 +5759,7 @@
     },
     {
       "beat_id": "B28",
-      "chapter": "C7",
+      "chapter": "C10",
       "kind": "fact",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
@@ -3684,7 +5904,7 @@
     },
     {
       "beat_id": "B29",
-      "chapter": "C7",
+      "chapter": "C10",
       "kind": "interpretation",
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [
@@ -3715,7 +5935,7 @@
     },
     {
       "beat_id": "B30",
-      "chapter": "C7",
+      "chapter": "C10",
       "kind": "fact",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
@@ -3874,7 +6094,7 @@
     },
     {
       "beat_id": "B31",
-      "chapter": "C7",
+      "chapter": "C10",
       "kind": "interpretation",
       "narrative_intent": "SUMMARIZE_DIFFERENCES",
       "claim_ids": [
@@ -4034,7 +6254,7 @@
     },
     {
       "beat_id": "B32",
-      "chapter": "C8",
+      "chapter": "C11",
       "kind": "interpretation",
       "narrative_intent": "SUMMARIZE_DIFFERENCES",
       "claim_ids": [
@@ -4056,7 +6276,7 @@
         {
           "id": "B32_ch",
           "type": "NOTE",
-          "text": "8 · Why they look different",
+          "text": "11 · Why they look different",
           "sentence": 0,
           "position": "TOP_LEFT",
           "until": 2
@@ -4071,8 +6291,38 @@
       ]
     },
     {
+      "beat_id": "B32L",
+      "chapter": "C11",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_750",
+        "CLM_760",
+        "CLM_770"
+      ],
+      "narration": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+      "visual_goal": "The three long-span structures at one scale",
+      "required_concepts": [],
+      "expected_complexity": "MEDIUM",
+      "strategy": "COMPARE_SIDE_BY_SIDE",
+      "preferred_states": [
+        "cantilever_bridge",
+        "suspension_bridge",
+        "cable_stayed_bridge"
+      ],
+      "annotations": [
+        {
+          "id": "B32L_one",
+          "type": "NOTE",
+          "text": "1 · How the structure carries load",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        }
+      ]
+    },
+    {
       "beat_id": "B32B",
-      "chapter": "C8",
+      "chapter": "C11",
       "kind": "interpretation",
       "narrative_intent": "SUMMARIZE_DIFFERENCES",
       "claim_ids": [
@@ -4181,14 +6431,15 @@
     },
     {
       "beat_id": "B33",
-      "chapter": "C8",
+      "chapter": "C11",
       "kind": "interpretation",
       "narrative_intent": "SUMMARIZE_DIFFERENCES",
       "claim_ids": [
         "CLM_721",
-        "CLM_738"
+        "CLM_738",
+        "CLM_777"
       ],
-      "narration": "And it is not a simple story of progress. Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression. Each form can still be the right answer in the right place.",
+      "narration": "And it is not a simple story of progress. Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression. And the most common steel bridge today is still a kind of beam: the welded plate girder. Each form can still be the right answer in the right place.",
       "visual_goal": "Not a linear progression (timeline)",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
@@ -4664,13 +6915,43 @@
             "align": "CENTER",
             "color": "#24231F",
             "plate": true
+          },
+          {
+            "id": "B33_31",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Most common steel bridge:",
+            "position": [
+              0.24,
+              0.86
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "common"
+          },
+          {
+            "id": "B33_32",
+            "kind": "text",
+            "sentence": 2,
+            "text": "the plate girder, a beam",
+            "position": [
+              0.24,
+              0.805
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "common"
           }
         ]
       }
     },
     {
       "beat_id": "B34",
-      "chapter": "C8",
+      "chapter": "C11",
       "kind": "framing",
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [],
@@ -4697,7 +6978,7 @@
     },
     {
       "beat_id": "B35",
-      "chapter": "C8",
+      "chapter": "C11",
       "kind": "framing",
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [],

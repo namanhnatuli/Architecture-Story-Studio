@@ -1,53 +1,57 @@
 {
-  "output": "output/why_bridges_look_different_M7_FINAL_INTERNAL_REVIEW_1080p.mp4",
-  "subtitles": "output/why_bridges_look_different_M7_FINAL_INTERNAL_REVIEW_1080p.en.srt",
+  "output": "output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4",
+  "subtitles": "output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.en.srt",
   "narration_rights": [
     "PUBLICATION_CLEARED"
   ],
   "publication_audio": true,
   "narration_track": "audio/narration_mix_full.wav",
   "shots": "all",
-  "frames": 15395,
-  "seconds": 641.4583333333334,
+  "frames": 20823,
+  "seconds": 867.625,
   "video": {
     "codec_name": "h264",
     "codec_type": "video",
     "width": 1920,
     "height": 1080,
-    "duration": "641.458333",
-    "nb_read_frames": "15395"
+    "duration": "867.625000",
+    "nb_read_frames": "20823"
   },
   "audio": {
     "codec_name": "aac",
     "codec_type": "audio",
     "sample_rate": "48000",
-    "duration": "641.458333",
-    "nb_read_frames": "30069"
+    "duration": "867.625000",
+    "nb_read_frames": "40670"
   },
   "loudness_before": {
-    "I": "-27.14",
+    "I": "-27.17",
     "TP": "-3.01"
   },
   "loudness_after": {
     "integrated_lufs": -16.4,
-    "true_peak_dbtp": -1.2
+    "true_peak_dbtp": -1.0
   },
-  "subtitle_entries": 145,
+  "subtitle_entries": 199,
   "subtitle_stats": {
-    "cues": 145,
-    "sentences": 103,
+    "cues": 199,
+    "sentences": 133,
     "max_line": 42,
     "lines_over_42": 0,
-    "two_line_cues": 92,
-    "aligned_boundaries": 42,
+    "two_line_cues": 122,
+    "aligned_boundaries": 66,
     "sentence_fallbacks": 0,
     "max_cps": 18.0
   },
   "subtitle_warnings": [
-    "cue 31 (B09.s1): 17.4 characters/s (> 17.0)",
-    "cue 69 (B18.s1): 17.8 characters/s (> 17.0)",
-    "cue 100 (B25.s0): 17.4 characters/s (> 17.0)",
-    "cue 123 (B30.s2): 18.0 characters/s (> 17.0)"
+    "cue 35 (B09.s1): 17.4 characters/s (> 17.0)",
+    "cue 73 (B18.s1): 17.8 characters/s (> 17.0)",
+    "cue 82 (B41.s1): 17.3 characters/s (> 17.0)",
+    "cue 104 (B47.s1): 17.3 characters/s (> 17.0)",
+    "cue 124 (B53.s0): 17.5 characters/s (> 17.0)",
+    "cue 150 (B25.s0): 17.4 characters/s (> 17.0)",
+    "cue 173 (B30.s2): 18.0 characters/s (> 17.0)",
+    "cue 190 (B33.s2): 17.2 characters/s (> 17.0)"
   ],
   "subtitle_cues": [
     {
@@ -100,7 +104,57 @@
     },
     {
       "start": 16.15,
-      "end": 19.375,
+      "end": 20.15,
+      "lines": [
+        "Over wider water,",
+        "the answers change again."
+      ],
+      "text": "Over wider water, the answers change again.",
+      "sentence": "B01B.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 19.9
+    },
+    {
+      "start": 20.3,
+      "end": 23.625,
+      "lines": [
+        "One bridge reaches out from its piers."
+      ],
+      "text": "One bridge reaches out from its piers.",
+      "sentence": "B01B.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 23.375
+    },
+    {
+      "start": 24.608333,
+      "end": 28.183333,
+      "lines": [
+        "Another hangs from huge draped cables."
+      ],
+      "text": "Another hangs from huge draped cables.",
+      "sentence": "B01C.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 27.933333
+    },
+    {
+      "start": 29.15,
+      "end": 32.825,
+      "lines": [
+        "A third is held up by",
+        "straight lines of steel."
+      ],
+      "text": "A third is held up by straight lines of steel.",
+      "sentence": "B01D.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 32.575
+    },
+    {
+      "start": 33.775,
+      "end": 37.0,
       "lines": [
         "So why don't bridges all look the same?"
       ],
@@ -108,11 +162,11 @@
       "sentence": "B02.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 19.125
+      "speech_end": 36.75
     },
     {
-      "start": 19.525,
-      "end": 24.175,
+      "start": 37.15,
+      "end": 41.8,
       "lines": [
         "It isn't because one design is",
         "simply better than the others."
@@ -121,42 +175,42 @@
       "sentence": "B02.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 23.925
+      "speech_end": 41.55
     },
     {
-      "start": 24.325,
-      "end": 27.56,
+      "start": 41.95,
+      "end": 47.005,
       "lines": [
-        "Each form is a different",
-        "answer to the same problem,"
+        "Each form is a different answer to",
+        "the same problem, shaped by materials,"
       ],
-      "text": "Each form is a different answer to the same problem,",
+      "text": "Each form is a different answer to the same problem, shaped by materials,",
       "sentence": "B02.s2",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "problem,",
-        "before_word": "shaped",
-        "whisper_boundary": 3.38,
-        "placed_at": 3.235,
-        "rms_db_at_boundary": -71.9
+        "after_word": "materials,",
+        "before_word": "by",
+        "whisper_boundary": 5.0,
+        "placed_at": 5.055,
+        "rms_db_at_boundary": -71.6
       }
     },
     {
-      "start": 27.56,
-      "end": 33.075,
+      "start": 47.005,
+      "end": 51.75,
       "lines": [
-        "shaped by materials, by the site,",
+        "by the site, by the span,",
         "and by the time it was built in."
       ],
-      "text": "shaped by materials, by the site, and by the time it was built in.",
+      "text": "by the site, by the span, and by the time it was built in.",
       "sentence": "B02.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 32.825
+      "speech_end": 51.5
     },
     {
-      "start": 34.025,
-      "end": 37.525,
+      "start": 52.733333,
+      "end": 56.233333,
       "lines": [
         "Every bridge has the same basic job."
       ],
@@ -164,11 +218,11 @@
       "sentence": "B03.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 37.275
+      "speech_end": 55.983333
     },
     {
-      "start": 37.675,
-      "end": 39.489999999999995,
+      "start": 56.383333,
+      "end": 58.198333,
       "lines": [
         "It has to carry loads:"
       ],
@@ -184,8 +238,8 @@
       }
     },
     {
-      "start": 39.489999999999995,
-      "end": 43.7,
+      "start": 58.198333,
+      "end": 62.408333,
       "lines": [
         "the traffic crossing it,",
         "and the weight of the bridge itself."
@@ -194,11 +248,11 @@
       "sentence": "B03.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 43.45
+      "speech_end": 62.158333
     },
     {
-      "start": 43.85,
-      "end": 48.7,
+      "start": 62.558333,
+      "end": 67.408333,
       "lines": [
         "And it has to pass all of",
         "that down into the ground on either side."
@@ -207,11 +261,11 @@
       "sentence": "B03.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 48.45
+      "speech_end": 67.158333
     },
     {
-      "start": 49.65,
-      "end": 53.75,
+      "start": 68.358333,
+      "end": 72.458333,
       "lines": [
         "Engineers often describe",
         "a bridge in two parts."
@@ -220,11 +274,11 @@
       "sentence": "B04.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 53.5
+      "speech_end": 72.208333
     },
     {
-      "start": 53.9,
-      "end": 59.175,
+      "start": 72.608333,
+      "end": 77.883333,
       "lines": [
         "The superstructure is the part",
         "that spans the gap, including the deck."
@@ -233,11 +287,11 @@
       "sentence": "B04.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 58.925
+      "speech_end": 77.633333
     },
     {
-      "start": 59.325,
-      "end": 63.400000000000006,
+      "start": 78.033333,
+      "end": 82.108333,
       "lines": [
         "The substructure is what holds it up:",
         "abutments at the ends,"
@@ -254,8 +308,8 @@
       }
     },
     {
-      "start": 63.400000000000006,
-      "end": 66.35,
+      "start": 82.108333,
+      "end": 85.058333,
       "lines": [
         "and sometimes piers in between."
       ],
@@ -263,11 +317,11 @@
       "sentence": "B04.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 66.1
+      "speech_end": 84.808333
     },
     {
-      "start": 66.5,
-      "end": 72.2,
+      "start": 85.208333,
+      "end": 90.908333,
       "lines": [
         "Load follows a path from the deck,",
         "through both parts, into the foundations."
@@ -276,11 +330,11 @@
       "sentence": "B04.s3",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 71.95
+      "speech_end": 90.658333
     },
     {
-      "start": 73.15,
-      "end": 78.175,
+      "start": 91.858333,
+      "end": 96.883333,
       "lines": [
         "What changes from one bridge to the",
         "next is how that path is arranged."
@@ -289,11 +343,11 @@
       "sentence": "B05.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 77.925
+      "speech_end": 96.633333
     },
     {
-      "start": 78.325,
-      "end": 81.625,
+      "start": 97.033333,
+      "end": 100.333333,
       "lines": [
         "So let's start again with an empty gap."
       ],
@@ -301,11 +355,11 @@
       "sentence": "B05.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 81.375
+      "speech_end": 100.083333
     },
     {
-      "start": 82.608333,
-      "end": 85.458333,
+      "start": 101.316667,
+      "end": 104.166667,
       "lines": [
         "The first answer is the beam."
       ],
@@ -313,11 +367,11 @@
       "sentence": "B06.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 85.208333
+      "speech_end": 103.916667
     },
     {
-      "start": 85.608333,
-      "end": 89.683333,
+      "start": 104.316667,
+      "end": 108.391667,
       "lines": [
         "Lay a strong member across the gap,",
         "support it at each end,"
@@ -334,8 +388,8 @@
       }
     },
     {
-      "start": 89.683333,
-      "end": 91.633333,
+      "start": 108.391667,
+      "end": 110.341667,
       "lines": [
         "and you have a bridge."
       ],
@@ -343,11 +397,11 @@
       "sentence": "B06.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 91.383333
+      "speech_end": 110.091667
     },
     {
-      "start": 91.783333,
-      "end": 95.758333,
+      "start": 110.491667,
+      "end": 114.466667,
       "lines": [
         "It is one of the oldest ideas",
         "in bridge building."
@@ -356,11 +410,11 @@
       "sentence": "B06.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 95.508333
+      "speech_end": 114.216667
     },
     {
-      "start": 96.733333,
-      "end": 100.808333,
+      "start": 115.441667,
+      "end": 119.516667,
       "lines": [
         "This timber bridge is a",
         "row of short beam spans."
@@ -369,11 +423,11 @@
       "sentence": "B07.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 100.558333
+      "speech_end": 119.266667
     },
     {
-      "start": 100.958333,
-      "end": 102.54333299999999,
+      "start": 119.666667,
+      "end": 121.251667,
       "lines": [
         "Planks form the deck,"
       ],
@@ -389,8 +443,8 @@
       }
     },
     {
-      "start": 102.54333299999999,
-      "end": 108.508333,
+      "start": 121.251667,
+      "end": 127.216667,
       "lines": [
         "long beams carry the planks, cap beams",
         "carry the beams, and posts carry the caps."
@@ -399,11 +453,11 @@
       "sentence": "B07.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 108.258333
+      "speech_end": 126.966667
     },
     {
-      "start": 109.483333,
-      "end": 113.608333,
+      "start": 128.191667,
+      "end": 132.316667,
       "lines": [
         "Each beam carries its",
         "load by resisting bending."
@@ -412,11 +466,11 @@
       "sentence": "B08.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 113.358333
+      "speech_end": 132.066667
     },
     {
-      "start": 113.758333,
-      "end": 118.533333,
+      "start": 132.466667,
+      "end": 137.241667,
       "lines": [
         "At each support, a cap beam",
         "spreads the load onto the posts."
@@ -425,11 +479,11 @@
       "sentence": "B08.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 118.283333
+      "speech_end": 136.991667
     },
     {
-      "start": 118.683333,
-      "end": 123.433333,
+      "start": 137.391667,
+      "end": 142.141667,
       "lines": [
         "The posts then carry it down",
         "into the ground in compression."
@@ -438,11 +492,11 @@
       "sentence": "B08.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 123.183333
+      "speech_end": 141.891667
     },
     {
-      "start": 124.4,
-      "end": 129.175,
+      "start": 143.108333,
+      "end": 147.883333,
       "lines": [
         "Beams are simple,",
         "and wood was usually easy to find."
@@ -451,11 +505,11 @@
       "sentence": "B09.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 128.925
+      "speech_end": 147.633333
     },
     {
-      "start": 129.325,
-      "end": 134.2,
+      "start": 148.033333,
+      "end": 152.908333,
       "lines": [
         "That is why timber beam bridges were still",
         "being built long after timber trusses fell"
@@ -472,8 +526,8 @@
       }
     },
     {
-      "start": 134.2,
-      "end": 140.55,
+      "start": 152.908333,
+      "end": 159.258333,
       "lines": [
         "out of use, and why they are still built",
         "on quiet rural roads and in parks today."
@@ -482,11 +536,11 @@
       "sentence": "B09.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 140.3
+      "speech_end": 159.008333
     },
     {
-      "start": 140.7,
-      "end": 144.695,
+      "start": 159.408333,
+      "end": 163.403333,
       "lines": [
         "But many early timber bridges",
         "had relatively short spans,"
@@ -503,8 +557,8 @@
       }
     },
     {
-      "start": 144.695,
-      "end": 148.3,
+      "start": 163.403333,
+      "end": 167.008333,
       "lines": [
         "which is why this one needs so many posts."
       ],
@@ -512,11 +566,11 @@
       "sentence": "B09.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 148.05
+      "speech_end": 166.758333
     },
     {
-      "start": 149.275,
-      "end": 152.7,
+      "start": 167.983333,
+      "end": 171.408333,
       "lines": [
         "A masonry arch takes a different approach."
       ],
@@ -524,11 +578,11 @@
       "sentence": "B10.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 152.45
+      "speech_end": 171.158333
     },
     {
-      "start": 152.85,
-      "end": 157.105,
+      "start": 171.558333,
+      "end": 175.813333,
       "lines": [
         "It is built from wedge-shaped stones",
         "called voussoirs, with a keystone"
@@ -545,8 +599,8 @@
       }
     },
     {
-      "start": 157.105,
-      "end": 158.875,
+      "start": 175.813333,
+      "end": 177.583333,
       "lines": [
         "at the crown."
       ],
@@ -554,11 +608,11 @@
       "sentence": "B10.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 158.625
+      "speech_end": 177.333333
     },
     {
-      "start": 159.858333,
-      "end": 163.80333299999998,
+      "start": 178.566667,
+      "end": 182.511667,
       "lines": [
         "The curve turns the downward",
         "load into thrust along the arch,"
@@ -575,8 +629,8 @@
       }
     },
     {
-      "start": 163.80333299999998,
-      "end": 166.408333,
+      "start": 182.511667,
+      "end": 185.116667,
       "lines": [
         "pressing the stones together."
       ],
@@ -584,11 +638,11 @@
       "sentence": "B11.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 166.158333
+      "speech_end": 184.866667
     },
     {
-      "start": 166.558333,
-      "end": 170.033333,
+      "start": 185.266667,
+      "end": 188.741667,
       "lines": [
         "So the arch works mainly in compression."
       ],
@@ -596,11 +650,11 @@
       "sentence": "B11.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 169.783333
+      "speech_end": 188.491667
     },
     {
-      "start": 170.183333,
-      "end": 176.133333,
+      "start": 188.891667,
+      "end": 194.841667,
       "lines": [
         "At each end it pushes outward and down on",
         "its supports, and the supports push back."
@@ -609,11 +663,11 @@
       "sentence": "B11.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 175.883333
+      "speech_end": 194.591667
     },
     {
-      "start": 177.108333,
-      "end": 182.833333,
+      "start": 195.816667,
+      "end": 201.541667,
       "lines": [
         "That is why arches suit materials that",
         "are strong under compression, like stone."
@@ -622,11 +676,11 @@
       "sentence": "B12.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 182.583333
+      "speech_end": 201.291667
     },
     {
-      "start": 182.983333,
-      "end": 185.878333,
+      "start": 201.691667,
+      "end": 204.586667,
       "lines": [
         "And it is why the supports matter so much:"
       ],
@@ -642,8 +696,8 @@
       }
     },
     {
-      "start": 185.878333,
-      "end": 190.758333,
+      "start": 204.586667,
+      "end": 209.466667,
       "lines": [
         "the abutments have to push inward",
         "on the arch, against its thrust."
@@ -652,11 +706,11 @@
       "sentence": "B12.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 190.508333
+      "speech_end": 209.216667
     },
     {
-      "start": 191.733333,
-      "end": 195.108333,
+      "start": 210.441667,
+      "end": 213.816667,
       "lines": [
         "Building an arch takes support of its own."
       ],
@@ -664,11 +718,11 @@
       "sentence": "B13.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 194.858333
+      "speech_end": 213.566667
     },
     {
-      "start": 195.258333,
-      "end": 197.493333,
+      "start": 213.966667,
+      "end": 216.20166700000001,
       "lines": [
         "While a stone arch is being built,"
       ],
@@ -684,8 +738,8 @@
       }
     },
     {
-      "start": 197.493333,
-      "end": 202.983333,
+      "start": 216.20166700000001,
+      "end": 221.691667,
       "lines": [
         "a temporary timber frame called",
         "falsework holds the stones in place."
@@ -694,11 +748,11 @@
       "sentence": "B13.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 202.733333
+      "speech_end": 221.441667
     },
     {
-      "start": 203.133333,
-      "end": 208.008333,
+      "start": 221.841667,
+      "end": 226.716667,
       "lines": [
         "So building one called for carpenters",
         "as well as skilled masons."
@@ -707,11 +761,11 @@
       "sentence": "B13.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 207.758333
+      "speech_end": 226.466667
     },
     {
-      "start": 208.983333,
-      "end": 214.883333,
+      "start": 227.691667,
+      "end": 233.591667,
       "lines": [
         "Stone arches were generally more",
         "expensive to build than timber bridges."
@@ -720,11 +774,11 @@
       "sentence": "B14.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 214.633333
+      "speech_end": 233.341667
     },
     {
-      "start": 215.033333,
-      "end": 219.998333,
+      "start": 233.741667,
+      "end": 238.706667,
       "lines": [
         "But stone was the preferred choice where",
         "durability and permanence were required,"
@@ -741,8 +795,8 @@
       }
     },
     {
-      "start": 219.998333,
-      "end": 225.108333,
+      "start": 238.706667,
+      "end": 243.816667,
       "lines": [
         "so arches were favoured on busy",
         "routes and in important places."
@@ -751,11 +805,11 @@
       "sentence": "B14.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 224.858333
+      "speech_end": 243.566667
     },
     {
-      "start": 225.258333,
-      "end": 230.333333,
+      "start": 243.966667,
+      "end": 249.041667,
       "lines": [
         "Elsewhere, the lower cost of timber",
         "made up for its lack of permanence."
@@ -764,11 +818,11 @@
       "sentence": "B14.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 230.083333
+      "speech_end": 248.791667
     },
     {
-      "start": 231.316667,
-      "end": 234.116667,
+      "start": 250.025,
+      "end": 252.825,
       "lines": [
         "A third approach is the truss."
       ],
@@ -776,11 +830,11 @@
       "sentence": "B15.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 233.866667
+      "speech_end": 252.575
     },
     {
-      "start": 234.266667,
-      "end": 239.341667,
+      "start": 252.975,
+      "end": 258.05,
       "lines": [
         "It builds a structure out of straight",
         "members, joined into triangles."
@@ -789,11 +843,11 @@
       "sentence": "B15.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 239.091667
+      "speech_end": 257.8
     },
     {
-      "start": 239.491667,
-      "end": 243.296667,
+      "start": 258.2,
+      "end": 262.005,
       "lines": [
         "Each member is mainly pulled",
         "or pushed along its length,"
@@ -810,8 +864,8 @@
       }
     },
     {
-      "start": 243.296667,
-      "end": 246.266667,
+      "start": 262.005,
+      "end": 264.975,
       "lines": [
         "in tension or in compression."
       ],
@@ -819,11 +873,11 @@
       "sentence": "B15.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 246.016667
+      "speech_end": 264.725
     },
     {
-      "start": 247.233333,
-      "end": 252.54833299999999,
+      "start": 265.941667,
+      "end": 271.256667,
       "lines": [
         "In a simple span like these, under a",
         "downward load, the top chord is squeezed"
@@ -840,8 +894,8 @@
       }
     },
     {
-      "start": 252.54833299999999,
-      "end": 255.058333,
+      "start": 271.256667,
+      "end": 273.766667,
       "lines": [
         "and the bottom chord is stretched."
       ],
@@ -849,11 +903,11 @@
       "sentence": "B16.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 254.808333
+      "speech_end": 273.516667
     },
     {
-      "start": 255.208333,
-      "end": 260.858333,
+      "start": 273.916667,
+      "end": 279.566667,
       "lines": [
         "Inside, some web members are",
         "in compression and others are in tension."
@@ -862,11 +916,11 @@
       "sentence": "B16.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 260.608333
+      "speech_end": 279.316667
     },
     {
-      "start": 261.816667,
-      "end": 265.966667,
+      "start": 280.525,
+      "end": 284.675,
       "lines": [
         "The triangles can be arranged",
         "in different patterns."
@@ -875,11 +929,11 @@
       "sentence": "B17.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 265.716667
+      "speech_end": 284.425
     },
     {
-      "start": 266.116667,
-      "end": 268.541667,
+      "start": 284.825,
+      "end": 287.25,
       "lines": [
         "This is a Pratt truss."
       ],
@@ -887,11 +941,11 @@
       "sentence": "B17.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 268.291667
+      "speech_end": 287.0
     },
     {
-      "start": 268.691667,
-      "end": 272.866667,
+      "start": 287.4,
+      "end": 291.575,
       "lines": [
         "In the original design, patented in 1844,"
       ],
@@ -907,8 +961,8 @@
       }
     },
     {
-      "start": 272.866667,
-      "end": 277.916667,
+      "start": 291.575,
+      "end": 296.625,
       "lines": [
         "its verticals were timber",
         "and its diagonals were iron rods."
@@ -917,11 +971,11 @@
       "sentence": "B17.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 277.666667
+      "speech_end": 296.375
     },
     {
-      "start": 278.066667,
-      "end": 283.711667,
+      "start": 296.775,
+      "end": 302.41999999999996,
       "lines": [
         "Swap the web for diagonals that alternate",
         "in direction, and you have a Warren truss,"
@@ -938,8 +992,8 @@
       }
     },
     {
-      "start": 283.711667,
-      "end": 286.516667,
+      "start": 302.41999999999996,
+      "end": 305.225,
       "lines": [
         "patented in 1848."
       ],
@@ -947,11 +1001,11 @@
       "sentence": "B17.s3",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 286.266667
+      "speech_end": 304.975
     },
     {
-      "start": 286.666667,
-      "end": 289.64166700000004,
+      "start": 305.375,
+      "end": 308.35,
       "lines": [
         "Both patterns carry",
         "load through triangles;"
@@ -968,8 +1022,8 @@
       }
     },
     {
-      "start": 289.64166700000004,
-      "end": 293.016667,
+      "start": 308.35,
+      "end": 311.725,
       "lines": [
         "they simply arrange the",
         "members differently."
@@ -978,11 +1032,11 @@
       "sentence": "B17.s4",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 292.766667
+      "speech_end": 311.475
     },
     {
-      "start": 293.983333,
-      "end": 297.658333,
+      "start": 312.691667,
+      "end": 316.366667,
       "lines": [
         "Trusses also changed",
         "how bridges were built."
@@ -991,11 +1045,11 @@
       "sentence": "B18.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 297.408333
+      "speech_end": 316.116667
     },
     {
-      "start": 297.808333,
-      "end": 301.073333,
+      "start": 316.516667,
+      "end": 319.78166699999997,
       "lines": [
         "By the middle of the nineteenth",
         "century, shops were making"
@@ -1012,8 +1066,8 @@
       }
     },
     {
-      "start": 301.073333,
-      "end": 305.283333,
+      "start": 319.78166699999997,
+      "end": 323.991667,
       "lines": [
         "and drilling truss members,",
         "then shipping them to the bridge site,"
@@ -1030,8 +1084,8 @@
       }
     },
     {
-      "start": 305.283333,
-      "end": 307.308333,
+      "start": 323.991667,
+      "end": 326.016667,
       "lines": [
         "ready to assemble."
       ],
@@ -1039,11 +1093,11 @@
       "sentence": "B18.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 307.058333
+      "speech_end": 325.766667
     },
     {
-      "start": 307.458333,
-      "end": 309.35333299999996,
+      "start": 326.166667,
+      "end": 328.061667,
       "lines": [
         "And by 1860,"
       ],
@@ -1059,8 +1113,8 @@
       }
     },
     {
-      "start": 309.35333299999996,
-      "end": 314.683333,
+      "start": 328.061667,
+      "end": 333.391667,
       "lines": [
         "the railroads relied almost entirely",
         "on these prefabricated parts."
@@ -1069,11 +1123,773 @@
       "sentence": "B18.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 314.433333
+      "speech_end": 333.141667
     },
     {
-      "start": 315.65,
-      "end": 318.3,
+      "start": 334.358333,
+      "end": 339.983333,
+      "lines": [
+        "To cross wide rivers and deep gorges,",
+        "bridges needed longer spans."
+      ],
+      "text": "To cross wide rivers and deep gorges, bridges needed longer spans.",
+      "sentence": "B40.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 339.733333
+    },
+    {
+      "start": 340.133333,
+      "end": 342.588333,
+      "lines": [
+        "Beam and arch bridges of steel"
+      ],
+      "text": "Beam and arch bridges of steel",
+      "sentence": "B40.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "steel",
+        "before_word": "or",
+        "whisper_boundary": 2.3,
+        "placed_at": 2.455,
+        "rms_db_at_boundary": -38.0
+      }
+    },
+    {
+      "start": 342.588333,
+      "end": 349.033333,
+      "lines": [
+        "or reinforced concrete were limited",
+        "to spans of about 200 to 300 feet."
+      ],
+      "text": "or reinforced concrete were limited to spans of about 200 to 300 feet.",
+      "sentence": "B40.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 348.783333
+    },
+    {
+      "start": 349.983333,
+      "end": 353.183333,
+      "lines": [
+        "One answer was the cantilever."
+      ],
+      "text": "One answer was the cantilever.",
+      "sentence": "B41.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 352.933333
+    },
+    {
+      "start": 353.333333,
+      "end": 356.968333,
+      "lines": [
+        "Hold your arm straight out",
+        "from your shoulder, and it is acting"
+      ],
+      "text": "Hold your arm straight out from your shoulder, and it is acting",
+      "sentence": "B41.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "acting",
+        "before_word": "as",
+        "whisper_boundary": 3.7,
+        "placed_at": 3.635,
+        "rms_db_at_boundary": -80.7
+      }
+    },
+    {
+      "start": 356.968333,
+      "end": 363.058333,
+      "lines": [
+        "as a cantilever: supported at one end,",
+        "free at the other, like a diving board."
+      ],
+      "text": "as a cantilever: supported at one end, free at the other, like a diving board.",
+      "sentence": "B41.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 362.808333
+    },
+    {
+      "start": 364.025,
+      "end": 367.95,
+      "lines": [
+        "A cantilever bridge is a modified beam."
+      ],
+      "text": "A cantilever bridge is a modified beam.",
+      "sentence": "B42.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 367.7
+    },
+    {
+      "start": 368.1,
+      "end": 371.65500000000003,
+      "lines": [
+        "Anchor arms rest on the banks",
+        "and the main piers,"
+      ],
+      "text": "Anchor arms rest on the banks and the main piers,",
+      "sentence": "B42.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "piers,",
+        "before_word": "cantilever",
+        "whisper_boundary": 3.42,
+        "placed_at": 3.555,
+        "rms_db_at_boundary": -70.4
+      }
+    },
+    {
+      "start": 371.65500000000003,
+      "end": 374.27500000000003,
+      "lines": [
+        "cantilever arms reach out over the river,"
+      ],
+      "text": "cantilever arms reach out over the river,",
+      "sentence": "B42.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "river,",
+        "before_word": "and",
+        "whisper_boundary": 6.2,
+        "placed_at": 6.175,
+        "rms_db_at_boundary": -82.8
+      }
+    },
+    {
+      "start": 374.27500000000003,
+      "end": 378.125,
+      "lines": [
+        "and a suspended span hangs",
+        "between their tips."
+      ],
+      "text": "and a suspended span hangs between their tips.",
+      "sentence": "B42.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 377.875
+    },
+    {
+      "start": 379.108333,
+      "end": 382.808333,
+      "lines": [
+        "Its great advantage came",
+        "during construction."
+      ],
+      "text": "Its great advantage came during construction.",
+      "sentence": "B43.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 382.558333
+    },
+    {
+      "start": 382.958333,
+      "end": 384.78333299999997,
+      "lines": [
+        "The arms could be built outward"
+      ],
+      "text": "The arms could be built outward",
+      "sentence": "B43.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "outward",
+        "before_word": "from",
+        "whisper_boundary": 1.92,
+        "placed_at": 1.825,
+        "rms_db_at_boundary": -54.1
+      }
+    },
+    {
+      "start": 384.78333299999997,
+      "end": 388.773333,
+      "lines": [
+        "from the piers with no falsework",
+        "blocking the channel below,"
+      ],
+      "text": "from the piers with no falsework blocking the channel below,",
+      "sentence": "B43.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "below,",
+        "before_word": "and",
+        "whisper_boundary": 5.94,
+        "placed_at": 5.815,
+        "rms_db_at_boundary": -81.6
+      }
+    },
+    {
+      "start": 388.773333,
+      "end": 392.958333,
+      "lines": [
+        "and then the suspended",
+        "span was lifted into place."
+      ],
+      "text": "and then the suspended span was lifted into place.",
+      "sentence": "B43.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 392.708333
+    },
+    {
+      "start": 393.941667,
+      "end": 395.896667,
+      "lines": [
+        "In the United States,"
+      ],
+      "text": "In the United States,",
+      "sentence": "B44.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "States,",
+        "before_word": "cantilevers",
+        "whisper_boundary": 1.84,
+        "placed_at": 1.955,
+        "rms_db_at_boundary": -81.0
+      }
+    },
+    {
+      "start": 395.896667,
+      "end": 399.986667,
+      "lines": [
+        "cantilevers were a standard answer",
+        "for intermediate to longer spans"
+      ],
+      "text": "cantilevers were a standard answer for intermediate to longer spans",
+      "sentence": "B44.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "spans",
+        "before_word": "from",
+        "whisper_boundary": 5.94,
+        "placed_at": 6.045,
+        "rms_db_at_boundary": -40.6
+      }
+    },
+    {
+      "start": 399.986667,
+      "end": 403.566667,
+      "lines": [
+        "from the 1880s to the 1960s."
+      ],
+      "text": "from the 1880s to the 1960s.",
+      "sentence": "B44.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 403.316667
+    },
+    {
+      "start": 403.716667,
+      "end": 408.711667,
+      "lines": [
+        "The Queensboro Bridge in New York",
+        "was the country's longest cantilever"
+      ],
+      "text": "The Queensboro Bridge in New York was the country's longest cantilever",
+      "sentence": "B44.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "cantilever",
+        "before_word": "when",
+        "whisper_boundary": 4.86,
+        "placed_at": 4.995,
+        "rms_db_at_boundary": -75.7
+      }
+    },
+    {
+      "start": 408.711667,
+      "end": 412.141667,
+      "lines": [
+        "when it was completed in 1909."
+      ],
+      "text": "when it was completed in 1909.",
+      "sentence": "B44.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 411.891667
+    },
+    {
+      "start": 413.108333,
+      "end": 417.983333,
+      "lines": [
+        "For the longest spans of all,",
+        "engineers hung the deck instead."
+      ],
+      "text": "For the longest spans of all, engineers hung the deck instead.",
+      "sentence": "B45.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 417.733333
+    },
+    {
+      "start": 418.133333,
+      "end": 419.928333,
+      "lines": [
+        "In a suspension bridge,"
+      ],
+      "text": "In a suspension bridge,",
+      "sentence": "B45.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "bridge,",
+        "before_word": "the",
+        "whisper_boundary": 1.88,
+        "placed_at": 1.795,
+        "rms_db_at_boundary": -80.7
+      }
+    },
+    {
+      "start": 419.928333,
+      "end": 425.258333,
+      "lines": [
+        "the deck hangs from vertical suspenders",
+        "attached to great main cables."
+      ],
+      "text": "the deck hangs from vertical suspenders attached to great main cables.",
+      "sentence": "B45.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 425.008333
+    },
+    {
+      "start": 426.233333,
+      "end": 431.908333,
+      "lines": [
+        "The cables are in tension, and they pass",
+        "over towers that are in compression."
+      ],
+      "text": "The cables are in tension, and they pass over towers that are in compression.",
+      "sentence": "B46.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 431.658333
+    },
+    {
+      "start": 432.058333,
+      "end": 433.163333,
+      "lines": [
+        "At each end,"
+      ],
+      "text": "At each end,",
+      "sentence": "B46.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "end,",
+        "before_word": "the",
+        "whisper_boundary": 1.06,
+        "placed_at": 1.105,
+        "rms_db_at_boundary": -61.5
+      }
+    },
+    {
+      "start": 433.163333,
+      "end": 438.583333,
+      "lines": [
+        "the cables are anchored, usually",
+        "in large masses of stone or concrete."
+      ],
+      "text": "the cables are anchored, usually in large masses of stone or concrete.",
+      "sentence": "B46.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 438.333333
+    },
+    {
+      "start": 439.566667,
+      "end": 445.066667,
+      "lines": [
+        "A suspension deck is light for its span,",
+        "and it can be very flexible."
+      ],
+      "text": "A suspension deck is light for its span, and it can be very flexible.",
+      "sentence": "B47.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 444.816667
+    },
+    {
+      "start": 445.216667,
+      "end": 448.401667,
+      "lines": [
+        "So a stiffening truss is",
+        "commonly built under the deck,"
+      ],
+      "text": "So a stiffening truss is commonly built under the deck,",
+      "sentence": "B47.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "deck,",
+        "before_word": "against",
+        "whisper_boundary": 3.2,
+        "placed_at": 3.185,
+        "rms_db_at_boundary": -81.0
+      }
+    },
+    {
+      "start": 448.401667,
+      "end": 451.366667,
+      "lines": [
+        "against wind and earthquakes."
+      ],
+      "text": "against wind and earthquakes.",
+      "sentence": "B47.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 451.116667
+    },
+    {
+      "start": 452.316667,
+      "end": 457.241667,
+      "lines": [
+        "Towers, cables and suspenders,",
+        "anchorages and a stiffening truss:"
+      ],
+      "text": "Towers, cables and suspenders, anchorages and a stiffening truss:",
+      "sentence": "B48.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "truss:",
+        "before_word": "these",
+        "whisper_boundary": 4.77,
+        "placed_at": 4.925,
+        "rms_db_at_boundary": -81.4
+      }
+    },
+    {
+      "start": 457.241667,
+      "end": 461.391667,
+      "lines": [
+        "these are the features",
+        "that define a suspension bridge."
+      ],
+      "text": "these are the features that define a suspension bridge.",
+      "sentence": "B48.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 461.141667
+    },
+    {
+      "start": 461.541667,
+      "end": 467.07666700000004,
+      "lines": [
+        "The Brooklyn Bridge in New York,",
+        "completed in 1883, has them all,"
+      ],
+      "text": "The Brooklyn Bridge in New York, completed in 1883, has them all,",
+      "sentence": "B48.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "all,",
+        "before_word": "and",
+        "whisper_boundary": 5.38,
+        "placed_at": 5.535,
+        "rms_db_at_boundary": -80.7
+      }
+    },
+    {
+      "start": 467.07666700000004,
+      "end": 468.696667,
+      "lines": [
+        "and one report says"
+      ],
+      "text": "and one report says",
+      "sentence": "B48.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "says",
+        "before_word": "few",
+        "whisper_boundary": 7.01,
+        "placed_at": 7.155,
+        "rms_db_at_boundary": -46.3
+      }
+    },
+    {
+      "start": 468.696667,
+      "end": 474.416667,
+      "lines": [
+        "few suspension bridges since can claim",
+        "to stand entirely clear of its shadow."
+      ],
+      "text": "few suspension bridges since can claim to stand entirely clear of its shadow.",
+      "sentence": "B48.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 474.166667
+    },
+    {
+      "start": 475.4,
+      "end": 481.9,
+      "lines": [
+        "A cable-stayed bridge also relies on steel",
+        "cables, but it uses them differently."
+      ],
+      "text": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+      "sentence": "B50.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 481.65
+    },
+    {
+      "start": 482.05,
+      "end": 488.15,
+      "lines": [
+        "Straight stay cables run from tall towers",
+        "directly down to the edges of the deck."
+      ],
+      "text": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+      "sentence": "B50.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 487.9
+    },
+    {
+      "start": 489.108333,
+      "end": 492.483333,
+      "lines": [
+        "Seen in outline, the difference is clear."
+      ],
+      "text": "Seen in outline, the difference is clear.",
+      "sentence": "B51.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 492.233333
+    },
+    {
+      "start": 492.633333,
+      "end": 495.558333,
+      "lines": [
+        "The suspension bridge has shorter towers,"
+      ],
+      "text": "The suspension bridge has shorter towers,",
+      "sentence": "B51.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "towers,",
+        "before_word": "and",
+        "whisper_boundary": 2.96,
+        "placed_at": 2.925,
+        "rms_db_at_boundary": -77.1
+      }
+    },
+    {
+      "start": 495.558333,
+      "end": 500.358333,
+      "lines": [
+        "and its main cables run over",
+        "them to anchorages at each end."
+      ],
+      "text": "and its main cables run over them to anchorages at each end.",
+      "sentence": "B51.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 500.108333
+    },
+    {
+      "start": 500.508333,
+      "end": 503.523333,
+      "lines": [
+        "The cable-stayed bridge",
+        "needs much taller towers,"
+      ],
+      "text": "The cable-stayed bridge needs much taller towers,",
+      "sentence": "B51.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "towers,",
+        "before_word": "and",
+        "whisper_boundary": 3.0,
+        "placed_at": 3.015,
+        "rms_db_at_boundary": -56.4
+      }
+    },
+    {
+      "start": 503.523333,
+      "end": 506.933333,
+      "lines": [
+        "and its stays end at the deck itself."
+      ],
+      "text": "and its stays end at the deck itself.",
+      "sentence": "B51.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 506.683333
+    },
+    {
+      "start": 507.9,
+      "end": 509.61499999999995,
+      "lines": [
+        "Once the towers are up,"
+      ],
+      "text": "Once the towers are up,",
+      "sentence": "B52.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "up,",
+        "before_word": "the",
+        "whisper_boundary": 1.84,
+        "placed_at": 1.715,
+        "rms_db_at_boundary": -70.6
+      }
+    },
+    {
+      "start": 509.61499999999995,
+      "end": 515.095,
+      "lines": [
+        "the deck can be built outward from them in",
+        "both directions, without falsework towers,"
+      ],
+      "text": "the deck can be built outward from them in both directions, without falsework towers,",
+      "sentence": "B52.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "towers,",
+        "before_word": "until",
+        "whisper_boundary": 7.18,
+        "placed_at": 7.195,
+        "rms_db_at_boundary": -82.0
+      }
+    },
+    {
+      "start": 515.095,
+      "end": 517.275,
+      "lines": [
+        "until the spans meet."
+      ],
+      "text": "until the spans meet.",
+      "sentence": "B52.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 517.025
+    },
+    {
+      "start": 517.425,
+      "end": 520.8299999999999,
+      "lines": [
+        "The stays also squeeze the",
+        "deck along its length, and"
+      ],
+      "text": "The stays also squeeze the deck along its length, and",
+      "sentence": "B52.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "and",
+        "before_word": "that",
+        "whisper_boundary": 3.52,
+        "placed_at": 3.405,
+        "rms_db_at_boundary": -63.4
+      }
+    },
+    {
+      "start": 520.8299999999999,
+      "end": 524.0,
+      "lines": [
+        "that squeeze builds up toward the towers."
+      ],
+      "text": "that squeeze builds up toward the towers.",
+      "sentence": "B52.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 523.75
+    },
+    {
+      "start": 524.983333,
+      "end": 527.148333,
+      "lines": [
+        "Before 1970,"
+      ],
+      "text": "Before 1970,",
+      "sentence": "B53.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "1970,",
+        "before_word": "suspension",
+        "whisper_boundary": 2.08,
+        "placed_at": 2.165,
+        "rms_db_at_boundary": -73.2
+      }
+    },
+    {
+      "start": 527.148333,
+      "end": 530.978333,
+      "lines": [
+        "suspension bridges were thought to",
+        "be the cheapest way to span more"
+      ],
+      "text": "suspension bridges were thought to be the cheapest way to span more",
+      "sentence": "B53.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "more",
+        "before_word": "than",
+        "whisper_boundary": 5.88,
+        "placed_at": 5.995,
+        "rms_db_at_boundary": -36.6
+      }
+    },
+    {
+      "start": 530.978333,
+      "end": 534.133333,
+      "lines": [
+        "than about 1,200 feet."
+      ],
+      "text": "than about 1,200 feet.",
+      "sentence": "B53.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 533.883333
+    },
+    {
+      "start": 534.283333,
+      "end": 539.5683329999999,
+      "lines": [
+        "By 2012, a federal handbook said",
+        "cable-stayed bridges become very"
+      ],
+      "text": "By 2012, a federal handbook said cable-stayed bridges become very",
+      "sentence": "B53.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "very",
+        "before_word": "competitive",
+        "whisper_boundary": 5.18,
+        "placed_at": 5.285,
+        "rms_db_at_boundary": -74.4
+      }
+    },
+    {
+      "start": 539.5683329999999,
+      "end": 545.288333,
+      "lines": [
+        "competitive above 750 feet, and",
+        "that suspension bridges pay off only"
+      ],
+      "text": "competitive above 750 feet, and that suspension bridges pay off only",
+      "sentence": "B53.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "only",
+        "before_word": "as",
+        "whisper_boundary": 10.86,
+        "placed_at": 11.005,
+        "rms_db_at_boundary": -43.7
+      }
+    },
+    {
+      "start": 545.288333,
+      "end": 548.658333,
+      "lines": [
+        "as main spans approach 3,000."
+      ],
+      "text": "as main spans approach 3,000.",
+      "sentence": "B53.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 548.408333
+    },
+    {
+      "start": 549.608333,
+      "end": 552.258333,
       "lines": [
         "So which design is best?"
       ],
@@ -1081,11 +1897,11 @@
       "sentence": "B19.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 318.05
+      "speech_end": 552.008333
     },
     {
-      "start": 318.45,
-      "end": 321.65,
+      "start": 552.408333,
+      "end": 555.608333,
       "lines": [
         "The honest answer is that it depends."
       ],
@@ -1093,11 +1909,11 @@
       "sentence": "B19.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 321.4
+      "speech_end": 555.358333
     },
     {
-      "start": 321.8,
-      "end": 323.605,
+      "start": 555.758333,
+      "end": 557.563333,
       "lines": [
         "Materials, the site,"
       ],
@@ -1113,8 +1929,8 @@
       }
     },
     {
-      "start": 323.605,
-      "end": 329.1,
+      "start": 557.563333,
+      "end": 563.058333,
       "lines": [
         "the span, cost, and the skills available",
         "all pull in different directions."
@@ -1123,11 +1939,11 @@
       "sentence": "B19.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 328.85
+      "speech_end": 562.808333
     },
     {
-      "start": 330.066667,
-      "end": 333.091667,
+      "start": 564.025,
+      "end": 567.05,
       "lines": [
         "Start with the materials themselves."
       ],
@@ -1135,11 +1951,11 @@
       "sentence": "B20A.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 332.841667
+      "speech_end": 566.8
     },
     {
-      "start": 333.241667,
-      "end": 338.766667,
+      "start": 567.2,
+      "end": 572.725,
       "lines": [
         "An arch needs a material that is",
         "strong under compression, and stone is."
@@ -1148,11 +1964,11 @@
       "sentence": "B20A.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 338.516667
+      "speech_end": 572.475
     },
     {
-      "start": 339.733333,
-      "end": 345.308333,
+      "start": 573.691667,
+      "end": 579.266667,
       "lines": [
         "A truss needs members that can work",
         "in tension as well as compression."
@@ -1161,11 +1977,11 @@
       "sentence": "B20B.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 345.058333
+      "speech_end": 579.016667
     },
     {
-      "start": 345.458333,
-      "end": 348.47333299999997,
+      "start": 579.416667,
+      "end": 582.431667,
       "lines": [
         "Wrought iron was valued for exactly that:"
       ],
@@ -1181,8 +1997,8 @@
       }
     },
     {
-      "start": 348.47333299999997,
-      "end": 354.658333,
+      "start": 582.431667,
+      "end": 588.616667,
       "lines": [
         "one historian calls it a material strong",
         "equally in tension and in compression."
@@ -1191,11 +2007,11 @@
       "sentence": "B20B.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 354.408333
+      "speech_end": 588.366667
     },
     {
-      "start": 355.608333,
-      "end": 361.883333,
+      "start": 589.566667,
+      "end": 595.841667,
       "lines": [
         "Wood was often plentiful and cheap, but",
         "wooden bridges were vulnerable to decay."
@@ -1204,11 +2020,11 @@
       "sentence": "B20C.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 361.633333
+      "speech_end": 595.591667
     },
     {
-      "start": 362.858333,
-      "end": 366.933333,
+      "start": 596.816667,
+      "end": 600.8916670000001,
       "lines": [
         "That is one reason many timber",
         "truss bridges were covered"
@@ -1225,8 +2041,8 @@
       }
     },
     {
-      "start": 366.933333,
-      "end": 371.033333,
+      "start": 600.8916670000001,
+      "end": 604.991667,
       "lines": [
         "with a roof and siding,",
         "to protect them from the weather."
@@ -1235,11 +2051,11 @@
       "sentence": "B21.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 370.783333
+      "speech_end": 604.741667
     },
     {
-      "start": 371.183333,
-      "end": 377.908333,
+      "start": 605.141667,
+      "end": 611.866667,
       "lines": [
         "This is the Humpback Covered Bridge,",
         "built in 1857 over Dunlap Creek."
@@ -1248,11 +2064,11 @@
       "sentence": "B21.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 377.658333
+      "speech_end": 611.616667
     },
     {
-      "start": 378.858333,
-      "end": 381.783333,
+      "start": 612.816667,
+      "end": 615.741667,
       "lines": [
         "The site of a bridge matters too."
       ],
@@ -1260,11 +2076,11 @@
       "sentence": "B22.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 381.533333
+      "speech_end": 615.491667
     },
     {
-      "start": 381.933333,
-      "end": 387.908333,
+      "start": 615.891667,
+      "end": 621.866667,
       "lines": [
         "Railway engines have limited traction,",
         "so railways need gentle gradients."
@@ -1273,11 +2089,11 @@
       "sentence": "B22.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 387.658333
+      "speech_end": 621.616667
     },
     {
-      "start": 388.058333,
-      "end": 392.513333,
+      "start": 622.016667,
+      "end": 626.471667,
       "lines": [
         "Where a valley was too deep",
         "and wide to fill with an embankment,"
@@ -1294,8 +2110,8 @@
       }
     },
     {
-      "start": 392.513333,
-      "end": 397.958333,
+      "start": 626.471667,
+      "end": 631.916667,
       "lines": [
         "engineers built viaducts and trestles to",
         "keep the line nearly straight and level."
@@ -1304,85 +2120,11 @@
       "sentence": "B22.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 397.708333
+      "speech_end": 631.666667
     },
     {
-      "start": 398.941667,
-      "end": 403.516667,
-      "lines": [
-        "Then there is span: how far a",
-        "single structure has to reach."
-      ],
-      "text": "Then there is span: how far a single structure has to reach.",
-      "sentence": "B23.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 403.266667
-    },
-    {
-      "start": 404.483333,
-      "end": 409.183333,
-      "lines": [
-        "A simple king post truss could",
-        "span only about thirty feet."
-      ],
-      "text": "A simple king post truss could span only about thirty feet.",
-      "sentence": "B23B.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 408.933333
-    },
-    {
-      "start": 409.333333,
-      "end": 413.208333,
-      "lines": [
-        "What one report calls",
-        "America's greatest stone arch,"
-      ],
-      "text": "What one report calls America's greatest stone arch,",
-      "sentence": "B23B.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "arch,",
-        "before_word": "the",
-        "whisper_boundary": 3.72,
-        "placed_at": 3.875,
-        "rms_db_at_boundary": -82.6
-      }
-    },
-    {
-      "start": 413.208333,
-      "end": 415.568333,
-      "lines": [
-        "the Cabin John Aqueduct Bridge,"
-      ],
-      "text": "the Cabin John Aqueduct Bridge,",
-      "sentence": "B23B.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "Bridge,",
-        "before_word": "spans",
-        "whisper_boundary": 6.36,
-        "placed_at": 6.235,
-        "rms_db_at_boundary": -75.9
-      }
-    },
-    {
-      "start": 415.568333,
-      "end": 421.208333,
-      "lines": [
-        "spans 220 feet,",
-        "and some through trusses approach 400."
-      ],
-      "text": "spans 220 feet, and some through trusses approach 400.",
-      "sentence": "B23B.s1",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 420.958333
-    },
-    {
-      "start": 422.191667,
-      "end": 426.016667,
+      "start": 632.9,
+      "end": 636.725,
       "lines": [
         "Finally, every bridge belongs to its time."
       ],
@@ -1390,11 +2132,11 @@
       "sentence": "B24.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 425.766667
+      "speech_end": 636.475
     },
     {
-      "start": 426.166667,
-      "end": 430.031667,
+      "start": 636.875,
+      "end": 640.74,
       "lines": [
         "As metal trusses spread,",
         "skilled masons became fewer"
@@ -1411,8 +2153,8 @@
       }
     },
     {
-      "start": 430.031667,
-      "end": 435.516667,
+      "start": 640.74,
+      "end": 646.225,
       "lines": [
         "and reinforced concrete arrived,",
         "stone arch construction declined."
@@ -1421,11 +2163,11 @@
       "sentence": "B24.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 435.266667
+      "speech_end": 645.975
     },
     {
-      "start": 435.666667,
-      "end": 439.891667,
+      "start": 646.375,
+      "end": 650.6,
       "lines": [
         "Then, during the Great Depression,",
         "it briefly returned."
@@ -1434,11 +2176,11 @@
       "sentence": "B24.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 439.641667
+      "speech_end": 650.35
     },
     {
-      "start": 440.858333,
-      "end": 444.373333,
+      "start": 651.566667,
+      "end": 655.081667,
       "lines": [
         "These trade-offs played out",
         "across nineteenth-century America"
@@ -1455,8 +2197,8 @@
       }
     },
     {
-      "start": 444.373333,
-      "end": 447.058333,
+      "start": 655.081667,
+      "end": 657.766667,
       "lines": [
         "as the railways spread."
       ],
@@ -1464,11 +2206,11 @@
       "sentence": "B25.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 446.808333
+      "speech_end": 657.516667
     },
     {
-      "start": 447.208333,
-      "end": 451.073333,
+      "start": 657.916667,
+      "end": 661.781667,
       "lines": [
         "In the East, railroads built",
         "massive stone viaducts,"
@@ -1485,8 +2227,8 @@
       }
     },
     {
-      "start": 451.073333,
-      "end": 454.833333,
+      "start": 661.781667,
+      "end": 665.541667,
       "lines": [
         "while western builders",
         "generally used timber."
@@ -1495,11 +2237,11 @@
       "sentence": "B25.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 454.583333
+      "speech_end": 665.291667
     },
     {
-      "start": 454.983333,
-      "end": 460.283333,
+      "start": 665.691667,
+      "end": 670.991667,
       "lines": [
         "Three documented examples show",
         "how differently builders answered."
@@ -1508,11 +2250,11 @@
       "sentence": "B25.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 460.033333
+      "speech_end": 670.741667
     },
     {
-      "start": 461.233333,
-      "end": 467.158333,
+      "start": 671.941667,
+      "end": 677.866667,
       "lines": [
         "Near Baltimore, the Carrollton",
         "Viaduct was completed in 1829."
@@ -1521,11 +2263,11 @@
       "sentence": "B26.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 466.908333
+      "speech_end": 677.616667
     },
     {
-      "start": 467.308333,
-      "end": 470.413333,
+      "start": 678.016667,
+      "end": 681.121667,
       "lines": [
         "Built of roughly twelve",
         "thousand granite blocks,"
@@ -1542,8 +2284,8 @@
       }
     },
     {
-      "start": 470.413333,
-      "end": 475.583333,
+      "start": 681.121667,
+      "end": 686.291667,
       "lines": [
         "it carries the railway over Gwynns",
         "Falls on an eighty foot arch."
@@ -1552,11 +2294,11 @@
       "sentence": "B26.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 475.333333
+      "speech_end": 686.041667
     },
     {
-      "start": 475.733333,
-      "end": 481.71833300000003,
+      "start": 686.441667,
+      "end": 692.4266670000001,
       "lines": [
         "A national report in 2005 called it the",
         "world's oldest stone railroad span still"
@@ -1573,8 +2315,8 @@
       }
     },
     {
-      "start": 481.71833300000003,
-      "end": 483.408333,
+      "start": 692.4266670000001,
+      "end": 694.116667,
       "lines": [
         "in service."
       ],
@@ -1582,11 +2324,11 @@
       "sentence": "B26.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 483.158333
+      "speech_end": 693.866667
     },
     {
-      "start": 484.358333,
-      "end": 489.333333,
+      "start": 695.066667,
+      "end": 700.041667,
       "lines": [
         "Early railroads needed durable",
         "bridges to carry heavy trains."
@@ -1595,11 +2337,11 @@
       "sentence": "B27.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 489.083333
+      "speech_end": 699.791667
     },
     {
-      "start": 489.483333,
-      "end": 493.508333,
+      "start": 700.191667,
+      "end": 704.216667,
       "lines": [
         "For a line meant to last,",
         "stone was the answer."
@@ -1608,11 +2350,11 @@
       "sentence": "B27.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 493.258333
+      "speech_end": 703.966667
     },
     {
-      "start": 494.483333,
-      "end": 497.583333,
+      "start": 705.191667,
+      "end": 708.291667,
       "lines": [
         "In the West, the pressure was different."
       ],
@@ -1620,11 +2362,11 @@
       "sentence": "B28.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 497.333333
+      "speech_end": 708.041667
     },
     {
-      "start": 497.733333,
-      "end": 501.498333,
+      "start": 708.441667,
+      "end": 712.206667,
       "lines": [
         "Railroads had to open new",
         "lines quickly and economically,"
@@ -1641,8 +2383,8 @@
       }
     },
     {
-      "start": 501.498333,
-      "end": 504.633333,
+      "start": 712.206667,
+      "end": 715.341667,
       "lines": [
         "and timber was abundant and cheap."
       ],
@@ -1650,11 +2392,11 @@
       "sentence": "B28.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 504.383333
+      "speech_end": 715.091667
     },
     {
-      "start": 504.783333,
-      "end": 508.01833300000004,
+      "start": 715.491667,
+      "end": 718.726667,
       "lines": [
         "This timber trestle near Corinne, Utah,"
       ],
@@ -1670,8 +2412,8 @@
       }
     },
     {
-      "start": 508.01833300000004,
-      "end": 513.283333,
+      "start": 718.726667,
+      "end": 723.991667,
       "lines": [
         "was built in 1872 by the",
         "Central Pacific Railroad."
@@ -1680,11 +2422,11 @@
       "sentence": "B28.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 513.033333
+      "speech_end": 723.741667
     },
     {
-      "start": 514.233333,
-      "end": 518.933333,
+      "start": 724.941667,
+      "end": 729.641667,
       "lines": [
         "A trestle is a succession of",
         "towers supporting short spans."
@@ -1693,11 +2435,11 @@
       "sentence": "B29.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 518.683333
+      "speech_end": 729.391667
     },
     {
-      "start": 519.083333,
-      "end": 523.628333,
+      "start": 729.791667,
+      "end": 734.3366669999999,
       "lines": [
         "It is the same beam idea as our",
         "timber model, repeated as often"
@@ -1714,8 +2456,8 @@
       }
     },
     {
-      "start": 523.628333,
-      "end": 525.758333,
+      "start": 734.3366669999999,
+      "end": 736.466667,
       "lines": [
         "as the crossing needs."
       ],
@@ -1723,11 +2465,11 @@
       "sentence": "B29.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 525.508333
+      "speech_end": 736.216667
     },
     {
-      "start": 526.733333,
-      "end": 529.483333,
+      "start": 737.441667,
+      "end": 740.191667,
       "lines": [
         "Iron offered a third path."
       ],
@@ -1735,11 +2477,11 @@
       "sentence": "B30.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 529.233333
+      "speech_end": 739.941667
     },
     {
-      "start": 529.633333,
-      "end": 533.248333,
+      "start": 740.341667,
+      "end": 743.956667,
       "lines": [
         "The Bollman truss, patented in 1852,"
       ],
@@ -1755,8 +2497,8 @@
       }
     },
     {
-      "start": 533.248333,
-      "end": 539.433333,
+      "start": 743.956667,
+      "end": 750.141667,
       "lines": [
         "was one of the first designs to use iron",
         "in all of its essential structural parts."
@@ -1765,11 +2507,11 @@
       "sentence": "B30.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 539.183333
+      "speech_end": 749.891667
     },
     {
-      "start": 539.583333,
-      "end": 541.578333,
+      "start": 750.291667,
+      "end": 752.286667,
       "lines": [
         "It could be built relatively quickly"
       ],
@@ -1785,8 +2527,8 @@
       }
     },
     {
-      "start": 541.578333,
-      "end": 547.133333,
+      "start": 752.286667,
+      "end": 757.841667,
       "lines": [
         "and inexpensively, while offering",
         "the long-lasting qualities of metal."
@@ -1795,11 +2537,11 @@
       "sentence": "B30.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 546.883333
+      "speech_end": 757.591667
     },
     {
-      "start": 547.283333,
-      "end": 553.483333,
+      "start": 757.991667,
+      "end": 764.191667,
       "lines": [
         "The bridge at Savage, Maryland, is the",
         "only remaining example of the design."
@@ -1808,11 +2550,11 @@
       "sentence": "B30.s3",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 553.233333
+      "speech_end": 763.941667
     },
     {
-      "start": 554.441667,
-      "end": 556.2666670000001,
+      "start": 765.15,
+      "end": 766.975,
       "lines": [
         "Stone for permanence,"
       ],
@@ -1828,8 +2570,8 @@
       }
     },
     {
-      "start": 556.2666670000001,
-      "end": 561.516667,
+      "start": 766.975,
+      "end": 772.225,
       "lines": [
         "timber for speed and economy, and iron",
         "trusses that offered some of both."
@@ -1838,11 +2580,11 @@
       "sentence": "B31.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 561.266667
+      "speech_end": 771.975
     },
     {
-      "start": 561.666667,
-      "end": 566.541667,
+      "start": 772.375,
+      "end": 777.25,
       "lines": [
         "Three places, three sets of constraints,",
         "three different bridges."
@@ -1851,11 +2593,11 @@
       "sentence": "B31.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 566.291667
+      "speech_end": 777.0
     },
     {
-      "start": 567.525,
-      "end": 570.75,
+      "start": 778.233333,
+      "end": 781.458333,
       "lines": [
         "So why don't bridges all look the same?"
       ],
@@ -1863,11 +2605,11 @@
       "sentence": "B32.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 570.5
+      "speech_end": 781.208333
     },
     {
-      "start": 570.9,
-      "end": 575.625,
+      "start": 781.608333,
+      "end": 786.333333,
       "lines": [
         "Because a bridge's form comes",
         "from two things working together."
@@ -1876,11 +2618,11 @@
       "sentence": "B32.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 575.375
+      "speech_end": 786.083333
     },
     {
-      "start": 575.775,
-      "end": 581.26,
+      "start": 786.483333,
+      "end": 791.968333,
       "lines": [
         "One is how its structure carries load:",
         "beams resist bending, arches work"
@@ -1897,8 +2639,8 @@
       }
     },
     {
-      "start": 581.26,
-      "end": 587.0,
+      "start": 791.968333,
+      "end": 797.708333,
       "lines": [
         "in compression, and trusses share load",
         "among members in tension and compression."
@@ -1907,11 +2649,41 @@
       "sentence": "B32.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 586.75
+      "speech_end": 797.458333
     },
     {
-      "start": 587.983333,
-      "end": 593.488333,
+      "start": 798.691667,
+      "end": 801.106667,
+      "lines": [
+        "Cantilevers reach out from their piers,"
+      ],
+      "text": "Cantilevers reach out from their piers,",
+      "sentence": "B32L.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "piers,",
+        "before_word": "and",
+        "whisper_boundary": 2.44,
+        "placed_at": 2.415,
+        "rms_db_at_boundary": -79.9
+      }
+    },
+    {
+      "start": 801.106667,
+      "end": 806.866667,
+      "lines": [
+        "and suspension and cable-stayed bridges",
+        "hang their decks from steel cables."
+      ],
+      "text": "and suspension and cable-stayed bridges hang their decks from steel cables.",
+      "sentence": "B32L.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 806.616667
+    },
+    {
+      "start": 807.816667,
+      "end": 813.321667,
       "lines": [
         "The other is the world it was built in:",
         "its materials, its site, its span,"
@@ -1928,8 +2700,8 @@
       }
     },
     {
-      "start": 593.488333,
-      "end": 595.683333,
+      "start": 813.321667,
+      "end": 815.516667,
       "lines": [
         "its budget and its builders."
       ],
@@ -1937,11 +2709,11 @@
       "sentence": "B32B.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 595.433333
+      "speech_end": 815.266667
     },
     {
-      "start": 596.65,
-      "end": 600.2,
+      "start": 816.483333,
+      "end": 820.033333,
       "lines": [
         "And it is not a simple story of progress."
       ],
@@ -1949,11 +2721,11 @@
       "sentence": "B33.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 599.95
+      "speech_end": 819.783333
     },
     {
-      "start": 600.35,
-      "end": 603.115,
+      "start": 820.183333,
+      "end": 822.9483329999999,
       "lines": [
         "Timber beam bridges are still built today,"
       ],
@@ -1969,8 +2741,8 @@
       }
     },
     {
-      "start": 603.115,
-      "end": 607.8,
+      "start": 822.9483329999999,
+      "end": 827.633333,
       "lines": [
         "and stone arches briefly returned",
         "during the Great Depression."
@@ -1979,24 +2751,54 @@
       "sentence": "B33.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 607.55
+      "speech_end": 827.383333
     },
     {
-      "start": 607.95,
-      "end": 612.175,
+      "start": 827.783333,
+      "end": 831.4483329999999,
+      "lines": [
+        "And the most common steel bridge",
+        "today is still a kind of beam:"
+      ],
+      "text": "And the most common steel bridge today is still a kind of beam:",
+      "sentence": "B33.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "beam:",
+        "before_word": "the",
+        "whisper_boundary": 3.78,
+        "placed_at": 3.665,
+        "rms_db_at_boundary": -77.7
+      }
+    },
+    {
+      "start": 831.4483329999999,
+      "end": 833.983333,
+      "lines": [
+        "the welded plate girder."
+      ],
+      "text": "the welded plate girder.",
+      "sentence": "B33.s2",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 833.733333
+    },
+    {
+      "start": 834.133333,
+      "end": 838.358333,
       "lines": [
         "Each form can still be the",
         "right answer in the right place."
       ],
       "text": "Each form can still be the right answer in the right place.",
-      "sentence": "B33.s2",
+      "sentence": "B33.s3",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 611.925
+      "speech_end": 838.108333
     },
     {
-      "start": 613.15,
-      "end": 616.85,
+      "start": 839.316667,
+      "end": 843.016667,
       "lines": [
         "Next time you cross a bridge,",
         "look at its shape."
@@ -2005,11 +2807,11 @@
       "sentence": "B34.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 616.6
+      "speech_end": 842.766667
     },
     {
-      "start": 617.0,
-      "end": 619.895,
+      "start": 843.166667,
+      "end": 846.0616669999999,
       "lines": [
         "It shows how the load reaches the ground,"
       ],
@@ -2025,8 +2827,8 @@
       }
     },
     {
-      "start": 619.895,
-      "end": 623.025,
+      "start": 846.0616669999999,
+      "end": 849.191667,
       "lines": [
         "and something about the",
         "people who built it."
@@ -2035,11 +2837,11 @@
       "sentence": "B34.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 622.775
+      "speech_end": 848.941667
     },
     {
-      "start": 623.175,
-      "end": 625.52,
+      "start": 849.341667,
+      "end": 851.686667,
       "lines": [
         "These models are illustrations,"
       ],
@@ -2055,8 +2857,8 @@
       }
     },
     {
-      "start": 625.52,
-      "end": 632.125,
+      "start": 851.686667,
+      "end": 858.291667,
       "lines": [
         "not engineering designs, and the arrows",
         "show ideas, not calculated forces."
@@ -2065,11 +2867,11 @@
       "sentence": "B34.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 631.875
+      "speech_end": 858.041667
     },
     {
-      "start": 633.108333,
-      "end": 635.933333,
+      "start": 859.275,
+      "end": 862.1,
       "lines": [
         "Thank you very much for watching."
       ],
@@ -2077,11 +2879,11 @@
       "sentence": "B35.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 635.683333
+      "speech_end": 861.85
     },
     {
-      "start": 636.083333,
-      "end": 640.908333,
+      "start": 862.25,
+      "end": 867.075,
       "lines": [
         "The sources and photo credits",
         "are listed in the description."
@@ -2090,7 +2892,7 @@
       "sentence": "B35.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 640.658333
+      "speech_end": 866.825
     }
   ],
   "problems": [],

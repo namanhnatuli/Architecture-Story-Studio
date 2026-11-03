@@ -1,3 +1,88 @@
+# Xem lại biên tập có mốc thời gian: M8, revision m8-r1 (đủ sáu họ cầu)
+
+- **Người xem:** agent, trên bản review 1080p đầu tiên của m8-r1 (`output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, 867,6 s).
+- **Cách xem:**
+  - tấm ảnh mỗi 3 s cho C1, C6, C7, C8, C11 (`qa/review_cut_m8/C*_sheet.jpg`, chỉ để tham khảo, không commit);
+  - frame gốc ở những chỗ nghi ngờ;
+  - ảnh tĩnh render trực tiếp sau khi sửa.
+- **Phạm vi:**
+  - C2–C5 và C10 giữ nguyên hình của m7-r1 (đã xem ở M7, xem phần dưới).
+  - C9 chỉ bị bỏ bớt beat.
+- Đây là nhận xét **của agent**, không phải duyệt biên tập. Không có số liệu khán giả thật.
+
+## Lỗi tìm thấy ở bản 1080p đầu và đã sửa
+| Mốc | Shot | Vấn đề | Vì sao quan trọng | Cách sửa | Ảnh hưởng | Phải render lại |
+|---|---|---|---|---|---|---|
+| 7:55–8:09 | SC_040 (B50) | Dây văng được highlight gần như biến mất, đúng lúc nhãn "Stay cables" hiện lên | Bộ phận đang được giảng giải lại không nhìn thấy. Highlight là phát sáng theo màu của chính vật liệu, và cáp xám sáng `#C3C7C9` hòa vào nền | Vật liệu `cable` đổi sang xám thép `#7B8890`. Dây treo và dây văng mảnh cũng dễ đọc hơn khi không highlight | Vật liệu | Mọi shot (thư viện vật liệu là đầu vào render) |
+| 6:18–6:33 | SC_033 (B43) | Giằng đỉnh bay riêng thành những vệt chéo, như mưa | Rối mắt, đúng lúc người xem cần thấy nhịp treo được nâng lên | Giằng đi cùng phần giàn nó giằng (tay neo +1,0 m, tay hẫng +2,0 m) | Cấu hình nổ tách (engine) | Mọi shot (file engine) |
+| 8:27–8:45 | SC_042 (B52) | Các đốt mặt cầu chỉ hạ 0,8 m, nên không thấy thứ tự lắp từ tháp ra | Ý chính của câu (dựng hẫng cân bằng, không đà giáo) không hiện trên hình | Đốt hạ 2,4 m, dây văng nâng 1,8 m. Khối mặt cầu trên tháp đứng yên, các đốt trở lại theo lớp từ tháp ra ngoài | Cấu hình nổ tách | Như trên |
+| 5:34–5:50 | SC_030 (B40) | 15,6 s sông trống | Đoạn yếu nhất của chương mới. Vẫn dưới ngưỡng tĩnh 14 s nhờ NOTE xuất hiện ở câu 2 | Push-in chậm 10%. Shot sau là cắt cứng sang cảnh lắp ráp | Camera | Shot này |
+| 6:53–7:06 | SC_035 (B45) | Nhãn "Main cable" chỉ hiện khoảng 2 s, vì neo vào từ cuối câu | Không đọc kịp | Neo vào từ "attached" | Chú thích | Shot này |
+
+**Kiểm lại trên bản 1080p lượt 2** (2026-11-01, frame ở 5:46, 6:25, 7:04, 8:04, 8:40): cả 5 bản sửa đều hiện đúng.
+- Push-in trên sông trống.
+- Giằng đi cùng giàn khi tháo rời.
+- Hai nhãn "Main cable" và "Suspenders" cùng hiện.
+- Dây văng vẫn thấy rõ lúc highlight.
+- Chú thích nén mặt cầu.
+
+**Lỗi đã sửa trước bản 1080p** (QA, planner, ảnh tĩnh):
+- giao nhau khi nổ tách ở cả ba cầu nhịp lớn (Blender QA 789/792, sau khi sửa 792/792);
+- mép mặt đất lộ ra ở cảnh so sánh ba cầu nhịp lớn;
+- B01B, B51: hai mô hình 72 m đặt cạnh nhau không đọc được ở 640×360, nên chuyển thành mỗi shot một cầu và một sơ đồ;
+- câu "Side by side…" mâu thuẫn với hình (sửa câu chữ);
+- ASR nghe "great" thành "grate";
+- bản khóa đầu dài 15,4 phút.
+
+## Nhận xét theo chương (m8-r1)
+- **C1 Hook (0:00–0:52):**
+  - Ba cầu trên khoảng hở nhỏ, rồi "Over wider water, the answers change again": công-xôn (8,5 s), cầu treo (4,5 s), dây văng (4,6 s), mỗi cầu một shot.
+  - Card tiêu đề hiện thêm chữ "Span".
+  - Phần mở đầu dài hơn m7-r1 (52 s so với 34 s), nhưng có hình mới liên tục.
+- **C6 The cantilever (5:34–6:53):**
+  - sông rộng trống, có NOTE "A wider crossing (illustrative, not to scale)";
+  - cầu được lắp theo lớp: trụ, tay neo, tay hẫng, nhịp treo;
+  - mặt đứng có ba nhãn hiện theo đúng từ được đọc;
+  - nổ tách: nhịp treo nâng cao nhất;
+  - ảnh Queensboro.
+- **C7 The suspension bridge (6:53–7:55):**
+  - dây treo và cáp chính được highlight và gắn nhãn;
+  - "Cables: tension" và "Towers: compression" xuất hiện theo từ "tension"/"compression", nhãn khối neo theo "anchored";
+  - giàn tăng cứng hạ xuống trong cảnh nổ tách;
+  - ảnh Brooklyn (23 s, chữ hiện theo hai câu).
+- **C8 The cable-stayed bridge (7:55–9:09):**
+  - dây văng và tháp gắn nhãn;
+  - sơ đồ so sánh hai mặt đứng: tháp thấp và cáp võng về khối neo, đối lại tháp cao và dây văng xuống mặt cầu;
+  - nổ tách theo thứ tự hẫng cân bằng, kèm "Deck: squeezed by the stays";
+  - card kinh tế nhịp lớn, ba thanh hiện theo từ.
+- **C11 (12:58–14:28):**
+  - so sánh ba cầu nhịp ngắn (ROW), rồi ba cầu nhịp lớn (STACK, chỉ cần đọc được dáng tổng thể);
+  - dòng thời gian thêm "Most common steel bridge: the plate girder, a beam" theo câu mới.
+
+## Rủi ro người xem rời đi (định tính) và còn để ngỏ
+- **Thời lượng 14,46 phút** sát mức trên của khoảng chấp nhận (15). Mục tiêu 10–12 phút không còn đạt được nếu giữ đủ sáu họ. Nếu chủ kênh muốn ngắn hơn, ứng viên cắt là: B27/B29 (mô hình nối ảnh ở C10), B22 (cầu cạn), B48 câu 2.
+- **Card ảnh Brooklyn 23 s** và **card kinh tế 24,6 s** là hai shot 2D dài nhất.
+- **Mô hình nhịp lớn không theo tỉ lệ thật:** cầu thật dài hàng trăm đến hàng nghìn mét. NOTE ở B40 nói rõ điều này. Các con số nhịp đều nằm trong lời dẫn và card, có nguồn.
+- **Cầu Queensboro thật không có nhịp treo ở giữa** (NCHRP §3.7). Phim không nói nó có. Tuy vậy, mô hình minh họa (có nhịp treo) xuất hiện ngay trước ảnh, nên người duyệt có thể muốn thêm một NOTE.
+- **Hai UNCERTAIN của kiểm tra lời–hình** để người duyệt xem: B33.s3 ("right answer in the right place", không phải trái/phải) và B34.s2 ("the arrows" nói chung).
+
+## Mười câu hỏi trải nghiệm người xem (đánh giá của agent, m8-r1)
+1. **Câu hỏi trung tâm có rõ ngay không?** Có. Sáu cầu xuất hiện trong 33 s đầu, câu hỏi ở 0:34.
+2. **Ba chương mới có nói điều mới, không lặp lại không?** Có:
+   - công-xôn: dầm cải biến, dựng không cần đà giáo;
+   - cầu treo: treo bằng cáp, kéo và nén, khối neo, giàn tăng cứng;
+   - dây văng: dây thẳng xuống mặt cầu, tháp cao, dựng hẫng cân bằng, kinh tế.
+3. **Có so sánh trực tiếp hai loại dễ nhầm không?** Có, sơ đồ B51 đặt cầu treo cạnh cầu dây văng.
+4. **Lực có được bịa không?** Không. Mỗi mũi tên hay nhãn lực trích một claim được đọc. Dây văng không mang nhãn kéo vì không có câu nguồn nào nói thế.
+5. **Có kể chuyện tiến bộ tuyến tính không?** Không. Cầu treo đã dài nhất thế giới năm 1849; công-xôn là chuẩn suốt 1880–1960; dầm vẫn là cầu thép phổ biến nhất.
+6. **Có đoạn tĩnh dài không?** Không có đoạn nào > 14 s không đổi hình. Đoạn dài nhất 12,4 s.
+7. **Chương nào yếu nhất?** C2 (toàn 3D_HOLD, có cảnh báo `chapter_variety`), như ở m7-r1.
+8. **Người xem có hiểu mô hình chỉ là minh họa không?** Có. "Illustrative model" xuất hiện ở các cầu mới, NOTE ở B40, và lời miễn trừ ở cuối.
+9. **Phụ đề:** 199 câu, SRT + mov_text.
+10. **Âm lượng:** −16,4 LUFS, true peak −1,0 dBTP.
+
+---
+
 # Xem lại biên tập và trải nghiệm người xem, có mốc thời gian (M7)
 
 - Người xem: agent, trên **rough cut 640×360** (`output/why_bridges_look_different_documentary_INTERNAL_REVIEW.mp4` bản preview, 641,29 s). Cách xem: tấm ảnh mỗi 3 s cho từng chương (`qa/rough_cut/C*_sheet.png`), frame gốc ở độ phân giải đầy đủ cho mọi chỗ nghi ngờ, và soi qua MCP cho C4.

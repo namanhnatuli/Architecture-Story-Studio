@@ -1,0 +1,21 @@
+- Năm xây cầu Bollman ở Savage **không** được nói, vì các nguồn không thống nhất (ASCE chỉ chắc chắn về bằng sáng chế 1852; các hồ sơ khác ghi khoảng 1869). Phim chỉ nói 'patented in 1852'.
+- 'world's oldest stone railroad span still in service' được gán cho báo cáo năm 2005 ('A national report in 2005 called it…'), không khẳng định cho hiện tại.
+- 'America's greatest stone arch' (M7) đã bỏ khỏi m8-r1 cùng card thanh nhịp B23B.
+- Lời đánh giá về cầu Brooklyn ('few suspension bridges since can claim to stand entirely clear of its shadow') là của báo cáo NCHRP, được gán rõ ('one report says').
+- Địa danh trong chú thích ảnh (Covington, Virginia; Corinne, Utah; Savage, Maryland; East River, New York) lấy từ tiêu đề hồ sơ HAER/LOC của chính bức ảnh.
+- Không có con số về nội lực, sức chịu tải, ứng suất, độ võng hay hệ số an toàn. Các số trong phim gồm:
+  - nhịp "200 to 300 feet" (NCHRP §3.7);
+  - 750 ft, 1.200 ft, 3.000 ft (FHWA 2012, kinh tế nhịp lớn ở Mỹ);
+  - năm 1883 và 1909.
+- Đánh dấu nén/kéo:
+  - Biên trên/biên dưới giàn đơn giản dưới tải hướng xuống (CLM_713). Thanh bụng không được tô màu (CLM_714 chỉ nói 'một số').
+  - Cáp cầu treo chịu kéo, tháp chịu nén (CLM_760, NCHRP nguyên văn).
+  - Mặt cầu dây văng bị nén dọc (CLM_773, FHWA).
+  - **Dây văng không được gắn nhãn kéo:** không có câu nguyên văn nào trong bộ nguồn nói điều đó.
+- **Mô hình nhịp lớn không theo tỉ lệ thật.** Chúng đặt trên một khúc sông 72 m minh họa; cầu thật dài hàng trăm đến hàng nghìn mét. NOTE ở B40 ghi "A wider crossing (illustrative, not to scale)".
+- **Cầu Queensboro thật không có nhịp treo ở giữa** (NCHRP §3.7: "It had no central suspended span"). Phim không nói nó có, nhưng mô hình minh họa có nhịp treo xuất hiện ngay trước ảnh. Người duyệt có thể muốn thêm một NOTE.
+- Nguồn FHWA-IF-12-052 (2012) là bản lưu Internet Archive của URL FHWA (URL gốc nay trả 404). Các nhận định kinh tế được nói là "by 2012, a federal handbook said…", không khẳng định cho hiện tại.
+- "Since 1980, almost every American bridge with a main span over 1,000 feet has been cable-stayed" (CLM_774) đã bỏ khỏi m8-r1 cùng dòng thời gian B24B. Phim chỉ dùng 750 ft và 3.000 ft từ cùng đoạn.
+- Không trình bày các loại cầu như một chuỗi tiến bộ:
+  - B02, B19, B33 nói rõ điều ngược lại;
+  - B33 thêm "the most common steel bridge today is still a kind of beam" (CLM_777, FHWA 2012).

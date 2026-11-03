@@ -110,6 +110,15 @@ def single_shot(state_id, built, camera, band):
             "animation": {"template": "HOLD", "state": state_id}, "build_variants": list(built), "camera_safe_band": band}
 
 
+def in_context(shot, states):
+    """M8: a candidate shot names the scene context of its states (multi-context projects)."""
+    if states.get("contexts"):
+        v = next((v for v in states.get("variants", []) if v["id"] == shot["from_state"]), None)
+        if v and v.get("context"):
+            shot["scene_context"] = v["context"]
+    return shot
+
+
 def purpose_cfg(cfg, purpose):
     return dict(cfg, **cfg["purposes"][purpose])
 
@@ -119,7 +128,7 @@ def evaluate(states, state_ids, camera, cfg, purpose, presets, fps=24):
     pc = purpose_cfg(cfg, purpose)
     rows = []
     for cand in cfg["candidates"]:
-        shot = comparison_shot(state_ids, cand["layout"], cand["gap_ratio"], cand["label_band"], camera)
+        shot = in_context(comparison_shot(state_ids, cand["layout"], cand["gap_ratio"], cand["label_band"], camera), states)
         try:
             scene = VIS.build_scene(shot, states, fps, presets)
         except ValueError as e:   # e.g. STACK needs an elevated camera
@@ -146,7 +155,8 @@ def evaluate_sequence(states, state_ids, built, camera, cfg, purpose, presets, f
     pc = purpose_cfg(cfg, purpose)
     rows = []
     for s in state_ids:
-        scene = VIS.build_scene(single_shot(s, built, camera, cfg["sequence_caption_band"]), states, fps, presets)
+        scene = VIS.build_scene(in_context(single_shot(s, built, camera, cfg["sequence_caption_band"]), states), states,
+                                fps, presets)
         m = measure_layout(scene, cfg, labels=False)
         ok, problems = readable(m, pc)
         rows.append({"state": s, "ok": ok, "problems": problems, "metrics": m})

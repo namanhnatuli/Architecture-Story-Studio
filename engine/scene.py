@@ -224,7 +224,9 @@ def build_environment(scene, style, materials, collection):
     placed anywhere, which SIDE_BY_SIDE comparisons rely on.
     """
     light = style.get("lighting", {})
-    size, z = 160.0, -0.38  # foundation underside rests on the ground
+    # foundation underside rests on the ground; M8: half-size 1 km, so the wide stacked comparisons of the
+    # 72 m long-span models never show the plane's edge (it was 160 m)
+    size, z = 1000.0, -0.38
     mesh = bpy.data.meshes.new("ground_mesh")
     mesh.from_pydata([(-size, -size, z), (size, -size, z), (size, size, z), (-size, size, z)], [], [(0, 1, 2, 3)])
     mesh.update()

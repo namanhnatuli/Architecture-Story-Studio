@@ -32,6 +32,7 @@ Tìm bằng `grep -rlI <slug>` trên toàn repo, không tính `.git`, fixture v�
 | `evaluation/visual_planning/cases.json` | đường dẫn dự án M5/M6 | Trỏ sang fixture. |
 | `planner/catalog.py` (asset catalog) | `states.json` của `roof-evolution` và `suffolk-roofs` | Bản sao ở `asset_library/legacy_states/<slug>/` (kèm tóm tắt QA Blender). Asset id giữ nguyên. |
 | `tools/make_bridge_pilot.py` | `projects/bridge-structure-evolution` | Trỏ sang fixture. |
+| `projects/why-bridges-look-different/research/build_sources.py` | sổ claim M6 ở `projects/bridge-load-explained/research/sources.json` | **Bị bỏ sót ở lần dọn dẹp** (script cần snapshot nguồn không commit, nên không test nào chạy nó). Phát hiện và sửa ở M8 (2026-10-31): trỏ sang fixture; bản build lại trùng từng byte với registry đã commit. |
 | `tools/cli.py` | `--project` mặc định `roof-evolution` | Không còn mặc định cứng: dùng dự án duy nhất trong `projects/`; có nhiều hơn một thì phải ghi `--project`. |
 | `tools/pronunciation_test.py` | mặc định `suffolk-roofs` | `--project` bắt buộc. Docstring ghi rõ đây là công cụ của pilot OmniVoice M3. |
 | `tools/voice_audition.py`, `tools/annotation_preview.py` | ví dụ trong docstring | Ví dụ đổi sang phim đang làm. |

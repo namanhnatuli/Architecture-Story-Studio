@@ -5,290 +5,322 @@
     "PUBLICATION_CLEARED"
   ],
   "publication_audio": true,
-  "narration_track": "audio/narration_mix_SC_043-SC_047.wav",
+  "narration_track": "audio/narration_mix_SC_040-SC_043.wav",
   "shots": [
-    "SC_043",
-    "SC_044",
-    "SC_045",
-    "SC_046",
-    "SC_047"
+    "SC_040",
+    "SC_041",
+    "SC_042",
+    "SC_043"
   ],
-  "frames": 1784,
-  "seconds": 74.33333333333333,
+  "frames": 1781,
+  "seconds": 74.20833333333333,
   "video": {
     "codec_name": "h264",
     "codec_type": "video",
     "width": 1920,
     "height": 1080,
-    "duration": "74.333333",
-    "nb_read_frames": "1784"
+    "duration": "74.208333",
+    "nb_read_frames": "1781"
   },
   "audio": {
     "codec_name": "aac",
     "codec_type": "audio",
     "sample_rate": "48000",
-    "duration": "74.333333",
-    "nb_read_frames": "3485"
+    "duration": "74.208333",
+    "nb_read_frames": "3479"
   },
   "loudness_before": {
-    "I": "-27.10",
-    "TP": "-4.98"
+    "I": "-27.51",
+    "TP": "-6.15"
   },
   "loudness_after": {
-    "integrated_lufs": -16.3,
-    "true_peak_dbtp": -1.4
+    "integrated_lufs": -16.4,
+    "true_peak_dbtp": -1.3
   },
-  "subtitle_entries": 17,
+  "subtitle_entries": 18,
   "subtitle_stats": {
-    "cues": 17,
-    "sentences": 12,
+    "cues": 18,
+    "sentences": 9,
     "max_line": 42,
     "lines_over_42": 0,
-    "two_line_cues": 10,
-    "aligned_boundaries": 5,
+    "two_line_cues": 9,
+    "aligned_boundaries": 9,
     "sentence_fallbacks": 0,
-    "max_cps": 15.2
+    "max_cps": 17.5
   },
-  "subtitle_warnings": [],
+  "subtitle_warnings": [
+    "cue 14 (B53.s0): 17.5 characters/s (> 17.0)"
+  ],
   "subtitle_cues": [
     {
       "start": 0.39999999999997726,
-      "end": 3.625,
+      "end": 6.899999999999977,
       "lines": [
-        "So why don't bridges all look the same?"
+        "A cable-stayed bridge also relies on steel",
+        "cables, but it uses them differently."
       ],
-      "text": "So why don't bridges all look the same?",
-      "sentence": "B32.s0",
+      "text": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+      "sentence": "B50.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 3.375
+      "speech_end": 6.649999999999977
     },
     {
-      "start": 3.7749999999999773,
-      "end": 8.5,
+      "start": 7.050000000000011,
+      "end": 13.149999999999977,
       "lines": [
-        "Because a bridge's form comes",
-        "from two things working together."
+        "Straight stay cables run from tall towers",
+        "directly down to the edges of the deck."
       ],
-      "text": "Because a bridge's form comes from two things working together.",
-      "sentence": "B32.s1",
+      "text": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+      "sentence": "B50.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 8.25
+      "speech_end": 12.899999999999977
     },
     {
-      "start": 8.649999999999977,
-      "end": 14.134999999999977,
+      "start": 14.108333000000016,
+      "end": 17.483333000000016,
       "lines": [
-        "One is how its structure carries load:",
-        "beams resist bending, arches work"
+        "Seen in outline, the difference is clear."
       ],
-      "text": "One is how its structure carries load: beams resist bending, arches work",
-      "sentence": "B32.s2",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "work",
-        "before_word": "in",
-        "whisper_boundary": 5.44,
-        "placed_at": 5.485,
-        "rms_db_at_boundary": -73.3
-      }
-    },
-    {
-      "start": 14.134999999999977,
-      "end": 19.875,
-      "lines": [
-        "in compression, and trusses share load",
-        "among members in tension and compression."
-      ],
-      "text": "in compression, and trusses share load among members in tension and compression.",
-      "sentence": "B32.s2",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 19.625
-    },
-    {
-      "start": 20.858333000000016,
-      "end": 26.363333000000015,
-      "lines": [
-        "The other is the world it was built in:",
-        "its materials, its site, its span,"
-      ],
-      "text": "The other is the world it was built in: its materials, its site, its span,",
-      "sentence": "B32B.s0",
-      "source": "whisper word alignment + waveform",
-      "boundary": {
-        "after_word": "span,",
-        "before_word": "its",
-        "whisper_boundary": 5.46,
-        "placed_at": 5.505,
-        "rms_db_at_boundary": -60.0
-      }
-    },
-    {
-      "start": 26.363333000000015,
-      "end": 28.558332999999948,
-      "lines": [
-        "its budget and its builders."
-      ],
-      "text": "its budget and its builders.",
-      "sentence": "B32B.s0",
-      "source": "whisper word alignment + waveform",
-      "boundary": null,
-      "speech_end": 28.308332999999948
-    },
-    {
-      "start": 29.524999999999977,
-      "end": 33.075000000000045,
-      "lines": [
-        "And it is not a simple story of progress."
-      ],
-      "text": "And it is not a simple story of progress.",
-      "sentence": "B33.s0",
+      "text": "Seen in outline, the difference is clear.",
+      "sentence": "B51.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 32.825000000000045
+      "speech_end": 17.233333000000016
     },
     {
-      "start": 33.22500000000002,
-      "end": 35.99000000000002,
+      "start": 17.633332999999993,
+      "end": 20.558332999999994,
       "lines": [
-        "Timber beam bridges are still built today,"
+        "The suspension bridge has shorter towers,"
       ],
-      "text": "Timber beam bridges are still built today,",
-      "sentence": "B33.s1",
+      "text": "The suspension bridge has shorter towers,",
+      "sentence": "B51.s1",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "today,",
+        "after_word": "towers,",
         "before_word": "and",
-        "whisper_boundary": 2.66,
-        "placed_at": 2.765,
-        "rms_db_at_boundary": -83.6
+        "whisper_boundary": 2.96,
+        "placed_at": 2.925,
+        "rms_db_at_boundary": -77.1
       }
     },
     {
-      "start": 35.99000000000002,
-      "end": 40.674999999999955,
+      "start": 20.558332999999994,
+      "end": 25.358333000000016,
       "lines": [
-        "and stone arches briefly returned",
-        "during the Great Depression."
+        "and its main cables run over",
+        "them to anchorages at each end."
       ],
-      "text": "and stone arches briefly returned during the Great Depression.",
-      "sentence": "B33.s1",
+      "text": "and its main cables run over them to anchorages at each end.",
+      "sentence": "B51.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 40.424999999999955
+      "speech_end": 25.108333000000016
     },
     {
-      "start": 40.825000000000045,
-      "end": 45.049999999999955,
+      "start": 25.508332999999993,
+      "end": 28.523332999999994,
       "lines": [
-        "Each form can still be the",
-        "right answer in the right place."
+        "The cable-stayed bridge",
+        "needs much taller towers,"
       ],
-      "text": "Each form can still be the right answer in the right place.",
-      "sentence": "B33.s2",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 44.799999999999955
-    },
-    {
-      "start": 46.02499999999998,
-      "end": 49.72500000000002,
-      "lines": [
-        "Next time you cross a bridge,",
-        "look at its shape."
-      ],
-      "text": "Next time you cross a bridge, look at its shape.",
-      "sentence": "B34.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 49.47500000000002
-    },
-    {
-      "start": 49.875,
-      "end": 52.77,
-      "lines": [
-        "It shows how the load reaches the ground,"
-      ],
-      "text": "It shows how the load reaches the ground,",
-      "sentence": "B34.s1",
+      "text": "The cable-stayed bridge needs much taller towers,",
+      "sentence": "B51.s2",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "ground,",
+        "after_word": "towers,",
         "before_word": "and",
-        "whisper_boundary": 2.74,
-        "placed_at": 2.895,
-        "rms_db_at_boundary": -68.3
+        "whisper_boundary": 3.0,
+        "placed_at": 3.015,
+        "rms_db_at_boundary": -56.4
       }
     },
     {
-      "start": 52.77,
-      "end": 55.89999999999998,
+      "start": 28.523332999999994,
+      "end": 31.933333000000005,
       "lines": [
-        "and something about the",
-        "people who built it."
+        "and its stays end at the deck itself."
       ],
-      "text": "and something about the people who built it.",
-      "sentence": "B34.s1",
+      "text": "and its stays end at the deck itself.",
+      "sentence": "B51.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 55.64999999999998
+      "speech_end": 31.683333000000005
     },
     {
-      "start": 56.049999999999955,
-      "end": 58.39499999999995,
+      "start": 32.89999999999998,
+      "end": 34.61499999999998,
       "lines": [
-        "These models are illustrations,"
+        "Once the towers are up,"
       ],
-      "text": "These models are illustrations,",
-      "sentence": "B34.s2",
+      "text": "Once the towers are up,",
+      "sentence": "B52.s0",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "illustrations,",
-        "before_word": "not",
-        "whisper_boundary": 2.42,
-        "placed_at": 2.345,
-        "rms_db_at_boundary": -74.7
+        "after_word": "up,",
+        "before_word": "the",
+        "whisper_boundary": 1.84,
+        "placed_at": 1.715,
+        "rms_db_at_boundary": -70.6
       }
     },
     {
-      "start": 58.39499999999995,
-      "end": 65.0,
+      "start": 34.61499999999998,
+      "end": 40.09499999999998,
       "lines": [
-        "not engineering designs, and the arrows",
-        "show ideas, not calculated forces."
+        "the deck can be built outward from them in",
+        "both directions, without falsework towers,"
       ],
-      "text": "not engineering designs, and the arrows show ideas, not calculated forces.",
-      "sentence": "B34.s2",
+      "text": "the deck can be built outward from them in both directions, without falsework towers,",
+      "sentence": "B52.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "towers,",
+        "before_word": "until",
+        "whisper_boundary": 7.18,
+        "placed_at": 7.195,
+        "rms_db_at_boundary": -82.0
+      }
+    },
+    {
+      "start": 40.09499999999998,
+      "end": 42.27499999999998,
+      "lines": [
+        "until the spans meet."
+      ],
+      "text": "until the spans meet.",
+      "sentence": "B52.s0",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 64.75
+      "speech_end": 42.02499999999998
     },
     {
-      "start": 65.98333300000002,
-      "end": 68.80833299999995,
+      "start": 42.424999999999955,
+      "end": 45.829999999999956,
       "lines": [
-        "Thank you very much for watching."
+        "The stays also squeeze the",
+        "deck along its length, and"
       ],
-      "text": "Thank you very much for watching.",
-      "sentence": "B35.s0",
-      "source": "sentence span",
-      "boundary": null,
-      "speech_end": 68.55833299999995
+      "text": "The stays also squeeze the deck along its length, and",
+      "sentence": "B52.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "and",
+        "before_word": "that",
+        "whisper_boundary": 3.52,
+        "placed_at": 3.405,
+        "rms_db_at_boundary": -63.4
+      }
     },
     {
-      "start": 68.95833300000004,
-      "end": 73.78333299999997,
+      "start": 45.829999999999956,
+      "end": 49.0,
       "lines": [
-        "The sources and photo credits",
-        "are listed in the description."
+        "that squeeze builds up toward the towers."
       ],
-      "text": "The sources and photo credits are listed in the description.",
-      "sentence": "B35.s1",
-      "source": "sentence span",
+      "text": "that squeeze builds up toward the towers.",
+      "sentence": "B52.s1",
+      "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 73.53333299999997
+      "speech_end": 48.75
+    },
+    {
+      "start": 49.983333000000016,
+      "end": 52.148333000000015,
+      "lines": [
+        "Before 1970,"
+      ],
+      "text": "Before 1970,",
+      "sentence": "B53.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "1970,",
+        "before_word": "suspension",
+        "whisper_boundary": 2.08,
+        "placed_at": 2.165,
+        "rms_db_at_boundary": -73.2
+      }
+    },
+    {
+      "start": 52.148333000000015,
+      "end": 55.97833300000001,
+      "lines": [
+        "suspension bridges were thought to",
+        "be the cheapest way to span more"
+      ],
+      "text": "suspension bridges were thought to be the cheapest way to span more",
+      "sentence": "B53.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "more",
+        "before_word": "than",
+        "whisper_boundary": 5.88,
+        "placed_at": 5.995,
+        "rms_db_at_boundary": -36.6
+      }
+    },
+    {
+      "start": 55.97833300000001,
+      "end": 59.13333299999999,
+      "lines": [
+        "than about 1,200 feet."
+      ],
+      "text": "than about 1,200 feet.",
+      "sentence": "B53.s0",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 58.88333299999999
+    },
+    {
+      "start": 59.28333299999997,
+      "end": 64.56833299999997,
+      "lines": [
+        "By 2012, a federal handbook said",
+        "cable-stayed bridges become very"
+      ],
+      "text": "By 2012, a federal handbook said cable-stayed bridges become very",
+      "sentence": "B53.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "very",
+        "before_word": "competitive",
+        "whisper_boundary": 5.18,
+        "placed_at": 5.285,
+        "rms_db_at_boundary": -74.4
+      }
+    },
+    {
+      "start": 64.56833299999997,
+      "end": 70.28833299999997,
+      "lines": [
+        "competitive above 750 feet, and",
+        "that suspension bridges pay off only"
+      ],
+      "text": "competitive above 750 feet, and that suspension bridges pay off only",
+      "sentence": "B53.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "only",
+        "before_word": "as",
+        "whisper_boundary": 10.86,
+        "placed_at": 11.005,
+        "rms_db_at_boundary": -43.7
+      }
+    },
+    {
+      "start": 70.28833299999997,
+      "end": 73.65833299999997,
+      "lines": [
+        "as main spans approach 3,000."
+      ],
+      "text": "as main spans approach 3,000.",
+      "sentence": "B53.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": null,
+      "speech_end": 73.40833299999997
     }
   ],
   "problems": [],
@@ -296,21 +328,20 @@
     "chapter": "C8",
     "video": "output/chapters_internal_1080p/why_bridges_look_different_C8_silent.mp4",
     "shots": [
-      "SC_043",
-      "SC_044",
-      "SC_045",
-      "SC_046",
-      "SC_047"
+      "SC_040",
+      "SC_041",
+      "SC_042",
+      "SC_043"
     ],
-    "expected_frames": 1784,
+    "expected_frames": 1781,
     "probe": {
       "codec": "h264",
       "width": 1920,
       "height": 1080,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 1784,
-      "duration": 74.333333,
+      "frames": 1781,
+      "duration": 74.208333,
       "black_segments": 0,
       "decode_errors": 0,
       "streams": {
@@ -320,38 +351,31 @@
     },
     "cuts": [
       {
-        "cut": "SC_043->SC_044",
+        "cut": "SC_040->SC_041",
         "mode": "hard",
-        "ssim": 0.90509,
+        "ssim": 0.87034,
         "ok": true
       },
       {
-        "cut": "SC_044->SC_045",
+        "cut": "SC_041->SC_042",
         "mode": "hard",
-        "ssim": 0.97478,
+        "ssim": 0.79866,
         "ok": true
       },
       {
-        "cut": "SC_045->SC_046",
+        "cut": "SC_042->SC_043",
         "mode": "hard",
-        "ssim": 0.83372,
-        "ok": true
-      },
-      {
-        "cut": "SC_046->SC_047",
-        "mode": "hard",
-        "ssim": 0.85727,
+        "ssim": 0.89081,
         "ok": true
       }
     ],
     "problems": []
   },
   "render_results": {
-    "SC_043": "rendered",
-    "SC_044": "rendered",
-    "SC_045": "rendered",
-    "SC_046": "rendered",
-    "SC_047": "rendered"
+    "SC_040": "rendered",
+    "SC_041": "rendered",
+    "SC_042": "rendered",
+    "SC_043": "rendered"
   },
   "chapter_audio": "output/chapters_internal_1080p/why_bridges_look_different_C8_narration.wav"
 }

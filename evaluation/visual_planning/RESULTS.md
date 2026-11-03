@@ -126,7 +126,7 @@
   - ok [narrative_relevance] status COVERED (want COVERED)
   - ok [narrative_relevance] strategy COMPARE_SIDE_BY_SIDE (want ['COMPARE_SIDE_BY_SIDE'])
   - ok [narrative_relevance] report mentions 'declared SUMMARIZE_DIFFERENCES'
-- **MISS-01** (missing_capability, bridge) Suspension bridge: no generator, nothing substituted: **PASS**
+- **MISS-01** (missing_capability, bridge) Bascule (movable) bridge: no generator, nothing substituted: **PASS**
   - ok [asset_selection] status MISSING_ASSET (want MISSING_ASSET)
   - ok [asset_selection] report mentions 'NEW_FAMILY_GENERATOR'
 - **MISS-02** (missing_capability, bridge) Cause and effect needs a force diagram: **PASS**

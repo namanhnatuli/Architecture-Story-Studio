@@ -1,0 +1,40 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "bridge_cable_stayed_01",
+  "title": "Cable-stayed bridge: two H-pylons, stays to the edge girders",
+  "family": "bridge",
+  "variant": "cable_stayed",
+  "units": "METRIC",
+  "generator": {
+    "name": "bridge.cable_stayed",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "total_length_m": 72.0,
+    "deck_width_m": 6.0,
+    "deck_level_m": 6.0,
+    "main_span_m": 40.0,
+    "pylon_height_m": 11.0,
+    "stays_per_side": 5
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for visual explanation, not a reconstruction of a specific bridge and not an engineering design: two concrete H-pylons with a strut below the stay anchorages, straight stays in a vertical plane above each edge girder, a segmental deck; no anchorages. Proportions chosen for legibility on the 72 m site (flattest stay about 29 degrees).",
+    "references": [
+      {
+        "title": "Steel Bridge Design Handbook: Selecting the Right Bridge Type (FHWA-IF-12-052, vol. 5), 2.5 and 4.4",
+        "url": "https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+        "accessed": "2026-10-31",
+        "used_for": "arrangement of the parts only",
+        "excerpt": "The stay cables are inclined from the supporting towers to edge girders at or below the deck elevation."
+      }
+    ]
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "EXPLODED_VIEW",
+    "SIDE_BY_SIDE"
+  ]
+}

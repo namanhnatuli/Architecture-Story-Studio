@@ -72,7 +72,7 @@
     },
     "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
     "pronunciation_review": {
-      "status": "ACCEPTED_BY_OWNER",
+      "status": "PENDING",
       "terms": [
         "voussoirs",
         "falsework",
@@ -89,13 +89,26 @@
         "Dunlap Creek",
         "Humpback",
         "trestle",
-        "viaduct"
+        "viaduct",
+        "cantilever",
+        "Queensboro",
+        "Brooklyn",
+        "Roebling",
+        "Wheeling",
+        "Cincinnati",
+        "Covington",
+        "cable-stayed",
+        "suspenders",
+        "anchorages"
       ],
-      "note": "am_michael with American G2P (misaki lang_code a, espeak-ng en-us fallback); none of the terms has been listened to by the owner with this voice",
-      "accepted_by": "Tran Nam Anh (channel owner)",
-      "accepted_on": "2026-10-30",
-      "basis": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.3: the owner accepts the existing reviewed audio delivery for the 16 items in review/PRONUNCIATION_REVIEW.md. No per-item listening session or phonetic verification is recorded here.",
-      "audio_revision": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8",
+      "note": "m8-r1 regenerates the narration: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it",
+      "previous_acceptance": {
+        "status": "ACCEPTED_BY_OWNER",
+        "accepted_by": "Tran Nam Anh (channel owner)",
+        "accepted_on": "2026-10-30",
+        "basis": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.3: the owner accepts the existing reviewed audio delivery for the 16 items in review/PRONUNCIATION_REVIEW.md. No per-item listening session or phonetic verification is recorded here.",
+        "audio_revision": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8"
+      },
       "asr_uncertainties": [
         "Bollman heard as 'Bauman'/'Bowman'",
         "Corinne heard as 'Kareen'",
@@ -112,9 +125,16 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "m7-r1",
-    "date": "2026-10-30",
+    "version": "m8-r1",
+    "date": "2026-10-31",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+    "previous": {
+      "version": "m7-r1",
+      "date": "2026-10-30",
+      "status": "EDITORIALLY_APPROVED (41 claims, 2026-10-30)",
+      "note": "m7-r1 is the approved film (git tag m7-final-4k); its approvals do not carry over to m8-r1"
+    },
+    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31",
     "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
     "edits": [
       {
@@ -164,6 +184,18 @@
         "draft": "(none)",
         "m7-r1": "The sources and photo credits are listed in the description.",
         "why": "rough-cut review: the 6-line credits card was on screen for 4 s only"
+      },
+      {
+        "sentence": "B01C.s0",
+        "draft": "Another hangs from great draped cables.",
+        "m8-r1": "Another hangs from huge draped cables.",
+        "why": "ASR heard 'grate' (homophone; WER 0.17)"
+      },
+      {
+        "sentence": "B51.s0",
+        "draft": "Side by side, the difference is clear.",
+        "m8-r1": "Seen in outline, the difference is clear.",
+        "why": "planner/consistency.py: 'side by side' promised two models on screen together, but the comparison is a diagram (two 72 m models do not read side by side at 640x360)"
       }
     ],
     "voice_change": {

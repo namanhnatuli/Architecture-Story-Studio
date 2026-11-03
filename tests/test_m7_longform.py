@@ -1,6 +1,9 @@
 """M7: the first full-length documentary - chapters, mixed 2D/3D cards, archival image rights,
 word-timed card elements, push-ins, NOTE captions, render-cache scope, interrupted-render
-recovery, long-form QA and the INTERNAL REVIEW gates (offline; no Blender, no TTS)."""
+recovery, long-form QA and the INTERNAL REVIEW gates (offline; no Blender, no TTS).
+M8: the film now covers all six structural families (revision m8-r1, 11 chapters); the owner's
+approvals of m7-r1 (tag m7-final-4k) do not carry over, so the approval logic is exercised on a
+temporary copy where the owner decisions are simulated (owner_approved_copy), never on the real records."""
 import copy
 import json
 import shutil
@@ -30,6 +33,32 @@ def copy_film(ignore=("renders", "output", "scenes", "qa", "audio")):
     return tmp, dst
 
 
+def owner_approved_copy(ignore=("renders", "output", "scenes", "qa", "*.wav", "*.m4a")):
+    """A temporary copy of the film with every owner decision SIMULATED for the current revision
+    (claims, pronunciation, factual review, publication-candidate profile): only to test the gate
+    logic. The real film's records are never written."""
+    from pipeline import pronunciation as pron
+    tmp, p = copy_film(ignore)   # the audio manifest stays: output_label checks the narration rights
+    n = read(p / "script/narration.json")
+    src = read(p / "research/sources.json")
+    used = {c for b in n["beats"] for c in b["claim_ids"]}
+    for c in src["claims"]:
+        if c["id"] in used:
+            c["review_status"] = "EDITORIALLY_APPROVED"
+            c["editorial_approval"] = {"approved_by": "TEST OWNER (simulated)", "approved_on": "2099-01-01",
+                                       "narration_revision": n["revision"]["version"], "basis": "unit test"}
+    (p / "research/sources.json").write_text(json.dumps(src))
+    n["voice"]["pronunciation_review"].update(
+        status="ACCEPTED_BY_OWNER", accepted_by="TEST OWNER (simulated)", accepted_on="2099-01-01",
+        basis="unit test. No per-item listening session or phonetic verification is recorded here.",
+        audio_revision=nar.narration_hash(n, pron.load(p)))
+    (p / "script/narration.json").write_text(json.dumps(n))
+    project = read(p / "project.json")
+    project.update(factual_review="verified", production_profile="PUBLICATION_CANDIDATE")
+    (p / "project.json").write_text(json.dumps(project))
+    return tmp, p
+
+
 class ChapterStructureTest(unittest.TestCase):
     def setUp(self):
         self.doc = read(FILM / "script/chapters.json")
@@ -38,7 +67,7 @@ class ChapterStructureTest(unittest.TestCase):
 
     def test_film_chapters_are_valid_and_ordered(self):
         self.assertEqual(CH.validate(self.doc, self.narration, self.beats), [])
-        self.assertEqual([c["id"] for c in self.doc["chapters"]], [f"C{i}" for i in range(1, 9)])
+        self.assertEqual([c["id"] for c in self.doc["chapters"]], [f"C{i}" for i in range(1, 12)])   # M8: 11 chapters
         flat = [b for c in self.doc["chapters"] for b in c["beat_ids"]]
         self.assertEqual(flat, [b["id"] for b in self.narration["beats"]])
 
@@ -100,32 +129,33 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         self.assertGreaterEqual(timing["total_seconds"], lo)
         self.assertLessEqual(timing["total_seconds"], hi)
 
-    def test_narrated_claims_carry_the_owner_approval_record(self):
-        # Approved by the channel owner on 2026-10-30 (in-session instruction); the agent only recorded it.
+    def test_the_m7_owner_approval_does_not_carry_over_to_m8(self):
+        # The owner approved 41 claims of narration m7-r1 on 2026-10-30 (the record stays as written);
+        # m8-r1 is a new narration, so research/build_sources.py applies none of it.
         claims = {c["id"]: c for c in read(FILM / "research/sources.json")["claims"]}
         narration = read(FILM / "script/narration.json")
         used = {c for b in narration["beats"] for c in b["claim_ids"]}
         record = read(FILM / "research/editorial_approval.json")
-        self.assertTrue(used <= set(claims), used - set(claims))
-        self.assertEqual(set(record["claims"]), used)
+        self.assertEqual((record["narration_revision"], len(record["claims"])), ("m7-r1", 41))
         self.assertIn("Tran Nam Anh", record["approved_by"])
-        for cid in used:
-            approval = claims[cid]["editorial_approval"]
-            self.assertEqual(claims[cid]["review_status"], "EDITORIALLY_APPROVED")
-            self.assertEqual(approval["narration_revision"], narration["revision"]["version"])
-            self.assertIn("Tran Nam Anh", approval["approved_by"])
-        self.assertEqual({claims[c]["review_status"] for c in set(claims) - used}, {"SOURCE_VERIFIED"})
+        self.assertEqual(narration["revision"]["version"], "m8-r1")
+        self.assertTrue(used <= set(claims), used - set(claims))
+        self.assertEqual({c["review_status"] for c in claims.values()}, {"SOURCE_VERIFIED"})
+        self.assertFalse(any("editorial_approval" in c for c in claims.values()))
+        new = {c for c in used if c >= "CLM_750"}
+        self.assertTrue(new and new <= set(claims))
         for c in claims.values():
             self.assertTrue(c["evidence"] and all(e["excerpt"] for e in c["evidence"]), c["id"])
 
     def test_changed_wording_invalidates_the_approval(self):
-        tmp, p = copy_film()
+        tmp, p = owner_approved_copy()
         with tmp:
+            self.assertFalse(any("approval is for narration" in e for e in validator.validate_project(p)[0]))
             n = read(p / "script/narration.json")
-            n["revision"]["version"] = "m7-r2"
+            n["revision"]["version"] = "m8-r2"
             (p / "script/narration.json").write_text(json.dumps(n))
             errors, _ = validator.validate_project(p)
-            self.assertTrue(any("approval is for narration 'm7-r1'" in e for e in errors))
+            self.assertTrue(any("approval is for narration 'm8-r1'" in e for e in errors))
 
     def test_am_michael_approval_is_the_owners_and_project_scoped(self):
         # Approved by the owner on 2026-10-30 for this documentary only (finalization request, section 3.2).
@@ -155,15 +185,21 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         from pipeline import pronunciation as pron
         n = read(FILM / "script/narration.json")
         review = n["voice"]["pronunciation_review"]
-        self.assertEqual(review["status"], "ACCEPTED_BY_OWNER")
-        self.assertIn("No per-item listening session or phonetic verification is", review["basis"])
-        self.assertEqual(review["audio_revision"], nar.narration_hash(n, pron.load(FILM)))
-        self.assertTrue(review["asr_uncertainties"])
-        g1 = gates.evaluate(FILM, "_final_4k")["gates"]["G1 evidence, script & pronunciation review"]
-        self.assertEqual(g1["status"], "PASS")
-        self.assertIn("no per-item listening recorded", g1["notes"][0])   # never reported as "confirmed"
-        tmp, p = copy_film()
+        # the owner's acceptance covered the m7-r1 audio only; m8-r1 waits for a new decision
+        self.assertEqual(review["status"], "PENDING")
+        prev = review["previous_acceptance"]
+        self.assertEqual(prev["status"], "ACCEPTED_BY_OWNER")
+        self.assertIn("No per-item listening session or phonetic verification is", prev["basis"])
+        self.assertNotEqual(prev["audio_revision"], nar.narration_hash(n, pron.load(FILM)))
+        self.assertTrue({"cantilever", "Queensboro", "Roebling"} <= set(review["terms"]))
+        g1 = gates.evaluate(FILM, "_internal_1080p")["gates"]["G1 evidence, script & pronunciation review"]
+        self.assertNotEqual(g1["status"], "PASS")
+        tmp, p = owner_approved_copy()
         with tmp:
+            g1 = gates.evaluate(p, "_review")["gates"]["G1 evidence, script & pronunciation review"]
+            self.assertEqual(g1["status"], "PASS")
+            self.assertIn("no per-item listening recorded", g1["notes"][0])   # never reported as "confirmed"
+            n = read(p / "script/narration.json")
             n["beats"][3]["sentences"][0] += " Indeed."
             (p / "script/narration.json").write_text(json.dumps(n))
             notes = gates.evaluate(p, "_review")["gates"]["G1 evidence, script & pronunciation review"]["notes"]
@@ -173,7 +209,7 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         from integrations.tts import kokoro
         manifest = read(FILM / "audio/narration_manifest.json")
         keys = [s["cache_key"] for b in manifest["beats"].values() for s in b["sentences"]]
-        self.assertEqual(len(keys), 103)
+        self.assertEqual(len(keys), 133)   # M8: 133 sentences
         for k in set(keys):
             seg = manifest["segments"][k]
             self.assertEqual((seg["voice"], seg["voice_sha256"], seg["lang_code"]),
@@ -217,7 +253,7 @@ class ArchivalImageRightsTest(unittest.TestCase):
 
     def test_every_external_image_has_a_complete_rights_record(self):
         externals = [a for a in self.assets["assets"] if a.get("origin") == "external"]
-        self.assertEqual(len(externals), 4)
+        self.assertEqual(len(externals), 6)   # M8: + Brooklyn (HAER NY-18) and Queensboro (HAER NY-19)
         for a in externals:
             self.assertEqual([k for k in validator.EXTERNAL_LICENSE_FIELDS if not a.get(k)], [], a["id"])
             self.assertEqual(a["status"], "approved")
@@ -492,7 +528,7 @@ class LongFormQATest(unittest.TestCase):
         rows, m = CH.longform_qa(FILM)
         failed = [(r["check"], r["detail"]) for r in rows if r["status"] == "FAIL"]
         self.assertEqual(failed, [])
-        self.assertEqual(len(m["chapters"]), 8)
+        self.assertEqual(len(m["chapters"]), 11)
         kinds = {k for c in m["chapters"] for k in c["visual_kinds"]}
         self.assertTrue({"PHOTO", "DIAGRAM", "3D_HOLD", "3D_PUSH_IN"} <= kinds, kinds)
 
@@ -600,16 +636,15 @@ class ReviewDocumentsTest(unittest.TestCase):
             self.assertIn("never uploads" if candidate else "not for publication", desc.splitlines()[0])
             stamps = [l.split(" ", 1)[0] for l in desc.split("Chapters\n\n")[1].split("\n\n")[0].splitlines()]
             self.assertEqual(stamps[0], "0:00")
-            self.assertEqual(len(stamps), 8)
+            self.assertEqual(len(stamps), 11)
             self.assertIn("AI-generated voice", desc)
-            for name in ("William E. Barrett", "Jack E. Boucher", "Historic American Engineering Record"):
+            for name in ("William E. Barrett", "Jack E. Boucher", "Jet Lowe", "Historic American Engineering Record"):
                 self.assertIn(name, desc)
             pkg = LR.editorial_package(p, d).read_text()
-            self.assertIn("Đã duyệt claim", pkg)
-            self.assertIn("Phát âm và quyền giọng cho phim vẫn là các bước duyệt riêng", pkg)
+            self.assertNotIn("Đã duyệt claim", pkg)   # m8-r1: nothing approved yet, and nothing claims it
             matrix = LR.evidence_matrix(p, d).read_text()
-            self.assertEqual(matrix.count("| EDITORIALLY_APPROVED |"), 41)
-            self.assertEqual(matrix.count("| SOURCE_VERIFIED |"), 1)
+            self.assertEqual(matrix.count("| EDITORIALLY_APPROVED |"), 0)
+            self.assertEqual(matrix.count("| SOURCE_VERIFIED |"), len(read(p / "research/sources.json")["claims"]))
             self.assertIn("voice am_michael", desc)
 
     def test_b35_credits_no_longer_name_the_narration_but_keep_the_other_credits(self):
@@ -684,11 +719,11 @@ class ChapterEvidenceTest(unittest.TestCase):
             self.assertEqual(ev["unsupported_fact_beats"], [], c["id"])
             self.assertEqual(ev["missing_claims"], [], c["id"])
             self.assertTrue(ev["sources_known"], c["id"])
-            self.assertEqual(ev["narration_revision"], "m7-r1")
-            self.assertIn(ev["editorial_status"], ("EDITORIALLY_APPROVED", "NO_CLAIMS (framing only)"), c["id"])
+            self.assertEqual(ev["narration_revision"], "m8-r1")
+            self.assertNotEqual(ev["editorial_status"], "EDITORIALLY_APPROVED", c["id"])   # pending the owner
             self.assertTrue(ev["historical_accuracy"], c["id"])
-        c7 = next(c for c in m["chapters"] if c["id"] == "C7")
-        self.assertIn("Illustrative model, not the Carrollton Viaduct", c7["evidence"]["visual_assumptions"])
+        c10 = next(c for c in m["chapters"] if c["id"] == "C10")
+        self.assertIn("Illustrative model, not the Carrollton Viaduct", c10["evidence"]["visual_assumptions"])
 
 
 class ChapterCacheAndRegenerationTest(unittest.TestCase):
@@ -746,20 +781,23 @@ class SubtitleAndMediaTest(unittest.TestCase):
         self.assertEqual((r["video"]["width"], r["video"]["height"]), (1920, 1080))
         lo, hi = CH.RUNTIME_RANGE
         self.assertTrue(lo <= r["seconds"] <= hi)
-        self.assertIn("M7_FINAL_INTERNAL_REVIEW_1080p", Path(r["output"]).name)
+        self.assertIn("M8_INTERNAL_REVIEW_1080p", Path(r["output"]).name)
         self.assertAlmostEqual(r["loudness_after"]["integrated_lufs"], -16.0, delta=1.0)
         self.assertEqual(r["subtitle_entries"], r["subtitle_stats"]["cues"])
 
 
 class InternalReviewGateTest(unittest.TestCase):
     def test_output_name_is_clean_only_with_every_approval(self):
-        self.assertEqual(cli.output_label(FILM), "documentary")
+        self.assertEqual(cli.output_label(FILM), "documentary_INTERNAL_REVIEW")   # m8-r1: approvals pending
+        tmp, p = owner_approved_copy()
+        with tmp:
+            self.assertEqual(cli.output_label(p), "documentary")
         self.assertIn("INTERNAL REVIEW", cli.internal_comment("documentary_INTERNAL_REVIEW"))
         self.assertIsNone(cli.internal_comment("documentary"))
         for field, value in (("pronunciation_review", {"status": "PENDING"}),
                              ("license", {"owner_confirmation_for_this_film": "PENDING"}),
                              ("license", {"status": "LICENSE_REVIEW_REQUIRED"})):
-            tmp, p = copy_film()
+            tmp, p = owner_approved_copy()
             with tmp:
                 n = read(p / "script/narration.json")
                 n["voice"][field].update(value)
@@ -768,13 +806,15 @@ class InternalReviewGateTest(unittest.TestCase):
 
     def test_withdrawn_approvals_block_publication(self):
         cases = []
-        tmp, p = copy_film()
+        tmp, p = owner_approved_copy()
         with tmp:
+            self.assertEqual(gates.evaluate(p, "_final_4k")["gates"]["G1 evidence, script & pronunciation review"]["status"],
+                             "PASS")
             src = read(p / "research/sources.json")
             next(c for c in src["claims"] if c["id"] == "CLM_709")["review_status"] = "SOURCE_VERIFIED"
             (p / "research/sources.json").write_text(json.dumps(src))
             cases.append(gates.evaluate(p, "_final_4k"))
-        tmp, p = copy_film()
+        tmp, p = owner_approved_copy()
         with tmp:
             n = read(p / "script/narration.json")
             n["voice"]["license"].update(owner_confirmation_for_this_film="PENDING")
@@ -795,10 +835,13 @@ class InternalReviewGateTest(unittest.TestCase):
 
     def test_final_gate_checks_the_claims_the_film_uses(self):
         # CLM_747 is in the research archive only; a claim the film uses must be approved.
-        errors, warnings = validator.validate_project(FILM, final=True)
-        self.assertEqual([e for e in errors if e.startswith("FINAL gate")], [])
-        tmp, p = copy_film()
+        errors, warnings = validator.validate_project(FILM, final=True)   # m8-r1: the used claims are pending
+        self.assertTrue(any(e.startswith("FINAL gate: unverified claims used in the film") for e in errors))
+        self.assertIn("FINAL gate: factual_review is not verified", errors)
+        tmp, p = owner_approved_copy()
         with tmp:
+            errors, _ = validator.validate_project(p, final=True)
+            self.assertEqual([e for e in errors if e.startswith("FINAL gate")], [])
             vb = read(p / "script/visual_beats.json")
             vb["beats"][0].setdefault("annotations", []).append(
                 {"id": "x", "type": "NOTE", "text": "x", "sentence": 0, "claim_id": "CLM_747"})

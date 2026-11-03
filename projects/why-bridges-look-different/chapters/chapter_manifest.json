@@ -2,15 +2,18 @@
   "schema": "chapter_manifest/1",
   "project": "why-bridges-look-different",
   "fps": 24,
-  "total_frames": 15395,
-  "total_seconds": 641.458,
+  "total_frames": 20823,
+  "total_seconds": 867.625,
   "chapters": [
     {
       "id": "C1",
       "title": "Hook",
-      "purpose": "Three bridges, one gap: pose the central question within the first seconds.",
+      "purpose": "Three bridges on one gap, three more on a wide river: pose the central question.",
       "beats": [
         "B01",
+        "B01B",
+        "B01C",
+        "B01D",
         "B02"
       ],
       "shots": [
@@ -18,17 +21,20 @@
         "SC_002",
         "SC_003",
         "SC_004",
-        "SC_005"
+        "SC_005",
+        "SC_006",
+        "SC_007",
+        "SC_008"
       ],
       "start_frame": 0,
-      "frames": 807,
+      "frames": 1256,
       "start_seconds": 0.0,
-      "duration_seconds": 33.625,
-      "sentences": 7,
-      "words": 74,
+      "duration_seconds": 52.333,
+      "sentences": 11,
+      "words": 107,
       "claims": [],
       "visual_kinds": {
-        "3D_HOLD": 3,
+        "3D_HOLD": 6,
         "3D_SIDE_BY_SIDE": 1,
         "DIAGRAM": 1
       },
@@ -40,7 +46,7 @@
         "sources": [],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [],
         "historical_accuracy": [
           "illustrative 3D archetypes (not replicas)",
@@ -49,9 +55,9 @@
         "editorial_status": "NO_CLAIMS (framing only)"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 1256,
+        "complete": true
       }
     },
     {
@@ -64,13 +70,13 @@
         "B05"
       ],
       "shots": [
-        "SC_006",
-        "SC_007",
-        "SC_008"
+        "SC_009",
+        "SC_010",
+        "SC_011"
       ],
-      "start_frame": 807,
+      "start_frame": 1256,
       "frames": 1166,
-      "start_seconds": 33.625,
+      "start_seconds": 52.333,
       "duration_seconds": 48.583,
       "sentences": 9,
       "words": 109,
@@ -92,7 +98,7 @@
           "CLM_704"
         ],
         "claim_statuses": [
-          "EDITORIALLY_APPROVED"
+          "SOURCE_VERIFIED"
         ],
         "missing_claims": [],
         "sources": [
@@ -102,19 +108,19 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [
           "2 · The problem every bridge must solve"
         ],
         "historical_accuracy": [
           "illustrative 3D archetypes (not replicas)"
         ],
-        "editorial_status": "EDITORIALLY_APPROVED"
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 1166,
+        "complete": true
       }
     },
     {
@@ -128,16 +134,16 @@
         "B09"
       ],
       "shots": [
-        "SC_009",
-        "SC_010",
-        "SC_011",
         "SC_012",
         "SC_013",
-        "SC_014"
+        "SC_014",
+        "SC_015",
+        "SC_016",
+        "SC_017"
       ],
-      "start_frame": 1973,
+      "start_frame": 2422,
       "frames": 1600,
-      "start_seconds": 82.208,
+      "start_seconds": 100.917,
       "duration_seconds": 66.667,
       "sentences": 11,
       "words": 153,
@@ -166,7 +172,7 @@
           "CLM_722"
         ],
         "claim_statuses": [
-          "EDITORIALLY_APPROVED"
+          "SOURCE_VERIFIED"
         ],
         "missing_claims": [],
         "sources": [
@@ -176,7 +182,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [
           "3 · The beam",
           "Illustrative model"
@@ -184,12 +190,12 @@
         "historical_accuracy": [
           "illustrative 3D archetypes (not replicas)"
         ],
-        "editorial_status": "EDITORIALLY_APPROVED"
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 1600,
+        "complete": true
       }
     },
     {
@@ -204,16 +210,16 @@
         "B14"
       ],
       "shots": [
-        "SC_015",
-        "SC_016",
-        "SC_017",
         "SC_018",
         "SC_019",
-        "SC_020"
+        "SC_020",
+        "SC_021",
+        "SC_022",
+        "SC_023"
       ],
-      "start_frame": 3573,
+      "start_frame": 4022,
       "frames": 1969,
-      "start_seconds": 148.875,
+      "start_seconds": 167.583,
       "duration_seconds": 82.042,
       "sentences": 13,
       "words": 177,
@@ -243,7 +249,7 @@
           "CLM_726"
         ],
         "claim_statuses": [
-          "EDITORIALLY_APPROVED"
+          "SOURCE_VERIFIED"
         ],
         "missing_claims": [],
         "sources": [
@@ -253,7 +259,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [
           "4 · The arch"
         ],
@@ -261,12 +267,12 @@
           "illustrative 3D archetypes (not replicas)",
           "self-made conceptual/schematic graphics"
         ],
-        "editorial_status": "EDITORIALLY_APPROVED"
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 1969,
+        "complete": true
       }
     },
     {
@@ -280,16 +286,16 @@
         "B18"
       ],
       "shots": [
-        "SC_021",
-        "SC_022",
-        "SC_023",
         "SC_024",
         "SC_025",
-        "SC_026"
+        "SC_026",
+        "SC_027",
+        "SC_028",
+        "SC_029"
       ],
-      "start_frame": 5542,
+      "start_frame": 5991,
       "frames": 2024,
-      "start_seconds": 230.917,
+      "start_seconds": 249.625,
       "duration_seconds": 84.333,
       "sentences": 13,
       "words": 168,
@@ -319,7 +325,7 @@
           "CLM_729"
         ],
         "claim_statuses": [
-          "EDITORIALLY_APPROVED"
+          "SOURCE_VERIFIED"
         ],
         "missing_claims": [],
         "sources": [
@@ -330,7 +336,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [
           "5 · The truss",
           "By 1860: prefabricated parts",
@@ -341,16 +347,251 @@
         "historical_accuracy": [
           "illustrative 3D archetypes (not replicas)"
         ],
-        "editorial_status": "EDITORIALLY_APPROVED"
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 2024,
+        "complete": true
       }
     },
     {
       "id": "C6",
+      "title": "The cantilever",
+      "purpose": "Longer spans: anchor arms, cantilever arms, a suspended span; built outward without falsework.",
+      "beats": [
+        "B40",
+        "B41",
+        "B42",
+        "B43",
+        "B44"
+      ],
+      "shots": [
+        "SC_030",
+        "SC_031",
+        "SC_032",
+        "SC_033",
+        "SC_034"
+      ],
+      "start_frame": 8015,
+      "frames": 1890,
+      "start_seconds": 333.958,
+      "duration_seconds": 78.75,
+      "sentences": 10,
+      "words": 162,
+      "claims": [
+        "CLM_750",
+        "CLM_751",
+        "CLM_752",
+        "CLM_753",
+        "CLM_754",
+        "CLM_756",
+        "CLM_757"
+      ],
+      "visual_kinds": {
+        "3D_EXPLODED_VIEW": 1,
+        "3D_HOLD": 2,
+        "3D_REPLACE_PARTS": 1,
+        "PHOTO": 1
+      },
+      "external_assets": [
+        "IMG_HAER_QUEENSBORO"
+      ],
+      "evidence": {
+        "claims_used": [
+          "CLM_750",
+          "CLM_751",
+          "CLM_752",
+          "CLM_753",
+          "CLM_754",
+          "CLM_756",
+          "CLM_757"
+        ],
+        "claim_statuses": [
+          "SOURCE_VERIFIED"
+        ],
+        "missing_claims": [],
+        "sources": [
+          "SRC_NCHRP_CONTEXT"
+        ],
+        "sources_known": true,
+        "unsupported_fact_beats": [],
+        "narration_revision": "m8-r1",
+        "visual_assumptions": [
+          "6 · The cantilever",
+          "A wider crossing (illustrative, not to scale)",
+          "Built outward: no falsework in the channel",
+          "Illustrative model",
+          "image IMG_HAER_QUEENSBORO: Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER)"
+        ],
+        "historical_accuracy": [
+          "illustrative 3D archetypes (not replicas)",
+          "archival photographs of the named bridges (public domain)"
+        ],
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
+      },
+      "render": {
+        "preset": "internal_1080p",
+        "frames_on_disk": 1890,
+        "complete": true
+      }
+    },
+    {
+      "id": "C7",
+      "title": "The suspension bridge",
+      "purpose": "A hung deck: hangers, cables in tension over towers in compression, anchorages, stiffening.",
+      "beats": [
+        "B45",
+        "B46",
+        "B47",
+        "B48"
+      ],
+      "shots": [
+        "SC_035",
+        "SC_036",
+        "SC_037",
+        "SC_038",
+        "SC_039"
+      ],
+      "start_frame": 9905,
+      "frames": 1495,
+      "start_seconds": 412.708,
+      "duration_seconds": 62.292,
+      "sentences": 8,
+      "words": 130,
+      "claims": [
+        "CLM_760",
+        "CLM_761",
+        "CLM_763",
+        "CLM_764",
+        "CLM_765",
+        "CLM_768"
+      ],
+      "visual_kinds": {
+        "3D_EXPLODED_VIEW": 1,
+        "3D_HOLD": 3,
+        "PHOTO": 1
+      },
+      "external_assets": [
+        "IMG_HAER_BROOKLYN"
+      ],
+      "evidence": {
+        "claims_used": [
+          "CLM_760",
+          "CLM_761",
+          "CLM_763",
+          "CLM_764",
+          "CLM_765",
+          "CLM_768"
+        ],
+        "claim_statuses": [
+          "SOURCE_VERIFIED"
+        ],
+        "missing_claims": [],
+        "sources": [
+          "SRC_FHWA_BRIDGE_TYPES",
+          "SRC_NCHRP_CONTEXT"
+        ],
+        "sources_known": true,
+        "unsupported_fact_beats": [],
+        "narration_revision": "m8-r1",
+        "visual_assumptions": [
+          "7 · The suspension bridge",
+          "Illustrative model",
+          "Stiffening truss under the deck",
+          "image IMG_HAER_BROOKLYN: Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER)"
+        ],
+        "historical_accuracy": [
+          "illustrative 3D archetypes (not replicas)",
+          "archival photographs of the named bridges (public domain)"
+        ],
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
+      },
+      "render": {
+        "preset": "internal_1080p",
+        "frames_on_disk": 1495,
+        "complete": true
+      }
+    },
+    {
+      "id": "C8",
+      "title": "The cable-stayed bridge",
+      "purpose": "Straight stays from tall towers to the deck; compared with suspension; built outward; economics.",
+      "beats": [
+        "B50",
+        "B51",
+        "B52",
+        "B53"
+      ],
+      "shots": [
+        "SC_040",
+        "SC_041",
+        "SC_042",
+        "SC_043"
+      ],
+      "start_frame": 11400,
+      "frames": 1781,
+      "start_seconds": 475.0,
+      "duration_seconds": 74.208,
+      "sentences": 9,
+      "words": 152,
+      "claims": [
+        "CLM_761",
+        "CLM_763",
+        "CLM_770",
+        "CLM_771",
+        "CLM_772",
+        "CLM_773",
+        "CLM_774",
+        "CLM_775"
+      ],
+      "visual_kinds": {
+        "3D_EXPLODED_VIEW": 1,
+        "3D_HOLD": 1,
+        "DIAGRAM": 2
+      },
+      "external_assets": [],
+      "evidence": {
+        "claims_used": [
+          "CLM_761",
+          "CLM_763",
+          "CLM_770",
+          "CLM_771",
+          "CLM_772",
+          "CLM_773",
+          "CLM_774",
+          "CLM_775"
+        ],
+        "claim_statuses": [
+          "SOURCE_VERIFIED"
+        ],
+        "missing_claims": [],
+        "sources": [
+          "SRC_FHWA_BRIDGE_TYPES",
+          "SRC_NCHRP_CONTEXT"
+        ],
+        "sources_known": true,
+        "unsupported_fact_beats": [],
+        "narration_revision": "m8-r1",
+        "visual_assumptions": [
+          "8 · The cable-stayed bridge",
+          "Built outward from the towers",
+          "Illustrative model"
+        ],
+        "historical_accuracy": [
+          "illustrative 3D archetypes (not replicas)",
+          "self-made conceptual/schematic graphics"
+        ],
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
+      },
+      "render": {
+        "preset": "internal_1080p",
+        "frames_on_disk": 1781,
+        "complete": true
+      }
+    },
+    {
+      "id": "C9",
       "title": "Why different designs exist",
       "purpose": "Materials, weather, site, span and the era: the trade-offs.",
       "beats": [
@@ -360,36 +601,29 @@
         "B20C",
         "B21",
         "B22",
-        "B23",
-        "B23B",
         "B24"
       ],
       "shots": [
-        "SC_027",
-        "SC_028",
-        "SC_029",
-        "SC_030",
-        "SC_031",
-        "SC_032",
-        "SC_033",
-        "SC_034",
-        "SC_035"
+        "SC_044",
+        "SC_045",
+        "SC_046",
+        "SC_047",
+        "SC_048",
+        "SC_049",
+        "SC_050"
       ],
-      "start_frame": 7566,
-      "frames": 3005,
-      "start_seconds": 315.25,
-      "duration_seconds": 125.208,
-      "sentences": 19,
-      "words": 243,
+      "start_frame": 13181,
+      "frames": 2447,
+      "start_seconds": 549.208,
+      "duration_seconds": 101.958,
+      "sentences": 16,
+      "words": 198,
       "claims": [
         "CLM_712",
         "CLM_726",
         "CLM_727",
         "CLM_728",
         "CLM_729",
-        "CLM_730",
-        "CLM_731",
-        "CLM_732",
         "CLM_733",
         "CLM_734",
         "CLM_735",
@@ -400,8 +634,8 @@
         "CLM_746"
       ],
       "visual_kinds": {
-        "3D_HOLD": 4,
-        "DIAGRAM": 3,
+        "3D_HOLD": 3,
+        "DIAGRAM": 2,
         "PHOTO": 1,
         "TITLE": 1
       },
@@ -415,9 +649,6 @@
           "CLM_727",
           "CLM_728",
           "CLM_729",
-          "CLM_730",
-          "CLM_731",
-          "CLM_732",
           "CLM_733",
           "CLM_734",
           "CLM_735",
@@ -428,7 +659,7 @@
           "CLM_746"
         ],
         "claim_statuses": [
-          "EDITORIALLY_APPROVED"
+          "SOURCE_VERIFIED"
         ],
         "missing_claims": [],
         "sources": [
@@ -440,9 +671,8 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [
-          "Span: how far one structure reaches",
           "Stone: strong under compression",
           "Timber: plentiful and cheap, but it decays",
           "Truss members: tension and compression",
@@ -454,16 +684,16 @@
           "self-made conceptual/schematic graphics",
           "archival photographs of the named bridges (public domain)"
         ],
-        "editorial_status": "EDITORIALLY_APPROVED"
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 2447,
+        "complete": true
       }
     },
     {
-      "id": "C7",
+      "id": "C10",
       "title": "Real-world decisions",
       "purpose": "Three documented 19th-century American bridges and the choices behind them.",
       "beats": [
@@ -476,17 +706,17 @@
         "B31"
       ],
       "shots": [
-        "SC_036",
-        "SC_037",
-        "SC_038",
-        "SC_039",
-        "SC_040",
-        "SC_041",
-        "SC_042"
+        "SC_051",
+        "SC_052",
+        "SC_053",
+        "SC_054",
+        "SC_055",
+        "SC_056",
+        "SC_057"
       ],
-      "start_frame": 10571,
+      "start_frame": 15628,
       "frames": 3040,
-      "start_seconds": 440.458,
+      "start_seconds": 651.167,
       "duration_seconds": 126.667,
       "sentences": 19,
       "words": 240,
@@ -524,7 +754,7 @@
           "CLM_745"
         ],
         "claim_statuses": [
-          "EDITORIALLY_APPROVED"
+          "SOURCE_VERIFIED"
         ],
         "missing_claims": [],
         "sources": [
@@ -533,7 +763,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [
           "Illustrative model, not the Carrollton Viaduct",
           "Illustrative model, not the Promontory trestle",
@@ -546,38 +776,40 @@
           "self-made conceptual/schematic graphics",
           "archival photographs of the named bridges (public domain)"
         ],
-        "editorial_status": "EDITORIALLY_APPROVED"
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 3040,
+        "complete": true
       }
     },
     {
-      "id": "C8",
+      "id": "C11",
       "title": "Why they look different",
-      "purpose": "Answer the question; not a story of linear progress.",
+      "purpose": "Answer the question for all six families; not a story of linear progress.",
       "beats": [
         "B32",
+        "B32L",
         "B32B",
         "B33",
         "B34",
         "B35"
       ],
       "shots": [
-        "SC_043",
-        "SC_044",
-        "SC_045",
-        "SC_046",
-        "SC_047"
+        "SC_058",
+        "SC_059",
+        "SC_060",
+        "SC_061",
+        "SC_062",
+        "SC_063"
       ],
-      "start_frame": 13611,
-      "frames": 1784,
-      "start_seconds": 567.125,
-      "duration_seconds": 74.333,
-      "sentences": 12,
-      "words": 156,
+      "start_frame": 18668,
+      "frames": 2155,
+      "start_seconds": 777.833,
+      "duration_seconds": 89.792,
+      "sentences": 14,
+      "words": 190,
       "claims": [
         "CLM_706",
         "CLM_709",
@@ -585,11 +817,15 @@
         "CLM_721",
         "CLM_724",
         "CLM_738",
-        "CLM_742"
+        "CLM_742",
+        "CLM_750",
+        "CLM_760",
+        "CLM_770",
+        "CLM_777"
       ],
       "visual_kinds": {
         "3D_PUSH_IN": 1,
-        "3D_SIDE_BY_SIDE": 1,
+        "3D_SIDE_BY_SIDE": 2,
         "DIAGRAM": 1,
         "TITLE": 2
       },
@@ -602,13 +838,18 @@
           "CLM_721",
           "CLM_724",
           "CLM_738",
-          "CLM_742"
+          "CLM_742",
+          "CLM_750",
+          "CLM_760",
+          "CLM_770",
+          "CLM_777"
         ],
         "claim_statuses": [
-          "EDITORIALLY_APPROVED"
+          "SOURCE_VERIFIED"
         ],
         "missing_claims": [],
         "sources": [
+          "SRC_FHWA_BRIDGE_TYPES",
           "SRC_FHWA_CBM",
           "SRC_NCHRP_CONTEXT",
           "SRC_ODOT_MBI",
@@ -617,25 +858,25 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m7-r1",
+        "narration_revision": "m8-r1",
         "visual_assumptions": [
           "1 · How the structure carries load",
-          "8 · Why they look different",
+          "11 · Why they look different",
           "Models are illustrations, not engineering designs"
         ],
         "historical_accuracy": [
           "illustrative 3D archetypes (not replicas)",
           "self-made conceptual/schematic graphics"
         ],
-        "editorial_status": "EDITORIALLY_APPROVED"
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
       },
       "render": {
-        "preset": "final_4k",
-        "frames_on_disk": 0,
-        "complete": false
+        "preset": "internal_1080p",
+        "frames_on_disk": 2155,
+        "complete": true
       }
     }
   ],
   "errors": [],
-  "timing_sha256": "4770271244823c0109900a5c3cbdf91fd916524b708c635581313e540588907f"
+  "timing_sha256": "4952397e26296b4b42d1f6d473758f994b1baba17e11ae3b05c0bbbdfa178a93"
 }

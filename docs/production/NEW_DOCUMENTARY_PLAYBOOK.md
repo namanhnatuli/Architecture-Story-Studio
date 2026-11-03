@@ -48,7 +48,11 @@ AGENT viết câu hỏi trung tâm và câu hỏi nghiên cứu vào `research/R
 - Trộn 3D, sơ đồ, bản đồ sơ lược, dòng thời gian và ảnh có quyền. Tránh chuỗi 2D dài.
 
 ## 9–10. Tìm và tạo asset
-- `python3 tools/cli.py asset-catalog` liệt kê thư viện: cầu (gỗ, vòm đá, giàn Pratt/Warren), nhà, mái (gồm states mái cũ ở `asset_library/legacy_states/`), site.
+- `python3 tools/cli.py asset-catalog` liệt kê thư viện:
+  - cầu trên site 24 m: dầm gỗ, vòm đá, giàn Pratt/Warren;
+  - cầu nhịp lớn trên site 72 m (M8): công-xôn, cầu treo, dây văng;
+  - nhà, mái (gồm states mái cũ ở `asset_library/legacy_states/`), site.
+- Một concept cần site riêng thì khai báo `scene_context` và `site` trong `config/visual_vocabulary.json` (xem M8).
 - Asset mới: viết spec trong `asset_library/architecture/`, chạy `asset-check --asset …` và `asset-render --asset …`. Chỉ tạo khi thật sự cần.
 - Ảnh ngoài: hồ sơ đầy đủ trong `assets/manifest.json` (`EXTERNAL_LICENSE_FIELDS`, `credit_keys`, SHA256, rendition).
 

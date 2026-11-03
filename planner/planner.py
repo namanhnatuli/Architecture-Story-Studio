@@ -18,6 +18,11 @@ from engine import annotation_layout as AL
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_STATE = "site"
+
+
+def is_site_state(sid):
+    """The empty site of the bridge context ('site') or of another bridge context ('site_<context>')."""
+    return sid == SITE_STATE or (isinstance(sid, str) and sid.startswith(SITE_STATE + "_"))
 PARTIAL = {"EXPLAIN_STRUCTURE": {"HOLD_HIGHLIGHT"}, "EXPLAIN_DESIGN_CHANGE": {"SEQUENTIAL_STATES"},
            "COMPARE_VARIANTS": {"SEQUENTIAL_STATES"}, "SHOW_COMPONENT": {"HOLD_HIGHLIGHT"}}
 REPLACE_SHARED_BASE_FAMILIES = {"roof"}   # variants are roof assemblies on one shared building
@@ -59,8 +64,10 @@ class Model:
 
     M6: one *scene context* per building family (bridges on the shared river-crossing site,
     roof assemblies on the shared house); every state belongs to the context of its family.
-    A single-family project has one context and keeps the M5 states.json (schema 2); a
-    multi-family project gets schema 3 ("contexts") and every shot names its scene_context."""
+    M8: a concept may name its own scene_context and site (long-span bridges on a wider crossing);
+    each bridge context has its own site and its own empty-site state.
+    A single-context project keeps the M5 states.json (schema 2); a multi-context project gets
+    schema 3 ("contexts") and every shot names its scene_context."""
 
     def __init__(self, root, project_dir, vocab, index):
         self.root, self.project_dir, self.vocab, self.index = Path(root), Path(project_dir), vocab, index
@@ -78,6 +85,16 @@ class Model:
     shared_components = property(lambda self: self.ctx()["shared_components"])
     site_entry = property(lambda self: (self.contexts.get("bridge") or {}).get("site_entry"))
 
+    def context_name(self, concept):
+        """Scene context of a site/architecture concept: its own (M8) or its family's."""
+        c = self.vocab.get(concept) or {}
+        if c.get("scene_context"):
+            return c["scene_context"]
+        return "bridge" if c.get("family") == "site" else (c.get("family") or self.family)
+
+    def site_state(self, context):
+        return SITE_STATE if context in (None, "bridge") else f"{SITE_STATE}_{context}"
+
     @property
     def multi(self):
         return len(self.contexts) > 1
@@ -89,27 +106,32 @@ class Model:
         key = (concept, accuracy)
         if key not in self.resolutions:
             fam = (self.vocab.get(concept) or {}).get("family")   # the site constrains bridges only
+            site = (self.contexts.get(self.context_name(concept)) or {}).get("site_entry")
             self.resolutions[key] = resolver.resolve(concept, self.vocab, self.index, accuracy,
-                                                     self.site_entry if fam in ("bridge", "site", None) else None)
+                                                     site if fam in ("bridge", "site", None) else None)
         return self.resolutions[key]
 
-    def set_base(self, families):
-        """families: building families in order of first appearance in the beats."""
+    def set_base(self, families, sites=None):
+        """families: building families in order of first appearance in the beats; sites (M8):
+        {scene context: site concept} for bridge contexts (default: bridge -> river_crossing_site)."""
         families = list(dict.fromkeys(families))
         self.family = families[0] if families else None
         for fam in families:
             self.ctx(fam)
+        sites = dict(sites or {})
         if "bridge" in families:
-            r = resolver.resolve("river_crossing_site", self.vocab, self.index)
+            sites = {"bridge": "river_crossing_site", **sites}
+        for context, concept in sites.items():
+            r = resolver.resolve(concept, self.vocab, self.index)
             if r["status"] != "REUSE_EXISTING":
                 raise PlanningError([f"bridges need a site asset: {r['explanation']}"])
-            c = self.ctx("bridge")
-            c["site_entry"] = r["entry"]
+            c = self.ctx(context)
+            c["site_entry"], c["site_concept"] = r["entry"], concept
             c["base"] = {"builder": "architecture_asset", "asset": r["entry"]["path"]}
             parts = catalog.component_parts(r["entry"], "shared")
             c["shared_parts"] = [dict(p) for p in parts]
             c["shared_components"] = sorted({p["group"] for p in parts})
-            self.resolutions[("river_crossing_site", "ILLUSTRATIVE")] = r
+            self.resolutions[(concept, "ILLUSTRATIVE")] = r
 
     def add_state(self, concept, resolution):
         """State id = concept name; two concepts resolving to the same asset share one state."""
@@ -128,7 +150,7 @@ class Model:
                      "accuracy": "ILLUSTRATIVE", "animation_support": spec_data["animation_support"],
                      "validation": "GENERATED", "kind": "architecture"}
             self.generated[spec_data["asset_id"]] = entry["path"]
-        family = (self.vocab.get(concept) or {}).get("family") or self.family
+        family = self.context_name(concept)
         c = self.ctx(family)
         if c["base"] is None and entry["source"] == "legacy_states":
             c["base"] = entry["legacy_base"]
@@ -143,12 +165,15 @@ class Model:
         self.order.append(sid)
         return sid
 
-    def add_site_state(self):
-        if SITE_STATE not in self.states:
-            self.states[SITE_STATE] = {"id": SITE_STATE, "concept": "river_crossing_site", "label": "Site",
-                                       "entry": None, "asset_id": None, "resolution": "SITE_ONLY"}
-            self.order.insert(0, SITE_STATE)
-            self.context_of[SITE_STATE] = "bridge"
+    def add_site_state(self, concept="river_crossing_site"):
+        context = self.context_name(concept)
+        sid = self.site_state(context)
+        if sid not in self.states:
+            self.states[sid] = {"id": sid, "concept": concept, "label": "Site", "entry": None, "asset_id": None,
+                                "resolution": "SITE_ONLY"}
+            self.order.insert(len([s for s in self.order if is_site_state(s)]), sid)
+            self.context_of[sid] = context
+        return sid
 
     def link_frames(self):
         """structure_from between states that differ only in the family's replaceable params."""
@@ -167,8 +192,11 @@ class Model:
         multi = self.multi
         for sid in self.order:
             st = self.states[sid]
-            if sid == SITE_STATE:
-                variants.append({"id": SITE_STATE, "name": "Empty site (no structure)", "builder": "none"})
+            if is_site_state(sid):
+                v = {"id": sid, "name": "Empty site (no structure)", "builder": "none"}
+                if multi:
+                    v["context"] = self.context_of.get(sid, "bridge")
+                variants.append(v)
                 continue
             e = st["entry"]
             if e["source"] == "library":
@@ -182,10 +210,8 @@ class Model:
                 v["context"] = self.context_of.get(sid, self.family)
             variants.append(v)
         if multi:   # M6: one base per scene context (engine/spec.context_view)
-            for v in variants:
-                if v["id"] == SITE_STATE:
-                    v["context"] = "bridge"
-            contexts = {f: {"building_type": f, "base": c["base"], "shared_components": c["shared_components"]}
+            contexts = {f: {"building_type": "bridge" if c.get("site_concept") else f, "base": c["base"],
+                            "shared_components": c["shared_components"]}
                         for f, c in self.contexts.items()}
             return {"schema_version": 3, "generated_by": "planner", "planner_version": PLANNER_VERSION,
                     "building_type": "mixed", "contexts": contexts, "base": self.base,
@@ -198,7 +224,7 @@ class Model:
         """Visible semantic parts of a state: shared base + own + inherited frame."""
         st = self.states[sid]
         shared = self.state_ctx(sid)["shared_parts"]
-        if sid == SITE_STATE:
+        if is_site_state(sid):
             return list(shared)
         own = catalog.component_parts(st["entry"], sid)
         src = st.get("structure_from")
@@ -306,7 +332,7 @@ def build_strategy(name, ctx):
 
     def support(sid, template):
         st = model.states[sid]
-        if sid != SITE_STATE and template not in st["entry"]["animation_support"] and template != "HOLD":
+        if not is_site_state(sid) and template not in st["entry"]["animation_support"] and template != "HOLD":
             raise StrategyRejected("MISSING_TEMPLATE", f"asset {st['asset_id']} does not support {template}")
 
     def targets_in(sid):
@@ -341,8 +367,8 @@ def build_strategy(name, ctx):
     if name == "SITE_HOLD":
         if not ctx["site_concept"]:
             raise StrategyRejected("MISSING_TEMPLATE", "no site concept in the beat", "MAP_OR_IMAGERY")
-        model.add_site_state()
-        return [Draft("HOLD", "FULL_OBJECT", hold(SITE_STATE, [], "FULL_OBJECT"), w["HOLD"], [SITE_STATE], [],
+        site_sid = model.add_site_state(ctx["site_concept"])
+        return [Draft("HOLD", "FULL_OBJECT", hold(site_sid, [], "FULL_OBJECT"), w["HOLD"], [site_sid], [],
                       "the empty shared site: the gap any of the structures must span")]
 
     if name == "CARD":
@@ -404,19 +430,20 @@ def build_strategy(name, ctx):
     if name == "ASSEMBLE_IN":
         need_states(1)
         sid = arch[0]
-        if ctx["prev_end_state"] != SITE_STATE:
+        site_sid = model.site_state(model.context_of.get(sid))
+        if ctx["prev_end_state"] != site_sid:
             raise StrategyRejected("INVALID_REQUEST", "ASSEMBLE_IN needs the previous shot to end on the empty site")
         tg = targets_in(sid)
 
         def make_in(n):
-            anim = {"template": "REPLACE_PARTS", "from_state": SITE_STATE, "to_state": sid, "easing": "SMOOTH",
+            anim = {"template": "REPLACE_PARTS", "from_state": site_sid, "to_state": sid, "easing": "SMOOTH",
                     "hold_start_seconds": m["assemble"]["min_hold_start"], "hold_end_seconds": m["assemble"]["min_hold_end"],
                     "incoming": {"direction": "FROM_ABOVE", "distance": 2.5, "move_seconds": m["assemble"]["move_in"],
                                  "stagger_seconds": m["assemble"]["stagger"], "fade": True, "fade_end": 0.7,
                                  "overlap_seconds": 0.0, "easing": "EASE_OUT"}}
-            return _shot("REPLACE_PARTS", {"from_state": SITE_STATE, "to_state": sid}, anim, n, fps,
+            return _shot("REPLACE_PARTS", {"from_state": site_sid, "to_state": sid}, anim, n, fps,
                          camera_of("LOCKED_TRANSFORMATION"), None, band)
-        drafts = [Draft("REPLACE_PARTS", "LOCKED_TRANSFORMATION", make_in, w["REPLACE_PARTS"], [SITE_STATE, sid], [],
+        drafts = [Draft("REPLACE_PARTS", "LOCKED_TRANSFORMATION", make_in, w["REPLACE_PARTS"], [site_sid, sid], [],
                         f"{sid} assembles into the shown empty site (its parts drop in by assembly layer)")]
         if tg:
             drafts.append(Draft("HOLD", "FULL_OBJECT", hold(sid, tg, "FULL_OBJECT"), w["HOLD"], [sid], tg,
@@ -678,7 +705,7 @@ def _unmapped_components(beat, model, arch_states):
 
 def compatible(model, a, b):
     """REPLACE_PARTS a -> b is meaningful only between swap-compatible states."""
-    if a == SITE_STATE:
+    if is_site_state(a):
         return True, "assembly from the empty site"
     sa, sb = model.states[a], model.states[b]
     if sb.get("structure_from") == a or sa.get("structure_from") == b or \
@@ -753,13 +780,15 @@ def _plan_pass(project_dir, root, vocab, excluded):
     fps = int(cfg["timing"]["frame_rate"])
     index = catalog.index(root)
     model = Model(root, project_dir, vocab, index)
-    families = []
+    families, sites = [], {}
     for b in doc["beats"]:
         for n in mapper.architecture_refs(b, vocab):
             c = vocab.get(n)
             if c and c["kind"] == "architecture" and c["family"] not in families:
                 families.append(c["family"])
-    model.set_base(families)
+            if c and c.get("scene_context"):   # M8: a context with its own site
+                sites.setdefault(c["scene_context"], c.get("site") or n)
+    model.set_base(families, sites)
     windows = T.beat_windows(doc, project_dir, cfg["timing"])
     offsets = T.sentence_offsets(doc, project_dir, cfg["timing"])
     word_times = T.word_offsets(doc, project_dir)
@@ -796,9 +825,10 @@ def _plan_pass(project_dir, root, vocab, excluded):
         for n in mapper.architecture_refs(beat, vocab):
             c = vocab.get(n)
             if c and c["kind"] == "site":
-                site_concept = True
+                site_concept = n
+                entry = (model.contexts.get(model.context_name(n)) or {}).get("site_entry")
                 cov["assets"].append({"concept": n, "status": "REUSE_EXISTING",
-                                      "asset_id": model.site_entry["asset_id"] if model.site_entry else None,
+                                      "asset_id": entry["asset_id"] if entry else None,
                                       "explanation": "shared site of the project"})
                 continue
             r = model.resolve(n, accuracy)
@@ -827,7 +857,7 @@ def _plan_pass(project_dir, root, vocab, excluded):
                "site_concept": site_concept, "component_refs": mapper.component_refs(beat, vocab),
                "draft_states": draft_states, "prev_end_state": prev_end_state, "prev_compare": prev_compare,
                "camera_of": lambda mode, sid=None, fam=(model.context_of.get(arch_states[0]) if arch_states else None) or
-               ("bridge" if site_concept else model.family) or "bridge":
+               (model.context_name(site_concept) if site_concept else model.family) or "bridge":
                CAM.preset_for(cfg, model.context_of.get(sid, fam) if sid else fam, mode),
                "presets": presets, "state_of": state_of, "sentence_offsets": offsets.get(bid),
                "word_offsets": word_times.get(bid),

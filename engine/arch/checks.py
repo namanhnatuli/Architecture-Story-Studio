@@ -41,6 +41,18 @@ def expected_counts(family, variant, p):
         if p["truss_pattern"] == "pratt":
             counts["TRUSS_VERTICAL"] = 2 * s
         return counts
+    if variant == "suspension":
+        return {"PIER": 2, "TOWER": 2, "ANCHORAGE": 2, "MAIN_CABLE": 2, "HANGER": 2, "FLOOR_BEAM": 1,
+                "STIFFENING_TRUSS": 2, "DECK": 1}
+    if variant == "cable_stayed":
+        n = p["stays_per_side"]
+        return {"PIER": 2, "PYLON": 2, "DECK": 4 * n + 3, "STAY_CABLE": 4 * n}
+    if variant == "cantilever":
+        lay = bridge.cantilever_layout(p)
+        braced = sum(1 for h in (lay["h_pier"],) if h >= bridge.THROUGH_CLEARANCE_M + 0.5) * 4   # arms reach the pier depth
+        braced += 1 if lay["h_tip"] >= bridge.THROUGH_CLEARANCE_M + 0.5 else 0
+        return {"ABUTMENT": 2, "PIER": 2, "ANCHOR_ARM": 4, "CANTILEVER_ARM": 4, "SUSPENDED_SPAN": 2, "FLOOR_BEAM": 5,
+                "DECK": 5, "BEARING": 1, **({"BRACING": braced} if braced else {})}
     return {}
 
 
@@ -110,7 +122,9 @@ def check_asset(spec_data, comps, params):
                     ", ".join(f"{k} {v}" for k, v in sorted(expected.items()))))
     lo, hi = semantic.union_bbox(comps)
     if family == "bridge":
-        length = hi[0] - lo[0]
+        # a suspension bridge's anchorages and cable ends lie on the banks, beyond the gap
+        lo_x, hi_x = semantic.union_bbox([c for c in comps if c.type not in ("ANCHORAGE", "MAIN_CABLE")])
+        length = hi_x[0] - lo_x[0]
         deck_tops = [semantic.bbox(c)[1][2] for c in comps if c.type in ("DECK", "PLANK")]
         ok_len = abs(length - params["total_length_m"]) <= 0.25
         ok_deck = bool(deck_tops) and all(abs(t - params["deck_level_m"]) < 1e-3 for t in deck_tops)
@@ -146,4 +160,19 @@ def _proportions(variant, p):
         return (35 <= ang <= 70 and 5 <= length / p["truss_height_m"] <= 12,
                 f"span {length:.2f} m, depth {p['truss_height_m']} m (span/depth {length / p['truss_height_m']:.1f}), "
                 f"diagonals at {ang:.0f} deg")
+    if variant == "suspension":
+        lay = bridge.suspension_layout(p)
+        return (0.08 <= p["sag_ratio"] <= 0.14 and lay["clearance"] >= 0.8,
+                f"main span {p['main_span_m']} m, sag {lay['sag']:.2f} m (sag/span {p['sag_ratio']}), cable "
+                f"{lay['clearance']:.2f} m above the deck at mid-span, towers {p['tower_height_m']} m above the deck")
+    if variant == "cable_stayed":
+        lay = bridge.cable_stayed_layout(p)
+        return (lay["flattest_deg"] >= 22.0,
+                f"main span {p['main_span_m']} m, pylons {p['pylon_height_m']} m above the deck, flattest stay "
+                f"{lay['flattest_deg']:.1f} deg (FHWA: not less than about 22)")
+    if variant == "cantilever":
+        lay = bridge.cantilever_layout(p)
+        return (lay["h_pier"] > max(lay["h_end"], lay["h_tip"]) and lay["suspended_m"] >= 4.0,
+                f"anchor arms {p['anchor_arm_m']} m, cantilever arms {p['cantilever_arm_m']} m, suspended span "
+                f"{lay['suspended_m']:.1f} m; depth {lay['h_end']} -> {lay['h_pier']} (piers) -> {lay['h_tip']} m")
     return (True, "n/a")

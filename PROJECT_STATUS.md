@@ -1,5 +1,25 @@
 # Current project status
 
+- Phase: **M8: phim làm lại với đủ sáu họ cầu. Bản review nội bộ 1080p xong (2026-11-01), chờ chủ kênh duyệt.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
+- **Phim `why-bridges-look-different`, revision m8-r1:**
+  - 11 chương; 14,46 phút (867,6 s); 133 câu; 63 shot;
+  - giọng `am_michael`;
+  - sáu họ cầu: dầm, vòm, giàn trên site 24 m; công-xôn, cầu treo, dây văng trên site 72 m (mô hình mới);
+  - 67 claim SOURCE_VERIFIED (25 mới, từ NCHRP §3.5/§3.7 và FHWA-IF-12-052); 6 ảnh HAER phạm vi công cộng.
+- **Trạng thái:** INTERNAL REVIEW (`NARRATED_INTERNAL_REVIEW`).
+  - Duyệt claim và phát âm của m7-r1 không áp sang m8-r1. Duyệt giọng theo dự án vẫn giữ.
+  - Bản 4K đã duyệt của m7-r1: tag `m7-final-4k`, `output/baseline_m7_final_4k/`.
+- Tài liệu: `docs/m8/M8_REPORT.md`.
+
+## Việc của chủ kênh
+1. Xem `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`.
+2. Duyệt hoặc sửa claim (`review/EDITORIAL_APPROVAL_PACKAGE.md`, `review/EVIDENCE_MATRIX.md`), phát âm (`review/PRONUNCIATION_REVIEW.md`), và xác nhận lại giọng.
+3. Sau khi duyệt: profile `PUBLICATION_CANDIDATE`, render 4K theo chương (`docs/m7/REPRODUCIBILITY.md` §8).
+
+---
+
+## M7 finalization (2026-10-31, revision m7-r1, trạng thái lúc đó)
+
 - Phase: **M7 finalization và hệ thống sản xuất V1: xong (2026-10-31).** Nhánh `m7-finalization-4k-production` (tách từ `24d13c1`), chưa merge, chưa push, chưa upload.
 - **Phim `why-bridges-look-different`** "Why Bridges Don't All Look the Same":
   - bản cuối **native 4K** `output/why_bridges_look_different_FINAL_4K_2160p.mp4`:
@@ -22,7 +42,7 @@
 - **Test:** offline 303 OK; Blender 21 OK; `evaluate-planning` 29/29.
 - Tài liệu: `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`, `docs/production/CLEANUP_REPORT.md`.
 
-## Việc của chủ kênh
+### Việc của chủ kênh lúc đó
 1. Xem bản 4K trước khi đăng.
 2. Nếu đăng: tự upload MP4 + `.en.srt` + `review/YOUTUBE_DESCRIPTION.md` và chọn các thiết lập YouTube. Studio không upload.
 3. Merge hay push nhánh cần một lệnh riêng.

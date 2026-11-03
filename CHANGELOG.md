@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.9.0 — 2026-10-31 — M8: phim làm lại với đủ sáu họ cầu (nhánh `m8-all-bridge-families`)
+- **Yêu cầu của chủ kênh:** làm lại `why-bridges-look-different`, kết hợp nội dung đã có, với đủ các loại cầu và đủ mô hình. Bản 4K đã duyệt của m7-r1 được giữ (tag `m7-final-4k`, `output/baseline_m7_final_4k/`).
+- **Mô hình mới:**
+  - cầu công-xôn (tay neo, tay hẫng, nhịp treo);
+  - cầu treo (tháp, cáp chính qua yên cáp, dây treo, dầm ngang, giàn tăng cứng, khối neo);
+  - cầu dây văng (tháp chữ H bê tông, dây văng xuống dầm biên, mặt cầu chia đốt).
+  - Đặt trên site mới 72 m, kèm tham số, kiểm tra chéo hình học, số bộ phận kỳ vọng và cấu hình nổ tách.
+  - Offline 8/8 và Blender 4/4 cho mỗi asset.
+- **Planner:**
+  - concept khai báo được `scene_context` và `site`; mỗi ngữ cảnh có site và trạng thái site trống riêng;
+  - shot ứng viên của bộ bố cục mang `scene_context` (sửa một lỗi có từ M6);
+  - mặt đất nới lên 1 km.
+- **Nghiên cứu:**
+  - thêm FHWA-IF-12-052 vol. 5 (2012, bản lưu Internet Archive của URL FHWA) và các mục NCHRP §3.1, §3.5, §3.7;
+  - 25 claim mới khớp nguyên văn, tổng 67;
+  - hai ảnh HAER phạm vi công cộng: Queensboro (NY-19), Brooklyn (NY-18).
+- **Kịch bản m8-r1:** 11 chương, 54 beat, 133 câu, 14,46 phút.
+  - Bỏ B23, B23B, B24B và một câu của B53 để giữ thời lượng ≤ 15 phút.
+  - Sửa câu chữ, không nới luật: một chỗ ASR nghe nhầm đồng âm; một mâu thuẫn lời–hình ("side by side" khi hình là sơ đồ).
+- **Duyệt:**
+  - duyệt claim và phát âm của m7-r1 không áp sang m8-r1 (`build_sources.py` nay kiểm `narration_revision`);
+  - duyệt giọng theo dự án vẫn giữ;
+  - profile trở về `NARRATED_INTERNAL_REVIEW`;
+  - `review/OWNER_APPROVALS.json` ghi REQ-M8-ALL-FAMILIES.
+- **Sửa lỗi:** `research/build_sources.py` còn trỏ tới đường dẫn cũ của sổ claim M6, bị bỏ sót khi dọn dẹp ở 0.8.0. Nay trỏ sang fixture; bản build lại trùng từng byte.
+- **Test:**
+  - `tests/test_m8_long_span.py` (mới);
+  - các test M7 kiểm logic duyệt trên một bản sao mô phỏng duyệt; phim thật được khẳng định đang chờ duyệt;
+  - ca "họ chưa có bộ sinh" chuyển từ cầu treo sang cầu cất (bascule).
+- Tài liệu: `docs/m8/M8_REPORT.md`; bổ sung AGENTS.md, playbook, báo cáo dọn dẹp.
+
 ## 0.8.0 — 2026-10-31 — M7 finalization: hồ sơ duyệt, cổng xuất bản, bản cuối 4K, hệ thống sản xuất V1 (nhánh `m7-finalization-4k-production`)
 - **Hồ sơ duyệt của chủ kênh** (`review/OWNER_APPROVALS.json`), mỗi quyết định gắn với revision và tự mất hiệu lực khi revision đổi:
   - 41 claim (`claims_text_sha256` + `narration_sha256`);

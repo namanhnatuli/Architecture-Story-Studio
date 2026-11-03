@@ -160,3 +160,12 @@ Tài liệu: [`docs/m7/`](docs/m7/).
 - `output/why_bridges_look_different_FINAL_4K_2160p.mp4`: native 3840×2160, cổng `gates --preset final_4k` → PUBLICATION_READY. Chưa đăng; việc đăng là quyết định của chủ kênh.
 - Lệnh render theo chương: `docs/m7/REPRODUCIBILITY.md` §8. Báo cáo: `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`.
 - Phim mới từ một chủ đề: `python3 tools/cli.py new-episode --topic "<chủ đề>"`, rồi `python3 tools/cli.py episode-status --project <slug>`. Quy trình đầy đủ ở `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`.
+
+## M8: đủ sáu họ cầu (2026-10-31)
+Phim được làm lại theo yêu cầu của chủ kênh, với dầm, vòm, giàn, công-xôn, cầu treo và cầu dây văng.
+- Revision m8-r1: 11 chương, 14,46 phút.
+- Ba mô hình nhịp lớn mới đặt trên site 72 m.
+- Bản review nội bộ: `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, chờ chủ kênh duyệt.
+- Bản 4K đã duyệt của m7-r1 giữ ở tag `m7-final-4k`.
+
+Chi tiết: [`docs/m8/M8_REPORT.md`](docs/m8/M8_REPORT.md).

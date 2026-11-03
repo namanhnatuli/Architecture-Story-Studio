@@ -12,7 +12,8 @@ ROOT = Path(__file__).resolve().parents[3]
 # Local snapshots of the downloaded sources (not committed; see research/source_snapshots.json):
 #   M7_SOURCE_SNAPSHOTS=<dir with nchrp/nchrp.txt, web/asce_bollman.txt, web/yale_6.txt>
 S = Path(os.environ.get("M7_SOURCE_SNAPSHOTS", Path(__file__).resolve().parent / "snapshots"))
-M6 = json.loads((ROOT / "projects/bridge-load-explained/research/sources.json").read_text())
+# The M6 pilot is a test fixture since the M7 cleanup (docs/production/CLEANUP_REPORT.md).
+M6 = json.loads((ROOT / "tests/fixtures/legacy_projects/bridge-load-explained/research/sources.json").read_text())
 m6_src = {s["id"]: s for s in M6["sources"]}
 m6_ex = {(e["source_id"], e["excerpt"]) for c in M6["claims"] for e in c["evidence"]}
 
@@ -22,6 +23,9 @@ texts = {
     "SRC_NCHRP_CONTEXT": raw,
     "SRC_ASCE_BOLLMAN": (S / "web/asce_bollman.txt").read_text(),
     "SRC_YALE_PHYSICS": (S / "web/yale_6.txt").read_text(),
+    # M8: the archived FHWA PDF carries an "Archived" watermark; fhwa.txt drops its stray fragments
+    # (lines that are only "Ar", "ch", "i", "ve" or "d"), see research/source_snapshots.json
+    "SRC_FHWA_BRIDGE_TYPES": (S / "fhwa/fhwa.txt").read_text(),
 }
 
 
@@ -84,6 +88,26 @@ SOURCES = [
      "url": "https://www.loc.gov/pictures/item/md0583.photos.082178p", "accessed": "2026-10-29",
      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (PD-USGov-NPS); loc.gov returned HTTP 403 to automated access.",
      "license": "Public domain (work of the U.S. National Park Service / HAER)."},
+    {"id": "SRC_FHWA_BRIDGE_TYPES", "title": "Steel Bridge Design Handbook: Selecting the Right Bridge Type (Publication No. FHWA-IF-12-052, Vol. 5)",
+     "publisher": "U.S. Department of Transportation, Federal Highway Administration",
+     "kind": "federal engineering handbook", "edition": "November 2012",
+     "url": "https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+     "archived_url": "https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+     "accessed": "2026-10-31",
+     "verification": "The FHWA URL no longer serves the file (HTTP 404) and the ROSAP copy refuses automated access (HTTP 403); the PDF was downloaded on 2026-10-31 from the Internet Archive capture of the FHWA URL (5.8 MB), text extracted with pdftotext -layout, the archive watermark fragments removed; every excerpt matched verbatim (whitespace-normalised). Superseded by FHWA-HIF-16-002 (2015) and AISC (2022); quoted as a 2012 FHWA statement.",
+     "license": "U.S. federal government work; quoted for research/citation."},
+    {"id": "SRC_HAER_BROOKLYN", "title": "Brooklyn Bridge, Spanning East River between Park Row, Manhattan and Sands Street, Brooklyn, New York, NY (HAER NY-18)",
+     "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ny1234)",
+     "kind": "federal documentation record (photographs)", "edition": "colour transparency before November 1982 (unknown photographer; scanned by Jet Lowe)",
+     "url": "https://www.loc.gov/pictures/item/ny1234.color.570577c", "accessed": "2026-10-31",
+     "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+     "license": "Public domain (work of the U.S. National Park Service / HAER)."},
+    {"id": "SRC_HAER_QUEENSBORO", "title": "Queensboro Bridge, Spanning East River and Blackwell's Island, New York, NY (HAER NY-19)",
+     "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ny0326)",
+     "kind": "federal documentation record (photographs)", "edition": "photograph 1991 (Jet Lowe)",
+     "url": "https://www.loc.gov/pictures/item/ny0326.photos.348966p", "accessed": "2026-10-31",
+     "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+     "license": "Public domain (work of the U.S. National Park Service / HAER)."},
     {"id": "SRC_HAER_HUMPBACK", "title": "Humpback Covered Bridge, spanning Dunlap Creek, Covington, VA (HAER VA, Survey va0239)",
      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item va0239)",
      "kind": "federal documentation record (photographs)", "edition": "photograph 1971 (Jack E. Boucher)",
@@ -125,6 +149,7 @@ def from_m6(cid, new_id, visual=None):
 
 
 N = "SRC_NCHRP_CONTEXT"
+F = "SRC_FHWA_BRIDGE_TYPES"
 CLAIMS = [
     from_m6("CLM_601", "CLM_701"), from_m6("CLM_602", "CLM_702"), from_m6("CLM_603", "CLM_703"), from_m6("CLM_604", "CLM_704"),
     from_m6("CLM_605", "CLM_705"), from_m6("CLM_606", "CLM_706"), from_m6("CLM_607", "CLM_707"), from_m6("CLM_608", "CLM_708"),
@@ -220,6 +245,95 @@ CLAIMS = [
     claim("CLM_746", "The Humpback Covered Bridge (1857), spanning Dunlap Creek, is an example of a multiple king post truss used for a covered bridge.",
           [(N, "List of figures, 3-5", "Humpback Covered Bridge (1857), Humpback Bridge spanning Dunlap")],
           ["truss"], [], "HAER photograph", assumptions="Only the name, date and crossing are narrated."),
+    # ---- M8: the long-span families (NCHRP 25-25(15) 3.1, 3.5, 3.7; FHWA-IF-12-052 vol. 5) ----
+    claim("CLM_750", "A cantilever is like an arm held straight out from the shoulder, or a diving board: a beam supported at one end and unsupported at the other; cantilever bridges are a modified form of beam bridge.",
+          [(N, "3.7 Cantilevers", "If you hold your arm straight out from your shoulder, it is acting as a cantilever."),
+           (N, "3.7 Cantilevers", "Cantilever bridges are a modified form of beam bridge. A cantilever is essentially a beam that is unsupported at one end but supported at the other, like diving boards.")],
+          ["cantilever"], ["cantilever_arm"], "Cantilever model assembling on the wide site"),
+    claim("CLM_751", "A cantilevered truss bridge consists of anchor arms supported by piers and a suspended span supported by the arms.",
+          [(N, "3.1 Trusses", "A cantilevered truss bridge consists of anchor arms supported by piers, and a suspended span that is supported by the anchor arms."),
+           (N, "3.7 Cantilevers", "the counterbalanced cantilever with the arms supporting a simple suspended span")],
+          ["cantilever"], ["anchor_arm", "cantilever_arm", "suspended_span"], "Cantilever model: anchor arms, cantilever arms, suspended span labelled"),
+    claim("CLM_752", "The cantilever was developed to make bridges longer, to cross wide rivers and deep gorges; it made longer spans and wider clearance beneath possible.",
+          [(N, "3.7 Cantilevers", "The cantilever was developed to solve the problem of increasing the length of the bridge to enable crossing wide bodies of water like the Ohio and Mississippi rivers, or wide and deep gorges like the Niagara Gorge"),
+           (N, "3.7 Cantilevers", "This configuration made longer spans possible and wider clearance beneath.")],
+          ["cantilever"], [], "The wide crossing (illustrative)"),
+    claim("CLM_753", "A cantilever can be built outward from its towers without falsework blocking the channel below; the suspended span is then lifted into place.",
+          [(N, "3.7 Cantilevers", "One great advantage of a cantilever is that it can be built outwards from the towers without falsework to block the channel below. Then the suspended span can be lifted into place.")],
+          ["cantilever"], ["suspended_span"], "Exploded cantilever: the suspended span lifts out and returns"),
+    claim("CLM_754", "In the United States, cantilever bridges date from the 1880s to the 1960s and were one of the standard types for intermediate to longer spans.",
+          [(N, "3.7 Cantilevers", "The cantilever bridge in the U.S. dates from the 1880s to the 1960s and is one of the standard bridge types for intermediate to longer spans")],
+          ["cantilever"], [], "Timeline band"),
+    claim("CLM_755", "In the two decades before 2005, cable-stayed bridges began to supplant cantilevers because they are visually appealing and sometimes more economical.",
+          [(N, "3.7 Cantilevers", "In the last twenty years, however, cable-stayed suspension bridges have begun to supplant cantilevers because they are visually appealing and sometimes more economical.")],
+          ["cantilever", "cable_stayed"], [], "Timeline / economics card",
+          assumptions="'The last twenty years' is read from the report's 2005 date (about 1985-2005); the report calls them 'cable-stayed suspension bridges'."),
+    claim("CLM_756", "The Queensboro Bridge over the East River in New York City was the longest cantilever in the United States when completed in 1909.",
+          [(N, "3.7 Cantilevers", "The Queensboro Bridge over the East River in New York City was the longest cantilever in the United States when completed in 1909.")],
+          ["cantilever"], [], "HAER photograph of the Queensboro Bridge"),
+    claim("CLM_757", "Beam and arch bridges of steel or reinforced concrete had limited spans, not exceeding 200 to 300 feet; the cantilever provided an alternative, and also avoided the costly anchorages a suspension bridge requires.",
+          [(N, "3.7 Cantilevers", "It provided alternatives to beam and arch bridges, which had limited spans not exceeding 200 to 300 feet when constructed of steel or reinforced concrete."),
+           (N, "3.7 Cantilevers", "The cantilever also eliminated the high cost of building anchorages required by the other long span bridge type, suspension bridges, thus saving money and materials.")],
+          ["cantilever", "beam", "arch", "suspension"], [], "Comparison / span card"),
+    claim("CLM_760", "The deck of a suspension bridge hangs from vertical suspenders attached to cables in tension, which pass over towers in compression.",
+          [(N, "3.5 Suspension", "The deck of a suspension bridge is hung from vertical suspenders that are affixed to ropes, chains, eyebars or cables that are in tension, passing over towers that are in compression.")],
+          ["suspension"], ["main_cable", "hanger", "tower"], "Suspension model: hangers, cables (tension) and towers (compression) marked"),
+    claim("CLM_761", "The ends of a suspension bridge's main cables are anchored in large masses of stone or concrete, or directly into bedrock.",
+          [(N, "3.5 Suspension", "Usually the ends of the cables are anchored in large masses of stone or concrete"),
+           (F, "2.6 Suspension Bridges", "The ends of the main suspension cables are anchored either into large counterweights or directly into bedrock at the ends of the structure.")],
+          ["suspension"], ["anchorage"], "Anchorages on the banks"),
+    claim("CLM_762", "The main cables run along the outer edges of the bridge, draped over the towers where they rest in saddles, and vertical cables connect them to the ends of transverse floor beams.",
+          [(F, "2.6 Suspension Bridges", "The main cables typically are located at the outside edges of the bridge and are draped over the towers where they rest in saddles."),
+           (F, "2.6 Suspension Bridges", "The superstructure is generally supported at relatively short intervals by vertical cables that connect at the ends of transverse floorbeams.")],
+          ["suspension"], ["main_cable", "hanger"], "Suspension model geometry"),
+    claim("CLM_763", "Suspension bridges are particularly suited to spanning great distances; their towers are much shorter than a cable-stayed bridge's, and they become economical for very long spans.",
+          [(N, "3.5 Suspension", "Suspension bridges are particularly suited for spanning great distances"),
+           (F, "2.6 Suspension Bridges", "Suspension bridges, whose towers are significantly shorter than those required for cable-stayed bridges, become economical for very long spans.")],
+          ["suspension", "cable_stayed"], ["tower", "pylon"], "Suspension vs cable-stayed side by side (tower heights)"),
+    claim("CLM_764", "Two towers, cables and suspenders, anchorages and a stiffening truss are the character-defining features of a suspension bridge.",
+          [(N, "3.5 Suspension", "The plan involved two towers, cables and suspenders, anchorages and a stiffening truss - the character-defining features of a suspension bridge.")],
+          ["suspension"], ["tower", "main_cable", "hanger", "anchorage", "stiffening_truss"], "Brooklyn Bridge photograph; the model's parts"),
+    claim("CLM_765", "A suspension deck is very light for its span and can be very flexible, so a stiffening truss is commonly provided under the deck against wind and earthquake loading.",
+          [(F, "2.6 Suspension Bridges", "Suspension bridge superstructures are generally very light relative to the span length which leads to structures that may be very flexible."),
+           (F, "2.6 Suspension Bridges", "it is common to provide a lateral stiffening truss under the deck to avoid excessive excitement of the superstructure under wind or seismic loadings.")],
+          ["suspension"], ["stiffening_truss"], "Stiffening truss highlighted"),
+    claim("CLM_766", "Ellet's Wheeling bridge (1849) spanned 1,010 feet and was the longest bridge in the world for many years; Roebling's Cincinnati-Covington bridge (1867) had a 1,057-foot main span, the longest clear span in the world when completed.",
+          [(N, "3.5 Suspension", "He quickly turned his full attention to the Wheeling Bridge, which was completed in 1849. Spanning 1,010 feet, this was the longest bridge in the world for many years after its completion"),
+           (N, "3.5 Suspension", "Officially opened on January 1, 1867, this bridge has a main span of 1,057 feet. It had the longest clear span of any bridge in the world when completed")],
+          ["suspension"], [], "Span scale card (sourced values only)"),
+    claim("CLM_767", "At one time a great number of suspension bridges of very modest span were built across the United States, because of the type's basic simplicity and ease of erection.",
+          [(N, "3.5 Suspension", "At one time, however, a great number of suspension bridges of very modest span length were built across the country due to the type’s basic simplicity and ease of erection.")],
+          ["suspension"], [], "Not a story of progress (timeline / conclusion)"),
+    claim("CLM_768", "The Brooklyn Bridge was completed in 1883; few suspension bridges built since the Roeblings' time can claim to stand entirely clear of its shadow.",
+          [(N, "3.7 Cantilevers", "Washington Roebling for the Brooklyn Bridge (1883)"),
+           (N, "3.5 Suspension", "Few suspension bridges in the world built since the time of the Roeblings can claim to stand entirely clear of the shadow cast by the Brooklyn Bridge.")],
+          ["suspension"], [], "HAER photograph of the Brooklyn Bridge",
+          assumptions="'Few ... stand entirely clear of the shadow' is the report's assessment; the narration attributes it ('one report')."),
+    claim("CLM_770", "Cable-stayed bridges rely on high-strength steel cables; the stay cables are inclined from the towers to edge girders at or below the deck.",
+          [(F, "2.5 Cable-Stayed", "Cable-Stayed bridges rely on high strength steel cables as major structural elements. The stay cables are inclined from the supporting towers to edge girders at or below the deck elevation.")],
+          ["cable_stayed"], ["stay_cable", "pylon"], "Cable-stayed model: stays and towers labelled"),
+    claim("CLM_771", "Cable-stayed bridge towers are generally very tall, their height set by the span; the flattest stays should not be less than about 22 degrees from the horizontal.",
+          [(F, "2.5 Cable-Stayed", "Generally the towers are very tall with the height determined as a function of the span length."),
+           (F, "2.5 Cable-Stayed", "The flattest cable angle should not be less than about 22 degrees with the horizontal.")],
+          ["cable_stayed"], ["pylon", "stay_cable"], "Tall pylons; the model's flattest stay is about 29 degrees"),
+    claim("CLM_772", "Once the towers are complete, a cable-stayed deck can be built without falsework towers, by a balanced cantilever method proceeding away from the towers until the spans close.",
+          [(F, "4.4 Cable-Stayed Bridges", "Once the towers are completed, the cable-stayed superstructures can be constructed without falsework towers, which can provide significant benefits over navigable waterways. The construction uses a balanced cantilever method proceeding away from the towers until the spans can be closed.")],
+          ["cable_stayed"], ["deck_segment", "stay_cable"], "Exploded cable-stayed model: the deck segments return outward from the towers"),
+    claim("CLM_773", "The stay cables also compress the edge girders along their length; the compression adds up toward the towers.",
+          [(F, "2.5 Cable-Stayed", "The compressive forces are additive from the end of the longest cables toward the towers. In most cases the edge girder design is not controlled by bending but by the compressive forces imparted by the stay cables")],
+          ["cable_stayed"], ["deck_segment"], "Conceptual compression arrows along the deck toward a tower (no magnitudes)"),
+    claim("CLM_774", "In the United States, cable-stayed bridges become very cost competitive for main spans over 750 feet, and almost all bridges with main spans over 1,000 feet built since 1980 have been cable-stayed.",
+          [(F, "3.0 Economics", "In the U.S., cable-stayed bridges become very cost competitive for main span lengths over 750 feet. Almost all bridges with main span lengths in excess of 1000 feet built in the U.S. since 1980 have been cable-stayed structures.")],
+          ["cable_stayed"], [], "Long-span economics card (sourced values only)"),
+    claim("CLM_775", "Before 1970, suspension bridges were considered the most economical solution for spans over about 1,200 feet; with cable-stayed technology, suspension bridges do not become economical until main spans approach 3,000 feet.",
+          [(F, "3.0 Economics", "Prior to 1970, it was generally considered that suspension bridges provided the most economical solution for span lengths in excess of about 1200 feet. With the development of cable-stayed bridge technology, suspension bridges do not become economical until the main span length approaches 3000 feet.")],
+          ["suspension", "cable_stayed"], [], "Long-span economics card"),
+    claim("CLM_776", "Cable-stayed bridges are more versatile than suspension bridges: they offer more possible configurations, and their towers do not need good rock near the surface.",
+          [(F, "3.0 Economics", "They are more versatile than suspension bridges in that they offer more possible configurations and towers can be constructed in less than optimal foundation conditions because having good rock near the surface is not a requirement.")],
+          ["cable_stayed", "suspension"], [], "Comparison"),
+    claim("CLM_777", "Welded plate girders, a form of beam, are currently the most common type of steel bridge.",
+          [(F, "3.0 Economics", "Welded plate girders are currently the most common type of steel bridge.")],
+          ["beam"], [], "Conclusion: not a story of progress", assumptions="A 2012 FHWA statement about steel bridges."),
     claim("CLM_747", "Stone arch bridges were popular where good stone was available locally, yet some states with abundant stone built few of them.",
           [(N, "3.2.1 Stone Arch", "stone arch bridges were popular in Kansas for many reasons, a major one being that the stone was often available locally."),
            (N, "3.2.1 Stone Arch", "despite an abundance of stone in various forms through the state and an indigenous tradition of masonry construction, stone bridges were never built in abundance in Michigan.")],
@@ -229,6 +343,11 @@ CLAIMS = [
 # The owner's editorial decision (a human record, never written by this script) is applied on top.
 approval_path = Path(sys.argv[1]).parent / "editorial_approval.json"
 approval = json.loads(approval_path.read_text()) if approval_path.is_file() else None
+revision = json.loads((Path(__file__).resolve().parents[1] / "script/narration.template.json").read_text())["revision"]["version"]
+if approval and approval.get("narration_revision") != revision:
+    # documented invalidation: an approval covers the narration revision it was given for
+    print(f"editorial approval of narration {approval.get('narration_revision')} does not cover {revision}: NOT applied")
+    approval = None
 if approval:
     import hashlib
     texts_sha = approval.get("claims_text_sha256", {})
@@ -243,7 +362,7 @@ if approval:
                            f"{approval['narration_revision']}; illustrative models, conceptual forces only.")
             c["editorial_approval"] = {k: approval[k] for k in ("approved_by", "approved_on", "narration_revision", "basis")}
 
-out = {"note": "M7 evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720+ are new. Every excerpt was matched verbatim against the downloaded source text (gen/build_sources.py). "
+out = {"note": "Evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720-747 were added in M7, CLM_750-777 (long-span families) in M8. Every excerpt was matched verbatim against the downloaded source text (research/build_sources.py). "
                + (f"{len(approval['claims'])} narrated claims editorially approved by {approval['approved_by']} on {approval['approved_on']} (research/editorial_approval.json)."
                   if approval else "Nothing here is editorially approved."),
        "sources": SOURCES, "claims": CLAIMS}

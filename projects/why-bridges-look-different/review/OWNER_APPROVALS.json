@@ -78,6 +78,21 @@
       "decision": "owner asked for the real final publication gates and a native 4K final; production_profile set to PUBLICATION_CANDIDATE with publication_metadata. This is not an upload: the Studio never publishes.",
       "date": "2026-10-30",
       "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §4, §7"
+    },
+    {
+      "id": "REQ-M8-ALL-FAMILIES",
+      "subject": "revision m8-r1 of why-bridges-look-different",
+      "scope": "why-bridges-look-different",
+      "decision": "owner asked to remake the film, combined with the existing content, with every bridge type and full models (in-session request of 2026-10-31: 'kết hợp với nội dung đã có để làm lại project why-bridge-look-different với đầy đủ các loại cầu, đầy đủ các mô hình')",
+      "date": "2026-10-31",
+      "evidence": "owner instruction in session, 2026-10-31",
+      "consequence": {
+        "APP-CLAIMS": "covers narration m7-r1 only; not applied to m8-r1 (research/build_sources.py checks narration_revision)",
+        "APP-PRONUNCIATION": "covers audio ab0484de... (m7-r1) only; m8-r1 pronunciation_review is PENDING",
+        "APP-VOICE": "project-scoped (why-bridges-look-different, voice sha 9a443b79...); its invalidation conditions are not met by a new revision, so it is kept; the owner may confirm or withdraw it for m8-r1",
+        "REQ-PUBLICATION-EVALUATION": "concerned the m7-r1 4K final (tag m7-final-4k, output/baseline_m7_final_4k/); m8-r1 is back to NARRATED_INTERNAL_REVIEW"
+      },
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
     }
   ]
 }

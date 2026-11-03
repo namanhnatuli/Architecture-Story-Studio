@@ -1,7 +1,8 @@
 {
-  "verdict": "PUBLICATION_READY",
+  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (EDITORIAL_REVIEW_PENDING)",
   "statuses": [
-    "PUBLICATION_READY"
+    "TECHNICALLY_VALIDATED",
+    "EDITORIAL_REVIEW_PENDING"
   ],
   "gates": {
     "G0 project & schema validation": {
@@ -11,35 +12,37 @@
       ]
     },
     "G1 evidence, script & pronunciation review": {
-      "status": "PASS",
+      "status": "PENDING_EDITORIAL",
       "notes": [
-        "41 claims editorially approved; factual_review verified; pronunciation: current audio accepted by the owner (no per-item listening recorded)"
+        "0/58 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
+        "factual_review: pending",
+        "pronunciation pending: voice.pronunciation_review PENDING (26 terms)"
       ]
     },
     "G2 narration audio & TTS rights": {
       "status": "PASS",
       "notes": [
-        "102 sentences generated + ASR-verified",
+        "132 sentences generated + ASR-verified",
         "provider kokoro: rights class PUBLICATION_CLEARED; voice licence APPROVED"
       ]
     },
     "G3 narration timing lock": {
       "status": "PASS",
       "notes": [
-        "15395 frames, locked=True"
+        "20823 frames, locked=True"
       ]
     },
     "G4 Blender visual preview": {
       "status": "PASS",
       "notes": [
-        "Blender QA 577/577",
+        "Blender QA 792/792",
         "media QA PASS"
       ]
     },
     "G5 media assembly & subtitles": {
       "status": "PASS",
       "notes": [
-        "15395 frames, -16.4 LUFS, 145 subtitle cues"
+        "20823 frames, -16.4 LUFS, 199 subtitle cues"
       ]
     },
     "GL long-form chapters & rights": {
@@ -49,17 +52,18 @@
       ]
     },
     "G6 final publication readiness": {
-      "status": "PASS",
+      "status": "BLOCKED",
       "notes": [
-        "all gates pass"
+        "FINAL gate: unverified claims used in the film (claims must be EDITORIALLY_APPROVED): CLM_701, CLM_702, CLM_703, CLM_704, CLM_705, CLM_706, CLM_707, CLM_708",
+        "FINAL gate: factual_review is not verified"
       ]
     },
     "GV visual plan & coverage": {
       "status": "PASS",
       "notes": [
-        "visual plan valid: 47 shots, coverage COVERED 39"
+        "visual plan valid: 63 shots, coverage COVERED 54"
       ]
     }
   },
-  "profile": "PUBLICATION_CANDIDATE"
+  "profile": "NARRATED_INTERNAL_REVIEW"
 }

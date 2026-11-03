@@ -72,7 +72,7 @@
     },
     "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
     "pronunciation_review": {
-      "status": "ACCEPTED_BY_OWNER",
+      "status": "PENDING",
       "terms": [
         "voussoirs",
         "falsework",
@@ -89,13 +89,26 @@
         "Dunlap Creek",
         "Humpback",
         "trestle",
-        "viaduct"
+        "viaduct",
+        "cantilever",
+        "Queensboro",
+        "Brooklyn",
+        "Roebling",
+        "Wheeling",
+        "Cincinnati",
+        "Covington",
+        "cable-stayed",
+        "suspenders",
+        "anchorages"
       ],
-      "note": "am_michael with American G2P (misaki lang_code a, espeak-ng en-us fallback); none of the terms has been listened to by the owner with this voice",
-      "accepted_by": "Tran Nam Anh (channel owner)",
-      "accepted_on": "2026-10-30",
-      "basis": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.3: the owner accepts the existing reviewed audio delivery for the 16 items in review/PRONUNCIATION_REVIEW.md. No per-item listening session or phonetic verification is recorded here.",
-      "audio_revision": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8",
+      "note": "m8-r1 regenerates the narration: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it",
+      "previous_acceptance": {
+        "status": "ACCEPTED_BY_OWNER",
+        "accepted_by": "Tran Nam Anh (channel owner)",
+        "accepted_on": "2026-10-30",
+        "basis": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.3: the owner accepts the existing reviewed audio delivery for the 16 items in review/PRONUNCIATION_REVIEW.md. No per-item listening session or phonetic verification is recorded here.",
+        "audio_revision": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8"
+      },
       "asr_uncertainties": [
         "Bollman heard as 'Bauman'/'Bowman'",
         "Corinne heard as 'Kareen'",
@@ -112,9 +125,16 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "m7-r1",
-    "date": "2026-10-30",
+    "version": "m8-r1",
+    "date": "2026-10-31",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+    "previous": {
+      "version": "m7-r1",
+      "date": "2026-10-30",
+      "status": "EDITORIALLY_APPROVED (41 claims, 2026-10-30)",
+      "note": "m7-r1 is the approved film (git tag m7-final-4k); its approvals do not carry over to m8-r1"
+    },
+    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31",
     "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
     "edits": [
       {
@@ -164,6 +184,18 @@
         "draft": "(none)",
         "m7-r1": "The sources and photo credits are listed in the description.",
         "why": "rough-cut review: the 6-line credits card was on screen for 4 s only"
+      },
+      {
+        "sentence": "B01C.s0",
+        "draft": "Another hangs from great draped cables.",
+        "m8-r1": "Another hangs from huge draped cables.",
+        "why": "ASR heard 'grate' (homophone; WER 0.17)"
+      },
+      {
+        "sentence": "B51.s0",
+        "draft": "Side by side, the difference is clear.",
+        "m8-r1": "Seen in outline, the difference is clear.",
+        "why": "planner/consistency.py: 'side by side' promised two models on screen together, but the comparison is a diagram (two 72 m models do not read side by side at 640x360)"
       }
     ],
     "voice_change": {
@@ -204,13 +236,38 @@
       ]
     },
     {
+      "id": "B01B",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Over wider water, the answers change again.",
+        "One bridge reaches out from its piers."
+      ]
+    },
+    {
+      "id": "B01C",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Another hangs from huge draped cables."
+      ]
+    },
+    {
+      "id": "B01D",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "A third is held up by straight lines of steel."
+      ]
+    },
+    {
       "id": "B02",
       "kind": "framing",
       "claim_ids": [],
       "sentences": [
         "So why don't bridges all look the same?",
         "It isn't because one design is simply better than the others.",
-        "Each form is a different answer to the same problem, shaped by materials, by the site, and by the time it was built in."
+        "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in."
       ]
     },
     {
@@ -417,6 +474,162 @@
       ]
     },
     {
+      "id": "B40",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_752",
+        "CLM_757"
+      ],
+      "sentences": [
+        "To cross wide rivers and deep gorges, bridges needed longer spans.",
+        "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet."
+      ]
+    },
+    {
+      "id": "B41",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_750"
+      ],
+      "sentences": [
+        "One answer was the cantilever.",
+        "Hold your arm straight out from your shoulder, and it is acting as a cantilever: supported at one end, free at the other, like a diving board."
+      ]
+    },
+    {
+      "id": "B42",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_750",
+        "CLM_751"
+      ],
+      "sentences": [
+        "A cantilever bridge is a modified beam.",
+        "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips."
+      ]
+    },
+    {
+      "id": "B43",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_753"
+      ],
+      "sentences": [
+        "Its great advantage came during construction.",
+        "The arms could be built outward from the piers with no falsework blocking the channel below, and then the suspended span was lifted into place."
+      ]
+    },
+    {
+      "id": "B44",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_754",
+        "CLM_756"
+      ],
+      "sentences": [
+        "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+        "The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909."
+      ]
+    },
+    {
+      "id": "B45",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_763",
+        "CLM_760"
+      ],
+      "sentences": [
+        "For the longest spans of all, engineers hung the deck instead.",
+        "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables."
+      ]
+    },
+    {
+      "id": "B46",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_760",
+        "CLM_761"
+      ],
+      "sentences": [
+        "The cables are in tension, and they pass over towers that are in compression.",
+        "At each end, the cables are anchored, usually in large masses of stone or concrete."
+      ]
+    },
+    {
+      "id": "B47",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_765"
+      ],
+      "sentences": [
+        "A suspension deck is light for its span, and it can be very flexible.",
+        "So a stiffening truss is commonly built under the deck, against wind and earthquakes."
+      ]
+    },
+    {
+      "id": "B48",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_764",
+        "CLM_768"
+      ],
+      "sentences": [
+        "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge.",
+        "The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow."
+      ]
+    },
+    {
+      "id": "B50",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_770",
+        "CLM_771"
+      ],
+      "sentences": [
+        "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+        "Straight stay cables run from tall towers directly down to the edges of the deck."
+      ]
+    },
+    {
+      "id": "B51",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_763",
+        "CLM_761",
+        "CLM_770",
+        "CLM_771"
+      ],
+      "sentences": [
+        "Seen in outline, the difference is clear.",
+        "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+        "The cable-stayed bridge needs much taller towers, and its stays end at the deck itself."
+      ]
+    },
+    {
+      "id": "B52",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_772",
+        "CLM_773"
+      ],
+      "sentences": [
+        "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+        "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers."
+      ]
+    },
+    {
+      "id": "B53",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_775",
+        "CLM_774"
+      ],
+      "sentences": [
+        "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+        "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet, and that suspension bridges pay off only as main spans approach 3,000."
+      ]
+    },
+    {
       "id": "B19",
       "kind": "framing",
       "claim_ids": [],
@@ -482,27 +695,6 @@
         "The site of a bridge matters too.",
         "Railway engines have limited traction, so railways need gentle gradients.",
         "Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level."
-      ]
-    },
-    {
-      "id": "B23",
-      "kind": "framing",
-      "claim_ids": [],
-      "sentences": [
-        "Then there is span: how far a single structure has to reach."
-      ]
-    },
-    {
-      "id": "B23B",
-      "kind": "fact",
-      "claim_ids": [
-        "CLM_731",
-        "CLM_732",
-        "CLM_730"
-      ],
-      "sentences": [
-        "A simple king post truss could span only about thirty feet.",
-        "What one report calls America's greatest stone arch, the Cabin John Aqueduct Bridge, spans 220 feet, and some through trusses approach 400."
       ]
     },
     {
@@ -625,6 +817,18 @@
       ]
     },
     {
+      "id": "B32L",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_750",
+        "CLM_760",
+        "CLM_770"
+      ],
+      "sentences": [
+        "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables."
+      ]
+    },
+    {
       "id": "B32B",
       "kind": "interpretation",
       "claim_ids": [
@@ -640,11 +844,13 @@
       "kind": "interpretation",
       "claim_ids": [
         "CLM_721",
-        "CLM_738"
+        "CLM_738",
+        "CLM_777"
       ],
       "sentences": [
         "And it is not a simple story of progress.",
         "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression.",
+        "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
         "Each form can still be the right answer in the right place."
       ]
     },

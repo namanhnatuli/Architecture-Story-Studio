@@ -1,5 +1,5 @@
 {
-  "note": "M7 evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720+ are new. Every excerpt was matched verbatim against the downloaded source text (gen/build_sources.py). 41 narrated claims editorially approved by Tran Nam Anh (channel owner) on 2026-10-30 (research/editorial_approval.json).",
+  "note": "Evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720-747 were added in M7, CLM_750-777 (long-span families) in M8. Every excerpt was matched verbatim against the downloaded source text (research/build_sources.py). Nothing here is editorially approved.",
   "sources": [
     {
       "id": "SRC_ODOT_MBI",
@@ -121,6 +121,40 @@
       "license": "Public domain (work of the U.S. National Park Service / HAER)."
     },
     {
+      "id": "SRC_FHWA_BRIDGE_TYPES",
+      "title": "Steel Bridge Design Handbook: Selecting the Right Bridge Type (Publication No. FHWA-IF-12-052, Vol. 5)",
+      "publisher": "U.S. Department of Transportation, Federal Highway Administration",
+      "kind": "federal engineering handbook",
+      "edition": "November 2012",
+      "url": "https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+      "archived_url": "https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+      "accessed": "2026-10-31",
+      "verification": "The FHWA URL no longer serves the file (HTTP 404) and the ROSAP copy refuses automated access (HTTP 403); the PDF was downloaded on 2026-10-31 from the Internet Archive capture of the FHWA URL (5.8 MB), text extracted with pdftotext -layout, the archive watermark fragments removed; every excerpt matched verbatim (whitespace-normalised). Superseded by FHWA-HIF-16-002 (2015) and AISC (2022); quoted as a 2012 FHWA statement.",
+      "license": "U.S. federal government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_HAER_BROOKLYN",
+      "title": "Brooklyn Bridge, Spanning East River between Park Row, Manhattan and Sands Street, Brooklyn, New York, NY (HAER NY-18)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ny1234)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "colour transparency before November 1982 (unknown photographer; scanned by Jet Lowe)",
+      "url": "https://www.loc.gov/pictures/item/ny1234.color.570577c",
+      "accessed": "2026-10-31",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_QUEENSBORO",
+      "title": "Queensboro Bridge, Spanning East River and Blackwell's Island, New York, NY (HAER NY-19)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ny0326)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photograph 1991 (Jet Lowe)",
+      "url": "https://www.loc.gov/pictures/item/ny0326.photos.348966p",
+      "accessed": "2026-10-31",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
       "id": "SRC_HAER_HUMPBACK",
       "title": "Humpback Covered Bridge, spanning Dunlap Creek, Covington, VA (HAER VA, Survey va0239)",
       "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item va0239)",
@@ -139,7 +173,7 @@
       "source_ids": [
         "SRC_ODOT_MBI"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -163,13 +197,7 @@
       ],
       "intended_visual": "LOAD_ARROW on the deck labelled 'Load' (qualitative, not to scale)",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_702",
@@ -177,7 +205,7 @@
       "source_ids": [
         "SRC_ODOT_MBI"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -196,13 +224,7 @@
       ],
       "intended_visual": "COMPONENT_LABEL 'Deck'",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_703",
@@ -211,7 +233,7 @@
         "SRC_FHWA_PBES_CH2",
         "SRC_FHWA_PBES_GLOSSARY"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -234,13 +256,7 @@
       ],
       "intended_visual": "HIGHLIGHT + COMPONENT_LABEL 'Superstructure'",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_704",
@@ -248,7 +264,7 @@
       "source_ids": [
         "SRC_ODOT_MBI"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -277,13 +293,7 @@
       ],
       "intended_visual": "CONCEPTUAL_LOAD_PATH from deck through supports to the ground",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_705",
@@ -291,7 +301,7 @@
       "source_ids": [
         "SRC_ODOT_MBI"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -309,13 +319,7 @@
       ],
       "intended_visual": "HIGHLIGHT stringers (ghosted planks) + COMPONENT_LABEL 'Beams'",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_706",
@@ -324,7 +328,7 @@
         "SRC_FHWA_CBM",
         "SRC_ODOT_MBI"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -347,13 +351,7 @@
       ],
       "intended_visual": "CALLOUT 'Beams resist bending' on a stringer",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_707",
@@ -361,7 +359,7 @@
       "source_ids": [
         "SRC_ODOT_MBI"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -390,13 +388,7 @@
       ],
       "intended_visual": "CONCEPTUAL_LOAD_PATH stringer -> cap beam -> posts -> ground; REACTION_ARROW at the ground",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_708",
@@ -404,7 +396,7 @@
       "source_ids": [
         "SRC_ODOT_MBI"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -428,13 +420,7 @@
       ],
       "intended_visual": "Frontal exploded close-up of one arch ring; COMPONENT_LABEL 'Voussoirs', 'Keystone'",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_709",
@@ -443,7 +429,7 @@
         "SRC_ODOT_MBI",
         "SRC_YALE_PHYSICS"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "medium",
       "evidence": [
         {
@@ -471,13 +457,7 @@
       ],
       "intended_visual": "CONCEPTUAL_LOAD_PATH along the arch ring from the crown to both springings, styled 'compression'",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_710",
@@ -486,7 +466,7 @@
         "SRC_ODOT_MBI",
         "SRC_YALE_PHYSICS"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "medium",
       "evidence": [
         {
@@ -510,13 +490,7 @@
       ],
       "intended_visual": "REACTION_ARROW at each springing, pointing up and inward",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_711",
@@ -525,7 +499,7 @@
         "SRC_ODOT_MBI",
         "SRC_SCI_TRUSSES"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -549,13 +523,7 @@
       ],
       "intended_visual": "HIGHLIGHT truss members; COMPONENT_LABEL 'Joints'",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_712",
@@ -564,7 +532,7 @@
         "SRC_FHWA_CBM",
         "SRC_SCI_TRUSSES"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -587,13 +555,7 @@
       ],
       "intended_visual": "TENSION_COMPRESSION_LEGEND (conceptual)",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_713",
@@ -602,7 +564,7 @@
         "SRC_FHWA_CBM",
         "SRC_SCI_TRUSSES"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -625,13 +587,7 @@
       ],
       "intended_visual": "CALLOUT on the top chord 'compression (pushed)' and on the bottom chord 'tension (pulled)'",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_714",
@@ -639,7 +595,7 @@
       "source_ids": [
         "SRC_FHWA_CBM"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -657,13 +613,7 @@
       ],
       "intended_visual": "HIGHLIGHT web members without a tension/compression colour",
       "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_720",
@@ -671,7 +621,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -689,13 +639,7 @@
       ],
       "intended_visual": "Timber beam model; no historical reconstruction",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_721",
@@ -703,7 +647,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -726,13 +670,7 @@
       ],
       "intended_visual": "Timber beam model; caption 'Illustrative model'",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_722",
@@ -740,7 +678,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -758,13 +696,7 @@
       ],
       "intended_visual": "Timber model: several short spans on bents",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_723",
@@ -772,7 +704,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -790,13 +722,7 @@
       ],
       "intended_visual": "2D diagram: arch ring on temporary falsework (conceptual)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_724",
@@ -804,7 +730,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -823,13 +749,7 @@
       ],
       "intended_visual": "2D comparison panel: cost vs permanence (qualitative, no numbers)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_725",
@@ -837,7 +757,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -855,13 +775,7 @@
       ],
       "intended_visual": "Comparison panel",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_726",
@@ -869,7 +783,7 @@
       "source_ids": [
         "SRC_YALE_PHYSICS"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "medium",
       "evidence": [
         {
@@ -887,13 +801,7 @@
       ],
       "intended_visual": "Materials panel",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_727",
@@ -901,7 +809,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -919,13 +827,7 @@
       ],
       "intended_visual": "Pratt pattern highlighted (no member colouring)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_728",
@@ -933,7 +835,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -951,13 +853,7 @@
       ],
       "intended_visual": "Warren pattern on the shared chords (illustrative variant without verticals)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_729",
@@ -965,7 +861,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -983,13 +879,7 @@
       ],
       "intended_visual": "Exploded truss (members as separate prefabricated pieces)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_730",
@@ -997,7 +887,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1015,13 +905,7 @@
       ],
       "intended_visual": "Span scale panel (sourced values only)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_731",
@@ -1029,7 +913,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1047,13 +931,7 @@
       ],
       "intended_visual": "Span scale panel",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_732",
@@ -1061,7 +939,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1079,13 +957,7 @@
       ],
       "intended_visual": "Span scale panel",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_733",
@@ -1093,7 +965,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1111,13 +983,7 @@
       ],
       "intended_visual": "HAER photograph of the Humpback Covered Bridge",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_734",
@@ -1125,7 +991,7 @@
       "source_ids": [
         "SRC_ASCE_BOLLMAN"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1142,13 +1008,7 @@
       "components": [],
       "intended_visual": "Materials panel",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_735",
@@ -1156,7 +1016,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1174,13 +1034,7 @@
       ],
       "intended_visual": "Materials panel",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_736",
@@ -1188,7 +1042,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1209,13 +1063,7 @@
       "components": [],
       "intended_visual": "2D diagram: valley profile with a level line on piers (schematic)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_737",
@@ -1223,7 +1071,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1241,13 +1089,7 @@
       ],
       "intended_visual": "Timber model bents highlighted",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_738",
@@ -1255,7 +1097,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1273,13 +1115,7 @@
       ],
       "intended_visual": "Timeline card",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_739",
@@ -1287,7 +1123,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1305,13 +1141,7 @@
       ],
       "intended_visual": "HAER photograph of the Carrollton Viaduct",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_740",
@@ -1319,7 +1149,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1335,13 +1165,7 @@
       "components": [],
       "intended_visual": "HAER photograph",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_741",
@@ -1349,7 +1173,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1370,13 +1194,7 @@
       "components": [],
       "intended_visual": "Arch model with 'Illustrative model' note",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_742",
@@ -1384,7 +1202,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1400,13 +1218,7 @@
       "components": [],
       "intended_visual": "HAER photograph of the Promontory trestle; schematic map",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_743",
@@ -1414,7 +1226,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1430,13 +1242,7 @@
       "components": [],
       "intended_visual": "HAER photograph",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_744",
@@ -1444,7 +1250,7 @@
       "source_ids": [
         "SRC_ASCE_BOLLMAN"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1465,13 +1271,7 @@
       "components": [],
       "intended_visual": "HAER photograph of the Bollman truss at Savage",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_745",
@@ -1479,7 +1279,7 @@
       "source_ids": [
         "SRC_ASCE_BOLLMAN"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1495,13 +1295,7 @@
       "components": [],
       "intended_visual": "HAER photograph",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_746",
@@ -1509,7 +1303,7 @@
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
-      "review_status": "EDITORIALLY_APPROVED",
+      "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
         {
@@ -1525,13 +1319,710 @@
       "components": [],
       "intended_visual": "HAER photograph",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
-      "caveat": "Editorially approved 2026-10-30 for narration m7-r1; illustrative models, conceptual forces only.",
-      "editorial_approval": {
-        "approved_by": "Tran Nam Anh (channel owner)",
-        "approved_on": "2026-10-30",
-        "narration_revision": "m7-r1",
-        "basis": "in-session instruction 'tôi duyệt các 41 claim trên' after review/EDITORIAL_APPROVAL_PACKAGE.md"
-      }
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_750",
+      "text": "A cantilever is like an arm held straight out from the shoulder, or a diving board: a beam supported at one end and unsupported at the other; cantilever bridges are a modified form of beam bridge.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "If you hold your arm straight out from your shoulder, it is acting as a cantilever."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "Cantilever bridges are a modified form of beam bridge. A cantilever is essentially a beam that is unsupported at one end but supported at the other, like diving boards."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "cantilever_arm"
+      ],
+      "intended_visual": "Cantilever model assembling on the wide site",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_751",
+      "text": "A cantilevered truss bridge consists of anchor arms supported by piers and a suspended span supported by the arms.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1 Trusses, p. 3-4",
+          "excerpt": "A cantilevered truss bridge consists of anchor arms supported by piers, and a suspended span that is supported by the anchor arms."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "the counterbalanced cantilever with the arms supporting a simple suspended span"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "anchor_arm",
+        "cantilever_arm",
+        "suspended_span"
+      ],
+      "intended_visual": "Cantilever model: anchor arms, cantilever arms, suspended span labelled",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_752",
+      "text": "The cantilever was developed to make bridges longer, to cross wide rivers and deep gorges; it made longer spans and wider clearance beneath possible.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "The cantilever was developed to solve the problem of increasing the length of the bridge to enable crossing wide bodies of water like the Ohio and Mississippi rivers, or wide and deep gorges like the Niagara Gorge"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "This configuration made longer spans possible and wider clearance beneath."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "The wide crossing (illustrative)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_753",
+      "text": "A cantilever can be built outward from its towers without falsework blocking the channel below; the suspended span is then lifted into place.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "One great advantage of a cantilever is that it can be built outwards from the towers without falsework to block the channel below. Then the suspended span can be lifted into place."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "suspended_span"
+      ],
+      "intended_visual": "Exploded cantilever: the suspended span lifts out and returns",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_754",
+      "text": "In the United States, cantilever bridges date from the 1880s to the 1960s and were one of the standard types for intermediate to longer spans.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "The cantilever bridge in the U.S. dates from the 1880s to the 1960s and is one of the standard bridge types for intermediate to longer spans"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "Timeline band",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_755",
+      "text": "In the two decades before 2005, cable-stayed bridges began to supplant cantilevers because they are visually appealing and sometimes more economical.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "In the last twenty years, however, cable-stayed suspension bridges have begun to supplant cantilevers because they are visually appealing and sometimes more economical."
+        }
+      ],
+      "assumptions": "'The last twenty years' is read from the report's 2005 date (about 1985-2005); the report calls them 'cable-stayed suspension bridges'.",
+      "applies_to": [
+        "cantilever",
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Timeline / economics card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_756",
+      "text": "The Queensboro Bridge over the East River in New York City was the longest cantilever in the United States when completed in 1909.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "The Queensboro Bridge over the East River in New York City was the longest cantilever in the United States when completed in 1909."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Queensboro Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_757",
+      "text": "Beam and arch bridges of steel or reinforced concrete had limited spans, not exceeding 200 to 300 feet; the cantilever provided an alternative, and also avoided the costly anchorages a suspension bridge requires.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "It provided alternatives to beam and arch bridges, which had limited spans not exceeding 200 to 300 feet when constructed of steel or reinforced concrete."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "The cantilever also eliminated the high cost of building anchorages required by the other long span bridge type, suspension bridges, thus saving money and materials."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever",
+        "beam",
+        "arch",
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Comparison / span card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_760",
+      "text": "The deck of a suspension bridge hangs from vertical suspenders attached to cables in tension, which pass over towers in compression.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "The deck of a suspension bridge is hung from vertical suspenders that are affixed to ropes, chains, eyebars or cables that are in tension, passing over towers that are in compression."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable",
+        "hanger",
+        "tower"
+      ],
+      "intended_visual": "Suspension model: hangers, cables (tension) and towers (compression) marked",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_761",
+      "text": "The ends of a suspension bridge's main cables are anchored in large masses of stone or concrete, or directly into bedrock.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES",
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Usually the ends of the cables are anchored in large masses of stone or concrete"
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The ends of the main suspension cables are anchored either into large counterweights or directly into bedrock at the ends of the structure."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "anchorage"
+      ],
+      "intended_visual": "Anchorages on the banks",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_762",
+      "text": "The main cables run along the outer edges of the bridge, draped over the towers where they rest in saddles, and vertical cables connect them to the ends of transverse floor beams.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The main cables typically are located at the outside edges of the bridge and are draped over the towers where they rest in saddles."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The superstructure is generally supported at relatively short intervals by vertical cables that connect at the ends of transverse floorbeams."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable",
+        "hanger"
+      ],
+      "intended_visual": "Suspension model geometry",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_763",
+      "text": "Suspension bridges are particularly suited to spanning great distances; their towers are much shorter than a cable-stayed bridge's, and they become economical for very long spans.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES",
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Suspension bridges are particularly suited for spanning great distances"
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "Suspension bridges, whose towers are significantly shorter than those required for cable-stayed bridges, become economical for very long spans."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension",
+        "cable_stayed"
+      ],
+      "components": [
+        "tower",
+        "pylon"
+      ],
+      "intended_visual": "Suspension vs cable-stayed side by side (tower heights)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_764",
+      "text": "Two towers, cables and suspenders, anchorages and a stiffening truss are the character-defining features of a suspension bridge.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "The plan involved two towers, cables and suspenders, anchorages and a stiffening truss - the character-defining features of a suspension bridge."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "tower",
+        "main_cable",
+        "hanger",
+        "anchorage",
+        "stiffening_truss"
+      ],
+      "intended_visual": "Brooklyn Bridge photograph; the model's parts",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_765",
+      "text": "A suspension deck is very light for its span and can be very flexible, so a stiffening truss is commonly provided under the deck against wind and earthquake loading.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "Suspension bridge superstructures are generally very light relative to the span length which leads to structures that may be very flexible."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "it is common to provide a lateral stiffening truss under the deck to avoid excessive excitement of the superstructure under wind or seismic loadings."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "stiffening_truss"
+      ],
+      "intended_visual": "Stiffening truss highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_766",
+      "text": "Ellet's Wheeling bridge (1849) spanned 1,010 feet and was the longest bridge in the world for many years; Roebling's Cincinnati-Covington bridge (1867) had a 1,057-foot main span, the longest clear span in the world when completed.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "He quickly turned his full attention to the Wheeling Bridge, which was completed in 1849. Spanning 1,010 feet, this was the longest bridge in the world for many years after its completion"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Officially opened on January 1, 1867, this bridge has a main span of 1,057 feet. It had the longest clear span of any bridge in the world when completed"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Span scale card (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_767",
+      "text": "At one time a great number of suspension bridges of very modest span were built across the United States, because of the type's basic simplicity and ease of erection.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "At one time, however, a great number of suspension bridges of very modest span length were built across the country due to the type’s basic simplicity and ease of erection."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Not a story of progress (timeline / conclusion)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_768",
+      "text": "The Brooklyn Bridge was completed in 1883; few suspension bridges built since the Roeblings' time can claim to stand entirely clear of its shadow.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "Washington Roebling for the Brooklyn Bridge (1883)"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Few suspension bridges in the world built since the time of the Roeblings can claim to stand entirely clear of the shadow cast by the Brooklyn Bridge."
+        }
+      ],
+      "assumptions": "'Few ... stand entirely clear of the shadow' is the report's assessment; the narration attributes it ('one report').",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Brooklyn Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_770",
+      "text": "Cable-stayed bridges rely on high-strength steel cables; the stay cables are inclined from the towers to edge girders at or below the deck.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "Cable-Stayed bridges rely on high strength steel cables as major structural elements. The stay cables are inclined from the supporting towers to edge girders at or below the deck elevation."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "stay_cable",
+        "pylon"
+      ],
+      "intended_visual": "Cable-stayed model: stays and towers labelled",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_771",
+      "text": "Cable-stayed bridge towers are generally very tall, their height set by the span; the flattest stays should not be less than about 22 degrees from the horizontal.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "Generally the towers are very tall with the height determined as a function of the span length."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "The flattest cable angle should not be less than about 22 degrees with the horizontal."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "pylon",
+        "stay_cable"
+      ],
+      "intended_visual": "Tall pylons; the model's flattest stay is about 29 degrees",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_772",
+      "text": "Once the towers are complete, a cable-stayed deck can be built without falsework towers, by a balanced cantilever method proceeding away from the towers until the spans close.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.4 Cable-Stayed Bridges",
+          "excerpt": "Once the towers are completed, the cable-stayed superstructures can be constructed without falsework towers, which can provide significant benefits over navigable waterways. The construction uses a balanced cantilever method proceeding away from the towers until the spans can be closed."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "deck_segment",
+        "stay_cable"
+      ],
+      "intended_visual": "Exploded cable-stayed model: the deck segments return outward from the towers",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_773",
+      "text": "The stay cables also compress the edge girders along their length; the compression adds up toward the towers.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "The compressive forces are additive from the end of the longest cables toward the towers. In most cases the edge girder design is not controlled by bending but by the compressive forces imparted by the stay cables"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "deck_segment"
+      ],
+      "intended_visual": "Conceptual compression arrows along the deck toward a tower (no magnitudes)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_774",
+      "text": "In the United States, cable-stayed bridges become very cost competitive for main spans over 750 feet, and almost all bridges with main spans over 1,000 feet built since 1980 have been cable-stayed.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "In the U.S., cable-stayed bridges become very cost competitive for main span lengths over 750 feet. Almost all bridges with main span lengths in excess of 1000 feet built in the U.S. since 1980 have been cable-stayed structures."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Long-span economics card (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_775",
+      "text": "Before 1970, suspension bridges were considered the most economical solution for spans over about 1,200 feet; with cable-stayed technology, suspension bridges do not become economical until main spans approach 3,000 feet.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Prior to 1970, it was generally considered that suspension bridges provided the most economical solution for span lengths in excess of about 1200 feet. With the development of cable-stayed bridge technology, suspension bridges do not become economical until the main span length approaches 3000 feet."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension",
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Long-span economics card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_776",
+      "text": "Cable-stayed bridges are more versatile than suspension bridges: they offer more possible configurations, and their towers do not need good rock near the surface.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "They are more versatile than suspension bridges in that they offer more possible configurations and towers can be constructed in less than optimal foundation conditions because having good rock near the surface is not a requirement."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed",
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Comparison",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_777",
+      "text": "Welded plate girders, a form of beam, are currently the most common type of steel bridge.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Welded plate girders are currently the most common type of steel bridge."
+        }
+      ],
+      "assumptions": "A 2012 FHWA statement about steel bridges.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "Conclusion: not a story of progress",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_747",

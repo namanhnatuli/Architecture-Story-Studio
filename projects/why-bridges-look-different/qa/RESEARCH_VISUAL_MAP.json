@@ -62,9 +62,9 @@
       "annotations": []
     },
     {
-      "beat_id": "B02",
+      "beat_id": "B01B",
       "sentence": 0,
-      "text": "So why don't bridges all look the same?",
+      "text": "Over wider water, the answers change again.",
       "start_seconds": 16.15,
       "beat_claims": [],
       "claims": [],
@@ -74,10 +74,10 @@
       "annotations": []
     },
     {
-      "beat_id": "B02",
+      "beat_id": "B01B",
       "sentence": 1,
-      "text": "It isn't because one design is simply better than the others.",
-      "start_seconds": 19.525,
+      "text": "One bridge reaches out from its piers.",
+      "start_seconds": 20.3,
       "beat_claims": [],
       "claims": [],
       "shots": [
@@ -86,14 +86,62 @@
       "annotations": []
     },
     {
-      "beat_id": "B02",
-      "sentence": 2,
-      "text": "Each form is a different answer to the same problem, shaped by materials, by the site, and by the time it was built in.",
-      "start_seconds": 24.325,
+      "beat_id": "B01C",
+      "sentence": 0,
+      "text": "Another hangs from huge draped cables.",
+      "start_seconds": 24.608333,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_005"
+        "SC_006"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B01D",
+      "sentence": 0,
+      "text": "A third is held up by straight lines of steel.",
+      "start_seconds": 29.15,
+      "beat_claims": [],
+      "claims": [],
+      "shots": [
+        "SC_007"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B02",
+      "sentence": 0,
+      "text": "So why don't bridges all look the same?",
+      "start_seconds": 33.775,
+      "beat_claims": [],
+      "claims": [],
+      "shots": [
+        "SC_008"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B02",
+      "sentence": 1,
+      "text": "It isn't because one design is simply better than the others.",
+      "start_seconds": 37.15,
+      "beat_claims": [],
+      "claims": [],
+      "shots": [
+        "SC_008"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B02",
+      "sentence": 2,
+      "text": "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
+      "start_seconds": 41.95,
+      "beat_claims": [],
+      "claims": [],
+      "shots": [
+        "SC_008"
       ],
       "annotations": []
     },
@@ -101,7 +149,7 @@
       "beat_id": "B03",
       "sentence": 0,
       "text": "Every bridge has the same basic job.",
-      "start_seconds": 34.025,
+      "start_seconds": 52.733333,
       "beat_claims": [
         "CLM_701",
         "CLM_702"
@@ -109,7 +157,7 @@
       "claims": [
         {
           "id": "CLM_701",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -123,7 +171,7 @@
         },
         {
           "id": "CLM_702",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -133,7 +181,7 @@
         }
       ],
       "shots": [
-        "SC_006"
+        "SC_009"
       ],
       "annotations": [
         {
@@ -141,12 +189,12 @@
           "type": "NOTE",
           "text": "2 · The problem every bridge must solve",
           "claim_id": null,
-          "shot": "SC_006",
+          "shot": "SC_009",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 33.917,
-          "disappear_seconds": 43.75,
+          "appear_seconds": 52.625,
+          "disappear_seconds": 62.458,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -160,7 +208,7 @@
       "beat_id": "B03",
       "sentence": 1,
       "text": "It has to carry loads: the traffic crossing it, and the weight of the bridge itself.",
-      "start_seconds": 37.675,
+      "start_seconds": 56.383333,
       "beat_claims": [
         "CLM_701",
         "CLM_702"
@@ -168,7 +216,7 @@
       "claims": [
         {
           "id": "CLM_701",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -182,7 +230,7 @@
         },
         {
           "id": "CLM_702",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -192,7 +240,7 @@
         }
       ],
       "shots": [
-        "SC_006"
+        "SC_009"
       ],
       "annotations": [
         {
@@ -200,15 +248,15 @@
           "type": "LOAD_ARROW",
           "text": "Load",
           "claim_id": "CLM_701",
-          "shot": "SC_006",
+          "shot": "SC_009",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_span1_deck",
             "steel_truss_bridge_span2_deck"
           ],
-          "appear_seconds": 37.583,
-          "disappear_seconds": 48.917,
+          "appear_seconds": 56.292,
+          "disappear_seconds": 67.625,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -222,7 +270,7 @@
       "beat_id": "B03",
       "sentence": 2,
       "text": "And it has to pass all of that down into the ground on either side.",
-      "start_seconds": 43.85,
+      "start_seconds": 62.558333,
       "beat_claims": [
         "CLM_701",
         "CLM_702"
@@ -230,7 +278,7 @@
       "claims": [
         {
           "id": "CLM_701",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -244,7 +292,7 @@
         },
         {
           "id": "CLM_702",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -254,7 +302,7 @@
         }
       ],
       "shots": [
-        "SC_006"
+        "SC_009"
       ],
       "annotations": [
         {
@@ -262,14 +310,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Ground",
           "claim_id": null,
-          "shot": "SC_006",
+          "shot": "SC_009",
           "state": "steel_truss_bridge",
           "asset": "site_river_crossing_24",
           "components": [
             "bank_right"
           ],
-          "appear_seconds": 43.75,
-          "disappear_seconds": 48.917,
+          "appear_seconds": 62.458,
+          "disappear_seconds": 67.625,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -283,7 +331,7 @@
       "beat_id": "B04",
       "sentence": 0,
       "text": "Engineers often describe a bridge in two parts.",
-      "start_seconds": 49.65,
+      "start_seconds": 68.358333,
       "beat_claims": [
         "CLM_702",
         "CLM_703",
@@ -292,7 +340,7 @@
       "claims": [
         {
           "id": "CLM_702",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -302,7 +350,7 @@
         },
         {
           "id": "CLM_703",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_PBES_CH2",
@@ -316,7 +364,7 @@
         },
         {
           "id": "CLM_704",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -334,7 +382,7 @@
         }
       ],
       "shots": [
-        "SC_007"
+        "SC_010"
       ],
       "annotations": []
     },
@@ -342,7 +390,7 @@
       "beat_id": "B04",
       "sentence": 1,
       "text": "The superstructure is the part that spans the gap, including the deck.",
-      "start_seconds": 53.9,
+      "start_seconds": 72.608333,
       "beat_claims": [
         "CLM_702",
         "CLM_703",
@@ -351,7 +399,7 @@
       "claims": [
         {
           "id": "CLM_702",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -361,7 +409,7 @@
         },
         {
           "id": "CLM_703",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_PBES_CH2",
@@ -375,7 +423,7 @@
         },
         {
           "id": "CLM_704",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -393,7 +441,7 @@
         }
       ],
       "shots": [
-        "SC_007"
+        "SC_010"
       ],
       "annotations": [
         {
@@ -401,7 +449,7 @@
           "type": "HIGHLIGHT_REGION",
           "text": "Superstructure",
           "claim_id": "CLM_703",
-          "shot": "SC_007",
+          "shot": "SC_010",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
@@ -430,8 +478,8 @@
             "steel_truss_bridge_span2_verticals_north",
             "steel_truss_bridge_span2_verticals_south"
           ],
-          "appear_seconds": 53.792,
-          "disappear_seconds": 59.208,
+          "appear_seconds": 72.5,
+          "disappear_seconds": 77.917,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -445,7 +493,7 @@
       "beat_id": "B04",
       "sentence": 2,
       "text": "The substructure is what holds it up: abutments at the ends, and sometimes piers in between.",
-      "start_seconds": 59.325,
+      "start_seconds": 78.033333,
       "beat_claims": [
         "CLM_702",
         "CLM_703",
@@ -454,7 +502,7 @@
       "claims": [
         {
           "id": "CLM_702",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -464,7 +512,7 @@
         },
         {
           "id": "CLM_703",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_PBES_CH2",
@@ -478,7 +526,7 @@
         },
         {
           "id": "CLM_704",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -496,7 +544,7 @@
         }
       ],
       "shots": [
-        "SC_007"
+        "SC_010"
       ],
       "annotations": [
         {
@@ -504,14 +552,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Abutment",
           "claim_id": "CLM_704",
-          "shot": "SC_007",
+          "shot": "SC_010",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_seat_left"
           ],
-          "appear_seconds": 59.208,
-          "disappear_seconds": 72.75,
+          "appear_seconds": 77.917,
+          "disappear_seconds": 91.458,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -524,14 +572,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Pier",
           "claim_id": "CLM_704",
-          "shot": "SC_007",
+          "shot": "SC_010",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_pier1"
           ],
-          "appear_seconds": 59.208,
-          "disappear_seconds": 72.75,
+          "appear_seconds": 77.917,
+          "disappear_seconds": 91.458,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -545,7 +593,7 @@
       "beat_id": "B04",
       "sentence": 3,
       "text": "Load follows a path from the deck, through both parts, into the foundations.",
-      "start_seconds": 66.5,
+      "start_seconds": 85.208333,
       "beat_claims": [
         "CLM_702",
         "CLM_703",
@@ -554,7 +602,7 @@
       "claims": [
         {
           "id": "CLM_702",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -564,7 +612,7 @@
         },
         {
           "id": "CLM_703",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_PBES_CH2",
@@ -578,7 +626,7 @@
         },
         {
           "id": "CLM_704",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -596,7 +644,7 @@
         }
       ],
       "shots": [
-        "SC_007"
+        "SC_010"
       ],
       "annotations": [
         {
@@ -604,7 +652,7 @@
           "type": "CONCEPTUAL_LOAD_PATH",
           "text": null,
           "claim_id": "CLM_704",
-          "shot": "SC_007",
+          "shot": "SC_010",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
@@ -614,8 +662,8 @@
             "steel_truss_bridge_span1_deck",
             "steel_truss_bridge_span2_deck"
           ],
-          "appear_seconds": 66.417,
-          "disappear_seconds": 72.75,
+          "appear_seconds": 85.125,
+          "disappear_seconds": 91.458,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -628,14 +676,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Foundation",
           "claim_id": "CLM_704",
-          "shot": "SC_007",
+          "shot": "SC_010",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_seat_left"
           ],
-          "appear_seconds": 66.417,
-          "disappear_seconds": 72.75,
+          "appear_seconds": 85.125,
+          "disappear_seconds": 91.458,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -649,11 +697,11 @@
       "beat_id": "B05",
       "sentence": 0,
       "text": "What changes from one bridge to the next is how that path is arranged.",
-      "start_seconds": 73.15,
+      "start_seconds": 91.858333,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_008"
+        "SC_011"
       ],
       "annotations": []
     },
@@ -661,11 +709,11 @@
       "beat_id": "B05",
       "sentence": 1,
       "text": "So let's start again with an empty gap.",
-      "start_seconds": 78.325,
+      "start_seconds": 97.033333,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_008"
+        "SC_011"
       ],
       "annotations": []
     },
@@ -673,7 +721,7 @@
       "beat_id": "B06",
       "sentence": 0,
       "text": "The first answer is the beam.",
-      "start_seconds": 82.608333,
+      "start_seconds": 101.316667,
       "beat_claims": [
         "CLM_705",
         "CLM_720"
@@ -681,7 +729,7 @@
       "claims": [
         {
           "id": "CLM_705",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -691,7 +739,7 @@
         },
         {
           "id": "CLM_720",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -701,8 +749,8 @@
         }
       ],
       "shots": [
-        "SC_009",
-        "SC_010"
+        "SC_012",
+        "SC_013"
       ],
       "annotations": [
         {
@@ -710,12 +758,12 @@
           "type": "NOTE",
           "text": "3 · The beam",
           "claim_id": null,
-          "shot": "SC_009",
+          "shot": "SC_012",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [],
-          "appear_seconds": 82.5,
-          "disappear_seconds": 91.25,
+          "appear_seconds": 101.208,
+          "disappear_seconds": 109.958,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -728,12 +776,12 @@
           "type": "NOTE",
           "text": "3 · The beam",
           "claim_id": null,
-          "shot": "SC_010",
+          "shot": "SC_013",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [],
-          "appear_seconds": 91.583,
-          "disappear_seconds": 96.0,
+          "appear_seconds": 110.292,
+          "disappear_seconds": 114.708,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -747,7 +795,7 @@
       "beat_id": "B06",
       "sentence": 1,
       "text": "Lay a strong member across the gap, support it at each end, and you have a bridge.",
-      "start_seconds": 85.608333,
+      "start_seconds": 104.316667,
       "beat_claims": [
         "CLM_705",
         "CLM_720"
@@ -755,7 +803,7 @@
       "claims": [
         {
           "id": "CLM_705",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -765,7 +813,7 @@
         },
         {
           "id": "CLM_720",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -775,8 +823,8 @@
         }
       ],
       "shots": [
-        "SC_009",
-        "SC_010"
+        "SC_012",
+        "SC_013"
       ],
       "annotations": []
     },
@@ -784,7 +832,7 @@
       "beat_id": "B06",
       "sentence": 2,
       "text": "It is one of the oldest ideas in bridge building.",
-      "start_seconds": 91.783333,
+      "start_seconds": 110.491667,
       "beat_claims": [
         "CLM_705",
         "CLM_720"
@@ -792,7 +840,7 @@
       "claims": [
         {
           "id": "CLM_705",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -802,7 +850,7 @@
         },
         {
           "id": "CLM_720",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -812,8 +860,8 @@
         }
       ],
       "shots": [
-        "SC_009",
-        "SC_010"
+        "SC_012",
+        "SC_013"
       ],
       "annotations": []
     },
@@ -821,7 +869,7 @@
       "beat_id": "B07",
       "sentence": 0,
       "text": "This timber bridge is a row of short beam spans.",
-      "start_seconds": 96.733333,
+      "start_seconds": 115.441667,
       "beat_claims": [
         "CLM_705",
         "CLM_707"
@@ -829,7 +877,7 @@
       "claims": [
         {
           "id": "CLM_705",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -839,7 +887,7 @@
         },
         {
           "id": "CLM_707",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -857,8 +905,8 @@
         }
       ],
       "shots": [
-        "SC_011",
-        "SC_012"
+        "SC_014",
+        "SC_015"
       ],
       "annotations": []
     },
@@ -866,7 +914,7 @@
       "beat_id": "B07",
       "sentence": 1,
       "text": "Planks form the deck, long beams carry the planks, cap beams carry the beams, and posts carry the caps.",
-      "start_seconds": 100.958333,
+      "start_seconds": 119.666667,
       "beat_claims": [
         "CLM_705",
         "CLM_707"
@@ -874,7 +922,7 @@
       "claims": [
         {
           "id": "CLM_705",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -884,7 +932,7 @@
         },
         {
           "id": "CLM_707",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -902,8 +950,8 @@
         }
       ],
       "shots": [
-        "SC_011",
-        "SC_012"
+        "SC_014",
+        "SC_015"
       ],
       "annotations": []
     },
@@ -911,7 +959,7 @@
       "beat_id": "B08",
       "sentence": 0,
       "text": "Each beam carries its load by resisting bending.",
-      "start_seconds": 109.483333,
+      "start_seconds": 128.191667,
       "beat_claims": [
         "CLM_706",
         "CLM_707"
@@ -919,7 +967,7 @@
       "claims": [
         {
           "id": "CLM_701",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -933,7 +981,7 @@
         },
         {
           "id": "CLM_706",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -947,7 +995,7 @@
         },
         {
           "id": "CLM_707",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -965,7 +1013,7 @@
         }
       ],
       "shots": [
-        "SC_013"
+        "SC_016"
       ],
       "annotations": [
         {
@@ -973,14 +1021,14 @@
           "type": "LOAD_ARROW",
           "text": "Load",
           "claim_id": "CLM_701",
-          "shot": "SC_013",
+          "shot": "SC_016",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [
             "timber_beam_bridge_span3_planks"
           ],
-          "appear_seconds": 109.375,
-          "disappear_seconds": 123.667,
+          "appear_seconds": 128.083,
+          "disappear_seconds": 142.375,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -993,14 +1041,14 @@
           "type": "CALLOUT",
           "text": "Beam resists bending",
           "claim_id": "CLM_706",
-          "shot": "SC_013",
+          "shot": "SC_016",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [
             "timber_beam_bridge_span3_stringers"
           ],
-          "appear_seconds": 109.375,
-          "disappear_seconds": 113.667,
+          "appear_seconds": 128.083,
+          "disappear_seconds": 132.375,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1014,7 +1062,7 @@
       "beat_id": "B08",
       "sentence": 1,
       "text": "At each support, a cap beam spreads the load onto the posts.",
-      "start_seconds": 113.758333,
+      "start_seconds": 132.466667,
       "beat_claims": [
         "CLM_706",
         "CLM_707"
@@ -1022,7 +1070,7 @@
       "claims": [
         {
           "id": "CLM_706",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -1036,7 +1084,7 @@
         },
         {
           "id": "CLM_707",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1054,7 +1102,7 @@
         }
       ],
       "shots": [
-        "SC_013"
+        "SC_016"
       ],
       "annotations": [
         {
@@ -1062,7 +1110,7 @@
           "type": "CONCEPTUAL_LOAD_PATH",
           "text": null,
           "claim_id": "CLM_707",
-          "shot": "SC_013",
+          "shot": "SC_016",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [
@@ -1070,8 +1118,8 @@
             "timber_beam_bridge_bent3_cap",
             "timber_beam_bridge_span3_planks"
           ],
-          "appear_seconds": 113.667,
-          "disappear_seconds": 123.667,
+          "appear_seconds": 132.375,
+          "disappear_seconds": 142.375,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1084,14 +1132,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Cap beam",
           "claim_id": "CLM_707",
-          "shot": "SC_013",
+          "shot": "SC_016",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [
             "timber_beam_bridge_bent3_cap"
           ],
-          "appear_seconds": 113.667,
-          "disappear_seconds": 123.667,
+          "appear_seconds": 132.375,
+          "disappear_seconds": 142.375,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1105,7 +1153,7 @@
       "beat_id": "B08",
       "sentence": 2,
       "text": "The posts then carry it down into the ground in compression.",
-      "start_seconds": 118.683333,
+      "start_seconds": 137.391667,
       "beat_claims": [
         "CLM_706",
         "CLM_707"
@@ -1113,7 +1161,7 @@
       "claims": [
         {
           "id": "CLM_706",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -1127,7 +1175,7 @@
         },
         {
           "id": "CLM_707",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1145,7 +1193,7 @@
         }
       ],
       "shots": [
-        "SC_013"
+        "SC_016"
       ],
       "annotations": [
         {
@@ -1153,14 +1201,14 @@
           "type": "CALLOUT",
           "text": "Posts: compression",
           "claim_id": "CLM_707",
-          "shot": "SC_013",
+          "shot": "SC_016",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [
             "timber_beam_bridge_bent3"
           ],
-          "appear_seconds": 118.583,
-          "disappear_seconds": 123.667,
+          "appear_seconds": 137.292,
+          "disappear_seconds": 142.375,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1174,7 +1222,7 @@
       "beat_id": "B09",
       "sentence": 0,
       "text": "Beams are simple, and wood was usually easy to find.",
-      "start_seconds": 124.4,
+      "start_seconds": 143.108333,
       "beat_claims": [
         "CLM_721",
         "CLM_722"
@@ -1182,7 +1230,7 @@
       "claims": [
         {
           "id": "CLM_721",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1196,7 +1244,7 @@
         },
         {
           "id": "CLM_722",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1206,7 +1254,7 @@
         }
       ],
       "shots": [
-        "SC_014"
+        "SC_017"
       ],
       "annotations": [
         {
@@ -1214,12 +1262,12 @@
           "type": "NOTE",
           "text": "Illustrative model",
           "claim_id": null,
-          "shot": "SC_014",
+          "shot": "SC_017",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [],
-          "appear_seconds": 124.292,
-          "disappear_seconds": 148.875,
+          "appear_seconds": 143.0,
+          "disappear_seconds": 167.583,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1233,7 +1281,7 @@
       "beat_id": "B09",
       "sentence": 1,
       "text": "That is why timber beam bridges were still being built long after timber trusses fell out of use, and why they are still built on quiet rural roads and in parks today.",
-      "start_seconds": 129.325,
+      "start_seconds": 148.033333,
       "beat_claims": [
         "CLM_721",
         "CLM_722"
@@ -1241,7 +1289,7 @@
       "claims": [
         {
           "id": "CLM_721",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1255,7 +1303,7 @@
         },
         {
           "id": "CLM_722",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1265,7 +1313,7 @@
         }
       ],
       "shots": [
-        "SC_014"
+        "SC_017"
       ],
       "annotations": []
     },
@@ -1273,7 +1321,7 @@
       "beat_id": "B09",
       "sentence": 2,
       "text": "But many early timber bridges had relatively short spans, which is why this one needs so many posts.",
-      "start_seconds": 140.7,
+      "start_seconds": 159.408333,
       "beat_claims": [
         "CLM_721",
         "CLM_722"
@@ -1281,7 +1329,7 @@
       "claims": [
         {
           "id": "CLM_721",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1295,7 +1343,7 @@
         },
         {
           "id": "CLM_722",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1305,7 +1353,7 @@
         }
       ],
       "shots": [
-        "SC_014"
+        "SC_017"
       ],
       "annotations": []
     },
@@ -1313,14 +1361,14 @@
       "beat_id": "B10",
       "sentence": 0,
       "text": "A masonry arch takes a different approach.",
-      "start_seconds": 149.275,
+      "start_seconds": 167.983333,
       "beat_claims": [
         "CLM_708"
       ],
       "claims": [
         {
           "id": "CLM_708",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1334,8 +1382,8 @@
         }
       ],
       "shots": [
-        "SC_015",
-        "SC_016"
+        "SC_018",
+        "SC_019"
       ],
       "annotations": [
         {
@@ -1343,12 +1391,12 @@
           "type": "NOTE",
           "text": "4 · The arch",
           "claim_id": null,
-          "shot": "SC_015",
+          "shot": "SC_018",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [],
-          "appear_seconds": 149.167,
-          "disappear_seconds": 152.667,
+          "appear_seconds": 167.875,
+          "disappear_seconds": 171.375,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1362,14 +1410,14 @@
       "beat_id": "B10",
       "sentence": 1,
       "text": "It is built from wedge-shaped stones called voussoirs, with a keystone at the crown.",
-      "start_seconds": 152.85,
+      "start_seconds": 171.558333,
       "beat_claims": [
         "CLM_708"
       ],
       "claims": [
         {
           "id": "CLM_708",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1383,8 +1431,8 @@
         }
       ],
       "shots": [
-        "SC_015",
-        "SC_016"
+        "SC_018",
+        "SC_019"
       ],
       "annotations": [
         {
@@ -1392,14 +1440,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Keystone",
           "claim_id": "CLM_708",
-          "shot": "SC_016",
+          "shot": "SC_019",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
             "stone_arch_bridge_arch2_keystone"
           ],
-          "appear_seconds": 154.083,
-          "disappear_seconds": 158.208,
+          "appear_seconds": 172.792,
+          "disappear_seconds": 176.917,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1412,14 +1460,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Voussoirs",
           "claim_id": "CLM_708",
-          "shot": "SC_016",
+          "shot": "SC_019",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
             "stone_arch_bridge_arch2_voussoir01"
           ],
-          "appear_seconds": 154.25,
-          "disappear_seconds": 158.042,
+          "appear_seconds": 172.958,
+          "disappear_seconds": 176.75,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1433,7 +1481,7 @@
       "beat_id": "B11",
       "sentence": 0,
       "text": "The curve turns the downward load into thrust along the arch, pressing the stones together.",
-      "start_seconds": 159.858333,
+      "start_seconds": 178.566667,
       "beat_claims": [
         "CLM_709",
         "CLM_710"
@@ -1441,7 +1489,7 @@
       "claims": [
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1459,7 +1507,7 @@
         },
         {
           "id": "CLM_710",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1473,7 +1521,7 @@
         }
       ],
       "shots": [
-        "SC_017"
+        "SC_020"
       ],
       "annotations": [
         {
@@ -1481,14 +1529,14 @@
           "type": "LOAD_ARROW",
           "text": "Load",
           "claim_id": "CLM_709",
-          "shot": "SC_017",
+          "shot": "SC_020",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
             "stone_arch_bridge_arch2_keystone"
           ],
-          "appear_seconds": 159.75,
-          "disappear_seconds": 176.708,
+          "appear_seconds": 178.458,
+          "disappear_seconds": 195.417,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1501,7 +1549,7 @@
           "type": "CONCEPTUAL_LOAD_PATH",
           "text": null,
           "claim_id": "CLM_709",
-          "shot": "SC_017",
+          "shot": "SC_020",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
@@ -1519,8 +1567,8 @@
             "stone_arch_bridge_arch2_voussoir12",
             "stone_arch_bridge_arch2_voussoir13"
           ],
-          "appear_seconds": 159.75,
-          "disappear_seconds": 176.708,
+          "appear_seconds": 178.458,
+          "disappear_seconds": 195.417,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1534,7 +1582,7 @@
       "beat_id": "B11",
       "sentence": 1,
       "text": "So the arch works mainly in compression.",
-      "start_seconds": 166.558333,
+      "start_seconds": 185.266667,
       "beat_claims": [
         "CLM_709",
         "CLM_710"
@@ -1542,7 +1590,7 @@
       "claims": [
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1560,7 +1608,7 @@
         },
         {
           "id": "CLM_710",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1574,7 +1622,7 @@
         }
       ],
       "shots": [
-        "SC_017"
+        "SC_020"
       ],
       "annotations": [
         {
@@ -1582,7 +1630,7 @@
           "type": "CALLOUT",
           "text": "Mainly compression",
           "claim_id": "CLM_709",
-          "shot": "SC_017",
+          "shot": "SC_020",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
@@ -1600,8 +1648,8 @@
             "stone_arch_bridge_arch2_voussoir12",
             "stone_arch_bridge_arch2_voussoir13"
           ],
-          "appear_seconds": 166.458,
-          "disappear_seconds": 176.708,
+          "appear_seconds": 185.167,
+          "disappear_seconds": 195.417,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1615,7 +1663,7 @@
       "beat_id": "B11",
       "sentence": 2,
       "text": "At each end it pushes outward and down on its supports, and the supports push back.",
-      "start_seconds": 170.183333,
+      "start_seconds": 188.891667,
       "beat_claims": [
         "CLM_709",
         "CLM_710"
@@ -1623,7 +1671,7 @@
       "claims": [
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1641,7 +1689,7 @@
         },
         {
           "id": "CLM_710",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1655,7 +1703,7 @@
         }
       ],
       "shots": [
-        "SC_017"
+        "SC_020"
       ],
       "annotations": [
         {
@@ -1663,7 +1711,7 @@
           "type": "REACTION_ARROW",
           "text": "Supports push back",
           "claim_id": "CLM_710",
-          "shot": "SC_017",
+          "shot": "SC_020",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
@@ -1681,8 +1729,8 @@
             "stone_arch_bridge_arch2_voussoir12",
             "stone_arch_bridge_arch2_voussoir13"
           ],
-          "appear_seconds": 170.083,
-          "disappear_seconds": 176.708,
+          "appear_seconds": 188.792,
+          "disappear_seconds": 195.417,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1696,7 +1744,7 @@
       "beat_id": "B12",
       "sentence": 0,
       "text": "That is why arches suit materials that are strong under compression, like stone.",
-      "start_seconds": 177.108333,
+      "start_seconds": 195.816667,
       "beat_claims": [
         "CLM_726",
         "CLM_709",
@@ -1705,7 +1753,7 @@
       "claims": [
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1723,7 +1771,7 @@
         },
         {
           "id": "CLM_710",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1737,7 +1785,7 @@
         },
         {
           "id": "CLM_726",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_YALE_PHYSICS",
@@ -1747,7 +1795,7 @@
         }
       ],
       "shots": [
-        "SC_018"
+        "SC_021"
       ],
       "annotations": []
     },
@@ -1755,7 +1803,7 @@
       "beat_id": "B12",
       "sentence": 1,
       "text": "And it is why the supports matter so much: the abutments have to push inward on the arch, against its thrust.",
-      "start_seconds": 182.983333,
+      "start_seconds": 201.691667,
       "beat_claims": [
         "CLM_726",
         "CLM_709",
@@ -1764,7 +1812,7 @@
       "claims": [
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1782,7 +1830,7 @@
         },
         {
           "id": "CLM_710",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -1796,7 +1844,7 @@
         },
         {
           "id": "CLM_726",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_YALE_PHYSICS",
@@ -1806,7 +1854,7 @@
         }
       ],
       "shots": [
-        "SC_018"
+        "SC_021"
       ],
       "annotations": [
         {
@@ -1814,14 +1862,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Abutment",
           "claim_id": "CLM_710",
-          "shot": "SC_018",
+          "shot": "SC_021",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
             "stone_arch_bridge_abutment_left"
           ],
-          "appear_seconds": 182.875,
-          "disappear_seconds": 191.333,
+          "appear_seconds": 201.583,
+          "disappear_seconds": 210.042,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1834,14 +1882,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Pier",
           "claim_id": "CLM_710",
-          "shot": "SC_018",
+          "shot": "SC_021",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [
             "stone_arch_bridge_pier1"
           ],
-          "appear_seconds": 182.875,
-          "disappear_seconds": 191.333,
+          "appear_seconds": 201.583,
+          "disappear_seconds": 210.042,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -1855,14 +1903,14 @@
       "beat_id": "B13",
       "sentence": 0,
       "text": "Building an arch takes support of its own.",
-      "start_seconds": 191.733333,
+      "start_seconds": 210.441667,
       "beat_claims": [
         "CLM_723"
       ],
       "claims": [
         {
           "id": "CLM_723",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1872,7 +1920,7 @@
         }
       ],
       "shots": [
-        "SC_019"
+        "SC_022"
       ],
       "annotations": []
     },
@@ -1880,14 +1928,14 @@
       "beat_id": "B13",
       "sentence": 1,
       "text": "While a stone arch is being built, a temporary timber frame called falsework holds the stones in place.",
-      "start_seconds": 195.258333,
+      "start_seconds": 213.966667,
       "beat_claims": [
         "CLM_723"
       ],
       "claims": [
         {
           "id": "CLM_723",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1897,7 +1945,7 @@
         }
       ],
       "shots": [
-        "SC_019"
+        "SC_022"
       ],
       "annotations": []
     },
@@ -1905,14 +1953,14 @@
       "beat_id": "B13",
       "sentence": 2,
       "text": "So building one called for carpenters as well as skilled masons.",
-      "start_seconds": 203.133333,
+      "start_seconds": 221.841667,
       "beat_claims": [
         "CLM_723"
       ],
       "claims": [
         {
           "id": "CLM_723",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1922,7 +1970,7 @@
         }
       ],
       "shots": [
-        "SC_019"
+        "SC_022"
       ],
       "annotations": []
     },
@@ -1930,7 +1978,7 @@
       "beat_id": "B14",
       "sentence": 0,
       "text": "Stone arches were generally more expensive to build than timber bridges.",
-      "start_seconds": 208.983333,
+      "start_seconds": 227.691667,
       "beat_claims": [
         "CLM_724",
         "CLM_725"
@@ -1938,7 +1986,7 @@
       "claims": [
         {
           "id": "CLM_724",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1948,7 +1996,7 @@
         },
         {
           "id": "CLM_725",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1958,7 +2006,7 @@
         }
       ],
       "shots": [
-        "SC_020"
+        "SC_023"
       ],
       "annotations": []
     },
@@ -1966,7 +2014,7 @@
       "beat_id": "B14",
       "sentence": 1,
       "text": "But stone was the preferred choice where durability and permanence were required, so arches were favoured on busy routes and in important places.",
-      "start_seconds": 215.033333,
+      "start_seconds": 233.741667,
       "beat_claims": [
         "CLM_724",
         "CLM_725"
@@ -1974,7 +2022,7 @@
       "claims": [
         {
           "id": "CLM_724",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1984,7 +2032,7 @@
         },
         {
           "id": "CLM_725",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -1994,7 +2042,7 @@
         }
       ],
       "shots": [
-        "SC_020"
+        "SC_023"
       ],
       "annotations": []
     },
@@ -2002,7 +2050,7 @@
       "beat_id": "B14",
       "sentence": 2,
       "text": "Elsewhere, the lower cost of timber made up for its lack of permanence.",
-      "start_seconds": 225.258333,
+      "start_seconds": 243.966667,
       "beat_claims": [
         "CLM_724",
         "CLM_725"
@@ -2010,7 +2058,7 @@
       "claims": [
         {
           "id": "CLM_724",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2020,7 +2068,7 @@
         },
         {
           "id": "CLM_725",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2030,7 +2078,7 @@
         }
       ],
       "shots": [
-        "SC_020"
+        "SC_023"
       ],
       "annotations": []
     },
@@ -2038,7 +2086,7 @@
       "beat_id": "B15",
       "sentence": 0,
       "text": "A third approach is the truss.",
-      "start_seconds": 231.316667,
+      "start_seconds": 250.025,
       "beat_claims": [
         "CLM_711",
         "CLM_712"
@@ -2046,7 +2094,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2060,7 +2108,7 @@
         },
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -2074,7 +2122,7 @@
         }
       ],
       "shots": [
-        "SC_021"
+        "SC_024"
       ],
       "annotations": [
         {
@@ -2082,12 +2130,12 @@
           "type": "NOTE",
           "text": "5 · The truss",
           "claim_id": null,
-          "shot": "SC_021",
+          "shot": "SC_024",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 231.208,
-          "disappear_seconds": 234.167,
+          "appear_seconds": 249.917,
+          "disappear_seconds": 252.875,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2101,7 +2149,7 @@
       "beat_id": "B15",
       "sentence": 1,
       "text": "It builds a structure out of straight members, joined into triangles.",
-      "start_seconds": 234.266667,
+      "start_seconds": 252.975,
       "beat_claims": [
         "CLM_711",
         "CLM_712"
@@ -2109,7 +2157,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2123,7 +2171,7 @@
         },
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -2137,7 +2185,7 @@
         }
       ],
       "shots": [
-        "SC_021"
+        "SC_024"
       ],
       "annotations": [
         {
@@ -2145,14 +2193,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Joints",
           "claim_id": "CLM_711",
-          "shot": "SC_021",
+          "shot": "SC_024",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_span1_joints_south"
           ],
-          "appear_seconds": 234.167,
-          "disappear_seconds": 246.833,
+          "appear_seconds": 252.875,
+          "disappear_seconds": 265.542,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2166,7 +2214,7 @@
       "beat_id": "B15",
       "sentence": 2,
       "text": "Each member is mainly pulled or pushed along its length, in tension or in compression.",
-      "start_seconds": 239.491667,
+      "start_seconds": 258.2,
       "beat_claims": [
         "CLM_711",
         "CLM_712"
@@ -2174,7 +2222,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2188,7 +2236,7 @@
         },
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -2202,7 +2250,7 @@
         }
       ],
       "shots": [
-        "SC_021"
+        "SC_024"
       ],
       "annotations": [
         {
@@ -2210,12 +2258,12 @@
           "type": "TENSION_COMPRESSION_LEGEND",
           "text": null,
           "claim_id": "CLM_712",
-          "shot": "SC_021",
+          "shot": "SC_024",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 239.375,
-          "disappear_seconds": 246.833,
+          "appear_seconds": 258.083,
+          "disappear_seconds": 265.542,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2229,7 +2277,7 @@
       "beat_id": "B16",
       "sentence": 0,
       "text": "In a simple span like these, under a downward load, the top chord is squeezed and the bottom chord is stretched.",
-      "start_seconds": 247.233333,
+      "start_seconds": 265.941667,
       "beat_claims": [
         "CLM_713",
         "CLM_714"
@@ -2237,7 +2285,7 @@
       "claims": [
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -2251,7 +2299,7 @@
         },
         {
           "id": "CLM_713",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -2265,7 +2313,7 @@
         },
         {
           "id": "CLM_714",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -2275,7 +2323,7 @@
         }
       ],
       "shots": [
-        "SC_022"
+        "SC_025"
       ],
       "annotations": [
         {
@@ -2283,12 +2331,12 @@
           "type": "TENSION_COMPRESSION_LEGEND",
           "text": null,
           "claim_id": "CLM_712",
-          "shot": "SC_022",
+          "shot": "SC_025",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 247.125,
-          "disappear_seconds": 261.417,
+          "appear_seconds": 265.833,
+          "disappear_seconds": 280.125,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2301,14 +2349,14 @@
           "type": "CALLOUT",
           "text": "Top chord: compression",
           "claim_id": "CLM_713",
-          "shot": "SC_022",
+          "shot": "SC_025",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_span1_chords_south"
           ],
-          "appear_seconds": 251.25,
-          "disappear_seconds": 261.417,
+          "appear_seconds": 269.958,
+          "disappear_seconds": 280.125,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2321,14 +2369,14 @@
           "type": "CALLOUT",
           "text": "Bottom chord: tension",
           "claim_id": "CLM_713",
-          "shot": "SC_022",
+          "shot": "SC_025",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_span1_chords_south"
           ],
-          "appear_seconds": 252.792,
-          "disappear_seconds": 261.417,
+          "appear_seconds": 271.5,
+          "disappear_seconds": 280.125,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2342,7 +2390,7 @@
       "beat_id": "B16",
       "sentence": 1,
       "text": "Inside, some web members are in compression and others are in tension.",
-      "start_seconds": 255.208333,
+      "start_seconds": 273.916667,
       "beat_claims": [
         "CLM_713",
         "CLM_714"
@@ -2350,7 +2398,7 @@
       "claims": [
         {
           "id": "CLM_713",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -2364,7 +2412,7 @@
         },
         {
           "id": "CLM_714",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -2374,7 +2422,7 @@
         }
       ],
       "shots": [
-        "SC_022"
+        "SC_025"
       ],
       "annotations": [
         {
@@ -2382,14 +2430,14 @@
           "type": "COMPONENT_LABEL",
           "text": "Web members",
           "claim_id": "CLM_714",
-          "shot": "SC_022",
+          "shot": "SC_025",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [
             "steel_truss_bridge_span2_diagonals_south"
           ],
-          "appear_seconds": 255.125,
-          "disappear_seconds": 261.417,
+          "appear_seconds": 273.833,
+          "disappear_seconds": 280.125,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2403,7 +2451,7 @@
       "beat_id": "B17",
       "sentence": 0,
       "text": "The triangles can be arranged in different patterns.",
-      "start_seconds": 261.816667,
+      "start_seconds": 280.525,
       "beat_claims": [
         "CLM_727",
         "CLM_728",
@@ -2412,7 +2460,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2426,7 +2474,7 @@
         },
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2436,7 +2484,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2446,9 +2494,9 @@
         }
       ],
       "shots": [
-        "SC_023",
-        "SC_024",
-        "SC_025"
+        "SC_026",
+        "SC_027",
+        "SC_028"
       ],
       "annotations": []
     },
@@ -2456,7 +2504,7 @@
       "beat_id": "B17",
       "sentence": 1,
       "text": "This is a Pratt truss.",
-      "start_seconds": 266.116667,
+      "start_seconds": 284.825,
       "beat_claims": [
         "CLM_727",
         "CLM_728",
@@ -2465,7 +2513,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2479,7 +2527,7 @@
         },
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2489,7 +2537,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2499,9 +2547,9 @@
         }
       ],
       "shots": [
-        "SC_023",
-        "SC_024",
-        "SC_025"
+        "SC_026",
+        "SC_027",
+        "SC_028"
       ],
       "annotations": [
         {
@@ -2509,12 +2557,12 @@
           "type": "NOTE",
           "text": "Pratt truss (patented 1844)",
           "claim_id": "CLM_727",
-          "shot": "SC_023",
+          "shot": "SC_026",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 266.0,
-          "disappear_seconds": 277.542,
+          "appear_seconds": 284.708,
+          "disappear_seconds": 296.25,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2528,7 +2576,7 @@
       "beat_id": "B17",
       "sentence": 2,
       "text": "In the original design, patented in 1844, its verticals were timber and its diagonals were iron rods.",
-      "start_seconds": 268.691667,
+      "start_seconds": 287.4,
       "beat_claims": [
         "CLM_727",
         "CLM_728",
@@ -2537,7 +2585,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2551,7 +2599,7 @@
         },
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2561,7 +2609,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2571,9 +2619,9 @@
         }
       ],
       "shots": [
-        "SC_023",
-        "SC_024",
-        "SC_025"
+        "SC_026",
+        "SC_027",
+        "SC_028"
       ],
       "annotations": []
     },
@@ -2581,7 +2629,7 @@
       "beat_id": "B17",
       "sentence": 3,
       "text": "Swap the web for diagonals that alternate in direction, and you have a Warren truss, patented in 1848.",
-      "start_seconds": 278.066667,
+      "start_seconds": 296.775,
       "beat_claims": [
         "CLM_727",
         "CLM_728",
@@ -2590,7 +2638,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2604,7 +2652,7 @@
         },
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2614,7 +2662,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2624,9 +2672,9 @@
         }
       ],
       "shots": [
-        "SC_023",
-        "SC_024",
-        "SC_025"
+        "SC_026",
+        "SC_027",
+        "SC_028"
       ],
       "annotations": [
         {
@@ -2634,12 +2682,12 @@
           "type": "NOTE",
           "text": "Warren truss (patented 1848)",
           "claim_id": "CLM_728",
-          "shot": "SC_024",
+          "shot": "SC_027",
           "state": "warren_truss",
           "asset": "bridge_steel_truss_warren_01",
           "components": [],
-          "appear_seconds": 277.958,
-          "disappear_seconds": 286.167,
+          "appear_seconds": 296.667,
+          "disappear_seconds": 304.875,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2652,12 +2700,12 @@
           "type": "NOTE",
           "text": "Warren truss (patented 1848)",
           "claim_id": "CLM_728",
-          "shot": "SC_025",
+          "shot": "SC_028",
           "state": "warren_truss",
           "asset": "bridge_steel_truss_warren_01",
           "components": [],
-          "appear_seconds": 286.5,
-          "disappear_seconds": 293.583,
+          "appear_seconds": 305.208,
+          "disappear_seconds": 312.292,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2671,7 +2719,7 @@
       "beat_id": "B17",
       "sentence": 4,
       "text": "Both patterns carry load through triangles; they simply arrange the members differently.",
-      "start_seconds": 286.666667,
+      "start_seconds": 305.375,
       "beat_claims": [
         "CLM_727",
         "CLM_728",
@@ -2680,7 +2728,7 @@
       "claims": [
         {
           "id": "CLM_711",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -2694,7 +2742,7 @@
         },
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2704,7 +2752,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2714,9 +2762,9 @@
         }
       ],
       "shots": [
-        "SC_023",
-        "SC_024",
-        "SC_025"
+        "SC_026",
+        "SC_027",
+        "SC_028"
       ],
       "annotations": []
     },
@@ -2724,14 +2772,14 @@
       "beat_id": "B18",
       "sentence": 0,
       "text": "Trusses also changed how bridges were built.",
-      "start_seconds": 293.983333,
+      "start_seconds": 312.691667,
       "beat_claims": [
         "CLM_729"
       ],
       "claims": [
         {
           "id": "CLM_729",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2741,7 +2789,7 @@
         }
       ],
       "shots": [
-        "SC_026"
+        "SC_029"
       ],
       "annotations": []
     },
@@ -2749,14 +2797,14 @@
       "beat_id": "B18",
       "sentence": 1,
       "text": "By the middle of the nineteenth century, shops were making and drilling truss members, then shipping them to the bridge site, ready to assemble.",
-      "start_seconds": 297.808333,
+      "start_seconds": 316.516667,
       "beat_claims": [
         "CLM_729"
       ],
       "claims": [
         {
           "id": "CLM_729",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2766,7 +2814,7 @@
         }
       ],
       "shots": [
-        "SC_026"
+        "SC_029"
       ],
       "annotations": [
         {
@@ -2774,12 +2822,12 @@
           "type": "NOTE",
           "text": "Members made and drilled in shops",
           "claim_id": "CLM_729",
-          "shot": "SC_026",
+          "shot": "SC_029",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 297.708,
-          "disappear_seconds": 307.375,
+          "appear_seconds": 316.417,
+          "disappear_seconds": 326.083,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2793,14 +2841,14 @@
       "beat_id": "B18",
       "sentence": 2,
       "text": "And by 1860, the railroads relied almost entirely on these prefabricated parts.",
-      "start_seconds": 307.458333,
+      "start_seconds": 326.166667,
       "beat_claims": [
         "CLM_729"
       ],
       "claims": [
         {
           "id": "CLM_729",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2810,7 +2858,7 @@
         }
       ],
       "shots": [
-        "SC_026"
+        "SC_029"
       ],
       "annotations": [
         {
@@ -2818,12 +2866,12 @@
           "type": "NOTE",
           "text": "By 1860: prefabricated parts",
           "claim_id": "CLM_729",
-          "shot": "SC_026",
+          "shot": "SC_029",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 307.375,
-          "disappear_seconds": 315.25,
+          "appear_seconds": 326.083,
+          "disappear_seconds": 333.958,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2834,14 +2882,1538 @@
       ]
     },
     {
+      "beat_id": "B40",
+      "sentence": 0,
+      "text": "To cross wide rivers and deep gorges, bridges needed longer spans.",
+      "start_seconds": 334.358333,
+      "beat_claims": [
+        "CLM_752",
+        "CLM_757"
+      ],
+      "claims": [
+        {
+          "id": "CLM_752",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_757",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_030"
+      ],
+      "annotations": [
+        {
+          "annotation": "B40_ch",
+          "type": "NOTE",
+          "text": "6 · The cantilever",
+          "claim_id": null,
+          "shot": "SC_030",
+          "state": "site_long_span",
+          "asset": null,
+          "components": [],
+          "appear_seconds": 334.25,
+          "disappear_seconds": 349.25,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B40",
+      "sentence": 1,
+      "text": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+      "start_seconds": 340.133333,
+      "beat_claims": [
+        "CLM_752",
+        "CLM_757"
+      ],
+      "claims": [
+        {
+          "id": "CLM_752",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_757",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_030"
+      ],
+      "annotations": [
+        {
+          "annotation": "B40_note",
+          "type": "NOTE",
+          "text": "A wider crossing (illustrative, not to scale)",
+          "claim_id": null,
+          "shot": "SC_030",
+          "state": "site_long_span",
+          "asset": null,
+          "components": [],
+          "appear_seconds": 340.042,
+          "disappear_seconds": 349.25,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B41",
+      "sentence": 0,
+      "text": "One answer was the cantilever.",
+      "start_seconds": 349.983333,
+      "beat_claims": [
+        "CLM_750"
+      ],
+      "claims": [
+        {
+          "id": "CLM_750",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_031"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B41",
+      "sentence": 1,
+      "text": "Hold your arm straight out from your shoulder, and it is acting as a cantilever: supported at one end, free at the other, like a diving board.",
+      "start_seconds": 353.333333,
+      "beat_claims": [
+        "CLM_750"
+      ],
+      "claims": [
+        {
+          "id": "CLM_750",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_031"
+      ],
+      "annotations": [
+        {
+          "annotation": "B41_note",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "claim_id": null,
+          "shot": "SC_031",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [],
+          "appear_seconds": 353.25,
+          "disappear_seconds": 363.625,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B42",
+      "sentence": 0,
+      "text": "A cantilever bridge is a modified beam.",
+      "start_seconds": 364.025,
+      "beat_claims": [
+        "CLM_750",
+        "CLM_751"
+      ],
+      "claims": [
+        {
+          "id": "CLM_750",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_751",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.1 Trusses, p. 3-4"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_032"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B42",
+      "sentence": 1,
+      "text": "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+      "start_seconds": 368.1,
+      "beat_claims": [
+        "CLM_750",
+        "CLM_751"
+      ],
+      "claims": [
+        {
+          "id": "CLM_750",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_751",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.1 Trusses, p. 3-4"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_032"
+      ],
+      "annotations": [
+        {
+          "annotation": "B42_anchor",
+          "type": "COMPONENT_LABEL",
+          "text": "Anchor arm",
+          "claim_id": "CLM_751",
+          "shot": "SC_032",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [
+            "cantilever_bridge_anchor_arm_left_south"
+          ],
+          "appear_seconds": 368.0,
+          "disappear_seconds": 378.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B42_arm",
+          "type": "COMPONENT_LABEL",
+          "text": "Cantilever arm",
+          "claim_id": "CLM_751",
+          "shot": "SC_032",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [
+            "cantilever_bridge_cantilever_arm_left_south"
+          ],
+          "appear_seconds": 371.417,
+          "disappear_seconds": 378.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B42_span",
+          "type": "COMPONENT_LABEL",
+          "text": "Suspended span",
+          "claim_id": "CLM_751",
+          "shot": "SC_032",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [
+            "cantilever_bridge_suspended_span_south"
+          ],
+          "appear_seconds": 374.667,
+          "disappear_seconds": 378.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B43",
+      "sentence": 0,
+      "text": "Its great advantage came during construction.",
+      "start_seconds": 379.108333,
+      "beat_claims": [
+        "CLM_753"
+      ],
+      "claims": [
+        {
+          "id": "CLM_753",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_033"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B43",
+      "sentence": 1,
+      "text": "The arms could be built outward from the piers with no falsework blocking the channel below, and then the suspended span was lifted into place.",
+      "start_seconds": 382.958333,
+      "beat_claims": [
+        "CLM_753"
+      ],
+      "claims": [
+        {
+          "id": "CLM_753",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_033"
+      ],
+      "annotations": [
+        {
+          "annotation": "B43_note",
+          "type": "NOTE",
+          "text": "Built outward: no falsework in the channel",
+          "claim_id": "CLM_753",
+          "shot": "SC_033",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [],
+          "appear_seconds": 382.875,
+          "disappear_seconds": 393.542,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B44",
+      "sentence": 0,
+      "text": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+      "start_seconds": 393.941667,
+      "beat_claims": [
+        "CLM_754",
+        "CLM_756"
+      ],
+      "claims": [
+        {
+          "id": "CLM_754",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_756",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_034"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B44",
+      "sentence": 1,
+      "text": "The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+      "start_seconds": 403.716667,
+      "beat_claims": [
+        "CLM_754",
+        "CLM_756"
+      ],
+      "claims": [
+        {
+          "id": "CLM_754",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_756",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_034"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B45",
+      "sentence": 0,
+      "text": "For the longest spans of all, engineers hung the deck instead.",
+      "start_seconds": 413.108333,
+      "beat_claims": [
+        "CLM_763",
+        "CLM_760"
+      ],
+      "claims": [
+        {
+          "id": "CLM_760",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_763",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_035"
+      ],
+      "annotations": [
+        {
+          "annotation": "B45_ch",
+          "type": "NOTE",
+          "text": "7 · The suspension bridge",
+          "claim_id": null,
+          "shot": "SC_035",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 413.0,
+          "disappear_seconds": 425.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B45_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "claim_id": null,
+          "shot": "SC_035",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 413.0,
+          "disappear_seconds": 425.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B45",
+      "sentence": 1,
+      "text": "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+      "start_seconds": 418.133333,
+      "beat_claims": [
+        "CLM_763",
+        "CLM_760"
+      ],
+      "claims": [
+        {
+          "id": "CLM_760",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_763",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_035"
+      ],
+      "annotations": [
+        {
+          "annotation": "B45_hangers",
+          "type": "COMPONENT_LABEL",
+          "text": "Suspenders",
+          "claim_id": "CLM_760",
+          "shot": "SC_035",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_hangers_south"
+          ],
+          "appear_seconds": 421.625,
+          "disappear_seconds": 425.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B45_cable",
+          "type": "COMPONENT_LABEL",
+          "text": "Main cable",
+          "claim_id": "CLM_760",
+          "shot": "SC_035",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_main_cable_south"
+          ],
+          "appear_seconds": 422.333,
+          "disappear_seconds": 425.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B46",
+      "sentence": 0,
+      "text": "The cables are in tension, and they pass over towers that are in compression.",
+      "start_seconds": 426.233333,
+      "beat_claims": [
+        "CLM_760",
+        "CLM_761"
+      ],
+      "claims": [
+        {
+          "id": "CLM_760",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_036"
+      ],
+      "annotations": [
+        {
+          "annotation": "B46_load",
+          "type": "LOAD_ARROW",
+          "text": "Load",
+          "claim_id": "CLM_760",
+          "shot": "SC_036",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_deck"
+          ],
+          "appear_seconds": 426.125,
+          "disappear_seconds": 438.833,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B46_cable",
+          "type": "CALLOUT",
+          "text": "Cables: tension",
+          "claim_id": "CLM_760",
+          "shot": "SC_036",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_main_cable_south"
+          ],
+          "appear_seconds": 427.5,
+          "disappear_seconds": 438.833,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B46_tower",
+          "type": "CALLOUT",
+          "text": "Towers: compression",
+          "claim_id": "CLM_760",
+          "shot": "SC_036",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_tower_right"
+          ],
+          "appear_seconds": 430.25,
+          "disappear_seconds": 438.833,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B46",
+      "sentence": 1,
+      "text": "At each end, the cables are anchored, usually in large masses of stone or concrete.",
+      "start_seconds": 432.058333,
+      "beat_claims": [
+        "CLM_760",
+        "CLM_761"
+      ],
+      "claims": [
+        {
+          "id": "CLM_760",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_036"
+      ],
+      "annotations": [
+        {
+          "annotation": "B46_anchor",
+          "type": "COMPONENT_LABEL",
+          "text": "Anchorage",
+          "claim_id": "CLM_761",
+          "shot": "SC_036",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_anchorage_left"
+          ],
+          "appear_seconds": 433.583,
+          "disappear_seconds": 438.833,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B47",
+      "sentence": 0,
+      "text": "A suspension deck is light for its span, and it can be very flexible.",
+      "start_seconds": 439.566667,
+      "beat_claims": [
+        "CLM_765"
+      ],
+      "claims": [
+        {
+          "id": "CLM_765",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_037",
+        "SC_038"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B47",
+      "sentence": 1,
+      "text": "So a stiffening truss is commonly built under the deck, against wind and earthquakes.",
+      "start_seconds": 445.216667,
+      "beat_claims": [
+        "CLM_765"
+      ],
+      "claims": [
+        {
+          "id": "CLM_765",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_037",
+        "SC_038"
+      ],
+      "annotations": [
+        {
+          "annotation": "B47_note",
+          "type": "NOTE",
+          "text": "Stiffening truss under the deck",
+          "claim_id": "CLM_765",
+          "shot": "SC_038",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 445.125,
+          "disappear_seconds": 451.917,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B48",
+      "sentence": 0,
+      "text": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge.",
+      "start_seconds": 452.316667,
+      "beat_claims": [
+        "CLM_764",
+        "CLM_768"
+      ],
+      "claims": [
+        {
+          "id": "CLM_764",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_768",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_039"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B48",
+      "sentence": 1,
+      "text": "The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+      "start_seconds": 461.541667,
+      "beat_claims": [
+        "CLM_764",
+        "CLM_768"
+      ],
+      "claims": [
+        {
+          "id": "CLM_764",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_768",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_039"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B50",
+      "sentence": 0,
+      "text": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+      "start_seconds": 475.4,
+      "beat_claims": [
+        "CLM_770",
+        "CLM_771"
+      ],
+      "claims": [
+        {
+          "id": "CLM_770",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        },
+        {
+          "id": "CLM_771",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_040"
+      ],
+      "annotations": [
+        {
+          "annotation": "B50_ch",
+          "type": "NOTE",
+          "text": "8 · The cable-stayed bridge",
+          "claim_id": null,
+          "shot": "SC_040",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 475.292,
+          "disappear_seconds": 488.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B50_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "claim_id": null,
+          "shot": "SC_040",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 475.292,
+          "disappear_seconds": 488.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B50",
+      "sentence": 1,
+      "text": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+      "start_seconds": 482.05,
+      "beat_claims": [
+        "CLM_770",
+        "CLM_771"
+      ],
+      "claims": [
+        {
+          "id": "CLM_770",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        },
+        {
+          "id": "CLM_771",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_040"
+      ],
+      "annotations": [
+        {
+          "annotation": "B50_stays",
+          "type": "COMPONENT_LABEL",
+          "text": "Stay cables",
+          "claim_id": "CLM_770",
+          "shot": "SC_040",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [
+            "cable_stayed_bridge_stay_left_side5"
+          ],
+          "appear_seconds": 482.583,
+          "disappear_seconds": 488.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B50_tower",
+          "type": "COMPONENT_LABEL",
+          "text": "Tower",
+          "claim_id": "CLM_770",
+          "shot": "SC_040",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [
+            "cable_stayed_bridge_pylon_right"
+          ],
+          "appear_seconds": 484.25,
+          "disappear_seconds": 488.708,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B51",
+      "sentence": 0,
+      "text": "Seen in outline, the difference is clear.",
+      "start_seconds": 489.108333,
+      "beat_claims": [
+        "CLM_763",
+        "CLM_761",
+        "CLM_770",
+        "CLM_771"
+      ],
+      "claims": [
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_763",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_770",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        },
+        {
+          "id": "CLM_771",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_041"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B51",
+      "sentence": 1,
+      "text": "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+      "start_seconds": 492.633333,
+      "beat_claims": [
+        "CLM_763",
+        "CLM_761",
+        "CLM_770",
+        "CLM_771"
+      ],
+      "claims": [
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_763",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_770",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        },
+        {
+          "id": "CLM_771",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_041"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B51",
+      "sentence": 2,
+      "text": "The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+      "start_seconds": 500.508333,
+      "beat_claims": [
+        "CLM_763",
+        "CLM_761",
+        "CLM_770",
+        "CLM_771"
+      ],
+      "claims": [
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_763",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_770",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        },
+        {
+          "id": "CLM_771",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_041"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B52",
+      "sentence": 0,
+      "text": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+      "start_seconds": 507.9,
+      "beat_claims": [
+        "CLM_772",
+        "CLM_773"
+      ],
+      "claims": [
+        {
+          "id": "CLM_772",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.4 Cable-Stayed Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_773",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_042"
+      ],
+      "annotations": [
+        {
+          "annotation": "B52_note",
+          "type": "NOTE",
+          "text": "Built outward from the towers",
+          "claim_id": "CLM_772",
+          "shot": "SC_042",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 507.792,
+          "disappear_seconds": 517.333,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B52",
+      "sentence": 1,
+      "text": "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+      "start_seconds": 517.425,
+      "beat_claims": [
+        "CLM_772",
+        "CLM_773"
+      ],
+      "claims": [
+        {
+          "id": "CLM_772",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.4 Cable-Stayed Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_773",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_042"
+      ],
+      "annotations": [
+        {
+          "annotation": "B52_deck",
+          "type": "CALLOUT",
+          "text": "Deck: squeezed by the stays",
+          "claim_id": "CLM_773",
+          "shot": "SC_042",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [
+            "cable_stayed_bridge_deck_closure"
+          ],
+          "appear_seconds": 518.542,
+          "disappear_seconds": 522.458,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B53",
+      "sentence": 0,
+      "text": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+      "start_seconds": 524.983333,
+      "beat_claims": [
+        "CLM_775",
+        "CLM_774"
+      ],
+      "claims": [
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_775",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_043"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B53",
+      "sentence": 1,
+      "text": "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet, and that suspension bridges pay off only as main spans approach 3,000.",
+      "start_seconds": 534.283333,
+      "beat_claims": [
+        "CLM_775",
+        "CLM_774"
+      ],
+      "claims": [
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_775",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_043"
+      ],
+      "annotations": []
+    },
+    {
       "beat_id": "B19",
       "sentence": 0,
       "text": "So which design is best?",
-      "start_seconds": 315.65,
+      "start_seconds": 549.608333,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_027"
+        "SC_044"
       ],
       "annotations": []
     },
@@ -2849,11 +4421,11 @@
       "beat_id": "B19",
       "sentence": 1,
       "text": "The honest answer is that it depends.",
-      "start_seconds": 318.45,
+      "start_seconds": 552.408333,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_027"
+        "SC_044"
       ],
       "annotations": []
     },
@@ -2861,11 +4433,11 @@
       "beat_id": "B19",
       "sentence": 2,
       "text": "Materials, the site, the span, cost, and the skills available all pull in different directions.",
-      "start_seconds": 321.8,
+      "start_seconds": 555.758333,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_027"
+        "SC_044"
       ],
       "annotations": []
     },
@@ -2873,14 +4445,14 @@
       "beat_id": "B20A",
       "sentence": 0,
       "text": "Start with the materials themselves.",
-      "start_seconds": 330.066667,
+      "start_seconds": 564.025,
       "beat_claims": [
         "CLM_726"
       ],
       "claims": [
         {
           "id": "CLM_726",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_YALE_PHYSICS",
@@ -2890,7 +4462,7 @@
         }
       ],
       "shots": [
-        "SC_028"
+        "SC_045"
       ],
       "annotations": []
     },
@@ -2898,14 +4470,14 @@
       "beat_id": "B20A",
       "sentence": 1,
       "text": "An arch needs a material that is strong under compression, and stone is.",
-      "start_seconds": 333.241667,
+      "start_seconds": 567.2,
       "beat_claims": [
         "CLM_726"
       ],
       "claims": [
         {
           "id": "CLM_726",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_YALE_PHYSICS",
@@ -2915,7 +4487,7 @@
         }
       ],
       "shots": [
-        "SC_028"
+        "SC_045"
       ],
       "annotations": [
         {
@@ -2923,12 +4495,12 @@
           "type": "NOTE",
           "text": "Stone: strong under compression",
           "claim_id": null,
-          "shot": "SC_028",
+          "shot": "SC_045",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [],
-          "appear_seconds": 333.125,
-          "disappear_seconds": 339.333,
+          "appear_seconds": 567.083,
+          "disappear_seconds": 573.292,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -2942,7 +4514,7 @@
       "beat_id": "B20B",
       "sentence": 0,
       "text": "A truss needs members that can work in tension as well as compression.",
-      "start_seconds": 339.733333,
+      "start_seconds": 573.691667,
       "beat_claims": [
         "CLM_712",
         "CLM_735"
@@ -2950,7 +4522,7 @@
       "claims": [
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -2964,7 +4536,7 @@
         },
         {
           "id": "CLM_735",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -2974,7 +4546,7 @@
         }
       ],
       "shots": [
-        "SC_029"
+        "SC_046"
       ],
       "annotations": [
         {
@@ -2982,12 +4554,12 @@
           "type": "NOTE",
           "text": "Truss members: tension and compression",
           "claim_id": null,
-          "shot": "SC_029",
+          "shot": "SC_046",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 339.625,
-          "disappear_seconds": 345.375,
+          "appear_seconds": 573.583,
+          "disappear_seconds": 579.333,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -3001,7 +4573,7 @@
       "beat_id": "B20B",
       "sentence": 1,
       "text": "Wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
-      "start_seconds": 345.458333,
+      "start_seconds": 579.416667,
       "beat_claims": [
         "CLM_712",
         "CLM_735"
@@ -3009,7 +4581,7 @@
       "claims": [
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -3023,7 +4595,7 @@
         },
         {
           "id": "CLM_735",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3033,7 +4605,7 @@
         }
       ],
       "shots": [
-        "SC_029"
+        "SC_046"
       ],
       "annotations": [
         {
@@ -3041,12 +4613,12 @@
           "type": "NOTE",
           "text": "Wrought iron: valued in tension and compression",
           "claim_id": "CLM_735",
-          "shot": "SC_029",
+          "shot": "SC_046",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 345.375,
-          "disappear_seconds": 355.208,
+          "appear_seconds": 579.333,
+          "disappear_seconds": 589.167,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -3060,7 +4632,7 @@
       "beat_id": "B20C",
       "sentence": 0,
       "text": "Wood was often plentiful and cheap, but wooden bridges were vulnerable to decay.",
-      "start_seconds": 355.608333,
+      "start_seconds": 589.566667,
       "beat_claims": [
         "CLM_742",
         "CLM_734"
@@ -3068,7 +4640,7 @@
       "claims": [
         {
           "id": "CLM_734",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -3078,7 +4650,7 @@
         },
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3088,7 +4660,7 @@
         }
       ],
       "shots": [
-        "SC_030"
+        "SC_047"
       ],
       "annotations": [
         {
@@ -3096,12 +4668,12 @@
           "type": "NOTE",
           "text": "Timber: plentiful and cheap, but it decays",
           "claim_id": null,
-          "shot": "SC_030",
+          "shot": "SC_047",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [],
-          "appear_seconds": 355.5,
-          "disappear_seconds": 362.458,
+          "appear_seconds": 589.458,
+          "disappear_seconds": 596.417,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -3115,7 +4687,7 @@
       "beat_id": "B21",
       "sentence": 0,
       "text": "That is one reason many timber truss bridges were covered with a roof and siding, to protect them from the weather.",
-      "start_seconds": 362.858333,
+      "start_seconds": 596.816667,
       "beat_claims": [
         "CLM_733",
         "CLM_746"
@@ -3123,7 +4695,7 @@
       "claims": [
         {
           "id": "CLM_733",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3133,7 +4705,7 @@
         },
         {
           "id": "CLM_746",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3143,7 +4715,7 @@
         }
       ],
       "shots": [
-        "SC_031"
+        "SC_048"
       ],
       "annotations": []
     },
@@ -3151,7 +4723,7 @@
       "beat_id": "B21",
       "sentence": 1,
       "text": "This is the Humpback Covered Bridge, built in 1857 over Dunlap Creek.",
-      "start_seconds": 371.183333,
+      "start_seconds": 605.141667,
       "beat_claims": [
         "CLM_733",
         "CLM_746"
@@ -3159,7 +4731,7 @@
       "claims": [
         {
           "id": "CLM_733",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3169,7 +4741,7 @@
         },
         {
           "id": "CLM_746",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3179,7 +4751,7 @@
         }
       ],
       "shots": [
-        "SC_031"
+        "SC_048"
       ],
       "annotations": []
     },
@@ -3187,14 +4759,14 @@
       "beat_id": "B22",
       "sentence": 0,
       "text": "The site of a bridge matters too.",
-      "start_seconds": 378.858333,
+      "start_seconds": 612.816667,
       "beat_claims": [
         "CLM_736"
       ],
       "claims": [
         {
           "id": "CLM_736",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3208,7 +4780,7 @@
         }
       ],
       "shots": [
-        "SC_032"
+        "SC_049"
       ],
       "annotations": []
     },
@@ -3216,14 +4788,14 @@
       "beat_id": "B22",
       "sentence": 1,
       "text": "Railway engines have limited traction, so railways need gentle gradients.",
-      "start_seconds": 381.933333,
+      "start_seconds": 615.891667,
       "beat_claims": [
         "CLM_736"
       ],
       "claims": [
         {
           "id": "CLM_736",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3237,7 +4809,7 @@
         }
       ],
       "shots": [
-        "SC_032"
+        "SC_049"
       ],
       "annotations": []
     },
@@ -3245,14 +4817,14 @@
       "beat_id": "B22",
       "sentence": 2,
       "text": "Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level.",
-      "start_seconds": 388.058333,
+      "start_seconds": 622.016667,
       "beat_claims": [
         "CLM_736"
       ],
       "claims": [
         {
           "id": "CLM_736",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3266,132 +4838,7 @@
         }
       ],
       "shots": [
-        "SC_032"
-      ],
-      "annotations": []
-    },
-    {
-      "beat_id": "B23",
-      "sentence": 0,
-      "text": "Then there is span: how far a single structure has to reach.",
-      "start_seconds": 398.941667,
-      "beat_claims": [],
-      "claims": [],
-      "shots": [
-        "SC_033"
-      ],
-      "annotations": [
-        {
-          "annotation": "B23_note",
-          "type": "NOTE",
-          "text": "Span: how far one structure reaches",
-          "claim_id": null,
-          "shot": "SC_033",
-          "state": "site",
-          "asset": null,
-          "components": [],
-          "appear_seconds": 398.833,
-          "disappear_seconds": 404.083,
-          "qa": {
-            "annotation_objects": "PASS",
-            "annotation_anchors": "PASS",
-            "annotation_layout": "PASS",
-            "annotation_timing": "PASS"
-          }
-        }
-      ]
-    },
-    {
-      "beat_id": "B23B",
-      "sentence": 0,
-      "text": "A simple king post truss could span only about thirty feet.",
-      "start_seconds": 404.483333,
-      "beat_claims": [
-        "CLM_731",
-        "CLM_732",
-        "CLM_730"
-      ],
-      "claims": [
-        {
-          "id": "CLM_730",
-          "status": "EDITORIALLY_APPROVED",
-          "evidence": [
-            {
-              "source": "SRC_NCHRP_CONTEXT",
-              "locator": "3.1 Trusses, p. 3-4"
-            }
-          ]
-        },
-        {
-          "id": "CLM_731",
-          "status": "EDITORIALLY_APPROVED",
-          "evidence": [
-            {
-              "source": "SRC_NCHRP_CONTEXT",
-              "locator": "3.1.1 King Post, p. 3-7"
-            }
-          ]
-        },
-        {
-          "id": "CLM_732",
-          "status": "EDITORIALLY_APPROVED",
-          "evidence": [
-            {
-              "source": "SRC_NCHRP_CONTEXT",
-              "locator": "3.2.1 Stone Arch, p. 3-48"
-            }
-          ]
-        }
-      ],
-      "shots": [
-        "SC_034"
-      ],
-      "annotations": []
-    },
-    {
-      "beat_id": "B23B",
-      "sentence": 1,
-      "text": "What one report calls America's greatest stone arch, the Cabin John Aqueduct Bridge, spans 220 feet, and some through trusses approach 400.",
-      "start_seconds": 409.333333,
-      "beat_claims": [
-        "CLM_731",
-        "CLM_732",
-        "CLM_730"
-      ],
-      "claims": [
-        {
-          "id": "CLM_730",
-          "status": "EDITORIALLY_APPROVED",
-          "evidence": [
-            {
-              "source": "SRC_NCHRP_CONTEXT",
-              "locator": "3.1 Trusses, p. 3-4"
-            }
-          ]
-        },
-        {
-          "id": "CLM_731",
-          "status": "EDITORIALLY_APPROVED",
-          "evidence": [
-            {
-              "source": "SRC_NCHRP_CONTEXT",
-              "locator": "3.1.1 King Post, p. 3-7"
-            }
-          ]
-        },
-        {
-          "id": "CLM_732",
-          "status": "EDITORIALLY_APPROVED",
-          "evidence": [
-            {
-              "source": "SRC_NCHRP_CONTEXT",
-              "locator": "3.2.1 Stone Arch, p. 3-48"
-            }
-          ]
-        }
-      ],
-      "shots": [
-        "SC_034"
+        "SC_049"
       ],
       "annotations": []
     },
@@ -3399,7 +4846,7 @@
       "beat_id": "B24",
       "sentence": 0,
       "text": "Finally, every bridge belongs to its time.",
-      "start_seconds": 422.191667,
+      "start_seconds": 632.9,
       "beat_claims": [
         "CLM_738",
         "CLM_739",
@@ -3410,7 +4857,7 @@
       "claims": [
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3420,7 +4867,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3430,7 +4877,7 @@
         },
         {
           "id": "CLM_729",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3440,7 +4887,7 @@
         },
         {
           "id": "CLM_738",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3450,7 +4897,7 @@
         },
         {
           "id": "CLM_739",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3460,7 +4907,7 @@
         }
       ],
       "shots": [
-        "SC_035"
+        "SC_050"
       ],
       "annotations": []
     },
@@ -3468,7 +4915,7 @@
       "beat_id": "B24",
       "sentence": 1,
       "text": "As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined.",
-      "start_seconds": 426.166667,
+      "start_seconds": 636.875,
       "beat_claims": [
         "CLM_738",
         "CLM_739",
@@ -3479,7 +4926,7 @@
       "claims": [
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3489,7 +4936,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3499,7 +4946,7 @@
         },
         {
           "id": "CLM_729",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3509,7 +4956,7 @@
         },
         {
           "id": "CLM_738",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3519,7 +4966,7 @@
         },
         {
           "id": "CLM_739",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3529,7 +4976,7 @@
         }
       ],
       "shots": [
-        "SC_035"
+        "SC_050"
       ],
       "annotations": []
     },
@@ -3537,7 +4984,7 @@
       "beat_id": "B24",
       "sentence": 2,
       "text": "Then, during the Great Depression, it briefly returned.",
-      "start_seconds": 435.666667,
+      "start_seconds": 646.375,
       "beat_claims": [
         "CLM_738",
         "CLM_739",
@@ -3548,7 +4995,7 @@
       "claims": [
         {
           "id": "CLM_727",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3558,7 +5005,7 @@
         },
         {
           "id": "CLM_728",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3568,7 +5015,7 @@
         },
         {
           "id": "CLM_729",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3578,7 +5025,7 @@
         },
         {
           "id": "CLM_738",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3588,7 +5035,7 @@
         },
         {
           "id": "CLM_739",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3598,7 +5045,7 @@
         }
       ],
       "shots": [
-        "SC_035"
+        "SC_050"
       ],
       "annotations": []
     },
@@ -3606,7 +5053,7 @@
       "beat_id": "B25",
       "sentence": 0,
       "text": "These trade-offs played out across nineteenth-century America as the railways spread.",
-      "start_seconds": 440.858333,
+      "start_seconds": 651.566667,
       "beat_claims": [
         "CLM_741",
         "CLM_742"
@@ -3614,7 +5061,7 @@
       "claims": [
         {
           "id": "CLM_741",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3628,7 +5075,7 @@
         },
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3638,7 +5085,7 @@
         }
       ],
       "shots": [
-        "SC_036"
+        "SC_051"
       ],
       "annotations": []
     },
@@ -3646,7 +5093,7 @@
       "beat_id": "B25",
       "sentence": 1,
       "text": "In the East, railroads built massive stone viaducts, while western builders generally used timber.",
-      "start_seconds": 447.208333,
+      "start_seconds": 657.916667,
       "beat_claims": [
         "CLM_741",
         "CLM_742"
@@ -3654,7 +5101,7 @@
       "claims": [
         {
           "id": "CLM_741",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3668,7 +5115,7 @@
         },
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3678,7 +5125,7 @@
         }
       ],
       "shots": [
-        "SC_036"
+        "SC_051"
       ],
       "annotations": []
     },
@@ -3686,7 +5133,7 @@
       "beat_id": "B25",
       "sentence": 2,
       "text": "Three documented examples show how differently builders answered.",
-      "start_seconds": 454.983333,
+      "start_seconds": 665.691667,
       "beat_claims": [
         "CLM_741",
         "CLM_742"
@@ -3694,7 +5141,7 @@
       "claims": [
         {
           "id": "CLM_741",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3708,7 +5155,7 @@
         },
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3718,7 +5165,7 @@
         }
       ],
       "shots": [
-        "SC_036"
+        "SC_051"
       ],
       "annotations": []
     },
@@ -3726,7 +5173,7 @@
       "beat_id": "B26",
       "sentence": 0,
       "text": "Near Baltimore, the Carrollton Viaduct was completed in 1829.",
-      "start_seconds": 461.233333,
+      "start_seconds": 671.941667,
       "beat_claims": [
         "CLM_739",
         "CLM_740"
@@ -3734,7 +5181,7 @@
       "claims": [
         {
           "id": "CLM_739",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3744,7 +5191,7 @@
         },
         {
           "id": "CLM_740",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3754,7 +5201,7 @@
         }
       ],
       "shots": [
-        "SC_037"
+        "SC_052"
       ],
       "annotations": []
     },
@@ -3762,7 +5209,7 @@
       "beat_id": "B26",
       "sentence": 1,
       "text": "Built of roughly twelve thousand granite blocks, it carries the railway over Gwynns Falls on an eighty foot arch.",
-      "start_seconds": 467.308333,
+      "start_seconds": 678.016667,
       "beat_claims": [
         "CLM_739",
         "CLM_740"
@@ -3770,7 +5217,7 @@
       "claims": [
         {
           "id": "CLM_739",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3780,7 +5227,7 @@
         },
         {
           "id": "CLM_740",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3790,7 +5237,7 @@
         }
       ],
       "shots": [
-        "SC_037"
+        "SC_052"
       ],
       "annotations": []
     },
@@ -3798,7 +5245,7 @@
       "beat_id": "B26",
       "sentence": 2,
       "text": "A national report in 2005 called it the world's oldest stone railroad span still in service.",
-      "start_seconds": 475.733333,
+      "start_seconds": 686.441667,
       "beat_claims": [
         "CLM_739",
         "CLM_740"
@@ -3806,7 +5253,7 @@
       "claims": [
         {
           "id": "CLM_739",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3816,7 +5263,7 @@
         },
         {
           "id": "CLM_740",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3826,7 +5273,7 @@
         }
       ],
       "shots": [
-        "SC_037"
+        "SC_052"
       ],
       "annotations": []
     },
@@ -3834,7 +5281,7 @@
       "beat_id": "B27",
       "sentence": 0,
       "text": "Early railroads needed durable bridges to carry heavy trains.",
-      "start_seconds": 484.358333,
+      "start_seconds": 695.066667,
       "beat_claims": [
         "CLM_741",
         "CLM_725"
@@ -3842,7 +5289,7 @@
       "claims": [
         {
           "id": "CLM_725",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3852,7 +5299,7 @@
         },
         {
           "id": "CLM_741",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3866,7 +5313,7 @@
         }
       ],
       "shots": [
-        "SC_038"
+        "SC_053"
       ],
       "annotations": [
         {
@@ -3874,12 +5321,12 @@
           "type": "NOTE",
           "text": "Illustrative model, not the Carrollton Viaduct",
           "claim_id": null,
-          "shot": "SC_038",
+          "shot": "SC_053",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [],
-          "appear_seconds": 484.25,
-          "disappear_seconds": 494.083,
+          "appear_seconds": 694.958,
+          "disappear_seconds": 704.792,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -3893,7 +5340,7 @@
       "beat_id": "B27",
       "sentence": 1,
       "text": "For a line meant to last, stone was the answer.",
-      "start_seconds": 489.483333,
+      "start_seconds": 700.191667,
       "beat_claims": [
         "CLM_741",
         "CLM_725"
@@ -3901,7 +5348,7 @@
       "claims": [
         {
           "id": "CLM_725",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3911,7 +5358,7 @@
         },
         {
           "id": "CLM_741",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3925,7 +5372,7 @@
         }
       ],
       "shots": [
-        "SC_038"
+        "SC_053"
       ],
       "annotations": []
     },
@@ -3933,7 +5380,7 @@
       "beat_id": "B28",
       "sentence": 0,
       "text": "In the West, the pressure was different.",
-      "start_seconds": 494.483333,
+      "start_seconds": 705.191667,
       "beat_claims": [
         "CLM_742",
         "CLM_743"
@@ -3941,7 +5388,7 @@
       "claims": [
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3951,7 +5398,7 @@
         },
         {
           "id": "CLM_743",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3961,7 +5408,7 @@
         }
       ],
       "shots": [
-        "SC_039"
+        "SC_054"
       ],
       "annotations": []
     },
@@ -3969,7 +5416,7 @@
       "beat_id": "B28",
       "sentence": 1,
       "text": "Railroads had to open new lines quickly and economically, and timber was abundant and cheap.",
-      "start_seconds": 497.733333,
+      "start_seconds": 708.441667,
       "beat_claims": [
         "CLM_742",
         "CLM_743"
@@ -3977,7 +5424,7 @@
       "claims": [
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3987,7 +5434,7 @@
         },
         {
           "id": "CLM_743",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -3997,7 +5444,7 @@
         }
       ],
       "shots": [
-        "SC_039"
+        "SC_054"
       ],
       "annotations": []
     },
@@ -4005,7 +5452,7 @@
       "beat_id": "B28",
       "sentence": 2,
       "text": "This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad.",
-      "start_seconds": 504.783333,
+      "start_seconds": 715.491667,
       "beat_claims": [
         "CLM_742",
         "CLM_743"
@@ -4013,7 +5460,7 @@
       "claims": [
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4023,7 +5470,7 @@
         },
         {
           "id": "CLM_743",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4033,7 +5480,7 @@
         }
       ],
       "shots": [
-        "SC_039"
+        "SC_054"
       ],
       "annotations": []
     },
@@ -4041,14 +5488,14 @@
       "beat_id": "B29",
       "sentence": 0,
       "text": "A trestle is a succession of towers supporting short spans.",
-      "start_seconds": 514.233333,
+      "start_seconds": 724.941667,
       "beat_claims": [
         "CLM_737"
       ],
       "claims": [
         {
           "id": "CLM_737",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4058,7 +5505,7 @@
         }
       ],
       "shots": [
-        "SC_040"
+        "SC_055"
       ],
       "annotations": [
         {
@@ -4066,12 +5513,12 @@
           "type": "NOTE",
           "text": "Illustrative model, not the Promontory trestle",
           "claim_id": null,
-          "shot": "SC_040",
+          "shot": "SC_055",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [],
-          "appear_seconds": 514.125,
-          "disappear_seconds": 526.333,
+          "appear_seconds": 724.833,
+          "disappear_seconds": 737.042,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -4085,14 +5532,14 @@
       "beat_id": "B29",
       "sentence": 1,
       "text": "It is the same beam idea as our timber model, repeated as often as the crossing needs.",
-      "start_seconds": 519.083333,
+      "start_seconds": 729.791667,
       "beat_claims": [
         "CLM_737"
       ],
       "claims": [
         {
           "id": "CLM_737",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4102,7 +5549,7 @@
         }
       ],
       "shots": [
-        "SC_040"
+        "SC_055"
       ],
       "annotations": []
     },
@@ -4110,7 +5557,7 @@
       "beat_id": "B30",
       "sentence": 0,
       "text": "Iron offered a third path.",
-      "start_seconds": 526.733333,
+      "start_seconds": 737.441667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -4118,7 +5565,7 @@
       "claims": [
         {
           "id": "CLM_744",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4132,7 +5579,7 @@
         },
         {
           "id": "CLM_745",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4142,7 +5589,7 @@
         }
       ],
       "shots": [
-        "SC_041"
+        "SC_056"
       ],
       "annotations": []
     },
@@ -4150,7 +5597,7 @@
       "beat_id": "B30",
       "sentence": 1,
       "text": "The Bollman truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts.",
-      "start_seconds": 529.633333,
+      "start_seconds": 740.341667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -4158,7 +5605,7 @@
       "claims": [
         {
           "id": "CLM_744",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4172,7 +5619,7 @@
         },
         {
           "id": "CLM_745",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4182,7 +5629,7 @@
         }
       ],
       "shots": [
-        "SC_041"
+        "SC_056"
       ],
       "annotations": []
     },
@@ -4190,7 +5637,7 @@
       "beat_id": "B30",
       "sentence": 2,
       "text": "It could be built relatively quickly and inexpensively, while offering the long-lasting qualities of metal.",
-      "start_seconds": 539.583333,
+      "start_seconds": 750.291667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -4198,7 +5645,7 @@
       "claims": [
         {
           "id": "CLM_744",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4212,7 +5659,7 @@
         },
         {
           "id": "CLM_745",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4222,7 +5669,7 @@
         }
       ],
       "shots": [
-        "SC_041"
+        "SC_056"
       ],
       "annotations": []
     },
@@ -4230,7 +5677,7 @@
       "beat_id": "B30",
       "sentence": 3,
       "text": "The bridge at Savage, Maryland, is the only remaining example of the design.",
-      "start_seconds": 547.283333,
+      "start_seconds": 757.991667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -4238,7 +5685,7 @@
       "claims": [
         {
           "id": "CLM_744",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4252,7 +5699,7 @@
         },
         {
           "id": "CLM_745",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4262,7 +5709,7 @@
         }
       ],
       "shots": [
-        "SC_041"
+        "SC_056"
       ],
       "annotations": []
     },
@@ -4270,7 +5717,7 @@
       "beat_id": "B31",
       "sentence": 0,
       "text": "Stone for permanence, timber for speed and economy, and iron trusses that offered some of both.",
-      "start_seconds": 554.441667,
+      "start_seconds": 765.15,
       "beat_claims": [
         "CLM_741",
         "CLM_742",
@@ -4279,7 +5726,7 @@
       "claims": [
         {
           "id": "CLM_741",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4293,7 +5740,7 @@
         },
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4303,7 +5750,7 @@
         },
         {
           "id": "CLM_744",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4317,7 +5764,7 @@
         }
       ],
       "shots": [
-        "SC_042"
+        "SC_057"
       ],
       "annotations": []
     },
@@ -4325,7 +5772,7 @@
       "beat_id": "B31",
       "sentence": 1,
       "text": "Three places, three sets of constraints, three different bridges.",
-      "start_seconds": 561.666667,
+      "start_seconds": 772.375,
       "beat_claims": [
         "CLM_741",
         "CLM_742",
@@ -4334,7 +5781,7 @@
       "claims": [
         {
           "id": "CLM_741",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4348,7 +5795,7 @@
         },
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4358,7 +5805,7 @@
         },
         {
           "id": "CLM_744",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ASCE_BOLLMAN",
@@ -4372,7 +5819,7 @@
         }
       ],
       "shots": [
-        "SC_042"
+        "SC_057"
       ],
       "annotations": []
     },
@@ -4380,7 +5827,7 @@
       "beat_id": "B32",
       "sentence": 0,
       "text": "So why don't bridges all look the same?",
-      "start_seconds": 567.525,
+      "start_seconds": 778.233333,
       "beat_claims": [
         "CLM_706",
         "CLM_709",
@@ -4389,7 +5836,7 @@
       "claims": [
         {
           "id": "CLM_706",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -4403,7 +5850,7 @@
         },
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -4421,7 +5868,7 @@
         },
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -4435,20 +5882,20 @@
         }
       ],
       "shots": [
-        "SC_043"
+        "SC_058"
       ],
       "annotations": [
         {
           "annotation": "B32_ch",
           "type": "NOTE",
-          "text": "8 · Why they look different",
+          "text": "11 · Why they look different",
           "claim_id": null,
-          "shot": "SC_043",
+          "shot": "SC_058",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 567.425,
-          "disappear_seconds": 575.675,
+          "appear_seconds": 778.133,
+          "disappear_seconds": 786.383,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -4462,7 +5909,7 @@
       "beat_id": "B32",
       "sentence": 1,
       "text": "Because a bridge's form comes from two things working together.",
-      "start_seconds": 570.9,
+      "start_seconds": 781.608333,
       "beat_claims": [
         "CLM_706",
         "CLM_709",
@@ -4471,7 +5918,7 @@
       "claims": [
         {
           "id": "CLM_706",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -4485,7 +5932,7 @@
         },
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -4503,7 +5950,7 @@
         },
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -4517,7 +5964,7 @@
         }
       ],
       "shots": [
-        "SC_043"
+        "SC_058"
       ],
       "annotations": []
     },
@@ -4525,7 +5972,7 @@
       "beat_id": "B32",
       "sentence": 2,
       "text": "One is how its structure carries load: beams resist bending, arches work in compression, and trusses share load among members in tension and compression.",
-      "start_seconds": 575.775,
+      "start_seconds": 786.483333,
       "beat_claims": [
         "CLM_706",
         "CLM_709",
@@ -4534,7 +5981,7 @@
       "claims": [
         {
           "id": "CLM_706",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_FHWA_CBM",
@@ -4548,7 +5995,7 @@
         },
         {
           "id": "CLM_709",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_ODOT_MBI",
@@ -4566,7 +6013,7 @@
         },
         {
           "id": "CLM_712",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_SCI_TRUSSES",
@@ -4580,7 +6027,7 @@
         }
       ],
       "shots": [
-        "SC_043"
+        "SC_058"
       ],
       "annotations": [
         {
@@ -4588,12 +6035,82 @@
           "type": "NOTE",
           "text": "1 · How the structure carries load",
           "claim_id": null,
-          "shot": "SC_043",
+          "shot": "SC_058",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 575.675,
-          "disappear_seconds": 587.583,
+          "appear_seconds": 786.383,
+          "disappear_seconds": 798.292,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B32L",
+      "sentence": 0,
+      "text": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+      "start_seconds": 798.691667,
+      "beat_claims": [
+        "CLM_750",
+        "CLM_760",
+        "CLM_770"
+      ],
+      "claims": [
+        {
+          "id": "CLM_750",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_760",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_770",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_059"
+      ],
+      "annotations": [
+        {
+          "annotation": "B32L_one",
+          "type": "NOTE",
+          "text": "1 · How the structure carries load",
+          "claim_id": null,
+          "shot": "SC_059",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 798.592,
+          "disappear_seconds": 807.417,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -4607,7 +6124,7 @@
       "beat_id": "B32B",
       "sentence": 0,
       "text": "The other is the world it was built in: its materials, its site, its span, its budget and its builders.",
-      "start_seconds": 587.983333,
+      "start_seconds": 807.816667,
       "beat_claims": [
         "CLM_742",
         "CLM_724"
@@ -4615,7 +6132,7 @@
       "claims": [
         {
           "id": "CLM_724",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4625,7 +6142,7 @@
         },
         {
           "id": "CLM_742",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4635,7 +6152,7 @@
         }
       ],
       "shots": [
-        "SC_044"
+        "SC_060"
       ],
       "annotations": []
     },
@@ -4643,15 +6160,16 @@
       "beat_id": "B33",
       "sentence": 0,
       "text": "And it is not a simple story of progress.",
-      "start_seconds": 596.65,
+      "start_seconds": 816.483333,
       "beat_claims": [
         "CLM_721",
-        "CLM_738"
+        "CLM_738",
+        "CLM_777"
       ],
       "claims": [
         {
           "id": "CLM_721",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4665,17 +6183,27 @@
         },
         {
           "id": "CLM_738",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
               "locator": "3.2.1 Stone Arch, p. 3-49"
             }
           ]
+        },
+        {
+          "id": "CLM_777",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
         }
       ],
       "shots": [
-        "SC_045"
+        "SC_061"
       ],
       "annotations": []
     },
@@ -4683,15 +6211,16 @@
       "beat_id": "B33",
       "sentence": 1,
       "text": "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression.",
-      "start_seconds": 600.35,
+      "start_seconds": 820.183333,
       "beat_claims": [
         "CLM_721",
-        "CLM_738"
+        "CLM_738",
+        "CLM_777"
       ],
       "claims": [
         {
           "id": "CLM_721",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4705,33 +6234,44 @@
         },
         {
           "id": "CLM_738",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
               "locator": "3.2.1 Stone Arch, p. 3-49"
             }
           ]
+        },
+        {
+          "id": "CLM_777",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
         }
       ],
       "shots": [
-        "SC_045"
+        "SC_061"
       ],
       "annotations": []
     },
     {
       "beat_id": "B33",
       "sentence": 2,
-      "text": "Each form can still be the right answer in the right place.",
-      "start_seconds": 607.95,
+      "text": "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+      "start_seconds": 827.783333,
       "beat_claims": [
         "CLM_721",
-        "CLM_738"
+        "CLM_738",
+        "CLM_777"
       ],
       "claims": [
         {
           "id": "CLM_721",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
@@ -4745,17 +6285,78 @@
         },
         {
           "id": "CLM_738",
-          "status": "EDITORIALLY_APPROVED",
+          "status": "SOURCE_VERIFIED",
           "evidence": [
             {
               "source": "SRC_NCHRP_CONTEXT",
               "locator": "3.2.1 Stone Arch, p. 3-49"
             }
           ]
+        },
+        {
+          "id": "CLM_777",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
         }
       ],
       "shots": [
-        "SC_045"
+        "SC_061"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B33",
+      "sentence": 3,
+      "text": "Each form can still be the right answer in the right place.",
+      "start_seconds": 834.133333,
+      "beat_claims": [
+        "CLM_721",
+        "CLM_738",
+        "CLM_777"
+      ],
+      "claims": [
+        {
+          "id": "CLM_721",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.3.1 Timber Stringer, p. 3-80"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.3.1 Timber Stringer, p. 3-80"
+            }
+          ]
+        },
+        {
+          "id": "CLM_738",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.2.1 Stone Arch, p. 3-49"
+            }
+          ]
+        },
+        {
+          "id": "CLM_777",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_061"
       ],
       "annotations": []
     },
@@ -4763,11 +6364,11 @@
       "beat_id": "B34",
       "sentence": 0,
       "text": "Next time you cross a bridge, look at its shape.",
-      "start_seconds": 613.15,
+      "start_seconds": 839.316667,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_046"
+        "SC_062"
       ],
       "annotations": []
     },
@@ -4775,11 +6376,11 @@
       "beat_id": "B34",
       "sentence": 1,
       "text": "It shows how the load reaches the ground, and something about the people who built it.",
-      "start_seconds": 617.0,
+      "start_seconds": 843.166667,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_046"
+        "SC_062"
       ],
       "annotations": []
     },
@@ -4787,11 +6388,11 @@
       "beat_id": "B34",
       "sentence": 2,
       "text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
-      "start_seconds": 623.175,
+      "start_seconds": 849.341667,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_046"
+        "SC_062"
       ],
       "annotations": [
         {
@@ -4799,12 +6400,12 @@
           "type": "NOTE",
           "text": "Models are illustrations, not engineering designs",
           "claim_id": null,
-          "shot": "SC_046",
+          "shot": "SC_062",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [],
-          "appear_seconds": 623.083,
-          "disappear_seconds": 632.708,
+          "appear_seconds": 849.25,
+          "disappear_seconds": 858.875,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -4818,11 +6419,11 @@
       "beat_id": "B35",
       "sentence": 0,
       "text": "Thank you very much for watching.",
-      "start_seconds": 633.108333,
+      "start_seconds": 859.275,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_047"
+        "SC_063"
       ],
       "annotations": []
     },
@@ -4830,11 +6431,11 @@
       "beat_id": "B35",
       "sentence": 1,
       "text": "The sources and photo credits are listed in the description.",
-      "start_seconds": 636.083333,
+      "start_seconds": 862.25,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_047"
+        "SC_063"
       ],
       "annotations": []
     }

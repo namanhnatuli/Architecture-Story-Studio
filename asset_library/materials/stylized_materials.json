@@ -4,7 +4,7 @@
   "categories": {
     "wood": ["timber", "timber_dark", "timber_light"],
     "stone": ["stone", "stone_dark", "stone_light", "road_gravel"],
-    "metal": ["steel", "steel_dark"],
+    "metal": ["steel", "steel_dark", "cable"],
     "concrete": ["concrete", "concrete_deck"],
     "site": ["earth_bank", "water"]
   },
@@ -38,6 +38,8 @@
     "earth_bank":   {"name": "Earth bank (stylized)", "color": "#ADA98F", "roughness": 0.95,
                      "detail": {"scale": 2.5, "variation": 0.08, "bump": 0.08}},
     "water":        {"name": "Water (stylized)", "color": "#86A9B8", "roughness": 0.12,
-                     "detail": {"scale": 1.5, "stretch": [1.0, 4.0, 1.0], "variation": 0.04, "bump": 0.02}}
+                     "detail": {"scale": 1.5, "stretch": [1.0, 4.0, 1.0], "variation": 0.04, "bump": 0.02}},
+    "cable":        {"name": "Steel cable (stylized)", "color": "#7B8890", "roughness": 0.38, "metallic": 0.45,
+                     "detail": {"scale": 8.0, "variation": 0.02, "bump": 0.0}}
   }
 }

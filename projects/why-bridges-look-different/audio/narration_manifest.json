@@ -5,7 +5,7 @@
     "provider": "kokoro",
     "mode": "preset",
     "rights_class": "PUBLICATION_CLEARED",
-    "license_status": "LICENSE_REVIEW_REQUIRED",
+    "license_status": "APPROVED",
     "provenance": null
   },
   "segments": {
@@ -25307,6 +25307,5403 @@
           }
         ]
       }
+    },
+    "5cbfdc6973cfe5ce41363b2f584b05e7b493b728c6616443be9fea22208451b4": {
+      "role": "sentence",
+      "beat_id": "B01B",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Over wider water, the answers change again.",
+      "spoken_text": "Over wider water, the answers change again.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/5cbfdc6973cfe5ce4136.wav",
+      "duration": 3.75,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.5,
+      "peak_db": -8.5,
+      "words_per_second": 1.867,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 4.904,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˈOvəɹ wˈIdəɹ wˈɔTəɹ, ði ˈænsəɹz ʧˈAnʤ əɡˈɛn.",
+      "lang_code": "a",
+      "cache_key": "5cbfdc6973cfe5ce41363b2f584b05e7b493b728c6616443be9fea22208451b4",
+      "sha256": "835c8944385ffdd8f070f36fa60c360d1ebdcd15f31703e024c9602e957f7cbe",
+      "stored_utc": "2026-10-31T15:51:25.392548+00:00",
+      "asr": {
+        "text": "Over wider water, the answers change again.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "835c8944385ffdd8f070f36fa60c360d1ebdcd15f31703e024c9602e957f7cbe",
+        "reference": "Over wider water, the answers change again.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "835c8944385ffdd8f070f36fa60c360d1ebdcd15f31703e024c9602e957f7cbe",
+        "heard": "Over wider water, the answers change again.",
+        "words": [
+          {
+            "text": "Over",
+            "start": 0.0,
+            "end": 0.68
+          },
+          {
+            "text": "wider",
+            "start": 0.68,
+            "end": 1.02
+          },
+          {
+            "text": "water,",
+            "start": 1.02,
+            "end": 1.64
+          },
+          {
+            "text": "the",
+            "start": 1.64,
+            "end": 1.88
+          },
+          {
+            "text": "answers",
+            "start": 1.88,
+            "end": 2.26
+          },
+          {
+            "text": "change",
+            "start": 2.26,
+            "end": 2.66
+          },
+          {
+            "text": "again.",
+            "start": 2.66,
+            "end": 3.18
+          }
+        ]
+      }
+    },
+    "e04abd21c2099c3c59de59208c973436baefc5046249ccd36077e8e9ce838ec7": {
+      "role": "sentence",
+      "beat_id": "B01B",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "One bridge reaches out from its piers.",
+      "spoken_text": "One bridge reaches out from its piers.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/e04abd21c2099c3c59de.wav",
+      "duration": 3.075,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -26.8,
+      "peak_db": -6.9,
+      "words_per_second": 2.276,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.273,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "wˈʌn bɹˈɪʤ ɹˈiʧᵻz ˈWt fɹʌm ɪts pˈɪɹz.",
+      "lang_code": "a",
+      "cache_key": "e04abd21c2099c3c59de59208c973436baefc5046249ccd36077e8e9ce838ec7",
+      "sha256": "8456556b7e28359b1b48d26c58117a691185c5df079499e0a7a582437524fe3b",
+      "stored_utc": "2026-10-31T15:51:25.669732+00:00",
+      "asr": {
+        "text": "One bridge reaches out from its peers.",
+        "language": "english",
+        "wer": 0.1429,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "8456556b7e28359b1b48d26c58117a691185c5df079499e0a7a582437524fe3b",
+        "reference": "One bridge reaches out from its piers.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "8456556b7e28359b1b48d26c58117a691185c5df079499e0a7a582437524fe3b",
+        "heard": "One bridge reaches out from its peers.",
+        "words": [
+          {
+            "text": "One",
+            "start": 0.0,
+            "end": 0.62
+          },
+          {
+            "text": "bridge",
+            "start": 0.62,
+            "end": 1.04
+          },
+          {
+            "text": "reaches",
+            "start": 1.04,
+            "end": 1.44
+          },
+          {
+            "text": "out",
+            "start": 1.44,
+            "end": 1.68
+          },
+          {
+            "text": "from",
+            "start": 1.68,
+            "end": 1.84
+          },
+          {
+            "text": "its",
+            "start": 1.84,
+            "end": 2.0
+          },
+          {
+            "text": "peers.",
+            "start": 2.0,
+            "end": 2.5
+          }
+        ]
+      }
+    },
+    "3b5621f5f68e6b5317f4386883b52268f4101a22822a10a63711dca96735a79c": {
+      "role": "sentence",
+      "beat_id": "B01B",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Another hangs from great draped cables.",
+      "spoken_text": "Another hangs from great draped cables.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/3b5621f5f68e6b5317f4.wav",
+      "duration": 3.225,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.6,
+      "peak_db": -7.1,
+      "words_per_second": 1.86,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.279,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ənˈʌðəɹ hˈæŋz fɹʌm ɡɹˈAt dɹˈApt kˈAbᵊlz.",
+      "lang_code": "a",
+      "cache_key": "3b5621f5f68e6b5317f4386883b52268f4101a22822a10a63711dca96735a79c",
+      "sha256": "d966c452ee75956f802d15cde068d20076a57f38c2a2c76cb04929eeb097f8fd",
+      "stored_utc": "2026-10-31T15:51:25.953033+00:00",
+      "asr": {
+        "text": "Another hangs from grate draped cables.",
+        "language": "english",
+        "wer": 0.1667,
+        "pass": false,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "d966c452ee75956f802d15cde068d20076a57f38c2a2c76cb04929eeb097f8fd",
+        "reference": "Another hangs from great draped cables.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      }
+    },
+    "d61b99a017f715ceb87e89eff329d43ed39f56e562a26729a2eb84796912a916": {
+      "role": "sentence",
+      "beat_id": "B01B",
+      "sentence_index": 3,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "A third is held up by straight lines of steel.",
+      "spoken_text": "A third is held up by straight lines of steel.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/d61b99a017f715ceb87e.wav",
+      "duration": 3.425,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.8,
+      "peak_db": -9.7,
+      "words_per_second": 2.92,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.292,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ɐ θˈɜɹd ɪz hˈɛld ˌʌp bI stɹˈAt lˈInz ʌv stˈil.",
+      "lang_code": "a",
+      "cache_key": "d61b99a017f715ceb87e89eff329d43ed39f56e562a26729a2eb84796912a916",
+      "sha256": "b58de56b0c251cce0c96428f882ed2c7346d5590588273f07ae0bdbd1aa04bda",
+      "stored_utc": "2026-10-31T15:51:26.248845+00:00",
+      "asr": {
+        "text": "A third is held up by straight lines of steel.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "b58de56b0c251cce0c96428f882ed2c7346d5590588273f07ae0bdbd1aa04bda",
+        "reference": "A third is held up by straight lines of steel.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "b58de56b0c251cce0c96428f882ed2c7346d5590588273f07ae0bdbd1aa04bda",
+        "heard": "A third is held up by straight lines of steel.",
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.52
+          },
+          {
+            "text": "third",
+            "start": 0.52,
+            "end": 0.72
+          },
+          {
+            "text": "is",
+            "start": 0.72,
+            "end": 0.92
+          },
+          {
+            "text": "held",
+            "start": 0.92,
+            "end": 1.14
+          },
+          {
+            "text": "up",
+            "start": 1.14,
+            "end": 1.3
+          },
+          {
+            "text": "by",
+            "start": 1.3,
+            "end": 1.5
+          },
+          {
+            "text": "straight",
+            "start": 1.5,
+            "end": 1.78
+          },
+          {
+            "text": "lines",
+            "start": 1.78,
+            "end": 2.18
+          },
+          {
+            "text": "of",
+            "start": 2.18,
+            "end": 2.36
+          },
+          {
+            "text": "steel.",
+            "start": 2.36,
+            "end": 2.86
+          }
+        ]
+      }
+    },
+    "96067b14e6ef84cb7cabfa07af8ad5379d8b7e405e9194b0bec7610ee4fe2d1f": {
+      "role": "sentence",
+      "beat_id": "B02",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
+      "spoken_text": "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/96067b14e6ef84cb7cab.wav",
+      "duration": 9.55,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.8,
+      "peak_db": -5.6,
+      "words_per_second": 2.827,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.694,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˈiʧ fˈɔɹm ɪz ɐ dˈɪfəɹənt ˈænsəɹ tə ðə sˈAm pɹˈɑbləm, ʃˈApt bI mətˈɪɹiəlz, bI ðə sˈIt, bI ðə spˈæn, ænd bI ðə tˈIm ɪt wʌz bˈɪlt ˈɪn.",
+      "lang_code": "a",
+      "cache_key": "96067b14e6ef84cb7cabfa07af8ad5379d8b7e405e9194b0bec7610ee4fe2d1f",
+      "sha256": "71dd463059de831955c817b3d34a6271c6a0417d78f9bd3b00495a09b9da1055",
+      "stored_utc": "2026-10-31T15:51:26.975192+00:00",
+      "asr": {
+        "text": "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "71dd463059de831955c817b3d34a6271c6a0417d78f9bd3b00495a09b9da1055",
+        "reference": "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "71dd463059de831955c817b3d34a6271c6a0417d78f9bd3b00495a09b9da1055",
+        "heard": "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
+        "words": [
+          {
+            "text": "Each",
+            "start": 0.0,
+            "end": 0.6
+          },
+          {
+            "text": "form",
+            "start": 0.6,
+            "end": 0.98
+          },
+          {
+            "text": "is",
+            "start": 0.98,
+            "end": 1.18
+          },
+          {
+            "text": "a",
+            "start": 1.18,
+            "end": 1.28
+          },
+          {
+            "text": "different",
+            "start": 1.28,
+            "end": 1.54
+          },
+          {
+            "text": "answer",
+            "start": 1.54,
+            "end": 1.98
+          },
+          {
+            "text": "to",
+            "start": 1.98,
+            "end": 2.16
+          },
+          {
+            "text": "the",
+            "start": 2.16,
+            "end": 2.26
+          },
+          {
+            "text": "same",
+            "start": 2.26,
+            "end": 2.56
+          },
+          {
+            "text": "problem,",
+            "start": 2.56,
+            "end": 3.4
+          },
+          {
+            "text": "shaped",
+            "start": 3.4,
+            "end": 3.9
+          },
+          {
+            "text": "by",
+            "start": 3.9,
+            "end": 4.14
+          },
+          {
+            "text": "materials,",
+            "start": 4.14,
+            "end": 5.0
+          },
+          {
+            "text": "by",
+            "start": 5.0,
+            "end": 5.18
+          },
+          {
+            "text": "the",
+            "start": 5.18,
+            "end": 5.36
+          },
+          {
+            "text": "site,",
+            "start": 5.36,
+            "end": 5.86
+          },
+          {
+            "text": "by",
+            "start": 5.86,
+            "end": 6.04
+          },
+          {
+            "text": "the",
+            "start": 6.04,
+            "end": 6.2
+          },
+          {
+            "text": "span,",
+            "start": 6.2,
+            "end": 6.86
+          },
+          {
+            "text": "and",
+            "start": 6.86,
+            "end": 7.34
+          },
+          {
+            "text": "by",
+            "start": 7.34,
+            "end": 7.48
+          },
+          {
+            "text": "the",
+            "start": 7.48,
+            "end": 7.64
+          },
+          {
+            "text": "time",
+            "start": 7.64,
+            "end": 7.94
+          },
+          {
+            "text": "it",
+            "start": 7.94,
+            "end": 8.14
+          },
+          {
+            "text": "was",
+            "start": 8.14,
+            "end": 8.26
+          },
+          {
+            "text": "built",
+            "start": 8.26,
+            "end": 8.58
+          },
+          {
+            "text": "in.",
+            "start": 8.58,
+            "end": 8.98
+          }
+        ]
+      }
+    },
+    "ee25fd4efb4be47536ebc7595d0ce7bd346e0aaeb1df58857fd4a17222e7f36d": {
+      "role": "sentence",
+      "beat_id": "B40",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "To cross wide rivers and deep gorges, bridges needed longer spans.",
+      "spoken_text": "To cross wide rivers and deep gorges, bridges needed longer spans.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/ee25fd4efb4be47536eb.wav",
+      "duration": 5.375,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.4,
+      "peak_db": -6.5,
+      "words_per_second": 2.047,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.408,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "tə kɹˈɔs wˈId ɹˈɪvəɹz ænd dˈip ɡˈɔɹʤᵻz, bɹˈɪʤɪz nˈidᵻd lˈɔŋɡəɹ spˈænz.",
+      "lang_code": "a",
+      "cache_key": "ee25fd4efb4be47536ebc7595d0ce7bd346e0aaeb1df58857fd4a17222e7f36d",
+      "sha256": "9db48cfd6b03ba4f6a6780aba7c6fa46145ff543c61a9405ab8659aaaf3e8a5a",
+      "stored_utc": "2026-10-31T15:51:27.864351+00:00",
+      "asr": {
+        "text": "To cross wide rivers and deep gorges, bridges needed longer spans.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "9db48cfd6b03ba4f6a6780aba7c6fa46145ff543c61a9405ab8659aaaf3e8a5a",
+        "reference": "To cross wide rivers and deep gorges, bridges needed longer spans.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "9db48cfd6b03ba4f6a6780aba7c6fa46145ff543c61a9405ab8659aaaf3e8a5a",
+        "heard": "To cross wide rivers and deep gorges, bridges needed longer spans,",
+        "words": [
+          {
+            "text": "To",
+            "start": 0.0,
+            "end": 0.46
+          },
+          {
+            "text": "cross",
+            "start": 0.46,
+            "end": 0.8
+          },
+          {
+            "text": "wide",
+            "start": 0.8,
+            "end": 1.24
+          },
+          {
+            "text": "rivers",
+            "start": 1.24,
+            "end": 1.58
+          },
+          {
+            "text": "and",
+            "start": 1.58,
+            "end": 1.8
+          },
+          {
+            "text": "deep",
+            "start": 1.8,
+            "end": 2.0
+          },
+          {
+            "text": "gorges,",
+            "start": 2.0,
+            "end": 2.76
+          },
+          {
+            "text": "bridges",
+            "start": 2.76,
+            "end": 3.28
+          },
+          {
+            "text": "needed",
+            "start": 3.28,
+            "end": 3.66
+          },
+          {
+            "text": "longer",
+            "start": 3.66,
+            "end": 4.06
+          },
+          {
+            "text": "spans,",
+            "start": 4.06,
+            "end": 4.92
+          }
+        ]
+      }
+    },
+    "bd56e1bda8a51931562147594a79d23534e791491d17cadc01034f060fd78cee": {
+      "role": "sentence",
+      "beat_id": "B40",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+      "spoken_text": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/bd56e1bda8a519315621.wav",
+      "duration": 8.65,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.0,
+      "peak_db": -7.9,
+      "words_per_second": 2.197,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.601,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "bˈim ænd ˈɑɹʧ bɹˈɪʤɪz ʌv stˈil ɔɹ ɹˌiənfˈɔɹst kˈɑnkɹˌit wɜɹ lˈɪməTᵻd tə spˈænz ʌv əbˈWt tˈu hˈʌndɹəd tə θɹˈi hˈʌndɹəd fˈit.",
+      "lang_code": "a",
+      "cache_key": "bd56e1bda8a51931562147594a79d23534e791491d17cadc01034f060fd78cee",
+      "sha256": "8141a048005b6a99a1545ce52f801ee784bc1f2217ebc5cced5759d408dbae91",
+      "stored_utc": "2026-10-31T15:51:28.469109+00:00",
+      "asr": {
+        "text": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "8141a048005b6a99a1545ce52f801ee784bc1f2217ebc5cced5759d408dbae91",
+        "reference": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "8141a048005b6a99a1545ce52f801ee784bc1f2217ebc5cced5759d408dbae91",
+        "heard": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+        "words": [
+          {
+            "text": "Beam",
+            "start": 0.0,
+            "end": 0.76
+          },
+          {
+            "text": "and",
+            "start": 0.76,
+            "end": 0.92
+          },
+          {
+            "text": "arch",
+            "start": 0.92,
+            "end": 1.26
+          },
+          {
+            "text": "bridges",
+            "start": 1.26,
+            "end": 1.64
+          },
+          {
+            "text": "of",
+            "start": 1.64,
+            "end": 1.88
+          },
+          {
+            "text": "steel",
+            "start": 1.88,
+            "end": 2.3
+          },
+          {
+            "text": "or",
+            "start": 2.3,
+            "end": 2.6
+          },
+          {
+            "text": "reinforced",
+            "start": 2.6,
+            "end": 3.14
+          },
+          {
+            "text": "concrete",
+            "start": 3.14,
+            "end": 3.9
+          },
+          {
+            "text": "were",
+            "start": 3.9,
+            "end": 4.54
+          },
+          {
+            "text": "limited",
+            "start": 4.54,
+            "end": 4.88
+          },
+          {
+            "text": "to",
+            "start": 4.88,
+            "end": 5.1
+          },
+          {
+            "text": "spans",
+            "start": 5.1,
+            "end": 5.56
+          },
+          {
+            "text": "of",
+            "start": 5.56,
+            "end": 5.8
+          },
+          {
+            "text": "about",
+            "start": 5.8,
+            "end": 6.06
+          },
+          {
+            "text": "200",
+            "start": 6.06,
+            "end": 6.64
+          },
+          {
+            "text": "to",
+            "start": 6.64,
+            "end": 6.92
+          },
+          {
+            "text": "300",
+            "start": 6.92,
+            "end": 7.32
+          },
+          {
+            "text": "feet.",
+            "start": 7.32,
+            "end": 7.94
+          }
+        ]
+      }
+    },
+    "d42f1a87f76fe4eda1a09763c318a12af7f5140baa5a75aba44f75efe595b069": {
+      "role": "sentence",
+      "beat_id": "B41",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "One answer was the cantilever.",
+      "spoken_text": "One answer was the cantilever.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/d42f1a87f76fe4eda1a0.wav",
+      "duration": 2.95,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.2,
+      "peak_db": -5.9,
+      "words_per_second": 1.695,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.267,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "wˈʌn ˈænsəɹ wʌz ðə kˈæntəlˌivəɹ.",
+      "lang_code": "a",
+      "cache_key": "d42f1a87f76fe4eda1a09763c318a12af7f5140baa5a75aba44f75efe595b069",
+      "sha256": "e6c7e9cef1a9461b0c9e65ca6b2f7f20a63d007f52d1d67f8d4fc0d193ed6c12",
+      "stored_utc": "2026-10-31T15:51:28.768085+00:00",
+      "asr": {
+        "text": "One answer was the cantilever.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "e6c7e9cef1a9461b0c9e65ca6b2f7f20a63d007f52d1d67f8d4fc0d193ed6c12",
+        "reference": "One answer was the cantilever.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "e6c7e9cef1a9461b0c9e65ca6b2f7f20a63d007f52d1d67f8d4fc0d193ed6c12",
+        "heard": "One answer was the cantilever.",
+        "words": [
+          {
+            "text": "One",
+            "start": 0.0,
+            "end": 0.68
+          },
+          {
+            "text": "answer",
+            "start": 0.68,
+            "end": 1.14
+          },
+          {
+            "text": "was",
+            "start": 1.14,
+            "end": 1.5
+          },
+          {
+            "text": "the",
+            "start": 1.5,
+            "end": 1.64
+          },
+          {
+            "text": "cantilever.",
+            "start": 1.64,
+            "end": 2.44
+          }
+        ]
+      }
+    },
+    "17870a6b8fe0694c0f264e4198257295401cfab45dcb47f74aac2ffdce5bb7d3": {
+      "role": "sentence",
+      "beat_id": "B41",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Hold your arm straight out from your shoulder, and it is acting as a cantilever: supported at one end, free at the other, like a diving board.",
+      "spoken_text": "Hold your arm straight out from your shoulder, and it is acting as a cantilever: supported at one end, free at the other, like a diving board.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/17870a6b8fe0694c0f26.wav",
+      "duration": 9.475,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.8,
+      "peak_db": -8.6,
+      "words_per_second": 2.85,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.65,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "hˈOld jʊɹ ˈɑɹm stɹˈAt ˈWt fɹʌm jʊɹ ʃˈOldəɹ, ænd ɪt ɪz ˈæktɪŋ æz ɐ kˈæntəlˌivəɹ: səpˈɔɹTᵻd æt wˈʌn ˈɛnd, fɹˈi æt ði ˈʌðəɹ, lˈIk ɐ dˈIvɪŋ bˈɔɹd.",
+      "lang_code": "a",
+      "cache_key": "17870a6b8fe0694c0f264e4198257295401cfab45dcb47f74aac2ffdce5bb7d3",
+      "sha256": "27c0787ad89c2473c8b33b6bd1b7f8aa628d556376c514a98725e8f9585e2c7c",
+      "stored_utc": "2026-10-31T15:51:29.422030+00:00",
+      "asr": {
+        "text": "Hold your arm straight out from your shoulder, and it is acting as a cantilever, supported at one end, free at the other, like a diving board.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "27c0787ad89c2473c8b33b6bd1b7f8aa628d556376c514a98725e8f9585e2c7c",
+        "reference": "Hold your arm straight out from your shoulder, and it is acting as a cantilever: supported at one end, free at the other, like a diving board.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "27c0787ad89c2473c8b33b6bd1b7f8aa628d556376c514a98725e8f9585e2c7c",
+        "heard": "Hold your arm straight out from your shoulder, and it is acting as a cantilever, supported at one end, free at the other, like a diving board.",
+        "words": [
+          {
+            "text": "Hold",
+            "start": 0.0,
+            "end": 0.68
+          },
+          {
+            "text": "your",
+            "start": 0.68,
+            "end": 0.84
+          },
+          {
+            "text": "arm",
+            "start": 0.84,
+            "end": 1.22
+          },
+          {
+            "text": "straight",
+            "start": 1.22,
+            "end": 1.5
+          },
+          {
+            "text": "out",
+            "start": 1.5,
+            "end": 1.74
+          },
+          {
+            "text": "from",
+            "start": 1.74,
+            "end": 1.94
+          },
+          {
+            "text": "your",
+            "start": 1.94,
+            "end": 2.08
+          },
+          {
+            "text": "shoulder,",
+            "start": 2.08,
+            "end": 2.7
+          },
+          {
+            "text": "and",
+            "start": 2.7,
+            "end": 3.08
+          },
+          {
+            "text": "it",
+            "start": 3.08,
+            "end": 3.18
+          },
+          {
+            "text": "is",
+            "start": 3.18,
+            "end": 3.32
+          },
+          {
+            "text": "acting",
+            "start": 3.32,
+            "end": 3.7
+          },
+          {
+            "text": "as",
+            "start": 3.7,
+            "end": 3.94
+          },
+          {
+            "text": "a",
+            "start": 3.94,
+            "end": 4.02
+          },
+          {
+            "text": "cantilever,",
+            "start": 4.02,
+            "end": 5.0
+          },
+          {
+            "text": "supported",
+            "start": 5.0,
+            "end": 5.78
+          },
+          {
+            "text": "at",
+            "start": 5.78,
+            "end": 5.98
+          },
+          {
+            "text": "one",
+            "start": 5.98,
+            "end": 6.2
+          },
+          {
+            "text": "end,",
+            "start": 6.2,
+            "end": 6.74
+          },
+          {
+            "text": "free",
+            "start": 6.74,
+            "end": 6.9
+          },
+          {
+            "text": "at",
+            "start": 6.9,
+            "end": 7.08
+          },
+          {
+            "text": "the",
+            "start": 7.08,
+            "end": 7.18
+          },
+          {
+            "text": "other,",
+            "start": 7.18,
+            "end": 7.58
+          },
+          {
+            "text": "like",
+            "start": 7.58,
+            "end": 7.78
+          },
+          {
+            "text": "a",
+            "start": 7.78,
+            "end": 7.9
+          },
+          {
+            "text": "diving",
+            "start": 7.9,
+            "end": 8.28
+          },
+          {
+            "text": "board.",
+            "start": 8.28,
+            "end": 8.9
+          }
+        ]
+      }
+    },
+    "f0eb7e59833ca98ce63f84a9b1823dfec6aaf42df0de2f853847065944822b1c": {
+      "role": "sentence",
+      "beat_id": "B42",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "A cantilever bridge is a modified beam.",
+      "spoken_text": "A cantilever bridge is a modified beam.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/f0eb7e59833ca98ce63f.wav",
+      "duration": 3.675,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.0,
+      "peak_db": -9.7,
+      "words_per_second": 1.905,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.322,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ɐ kˈæntəlˌivəɹ bɹˈɪʤ ɪz ɐ mˈɑdəfˌId bˈim.",
+      "lang_code": "a",
+      "cache_key": "f0eb7e59833ca98ce63f84a9b1823dfec6aaf42df0de2f853847065944822b1c",
+      "sha256": "4f29e7592cc9e6e96d92a85c75c74e13609d2ef14b263417f039a891f3899f9c",
+      "stored_utc": "2026-10-31T15:51:29.775162+00:00",
+      "asr": {
+        "text": "A cantilever bridge is a modified beam.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "4f29e7592cc9e6e96d92a85c75c74e13609d2ef14b263417f039a891f3899f9c",
+        "reference": "A cantilever bridge is a modified beam.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "4f29e7592cc9e6e96d92a85c75c74e13609d2ef14b263417f039a891f3899f9c",
+        "heard": "A cantilever bridge is a modified beam.",
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.52
+          },
+          {
+            "text": "cantilever",
+            "start": 0.52,
+            "end": 1.1
+          },
+          {
+            "text": "bridge",
+            "start": 1.1,
+            "end": 1.58
+          },
+          {
+            "text": "is",
+            "start": 1.58,
+            "end": 1.88
+          },
+          {
+            "text": "a",
+            "start": 1.88,
+            "end": 2.0
+          },
+          {
+            "text": "modified",
+            "start": 2.0,
+            "end": 2.44
+          },
+          {
+            "text": "beam.",
+            "start": 2.44,
+            "end": 3.1
+          }
+        ]
+      }
+    },
+    "9681cc74f5058ec1529292b9239415165fe34c709c14bec299f1280f5da33e77": {
+      "role": "sentence",
+      "beat_id": "B42",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+      "spoken_text": "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/9681cc74f5058ec15292.wav",
+      "duration": 9.775,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.0,
+      "peak_db": -10.1,
+      "words_per_second": 2.558,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.694,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˈæŋkəɹ ˈɑɹmz ɹˈɛst ˌɔn ðə bˈæŋks ænd ðə mˈAn pˈɪɹz, kˈæntəlˌivəɹ ˈɑɹmz ɹˈiʧ ˈWt ˈOvəɹ ðə ɹˈɪvəɹ, ænd ɐ səspˈɛndᵻd spˈæn hˈæŋz bətwˈin ðɛɹ tˈɪps.",
+      "lang_code": "a",
+      "cache_key": "9681cc74f5058ec1529292b9239415165fe34c709c14bec299f1280f5da33e77",
+      "sha256": "50d63ac65cbdf90d4c47ecee53b0f2481146ee3db3610154a609c0e8ade62aec",
+      "stored_utc": "2026-10-31T15:51:30.472608+00:00",
+      "asr": {
+        "text": "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "50d63ac65cbdf90d4c47ecee53b0f2481146ee3db3610154a609c0e8ade62aec",
+        "reference": "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "50d63ac65cbdf90d4c47ecee53b0f2481146ee3db3610154a609c0e8ade62aec",
+        "heard": "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+        "words": [
+          {
+            "text": "Anchor",
+            "start": 0.0,
+            "end": 0.78
+          },
+          {
+            "text": "arms",
+            "start": 0.78,
+            "end": 1.16
+          },
+          {
+            "text": "rest",
+            "start": 1.16,
+            "end": 1.5
+          },
+          {
+            "text": "on",
+            "start": 1.5,
+            "end": 1.64
+          },
+          {
+            "text": "the",
+            "start": 1.64,
+            "end": 1.74
+          },
+          {
+            "text": "banks",
+            "start": 1.74,
+            "end": 2.08
+          },
+          {
+            "text": "and",
+            "start": 2.08,
+            "end": 2.26
+          },
+          {
+            "text": "the",
+            "start": 2.26,
+            "end": 2.36
+          },
+          {
+            "text": "main",
+            "start": 2.36,
+            "end": 2.62
+          },
+          {
+            "text": "piers,",
+            "start": 2.62,
+            "end": 3.42
+          },
+          {
+            "text": "cantilever",
+            "start": 3.42,
+            "end": 4.22
+          },
+          {
+            "text": "arms",
+            "start": 4.22,
+            "end": 4.68
+          },
+          {
+            "text": "reach",
+            "start": 4.68,
+            "end": 5.0
+          },
+          {
+            "text": "out",
+            "start": 5.0,
+            "end": 5.26
+          },
+          {
+            "text": "over",
+            "start": 5.26,
+            "end": 5.52
+          },
+          {
+            "text": "the",
+            "start": 5.52,
+            "end": 5.66
+          },
+          {
+            "text": "river,",
+            "start": 5.66,
+            "end": 6.2
+          },
+          {
+            "text": "and",
+            "start": 6.2,
+            "end": 6.6
+          },
+          {
+            "text": "a",
+            "start": 6.6,
+            "end": 6.68
+          },
+          {
+            "text": "suspended",
+            "start": 6.68,
+            "end": 7.16
+          },
+          {
+            "text": "span",
+            "start": 7.16,
+            "end": 7.6
+          },
+          {
+            "text": "hangs",
+            "start": 7.6,
+            "end": 8.14
+          },
+          {
+            "text": "between",
+            "start": 8.14,
+            "end": 8.46
+          },
+          {
+            "text": "their",
+            "start": 8.46,
+            "end": 8.72
+          },
+          {
+            "text": "tips.",
+            "start": 8.72,
+            "end": 9.26
+          }
+        ]
+      }
+    },
+    "ada236043f664a7a92b793aedea768f4fc6d4a4ea82c30b9c92ff8a4378f0846": {
+      "role": "sentence",
+      "beat_id": "B43",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Its great advantage came during construction.",
+      "spoken_text": "Its great advantage came during construction.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/ada236043f664a7a92b7.wav",
+      "duration": 3.45,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.3,
+      "peak_db": -7.9,
+      "words_per_second": 1.739,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.293,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˌɪts ɡɹˈAt ədvˈæntɪʤ kˈAm dˈʊɹɪŋ kənstɹˈʌkʃən.",
+      "lang_code": "a",
+      "cache_key": "ada236043f664a7a92b793aedea768f4fc6d4a4ea82c30b9c92ff8a4378f0846",
+      "sha256": "489ab372ecaa5f55c0e48e67beeb30341d24ee17b78ec0cba7b26a174c13f86e",
+      "stored_utc": "2026-10-31T15:51:30.797486+00:00",
+      "asr": {
+        "text": "Its great advantage came during construction.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "489ab372ecaa5f55c0e48e67beeb30341d24ee17b78ec0cba7b26a174c13f86e",
+        "reference": "Its great advantage came during construction.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "489ab372ecaa5f55c0e48e67beeb30341d24ee17b78ec0cba7b26a174c13f86e",
+        "heard": "Its great advantage came during construction.",
+        "words": [
+          {
+            "text": "Its",
+            "start": 0.0,
+            "end": 0.56
+          },
+          {
+            "text": "great",
+            "start": 0.56,
+            "end": 0.88
+          },
+          {
+            "text": "advantage",
+            "start": 0.88,
+            "end": 1.42
+          },
+          {
+            "text": "came",
+            "start": 1.42,
+            "end": 1.8
+          },
+          {
+            "text": "during",
+            "start": 1.8,
+            "end": 2.06
+          },
+          {
+            "text": "construction.",
+            "start": 2.06,
+            "end": 2.92
+          }
+        ]
+      }
+    },
+    "e0e299803d7ce0c91eee64cc5794115d06a8371f3dd1250aeb38a870e3701ffc": {
+      "role": "sentence",
+      "beat_id": "B43",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "The arms could be built outward from the piers with no falsework blocking the channel below, and then the suspended span was lifted into place.",
+      "spoken_text": "The arms could be built outward from the piers with no falsework blocking the channel below, and then the suspended span was lifted into place.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/e0e299803d7ce0c91eee.wav",
+      "duration": 9.75,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.7,
+      "peak_db": -8.7,
+      "words_per_second": 2.564,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.679,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ði ˈɑɹmz kʊd bi bˈɪlt ˈWtwəɹd fɹʌm ðə pˈɪɹz wɪð nˈO fˈɔlswˌɜɹk blˈɑkɪŋ ðə ʧˈænᵊl bəlˈO, ænd ðˈɛn ðə səspˈɛndᵻd spˈæn wʌz lˈɪftᵻd ˈɪntu plˈAs.",
+      "lang_code": "a",
+      "cache_key": "e0e299803d7ce0c91eee64cc5794115d06a8371f3dd1250aeb38a870e3701ffc",
+      "sha256": "b8bb648137520b53fa7e3370c7cc56eb094db6d6d51ae559e1ec12e7b4667991",
+      "stored_utc": "2026-10-31T15:51:31.480745+00:00",
+      "asr": {
+        "text": "The arms could be built outward from the piers with no false work blocking the channel below, and then the suspended span was lifted into place.",
+        "language": "english",
+        "wer": 0.08,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "b8bb648137520b53fa7e3370c7cc56eb094db6d6d51ae559e1ec12e7b4667991",
+        "reference": "The arms could be built outward from the piers with no falsework blocking the channel below, and then the suspended span was lifted into place.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "b8bb648137520b53fa7e3370c7cc56eb094db6d6d51ae559e1ec12e7b4667991",
+        "heard": "The arms could be built outward from the piers with no false work blocking the channel below, and then the suspended span was lifted into place.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "text": "arms",
+            "start": 0.5,
+            "end": 0.88
+          },
+          {
+            "text": "could",
+            "start": 0.88,
+            "end": 1.08
+          },
+          {
+            "text": "be",
+            "start": 1.08,
+            "end": 1.24
+          },
+          {
+            "text": "built",
+            "start": 1.24,
+            "end": 1.5
+          },
+          {
+            "text": "outward",
+            "start": 1.5,
+            "end": 1.92
+          },
+          {
+            "text": "from",
+            "start": 1.92,
+            "end": 2.18
+          },
+          {
+            "text": "the",
+            "start": 2.18,
+            "end": 2.3
+          },
+          {
+            "text": "piers",
+            "start": 2.3,
+            "end": 2.76
+          },
+          {
+            "text": "with",
+            "start": 2.76,
+            "end": 3.18
+          },
+          {
+            "text": "no",
+            "start": 3.18,
+            "end": 3.44
+          },
+          {
+            "text": "false",
+            "start": 3.44,
+            "end": 3.84
+          },
+          {
+            "text": "work",
+            "start": 3.84,
+            "end": 4.1
+          },
+          {
+            "text": "blocking",
+            "start": 4.1,
+            "end": 4.56
+          },
+          {
+            "text": "the",
+            "start": 4.56,
+            "end": 4.74
+          },
+          {
+            "text": "channel",
+            "start": 4.74,
+            "end": 5.08
+          },
+          {
+            "text": "below,",
+            "start": 5.08,
+            "end": 5.68
+          },
+          {
+            "text": "and",
+            "start": 6.2,
+            "end": 6.28
+          },
+          {
+            "text": "then",
+            "start": 6.28,
+            "end": 6.4
+          },
+          {
+            "text": "the",
+            "start": 6.4,
+            "end": 6.56
+          },
+          {
+            "text": "suspended",
+            "start": 6.56,
+            "end": 7.06
+          },
+          {
+            "text": "span",
+            "start": 7.06,
+            "end": 7.52
+          },
+          {
+            "text": "was",
+            "start": 7.52,
+            "end": 7.86
+          },
+          {
+            "text": "lifted",
+            "start": 7.86,
+            "end": 8.24
+          },
+          {
+            "text": "into",
+            "start": 8.24,
+            "end": 8.54
+          },
+          {
+            "text": "place.",
+            "start": 8.54,
+            "end": 9.22
+          }
+        ]
+      }
+    },
+    "24bcfc798c9ebd7c66d3937648c478a411bf656478925e88d6a646a788082cc5": {
+      "role": "sentence",
+      "beat_id": "B44",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+      "spoken_text": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/24bcfc798c9ebd7c66d3.wav",
+      "duration": 9.375,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.3,
+      "peak_db": -8.7,
+      "words_per_second": 2.133,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.718,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ɪn ðə junˈITᵻd stˈAts, kˈæntəlˌivəɹz wɜɹ ɐ stˈændəɹd ˈænsəɹ fɔɹ ˌɪntəɹmˈidiət tə lˈɔŋɡəɹ spˈænz fɹʌm ði ˌAtˈin ˈATiz tə ðə nˌIntˈin sˈɪkstiz.",
+      "lang_code": "a",
+      "cache_key": "24bcfc798c9ebd7c66d3937648c478a411bf656478925e88d6a646a788082cc5",
+      "sha256": "d2d87afc95c0f0e9f1214317061b40b4b214b07a35e252653b177d8d55bca86c",
+      "stored_utc": "2026-10-31T15:51:32.232087+00:00",
+      "asr": {
+        "text": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "d2d87afc95c0f0e9f1214317061b40b4b214b07a35e252653b177d8d55bca86c",
+        "reference": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "d2d87afc95c0f0e9f1214317061b40b4b214b07a35e252653b177d8d55bca86c",
+        "heard": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+        "words": [
+          {
+            "text": "In",
+            "start": 0.0,
+            "end": 0.52
+          },
+          {
+            "text": "the",
+            "start": 0.52,
+            "end": 0.6
+          },
+          {
+            "text": "United",
+            "start": 0.6,
+            "end": 0.92
+          },
+          {
+            "text": "States,",
+            "start": 0.92,
+            "end": 1.84
+          },
+          {
+            "text": "cantilevers",
+            "start": 1.84,
+            "end": 2.6
+          },
+          {
+            "text": "were",
+            "start": 2.6,
+            "end": 2.82
+          },
+          {
+            "text": "a",
+            "start": 2.82,
+            "end": 2.96
+          },
+          {
+            "text": "standard",
+            "start": 2.96,
+            "end": 3.42
+          },
+          {
+            "text": "answer",
+            "start": 3.42,
+            "end": 3.88
+          },
+          {
+            "text": "for",
+            "start": 3.88,
+            "end": 4.14
+          },
+          {
+            "text": "intermediate",
+            "start": 4.14,
+            "end": 4.7
+          },
+          {
+            "text": "to",
+            "start": 4.7,
+            "end": 5.0
+          },
+          {
+            "text": "longer",
+            "start": 5.0,
+            "end": 5.38
+          },
+          {
+            "text": "spans",
+            "start": 5.38,
+            "end": 5.94
+          },
+          {
+            "text": "from",
+            "start": 5.94,
+            "end": 6.24
+          },
+          {
+            "text": "the",
+            "start": 6.24,
+            "end": 6.38
+          },
+          {
+            "text": "1880s",
+            "start": 6.38,
+            "end": 7.38
+          },
+          {
+            "text": "to",
+            "start": 7.38,
+            "end": 7.58
+          },
+          {
+            "text": "the",
+            "start": 7.58,
+            "end": 7.66
+          },
+          {
+            "text": "1960s.",
+            "start": 7.66,
+            "end": 8.78
+          }
+        ]
+      }
+    },
+    "8f7ca63f0c558ec26f47614fd6aa2e3ac0cb18b538c5e7a31bae19d7885f01fb": {
+      "role": "sentence",
+      "beat_id": "B44",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+      "spoken_text": "The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/8f7ca63f0c558ec26f47.wav",
+      "duration": 8.175,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.1,
+      "peak_db": -8.5,
+      "words_per_second": 2.08,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.594,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ðə kwˈinsbəɹɹˌO bɹˈɪʤ ɪn nˈu jˈɔɹk wʌz ðə kˈʌntɹiz lˈɔŋɡᵻst kˈæntəlˌivəɹ wˌɛn ɪt wʌz kəmplˈiTᵻd ɪn nˌIntˈin ˈO nˈIn.",
+      "lang_code": "a",
+      "cache_key": "8f7ca63f0c558ec26f47614fd6aa2e3ac0cb18b538c5e7a31bae19d7885f01fb",
+      "sha256": "93fbda68d8a81d94f41dc2175209b720fedcc2079a3662280a3f1e27824a94fa",
+      "stored_utc": "2026-10-31T15:51:32.830589+00:00",
+      "asr": {
+        "text": "The Queensborough Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+        "language": "english",
+        "wer": 0.0588,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "93fbda68d8a81d94f41dc2175209b720fedcc2079a3662280a3f1e27824a94fa",
+        "reference": "The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "93fbda68d8a81d94f41dc2175209b720fedcc2079a3662280a3f1e27824a94fa",
+        "heard": "The Queensborough Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "Queensborough",
+            "start": 0.48,
+            "end": 1.04
+          },
+          {
+            "text": "Bridge",
+            "start": 1.04,
+            "end": 1.64
+          },
+          {
+            "text": "in",
+            "start": 1.64,
+            "end": 1.84
+          },
+          {
+            "text": "New",
+            "start": 1.84,
+            "end": 1.98
+          },
+          {
+            "text": "York",
+            "start": 1.98,
+            "end": 2.34
+          },
+          {
+            "text": "was",
+            "start": 2.34,
+            "end": 2.88
+          },
+          {
+            "text": "the",
+            "start": 2.88,
+            "end": 3.04
+          },
+          {
+            "text": "country's",
+            "start": 3.04,
+            "end": 3.6
+          },
+          {
+            "text": "longest",
+            "start": 3.6,
+            "end": 4.02
+          },
+          {
+            "text": "cantilever",
+            "start": 4.02,
+            "end": 4.86
+          },
+          {
+            "text": "when",
+            "start": 4.86,
+            "end": 5.42
+          },
+          {
+            "text": "it",
+            "start": 5.42,
+            "end": 5.52
+          },
+          {
+            "text": "was",
+            "start": 5.52,
+            "end": 5.66
+          },
+          {
+            "text": "completed",
+            "start": 5.66,
+            "end": 6.18
+          },
+          {
+            "text": "in",
+            "start": 6.18,
+            "end": 6.44
+          },
+          {
+            "text": "1909.",
+            "start": 6.44,
+            "end": 7.62
+          }
+        ]
+      }
+    },
+    "4fed5852e3c564cb3fd7f7e0dbfc64847f3761aa964c5c1bc232ab05704dd7a8": {
+      "role": "sentence",
+      "beat_id": "B45",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "For the longest spans of all, engineers hung the deck instead.",
+      "spoken_text": "For the longest spans of all, engineers hung the deck instead.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/4fed5852e3c564cb3fd7.wav",
+      "duration": 4.625,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.8,
+      "peak_db": -8.8,
+      "words_per_second": 2.378,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.422,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "fˌɔɹ ðə lˈɔŋɡᵻst spˈænz ʌv ˈɔl, ˌɛnʤənˈɪɹz hˈʌŋ ðə dˈɛk ɪnstˈɛd.",
+      "lang_code": "a",
+      "cache_key": "4fed5852e3c564cb3fd7f7e0dbfc64847f3761aa964c5c1bc232ab05704dd7a8",
+      "sha256": "e36b3e197deaa497caa7957e742db0ec025ae44a003c15df5122687b8b745600",
+      "stored_utc": "2026-10-31T15:51:33.286301+00:00",
+      "asr": {
+        "text": "For the longest spans of all, engineers hung the deck instead.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "e36b3e197deaa497caa7957e742db0ec025ae44a003c15df5122687b8b745600",
+        "reference": "For the longest spans of all, engineers hung the deck instead.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "e36b3e197deaa497caa7957e742db0ec025ae44a003c15df5122687b8b745600",
+        "heard": "For the longest spans of all, engineers hung the deck instead.",
+        "words": [
+          {
+            "text": "For",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "the",
+            "start": 0.48,
+            "end": 0.6
+          },
+          {
+            "text": "longest",
+            "start": 0.6,
+            "end": 0.96
+          },
+          {
+            "text": "spans",
+            "start": 0.96,
+            "end": 1.4
+          },
+          {
+            "text": "of",
+            "start": 1.4,
+            "end": 1.56
+          },
+          {
+            "text": "all,",
+            "start": 1.56,
+            "end": 2.08
+          },
+          {
+            "text": "engineers",
+            "start": 2.08,
+            "end": 2.74
+          },
+          {
+            "text": "hung",
+            "start": 2.74,
+            "end": 3.02
+          },
+          {
+            "text": "the",
+            "start": 3.02,
+            "end": 3.22
+          },
+          {
+            "text": "deck",
+            "start": 3.22,
+            "end": 3.44
+          },
+          {
+            "text": "instead.",
+            "start": 3.44,
+            "end": 4.12
+          }
+        ]
+      }
+    },
+    "061d81d419f5d0a840607e4a458885eca9ec73d2f44ecd49d56ac7e5ffc3a27f": {
+      "role": "sentence",
+      "beat_id": "B45",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+      "spoken_text": "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/061d81d419f5d0a84060.wav",
+      "duration": 6.875,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.7,
+      "peak_db": -6.8,
+      "words_per_second": 2.182,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.569,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ɪn ɐ səspˈɛnʃᵊn bɹˈɪʤ, ðə dˈɛk hˈæŋz fɹʌm vˈɜɹTəkᵊl səspˈɛndəɹz ətˈæʧt tə ɡɹˈAt mˈAn kˈAbᵊlz.",
+      "lang_code": "a",
+      "cache_key": "061d81d419f5d0a840607e4a458885eca9ec73d2f44ecd49d56ac7e5ffc3a27f",
+      "sha256": "38af3b26a45764d887d44a36d0dd8118c98b7de40b42c73b3295851f35e626c5",
+      "stored_utc": "2026-10-31T15:51:33.859859+00:00",
+      "asr": {
+        "text": "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "38af3b26a45764d887d44a36d0dd8118c98b7de40b42c73b3295851f35e626c5",
+        "reference": "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "38af3b26a45764d887d44a36d0dd8118c98b7de40b42c73b3295851f35e626c5",
+        "heard": "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+        "words": [
+          {
+            "text": "In",
+            "start": 0.0,
+            "end": 0.52
+          },
+          {
+            "text": "a",
+            "start": 0.52,
+            "end": 0.6
+          },
+          {
+            "text": "suspension",
+            "start": 0.6,
+            "end": 1.06
+          },
+          {
+            "text": "bridge,",
+            "start": 1.06,
+            "end": 1.88
+          },
+          {
+            "text": "the",
+            "start": 1.88,
+            "end": 2.3
+          },
+          {
+            "text": "deck",
+            "start": 2.3,
+            "end": 2.54
+          },
+          {
+            "text": "hangs",
+            "start": 2.54,
+            "end": 2.94
+          },
+          {
+            "text": "from",
+            "start": 2.94,
+            "end": 3.16
+          },
+          {
+            "text": "vertical",
+            "start": 3.16,
+            "end": 3.6
+          },
+          {
+            "text": "suspenders",
+            "start": 3.6,
+            "end": 4.32
+          },
+          {
+            "text": "attached",
+            "start": 4.32,
+            "end": 4.76
+          },
+          {
+            "text": "to",
+            "start": 4.76,
+            "end": 5.04
+          },
+          {
+            "text": "great",
+            "start": 5.04,
+            "end": 5.26
+          },
+          {
+            "text": "main",
+            "start": 5.26,
+            "end": 5.58
+          },
+          {
+            "text": "cables.",
+            "start": 5.58,
+            "end": 6.38
+          }
+        ]
+      }
+    },
+    "bf7b4c8b26e3df222ee2d34bdb9a8d492ced4ff3bcc50cbc483b4ade1f798a4a": {
+      "role": "sentence",
+      "beat_id": "B46",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "The cables are in tension, and they pass over towers that are in compression.",
+      "spoken_text": "The cables are in tension, and they pass over towers that are in compression.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/bf7b4c8b26e3df222ee2.wav",
+      "duration": 5.425,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.3,
+      "peak_db": -9.5,
+      "words_per_second": 2.581,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.419,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ðə kˈAbᵊlz ɑɹ ɪn tˈɛnʃən, ænd ðA pˈæs ˈOvəɹ tˈWəɹz ðæt ɑɹ ɪn kəmpɹˈɛʃən.",
+      "lang_code": "a",
+      "cache_key": "bf7b4c8b26e3df222ee2d34bdb9a8d492ced4ff3bcc50cbc483b4ade1f798a4a",
+      "sha256": "5b1d90007d4dbd3a79fb793de955dc181b9b5ed2697432f207375f4c7df1596f",
+      "stored_utc": "2026-10-31T15:51:34.311897+00:00",
+      "asr": {
+        "text": "The cables are in tension and they pass over towers that are in compression.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "5b1d90007d4dbd3a79fb793de955dc181b9b5ed2697432f207375f4c7df1596f",
+        "reference": "The cables are in tension, and they pass over towers that are in compression.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "5b1d90007d4dbd3a79fb793de955dc181b9b5ed2697432f207375f4c7df1596f",
+        "heard": "The cables are in tension, and they pass over towers that are in compression.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "cables",
+            "start": 0.48,
+            "end": 0.94
+          },
+          {
+            "text": "are",
+            "start": 0.94,
+            "end": 1.16
+          },
+          {
+            "text": "in",
+            "start": 1.16,
+            "end": 1.38
+          },
+          {
+            "text": "tension,",
+            "start": 1.38,
+            "end": 1.94
+          },
+          {
+            "text": "and",
+            "start": 1.94,
+            "end": 2.38
+          },
+          {
+            "text": "they",
+            "start": 2.38,
+            "end": 2.5
+          },
+          {
+            "text": "pass",
+            "start": 2.5,
+            "end": 2.86
+          },
+          {
+            "text": "over",
+            "start": 2.86,
+            "end": 3.1
+          },
+          {
+            "text": "towers",
+            "start": 3.1,
+            "end": 3.56
+          },
+          {
+            "text": "that",
+            "start": 3.56,
+            "end": 3.82
+          },
+          {
+            "text": "are",
+            "start": 3.82,
+            "end": 3.96
+          },
+          {
+            "text": "in",
+            "start": 3.96,
+            "end": 4.12
+          },
+          {
+            "text": "compression.",
+            "start": 4.12,
+            "end": 4.84
+          }
+        ]
+      }
+    },
+    "d5e8350cbbcf1fbfd25b0da437c1d09633717937bcf42a2c224ac093df7a10a1": {
+      "role": "sentence",
+      "beat_id": "B46",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "At each end, the cables are anchored, usually in large masses of stone or concrete.",
+      "spoken_text": "At each end, the cables are anchored, usually in large masses of stone or concrete.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/d5e8350cbbcf1fbfd25b.wav",
+      "duration": 6.275,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.4,
+      "peak_db": -10.1,
+      "words_per_second": 2.39,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.457,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˌæt ˈiʧ ˈɛnd, ðə kˈAbᵊlz ɑɹ ˈæŋkəɹd, jˈuʒəwəli ɪn lˈɑɹʤ mˈæsᵻz ʌv stˈOn ɔɹ kˈɑnkɹˌit.",
+      "lang_code": "a",
+      "cache_key": "d5e8350cbbcf1fbfd25b0da437c1d09633717937bcf42a2c224ac093df7a10a1",
+      "sha256": "9d0a623b42f7344ebc801e12d7f7e8fab51ad7887742e9fb4f6c957d7e4bd9c0",
+      "stored_utc": "2026-10-31T15:51:34.773239+00:00",
+      "asr": {
+        "text": "At each end the cables are anchored, usually in large masses of stone or concrete.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "9d0a623b42f7344ebc801e12d7f7e8fab51ad7887742e9fb4f6c957d7e4bd9c0",
+        "reference": "At each end, the cables are anchored, usually in large masses of stone or concrete.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "9d0a623b42f7344ebc801e12d7f7e8fab51ad7887742e9fb4f6c957d7e4bd9c0",
+        "heard": "At each end, the cables are anchored, usually in large masses of stone or concrete.",
+        "words": [
+          {
+            "text": "At",
+            "start": 0.0,
+            "end": 0.52
+          },
+          {
+            "text": "each",
+            "start": 0.52,
+            "end": 0.72
+          },
+          {
+            "text": "end,",
+            "start": 0.72,
+            "end": 1.06
+          },
+          {
+            "text": "the",
+            "start": 1.06,
+            "end": 1.1
+          },
+          {
+            "text": "cables",
+            "start": 1.1,
+            "end": 1.48
+          },
+          {
+            "text": "are",
+            "start": 1.48,
+            "end": 1.64
+          },
+          {
+            "text": "anchored,",
+            "start": 1.64,
+            "end": 2.38
+          },
+          {
+            "text": "usually",
+            "start": 2.38,
+            "end": 2.96
+          },
+          {
+            "text": "in",
+            "start": 2.96,
+            "end": 3.2
+          },
+          {
+            "text": "large",
+            "start": 3.2,
+            "end": 3.56
+          },
+          {
+            "text": "masses",
+            "start": 3.56,
+            "end": 3.98
+          },
+          {
+            "text": "of",
+            "start": 3.98,
+            "end": 4.24
+          },
+          {
+            "text": "stone",
+            "start": 4.24,
+            "end": 4.64
+          },
+          {
+            "text": "or",
+            "start": 4.64,
+            "end": 4.92
+          },
+          {
+            "text": "concrete.",
+            "start": 4.92,
+            "end": 5.52
+          }
+        ]
+      }
+    },
+    "304480082e028cefce6d36cb76dec6dcfd8f2c7ae6b654472ba670425e370ac9": {
+      "role": "sentence",
+      "beat_id": "B47",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "A suspension deck is light for its span, and it can be very flexible.",
+      "spoken_text": "A suspension deck is light for its span, and it can be very flexible.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/304480082e028cefce6d.wav",
+      "duration": 5.25,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.0,
+      "peak_db": -7.1,
+      "words_per_second": 2.667,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.394,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ɐ səspˈɛnʃᵊn dˈɛk ɪz lˈIt fɔɹ ɪts spˈæn, ænd ɪt kæn bi vˈɛɹi flˈɛksəbᵊl.",
+      "lang_code": "a",
+      "cache_key": "304480082e028cefce6d36cb76dec6dcfd8f2c7ae6b654472ba670425e370ac9",
+      "sha256": "ee5d04eaeec091c891fd94357e4d4eba8712bff6aa93c47abb76536eb0488ba0",
+      "stored_utc": "2026-10-31T15:51:35.201702+00:00",
+      "asr": {
+        "text": "A suspension deck is light for its span and it can be very flexible.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "ee5d04eaeec091c891fd94357e4d4eba8712bff6aa93c47abb76536eb0488ba0",
+        "reference": "A suspension deck is light for its span, and it can be very flexible.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "ee5d04eaeec091c891fd94357e4d4eba8712bff6aa93c47abb76536eb0488ba0",
+        "heard": "A suspension deck is light for its span and it can be very flexible.",
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "text": "suspension",
+            "start": 0.5,
+            "end": 0.98
+          },
+          {
+            "text": "deck",
+            "start": 0.98,
+            "end": 1.38
+          },
+          {
+            "text": "is",
+            "start": 1.38,
+            "end": 1.62
+          },
+          {
+            "text": "light",
+            "start": 1.62,
+            "end": 1.88
+          },
+          {
+            "text": "for",
+            "start": 1.88,
+            "end": 2.1
+          },
+          {
+            "text": "its",
+            "start": 2.1,
+            "end": 2.28
+          },
+          {
+            "text": "span",
+            "start": 2.28,
+            "end": 2.74
+          },
+          {
+            "text": "and",
+            "start": 2.74,
+            "end": 3.28
+          },
+          {
+            "text": "it",
+            "start": 3.28,
+            "end": 3.4
+          },
+          {
+            "text": "can",
+            "start": 3.4,
+            "end": 3.52
+          },
+          {
+            "text": "be",
+            "start": 3.52,
+            "end": 3.66
+          },
+          {
+            "text": "very",
+            "start": 3.66,
+            "end": 3.98
+          },
+          {
+            "text": "flexible.",
+            "start": 3.98,
+            "end": 4.8
+          }
+        ]
+      }
+    },
+    "d5e7020df80ddf4db7d5f4123104d9d3235472d67dc9208ccbe56e24750a51e5": {
+      "role": "sentence",
+      "beat_id": "B47",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "So a stiffening truss is commonly built under the deck, against wind and earthquakes.",
+      "spoken_text": "So a stiffening truss is commonly built under the deck, against wind and earthquakes.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/d5e7020df80ddf4db7d5.wav",
+      "duration": 5.9,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.6,
+      "peak_db": -6.5,
+      "words_per_second": 2.373,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.443,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "sˌO ɐ stˈɪfᵊnɪŋ tɹˈʌs ɪz kˈɑmənli bˈɪlt ˈʌndəɹ ðə dˈɛk, əɡˈɛnst wˈɪnd ænd ˈɜɹθkwˌAks.",
+      "lang_code": "a",
+      "cache_key": "d5e7020df80ddf4db7d5f4123104d9d3235472d67dc9208ccbe56e24750a51e5",
+      "sha256": "6f884fa6863a685a39d5e8cad9e0d7d2b9ab9f8c8dc4007372d792a91615f43c",
+      "stored_utc": "2026-10-31T15:51:35.649293+00:00",
+      "asr": {
+        "text": "So a stiffening truss is commonly built under the deck against wind and earthquakes.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "6f884fa6863a685a39d5e8cad9e0d7d2b9ab9f8c8dc4007372d792a91615f43c",
+        "reference": "So a stiffening truss is commonly built under the deck, against wind and earthquakes.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "6f884fa6863a685a39d5e8cad9e0d7d2b9ab9f8c8dc4007372d792a91615f43c",
+        "heard": "So a stiffening truss is commonly built under the deck against wind and earthquakes.",
+        "words": [
+          {
+            "text": "So",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "text": "a",
+            "start": 0.5,
+            "end": 0.72
+          },
+          {
+            "text": "stiffening",
+            "start": 0.72,
+            "end": 1.08
+          },
+          {
+            "text": "truss",
+            "start": 1.08,
+            "end": 1.5
+          },
+          {
+            "text": "is",
+            "start": 1.5,
+            "end": 1.7
+          },
+          {
+            "text": "commonly",
+            "start": 1.7,
+            "end": 2.14
+          },
+          {
+            "text": "built",
+            "start": 2.14,
+            "end": 2.5
+          },
+          {
+            "text": "under",
+            "start": 2.5,
+            "end": 2.72
+          },
+          {
+            "text": "the",
+            "start": 2.72,
+            "end": 2.86
+          },
+          {
+            "text": "deck",
+            "start": 2.86,
+            "end": 3.2
+          },
+          {
+            "text": "against",
+            "start": 3.2,
+            "end": 3.94
+          },
+          {
+            "text": "wind",
+            "start": 3.94,
+            "end": 4.34
+          },
+          {
+            "text": "and",
+            "start": 4.34,
+            "end": 4.62
+          },
+          {
+            "text": "earthquakes.",
+            "start": 4.62,
+            "end": 5.48
+          }
+        ]
+      }
+    },
+    "7dcde7510b48d9aeea1f27086300090784236f7f468f9754aa64cac077536685": {
+      "role": "sentence",
+      "beat_id": "B48",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge.",
+      "spoken_text": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/7dcde7510b48d9aeea1f.wav",
+      "duration": 8.825,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.6,
+      "peak_db": -5.1,
+      "words_per_second": 2.04,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.624,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "tˈWəɹz, kˈAbᵊlz ænd səspˈɛndəɹz, ˈæŋkəɹɪʤᵻz ænd ɐ stˈɪfᵊnɪŋ tɹˈʌs: ðiz ɑɹ ðə fˈiʧəɹz ðæt dəfˈIn ɐ səspˈɛnʃᵊn bɹˈɪʤ.",
+      "lang_code": "a",
+      "cache_key": "7dcde7510b48d9aeea1f27086300090784236f7f468f9754aa64cac077536685",
+      "sha256": "ae59270fbdd801448e9b3e419bd27774ced170b509966d1157e12b062c4059ea",
+      "stored_utc": "2026-10-31T15:51:36.307374+00:00",
+      "asr": {
+        "text": "Towers, cables, and suspenders, anchorages, and a stiffening truss. These are the features that define a suspension bridge.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "ae59270fbdd801448e9b3e419bd27774ced170b509966d1157e12b062c4059ea",
+        "reference": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "ae59270fbdd801448e9b3e419bd27774ced170b509966d1157e12b062c4059ea",
+        "heard": "Towers, cables, and suspenders, anchorages, and a stiffening truss – these are the features that define a suspension bridge.",
+        "words": [
+          {
+            "text": "Towers,",
+            "start": 0.0,
+            "end": 1.04
+          },
+          {
+            "text": "cables,",
+            "start": 1.04,
+            "end": 1.68
+          },
+          {
+            "text": "and",
+            "start": 1.68,
+            "end": 1.68
+          },
+          {
+            "text": "suspenders,",
+            "start": 1.68,
+            "end": 2.64
+          },
+          {
+            "text": "anchorages,",
+            "start": 2.64,
+            "end": 3.44
+          },
+          {
+            "text": "and",
+            "start": 3.44,
+            "end": 3.62
+          },
+          {
+            "text": "a",
+            "start": 3.62,
+            "end": 3.8
+          },
+          {
+            "text": "stiffening",
+            "start": 3.8,
+            "end": 4.22
+          },
+          {
+            "text": "truss",
+            "start": 4.22,
+            "end": 4.7
+          },
+          {
+            "text": "–",
+            "start": 4.7,
+            "end": 4.84
+          },
+          {
+            "text": "these",
+            "start": 4.84,
+            "end": 5.5
+          },
+          {
+            "text": "are",
+            "start": 5.5,
+            "end": 5.64
+          },
+          {
+            "text": "the",
+            "start": 5.64,
+            "end": 5.76
+          },
+          {
+            "text": "features",
+            "start": 5.76,
+            "end": 6.2
+          },
+          {
+            "text": "that",
+            "start": 6.2,
+            "end": 6.46
+          },
+          {
+            "text": "define",
+            "start": 6.46,
+            "end": 6.9
+          },
+          {
+            "text": "a",
+            "start": 6.9,
+            "end": 7.1
+          },
+          {
+            "text": "suspension",
+            "start": 7.1,
+            "end": 7.56
+          },
+          {
+            "text": "bridge.",
+            "start": 7.56,
+            "end": 8.32
+          }
+        ]
+      }
+    },
+    "fc2938539dd85624e02d4adbd3ea8e3dffa3a79cff152b51304813a4c0c88cc7": {
+      "role": "sentence",
+      "beat_id": "B48",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+      "spoken_text": "The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/fc2938539dd85624e02d.wav",
+      "duration": 12.625,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.4,
+      "peak_db": -6.0,
+      "words_per_second": 2.297,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.883,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ðə bɹˈʊklən bɹˈɪʤ ɪn nˈu jˈɔɹk, kəmplˈiTᵻd ɪn ˌAtˈin ˈATi θɹˈi, hæz ðˌɛm ˈɔl, ænd wˈʌn ɹəpˈɔɹt sˈɛz fjˈu səspˈɛnʃᵊn bɹˈɪʤɪz sˈɪns kæn klˈAm tə stˈænd əntˈIəɹli klˈɪɹ ʌv ɪts ʃˈædO.",
+      "lang_code": "a",
+      "cache_key": "fc2938539dd85624e02d4adbd3ea8e3dffa3a79cff152b51304813a4c0c88cc7",
+      "sha256": "8f19a4607108e2bfc3c9d70769e3b7c69966e4e1dc1b9709dab954a628485943",
+      "stored_utc": "2026-10-31T15:51:37.194626+00:00",
+      "asr": {
+        "text": "The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "8f19a4607108e2bfc3c9d70769e3b7c69966e4e1dc1b9709dab954a628485943",
+        "reference": "The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "8f19a4607108e2bfc3c9d70769e3b7c69966e4e1dc1b9709dab954a628485943",
+        "heard": "The Brooklyn Bridge in New York, completed in 1883, has them all and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "Brooklyn",
+            "start": 0.48,
+            "end": 0.82
+          },
+          {
+            "text": "Bridge",
+            "start": 0.82,
+            "end": 1.28
+          },
+          {
+            "text": "in",
+            "start": 1.28,
+            "end": 1.48
+          },
+          {
+            "text": "New",
+            "start": 1.48,
+            "end": 1.66
+          },
+          {
+            "text": "York,",
+            "start": 1.66,
+            "end": 2.16
+          },
+          {
+            "text": "completed",
+            "start": 2.16,
+            "end": 2.68
+          },
+          {
+            "text": "in",
+            "start": 2.68,
+            "end": 2.92
+          },
+          {
+            "text": "1883,",
+            "start": 2.92,
+            "end": 4.38
+          },
+          {
+            "text": "has",
+            "start": 4.38,
+            "end": 4.88
+          },
+          {
+            "text": "them",
+            "start": 4.88,
+            "end": 5.04
+          },
+          {
+            "text": "all",
+            "start": 5.04,
+            "end": 5.38
+          },
+          {
+            "text": "and",
+            "start": 5.38,
+            "end": 6.0
+          },
+          {
+            "text": "one",
+            "start": 6.0,
+            "end": 6.24
+          },
+          {
+            "text": "report",
+            "start": 6.24,
+            "end": 6.56
+          },
+          {
+            "text": "says",
+            "start": 6.56,
+            "end": 6.96
+          },
+          {
+            "text": "few",
+            "start": 7.06,
+            "end": 7.32
+          },
+          {
+            "text": "suspension",
+            "start": 7.32,
+            "end": 7.9
+          },
+          {
+            "text": "bridges",
+            "start": 7.9,
+            "end": 8.38
+          },
+          {
+            "text": "since",
+            "start": 8.38,
+            "end": 9.04
+          },
+          {
+            "text": "can",
+            "start": 9.04,
+            "end": 9.28
+          },
+          {
+            "text": "claim",
+            "start": 9.28,
+            "end": 9.54
+          },
+          {
+            "text": "to",
+            "start": 9.54,
+            "end": 9.74
+          },
+          {
+            "text": "stand",
+            "start": 9.74,
+            "end": 10.06
+          },
+          {
+            "text": "entirely",
+            "start": 10.06,
+            "end": 10.64
+          },
+          {
+            "text": "clear",
+            "start": 10.64,
+            "end": 11.16
+          },
+          {
+            "text": "of",
+            "start": 11.16,
+            "end": 11.38
+          },
+          {
+            "text": "its",
+            "start": 11.38,
+            "end": 11.52
+          },
+          {
+            "text": "shadow.",
+            "start": 11.52,
+            "end": 12.04
+          }
+        ]
+      }
+    },
+    "8c679490016cf8b6a92476ca1b0aa39dfc59cd4ae7deddd9221cec813e685d02": {
+      "role": "sentence",
+      "beat_id": "B50",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+      "spoken_text": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/8c679490016cf8b6a924.wav",
+      "duration": 6.25,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.1,
+      "peak_db": -9.6,
+      "words_per_second": 2.24,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.454,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ɐ kˈAbᵊlstˌAd bɹˈɪʤ ˈɔlsO ɹᵻlˈIz ˌɔn stˈil kˈAbᵊlz, bˌʌt ɪt jˈuzᵻz ðˌɛm dˈɪfəɹəntli.",
+      "lang_code": "a",
+      "cache_key": "8c679490016cf8b6a92476ca1b0aa39dfc59cd4ae7deddd9221cec813e685d02",
+      "sha256": "91aee28b35d5b2b3ed1baebeea0905b8c3cb4d05eefe465ebc12c9db8115163d",
+      "stored_utc": "2026-10-31T15:51:37.682277+00:00",
+      "asr": {
+        "text": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "91aee28b35d5b2b3ed1baebeea0905b8c3cb4d05eefe465ebc12c9db8115163d",
+        "reference": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "91aee28b35d5b2b3ed1baebeea0905b8c3cb4d05eefe465ebc12c9db8115163d",
+        "heard": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+        "words": [
+          {
+            "text": "A",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "text": "cable",
+            "start": 0.5,
+            "end": 0.84
+          },
+          {
+            "text": "-stayed",
+            "start": 0.84,
+            "end": 1.24
+          },
+          {
+            "text": "bridge",
+            "start": 1.24,
+            "end": 1.6
+          },
+          {
+            "text": "also",
+            "start": 1.6,
+            "end": 2.02
+          },
+          {
+            "text": "relies",
+            "start": 2.02,
+            "end": 2.5
+          },
+          {
+            "text": "on",
+            "start": 2.5,
+            "end": 2.72
+          },
+          {
+            "text": "steel",
+            "start": 2.72,
+            "end": 3.06
+          },
+          {
+            "text": "cables,",
+            "start": 3.06,
+            "end": 3.84
+          },
+          {
+            "text": "but",
+            "start": 3.84,
+            "end": 4.28
+          },
+          {
+            "text": "it",
+            "start": 4.28,
+            "end": 4.4
+          },
+          {
+            "text": "uses",
+            "start": 4.4,
+            "end": 4.72
+          },
+          {
+            "text": "them",
+            "start": 4.72,
+            "end": 5.02
+          },
+          {
+            "text": "differently.",
+            "start": 5.02,
+            "end": 5.66
+          }
+        ]
+      }
+    },
+    "edbe9a7a971697120167ab9a017056b4133e2feea7b82c094823dda638faa1ca": {
+      "role": "sentence",
+      "beat_id": "B50",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+      "spoken_text": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/edbe9a7a971697120167.wav",
+      "duration": 5.85,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.9,
+      "peak_db": -7.8,
+      "words_per_second": 2.564,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.457,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "stɹˈAt stˈA kˈAbᵊlz ɹˈʌn fɹʌm tˈɔl tˈWəɹz dəɹˈɛktli dˌWn tə ði ˈɛʤᵻz ʌv ðə dˈɛk.",
+      "lang_code": "a",
+      "cache_key": "edbe9a7a971697120167ab9a017056b4133e2feea7b82c094823dda638faa1ca",
+      "sha256": "cf764297b1046ba279fc39fd5ff2d61d6b3c5eac37adb30a94bcf6dd46047cac",
+      "stored_utc": "2026-10-31T15:51:38.143454+00:00",
+      "asr": {
+        "text": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "cf764297b1046ba279fc39fd5ff2d61d6b3c5eac37adb30a94bcf6dd46047cac",
+        "reference": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "cf764297b1046ba279fc39fd5ff2d61d6b3c5eac37adb30a94bcf6dd46047cac",
+        "heard": "Straight-stay cables run from tall towers directly down to the edges of the deck.",
+        "words": [
+          {
+            "text": "Straight",
+            "start": 0.0,
+            "end": 0.62
+          },
+          {
+            "text": "-stay",
+            "start": 0.62,
+            "end": 1.0
+          },
+          {
+            "text": "cables",
+            "start": 1.0,
+            "end": 1.48
+          },
+          {
+            "text": "run",
+            "start": 1.48,
+            "end": 1.76
+          },
+          {
+            "text": "from",
+            "start": 1.76,
+            "end": 1.96
+          },
+          {
+            "text": "tall",
+            "start": 1.96,
+            "end": 2.3
+          },
+          {
+            "text": "towers",
+            "start": 2.3,
+            "end": 2.86
+          },
+          {
+            "text": "directly",
+            "start": 2.86,
+            "end": 3.7
+          },
+          {
+            "text": "down",
+            "start": 3.7,
+            "end": 4.04
+          },
+          {
+            "text": "to",
+            "start": 4.04,
+            "end": 4.2
+          },
+          {
+            "text": "the",
+            "start": 4.2,
+            "end": 4.32
+          },
+          {
+            "text": "edges",
+            "start": 4.32,
+            "end": 4.6
+          },
+          {
+            "text": "of",
+            "start": 4.6,
+            "end": 4.8
+          },
+          {
+            "text": "the",
+            "start": 4.8,
+            "end": 4.9
+          },
+          {
+            "text": "deck.",
+            "start": 4.9,
+            "end": 5.32
+          }
+        ]
+      }
+    },
+    "a24be7c69cae9fa494476c9ac610ee82b8522fa9694e1ddf9da48756d1e6d4fc": {
+      "role": "sentence",
+      "beat_id": "B51",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Side by side, the difference is clear.",
+      "spoken_text": "Side by side, the difference is clear.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/a24be7c69cae9fa49447.wav",
+      "duration": 3.175,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.5,
+      "peak_db": -6.7,
+      "words_per_second": 2.205,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.287,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "sˈId bI sˈId, ðə dˈɪfəɹəns ɪz klˈɪɹ.",
+      "lang_code": "a",
+      "cache_key": "a24be7c69cae9fa494476c9ac610ee82b8522fa9694e1ddf9da48756d1e6d4fc",
+      "sha256": "c2f98b074d99f10b226998a5695c34dd5f4aa1d472dc5c5d25f792ca9e8add63",
+      "stored_utc": "2026-10-31T15:51:38.464417+00:00",
+      "asr": {
+        "text": "Side by side, the difference is clear.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "c2f98b074d99f10b226998a5695c34dd5f4aa1d472dc5c5d25f792ca9e8add63",
+        "reference": "Side by side, the difference is clear.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "c2f98b074d99f10b226998a5695c34dd5f4aa1d472dc5c5d25f792ca9e8add63",
+        "heard": "Side by side, the difference is clear.",
+        "words": [
+          {
+            "text": "Side",
+            "start": 0.0,
+            "end": 0.64
+          },
+          {
+            "text": "by",
+            "start": 0.64,
+            "end": 0.8
+          },
+          {
+            "text": "side,",
+            "start": 0.8,
+            "end": 1.4
+          },
+          {
+            "text": "the",
+            "start": 1.4,
+            "end": 1.58
+          },
+          {
+            "text": "difference",
+            "start": 1.58,
+            "end": 1.86
+          },
+          {
+            "text": "is",
+            "start": 1.86,
+            "end": 2.1
+          },
+          {
+            "text": "clear.",
+            "start": 2.1,
+            "end": 2.64
+          }
+        ]
+      }
+    },
+    "1e2fd77c65f9b387dde510178738bfb3b7c019aa19aa304fd975283db95a5cbd": {
+      "role": "sentence",
+      "beat_id": "B51",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+      "spoken_text": "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/1e2fd77c65f9b387dde5.wav",
+      "duration": 7.475,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.3,
+      "peak_db": -7.7,
+      "words_per_second": 2.408,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.545,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ðə səspˈɛnʃᵊn bɹˈɪʤ hæz ʃˈɔɹTəɹ tˈWəɹz, ænd ɪts mˈAn kˈAbᵊlz ɹˈʌn ˈOvəɹ ðˌɛm tʊ ˈæŋkəɹɪʤᵻz æt ˈiʧ ˈɛnd.",
+      "lang_code": "a",
+      "cache_key": "1e2fd77c65f9b387dde510178738bfb3b7c019aa19aa304fd975283db95a5cbd",
+      "sha256": "d046e21fe9a52d24403571a0657bef9c5e86521afae9f8e18ab2a18277425e0a",
+      "stored_utc": "2026-10-31T15:51:39.013644+00:00",
+      "asr": {
+        "text": "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "d046e21fe9a52d24403571a0657bef9c5e86521afae9f8e18ab2a18277425e0a",
+        "reference": "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "d046e21fe9a52d24403571a0657bef9c5e86521afae9f8e18ab2a18277425e0a",
+        "heard": "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "suspension",
+            "start": 0.48,
+            "end": 0.94
+          },
+          {
+            "text": "bridge",
+            "start": 0.94,
+            "end": 1.4
+          },
+          {
+            "text": "has",
+            "start": 1.4,
+            "end": 1.76
+          },
+          {
+            "text": "shorter",
+            "start": 1.76,
+            "end": 2.24
+          },
+          {
+            "text": "towers,",
+            "start": 2.24,
+            "end": 2.96
+          },
+          {
+            "text": "and",
+            "start": 2.96,
+            "end": 3.4
+          },
+          {
+            "text": "its",
+            "start": 3.4,
+            "end": 3.56
+          },
+          {
+            "text": "main",
+            "start": 3.56,
+            "end": 3.86
+          },
+          {
+            "text": "cables",
+            "start": 3.86,
+            "end": 4.38
+          },
+          {
+            "text": "run",
+            "start": 4.38,
+            "end": 4.68
+          },
+          {
+            "text": "over",
+            "start": 4.68,
+            "end": 4.96
+          },
+          {
+            "text": "them",
+            "start": 4.96,
+            "end": 5.18
+          },
+          {
+            "text": "to",
+            "start": 5.18,
+            "end": 5.36
+          },
+          {
+            "text": "anchorages",
+            "start": 5.36,
+            "end": 6.06
+          },
+          {
+            "text": "at",
+            "start": 6.06,
+            "end": 6.22
+          },
+          {
+            "text": "each",
+            "start": 6.22,
+            "end": 6.46
+          },
+          {
+            "text": "end.",
+            "start": 6.46,
+            "end": 6.84
+          }
+        ]
+      }
+    },
+    "dae05fbc95b1fa06ff46e815a9194b8e524242b98d675166e5172458637fb155": {
+      "role": "sentence",
+      "beat_id": "B51",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+      "spoken_text": "The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/dae05fbc95b1fa06ff46.wav",
+      "duration": 6.175,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.0,
+      "peak_db": -7.2,
+      "words_per_second": 2.591,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.453,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ðə kˈAbᵊlstˌAd bɹˈɪʤ nˈidz mˈʌʧ tˈɔləɹ tˈWəɹz, ænd ɪts stˈAz ˈɛnd æt ðə dˈɛk ɪtsˈɛlf.",
+      "lang_code": "a",
+      "cache_key": "dae05fbc95b1fa06ff46e815a9194b8e524242b98d675166e5172458637fb155",
+      "sha256": "f6b84e0cabf69b85d94025d76f4a47c170b985773a440c7885440b6e2571dad7",
+      "stored_utc": "2026-10-31T15:51:39.471366+00:00",
+      "asr": {
+        "text": "The cable-stayed bridge needs much taller towers, and it stays end at the deck itself.",
+        "language": "english",
+        "wer": 0.0625,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "f6b84e0cabf69b85d94025d76f4a47c170b985773a440c7885440b6e2571dad7",
+        "reference": "The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "f6b84e0cabf69b85d94025d76f4a47c170b985773a440c7885440b6e2571dad7",
+        "heard": "The cable-stayed bridge needs much taller towers, and it stays end at the deck itself.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "cable",
+            "start": 0.48,
+            "end": 0.8
+          },
+          {
+            "text": "-stayed",
+            "start": 0.8,
+            "end": 1.16
+          },
+          {
+            "text": "bridge",
+            "start": 1.16,
+            "end": 1.5
+          },
+          {
+            "text": "needs",
+            "start": 1.5,
+            "end": 1.84
+          },
+          {
+            "text": "much",
+            "start": 1.84,
+            "end": 2.08
+          },
+          {
+            "text": "taller",
+            "start": 2.08,
+            "end": 2.5
+          },
+          {
+            "text": "towers,",
+            "start": 2.5,
+            "end": 3.0
+          },
+          {
+            "text": "and",
+            "start": 3.0,
+            "end": 3.66
+          },
+          {
+            "text": "it",
+            "start": 3.66,
+            "end": 3.78
+          },
+          {
+            "text": "stays",
+            "start": 3.78,
+            "end": 4.06
+          },
+          {
+            "text": "end",
+            "start": 4.06,
+            "end": 4.48
+          },
+          {
+            "text": "at",
+            "start": 4.48,
+            "end": 4.62
+          },
+          {
+            "text": "the",
+            "start": 4.62,
+            "end": 4.72
+          },
+          {
+            "text": "deck",
+            "start": 4.72,
+            "end": 4.96
+          },
+          {
+            "text": "itself.",
+            "start": 4.96,
+            "end": 5.64
+          }
+        ]
+      }
+    },
+    "51733cc741ecbb69f3db482ce2239ed6929ac934e9eba89bd6619f8067147b25": {
+      "role": "sentence",
+      "beat_id": "B52",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+      "spoken_text": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/51733cc741ecbb69f3db.wav",
+      "duration": 9.125,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.5,
+      "peak_db": -7.7,
+      "words_per_second": 2.521,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.64,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "wˈʌns ðə tˈWəɹz ɑɹ ˌʌp, ðə dˈɛk kæn bi bˈɪlt ˈWtwəɹd fɹʌm ðˌɛm ɪn bˈOθ dəɹˈɛkʃənz, wɪðˈWt fˈɔlswˌɜɹk tˈWəɹz, ˌʌntˈɪl ðə spˈænz mˈit.",
+      "lang_code": "a",
+      "cache_key": "51733cc741ecbb69f3db482ce2239ed6929ac934e9eba89bd6619f8067147b25",
+      "sha256": "20f6369c98eafe192813710c5873f8a0695aa97455ac50ebf830cc7acea5c836",
+      "stored_utc": "2026-10-31T15:51:40.145791+00:00",
+      "asr": {
+        "text": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "20f6369c98eafe192813710c5873f8a0695aa97455ac50ebf830cc7acea5c836",
+        "reference": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "20f6369c98eafe192813710c5873f8a0695aa97455ac50ebf830cc7acea5c836",
+        "heard": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+        "words": [
+          {
+            "text": "Once",
+            "start": 0.0,
+            "end": 0.64
+          },
+          {
+            "text": "the",
+            "start": 0.64,
+            "end": 0.8
+          },
+          {
+            "text": "towers",
+            "start": 0.8,
+            "end": 1.2
+          },
+          {
+            "text": "are",
+            "start": 1.2,
+            "end": 1.42
+          },
+          {
+            "text": "up,",
+            "start": 1.42,
+            "end": 1.84
+          },
+          {
+            "text": "the",
+            "start": 1.84,
+            "end": 2.12
+          },
+          {
+            "text": "deck",
+            "start": 2.12,
+            "end": 2.34
+          },
+          {
+            "text": "can",
+            "start": 2.34,
+            "end": 2.5
+          },
+          {
+            "text": "be",
+            "start": 2.5,
+            "end": 2.64
+          },
+          {
+            "text": "built",
+            "start": 2.64,
+            "end": 2.9
+          },
+          {
+            "text": "outward",
+            "start": 2.9,
+            "end": 3.28
+          },
+          {
+            "text": "from",
+            "start": 3.28,
+            "end": 3.58
+          },
+          {
+            "text": "them",
+            "start": 3.58,
+            "end": 3.76
+          },
+          {
+            "text": "in",
+            "start": 3.76,
+            "end": 3.96
+          },
+          {
+            "text": "both",
+            "start": 3.96,
+            "end": 4.24
+          },
+          {
+            "text": "directions,",
+            "start": 4.24,
+            "end": 5.1
+          },
+          {
+            "text": "without",
+            "start": 5.1,
+            "end": 5.62
+          },
+          {
+            "text": "falsework",
+            "start": 5.62,
+            "end": 6.32
+          },
+          {
+            "text": "towers,",
+            "start": 6.32,
+            "end": 7.18
+          },
+          {
+            "text": "until",
+            "start": 7.18,
+            "end": 7.48
+          },
+          {
+            "text": "the",
+            "start": 7.48,
+            "end": 7.66
+          },
+          {
+            "text": "spans",
+            "start": 7.66,
+            "end": 8.06
+          },
+          {
+            "text": "meet.",
+            "start": 8.06,
+            "end": 8.58
+          }
+        ]
+      }
+    },
+    "cbb7d718b7efa0ded4f6bb23ad653909924a1446aad7a188a1371db1ed5700b3": {
+      "role": "sentence",
+      "beat_id": "B52",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+      "spoken_text": "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/cbb7d718b7efa0ded4f6.wav",
+      "duration": 6.325,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.0,
+      "peak_db": -7.2,
+      "words_per_second": 2.688,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.456,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ðə stˈAz ˈɔlsO skwˈiz ðə dˈɛk əlˈɔŋ ɪts lˈɛŋθ, ænd ðˈæt skwˈiz bˈɪldz ˌʌp tˈɔɹd ðə tˈWəɹz.",
+      "lang_code": "a",
+      "cache_key": "cbb7d718b7efa0ded4f6bb23ad653909924a1446aad7a188a1371db1ed5700b3",
+      "sha256": "884292ea8286eeb493a11fbeaa4350a200fdea973ef712e3b17fb0a897b76049",
+      "stored_utc": "2026-10-31T15:51:40.606008+00:00",
+      "asr": {
+        "text": "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "884292ea8286eeb493a11fbeaa4350a200fdea973ef712e3b17fb0a897b76049",
+        "reference": "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "884292ea8286eeb493a11fbeaa4350a200fdea973ef712e3b17fb0a897b76049",
+        "heard": "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+        "words": [
+          {
+            "text": "The",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "stays",
+            "start": 0.48,
+            "end": 0.78
+          },
+          {
+            "text": "also",
+            "start": 0.78,
+            "end": 1.22
+          },
+          {
+            "text": "squeeze",
+            "start": 1.22,
+            "end": 1.64
+          },
+          {
+            "text": "the",
+            "start": 1.64,
+            "end": 1.84
+          },
+          {
+            "text": "deck",
+            "start": 1.84,
+            "end": 2.08
+          },
+          {
+            "text": "along",
+            "start": 2.08,
+            "end": 2.38
+          },
+          {
+            "text": "its",
+            "start": 2.38,
+            "end": 2.62
+          },
+          {
+            "text": "length,",
+            "start": 2.62,
+            "end": 3.12
+          },
+          {
+            "text": "and",
+            "start": 3.12,
+            "end": 3.52
+          },
+          {
+            "text": "that",
+            "start": 3.52,
+            "end": 3.72
+          },
+          {
+            "text": "squeeze",
+            "start": 3.72,
+            "end": 4.08
+          },
+          {
+            "text": "builds",
+            "start": 4.08,
+            "end": 4.54
+          },
+          {
+            "text": "up",
+            "start": 4.54,
+            "end": 4.74
+          },
+          {
+            "text": "toward",
+            "start": 4.74,
+            "end": 5.0
+          },
+          {
+            "text": "the",
+            "start": 5.0,
+            "end": 5.16
+          },
+          {
+            "text": "towers.",
+            "start": 5.16,
+            "end": 5.8
+          }
+        ]
+      }
+    },
+    "5b9b9eaa36be2d014df24014e1406ef687431a8e55360e22594d2c5685c875dd": {
+      "role": "sentence",
+      "beat_id": "B53",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Cable-stayed bridges have changed the economics of long spans.",
+      "spoken_text": "Cable-stayed bridges have changed the economics of long spans.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/5b9b9eaa36be2d014df2.wav",
+      "duration": 4.825,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.9,
+      "peak_db": -7.0,
+      "words_per_second": 2.073,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.449,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "kˈAbᵊlstˌAd bɹˈɪʤɪz hæv ʧˈAnʤd ði ˌɛkənˈɑmɪks ʌv lˈɔŋ spˈænz.",
+      "lang_code": "a",
+      "cache_key": "5b9b9eaa36be2d014df24014e1406ef687431a8e55360e22594d2c5685c875dd",
+      "sha256": "79e74a39ce8c069fe2cf239761786665af6e031e13c427156beb58e14af43e5e",
+      "stored_utc": "2026-10-31T15:51:41.091125+00:00",
+      "asr": {
+        "text": "Cable-stayed bridges have changed the economics of long spans.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "79e74a39ce8c069fe2cf239761786665af6e031e13c427156beb58e14af43e5e",
+        "reference": "Cable-stayed bridges have changed the economics of long spans.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "79e74a39ce8c069fe2cf239761786665af6e031e13c427156beb58e14af43e5e",
+        "heard": "Cable-stayed bridges have changed the economics of long spans.",
+        "words": [
+          {
+            "text": "Cable",
+            "start": 0.0,
+            "end": 0.7
+          },
+          {
+            "text": "-stayed",
+            "start": 0.7,
+            "end": 1.0
+          },
+          {
+            "text": "bridges",
+            "start": 1.0,
+            "end": 1.34
+          },
+          {
+            "text": "have",
+            "start": 1.34,
+            "end": 1.86
+          },
+          {
+            "text": "changed",
+            "start": 1.86,
+            "end": 2.26
+          },
+          {
+            "text": "the",
+            "start": 2.26,
+            "end": 2.44
+          },
+          {
+            "text": "economics",
+            "start": 2.44,
+            "end": 2.94
+          },
+          {
+            "text": "of",
+            "start": 2.94,
+            "end": 3.22
+          },
+          {
+            "text": "long",
+            "start": 3.22,
+            "end": 3.54
+          },
+          {
+            "text": "spans.",
+            "start": 3.54,
+            "end": 4.26
+          }
+        ]
+      }
+    },
+    "ec770b15daee48f2e193351b54581b47df971823bbf2d335640d438ef0a2ebf1": {
+      "role": "sentence",
+      "beat_id": "B53",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+      "spoken_text": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/ec770b15daee48f2e193.wav",
+      "duration": 8.9,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.8,
+      "peak_db": -8.7,
+      "words_per_second": 2.135,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.62,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "bəfˈɔɹ nˌIntˈin sˈɛvənti, səspˈɛnʃᵊn bɹˈɪʤɪz wɜɹ θˈɔt tə bi ðə ʧˈipɪst wˈA tə spˈæn mˈɔɹ ðən əbˈWt wˈʌn θˈWzᵊnd tˈu hˈʌndɹəd fˈit.",
+      "lang_code": "a",
+      "cache_key": "ec770b15daee48f2e193351b54581b47df971823bbf2d335640d438ef0a2ebf1",
+      "sha256": "d3bcd2c02146cd8bcf1cba5c8919e6192de6ce85d8948cf82d008958a8227dbe",
+      "stored_utc": "2026-10-31T15:51:41.716175+00:00",
+      "asr": {
+        "text": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "d3bcd2c02146cd8bcf1cba5c8919e6192de6ce85d8948cf82d008958a8227dbe",
+        "reference": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "d3bcd2c02146cd8bcf1cba5c8919e6192de6ce85d8948cf82d008958a8227dbe",
+        "heard": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+        "words": [
+          {
+            "text": "Before",
+            "start": 0.0,
+            "end": 0.7
+          },
+          {
+            "text": "1970,",
+            "start": 0.7,
+            "end": 2.08
+          },
+          {
+            "text": "suspension",
+            "start": 2.08,
+            "end": 2.68
+          },
+          {
+            "text": "bridges",
+            "start": 2.68,
+            "end": 3.14
+          },
+          {
+            "text": "were",
+            "start": 3.14,
+            "end": 3.46
+          },
+          {
+            "text": "thought",
+            "start": 3.46,
+            "end": 3.68
+          },
+          {
+            "text": "to",
+            "start": 3.68,
+            "end": 3.86
+          },
+          {
+            "text": "be",
+            "start": 3.86,
+            "end": 4.0
+          },
+          {
+            "text": "the",
+            "start": 4.0,
+            "end": 4.16
+          },
+          {
+            "text": "cheapest",
+            "start": 4.16,
+            "end": 4.52
+          },
+          {
+            "text": "way",
+            "start": 4.52,
+            "end": 4.92
+          },
+          {
+            "text": "to",
+            "start": 4.92,
+            "end": 5.26
+          },
+          {
+            "text": "span",
+            "start": 5.26,
+            "end": 5.56
+          },
+          {
+            "text": "more",
+            "start": 5.56,
+            "end": 5.88
+          },
+          {
+            "text": "than",
+            "start": 5.88,
+            "end": 6.08
+          },
+          {
+            "text": "about",
+            "start": 6.08,
+            "end": 6.36
+          },
+          {
+            "text": "1",
+            "start": 6.36,
+            "end": 6.72
+          },
+          {
+            "text": ",200",
+            "start": 6.72,
+            "end": 7.56
+          },
+          {
+            "text": "feet.",
+            "start": 7.56,
+            "end": 8.34
+          }
+        ]
+      }
+    },
+    "6aed9fa70ea352d0e3dbbfeff21b39dcc7a0e553519bc8dd20220caca813536f": {
+      "role": "sentence",
+      "beat_id": "B53",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet, and that suspension bridges pay off only as main spans approach 3,000.",
+      "spoken_text": "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet, and that suspension bridges pay off only as main spans approach 3,000.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/6aed9fa70ea352d0e3db.wav",
+      "duration": 14.125,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.9,
+      "peak_db": -6.2,
+      "words_per_second": 1.982,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.972,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "bˌI twˈɛnti twˈɛlv, ɐ fˈɛdəɹəl hˈændbˌʊk sˈɛd kˈAbᵊlstˌAd bɹˈɪʤɪz bəkˈʌm vˈɛɹi kəmpˈɛTəTɪv əbˈʌv sˈɛvən hˈʌndɹəd fˈɪfti fˈit, ænd ðæt səspˈɛnʃᵊn bɹˈɪʤɪz pˈA ˈɔf ˈOnli æz mˈAn spˈænz əpɹˈOʧ θɹˈi θˈWzᵊnd.",
+      "lang_code": "a",
+      "cache_key": "6aed9fa70ea352d0e3dbbfeff21b39dcc7a0e553519bc8dd20220caca813536f",
+      "sha256": "f351063aacab85004a1b08baa3ebacf59f3772493ab150518a8923c7ce32342c",
+      "stored_utc": "2026-10-31T15:51:42.692637+00:00",
+      "asr": {
+        "text": "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet and that suspension bridges pay off only as main spans approach 3,000.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "f351063aacab85004a1b08baa3ebacf59f3772493ab150518a8923c7ce32342c",
+        "reference": "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet, and that suspension bridges pay off only as main spans approach 3,000.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "f351063aacab85004a1b08baa3ebacf59f3772493ab150518a8923c7ce32342c",
+        "heard": "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet and that suspension bridges pay off only as main spans approach 3,000.",
+        "words": [
+          {
+            "text": "By",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "text": "2012,",
+            "start": 0.5,
+            "end": 1.52
+          },
+          {
+            "text": "a",
+            "start": 1.52,
+            "end": 1.9
+          },
+          {
+            "text": "federal",
+            "start": 1.9,
+            "end": 2.24
+          },
+          {
+            "text": "handbook",
+            "start": 2.24,
+            "end": 2.88
+          },
+          {
+            "text": "said",
+            "start": 2.88,
+            "end": 3.14
+          },
+          {
+            "text": "cable",
+            "start": 3.14,
+            "end": 3.56
+          },
+          {
+            "text": "-stayed",
+            "start": 3.56,
+            "end": 3.96
+          },
+          {
+            "text": "bridges",
+            "start": 3.96,
+            "end": 4.36
+          },
+          {
+            "text": "become",
+            "start": 4.36,
+            "end": 4.78
+          },
+          {
+            "text": "very",
+            "start": 4.78,
+            "end": 5.18
+          },
+          {
+            "text": "competitive",
+            "start": 5.18,
+            "end": 5.74
+          },
+          {
+            "text": "above",
+            "start": 5.74,
+            "end": 6.12
+          },
+          {
+            "text": "750",
+            "start": 6.12,
+            "end": 7.24
+          },
+          {
+            "text": "feet",
+            "start": 7.24,
+            "end": 7.74
+          },
+          {
+            "text": "and",
+            "start": 7.74,
+            "end": 8.5
+          },
+          {
+            "text": "that",
+            "start": 8.5,
+            "end": 8.68
+          },
+          {
+            "text": "suspension",
+            "start": 8.68,
+            "end": 9.2
+          },
+          {
+            "text": "bridges",
+            "start": 9.2,
+            "end": 9.7
+          },
+          {
+            "text": "pay",
+            "start": 9.7,
+            "end": 10.16
+          },
+          {
+            "text": "off",
+            "start": 10.16,
+            "end": 10.42
+          },
+          {
+            "text": "only",
+            "start": 10.42,
+            "end": 10.86
+          },
+          {
+            "text": "as",
+            "start": 10.86,
+            "end": 11.14
+          },
+          {
+            "text": "main",
+            "start": 11.14,
+            "end": 11.48
+          },
+          {
+            "text": "spans",
+            "start": 11.48,
+            "end": 12.02
+          },
+          {
+            "text": "approach",
+            "start": 12.02,
+            "end": 12.52
+          },
+          {
+            "text": "3",
+            "start": 12.52,
+            "end": 12.82
+          },
+          {
+            "text": ",000.",
+            "start": 12.82,
+            "end": 13.54
+          }
+        ]
+      }
+    },
+    "d3f29b8405bfc8c23eee9f8c08690abd949702df60085bb215118517f4705a48": {
+      "role": "sentence",
+      "beat_id": "B24B",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Long spans have their own history.",
+      "spoken_text": "Long spans have their own history.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/d3f29b8405bfc8c23eee.wav",
+      "duration": 2.825,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.3,
+      "peak_db": -6.1,
+      "words_per_second": 2.124,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.263,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "lˈɔŋ spˈænz hæv ðɛɹ ˈOn hˈɪstəɹi.",
+      "lang_code": "a",
+      "cache_key": "d3f29b8405bfc8c23eee9f8c08690abd949702df60085bb215118517f4705a48",
+      "sha256": "c86bff52fb3394a7674892ac43fd8e9a74807412a1d20f5afc82e0027c302b47",
+      "stored_utc": "2026-10-31T15:51:43.276062+00:00",
+      "asr": {
+        "text": "Long spans have their own history.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "c86bff52fb3394a7674892ac43fd8e9a74807412a1d20f5afc82e0027c302b47",
+        "reference": "Long spans have their own history.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "c86bff52fb3394a7674892ac43fd8e9a74807412a1d20f5afc82e0027c302b47",
+        "heard": "Long spans have their own history.",
+        "words": [
+          {
+            "text": "Long",
+            "start": 0.0,
+            "end": 0.64
+          },
+          {
+            "text": "spans",
+            "start": 0.64,
+            "end": 1.0
+          },
+          {
+            "text": "have",
+            "start": 1.0,
+            "end": 1.32
+          },
+          {
+            "text": "their",
+            "start": 1.32,
+            "end": 1.46
+          },
+          {
+            "text": "own",
+            "start": 1.46,
+            "end": 1.7
+          },
+          {
+            "text": "history.",
+            "start": 1.7,
+            "end": 2.44
+          }
+        ]
+      }
+    },
+    "21470902d78758c9805adf6b52a6516718c28b6e8d2a0609ec920e9ab9248dc2": {
+      "role": "sentence",
+      "beat_id": "B24B",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "At Wheeling in 1849, a suspension bridge spanning 1,010 feet became the longest bridge in the world for many years.",
+      "spoken_text": "At Wheeling in 1849, a suspension bridge spanning 1,010 feet became the longest bridge in the world for many years.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/21470902d78758c9805a.wav",
+      "duration": 9.775,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.0,
+      "peak_db": -6.3,
+      "words_per_second": 2.148,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.656,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˌæt wˈilɪŋ ɪn ˌAtˈin fˈɔɹTi nˈIn, ɐ səspˈɛnʃᵊn bɹˈɪʤ spˈænɪŋ wˈʌn θˈWzᵊnd tˈɛn fˈit bəkˈAm ðə lˈɔŋɡᵻst bɹˈɪʤ ɪn ðə wˈɜɹld fɔɹ mˈɛni jˈɪɹz.",
+      "lang_code": "a",
+      "cache_key": "21470902d78758c9805adf6b52a6516718c28b6e8d2a0609ec920e9ab9248dc2",
+      "sha256": "34f1ad68d677b61fb974b2e427156d2c12d83169a694ca0a833134018f65ebcd",
+      "stored_utc": "2026-10-31T15:51:43.936356+00:00",
+      "asr": {
+        "text": "At Wheeling in 1849, a suspension bridge spanning 1,010 feet became the longest bridge in the world for many years.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "34f1ad68d677b61fb974b2e427156d2c12d83169a694ca0a833134018f65ebcd",
+        "reference": "At Wheeling in 1849, a suspension bridge spanning 1,010 feet became the longest bridge in the world for many years.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "34f1ad68d677b61fb974b2e427156d2c12d83169a694ca0a833134018f65ebcd",
+        "heard": "At Wheeling in 1849, a suspension bridge spanning 1,010 feet became the longest bridge in the world for many years.",
+        "words": [
+          {
+            "text": "At",
+            "start": 0.0,
+            "end": 0.56
+          },
+          {
+            "text": "Wheeling",
+            "start": 0.56,
+            "end": 0.94
+          },
+          {
+            "text": "in",
+            "start": 0.94,
+            "end": 1.16
+          },
+          {
+            "text": "1849,",
+            "start": 1.16,
+            "end": 2.76
+          },
+          {
+            "text": "a",
+            "start": 2.76,
+            "end": 3.2
+          },
+          {
+            "text": "suspension",
+            "start": 3.2,
+            "end": 3.68
+          },
+          {
+            "text": "bridge",
+            "start": 3.68,
+            "end": 4.1
+          },
+          {
+            "text": "spanning",
+            "start": 4.1,
+            "end": 4.64
+          },
+          {
+            "text": "1",
+            "start": 4.64,
+            "end": 5.08
+          },
+          {
+            "text": ",010",
+            "start": 5.08,
+            "end": 5.72
+          },
+          {
+            "text": "feet",
+            "start": 5.72,
+            "end": 6.02
+          },
+          {
+            "text": "became",
+            "start": 6.02,
+            "end": 6.46
+          },
+          {
+            "text": "the",
+            "start": 6.46,
+            "end": 6.7
+          },
+          {
+            "text": "longest",
+            "start": 6.7,
+            "end": 7.1
+          },
+          {
+            "text": "bridge",
+            "start": 7.1,
+            "end": 7.48
+          },
+          {
+            "text": "in",
+            "start": 7.48,
+            "end": 7.72
+          },
+          {
+            "text": "the",
+            "start": 7.72,
+            "end": 7.8
+          },
+          {
+            "text": "world",
+            "start": 7.8,
+            "end": 8.06
+          },
+          {
+            "text": "for",
+            "start": 8.06,
+            "end": 8.28
+          },
+          {
+            "text": "many",
+            "start": 8.28,
+            "end": 8.52
+          },
+          {
+            "text": "years.",
+            "start": 8.52,
+            "end": 9.24
+          }
+        ]
+      }
+    },
+    "f9486df248f641288e0c999ed8b0a6f4138360047e38f0f05f14e50f56964fda": {
+      "role": "sentence",
+      "beat_id": "B24B",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Cantilevers were a standard answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+      "spoken_text": "Cantilevers were a standard answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/f9486df248f641288e0c.wav",
+      "duration": 13.75,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.7,
+      "peak_db": -5.4,
+      "words_per_second": 2.182,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.88,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "kˈæntəlˌivəɹz wɜɹ ɐ stˈændəɹd ˈænsəɹ fɹʌm ði ˌAtˈin ˈATiz tə ðə nˌIntˈin sˈɪkstiz, ænd sˈɪns nˌIntˈin ˈATi ˈɔlmOst ˈɛvəɹi əmˈɛɹəkᵊn bɹˈɪʤ wɪð ɐ mˈAn spˈæn ˈOvəɹ wˈʌn θˈWzᵊnd fˈit hæz bɪn kˈAbᵊlstˌAd.",
+      "lang_code": "a",
+      "cache_key": "f9486df248f641288e0c999ed8b0a6f4138360047e38f0f05f14e50f56964fda",
+      "sha256": "340a3264907eff38fb880f7d5559db814b7433237f4f8d635640c6bd608c937a",
+      "stored_utc": "2026-10-31T15:51:44.820380+00:00",
+      "asr": {
+        "text": "Cantilevers were a standard answer from the 1880s to the 1960s, and since 1980, almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "340a3264907eff38fb880f7d5559db814b7433237f4f8d635640c6bd608c937a",
+        "reference": "Cantilevers were a standard answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "340a3264907eff38fb880f7d5559db814b7433237f4f8d635640c6bd608c937a",
+        "heard": "cantilevers were a standard answer from the 1880s to the 1960s and since 1980 almost every American bridge with a main span over 1,000 feet has been cable stayed",
+        "words": [
+          {
+            "text": "cantilevers",
+            "start": 0.0,
+            "end": 0.98
+          },
+          {
+            "text": "were",
+            "start": 0.98,
+            "end": 1.24
+          },
+          {
+            "text": "a",
+            "start": 1.24,
+            "end": 1.38
+          },
+          {
+            "text": "standard",
+            "start": 1.38,
+            "end": 1.86
+          },
+          {
+            "text": "answer",
+            "start": 1.86,
+            "end": 2.34
+          },
+          {
+            "text": "from",
+            "start": 2.34,
+            "end": 2.6
+          },
+          {
+            "text": "the",
+            "start": 2.6,
+            "end": 2.74
+          },
+          {
+            "text": "1880s",
+            "start": 2.74,
+            "end": 3.86
+          },
+          {
+            "text": "to",
+            "start": 3.86,
+            "end": 3.98
+          },
+          {
+            "text": "the",
+            "start": 3.98,
+            "end": 4.08
+          },
+          {
+            "text": "1960s",
+            "start": 4.08,
+            "end": 5.16
+          },
+          {
+            "text": "and",
+            "start": 5.16,
+            "end": 5.76
+          },
+          {
+            "text": "since",
+            "start": 5.76,
+            "end": 5.98
+          },
+          {
+            "text": "1980",
+            "start": 5.98,
+            "end": 6.66
+          },
+          {
+            "text": "almost",
+            "start": 7.34,
+            "end": 7.64
+          },
+          {
+            "text": "every",
+            "start": 7.64,
+            "end": 8.04
+          },
+          {
+            "text": "American",
+            "start": 8.04,
+            "end": 8.56
+          },
+          {
+            "text": "bridge",
+            "start": 8.56,
+            "end": 8.9
+          },
+          {
+            "text": "with",
+            "start": 8.9,
+            "end": 9.18
+          },
+          {
+            "text": "a",
+            "start": 9.18,
+            "end": 9.32
+          },
+          {
+            "text": "main",
+            "start": 9.32,
+            "end": 9.58
+          },
+          {
+            "text": "span",
+            "start": 9.58,
+            "end": 10.02
+          },
+          {
+            "text": "over",
+            "start": 10.02,
+            "end": 10.36
+          },
+          {
+            "text": "1",
+            "start": 10.36,
+            "end": 10.7
+          },
+          {
+            "text": ",000",
+            "start": 10.7,
+            "end": 11.26
+          },
+          {
+            "text": "feet",
+            "start": 11.26,
+            "end": 11.6
+          },
+          {
+            "text": "has",
+            "start": 11.6,
+            "end": 12.04
+          },
+          {
+            "text": "been",
+            "start": 12.04,
+            "end": 12.22
+          },
+          {
+            "text": "cable",
+            "start": 12.22,
+            "end": 12.64
+          },
+          {
+            "text": "stayed",
+            "start": 12.82,
+            "end": 12.98
+          }
+        ]
+      }
+    },
+    "f3320d4e828a46d00e21620a38fd75df845669264ea6cf0190e7d3eda7405e1c": {
+      "role": "sentence",
+      "beat_id": "B32L",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+      "spoken_text": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/f3320d4e828a46d00e21.wav",
+      "duration": 7.925,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.9,
+      "peak_db": -7.0,
+      "words_per_second": 2.271,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.571,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "kˈæntəlˌivəɹz ɹˈiʧ ˈWt fɹʌm ðɛɹ pˈɪɹz, ænd səspˈɛnʃᵊn ænd kˈAbᵊlstˌAd bɹˈɪʤɪz hˈæŋ ðɛɹ dˈɛks fɹʌm stˈil kˈAbᵊlz.",
+      "lang_code": "a",
+      "cache_key": "f3320d4e828a46d00e21620a38fd75df845669264ea6cf0190e7d3eda7405e1c",
+      "sha256": "6a2b9c999bdf4bfe2513d72fc0eaddf00fda93fc0b5c5cc45e2e5e007834fb4e",
+      "stored_utc": "2026-10-31T15:51:45.674554+00:00",
+      "asr": {
+        "text": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "6a2b9c999bdf4bfe2513d72fc0eaddf00fda93fc0b5c5cc45e2e5e007834fb4e",
+        "reference": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "6a2b9c999bdf4bfe2513d72fc0eaddf00fda93fc0b5c5cc45e2e5e007834fb4e",
+        "heard": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+        "words": [
+          {
+            "text": "Cantilevers",
+            "start": 0.0,
+            "end": 0.94
+          },
+          {
+            "text": "reach",
+            "start": 0.94,
+            "end": 1.26
+          },
+          {
+            "text": "out",
+            "start": 1.26,
+            "end": 1.5
+          },
+          {
+            "text": "from",
+            "start": 1.5,
+            "end": 1.68
+          },
+          {
+            "text": "their",
+            "start": 1.68,
+            "end": 1.82
+          },
+          {
+            "text": "piers,",
+            "start": 1.82,
+            "end": 2.44
+          },
+          {
+            "text": "and",
+            "start": 2.44,
+            "end": 2.86
+          },
+          {
+            "text": "suspension",
+            "start": 2.86,
+            "end": 3.4
+          },
+          {
+            "text": "and",
+            "start": 3.4,
+            "end": 3.68
+          },
+          {
+            "text": "cable",
+            "start": 3.68,
+            "end": 4.06
+          },
+          {
+            "text": "-stayed",
+            "start": 4.06,
+            "end": 4.4
+          },
+          {
+            "text": "bridges",
+            "start": 4.4,
+            "end": 4.82
+          },
+          {
+            "text": "hang",
+            "start": 4.82,
+            "end": 5.5
+          },
+          {
+            "text": "their",
+            "start": 5.5,
+            "end": 5.72
+          },
+          {
+            "text": "decks",
+            "start": 5.72,
+            "end": 6.04
+          },
+          {
+            "text": "from",
+            "start": 6.04,
+            "end": 6.28
+          },
+          {
+            "text": "steel",
+            "start": 6.28,
+            "end": 6.62
+          },
+          {
+            "text": "cables.",
+            "start": 6.62,
+            "end": 7.4
+          }
+        ]
+      }
+    },
+    "78a02efca7699c097c5e4404afc234cdf7fddd7782821f57d607deb94da43ac5": {
+      "role": "sentence",
+      "beat_id": "B33",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+      "spoken_text": "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/78a02efca7699c097c5e.wav",
+      "duration": 5.95,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.5,
+      "peak_db": -7.8,
+      "words_per_second": 2.857,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.449,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˌænd ðə mˈOst kˈɑmən stˈil bɹˈɪʤ tədˈA ɪz stˈɪl ɐ kˈInd ʌv bˈim: ðə wˈɛldᵻd plˈAt ɡˈɜɹdəɹ.",
+      "lang_code": "a",
+      "cache_key": "78a02efca7699c097c5e4404afc234cdf7fddd7782821f57d607deb94da43ac5",
+      "sha256": "62fb27ecbe642e53de0f86f6351d7156ee067e600fad2b650d13e91693bff69a",
+      "stored_utc": "2026-10-31T15:51:46.191432+00:00",
+      "asr": {
+        "text": "And the most common steel bridge today is still a kind of beam, the welded plate girder.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "62fb27ecbe642e53de0f86f6351d7156ee067e600fad2b650d13e91693bff69a",
+        "reference": "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "62fb27ecbe642e53de0f86f6351d7156ee067e600fad2b650d13e91693bff69a",
+        "heard": "And the most common steel bridge today is still a kind of beam, the welded plate girder.",
+        "words": [
+          {
+            "text": "And",
+            "start": 0.0,
+            "end": 0.48
+          },
+          {
+            "text": "the",
+            "start": 0.48,
+            "end": 0.58
+          },
+          {
+            "text": "most",
+            "start": 0.58,
+            "end": 0.8
+          },
+          {
+            "text": "common",
+            "start": 0.8,
+            "end": 1.18
+          },
+          {
+            "text": "steel",
+            "start": 1.18,
+            "end": 1.56
+          },
+          {
+            "text": "bridge",
+            "start": 1.56,
+            "end": 1.94
+          },
+          {
+            "text": "today",
+            "start": 1.94,
+            "end": 2.2
+          },
+          {
+            "text": "is",
+            "start": 2.2,
+            "end": 2.52
+          },
+          {
+            "text": "still",
+            "start": 2.52,
+            "end": 2.7
+          },
+          {
+            "text": "a",
+            "start": 2.7,
+            "end": 2.84
+          },
+          {
+            "text": "kind",
+            "start": 2.84,
+            "end": 3.02
+          },
+          {
+            "text": "of",
+            "start": 3.02,
+            "end": 3.16
+          },
+          {
+            "text": "beam,",
+            "start": 3.16,
+            "end": 3.78
+          },
+          {
+            "text": "the",
+            "start": 3.78,
+            "end": 4.18
+          },
+          {
+            "text": "welded",
+            "start": 4.18,
+            "end": 4.5
+          },
+          {
+            "text": "plate",
+            "start": 4.5,
+            "end": 4.88
+          },
+          {
+            "text": "girder.",
+            "start": 4.88,
+            "end": 5.38
+          }
+        ]
+      }
+    },
+    "0896c79b9142dcd17b26b72d6f3506888a0f0e2f1d4c1f4eb4c6efd25a3ce649": {
+      "role": "sentence",
+      "beat_id": "B01B",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Another hangs from huge draped cables.",
+      "spoken_text": "Another hangs from huge draped cables.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/0896c79b9142dcd17b26.wav",
+      "duration": 3.325,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.4,
+      "peak_db": -5.6,
+      "words_per_second": 1.805,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 3.948,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ənˈʌðəɹ hˈæŋz fɹʌm hjˈuʤ dɹˈApt kˈAbᵊlz.",
+      "lang_code": "a",
+      "cache_key": "0896c79b9142dcd17b26b72d6f3506888a0f0e2f1d4c1f4eb4c6efd25a3ce649",
+      "sha256": "46f34cc8c81c0a00f17d8b388bb4297ec3c55fe90903d8cab5e75aa65b9648f9",
+      "stored_utc": "2026-10-31T15:53:22.185316+00:00",
+      "asr": {
+        "text": "Another hangs from huge draped cables.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "46f34cc8c81c0a00f17d8b388bb4297ec3c55fe90903d8cab5e75aa65b9648f9",
+        "reference": "Another hangs from huge draped cables.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "46f34cc8c81c0a00f17d8b388bb4297ec3c55fe90903d8cab5e75aa65b9648f9",
+        "heard": "Another hangs from huge draped cables.",
+        "words": [
+          {
+            "text": "Another",
+            "start": 0.0,
+            "end": 0.7
+          },
+          {
+            "text": "hangs",
+            "start": 0.7,
+            "end": 1.02
+          },
+          {
+            "text": "from",
+            "start": 1.02,
+            "end": 1.28
+          },
+          {
+            "text": "huge",
+            "start": 1.28,
+            "end": 1.72
+          },
+          {
+            "text": "draped",
+            "start": 1.72,
+            "end": 2.12
+          },
+          {
+            "text": "cables.",
+            "start": 2.12,
+            "end": 2.84
+          }
+        ]
+      }
+    },
+    "92dbeed789d84400a1d1248dbe9cd2d378d04f2c23c138e170a49e342f7ccdac": {
+      "role": "sentence",
+      "beat_id": "B51",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Seen in outline, the difference is clear.",
+      "spoken_text": "Seen in outline, the difference is clear.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/92dbeed789d84400a1d1.wav",
+      "duration": 3.125,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.6,
+      "peak_db": -8.2,
+      "words_per_second": 2.24,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 4.013,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "sˈin ɪn ˈWtlˌIn, ðə dˈɪfəɹəns ɪz klˈɪɹ.",
+      "lang_code": "a",
+      "cache_key": "92dbeed789d84400a1d1248dbe9cd2d378d04f2c23c138e170a49e342f7ccdac",
+      "sha256": "b67cb2edf02f9533b23cc6a7b187d74a871bca1d8d3307aab1f66dd5eed2eadc",
+      "stored_utc": "2026-10-31T15:58:21.995641+00:00",
+      "asr": {
+        "text": "Seen in outline, the difference is clear.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "b67cb2edf02f9533b23cc6a7b187d74a871bca1d8d3307aab1f66dd5eed2eadc",
+        "reference": "Seen in outline, the difference is clear.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "b67cb2edf02f9533b23cc6a7b187d74a871bca1d8d3307aab1f66dd5eed2eadc",
+        "heard": "Seen in outline, the difference is clear.",
+        "words": [
+          {
+            "text": "Seen",
+            "start": 0.0,
+            "end": 0.64
+          },
+          {
+            "text": "in",
+            "start": 0.64,
+            "end": 0.78
+          },
+          {
+            "text": "outline,",
+            "start": 0.78,
+            "end": 1.44
+          },
+          {
+            "text": "the",
+            "start": 1.44,
+            "end": 1.5
+          },
+          {
+            "text": "difference",
+            "start": 1.5,
+            "end": 1.8
+          },
+          {
+            "text": "is",
+            "start": 1.8,
+            "end": 2.04
+          },
+          {
+            "text": "clear.",
+            "start": 2.04,
+            "end": 2.6
+          }
+        ]
+      }
     }
   },
   "beats": {
@@ -25350,10 +30747,66 @@
         }
       ]
     },
+    "B01B": {
+      "file": "audio/beats/B01B.wav",
+      "duration": 7.225,
+      "sha256": "b4e6b408c1d0b122c0d17321176436be98839699457d309f56acb587a832f013",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Over wider water, the answers change again.",
+          "start": 0.0,
+          "end": 3.75,
+          "cache_key": "5cbfdc6973cfe5ce41363b2f584b05e7b493b728c6616443be9fea22208451b4",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "One bridge reaches out from its piers.",
+          "start": 4.15,
+          "end": 7.225,
+          "cache_key": "e04abd21c2099c3c59de59208c973436baefc5046249ccd36077e8e9ce838ec7",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B01C": {
+      "file": "audio/beats/B01C.wav",
+      "duration": 3.325,
+      "sha256": "46f34cc8c81c0a00f17d8b388bb4297ec3c55fe90903d8cab5e75aa65b9648f9",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Another hangs from huge draped cables.",
+          "start": 0.0,
+          "end": 3.325,
+          "cache_key": "0896c79b9142dcd17b26b72d6f3506888a0f0e2f1d4c1f4eb4c6efd25a3ce649",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B01D": {
+      "file": "audio/beats/B01D.wav",
+      "duration": 3.425,
+      "sha256": "b58de56b0c251cce0c96428f882ed2c7346d5590588273f07ae0bdbd1aa04bda",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "A third is held up by straight lines of steel.",
+          "start": 0.0,
+          "end": 3.425,
+          "cache_key": "d61b99a017f715ceb87e89eff329d43ed39f56e562a26729a2eb84796912a916",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
     "B02": {
       "file": "audio/beats/B02.wav",
-      "duration": 16.675,
-      "sha256": "a0b26da89cb1addd7ca8205c61ae19c8af511ea5cfe817d50a4931aa4d18f113",
+      "duration": 17.725,
+      "sha256": "3c4a3cfb6c7e733bb4426662eb40823c1ac0ebd9207cec4ddc0be8518e0e0fdb",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
@@ -25374,10 +30827,10 @@
         },
         {
           "index": 2,
-          "text": "Each form is a different answer to the same problem, shaped by materials, by the site, and by the time it was built in.",
+          "text": "Each form is a different answer to the same problem, shaped by materials, by the site, by the span, and by the time it was built in.",
           "start": 8.175,
-          "end": 16.675,
-          "cache_key": "fb9b60fcd79028cdf30669a9dc6a1c7755d23764bbfc1279dd9ee781940503d7",
+          "end": 17.725,
+          "cache_key": "96067b14e6ef84cb7cabfa07af8ad5379d8b7e405e9194b0bec7610ee4fe2d1f",
           "rights_class": "PUBLICATION_CLEARED"
         }
       ]
@@ -25878,6 +31331,326 @@
         }
       ]
     },
+    "B40": {
+      "file": "audio/beats/B40.wav",
+      "duration": 14.425,
+      "sha256": "281cf2b66b401c2310f80748b9ad38f50116b76de46994b5192128cace631875",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "To cross wide rivers and deep gorges, bridges needed longer spans.",
+          "start": 0.0,
+          "end": 5.375,
+          "cache_key": "ee25fd4efb4be47536ebc7595d0ce7bd346e0aaeb1df58857fd4a17222e7f36d",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+          "start": 5.775,
+          "end": 14.425,
+          "cache_key": "bd56e1bda8a51931562147594a79d23534e791491d17cadc01034f060fd78cee",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B41": {
+      "file": "audio/beats/B41.wav",
+      "duration": 12.825,
+      "sha256": "923b58a19127a8360b3473485d36a8853e6550bca359f81e72c67a1b0ac7b3e7",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "One answer was the cantilever.",
+          "start": 0.0,
+          "end": 2.95,
+          "cache_key": "d42f1a87f76fe4eda1a09763c318a12af7f5140baa5a75aba44f75efe595b069",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "Hold your arm straight out from your shoulder, and it is acting as a cantilever: supported at one end, free at the other, like a diving board.",
+          "start": 3.35,
+          "end": 12.825,
+          "cache_key": "17870a6b8fe0694c0f264e4198257295401cfab45dcb47f74aac2ffdce5bb7d3",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B42": {
+      "file": "audio/beats/B42.wav",
+      "duration": 13.85,
+      "sha256": "5b1dd9b4d2e87f70dc80cb09efb5c1659598d8538f4bd372ed2355c07164fb85",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "A cantilever bridge is a modified beam.",
+          "start": 0.0,
+          "end": 3.675,
+          "cache_key": "f0eb7e59833ca98ce63f84a9b1823dfec6aaf42df0de2f853847065944822b1c",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "Anchor arms rest on the banks and the main piers, cantilever arms reach out over the river, and a suspended span hangs between their tips.",
+          "start": 4.075,
+          "end": 13.85,
+          "cache_key": "9681cc74f5058ec1529292b9239415165fe34c709c14bec299f1280f5da33e77",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B43": {
+      "file": "audio/beats/B43.wav",
+      "duration": 13.6,
+      "sha256": "3602bf761ce1f85da4458905f8c361a82e9f6ad33195c0c404384f45b9117335",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Its great advantage came during construction.",
+          "start": 0.0,
+          "end": 3.45,
+          "cache_key": "ada236043f664a7a92b793aedea768f4fc6d4a4ea82c30b9c92ff8a4378f0846",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "The arms could be built outward from the piers with no falsework blocking the channel below, and then the suspended span was lifted into place.",
+          "start": 3.85,
+          "end": 13.6,
+          "cache_key": "e0e299803d7ce0c91eee64cc5794115d06a8371f3dd1250aeb38a870e3701ffc",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B44": {
+      "file": "audio/beats/B44.wav",
+      "duration": 17.95,
+      "sha256": "91c6cc506ea96f4c4e2b835b21cf67f50e7a3e95bcf5cb04275af356a34b8e0f",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s.",
+          "start": 0.0,
+          "end": 9.375,
+          "cache_key": "24bcfc798c9ebd7c66d3937648c478a411bf656478925e88d6a646a788082cc5",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+          "start": 9.775,
+          "end": 17.95,
+          "cache_key": "8f7ca63f0c558ec26f47614fd6aa2e3ac0cb18b538c5e7a31bae19d7885f01fb",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B45": {
+      "file": "audio/beats/B45.wav",
+      "duration": 11.9,
+      "sha256": "cec5b2285be031c71b5c02e870e0ebf5cee52514542aa485a1c22d18cdaded88",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "For the longest spans of all, engineers hung the deck instead.",
+          "start": 0.0,
+          "end": 4.625,
+          "cache_key": "4fed5852e3c564cb3fd7f7e0dbfc64847f3761aa964c5c1bc232ab05704dd7a8",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "In a suspension bridge, the deck hangs from vertical suspenders attached to great main cables.",
+          "start": 5.025,
+          "end": 11.9,
+          "cache_key": "061d81d419f5d0a840607e4a458885eca9ec73d2f44ecd49d56ac7e5ffc3a27f",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B46": {
+      "file": "audio/beats/B46.wav",
+      "duration": 12.1,
+      "sha256": "bb8d6403755ca4027fb1d9facb15ff34278df8ff0d8214331451ebd1ae79db79",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "The cables are in tension, and they pass over towers that are in compression.",
+          "start": 0.0,
+          "end": 5.425,
+          "cache_key": "bf7b4c8b26e3df222ee2d34bdb9a8d492ced4ff3bcc50cbc483b4ade1f798a4a",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "At each end, the cables are anchored, usually in large masses of stone or concrete.",
+          "start": 5.825,
+          "end": 12.1,
+          "cache_key": "d5e8350cbbcf1fbfd25b0da437c1d09633717937bcf42a2c224ac093df7a10a1",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B47": {
+      "file": "audio/beats/B47.wav",
+      "duration": 11.55,
+      "sha256": "b360c769b57cde86be5e25c5b6099d09065ad27984751888972a3517e32077da",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "A suspension deck is light for its span, and it can be very flexible.",
+          "start": 0.0,
+          "end": 5.25,
+          "cache_key": "304480082e028cefce6d36cb76dec6dcfd8f2c7ae6b654472ba670425e370ac9",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "So a stiffening truss is commonly built under the deck, against wind and earthquakes.",
+          "start": 5.65,
+          "end": 11.55,
+          "cache_key": "d5e7020df80ddf4db7d5f4123104d9d3235472d67dc9208ccbe56e24750a51e5",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B48": {
+      "file": "audio/beats/B48.wav",
+      "duration": 21.85,
+      "sha256": "3c73f5abdcc27927321ff0888042b28d708dd6877f36a5626d8b09c388569165",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge.",
+          "start": 0.0,
+          "end": 8.825,
+          "cache_key": "7dcde7510b48d9aeea1f27086300090784236f7f468f9754aa64cac077536685",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+          "start": 9.225,
+          "end": 21.85,
+          "cache_key": "fc2938539dd85624e02d4adbd3ea8e3dffa3a79cff152b51304813a4c0c88cc7",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B50": {
+      "file": "audio/beats/B50.wav",
+      "duration": 12.5,
+      "sha256": "e513e0da356ac2932d3c4805a5bfca175da9c4ccb7ad83f870f6ed4a733c94e3",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "A cable-stayed bridge also relies on steel cables, but it uses them differently.",
+          "start": 0.0,
+          "end": 6.25,
+          "cache_key": "8c679490016cf8b6a92476ca1b0aa39dfc59cd4ae7deddd9221cec813e685d02",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "Straight stay cables run from tall towers directly down to the edges of the deck.",
+          "start": 6.65,
+          "end": 12.5,
+          "cache_key": "edbe9a7a971697120167ab9a017056b4133e2feea7b82c094823dda638faa1ca",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B51": {
+      "file": "audio/beats/B51.wav",
+      "duration": 17.575,
+      "sha256": "1c2eb469529d71c12550f17dc5b43e74b32b57b30aa50a1a2c1d8f93684b0efc",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Seen in outline, the difference is clear.",
+          "start": 0.0,
+          "end": 3.125,
+          "cache_key": "92dbeed789d84400a1d1248dbe9cd2d378d04f2c23c138e170a49e342f7ccdac",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end.",
+          "start": 3.525,
+          "end": 11.0,
+          "cache_key": "1e2fd77c65f9b387dde510178738bfb3b7c019aa19aa304fd975283db95a5cbd",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 2,
+          "text": "The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+          "start": 11.4,
+          "end": 17.575,
+          "cache_key": "dae05fbc95b1fa06ff46e815a9194b8e524242b98d675166e5172458637fb155",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B52": {
+      "file": "audio/beats/B52.wav",
+      "duration": 15.85,
+      "sha256": "208a9f20231133a49c828b0ab3966c02b16f66e69ca15288b2507a04ca85ce21",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Once the towers are up, the deck can be built outward from them in both directions, without falsework towers, until the spans meet.",
+          "start": 0.0,
+          "end": 9.125,
+          "cache_key": "51733cc741ecbb69f3db482ce2239ed6929ac934e9eba89bd6619f8067147b25",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "The stays also squeeze the deck along its length, and that squeeze builds up toward the towers.",
+          "start": 9.525,
+          "end": 15.85,
+          "cache_key": "cbb7d718b7efa0ded4f6bb23ad653909924a1446aad7a188a1371db1ed5700b3",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
+    "B53": {
+      "file": "audio/beats/B53.wav",
+      "duration": 23.425,
+      "sha256": "676091b505ad55e55cee103b389a014077504396201dd35ce52c36dbbddfe9c5",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Before 1970, suspension bridges were thought to be the cheapest way to span more than about 1,200 feet.",
+          "start": 0.0,
+          "end": 8.9,
+          "cache_key": "ec770b15daee48f2e193351b54581b47df971823bbf2d335640d438ef0a2ebf1",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 1,
+          "text": "By 2012, a federal handbook said cable-stayed bridges become very competitive above 750 feet, and that suspension bridges pay off only as main spans approach 3,000.",
+          "start": 9.3,
+          "end": 23.425,
+          "cache_key": "6aed9fa70ea352d0e3dbbfeff21b39dcc7a0e553519bc8dd20220caca813536f",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
     "B19": {
       "file": "audio/beats/B19.wav",
       "duration": 13.2,
@@ -26026,46 +31799,6 @@
           "start": 9.2,
           "end": 18.85,
           "cache_key": "98f218c749de609ba941bd3b57987b1a40658107895cd757863067189e5ac704",
-          "rights_class": "PUBLICATION_CLEARED"
-        }
-      ]
-    },
-    "B23": {
-      "file": "audio/beats/B23.wav",
-      "duration": 4.325,
-      "sha256": "f86369b2caab8a0586e0c2540dbc629ab0304bafd32697fd7a830af0b2686d3d",
-      "sentence_pause_seconds": 0.4,
-      "sentences": [
-        {
-          "index": 0,
-          "text": "Then there is span: how far a single structure has to reach.",
-          "start": 0.0,
-          "end": 4.325,
-          "cache_key": "c9a065c26881d00f438818250173bcfc2abe839ab280d1511ec2b2f45b490b11",
-          "rights_class": "PUBLICATION_CLEARED"
-        }
-      ]
-    },
-    "B23B": {
-      "file": "audio/beats/B23B.wav",
-      "duration": 16.475,
-      "sha256": "fbab920289cc58f98b0d395a664f9d1169f6853b0766900f6ec6bdf05f701876",
-      "sentence_pause_seconds": 0.4,
-      "sentences": [
-        {
-          "index": 0,
-          "text": "A simple king post truss could span only about thirty feet.",
-          "start": 0.0,
-          "end": 4.45,
-          "cache_key": "da5f06c58f89aeddd40a236b04c9394a68431ff78751c63fb2258d392ce86436",
-          "rights_class": "PUBLICATION_CLEARED"
-        },
-        {
-          "index": 1,
-          "text": "What one report calls America's greatest stone arch, the Cabin John Aqueduct Bridge, spans 220 feet, and some through trusses approach 400.",
-          "start": 4.85,
-          "end": 16.475,
-          "cache_key": "5c56d73cca976eca065b3879dda58d2d80e132f62d684bbd1308d21933004629",
           "rights_class": "PUBLICATION_CLEARED"
         }
       ]
@@ -26342,6 +32075,22 @@
         }
       ]
     },
+    "B32L": {
+      "file": "audio/beats/B32L.wav",
+      "duration": 7.925,
+      "sha256": "6a2b9c999bdf4bfe2513d72fc0eaddf00fda93fc0b5c5cc45e2e5e007834fb4e",
+      "sentence_pause_seconds": 0.4,
+      "sentences": [
+        {
+          "index": 0,
+          "text": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
+          "start": 0.0,
+          "end": 7.925,
+          "cache_key": "f3320d4e828a46d00e21620a38fd75df845669264ea6cf0190e7d3eda7405e1c",
+          "rights_class": "PUBLICATION_CLEARED"
+        }
+      ]
+    },
     "B32B": {
       "file": "audio/beats/B32B.wav",
       "duration": 7.45,
@@ -26360,8 +32109,8 @@
     },
     "B33": {
       "file": "audio/beats/B33.wav",
-      "duration": 15.275,
-      "sha256": "eff1cd59afe5d27034ae370919384166dd8f02a4fe74b5ea4d89cb0f314a5b4f",
+      "duration": 21.625,
+      "sha256": "8040949cb259105e1c5c91b81148318cabebe707493f58c981ed5d959ca96180",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
@@ -26382,9 +32131,17 @@
         },
         {
           "index": 2,
-          "text": "Each form can still be the right answer in the right place.",
+          "text": "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
           "start": 11.3,
-          "end": 15.275,
+          "end": 17.25,
+          "cache_key": "78a02efca7699c097c5e4404afc234cdf7fddd7782821f57d607deb94da43ac5",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 3,
+          "text": "Each form can still be the right answer in the right place.",
+          "start": 17.65,
+          "end": 21.625,
           "cache_key": "203b2a0942fe03531753a56910eff4a955a83d088de68a5cd1087b7d5a53afe7",
           "rights_class": "PUBLICATION_CLEARED"
         }
@@ -26453,5 +32210,5 @@
     "purpose": "publication",
     "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md"
   },
-  "narration_sha256": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8"
+  "narration_sha256": "c6fbce7a655700c2f6cfc8b0c4d4da6fe56790083d70ffaa5abf6dee08f057c6"
 }

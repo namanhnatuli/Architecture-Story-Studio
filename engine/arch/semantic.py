@@ -24,6 +24,9 @@ SEMANTIC_TYPES = (
     "DECK", "PLANK", "PARAPET", "COPING", "RAILING",
     # trusses
     "TRUSS_CHORD", "TRUSS_VERTICAL", "TRUSS_DIAGONAL", "END_POST", "JOINT",
+    # long-span bridges (M8): cantilever trusses, suspension and cable-stayed
+    "ANCHOR_ARM", "CANTILEVER_ARM", "SUSPENDED_SPAN", "TOWER", "PYLON", "MAIN_CABLE", "HANGER", "STAY_CABLE",
+    "ANCHORAGE", "STIFFENING_TRUSS",
     # buildings (existing house builders use their own roles)
     "ROOF", "WALL", "FLOOR", "DECORATION",
 )

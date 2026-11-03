@@ -62,7 +62,7 @@ def evidence_matrix(p, d):
         for c in b["claim_ids"]:
             used.setdefault(c, []).append(b["id"])
     screen = on_screen(d)
-    lines = ["# Ma trận bằng chứng: Why Bridges Don't All Look the Same (M7)", "",
+    lines = [f"# Ma trận bằng chứng: {d['narration']['title']} (narration `{(d['narration'].get('revision') or {}).get('version')}`)", "",
              "Sinh tự động bởi `tools/longform_reports.py` từ `research/sources.json`, `script/narration.json` và "
              "`script/visual_beats.json`. Mọi trích dẫn đã được khớp nguyên văn với văn bản nguồn tải về "
              "(`research/build_sources.py`). **Chưa claim nào được duyệt biên tập.**", "",
@@ -86,11 +86,24 @@ CHECKLIST = [
     "Lời dẫn: mỗi câu đúng với claim nó trích (xem cột trích dẫn nguồn).",
     "Chữ trên card: tiêu đề, nhãn, chú thích ảnh, thang nhịp và dòng thời gian.",
     "Ảnh lưu trữ: chọn ảnh, cách cắt viền phim, dòng ghi công (xem `review/RIGHTS_PROVENANCE.md`).",
-    "Nhãn 'Illustrative model' trên các mô hình 3D đứng cạnh cầu có thật (B27, B29).",
     "Phát âm các tên mới (narration.voice.pronunciation_review.terms).",
-    "Giọng: xác nhận quyết định cấp quyền Kokoro / bm_george ngày 2026-10-29 cũng áp dụng cho phim này "
-    "(narration.voice.license.owner_confirmation_for_this_film = PENDING).",
 ]
+
+
+def checklist(d):
+    """The generic checks plus the film's own: illustrative-model labels and the voice decision."""
+    labelled = [b["beat_id"] for b in d["beats"]["beats"]
+                if any("Illustrative model" in (a.get("text") or "") for a in b.get("annotations", []))]
+    voice = d["narration"].get("voice") or {}
+    lic = voice.get("license") or {}
+    if lic.get("status") == "APPROVED" and lic.get("owner_confirmation_for_this_film") == "CONFIRMED":
+        v = (f"Giọng: duyệt `{voice.get('voice')}` hiện có ({lic.get('approved_by')}, {lic.get('approved_on')}; "
+             "theo dự án) vẫn áp dụng cho revision này: xác nhận lại hoặc rút.")
+    else:
+        v = (f"Giọng: quyền dùng `{voice.get('voice')}` cho phim này "
+             f"(licence {lic.get('status')}, owner_confirmation_for_this_film = {lic.get('owner_confirmation_for_this_film')}).")
+    return CHECKLIST[:3] + [f"Nhãn 'Illustrative model' trên các mô hình 3D ({', '.join(labelled) or 'không có'})."] \
+        + CHECKLIST[3:] + [v]
 
 
 def approval_note(p, claims, d):
@@ -110,28 +123,19 @@ def editorial_package(p, d):
     claims = {c["id"]: c for c in d["sources"]["claims"]}
     times = sentence_times(d)
     rev = d["narration"].get("revision") or {}
-    lines = ["# Gói duyệt biên tập: \"Why Bridges Don't All Look the Same\" (M7, narration "
-             f"`{rev.get('version')}`)", "",
+    lines = [f"# Gói duyệt biên tập: \"{d['narration']['title']}\" (narration `{rev.get('version')}`)", "",
              approval_note(p, claims, d), "",
              "## Cần chủ kênh quyết định", ""]
-    lines += [f"{i}. {x}" for i, x in enumerate(CHECKLIST, 1)]
-    lines += ["", "Cách ghi quyết định giống M6: `research/sources.json` → `review_status: EDITORIALLY_APPROVED` + "
-              "`editorial_approval {approved_by, approved_on, narration_revision}`; `project.json` → "
-              "`factual_review: verified`; `narration.voice.pronunciation_review.status: CONFIRMED`.", "",
-              "## Các điểm cần lưu ý (agent tự nêu)", "",
-              "- Năm xây cầu Bollman ở Savage **không** được nói, vì các nguồn không thống nhất (ASCE chỉ chắc chắn về "
-              "bằng sáng chế 1852; các hồ sơ khác ghi khoảng 1869). Phim chỉ nói 'patented in 1852'.",
-              "- 'world's oldest stone railroad span still in service' được gán cho báo cáo năm 2005 ('A national report in "
-              "2005 called it…'), không khẳng định cho hiện tại.",
-              "- 'America's greatest stone arch' là lời của báo cáo NCHRP, được gán rõ ('What one report calls…').",
-              "- Địa danh trong chú thích ảnh (Covington, Virginia; Corinne, Utah; Savage, Maryland) lấy từ tiêu đề hồ sơ "
-              "HAER/LOC của chính bức ảnh.",
-              "- Không có con số về nội lực, sức chịu tải, ứng suất, độ võng hay hệ số an toàn. Các nhịp (30 ft, 220 ft, "
-              "gần 400 ft) là giá trị NCHRP nêu, vẽ đúng tỉ lệ với nhau.",
-              "- Đánh dấu nén/kéo cụ thể chỉ có ở biên trên/biên dưới giàn đơn giản dưới tải hướng xuống (CLM_713); "
-              "thanh bụng không được tô màu nén/kéo (CLM_714 chỉ nói 'một số').",
-              "- Không trình bày ba loại cầu như một chuỗi tiến bộ: B02, B19, B33 nói rõ điều ngược lại.", "",
-              "## Lời dẫn theo câu", ""]
+    lines += [f"{i}. {x}" for i, x in enumerate(checklist(d), 1)]
+    lines += ["", "Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` "
+              "bước 23): `research/editorial_approval.json` (id claim, `claims_text_sha256`, `narration_revision` của "
+              "revision này), rồi chạy `research/build_sources.py`; `project.json` → `factual_review: verified`; "
+              "`narration.voice.pronunciation_review` (`ACCEPTED_BY_OWNER` hoặc `CONFIRMED`, gắn với hash audio); "
+              "`review/OWNER_APPROVALS.json`.", "",
+              "## Các điểm cần lưu ý (agent tự nêu)", ""]
+    notes = p / "review" / "EDITORIAL_NOTES.md"   # the film's own caveats, written with the research
+    lines += (notes.read_text(encoding="utf-8").strip().splitlines() if notes.is_file() else ["- Không có."])
+    lines += ["", "## Lời dẫn theo câu", ""]
     beats_by_chapter = {c["id"]: c for c in d["chapters"]["chapters"]}
     owner = {b: c for c in d["chapters"]["chapters"] for b in c["beat_ids"]}
     current = None
@@ -167,8 +171,9 @@ def editorial_package(p, d):
                 lines.append(f"- {b['beat_id']} `{a['id']}` {a['type']}: \"{a['text']}\"" +
                              (f" ({a['claim_id']})" if a.get("claim_id") else ""))
     lines += ["", "## Bản ghi sửa câu (ASR / tốc độ đọc)", ""]
-    for e in rev.get("edits", []):
-        lines.append(f"- {e['sentence']}: \"{e['draft']}\" → \"{e['m7-r1']}\" ({e['why']})")
+    for e in rev.get("edits", []):   # the edited wording is keyed by the revision that made it (m7-r1, m8-r1, ...)
+        made = next(k for k in e if k not in ("sentence", "draft", "why"))
+        lines.append(f"- {e['sentence']} ({made}): \"{e['draft']}\" → \"{e[made]}\" ({e['why']})")
     out = p / "review" / "EDITORIAL_APPROVAL_PACKAGE.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return out
@@ -182,19 +187,15 @@ def youtube_description(p, d, manifest):
     marker = ("<!-- PUBLICATION CANDIDATE: description for the owner's own upload (approvals in review/OWNER_APPROVALS.json). "
               "The Studio never uploads. -->" if candidate else
               "<!-- DRAFT: not for publication until the editorial approval package is approved. -->")
-    lines = [marker, "",
-             f"# {d['narration']['title']}", "",
-             "Why does one bridge rest on rows of timber posts, another leap the gap in stone curves, and a third "
-             "become a lattice of iron or steel triangles? This documentary explains how beam, arch and truss bridges "
-             "carry load, and how materials, sites, spans, budgets and builders shaped the bridges people built.", "",
-             "Chapters", ""]
+    summary = (read(p / "project.json").get("publication_metadata") or {}).get("summary")   # the film's own words
+    lines = [marker, "", f"# {d['narration']['title']}", ""] + ([summary, ""] if summary else []) + ["Chapters", ""]
     for c in manifest["chapters"]:
         lines.append(f"{tc(c['start_seconds'])} {c['title']}")
     lines += ["", "Sources", ""]
     for s in sources:
         if not s["id"].startswith("SRC_HAER"):
             lines.append(f"- {s['title']}, {s.get('publisher', '')}" + (f" ({s['edition']})" if s.get("edition") else "")
-                         + f". {s.get('url', '')}")
+                         + f". {s.get('url', '')}" + (f" (archived copy: {s['archived_url']})" if s.get("archived_url") else ""))
     lines += ["", "Archival photographs", ""]
     for a in photos:
         lines.append(f"- {a.get('title') or a['id']}: {a['attribution']}. {a['license']}. Original record: "
@@ -218,7 +219,7 @@ def visual_variety(p, d, manifest, rows):
     by_kind = {}
     for s, k in zip(d["story"]["shots"], kinds):
         by_kind[k] = by_kind.get(k, 0.0) + s["duration_seconds"]
-    lines = ["# Kiểm tra đa dạng hình ảnh (M7)", "",
+    lines = [f"# Kiểm tra đa dạng hình ảnh: {d['narration']['title']}", "",
              "Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu trúc; phần nhận xét của người xem nằm trong "
              "`qa/EDITORIAL_REVIEW_TIMECODED.md`.", "",
              f"- {len(shots)} shot, {total:.1f} s. Shot dài nhất {max(s['duration_seconds'] for s in shots.values()):.1f} s; "
@@ -283,7 +284,7 @@ def pronunciation_review(p, d):
     manifest = read(p / "audio/narration_manifest.json")
     times = sentence_times(d)
     pr = d["narration"]["voice"].get("pronunciation_review") or {}
-    lines = ["# Nghe lại phát âm (M7)", "",
+    lines = [f"# Nghe lại phát âm: {d['narration']['title']} (narration `{(d['narration'].get('revision') or {}).get('version')}`)", "",
              f"Trạng thái: **{pr.get('status', 'PENDING')}**. Agent không xác nhận phát âm. Chủ kênh nghe các đoạn dưới "
              "đây rồi ghi `narration.voice.pronunciation_review.status: CONFIRMED` (kèm `confirmed_by`, `confirmed_on`), "
              "hoặc ghi chữ cần đọc khác.", "",
