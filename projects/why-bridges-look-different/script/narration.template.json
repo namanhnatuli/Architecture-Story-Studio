@@ -99,9 +99,15 @@
         "Covington",
         "cable-stayed",
         "suspenders",
-        "anchorages"
+        "anchorages",
+        "Tacoma Narrows",
+        "Niagara",
+        "Penobscot",
+        "Kentucky",
+        "Golden Gate",
+        "Finley"
       ],
-      "note": "m8-r1 regenerates the narration: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it",
+      "note": "m8-r2 regenerates the narration: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it",
       "previous_acceptance": {
         "status": "ACCEPTED_BY_OWNER",
         "accepted_by": "Tran Nam Anh (channel owner)",
@@ -125,8 +131,8 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "m8-r1",
-    "date": "2026-10-31",
+    "version": "m8-r2",
+    "date": "2026-11-03",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
     "previous": {
       "version": "m7-r1",
@@ -134,7 +140,7 @@
       "status": "EDITORIALLY_APPROVED (41 claims, 2026-10-30)",
       "note": "m7-r1 is the approved film (git tag m7-final-4k); its approvals do not carry over to m8-r1"
     },
-    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31",
+    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31; m8-r2 (owner request of 2026-11-03): chapters 9-12 also cover the long-span families",
     "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
     "edits": [
       {
@@ -221,6 +227,12 @@
         }
       },
       "text_changed": false
+    },
+    "previous_m8": {
+      "version": "m8-r1",
+      "date": "2026-10-31",
+      "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+      "note": "m8-r1 was the first all-families review cut (commit 0cd48f0); never approved"
     }
   },
   "beats": []

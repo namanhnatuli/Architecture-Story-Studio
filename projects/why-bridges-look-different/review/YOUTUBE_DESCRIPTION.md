@@ -15,8 +15,9 @@ Chapters
 6:52 The suspension bridge
 7:55 The cable-stayed bridge
 9:09 Why different designs exist
-10:51 Real-world decisions
-12:57 Why they look different
+11:56 Span, cost and time
+13:52 Real-world decisions
+17:40 Why they look different
 
 Sources
 
@@ -29,6 +30,7 @@ Sources
 - A Context for Common Historic Bridge Types (NCHRP Project 25-25, Task 15), Transportation Research Board / National Cooperative Highway Research Program; prepared by Parsons Brinckerhoff and Engineering and Industrial Heritage (October 2005). https://onlinepubs.trb.org/onlinepubs/archive/notesdocs/25-25(15)_FR.pdf
 - Bollman Truss Bridge (Historic Civil Engineering Landmark), American Society of Civil Engineers (web page, accessed 2026-10-29). https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/bollman-truss-bridge
 - Steel Bridge Design Handbook: Selecting the Right Bridge Type (Publication No. FHWA-IF-12-052, Vol. 5), U.S. Department of Transportation, Federal Highway Administration (November 2012). https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf (archived copy: https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf)
+- Dynamic Properties of Stay Cables on the Penobscot Narrows Bridge (FHWA-HRT-14-067), Chapter 3: Experimental Procedures, U.S. Department of Transportation, Federal Highway Administration (Turner-Fairbank Highway Research Center) (September 2014). https://www.fhwa.dot.gov/publications/research/infrastructure/structures/bridge/14067/003.cfm
 
 Archival photographs
 
@@ -38,6 +40,7 @@ Archival photographs
 - Humpback Covered Bridge, Covington, Virginia (HAER, survey va0239): Jack E. Boucher, Historic American Engineering Record, Library of Congress Prints & Photographs Division. Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER). Original record: https://www.loc.gov/pictures/item/va0239.photos.161261p
 - Brooklyn Bridge, New York (HAER NY-18): Historic American Engineering Record, Library of Congress Prints & Photographs Division. Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER). Original record: https://www.loc.gov/pictures/item/ny1234.color.570577c
 - Queensboro Bridge, New York (HAER NY-19): Jet Lowe, Historic American Engineering Record, Library of Congress Prints & Photographs Division. Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER). Original record: https://www.loc.gov/pictures/item/ny0326.photos.348966p
+- Golden Gate Bridge, San Francisco (HAER CA-31): Jet Lowe, Historic American Engineering Record, Library of Congress Prints & Photographs Division. Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER). Original record: https://www.loc.gov/pictures/item/ca1355.color.570641c
 
 Credits and disclosures
 

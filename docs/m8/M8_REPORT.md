@@ -116,3 +116,97 @@ Xem `review/OWNER_APPROVALS.json` (REQ-M8-ALL-FAMILIES).
 3. Phát âm m8-r1 (`review/PRONUNCIATION_REVIEW.md`).
 4. Xác nhận lại hoặc rút duyệt giọng cho bản mới.
 5. Sau đó: profile PUBLICATION_CANDIDATE, render 4K theo chương.
+
+---
+
+## M8.1 (2026-11-03): ba họ nhịp lớn trong các chương yếu tố, quyết định và kết luận
+**Yêu cầu của chủ kênh:** "không cần quá khắt khe về mặt thời gian, thứ tôi muốn là truyền tải đầy đủ nội dung của video, tôi thấy sau phần liệt kê các loại cầu, các phần c8 c9 c10 chỉ nói chủ yếu về beam, arch, truss mà không đề cập đến cantilever, suspension bridge, cable-stayed bridge, hãy nghiên cứu và bổ sung cho phù hợp, lôi cuốn".
+
+**Revision m8-r2:**
+- 12 chương, 66 beat, 167 câu, 2.339 từ;
+- **19,3 phút** (1.158 s), 75 shot.
+
+### Nội dung mới
+| Chương | Thêm gì | Nguồn |
+|---|---|---|
+| C9 Why different designs exist | Vật liệu của cáp: xích sắt "only as good as the weakest link", rồi cáp dây, rồi thép cường độ cao | NCHRP §3.5, FHWA §2.5–2.6 |
+| | Nền đất: cầu treo neo vào khối lớn hoặc đá gốc; tháp dây văng không cần đá gần mặt đất (sơ đồ mặt cắt mới) | NCHRP §3.5, FHWA §2.6, §3.0 |
+| | Công-xôn tự điều chỉnh khi trụ lún | NCHRP §3.7 |
+| | Gió: Tacoma Narrows 1940, rồi nghiên cứu về gió và tiêu chuẩn mặt cầu tăng cứng (chỉ kể bằng lời, không có hình sập) | NCHRP §2.2, FHWA §2.6 |
+| **C10 Span, cost and time** (mới) | Card dải nhịp của sáu họ cho cầu thép | FHWA §3.0 |
+| | Chi phí khối neo; tay nghề hiếm và thời gian dựng cầu treo; dây văng phổ biến lên nhờ cách dựng được hiểu rõ hơn | NCHRP §3.7, FHWA §4.4–4.5 |
+| | Dòng thời gian thế kỷ 19 (từ M7) và dòng thời gian nhịp lớn (Wheeling 1849, Brooklyn 1883, Queensboro 1909, công-xôn 1880–1960, dây văng từ 1980) | NCHRP, FHWA |
+| C11 Real-world decisions | Cầu treo đường sắt Niagara (1855) và "133 years"; công-xôn cứng cho tàu hỏa, hẻm Kentucky 1877; ảnh Golden Gate (1937, nhịp dài nhất suốt 27 năm); Penobscot Narrows (2006) | NCHRP §2.2, §3.5, §3.7; FHWA-HRT-14-067 |
+| C12 Why they look different | "Many small suspension bridges were built simply because they were easy to put up" | NCHRP §3.5 |
+
+**Nguồn và ảnh mới:**
+- FHWA-HRT-14-067 (Penobscot Narrows, 2014);
+- ảnh HAER CA-31 cầu Golden Gate (Jet Lowe, 1984, phạm vi công cộng);
+- 14 claim mới (CLM_780–793), tổng 81 claim.
+
+**Thời lượng:**
+- Quyết định của chủ kênh được ghi ở `project.json` → `runtime_decision`: khoảng chấp nhận 8–20 phút. Trần 20 phút do agent đặt, vì chủ kênh không nêu con số.
+- QA chỉ dùng quyết định này khi bản ghi có đủ người quyết định, ngày và cơ sở (`pipeline/chapters.runtime_range`). Các dự án khác vẫn dùng 8–15 phút.
+
+**Sửa trong quá trình làm:**
+- **Đoạn tĩnh 15,2 s ở dòng thời gian nhịp lớn:** sửa bằng cách cho phần tử hiện theo từ được đọc. Mốc Golden Gate (không được nhắc trong câu) được bỏ khỏi dòng thời gian này.
+- **4 cảnh 3D_HOLD liền nhau ở C9:** beat dây cáp được chuyển ra sau ảnh cầu có mái che.
+- **Card dải nhịp:** hai đầu thanh do agent tự đặt (600 ft, 1.150 ft) bị bỏ. Giàn đơn nay đi từ 450 tới 750 ft theo FHWA, công-xôn chỉ còn mũi tên.
+- **Card nền đất:** vẽ lại với các lớp đất và đá rõ ràng.
+
+**Snapshot nguồn** nay nằm ở `research/snapshots/` (git bỏ qua). Snapshot trong scratchpad đã bị hệ thống xóa sau vài ngày. Tải lại thì SHA256 trùng, và registry dựng lại trùng từng byte.
+
+### Kết quả (bản review nội bộ 1080p, m8-r2)
+File: `projects/why-bridges-look-different/output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, không commit.
+
+**Thông số:**
+- 1920×1080, 24 fps, 27.828 frame, 1.159,5 s (19:19,5);
+- −16,4 LUFS, true peak −1,2 dBTP;
+- phụ đề: 264 cue cho 167 câu, dòng dài nhất 42 ký tự, tối đa 18 ký tự/giây.
+
+**Hai lượt render:**
+- **Lượt 3** (2026-11-03 23:44 → 2026-11-04 02:47, 3 giờ 03 phút): render đủ 75 shot, không dùng lại được cache nào.
+  - 12 shot mới, 15 shot đổi hình.
+  - 48 shot render lại chỉ vì khóa cache `project_render` đổi: trường mới `runtime_decision` trong `project.json` không nằm trong `PROJECT_NON_VISUAL` (`tools/render_cache.py`). Pixel của 48 shot này không đổi.
+  - **Chưa sửa.** Sửa bây giờ thì mọi bản render 1080p hiện có thành "cũ", dù hình không khác. Đề xuất: thêm `runtime_decision` vào `PROJECT_NON_VISUAL` cùng lần thay đổi kế tiếp mà dù sao cũng phải render lại.
+- **Lượt 4** (02:55 → 03:30, 35 phút): sửa 3 lỗi agent tìm thấy khi xem bản lượt 3 (`qa/EDITORIAL_REVIEW_TIMECODED.md`):
+  - nhãn "Stiffening truss" ở cảnh Tacoma;
+  - NOTE "Niagara Gorge, 1855" ở B31A;
+  - tiêu đề cho card dòng thời gian nhịp lớn.
+  - Chỉ SC_053, SC_058, SC_066 được render lại. Kiểm lại trên video ở 11:49, 13:25, 16:06 và 16:25: cả ba bản sửa hiện đúng.
+
+**Tốc độ** (`qa/perf/m8/frame_times_internal_1080p_m8r2.json`, đo từ dấu thời gian `Saved:` trong log Blender):
+- 9.255/27.828 frame được render riêng (33,3%), phần còn lại là frame tĩnh dùng lại;
+- 10.305 s thời gian render khi máy thức, 1,11 s/frame, 0 lần máy ngủ;
+- frame của cầu nhịp lớn mất khoảng 2,0 s (median), gấp đôi trung bình;
+- 14 GB PNG; đĩa còn 76 GB.
+
+**QA:**
+
+| Kiểm tra | Kết quả |
+|---|---|
+| QA phim dài | PASS: 17 kiểm tra; 2 cảnh báo (câu hỏi lặp có chủ đích; độ đa dạng của C2). Thời lượng 19,32 phút nằm trong khoảng 8–20 phút của chủ kênh; đoạn tĩnh dài nhất 13,5 s; mọi shot có cache hiện hành |
+| Blender QA | 944/944 |
+| Kiểm tra lời–hình | không mâu thuẫn; 2 UNCERTAIN cho người duyệt (B33.s4, B34.s2) |
+| Ảnh ngoài | 7/7 có hồ sơ quyền và ghi công |
+| `gates --preset internal_1080p` | G0, G2, G3, G4, G5, GL, GV PASS → `TECHNICALLY_VALIDATED`. G1 PENDING_EDITORIAL (0/75 claim được lời dẫn dùng đã duyệt; 32 thuật ngữ phát âm chờ). G6 BLOCKED. Kết luận: INTERNAL PREVIEW, NOT PUBLICATION-READY |
+| Test offline | 316/316 OK |
+| Test Blender | 21/21 OK (toàn bộ 337/337). Test không ghi file nào trong repo: mọi file đổi trong lúc chạy đều là tài liệu agent đang sửa |
+| `evaluate-planning` | 29/29 |
+
+**Ước lượng 4K sau khi chủ kênh duyệt:**
+- Ở M7, 4K chậm hơn 1080p khoảng 3,1 lần cho mỗi frame (2,69 so với 0,87 s/frame).
+- m8-r2 có 10.305 s render 1080p, nên khoảng **8,5–10 giờ** render 4K, chạy theo chương với `--release-frames`. Máy phải thức suốt thời gian đó.
+- Ước lượng 5–5,5 giờ trước đây cho m8-r1 tính theo số frame và đã thấp hơn thực tế: frame cầu nhịp lớn tốn gấp đôi.
+
+### Trạng thái duyệt (m8-r2)
+- **Claim:** 0/75 claim được lời dẫn dùng đã duyệt cho m8-r2. Duyệt của m7-r1 không áp sang, và builder in ra "editorial approval of narration m7-r1 does not cover m8-r2: NOT applied".
+- **Phát âm:** PENDING, 32 thuật ngữ (thêm Tacoma Narrows, Niagara, Penobscot, Kentucky, Golden Gate, Finley).
+- **Giọng:** duyệt theo dự án, vẫn giữ.
+- **Thời lượng:** quyết định của chủ kênh, ghi ở `DEC-M8.1-CONTENT-AND-RUNTIME`.
+
+### Việc của chủ kênh (m8-r2)
+1. Xem bản review M8.1. Các cảnh mới có mốc thời gian ở `qa/EDITORIAL_REVIEW_TIMECODED.md`.
+2. Xác nhận hoặc chỉnh trần 20 phút mà agent đặt.
+3. Duyệt hoặc sửa claim (`review/EDITORIAL_APPROVAL_PACKAGE.md`, `review/EVIDENCE_MATRIX.md`) và phát âm (`review/PRONUNCIATION_REVIEW.md`).
+4. Sau đó: profile PUBLICATION_CANDIDATE, render 4K theo chương.

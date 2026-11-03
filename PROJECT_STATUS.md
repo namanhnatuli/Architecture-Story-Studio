@@ -1,13 +1,14 @@
 # Current project status
 
-- Phase: **M8: phim làm lại với đủ sáu họ cầu. Bản review nội bộ 1080p xong (2026-11-01), chờ chủ kênh duyệt.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
-- **Phim `why-bridges-look-different`, revision m8-r1:**
-  - 11 chương; 14,46 phút (867,6 s); 133 câu; 63 shot;
+- Phase: **M8.1: ba họ cầu nhịp lớn được đưa vào các chương yếu tố, quyết định và kết luận. Bản review nội bộ 1080p xong (2026-11-04), chờ chủ kênh duyệt.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
+- **Phim `why-bridges-look-different`, revision m8-r2:**
+  - 12 chương; 19,32 phút (1.159,5 s); 167 câu; 75 shot;
+  - thời lượng theo quyết định của chủ kênh (`project.json` → `runtime_decision`, chấp nhận 8–20 phút; trần 20 do agent đặt);
   - giọng `am_michael`;
-  - sáu họ cầu: dầm, vòm, giàn trên site 24 m; công-xôn, cầu treo, dây văng trên site 72 m (mô hình mới);
-  - 67 claim SOURCE_VERIFIED (25 mới, từ NCHRP §3.5/§3.7 và FHWA-IF-12-052); 6 ảnh HAER phạm vi công cộng.
+  - sáu họ cầu: dầm, vòm, giàn trên site 24 m; công-xôn, cầu treo, dây văng trên site 72 m;
+  - 81 claim SOURCE_VERIFIED (14 mới ở m8-r2, thêm FHWA-HRT-14-067); 7 ảnh HAER phạm vi công cộng (thêm Golden Gate).
 - **Trạng thái:** INTERNAL REVIEW (`NARRATED_INTERNAL_REVIEW`).
-  - Duyệt claim và phát âm của m7-r1 không áp sang m8-r1. Duyệt giọng theo dự án vẫn giữ.
+  - Duyệt claim và phát âm của m7-r1 không áp sang m8-r2. Duyệt giọng theo dự án vẫn giữ.
   - Bản 4K đã duyệt của m7-r1: tag `m7-final-4k`, `output/baseline_m7_final_4k/`.
 - Tài liệu: `docs/m8/M8_REPORT.md`.
 

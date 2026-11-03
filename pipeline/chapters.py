@@ -16,6 +16,18 @@ from pathlib import Path
 
 SCHEMA = "chapters/1"
 RUNTIME_RANGE = (8 * 60.0, 15 * 60.0)   # M7 acceptable runtime; target 10-12 min
+RUNTIME_DECISION_FIELDS = ("acceptable_minutes", "decided_by", "decided_on", "basis")
+
+
+def runtime_range(p):
+    """(lo, hi, decision): the Studio's acceptable runtime, or the channel owner's recorded decision
+    for this project (project.json `runtime_decision` with every RUNTIME_DECISION_FIELDS; M8.1).
+    An incomplete record is ignored: the default stays."""
+    d = (_read(Path(p) / "project.json") or {}).get("runtime_decision") or {}
+    if all(d.get(k) for k in RUNTIME_DECISION_FIELDS):
+        lo, hi = d["acceptable_minutes"]
+        return lo * 60.0, hi * 60.0, d
+    return RUNTIME_RANGE[0], RUNTIME_RANGE[1], None
 MIN_CHAPTER_SECONDS = 15.0
 MAX_SILENCE = 4.0                        # longest narration gap allowed between beats (s)
 SILENCE_REPORT = 2.5                     # gaps above this are listed
@@ -277,9 +289,10 @@ def longform_qa(p, preset="review"):
     short = [f"{c['id']} {c['duration_seconds']:.1f}s" for c in m["chapters"] if c["duration_seconds"] < MIN_CHAPTER_SECONDS]
     row("chapter_durations", not short, ", ".join(short) or
         ", ".join(f"{c['id']} {c['duration_seconds']:.0f}s" for c in m["chapters"]))
-    lo, hi = RUNTIME_RANGE
+    lo, hi, decision = runtime_range(p)
     row("runtime", lo <= m["total_seconds"] <= hi, f"{m['total_seconds'] / 60:.2f} min ({m['total_frames']} frames); "
-        f"acceptable {lo / 60:.0f}-{hi / 60:.0f} min")
+        f"acceptable {lo / 60:.0f}-{hi / 60:.0f} min"
+        + (f" (owner decision, {decision['decided_by']}, {decision['decided_on']})" if decision else ""))
 
     ids = [s["id"] for s in story["shots"]]
     dup = sorted({i for i in ids if ids.count(i) > 1})

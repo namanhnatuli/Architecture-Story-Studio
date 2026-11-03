@@ -133,6 +133,28 @@
       "license": "U.S. federal government work; quoted for research/citation."
     },
     {
+      "id": "SRC_FHWA_PENOBSCOT",
+      "title": "Dynamic Properties of Stay Cables on the Penobscot Narrows Bridge (FHWA-HRT-14-067), Chapter 3: Experimental Procedures",
+      "publisher": "U.S. Department of Transportation, Federal Highway Administration (Turner-Fairbank Highway Research Center)",
+      "kind": "federal research report",
+      "edition": "September 2014",
+      "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/structures/bridge/14067/003.cfm",
+      "accessed": "2026-11-03",
+      "verification": "HTML downloaded 2026-11-03; text extracted (tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "U.S. federal government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_HAER_GOLDENGATE",
+      "title": "Golden Gate Bridge, Spanning mouth of San Francisco Bay, San Francisco, CA (HAER CA-31)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ca1355)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "colour photograph 1984 (Jet Lowe)",
+      "url": "https://www.loc.gov/pictures/item/ca1355.color.570641c",
+      "accessed": "2026-11-03",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
       "id": "SRC_HAER_BROOKLYN",
       "title": "Brooklyn Bridge, Spanning East River between Park Row, Manhattan and Sands Street, Brooklyn, New York, NY (HAER NY-18)",
       "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ny1234)",
@@ -2021,6 +2043,425 @@
       ],
       "components": [],
       "intended_visual": "Conclusion: not a story of progress",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_780",
+      "text": "America's first metal suspension bridges hung from iron chains; chain bridges tended to fail after only a few years, critics felt the design was only as good as its weakest link, and metal cables answered that fear.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "In 1801, James Finley (1756-1828), a justice of the peace and judge in Fayette County, Pennsylvania, constructed the first metal suspension bridge in the United States"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "Although forty or more chain bridges were built according to Finley’s 1808 patent, they tended to fail after only a few years of use. Some critics felt that the Finley design was only as good as the weakest link in one of the chains. This fear was addressed by the introduction of metal cables."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable"
+      ],
+      "intended_visual": "Main cables highlighted; NOTE on chains and cables",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_781",
+      "text": "Cable-stayed and suspension bridges both rely on high-strength steel cables as major structural elements.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "Cable-Stayed bridges rely on high strength steel cables as major structural elements."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "suspension bridges rely on high-strength cables as major structural elements."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension",
+        "cable_stayed"
+      ],
+      "components": [
+        "main_cable",
+        "stay_cable"
+      ],
+      "intended_visual": "Main cables highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_782",
+      "text": "A cantilever's superstructure can adjust if a pier or abutment sinks, where a continuous beam may fail; with unstable soil a common problem, this was a significant breakthrough.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "the members did not have the inherent deficiency of the continuous beam or girder developing indiscernible internal stresses and possibly failing should one of the piers or abutments subside. Unstable soil conditions plagued foundation, pier, and abutment design, so the ability of a bridge’s superstructure to adjust should one of the piers or abutments sink, was a significant design breakthrough."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "pier"
+      ],
+      "intended_visual": "Cantilever model, main piers labelled",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_783",
+      "text": "In 1940 the four-month-old Tacoma Narrows suspension bridge collapsed in only moderately high winds; the event led to intense research on wind, and later suspension bridges followed new standards for truss-stiffened spans.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES",
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-28",
+          "excerpt": "In 1940, the four-month old Tacoma Narrows Bridge over Puget Sound collapsed due to the forces of the wind on the suspension structure. The event led to intense research on the dynamics of the effects of wind in large structures."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-28",
+          "excerpt": "were based on substantial research that produced new formulae and standards"
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The structure collapsed due to the harmonic frequency set up during a period of only moderately high winds."
+        }
+      ],
+      "assumptions": "Narrated as a historical event; the film shows no collapse or destruction.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "stiffening_truss"
+      ],
+      "intended_visual": "Stiffening truss highlighted; no collapse is shown",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_784",
+      "text": "For steel bridges, welded plate girders are applicable from about 90 feet to over 500 feet.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Applicable in span lengths from approximately 90 feet to over 500 feet they provide a versatile choice for the designer."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "Span-range card (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_785",
+      "text": "Steel trusses are generally not cost-effective below about 450 feet, and the practical upper limit for simple-span trusses is about 750 feet; continuous or cantilever trusses span considerably farther.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Trusses are generally not cost-effective for span lengths under 450 feet."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "The practical upper limit for simple span trusses is approximately 750 feet while continuous trusses begin to be cost-effective when the span length exceeds 550 feet. Continuous or cantilever trusses can span considerably longer distances than simple span trusses."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss",
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "Span-range card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_786",
+      "text": "Arches have been used for spans from about 200 to 1,800 feet worldwide, and cable-stayed bridges built with main spans from under 200 feet to nearly 3,000 feet.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Arches have been used for span lengths from approximately 200 feet up to 1800 feet worldwide."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Cable-stayed bridges have been constructed with main span lengths less than 200 feet and extending up to nearly 3000 feet."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch",
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Span-range card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_787",
+      "text": "Erecting a suspension bridge is specialised: installing the main cables needs expertise very few contractors have, and construction often takes a long time.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.5 Suspension Bridges",
+          "excerpt": "Erection of suspension bridges is relatively specialized. The installation of the main suspender cables requires expertise that very few contractors possess."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.5 Suspension Bridges",
+          "excerpt": "The time to construct a suspension bridge is often relatively long as well."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable",
+        "anchorage"
+      ],
+      "intended_visual": "Suspension model, anchorages and cables highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_788",
+      "text": "Cable-stayed bridges are becoming more common worldwide, one significant reason being that their erection methods have become better understood.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.4 Cable-Stayed Bridges",
+          "excerpt": "Cable-stayed bridges are becoming more common worldwide. One significant reason for this is that the erection methods required for cable-stayed bridges have become better understood over the past 25 years."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Cable-stayed model",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_789",
+      "text": "Roebling's 1855 suspension bridge across the Niagara Gorge carried railway traffic, but railroad executives doubted suspension bridges could bear heavy trains; the bridge needed substantial repairs, was declared inadequate in 1890, and 133 years passed before the next railway suspension bridge.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "who won the contract to build the second suspension bridge, and the first railroad bridge, across the Niagara Gorge. Completed in 1855"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "railroad company executives were not convinced that suspension bridges were capable of bearing the live loads imposed on them by heavy rail traffic. Their skepticism was not unjustified because the Niagara Bridge needed substantial repair in 1877 and 1880, and was declared inadequate in 1890. It would be 133 years before the next suspension bridge designed for railway traffic was built"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Suspension model with 'Illustrative model, not the Niagara bridge'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_790",
+      "text": "Cantilevers were first used by the railroads; a cantilever is inherently rigid, so heavy locomotives pulling trains are no threat to a properly designed one.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "Cantilevers first were used by the railroads"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "Another is that it is inherently rigid so that heavy locomotives pulling trains of cars are no threat to the structure if properly designed."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "cantilever_truss"
+      ],
+      "intended_visual": "Cantilever model highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_791",
+      "text": "In 1877 the world's longest cantilever was built for the Cincinnati Southern Railroad over the 275-foot-deep Kentucky River gorge at Dixville.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "In 1877, American engineer C. Shaler Smith, Baltimore Bridge Company, and Louis Frederic Gustav Bouscaren, chief railroad engineer, built the world’s longest cantilever for the Cincinnati Southern Railroad over the 275-foot deep Kentucky River gorge at Dixville."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "Cantilever model with 'Illustrative model, not the Kentucky River bridge'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_792",
+      "text": "The Golden Gate Bridge opened in San Francisco in May 1937 and stood as the world's longest span for twenty-seven years.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-28",
+          "excerpt": "In May 1937, the Golden Gate Bridge opened in San Francisco. For twenty-seven years, the bridge stood as the world’s longest span"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Golden Gate Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_793",
+      "text": "The Penobscot Narrows Bridge in Maine is a cable-stayed bridge with a 1,161-foot main span, supported by two 430-foot concrete pylons with 40 stay cables each; it was opened in December 2006, 42 months from conception, and its west pylon has a public observatory at the top.",
+      "source_ids": [
+        "SRC_FHWA_PENOBSCOT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "The Penobscot Narrows Bridge is a 2,120 ft (646 m) long cable-stayed bridge that carries U.S. Route 1 over the Penobscot River connecting Verona Island to Prospect in Maine."
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "has a main span of 1,161 ft (354 m)"
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "The bridge spans are supported by two 430-ft (131.1-m) tall concrete pylons, each containing 40 stay cables."
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "spanned a mere 42 months from conception to completion; construction was started in 2004 and the bridge was opened to traffic on December 30, 2006."
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "A unique feature of the west pylon, Pier 1, is the public observatory, accessible by elevator, located at its top."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Cable-stayed model with 'Illustrative model, not the Penobscot Narrows Bridge'",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
       "caveat": "Not editorially approved."
     },

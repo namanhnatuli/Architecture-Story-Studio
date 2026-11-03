@@ -181,12 +181,17 @@ class LongSpanEvidenceTest(unittest.TestCase):
         self.assertIn("FHWA-IF-12-052", fhwa["title"])
         self.assertTrue(fhwa["archived_url"].startswith("https://web.archive.org/"))
         claims = {c["id"]: c for c in src["claims"]}
-        new = [c for cid, c in claims.items() if cid >= "CLM_750"]
-        self.assertEqual(len(new), 25)
-        for c in new:
+        m8 = [c for cid, c in claims.items() if "CLM_750" <= cid < "CLM_780"]
+        m81 = [c for cid, c in claims.items() if cid >= "CLM_780"]   # M8.1: factors, decisions, conclusion
+        self.assertEqual((len(m8), len(m81)), (25, 14))
+        allowed = {"SRC_NCHRP_CONTEXT", "SRC_FHWA_BRIDGE_TYPES"}
+        for c in m8 + m81:
             self.assertEqual(c["review_status"], "SOURCE_VERIFIED", c["id"])
-            self.assertTrue(set(c["source_ids"]) <= {"SRC_NCHRP_CONTEXT", "SRC_FHWA_BRIDGE_TYPES"}, c["id"])
+            ok = allowed | ({"SRC_FHWA_PENOBSCOT"} if c in m81 else set())
+            self.assertTrue(set(c["source_ids"]) <= ok, c["id"])
             self.assertTrue(all(e["excerpt"] and e["locator"] for e in c["evidence"]), c["id"])
+        self.assertIn("weakest link", " ".join(e["excerpt"] for e in claims["CLM_780"]["evidence"]))
+        self.assertIn("133 years", " ".join(e["excerpt"] for e in claims["CLM_789"]["evidence"]))
         self.assertIn("in tension, passing over towers that are in compression", claims["CLM_760"]["evidence"][0]["excerpt"])
         self.assertIn("22 degrees", " ".join(e["excerpt"] for e in claims["CLM_771"]["evidence"]))
 
@@ -199,6 +204,32 @@ class LongSpanEvidenceTest(unittest.TestCase):
             self.assertIn(a["claim_id"], b["claim_ids"], a["id"])
         # stays are never marked as in tension: no quoted source says it (only the deck compression)
         self.assertFalse(any(a.get("force") == "TENSION" and "stay" in json.dumps(a.get("target")) for _, a in forces))
+
+
+
+class LongSpanThroughTheFilmTest(unittest.TestCase):
+    """M8.1 (owner, 2026-11-03): the chapters after the bridge types cover the long-span families too."""
+
+    def test_factors_decisions_and_conclusion_cover_every_family(self):
+        doc = read(FILM / "script/chapters.json")
+        beats = {b["beat_id"]: b for b in read(FILM / "script/visual_beats.json")["beats"]}
+        text = {c["id"]: " ".join(beats[b]["narration"].lower() for b in c["beat_ids"]) for c in doc["chapters"]}
+        for chapter in ("C9", "C10", "C11"):   # factors (materials/ground/wind), span-cost-time, decisions
+            for family in ("cantilever", "suspension", "cable-stayed"):
+                self.assertIn(family, text[chapter], (chapter, family))
+        self.assertIn("suspension", text["C12"])
+        self.assertIn("cantilevers", text["C12"])
+
+    def test_the_owner_runtime_decision_is_recorded(self):
+        from pipeline import chapters as CH
+        lo, hi, decision = CH.runtime_range(FILM)
+        self.assertEqual((lo, hi), (8 * 60.0, 20 * 60.0))
+        self.assertIn("Tran Nam Anh", decision["decided_by"])
+        self.assertIn("truyền tải đầy đủ nội dung", decision["basis"])
+        record = read(FILM / "review/OWNER_APPROVALS.json")
+        self.assertIn("DEC-M8.1-CONTENT-AND-RUNTIME", [d["id"] for d in record["decisions"]])
+        timing = read(FILM / "script/timing.json")
+        self.assertLessEqual(timing["total_seconds"], hi)
 
 
 if __name__ == "__main__":

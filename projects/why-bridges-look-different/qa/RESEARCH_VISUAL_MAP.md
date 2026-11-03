@@ -523,212 +523,420 @@ Claim nào cũng mới ở mức `SOURCE_VERIFIED`, **chưa được duyệt bi�
 - Claim `CLM_746` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (List of figures, 3-5)
 - Shot: SC_048
 
-## B22.s0 (612.82 s): "The site of a bridge matters too."
-- Claim `CLM_736` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137); SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+## B20E.s0 (612.82 s): "Cables have a materials story of their own."
+- Claim `CLM_780` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132)
+- Claim `CLM_781` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (2.5 Cable-Stayed); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
 - Shot: SC_049
+- Chú thích `B20E_model` NOTE "Illustrative model" → SC_049 / bridge_suspension_01 / ; 612.71–639.17 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B22.s1 (615.89 s): "Railway engines have limited traction, so railways need gentle gradients."
-- Claim `CLM_736` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137); SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+## B20E.s1 (616.49 s): "America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains."
+- Claim `CLM_780` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132)
+- Claim `CLM_781` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (2.5 Cable-Stayed); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
 - Shot: SC_049
+- Chú thích `B20E_chain` NOTE "Iron chains: only as strong as the weakest link" → SC_049 / bridge_suspension_01 / ; 616.38–630.00 s; claim CLM_780; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B22.s2 (622.02 s): "Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level."
-- Claim `CLM_736` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137); SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+## B20E.s2 (630.12 s): "Wire cables answered that fear, and suspension and cable-stayed bridges now rely on high-strength steel cables."
+- Claim `CLM_780` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132)
+- Claim `CLM_781` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (2.5 Cable-Stayed); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
 - Shot: SC_049
+- Chú thích `B20E_cable` NOTE "Wire cables, then high-strength steel" → SC_049 / bridge_suspension_01 / ; 630.00–639.17 s; claim CLM_781; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B24.s0 (632.90 s): "Finally, every bridge belongs to its time."
-- Claim `CLM_727` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
-- Claim `CLM_728` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
-- Claim `CLM_729` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2 'Foundries and Fabricators', p. 2-11)
-- Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
-- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22.s0 (639.57 s): "The site of a bridge matters too."
+- Claim `CLM_736` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137); SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
 - Shot: SC_050
 
-## B24.s1 (636.88 s): "As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined."
-- Claim `CLM_727` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
-- Claim `CLM_728` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
-- Claim `CLM_729` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2 'Foundries and Fabricators', p. 2-11)
-- Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
-- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22.s1 (642.64 s): "Railway engines have limited traction, so railways need gentle gradients."
+- Claim `CLM_736` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137); SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
 - Shot: SC_050
 
-## B24.s2 (646.38 s): "Then, during the Great Depression, it briefly returned."
-- Claim `CLM_727` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
-- Claim `CLM_728` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
-- Claim `CLM_729` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2 'Foundries and Fabricators', p. 2-11)
-- Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
-- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22.s2 (648.77 s): "Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level."
+- Claim `CLM_736` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137); SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
 - Shot: SC_050
 
-## B25.s0 (651.57 s): "These trade-offs played out across nineteenth-century America as the railways spread."
-- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22B.s0 (659.65 s): "Long spans make the ground beneath them matter even more."
+- Claim `CLM_761` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
+- Claim `CLM_776` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_051
 
-## B25.s1 (657.92 s): "In the East, railroads built massive stone viaducts, while western builders generally used timber."
-- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22B.s1 (664.55 s): "A suspension bridge has to anchor its cables in massive blocks, or directly in bedrock."
+- Claim `CLM_761` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
+- Claim `CLM_776` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_051
 
-## B25.s2 (665.69 s): "Three documented examples show how differently builders answered."
-- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22B.s2 (671.52 s): "The towers of a cable-stayed bridge, by contrast, can be built where good rock does not lie near the surface."
+- Claim `CLM_761` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
+- Claim `CLM_776` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_051
 
-## B26.s0 (671.94 s): "Near Baltimore, the Carrollton Viaduct was completed in 1829."
-- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_740` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+## B22C.s0 (680.36 s): "Cantilevers had an advantage on uncertain ground."
+- Claim `CLM_782` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142)
 - Shot: SC_052
+- Chú thích `B22C_model` NOTE "Illustrative model" → SC_052 / bridge_cantilever_truss_01 / ; 680.25–694.83 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B26.s1 (678.02 s): "Built of roughly twelve thousand granite blocks, it carries the railway over Gwynns Falls on an eighty foot arch."
-- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_740` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+## B22C.s1 (684.66 s): "Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail."
+- Claim `CLM_782` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142)
 - Shot: SC_052
+- Chú thích `B22C_note` NOTE "If a pier sank, the cantilever could adjust" → SC_052 / bridge_cantilever_truss_01 / ; 684.54–694.83 s; claim CLM_782; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Chú thích `B22C_pier` COMPONENT_LABEL "Main pier" → SC_052 / bridge_cantilever_truss_01 / cantilever_bridge_pier_left; 688.38–694.83 s; claim CLM_782; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B26.s2 (686.44 s): "A national report in 2005 called it the world's oldest stone railroad span still in service."
-- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_740` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
-- Shot: SC_052
-
-## B27.s0 (695.07 s): "Early railroads needed durable bridges to carry heavy trains."
-- Claim `CLM_725` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-48)
-- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22D.s0 (695.23 s): "Then there is the wind."
+- Claim `CLM_765` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
+- Claim `CLM_783` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-28); SRC_NCHRP_CONTEXT (2.2, p. 2-28); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
 - Shot: SC_053
-- Chú thích `B27_note` NOTE "Illustrative model, not the Carrollton Viaduct" → SC_053 / bridge_stone_arch_03 / ; 694.96–704.79 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Chú thích `B22D_model` NOTE "Illustrative model" → SC_053 / bridge_suspension_01 / ; 695.12–716.29 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B27.s1 (700.19 s): "For a line meant to last, stone was the answer."
-- Claim `CLM_725` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-48)
-- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+## B22D.s1 (697.86 s): "In 1940, the four-month-old Tacoma Narrows suspension bridge collapsed in only moderately high winds."
+- Claim `CLM_765` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
+- Claim `CLM_783` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-28); SRC_NCHRP_CONTEXT (2.2, p. 2-28); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
 - Shot: SC_053
+- Chú thích `B22D_tacoma` NOTE "Tacoma Narrows, 1940: lost to the wind" → SC_053 / bridge_suspension_01 / ; 697.75–706.54 s; claim CLM_783; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B28.s0 (705.19 s): "In the West, the pressure was different."
-- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_743` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (List of figures, 3-106)
+## B22D.s2 (706.63 s): "The disaster led to intense research on wind, and later suspension bridges were built to new standards for stiffened decks."
+- Claim `CLM_765` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
+- Claim `CLM_783` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-28); SRC_NCHRP_CONTEXT (2.2, p. 2-28); SRC_FHWA_BRIDGE_TYPES (2.6 Suspension Bridges)
+- Shot: SC_053
+- Chú thích `B22D_stiff` NOTE "Afterwards: research and stiffened decks" → SC_053 / bridge_suspension_01 / ; 706.54–716.29 s; claim CLM_783; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Chú thích `B22D_truss` COMPONENT_LABEL "Stiffening truss" → SC_053 / bridge_suspension_01 / suspension_bridge_stiffening_truss_south; 706.54–716.29 s; claim CLM_765; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B23C.s0 (716.69 s): "Span decides a great deal."
+- Claim `CLM_775` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_784` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_785` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_786` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_054
 
-## B28.s1 (708.44 s): "Railroads had to open new lines quickly and economically, and timber was abundant and cheap."
-- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_743` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (List of figures, 3-106)
+## B23C.s1 (719.62 s): "In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther."
+- Claim `CLM_775` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_784` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_785` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_786` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_054
 
-## B28.s2 (715.49 s): "This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad."
-- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_743` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (List of figures, 3-106)
+## B23C.s2 (733.37 s): "Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000."
+- Claim `CLM_775` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_784` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_785` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_786` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_054
 
-## B29.s0 (724.94 s): "A trestle is a succession of towers supporting short spans."
-- Claim `CLM_737` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+## B23C.s3 (743.79 s): "And as we saw, suspension bridges only pay off as main spans approach 3,000 feet."
+- Claim `CLM_775` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_784` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_785` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_786` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics); SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Shot: SC_054
+
+## B23D.s0 (751.69 s): "Cost and skill pull in different directions."
+- Claim `CLM_757` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142); SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142)
+- Claim `CLM_787` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (4.5 Suspension Bridges); SRC_FHWA_BRIDGE_TYPES (4.5 Suspension Bridges)
 - Shot: SC_055
-- Chú thích `B29_note` NOTE "Illustrative model, not the Promontory trestle" → SC_055 / bridge_timber_beam_01 / ; 724.83–737.04 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Chú thích `B23D_model` NOTE "Illustrative model" → SC_055 / bridge_suspension_01 / ; 751.58–772.79 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B29.s1 (729.79 s): "It is the same beam idea as our timber model, repeated as often as the crossing needs."
-- Claim `CLM_737` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+## B23D.s1 (755.34 s): "A cantilever avoided the expensive anchorages a suspension bridge needs."
+- Claim `CLM_757` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142); SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142)
+- Claim `CLM_787` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (4.5 Suspension Bridges); SRC_FHWA_BRIDGE_TYPES (4.5 Suspension Bridges)
 - Shot: SC_055
+- Chú thích `B23D_anchor` COMPONENT_LABEL "Anchorages: costly" → SC_055 / bridge_suspension_01 / suspension_bridge_anchorage_left; 758.17–772.79 s; claim CLM_757; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B30.s0 (737.44 s): "Iron offered a third path."
-- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
-- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
+## B23D.s2 (761.57 s): "And a suspension bridge often takes a long time to build: installing its main cables calls for expertise that very few contractors have."
+- Claim `CLM_757` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142); SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142)
+- Claim `CLM_787` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (4.5 Suspension Bridges); SRC_FHWA_BRIDGE_TYPES (4.5 Suspension Bridges)
+- Shot: SC_055
+- Chú thích `B23D_cable` COMPONENT_LABEL "Main cables: specialist work" → SC_055 / bridge_suspension_01 / suspension_bridge_main_cable_south; 766.17–772.79 s; claim CLM_787; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B23E.s0 (773.19 s): "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood."
+- Claim `CLM_788` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (4.4 Cable-Stayed Bridges)
 - Shot: SC_056
+- Chú thích `B23E_note` NOTE "Erection methods now better understood" → SC_056 / bridge_cable_stayed_01 / ; 773.08–784.50 s; claim CLM_788; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B30.s1 (740.34 s): "The Bollman truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts."
-- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
-- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
-- Shot: SC_056
-
-## B30.s2 (750.29 s): "It could be built relatively quickly and inexpensively, while offering the long-lasting qualities of metal."
-- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
-- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
-- Shot: SC_056
-
-## B30.s3 (757.99 s): "The bridge at Savage, Maryland, is the only remaining example of the design."
-- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
-- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
-- Shot: SC_056
-
-## B31.s0 (765.15 s): "Stone for permanence, timber for speed and economy, and iron trusses that offered some of both."
-- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
+## B24.s0 (784.90 s): "Finally, every bridge belongs to its time."
+- Claim `CLM_727` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
+- Claim `CLM_728` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
+- Claim `CLM_729` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2 'Foundries and Fabricators', p. 2-11)
+- Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
 - Shot: SC_057
 
-## B31.s1 (772.38 s): "Three places, three sets of constraints, three different bridges."
+## B24.s1 (788.88 s): "As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined."
+- Claim `CLM_727` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
+- Claim `CLM_728` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
+- Claim `CLM_729` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2 'Foundries and Fabricators', p. 2-11)
+- Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Shot: SC_057
+
+## B24.s2 (798.38 s): "Then, during the Great Depression, it briefly returned."
+- Claim `CLM_727` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
+- Claim `CLM_728` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-7)
+- Claim `CLM_729` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2 'Foundries and Fabricators', p. 2-11)
+- Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Shot: SC_057
+
+## B24B.s0 (803.57 s): "Long spans have a timeline of their own."
+- Claim `CLM_754` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_756` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_766` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Claim `CLM_768` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Claim `CLM_774` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Shot: SC_058
+
+## B24B.s1 (807.14 s): "By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest bridge in the world for many years."
+- Claim `CLM_754` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_756` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_766` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Claim `CLM_768` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Claim `CLM_774` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Shot: SC_058
+
+## B24B.s2 (816.92 s): "Cantilevers were a standard American answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed."
+- Claim `CLM_754` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_756` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_766` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Claim `CLM_768` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Claim `CLM_774` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Shot: SC_058
+
+## B25.s0 (832.44 s): "These trade-offs played out across nineteenth-century America as the railways spread."
+- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Shot: SC_059
+
+## B25.s1 (838.79 s): "In the East, railroads built massive stone viaducts, while western builders generally used timber."
+- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Shot: SC_059
+
+## B25.s2 (846.57 s): "Three documented examples show how differently builders answered."
+- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Shot: SC_059
+
+## B26.s0 (852.82 s): "Near Baltimore, the Carrollton Viaduct was completed in 1829."
+- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_740` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+- Shot: SC_060
+
+## B26.s1 (858.89 s): "Built of roughly twelve thousand granite blocks, it carries the railway over Gwynns Falls on an eighty foot arch."
+- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_740` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+- Shot: SC_060
+
+## B26.s2 (867.32 s): "A national report in 2005 called it the world's oldest stone railroad span still in service."
+- Claim `CLM_739` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_740` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+- Shot: SC_060
+
+## B27.s0 (875.94 s): "Early railroads needed durable bridges to carry heavy trains."
+- Claim `CLM_725` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-48)
+- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Shot: SC_061
+- Chú thích `B27_note` NOTE "Illustrative model, not the Carrollton Viaduct" → SC_061 / bridge_stone_arch_03 / ; 875.83–885.67 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B27.s1 (881.07 s): "For a line meant to last, stone was the answer."
+- Claim `CLM_725` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-48)
+- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Shot: SC_061
+
+## B28.s0 (886.07 s): "In the West, the pressure was different."
+- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_743` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (List of figures, 3-106)
+- Shot: SC_062
+
+## B28.s1 (889.32 s): "Railroads had to open new lines quickly and economically, and timber was abundant and cheap."
+- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_743` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (List of figures, 3-106)
+- Shot: SC_062
+
+## B28.s2 (896.37 s): "This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad."
+- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_743` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (List of figures, 3-106)
+- Shot: SC_062
+
+## B29.s0 (905.82 s): "A trestle is a succession of towers supporting short spans."
+- Claim `CLM_737` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+- Shot: SC_063
+- Chú thích `B29_note` NOTE "Illustrative model, not the Promontory trestle" → SC_063 / bridge_timber_beam_01 / ; 905.71–917.92 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B29.s1 (910.67 s): "It is the same beam idea as our timber model, repeated as often as the crossing needs."
+- Claim `CLM_737` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.6 Trestles and Viaducts, p. 3-137)
+- Shot: SC_063
+
+## B30.s0 (918.32 s): "Iron offered a third path."
+- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
+- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
+- Shot: SC_064
+
+## B30.s1 (921.22 s): "The Bollman truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts."
+- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
+- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
+- Shot: SC_064
+
+## B30.s2 (931.17 s): "It could be built relatively quickly and inexpensively, while offering the long-lasting qualities of metal."
+- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
+- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
+- Shot: SC_064
+
+## B30.s3 (938.87 s): "The bridge at Savage, Maryland, is the only remaining example of the design."
+- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
+- Claim `CLM_745` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text)
+- Shot: SC_064
+
+## B31.s0 (946.02 s): "Stone for permanence, timber for speed and economy, and iron trusses that offered some of both."
 - Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
 - Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
 - Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
-- Shot: SC_057
+- Shot: SC_065
 
-## B32.s0 (778.23 s): "So why don't bridges all look the same?"
+## B31.s1 (953.25 s): "Three places, three sets of constraints, three different bridges."
+- Claim `CLM_741` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6); SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
+- Claim `CLM_744` [SOURCE_VERIFIED]: SRC_ASCE_BOLLMAN (main text); SRC_ASCE_BOLLMAN (main text)
+- Shot: SC_065
+
+## B31A.s0 (959.11 s): "Long spans forced hard decisions too."
+- Claim `CLM_789` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Shot: SC_066
+- Chú thích `B31A_note` NOTE "Illustrative model, not the Niagara bridge" → SC_066 / bridge_suspension_01 / ; 959.00–991.88 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31A.s1 (962.71 s): "In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains."
+- Claim `CLM_789` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Shot: SC_066
+- Chú thích `B31A_1855` NOTE "Niagara Gorge, 1855: trains on a suspension bridge" → SC_066 / bridge_suspension_01 / ; 962.62–975.75 s; claim CLM_789; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31A.s2 (975.86 s): "Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic."
+- Claim `CLM_789` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-132); SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Shot: SC_066
+- Chú thích `B31A_133` NOTE "Next railway suspension bridge: 133 years later" → SC_066 / bridge_suspension_01 / ; 975.75–991.88 s; claim CLM_789; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31B.s0 (992.27 s): "Cantilevers, by contrast, were first used by the railroads."
+- Claim `CLM_790` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142); SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_791` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Shot: SC_067
+- Chú thích `B31B_note` NOTE "Illustrative model, not the Kentucky River bridge" → SC_067 / bridge_cantilever_truss_01 / ; 992.17–1019.38 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31B.s1 (997.55 s): "A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it."
+- Claim `CLM_790` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142); SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_791` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Shot: SC_067
+- Chú thích `B31B_rigid` NOTE "Inherently rigid: suited to heavy trains" → SC_067 / bridge_cantilever_truss_01 / ; 997.46–1006.17 s; claim CLM_790; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31B.s2 (1006.25 s): "In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world."
+- Claim `CLM_790` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142); SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Claim `CLM_791` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-143)
+- Shot: SC_067
+- Chú thích `B31B_1877` NOTE "1877: the world's longest cantilever" → SC_067 / bridge_cantilever_truss_01 / ; 1006.17–1019.38 s; claim CLM_791; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31C.s0 (1019.77 s): "In San Francisco, the Golden Gate Bridge opened in 1937."
+- Claim `CLM_792` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-28)
+- Shot: SC_068
+
+## B31C.s1 (1026.00 s): "For 27 years, it stood as the world's longest span."
+- Claim `CLM_792` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-28)
+- Shot: SC_068
+
+## B31D.s0 (1032.03 s): "Today, the long-span answer in America is usually cable-stayed."
+- Claim `CLM_774` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_793` [SOURCE_VERIFIED]: SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge)
+- Shot: SC_069
+- Chú thích `B31D_note` NOTE "Illustrative model, not the Penobscot Narrows Bridge" → SC_069 / bridge_cable_stayed_01 / ; 1031.92–1060.46 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31D.s1 (1037.58 s): "In Maine, the Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall."
+- Claim `CLM_774` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_793` [SOURCE_VERIFIED]: SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge)
+- Shot: SC_069
+- Chú thích `B31D_fact` NOTE "Penobscot Narrows, 2006: 430 ft concrete pylons" → SC_069 / bridge_cable_stayed_01 / ; 1037.46–1051.08 s; claim CLM_793; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B31D.s2 (1051.20 s): "It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top."
+- Claim `CLM_774` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Claim `CLM_793` [SOURCE_VERIFIED]: SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge); SRC_FHWA_PENOBSCOT (Chapter 3, The test bridge)
+- Shot: SC_069
+- Chú thích `B31D_42` NOTE "42 months from conception to completion" → SC_069 / bridge_cable_stayed_01 / ; 1051.08–1060.46 s; claim CLM_793; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+
+## B32.s0 (1060.86 s): "So why don't bridges all look the same?"
 - Claim `CLM_706` [SOURCE_VERIFIED]: SRC_FHWA_CBM (Chapter 2, 'Component Terminology'); SRC_ODOT_MBI (Glossary p.358 'girder')
 - Claim `CLM_709` [SOURCE_VERIFIED]: SRC_ODOT_MBI (Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)); SRC_ODOT_MBI (Glossary p.339 'arch'); SRC_YALE_PHYSICS ('Arch Bridges' section)
 - Claim `CLM_712` [SOURCE_VERIFIED]: SRC_SCI_TRUSSES (Introduction); SRC_FHWA_CBM (Chapter 2, 'Component Terminology')
-- Shot: SC_058
-- Chú thích `B32_ch` NOTE "11 · Why they look different" → SC_058 / bridge_steel_truss_pratt_01 / ; 778.13–786.38 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Shot: SC_070
+- Chú thích `B32_ch` NOTE "12 · Why they look different" → SC_070 / bridge_steel_truss_pratt_01 / ; 1060.76–1069.01 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B32.s1 (781.61 s): "Because a bridge's form comes from two things working together."
+## B32.s1 (1064.23 s): "Because a bridge's form comes from two things working together."
 - Claim `CLM_706` [SOURCE_VERIFIED]: SRC_FHWA_CBM (Chapter 2, 'Component Terminology'); SRC_ODOT_MBI (Glossary p.358 'girder')
 - Claim `CLM_709` [SOURCE_VERIFIED]: SRC_ODOT_MBI (Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)); SRC_ODOT_MBI (Glossary p.339 'arch'); SRC_YALE_PHYSICS ('Arch Bridges' section)
 - Claim `CLM_712` [SOURCE_VERIFIED]: SRC_SCI_TRUSSES (Introduction); SRC_FHWA_CBM (Chapter 2, 'Component Terminology')
-- Shot: SC_058
+- Shot: SC_070
 
-## B32.s2 (786.48 s): "One is how its structure carries load: beams resist bending, arches work in compression, and trusses share load among members in tension and compression."
+## B32.s2 (1069.11 s): "One is how its structure carries load: beams resist bending, arches work in compression, and trusses share load among members in tension and compression."
 - Claim `CLM_706` [SOURCE_VERIFIED]: SRC_FHWA_CBM (Chapter 2, 'Component Terminology'); SRC_ODOT_MBI (Glossary p.358 'girder')
 - Claim `CLM_709` [SOURCE_VERIFIED]: SRC_ODOT_MBI (Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)); SRC_ODOT_MBI (Glossary p.339 'arch'); SRC_YALE_PHYSICS ('Arch Bridges' section)
 - Claim `CLM_712` [SOURCE_VERIFIED]: SRC_SCI_TRUSSES (Introduction); SRC_FHWA_CBM (Chapter 2, 'Component Terminology')
-- Shot: SC_058
-- Chú thích `B32_one` NOTE "1 · How the structure carries load" → SC_058 / bridge_steel_truss_pratt_01 / ; 786.38–798.29 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Shot: SC_070
+- Chú thích `B32_one` NOTE "1 · How the structure carries load" → SC_070 / bridge_steel_truss_pratt_01 / ; 1069.01–1080.92 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B32L.s0 (798.69 s): "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables."
+## B32L.s0 (1081.32 s): "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables."
 - Claim `CLM_750` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142); SRC_NCHRP_CONTEXT (3.7 Cantilevers, p. 3-142)
 - Claim `CLM_760` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_770` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (2.5 Cable-Stayed)
-- Shot: SC_059
-- Chú thích `B32L_one` NOTE "1 · How the structure carries load" → SC_059 / bridge_cable_stayed_01 / ; 798.59–807.42 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Shot: SC_071
+- Chú thích `B32L_one` NOTE "1 · How the structure carries load" → SC_071 / bridge_cable_stayed_01 / ; 1081.22–1090.04 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B32B.s0 (807.82 s): "The other is the world it was built in: its materials, its site, its span, its budget and its builders."
+## B32B.s0 (1090.44 s): "The other is the world it was built in: its materials, its site, its span, its budget and its builders."
 - Claim `CLM_724` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
 - Claim `CLM_742` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (2.2, p. 2-6)
-- Shot: SC_060
+- Shot: SC_072
 
-## B33.s0 (816.48 s): "And it is not a simple story of progress."
+## B33.s0 (1099.11 s): "And it is not a simple story of progress."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
-- Shot: SC_061
+- Shot: SC_073
 
-## B33.s1 (820.18 s): "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression."
+## B33.s1 (1102.81 s): "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
-- Shot: SC_061
+- Shot: SC_073
 
-## B33.s2 (827.78 s): "And the most common steel bridge today is still a kind of beam: the welded plate girder."
+## B33.s2 (1110.41 s): "And the most common steel bridge today is still a kind of beam: the welded plate girder."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
-- Shot: SC_061
+- Shot: SC_073
 
-## B33.s3 (834.13 s): "Each form can still be the right answer in the right place."
+## B33.s3 (1116.76 s): "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
-- Shot: SC_061
+- Shot: SC_073
 
-## B34.s0 (839.32 s): "Next time you cross a bridge, look at its shape."
-- Không có claim (câu dẫn dắt).
-- Shot: SC_062
+## B33.s4 (1126.01 s): "Each form can still be the right answer in the right place."
+- Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
+- Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
+- Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
+- Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
+- Shot: SC_073
 
-## B34.s1 (843.17 s): "It shows how the load reaches the ground, and something about the people who built it."
+## B34.s0 (1131.19 s): "Next time you cross a bridge, look at its shape."
 - Không có claim (câu dẫn dắt).
-- Shot: SC_062
+- Shot: SC_074
 
-## B34.s2 (849.34 s): "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces."
+## B34.s1 (1135.04 s): "It shows how the load reaches the ground, and something about the people who built it."
 - Không có claim (câu dẫn dắt).
-- Shot: SC_062
-- Chú thích `B34_note` NOTE "Models are illustrations, not engineering designs" → SC_062 / bridge_stone_arch_03 / ; 849.25–858.88 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Shot: SC_074
 
-## B35.s0 (859.27 s): "Thank you very much for watching."
+## B34.s2 (1141.22 s): "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces."
 - Không có claim (câu dẫn dắt).
-- Shot: SC_063
+- Shot: SC_074
+- Chú thích `B34_note` NOTE "Models are illustrations, not engineering designs" → SC_074 / bridge_stone_arch_03 / ; 1141.12–1150.75 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B35.s1 (862.25 s): "The sources and photo credits are listed in the description."
+## B35.s0 (1151.15 s): "Thank you very much for watching."
 - Không có claim (câu dẫn dắt).
-- Shot: SC_063
+- Shot: SC_075
+
+## B35.s1 (1154.12 s): "The sources and photo credits are listed in the description."
+- Không có claim (câu dẫn dắt).
+- Shot: SC_075

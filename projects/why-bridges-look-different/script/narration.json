@@ -99,9 +99,15 @@
         "Covington",
         "cable-stayed",
         "suspenders",
-        "anchorages"
+        "anchorages",
+        "Tacoma Narrows",
+        "Niagara",
+        "Penobscot",
+        "Kentucky",
+        "Golden Gate",
+        "Finley"
       ],
-      "note": "m8-r1 regenerates the narration: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it",
+      "note": "m8-r2 regenerates the narration: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it",
       "previous_acceptance": {
         "status": "ACCEPTED_BY_OWNER",
         "accepted_by": "Tran Nam Anh (channel owner)",
@@ -125,8 +131,8 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "m8-r1",
-    "date": "2026-10-31",
+    "version": "m8-r2",
+    "date": "2026-11-03",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
     "previous": {
       "version": "m7-r1",
@@ -134,7 +140,7 @@
       "status": "EDITORIALLY_APPROVED (41 claims, 2026-10-30)",
       "note": "m7-r1 is the approved film (git tag m7-final-4k); its approvals do not carry over to m8-r1"
     },
-    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31",
+    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31; m8-r2 (owner request of 2026-11-03): chapters 9-12 also cover the long-span families",
     "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
     "edits": [
       {
@@ -221,6 +227,12 @@
         }
       },
       "text_changed": false
+    },
+    "previous_m8": {
+      "version": "m8-r1",
+      "date": "2026-10-31",
+      "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+      "note": "m8-r1 was the first all-families review cut (commit 0cd48f0); never approved"
     }
   },
   "beats": [
@@ -686,6 +698,19 @@
       ]
     },
     {
+      "id": "B20E",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_780",
+        "CLM_781"
+      ],
+      "sentences": [
+        "Cables have a materials story of their own.",
+        "America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains.",
+        "Wire cables answered that fear, and suspension and cable-stayed bridges now rely on high-strength steel cables."
+      ]
+    },
+    {
       "id": "B22",
       "kind": "fact",
       "claim_ids": [
@@ -695,6 +720,82 @@
         "The site of a bridge matters too.",
         "Railway engines have limited traction, so railways need gentle gradients.",
         "Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level."
+      ]
+    },
+    {
+      "id": "B22B",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_761",
+        "CLM_776"
+      ],
+      "sentences": [
+        "Long spans make the ground beneath them matter even more.",
+        "A suspension bridge has to anchor its cables in massive blocks, or directly in bedrock.",
+        "The towers of a cable-stayed bridge, by contrast, can be built where good rock does not lie near the surface."
+      ]
+    },
+    {
+      "id": "B22C",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_782"
+      ],
+      "sentences": [
+        "Cantilevers had an advantage on uncertain ground.",
+        "Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail."
+      ]
+    },
+    {
+      "id": "B22D",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_783",
+        "CLM_765"
+      ],
+      "sentences": [
+        "Then there is the wind.",
+        "In 1940, the four-month-old Tacoma Narrows suspension bridge collapsed in only moderately high winds.",
+        "The disaster led to intense research on wind, and later suspension bridges were built to new standards for stiffened decks."
+      ]
+    },
+    {
+      "id": "B23C",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_784",
+        "CLM_785",
+        "CLM_786",
+        "CLM_775"
+      ],
+      "sentences": [
+        "Span decides a great deal.",
+        "In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther.",
+        "Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000.",
+        "And as we saw, suspension bridges only pay off as main spans approach 3,000 feet."
+      ]
+    },
+    {
+      "id": "B23D",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_757",
+        "CLM_787"
+      ],
+      "sentences": [
+        "Cost and skill pull in different directions.",
+        "A cantilever avoided the expensive anchorages a suspension bridge needs.",
+        "And a suspension bridge often takes a long time to build: installing its main cables calls for expertise that very few contractors have."
+      ]
+    },
+    {
+      "id": "B23E",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_788"
+      ],
+      "sentences": [
+        "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood."
       ]
     },
     {
@@ -711,6 +812,22 @@
         "Finally, every bridge belongs to its time.",
         "As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined.",
         "Then, during the Great Depression, it briefly returned."
+      ]
+    },
+    {
+      "id": "B24B",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_766",
+        "CLM_768",
+        "CLM_754",
+        "CLM_756",
+        "CLM_774"
+      ],
+      "sentences": [
+        "Long spans have a timeline of their own.",
+        "By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest bridge in the world for many years.",
+        "Cantilevers were a standard American answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed."
       ]
     },
     {
@@ -803,6 +920,55 @@
       ]
     },
     {
+      "id": "B31A",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_789"
+      ],
+      "sentences": [
+        "Long spans forced hard decisions too.",
+        "In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains.",
+        "Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic."
+      ]
+    },
+    {
+      "id": "B31B",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_790",
+        "CLM_791"
+      ],
+      "sentences": [
+        "Cantilevers, by contrast, were first used by the railroads.",
+        "A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it.",
+        "In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world."
+      ]
+    },
+    {
+      "id": "B31C",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_792"
+      ],
+      "sentences": [
+        "In San Francisco, the Golden Gate Bridge opened in 1937.",
+        "For 27 years, it stood as the world's longest span."
+      ]
+    },
+    {
+      "id": "B31D",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_774",
+        "CLM_793"
+      ],
+      "sentences": [
+        "Today, the long-span answer in America is usually cable-stayed.",
+        "In Maine, the Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall.",
+        "It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top."
+      ]
+    },
+    {
       "id": "B32",
       "kind": "interpretation",
       "claim_ids": [
@@ -845,12 +1011,14 @@
       "claim_ids": [
         "CLM_721",
         "CLM_738",
-        "CLM_777"
+        "CLM_777",
+        "CLM_767"
       ],
       "sentences": [
         "And it is not a simple story of progress.",
         "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression.",
         "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+        "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up.",
         "Each form can still be the right answer in the right place."
       ]
     },

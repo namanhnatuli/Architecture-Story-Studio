@@ -95,14 +95,16 @@ class Card:
 PHOTO_CROP = {
     "IMG_HAER_CARROLLTON": [0.17, 0.11, 0.83, 0.89], "IMG_HAER_PROMONTORY": [0.025, 0.045, 0.955, 0.955],
     "IMG_HAER_BOLLMAN": [0.035, 0.045, 0.965, 0.955], "IMG_HAER_HUMPBACK": [0.035, 0.05, 0.968, 0.95],
-    "IMG_HAER_BROOKLYN": [0.035, 0.293, 0.6, 0.744], "IMG_HAER_QUEENSBORO": [0.2, 0.22, 0.913, 0.78]}
+    "IMG_HAER_BROOKLYN": [0.035, 0.293, 0.6, 0.744], "IMG_HAER_QUEENSBORO": [0.2, 0.22, 0.913, 0.78],
+    "IMG_HAER_GOLDENGATE": [0.04, 0.065, 0.965, 0.875]}
 PHOTO_PATH = {
     "IMG_HAER_CARROLLTON": "assets/external/haer_md9_carrollton_viaduct_west_3840.jpg",
     "IMG_HAER_PROMONTORY": "assets/external/haer_ut64_promontory_trestle_790b_3840.jpg",
     "IMG_HAER_BOLLMAN": "assets/external/haer_md1_bollman_truss_east_3840.jpg",
     "IMG_HAER_HUMPBACK": "assets/external/haer_va_humpback_covered_bridge_west_3840.jpg",
     "IMG_HAER_BROOKLYN": "assets/external/haer_ny18_brooklyn_bridge_from_brooklyn_3840.jpg",
-    "IMG_HAER_QUEENSBORO": "assets/external/haer_ny19_queensboro_bridge_aerial_3840.jpg"}
+    "IMG_HAER_QUEENSBORO": "assets/external/haer_ny19_queensboro_bridge_aerial_3840.jpg",
+    "IMG_HAER_GOLDENGATE": "assets/external/haer_ca31_golden_gate_bridge_bay_side_3840.jpg"}
 
 
 def photo_card(name, asset, title, lines, credit, chapter=None):
@@ -141,9 +143,10 @@ CHAPTERS = [
     ("C6", "The cantilever", "Longer spans: anchor arms, cantilever arms, a suspended span; built outward without falsework."),
     ("C7", "The suspension bridge", "A hung deck: hangers, cables in tension over towers in compression, anchorages, stiffening."),
     ("C8", "The cable-stayed bridge", "Straight stays from tall towers to the deck; compared with suspension; built outward; economics."),
-    ("C9", "Why different designs exist", "Materials, weather, site, span and the era: the trade-offs."),
-    ("C10", "Real-world decisions", "Three documented 19th-century American bridges and the choices behind them."),
-    ("C11", "Why they look different", "Answer the question for all six families; not a story of linear progress."),
+    ("C9", "Why different designs exist", "Materials (stone, iron, timber, chains and cables), the ground and the wind."),
+    ("C10", "Span, cost and time", "How far each family reaches, what it costs to build and when each family flourished."),
+    ("C11", "Real-world decisions", "Documented bridges from 19th-century railways to a 21st-century cable-stayed crossing."),
+    ("C12", "Why they look different", "Answer the question for all six families; not a story of linear progress."),
 ]
 
 BEATS = []
@@ -617,6 +620,16 @@ beat("C9", "B21", "fact", "SHOW_CONTEXT", [
                         (1, "Covington, Virginia")],
                        "Photo: Jack E. Boucher, HAER, Library of Congress (public domain)").spec(), required_concepts=[])
 
+beat("C9", "B20E", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Cables have a materials story of their own.",
+    "America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains.",
+    "Wire cables answered that fear, and suspension and cable-stayed bridges now rely on high-strength steel cables."],
+    ["CLM_780", "CLM_781"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=2,
+    visual_goal="The main cables of the suspension model", required_concepts=["suspension_bridge", "main_cable"],
+    annotations=[{**note("B20E_chain", "Iron chains: only as strong as the weakest link", 1, 2), "claim_id": "CLM_780"},
+                 {**note("B20E_cable", "Wire cables, then high-strength steel", 2), "claim_id": "CLM_781"},
+                 note("B20E_model", "Illustrative model", 0, position="BOTTOM_RIGHT")])
+
 c = Card("B22")
 c.tag("Schematic — not to scale")
 c.polygon([[0.05, 0.6], [0.24, 0.58], [0.36, 0.33], [0.5, 0.26], [0.64, 0.33], [0.76, 0.58], [0.95, 0.6],
@@ -636,6 +649,66 @@ beat("C9", "B22", "fact", "SHOW_CONTEXT", [
 
 
 
+# The ground under long spans (schematic): anchorages need rock near the surface; stayed towers do not.
+c = Card("B22B")
+c.tag("Schematic — not to scale")
+EARTH, ROCK, WATER = "#C9C2AE", "#8F887A", "#9FB7C2"
+# two cross-sections: earth over rock, a river between the banks; rock lies near the surface in the
+# upper one (suspension) and deep in the lower one (cable-stayed)
+for top, rock_top, s in ((0.655, 0.6, 1), (0.355, 0.255, 2)):
+    c.rect([0.05, rock_top, 0.95, top], EARTH, sentence=0, layer=-2)
+    c.rect([0.05, rock_top - 0.035, 0.95, rock_top], ROCK, sentence=0, layer=-2)
+    c.rect([0.2, top - 0.03, 0.8, top], WATER, sentence=0, layer=-1)
+    c.text("Rock", 0.08, rock_top - 0.0175, 0.018, 0, align="LEFT", color="#F4F1EA")
+# suspension: anchorage blocks set down into the rock, cables over two towers
+deck_s = 0.695
+for x in (0.33, 0.67):
+    c.rect([x - 0.006, 0.6, x + 0.006, 0.8], IRON, sentence=1)
+c.line([[0.2, deck_s], [0.8, deck_s]], INK, 0.006, 1)
+for x0_ in (0.08, 0.84):
+    c.rect([x0_, 0.575, x0_ + 0.08, 0.675], STONE, border="#7A6E58", sentence=1, layer=1)
+cab = [[0.12, 0.665], [0.33, 0.8]] + [[0.33 + 0.34 * k / 16, 0.71 + 0.09 * (2 * k / 16 - 1) ** 2] for k in range(17)] + [[0.67, 0.8], [0.88, 0.665]]
+c.line(cab, IRON, 0.004, 1)
+c.text("Suspension: cables anchored in massive blocks, set into rock", 0.5, 0.85, 0.026, 1, plate=True, word="anchor")
+# cable-stayed: towers on foundations that reach down to deep rock; the stays end at the deck
+deck_c = 0.395
+for x in (0.33, 0.67):
+    c.rect([x - 0.012, 0.255, x + 0.012, 0.355], "#6F6B62", sentence=2, layer=1)   # deep foundation
+    c.rect([x - 0.007, 0.355, x + 0.007, 0.545], "#9C988D", sentence=2)
+    for k in range(1, 5):
+        for d in (-1, 1):
+            c.line([[x, 0.535 - 0.02 * (4 - k)], [x + d * 0.04 * k, deck_c]], ACCENT, 0.0025, 2)
+c.line([[0.2, deck_c], [0.8, deck_c]], INK, 0.006, 2)
+c.text("Cable-stayed: towers can stand where rock lies deep", 0.5, 0.522, 0.026, 2, plate=True, word="towers")
+beat("C9", "B22B", "fact", "SHOW_CONTEXT", [
+    "Long spans make the ground beneath them matter even more.",
+    "A suspension bridge has to anchor its cables in massive blocks, or directly in bedrock.",
+    "The towers of a cable-stayed bridge, by contrast, can be built where good rock does not lie near the surface."],
+    ["CLM_761", "CLM_776"], strategy="CARD", graphic=c.spec(), visual_goal="Ground and foundations for the two cable families (schematic)",
+    required_concepts=[])
+beat("C9", "B22C", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Cantilevers had an advantage on uncertain ground.",
+    "Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail."],
+    ["CLM_782"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="The cantilever's main piers",
+    required_concepts=["cantilever_bridge", "pier"],
+    annotations=[{"id": "B22C_pier", "type": "COMPONENT_LABEL", "target": {"concept": "pier", "pick": "LEFTMOST"},
+                  "point": "TOP", "text": "Main pier", "sentence": 1, "word": "pier", "claim_id": "CLM_782"},
+                 {**note("B22C_note", "If a pier sank, the cantilever could adjust", 1), "claim_id": "CLM_782"},
+                 note("B22C_model", "Illustrative model", 0, position="BOTTOM_RIGHT")])
+beat("C9", "B22D", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Then there is the wind.",
+    "In 1940, the four-month-old Tacoma Narrows suspension bridge collapsed in only moderately high winds.",
+    "The disaster led to intense research on wind, and later suspension bridges were built to new standards for stiffened decks."],
+    ["CLM_783", "CLM_765"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=2,
+    visual_goal="The stiffening truss under the suspension deck (no collapse is shown)",
+    required_concepts=["suspension_bridge", "stiffening_truss"],
+    annotations=[{**note("B22D_tacoma", "Tacoma Narrows, 1940: lost to the wind", 1, 2), "claim_id": "CLM_783"},
+                 {**note("B22D_stiff", "Afterwards: research and stiffened decks", 2), "claim_id": "CLM_783"},
+                 {"id": "B22D_truss", "type": "COMPONENT_LABEL", "target": {"concept": "stiffening_truss", "pick": "LEFTMOST"},
+                  "point": "BOTTOM", "text": "Stiffening truss", "sentence": 2, "claim_id": "CLM_765"},
+                 note("B22D_model", "Illustrative model", 0, position="BOTTOM_RIGHT")])
+
+
 CHAR_W = 0.26   # text width per character in units of the text size (measured from card QA boxes)
 
 
@@ -648,18 +721,24 @@ def clamp_x(x, w, lo=0.06, hi=0.94):
     return min(max(x, lo + w / 2), hi - w / 2)
 
 
-def timeline(name, events, bands, extra=None):
-    """Axis 1820-1945; event labels go to the first free row (above/below alternating), so two
-    labels never overlap; every label is clamped inside the safe area."""
+def timeline(name, events, bands, extra=None, start=1820, end=1945, ticks=(1820, 1840, 1860, 1880, 1900, 1920, 1940)):
+    """Axis start-end; event labels go to the first free row (above/below alternating), so two
+    labels never overlap; every label is clamped inside the safe area. An event (year, label, s[, word])
+    or band (y0, y1, label, color, s, ly[, word]) with a word appears when that word is spoken."""
     c = Card(name)
-    X = lambda year: 0.08 + (year - 1820) / 125.0 * 0.84   # noqa: E731
+    X = lambda year: 0.08 + (year - start) / float(end - start) * 0.84   # noqa: E731
     c.line([[0.08, 0.5], [0.92, 0.5]], INK, 0.006, 0)
-    for year in (1820, 1840, 1860, 1880, 1900, 1920, 1940):
+    for year in ticks:
         c.line([[X(year), 0.485], [X(year), 0.515]], INK, 0.004, 0)
         c.text(str(year), X(year), 0.455, 0.022, 0, color=MUTED)
     rows = {0.64: [], 0.72: [], 0.36: [], 0.28: []}
     prefs = ((0.64, 0.72, 0.36, 0.28), (0.36, 0.28, 0.64, 0.72))
-    for k, (year, label, s) in enumerate(events):
+    def spoken(first, word):
+        for e in c.elements[first:]:
+            if word:
+                e["word"] = word
+    for k, (year, label, s, *word) in enumerate(events):
+        first = len(c.elements)
         text = f"{year}  {label}"
         w = text_width(text, 0.025)
         x = clamp_x(X(year), w)
@@ -668,19 +747,74 @@ def timeline(name, events, bands, extra=None):
         c.line([[X(year), 0.5], [X(year), y - 0.03 if y > 0.5 else y + 0.03]], FAINT, 0.003, s)
         c.circle([X(year), 0.5], 0.009, INK, s)
         c.text(text, x, y, 0.025, s, plate=True)
-    for y0, y1, label, color, s, ly in bands:
+        spoken(first, word[0] if word else None)
+    for y0, y1, label, color, s, ly, *word in bands:
+        first = len(c.elements)
         c.rect([X(y0), 0.53, X(y1), 0.56], color, sentence=s)
         c.text(label, clamp_x((X(y0) + X(y1)) / 2, text_width(label, 0.024)), ly, 0.024, s, plate=True)
+        spoken(first, word[0] if word else None)
     if extra:
         extra(c)
     return c
+
+
+# C10 -------------------------------------------------------------------------------------------
+c = Card("B23C")
+c.tag("10 · Span, cost and time")
+c.text("How far each type reaches (steel bridges)", 0.5, 0.87, 0.04, 0)
+x0, scale = 0.12, 0.76 / 3000.0
+X = lambda ft: round(x0 + ft * scale, 4)   # noqa: E731
+c.line([[x0, 0.27], [X(3000), 0.27]], INK, 0.004, 0)
+for ft in (0, 1000, 2000, 3000):
+    c.line([[X(ft), 0.26], [X(ft), 0.28]], INK, 0.003, 0)
+    c.text(f"{ft:,} ft", X(ft), 0.24, 0.019, 0, color=MUTED)
+rows = ((0.79, 90, 500, "Plate girder: about 90 to over 500 ft", WOOD, 1, "girders", True),
+        (0.695, 450, 750, "Simple truss: about 450 to 750 ft", IRON, 1, "simple", False),
+        (0.60, 750, None, "Cantilever truss: considerably farther", IRON, 1, "cantilever", True),
+        (0.505, 200, 1800, "Arch: about 200 to 1,800 ft", STONE, 2, "arches", False),
+        (0.41, 190, 2950, "Cable-stayed: under 200 to nearly 3,000 ft", ACCENT, 2, "cable", False),
+        (0.315, 2920, 3000, "Suspension: as main spans approach 3,000 ft", IRON, 3, "suspension", True))
+for y, a, b, label, color, s, w, more in rows:
+    if b is None:   # no sourced end: only an arrow past the start ("considerably farther")
+        c.add("arrow", s, None, start=[X(a), y], end=[X(a) + 0.1, y], color=color, width=0.006, word=w)
+    else:
+        c.add("rect", s, None, box=[X(a), round(y - 0.016, 4), X(b), round(y + 0.016, 4)], layer=0, color=color, word=w)
+    if more and b is not None:   # open-ended range: an arrow past the end of the bar
+        c.add("arrow", s, None, start=[X(b), y], end=[min(X(b) + 0.05, 0.93), y], color=color, width=0.005, word=w)
+    c.text(label, x0, y + 0.04, 0.024, s, align="LEFT", word=w)
+c.text("After FHWA, Steel Bridge Design Handbook (FHWA-IF-12-052), 2012 — economic ranges for steel", 0.5, 0.205, 0.018, 0,
+       color=MUTED)
+beat("C10", "B23C", "fact", "EXPLAIN_STRUCTURE", [
+    "Span decides a great deal.",
+    "In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther.",
+    "Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000.",
+    "And as we saw, suspension bridges only pay off as main spans approach 3,000 feet."],
+    ["CLM_784", "CLM_785", "CLM_786", "CLM_775"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Span ranges of the six families (sourced values only)", required_concepts=[])
+beat("C10", "B23D", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Cost and skill pull in different directions.",
+    "A cantilever avoided the expensive anchorages a suspension bridge needs.",
+    "And a suspension bridge often takes a long time to build: installing its main cables calls for expertise that very few contractors have."],
+    ["CLM_757", "CLM_787"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1,
+    visual_goal="The anchorages and main cables of the suspension model", required_concepts=["suspension_bridge", "anchorage"],
+    annotations=[{"id": "B23D_anchor", "type": "COMPONENT_LABEL", "target": {"concept": "anchorage", "pick": "LEFTMOST"},
+                  "point": "TOP", "text": "Anchorages: costly", "sentence": 1, "word": "anchorages", "claim_id": "CLM_757"},
+                 {"id": "B23D_cable", "type": "COMPONENT_LABEL", "target": {"concept": "main_cable", "pick": "LEFTMOST"},
+                  "point": "TOP", "text": "Main cables: specialist work", "sentence": 2, "word": "installing",
+                  "claim_id": "CLM_787"},
+                 note("B23D_model", "Illustrative model", 0, position="BOTTOM_RIGHT")])
+beat("C10", "B23E", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood."],
+    ["CLM_788"], strategy="HOLD", camera_move={"type": "PUSH_IN", "amount": 0.1}, visual_goal="The cable-stayed model",
+    required_concepts=["cable_stayed_bridge"],
+    annotations=[{**note("B23E_note", "Erection methods now better understood", 0), "claim_id": "CLM_788"}])
 
 
 TL_EVENTS = [(1829, "Carrollton Viaduct (stone)", 0), (1844, "Pratt truss patented", 0),
              (1848, "Warren truss patented", 0), (1860, "Prefabricated truss parts", 0)]
 c = timeline("B24", TL_EVENTS, [(1880, 1925, "Metal trusses spread; stone arches decline", IRON, 1, 0.78),
                                 (1929, 1939, "Great Depression: stone arches return", STONE, 2, 0.7)])
-beat("C9", "B24", "fact", "SHOW_CONTEXT", [
+beat("C10", "B24", "fact", "SHOW_CONTEXT", [
     "Finally, every bridge belongs to its time.",
     "As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined.",
     "Then, during the Great Depression, it briefly returned."],
@@ -688,9 +822,23 @@ beat("C9", "B24", "fact", "SHOW_CONTEXT", [
     visual_goal="Timeline (dates from the evidence registry)", required_concepts=[])
 
 
-# C10 -------------------------------------------------------------------------------------------
+
+c = timeline("B24B", [(1849, "Wheeling suspension bridge: 1,010 ft", 1, "wheeling"), (1883, "Brooklyn Bridge", 1, "longest"),
+                      (1909, "Queensboro cantilever", 2, "cantilevers")],
+             [(1880, 1965, "Cantilevers: a standard U.S. type", IRON, 2, 0.79, "cantilevers"),
+              (1980, 2012, "Long U.S. spans: cable-stayed", ACCENT, 2, 0.7, "since")],
+             start=1840, end=2015, ticks=(1840, 1870, 1900, 1930, 1960, 1990))
+c.text("Long spans: a timeline of their own", 0.5, 0.87, 0.04, 0)
+beat("C10", "B24B", "fact", "SHOW_CONTEXT", [
+    "Long spans have a timeline of their own.",
+    "By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest bridge in the world for many years.",
+    "Cantilevers were a standard American answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed."],
+    ["CLM_766", "CLM_768", "CLM_754", "CLM_756", "CLM_774"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Long-span timeline (dates from the evidence registry)", required_concepts=[])
+
+# C11 -------------------------------------------------------------------------------------------
 c = Card("B25")
-c.tag("10 · Real-world decisions")
+c.tag("11 · Real-world decisions")
 c.rect([0.08, 0.3, 0.92, 0.8], "#E2DFD6", sentence=0)
 c.rect([0.08, 0.3, 0.92, 0.8], border="#9C988D", sentence=0, border_width=0.003)
 c.line([[0.5, 0.31], [0.5, 0.79]], "#B8B4A9", 0.003, 0, dash=[0.015, 0.012])
@@ -705,13 +853,13 @@ c.circle([0.84, 0.47], 0.012, STONE, 2)
 c.text("Baltimore", 0.84, 0.415, 0.025, 2)
 c.circle([0.81, 0.53], 0.012, IRON, 2)
 c.text("Savage, Maryland", 0.765, 0.54, 0.025, 2, align="RIGHT")
-beat("C10", "B25", "fact", "SHOW_CONTEXT", [
+beat("C11", "B25", "fact", "SHOW_CONTEXT", [
     "These trade-offs played out across nineteenth-century America as the railways spread.",
     "In the East, railroads built massive stone viaducts, while western builders generally used timber.",
     "Three documented examples show how differently builders answered."],
     ["CLM_741", "CLM_742"], strategy="CARD", graphic=c.spec(), visual_goal="Schematic map: East and West",
     required_concepts=[])
-beat("C10", "B26", "fact", "SHOW_CONTEXT", [
+beat("C11", "B26", "fact", "SHOW_CONTEXT", [
     "Near Baltimore, the Carrollton Viaduct was completed in 1829.",
     "Built of roughly twelve thousand granite blocks, it carries the railway over Gwynns Falls on an eighty foot arch.",
     "A national report in 2005 called it the world's oldest stone railroad span still in service."],
@@ -720,13 +868,13 @@ beat("C10", "B26", "fact", "SHOW_CONTEXT", [
                        [(0, "Baltimore, Maryland"), (0, "completed 1829"), (1, "about 12,000 granite blocks"),
                         (1, "80 ft arch over Gwynns Falls")],
                        "Photo: William E. Barrett, HAER, Library of Congress (public domain)").spec(), required_concepts=[])
-beat("C10", "B27", "interpretation", "INTRODUCE_ARCHITECTURE", [
+beat("C11", "B27", "interpretation", "INTRODUCE_ARCHITECTURE", [
     "Early railroads needed durable bridges to carry heavy trains.",
     "For a line meant to last, stone was the answer."],
     ["CLM_741", "CLM_725"], strategy="HOLD", camera_move={"type": "PUSH_IN", "amount": 0.14},
     visual_goal="The stone arch archetype", required_concepts=["stone_arch_bridge"],
     annotations=[note("B27_note", "Illustrative model, not the Carrollton Viaduct", 0, position="BOTTOM_RIGHT")])
-beat("C10", "B28", "fact", "SHOW_CONTEXT", [
+beat("C11", "B28", "fact", "SHOW_CONTEXT", [
     "In the West, the pressure was different.",
     "Railroads had to open new lines quickly and economically, and timber was abundant and cheap.",
     "This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad."],
@@ -735,13 +883,13 @@ beat("C10", "B28", "fact", "SHOW_CONTEXT", [
                        [(1, "Timber: abundant, cheap"), (1, "and quick to build"), (2, "near Corinne, Utah"),
                         (2, "Central Pacific, 1872")],
                        "Photo: HAER, Library of Congress (public domain)").spec(), required_concepts=[])
-beat("C10", "B29", "interpretation", "INTRODUCE_ARCHITECTURE", [
+beat("C11", "B29", "interpretation", "INTRODUCE_ARCHITECTURE", [
     "A trestle is a succession of towers supporting short spans.",
     "It is the same beam idea as our timber model, repeated as often as the crossing needs."],
     ["CLM_737"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=0, camera_move={"type": "PUSH_IN", "amount": 0.1},
     visual_goal="The timber archetype's repeated bents", required_concepts=["timber_beam_bridge", "trestle_bent"],
     annotations=[note("B29_note", "Illustrative model, not the Promontory trestle", 0, position="BOTTOM_RIGHT")])
-beat("C10", "B30", "fact", "SHOW_CONTEXT", [
+beat("C11", "B30", "fact", "SHOW_CONTEXT", [
     "Iron offered a third path.",
     "The Bollman truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts.",
     "It could be built relatively quickly and inexpensively, while offering the long-lasting qualities of metal.",
@@ -761,22 +909,58 @@ for k, (asset, label, s) in enumerate((("IMG_HAER_CARROLLTON", "Stone: permanenc
     c.text(label, x0 + 0.135, 0.355, 0.03, s, plate=True)
 c.text("Three places, three sets of constraints", 0.5, 0.27, 0.032, 1, color=MUTED)
 c.text("Photos: HAER, Library of Congress (public domain)", 0.5, 0.215, 0.018, 0, color=MUTED)
-beat("C10", "B31", "interpretation", "SUMMARIZE_DIFFERENCES", [
+beat("C11", "B31", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "Stone for permanence, timber for speed and economy, and iron trusses that offered some of both.",
     "Three places, three sets of constraints, three different bridges."],
     ["CLM_741", "CLM_742", "CLM_744"], strategy="CARD", graphic=c.spec(), visual_goal="Three answers, side by side",
     required_concepts=[])
 
-# C11 -------------------------------------------------------------------------------------------
-beat("C11", "B32", "interpretation", "SUMMARIZE_DIFFERENCES", [
+beat("C11", "B31A", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Long spans forced hard decisions too.",
+    "In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains.",
+    "Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic."],
+    ["CLM_789"], strategy="HOLD", camera_move={"type": "PUSH_IN", "amount": 0.1}, visual_goal="The suspension model",
+    required_concepts=["suspension_bridge"],
+    annotations=[note("B31A_note", "Illustrative model, not the Niagara bridge", 0, position="BOTTOM_RIGHT"),
+                 {**note("B31A_1855", "Niagara Gorge, 1855: trains on a suspension bridge", 1, 2), "claim_id": "CLM_789"},
+                 {**note("B31A_133", "Next railway suspension bridge: 133 years later", 2), "claim_id": "CLM_789"}])
+beat("C11", "B31B", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Cantilevers, by contrast, were first used by the railroads.",
+    "A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it.",
+    "In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world."],
+    ["CLM_790", "CLM_791"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="The rigid cantilever truss",
+    required_concepts=["cantilever_bridge", "cantilever_truss"],
+    annotations=[note("B31B_note", "Illustrative model, not the Kentucky River bridge", 0, position="BOTTOM_RIGHT"),
+                 {**note("B31B_rigid", "Inherently rigid: suited to heavy trains", 1, 2), "claim_id": "CLM_790"},
+                 {**note("B31B_1877", "1877: the world's longest cantilever", 2), "claim_id": "CLM_791"}])
+beat("C11", "B31C", "fact", "SHOW_CONTEXT", [
+    "In San Francisco, the Golden Gate Bridge opened in 1937.",
+    "For 27 years, it stood as the world's longest span."],
+    ["CLM_792"], strategy="CARD", visual_goal="Archival photograph of the Golden Gate Bridge",
+    graphic=photo_card("B31C", "IMG_HAER_GOLDENGATE", "Golden Gate Bridge",
+                       [(0, "San Francisco, California"), (0, "opened 1937"), (1, "World's longest span"),
+                        (1, "for 27 years")],
+                       "Photo: Jet Lowe, HAER, Library of Congress (public domain)").spec(), required_concepts=[])
+beat("C11", "B31D", "fact", "INTRODUCE_ARCHITECTURE", [
+    "Today, the long-span answer in America is usually cable-stayed.",
+    "In Maine, the Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall.",
+    "It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top."],
+    ["CLM_774", "CLM_793"], strategy="HOLD", camera_move={"type": "PUSH_IN", "amount": 0.12}, visual_goal="The cable-stayed model",
+    required_concepts=["cable_stayed_bridge"],
+    annotations=[note("B31D_note", "Illustrative model, not the Penobscot Narrows Bridge", 0, position="BOTTOM_RIGHT"),
+                 {**note("B31D_fact", "Penobscot Narrows, 2006: 430 ft concrete pylons", 1, 2), "claim_id": "CLM_793"},
+                 {**note("B31D_42", "42 months from conception to completion", 2), "claim_id": "CLM_793"}])
+
+# C12 -------------------------------------------------------------------------------------------
+beat("C12", "B32", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "So why don't bridges all look the same?",
     "Because a bridge's form comes from two things working together.",
     "One is how its structure carries load: beams resist bending, arches work in compression, and trusses share load among members in tension and compression."],
     ["CLM_706", "CLM_709", "CLM_712"], strategy="COMPARE_SIDE_BY_SIDE",
     visual_goal="The three structures at one scale", preferred_states=["timber_beam_bridge", "stone_arch_bridge", "steel_truss_bridge"],
-    required_concepts=[], annotations=[note("B32_ch", "11 · Why they look different", 0, 2),
+    required_concepts=[], annotations=[note("B32_ch", "12 · Why they look different", 0, 2),
                                        note("B32_one", "1 · How the structure carries load", 2)])
-beat("C11", "B32L", "interpretation", "SUMMARIZE_DIFFERENCES", [
+beat("C12", "B32L", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables."],
     ["CLM_750", "CLM_760", "CLM_770"], strategy="COMPARE_SIDE_BY_SIDE",
     visual_goal="The three long-span structures at one scale",
@@ -787,7 +971,7 @@ c = Card("B32B")
 c.text("2 \u00b7 The world it was built in", 0.5, 0.66, 0.056, 0)
 for w, x in (("Materials", 0.18), ("Site", 0.34), ("Span", 0.5), ("Budget", 0.66), ("Builders", 0.82)):
     c.text(w, x, 0.46, 0.036, 0, plate=True, word=w.lower())
-beat("C11", "B32B", "interpretation", "SUMMARIZE_DIFFERENCES", [
+beat("C12", "B32B", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "The other is the world it was built in: its materials, its site, its span, its budget and its builders."],
     ["CLM_742", "CLM_724"], strategy="CARD", graphic=c.spec(), visual_goal="The second answer: the world around it",
     required_concepts=[])
@@ -796,15 +980,18 @@ c = timeline("B33", TL_EVENTS, [(1929, 1939, "Stone arches return briefly", STON
              extra=lambda c: (c.text("Today: timber beam bridges", 0.8, 0.86, 0.025, 1, plate=True),
                               c.text("are still built on quiet roads", 0.8, 0.805, 0.025, 1, plate=True),
                               c.text("Most common steel bridge:", 0.24, 0.86, 0.025, 2, plate=True, word="common"),
-                              c.text("the plate girder, a beam", 0.24, 0.805, 0.025, 2, plate=True, word="common")))
-beat("C11", "B33", "interpretation", "SUMMARIZE_DIFFERENCES", [
+                              c.text("the plate girder, a beam", 0.24, 0.805, 0.025, 2, plate=True, word="common"),
+                              c.text("Small suspension bridges:", 0.79, 0.3, 0.025, 3, plate=True, word="small"),
+                              c.text("simple and easy to put up", 0.79, 0.245, 0.025, 3, plate=True, word="small")))
+beat("C12", "B33", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "And it is not a simple story of progress.",
     "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression.",
     "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+    "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up.",
     "Each form can still be the right answer in the right place."],
-    ["CLM_721", "CLM_738", "CLM_777"], strategy="CARD", graphic=c.spec(), visual_goal="Not a linear progression (timeline)",
+    ["CLM_721", "CLM_738", "CLM_777", "CLM_767"], strategy="CARD", graphic=c.spec(), visual_goal="Not a linear progression (timeline)",
     required_concepts=[])
-beat("C11", "B34", "framing", "INTRODUCE_ARCHITECTURE", [
+beat("C12", "B34", "framing", "INTRODUCE_ARCHITECTURE", [
     "Next time you cross a bridge, look at its shape.",
     "It shows how the load reaches the ground, and something about the people who built it.",
     "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces."],
@@ -823,7 +1010,7 @@ for y, line in ((0.665, "Archival photographs: Historic American Engineering Rec
                 (0.385, "3D models and diagrams are illustrative, not engineering designs")):
     c.text(line, 0.5, y, 0.026, 0, color=MUTED)
 c.text("Architecture Story Studio", 0.5, 0.28, 0.032, 0)
-beat("C11", "B35", "framing", "SHOW_CONTEXT", ["Thank you very much for watching.", "The sources and photo credits are listed in the description."], strategy="CARD", graphic=c.spec(),
+beat("C12", "B35", "framing", "SHOW_CONTEXT", ["Thank you very much for watching.", "The sources and photo credits are listed in the description."], strategy="CARD", graphic=c.spec(),
      visual_goal="Credits", required_concepts=[])
 
 
@@ -836,7 +1023,7 @@ def main():
     doc = {"schema": "narrative_beats/1", "project_id": "why-bridges-look-different",
            "title": "Why Bridges Don't All Look the Same", "status": "INTERNAL_REVIEW_DRAFT", "timing_mode": "AUDIO_LOCKED",
            "publication": {"restriction": "INTERNAL_ONLY",
-                           "reason": "M8 revision m8-r1: claims are source-verified, not yet editorially approved; review cut only."},
+                           "reason": "M8 revision m8-r2: claims are source-verified, not yet editorially approved; review cut only."},
            "beats": []}
     for b in BEATS:
         v = dict(b["visual"])

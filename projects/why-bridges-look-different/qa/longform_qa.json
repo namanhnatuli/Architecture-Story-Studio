@@ -1,27 +1,27 @@
 {
-  "utc": "2026-11-03T16:01:29.956375+00:00",
+  "utc": "2026-11-03T20:31:05.287753+00:00",
   "preset": "internal_1080p",
-  "timing_sha256": "4952397e26296b4b42d1f6d473758f994b1baba17e11ae3b05c0bbbdfa178a93",
+  "timing_sha256": "74329d8cbef6b02933c2c2bf82a3a58e0fe9d75130b415c4d74aa887ef8db516",
   "results": [
     {
       "check": "chapters_structure",
       "status": "PASS",
-      "detail": "11 chapters cover every beat contiguously, in order"
+      "detail": "12 chapters cover every beat contiguously, in order"
     },
     {
       "check": "chapter_durations",
       "status": "PASS",
-      "detail": "C1 52s, C2 49s, C3 67s, C4 82s, C5 84s, C6 79s, C7 62s, C8 74s, C9 102s, C10 127s, C11 90s"
+      "detail": "C1 52s, C2 49s, C3 67s, C4 82s, C5 84s, C6 79s, C7 62s, C8 74s, C9 167s, C10 116s, C11 228s, C12 99s"
     },
     {
       "check": "runtime",
       "status": "PASS",
-      "detail": "14.46 min (20823 frames); acceptable 8-15 min"
+      "detail": "19.32 min (27828 frames); acceptable 8-20 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
     },
     {
       "check": "no_duplicate_shots",
       "status": "PASS",
-      "detail": "63 unique shots"
+      "detail": "75 unique shots"
     },
     {
       "check": "no_repeated_sentences",
@@ -31,7 +31,7 @@
     {
       "check": "narration_sentences_complete",
       "status": "PASS",
-      "detail": "133 sentences scheduled, same text and order as narration.json"
+      "detail": "167 sentences scheduled, same text and order as narration.json"
     },
     {
       "check": "audio_no_overlap",
@@ -46,12 +46,12 @@
     {
       "check": "no_static_stretches",
       "status": "PASS",
-      "detail": "longest stretch without a visual change 12.4s at 527.0s (limit 14.0s)"
+      "detail": "longest stretch without a visual change 13.5s at 616.4s (limit 14.0s)"
     },
     {
       "check": "visual_variety",
       "status": "PASS",
-      "detail": "longest run of one visual kind: 3 x 3D_HOLD (limit 4); 3D_EXPLODED_VIEW 6, 3D_HOLD 28, 3D_PUSH_IN 4, 3D_REPLACE_PARTS 3, 3D_SIDE_BY_SIDE 3, DIAGRAM 9, PHOTO 7, TITLE 3"
+      "detail": "longest run of one visual kind: 3 x 3D_HOLD (limit 4); 3D_EXPLODED_VIEW 6, 3D_HOLD 33, 3D_PUSH_IN 7, 3D_REPLACE_PARTS 3, 3D_SIDE_BY_SIDE 3, DIAGRAM 12, PHOTO 8, TITLE 3"
     },
     {
       "check": "no_repeated_visuals",
@@ -61,17 +61,17 @@
     {
       "check": "chapter_openings",
       "status": "PASS",
-      "detail": "chapters 2-11 open with a numbered title on their first shot"
+      "detail": "chapters 2-12 open with a numbered title on their first shot"
     },
     {
       "check": "annotations_consistent",
       "status": "PASS",
-      "detail": "narration/visual consistency: no contradiction; 2 UNCERTAIN for the reviewer (B33.s3 SIDE, B34.s2 ARROWS); every annotation placed"
+      "detail": "narration/visual consistency: no contradiction; 2 UNCERTAIN for the reviewer (B33.s4 SIDE, B34.s2 ARROWS); every annotation placed"
     },
     {
       "check": "render_cache_current",
       "status": "PASS",
-      "detail": "all 63 shots rendered at internal_1080p with current cache keys"
+      "detail": "all 75 shots rendered at internal_1080p with current cache keys"
     },
     {
       "check": "chapter_variety",
@@ -81,7 +81,7 @@
     {
       "check": "image_licences",
       "status": "PASS",
-      "detail": "6 external images, all approved with matching files"
+      "detail": "7 external images, all approved with matching files"
     },
     {
       "check": "image_attribution",

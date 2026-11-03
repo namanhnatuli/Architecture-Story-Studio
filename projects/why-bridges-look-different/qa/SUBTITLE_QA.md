@@ -1,7 +1,7 @@
 # Subtitle QA
 
-- File: `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.en.srt` — 199 cues for 133 sentences; 122 two-line cues; longest line 42 chars (limit 42); max reading speed 18.0 chars/s.
-- Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: 66; sentence-span fallbacks: 0.
+- File: `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.en.srt` — 264 cues for 167 sentences; 167 two-line cues; longest line 42 chars (limit 42); max reading speed 18.0 chars/s.
+- Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: 97; sentence-span fallbacks: 0.
 - Text comes from the script (official spellings kept); ASR text is never used as subtitle text.
 - Problems: none
 - Warnings: 8
@@ -10,9 +10,9 @@
   - cue 82 (B41.s1): 17.3 characters/s (> 17.0)
   - cue 104 (B47.s1): 17.3 characters/s (> 17.0)
   - cue 124 (B53.s0): 17.5 characters/s (> 17.0)
-  - cue 150 (B25.s0): 17.4 characters/s (> 17.0)
-  - cue 173 (B30.s2): 18.0 characters/s (> 17.0)
-  - cue 190 (B33.s2): 17.2 characters/s (> 17.0)
+  - cue 190 (B25.s0): 17.4 characters/s (> 17.0)
+  - cue 213 (B30.s2): 18.0 characters/s (> 17.0)
+  - cue 252 (B33.s2): 17.2 characters/s (> 17.0)
 
 | # | Start | End | Dur | cps | Lines (chars) | Timing source | Break (audio level) |
 |---|---|---|---|---|---|---|---|
@@ -157,61 +157,126 @@
 | 139 | 596.817 | 600.892 | 4.08 | 14.0 | That is one reason many timber (30) / truss bridges were covered (26) | whisper word alignment + waveform | after “covered” at 4.08s (-37.1 dBFS) |
 | 140 | 600.892 | 604.992 | 4.10 | 13.9 | with a roof and siding, (23) / to protect them from the weather. (33) | whisper word alignment + waveform | sentence end |
 | 141 | 605.142 | 611.867 | 6.73 | 10.3 | This is the Humpback Covered Bridge, (36) / built in 1857 over Dunlap Creek. (32) | sentence span | sentence end |
-| 142 | 612.817 | 615.742 | 2.92 | 11.3 | The site of a bridge matters too. (33) | sentence span | sentence end |
-| 143 | 615.892 | 621.867 | 5.98 | 12.2 | Railway engines have limited traction, (38) / so railways need gentle gradients. (34) | sentence span | sentence end |
-| 144 | 622.017 | 626.472 | 4.46 | 14.4 | Where a valley was too deep (27) / and wide to fill with an embankment, (36) | whisper word alignment + waveform | after “embankment,” at 4.46s (-82.4 dBFS) |
-| 145 | 626.472 | 631.917 | 5.44 | 14.9 | engineers built viaducts and trestles to (40) / keep the line nearly straight and level. (40) | whisper word alignment + waveform | sentence end |
-| 146 | 632.900 | 636.725 | 3.83 | 11.0 | Finally, every bridge belongs to its time. (42) | sentence span | sentence end |
-| 147 | 636.875 | 640.740 | 3.87 | 13.5 | As metal trusses spread, (24) / skilled masons became fewer (27) | whisper word alignment + waveform | after “fewer” at 3.87s (-30.3 dBFS) |
-| 148 | 640.740 | 646.225 | 5.49 | 12.0 | and reinforced concrete arrived, (32) / stone arch construction declined. (33) | whisper word alignment + waveform | sentence end |
-| 149 | 646.375 | 650.600 | 4.23 | 13.0 | Then, during the Great Depression, (34) / it briefly returned. (20) | sentence span | sentence end |
-| 150 | 651.567 | 655.082 | 3.51 | 17.4 | These trade-offs played out (27) / across nineteenth-century America (33) | whisper word alignment + waveform | after “America” at 3.52s (-74.8 dBFS) |
-| 151 | 655.082 | 657.767 | 2.68 | 8.6 | as the railways spread. (23) | whisper word alignment + waveform | sentence end |
-| 152 | 657.917 | 661.782 | 3.87 | 13.5 | In the East, railroads built (28) / massive stone viaducts, (23) | whisper word alignment + waveform | after “viaducts,” at 3.87s (-72.7 dBFS) |
-| 153 | 661.782 | 665.542 | 3.76 | 12.0 | while western builders (22) / generally used timber. (22) | whisper word alignment + waveform | sentence end |
-| 154 | 665.692 | 670.992 | 5.30 | 12.3 | Three documented examples show (30) / how differently builders answered. (34) | sentence span | sentence end |
-| 155 | 671.942 | 677.867 | 5.92 | 10.3 | Near Baltimore, the Carrollton (30) / Viaduct was completed in 1829. (30) | sentence span | sentence end |
-| 156 | 678.017 | 681.122 | 3.11 | 15.5 | Built of roughly twelve (23) / thousand granite blocks, (24) | whisper word alignment + waveform | after “blocks,” at 3.10s (-75.6 dBFS) |
-| 157 | 681.122 | 686.292 | 5.17 | 12.4 | it carries the railway over Gwynns (34) / Falls on an eighty foot arch. (29) | whisper word alignment + waveform | sentence end |
-| 158 | 686.442 | 692.427 | 5.99 | 13.4 | A national report in 2005 called it the (39) / world's oldest stone railroad span still (40) | whisper word alignment + waveform | after “still” at 5.99s (-77.8 dBFS) |
-| 159 | 692.427 | 694.117 | 1.69 | 6.5 | in service. (11) | whisper word alignment + waveform | sentence end |
-| 160 | 695.067 | 700.042 | 4.97 | 12.3 | Early railroads needed durable (30) / bridges to carry heavy trains. (30) | sentence span | sentence end |
-| 161 | 700.192 | 704.217 | 4.02 | 11.7 | For a line meant to last, (25) / stone was the answer. (21) | sentence span | sentence end |
-| 162 | 705.192 | 708.292 | 3.10 | 12.9 | In the West, the pressure was different. (40) | sentence span | sentence end |
-| 163 | 708.442 | 712.207 | 3.76 | 15.1 | Railroads had to open new (25) / lines quickly and economically, (31) | whisper word alignment + waveform | after “economically,” at 3.77s (-82.8 dBFS) |
-| 164 | 712.207 | 715.342 | 3.13 | 10.8 | and timber was abundant and cheap. (34) | whisper word alignment + waveform | sentence end |
-| 165 | 715.492 | 718.727 | 3.24 | 12.1 | This timber trestle near Corinne, Utah, (39) | whisper word alignment + waveform | after “Utah,” at 3.23s (-79.7 dBFS) |
-| 166 | 718.727 | 723.992 | 5.26 | 9.5 | was built in 1872 by the (24) / Central Pacific Railroad. (25) | whisper word alignment + waveform | sentence end |
-| 167 | 724.942 | 729.642 | 4.70 | 12.6 | A trestle is a succession of (28) / towers supporting short spans. (30) | sentence span | sentence end |
-| 168 | 729.792 | 734.337 | 4.54 | 13.9 | It is the same beam idea as our (31) / timber model, repeated as often (31) | whisper word alignment + waveform | after “often” at 4.54s (-48.0 dBFS) |
-| 169 | 734.337 | 736.467 | 2.13 | 10.3 | as the crossing needs. (22) | whisper word alignment + waveform | sentence end |
-| 170 | 737.442 | 740.192 | 2.75 | 9.5 | Iron offered a third path. (26) | sentence span | sentence end |
-| 171 | 740.342 | 743.957 | 3.62 | 10.0 | The Bollman truss, patented in 1852, (36) | whisper word alignment + waveform | after “1852,” at 3.62s (-69.6 dBFS) |
-| 172 | 743.957 | 750.142 | 6.18 | 13.3 | was one of the first designs to use iron (40) / in all of its essential structural parts. (41) | whisper word alignment + waveform | sentence end |
-| 173 | 750.292 | 752.287 | 2.00 | 18.0 | It could be built relatively quickly (36) | whisper word alignment + waveform | after “quickly” at 2.00s (-73.7 dBFS) |
-| 174 | 752.287 | 757.842 | 5.56 | 12.6 | and inexpensively, while offering (33) / the long-lasting qualities of metal. (36) | whisper word alignment + waveform | sentence end |
-| 175 | 757.992 | 764.192 | 6.20 | 12.3 | The bridge at Savage, Maryland, is the (38) / only remaining example of the design. (37) | sentence span | sentence end |
-| 176 | 765.150 | 766.975 | 1.83 | 11.5 | Stone for permanence, (21) | whisper word alignment + waveform | after “permanence,” at 1.82s (-81.2 dBFS) |
-| 177 | 766.975 | 772.225 | 5.25 | 13.9 | timber for speed and economy, and iron (38) / trusses that offered some of both. (34) | whisper word alignment + waveform | sentence end |
-| 178 | 772.375 | 777.250 | 4.88 | 13.3 | Three places, three sets of constraints, (40) / three different bridges. (24) | sentence span | sentence end |
-| 179 | 778.233 | 781.458 | 3.23 | 12.1 | So why don't bridges all look the same? (39) | sentence span | sentence end |
-| 180 | 781.608 | 786.333 | 4.73 | 13.3 | Because a bridge's form comes (29) / from two things working together. (33) | sentence span | sentence end |
-| 181 | 786.483 | 791.968 | 5.49 | 13.1 | One is how its structure carries load: (38) / beams resist bending, arches work (33) | whisper word alignment + waveform | after “work” at 5.49s (-73.3 dBFS) |
-| 182 | 791.968 | 797.708 | 5.74 | 13.9 | in compression, and trusses share load (38) / among members in tension and compression. (41) | whisper word alignment + waveform | sentence end |
-| 183 | 798.692 | 801.107 | 2.41 | 16.1 | Cantilevers reach out from their piers, (39) | whisper word alignment + waveform | after “piers,” at 2.42s (-79.9 dBFS) |
-| 184 | 801.107 | 806.867 | 5.76 | 13.0 | and suspension and cable-stayed bridges (39) / hang their decks from steel cables. (35) | whisper word alignment + waveform | sentence end |
-| 185 | 807.817 | 813.322 | 5.50 | 13.4 | The other is the world it was built in: (39) / its materials, its site, its span, (34) | whisper word alignment + waveform | after “span,” at 5.50s (-60.0 dBFS) |
-| 186 | 813.322 | 815.517 | 2.19 | 12.8 | its budget and its builders. (28) | whisper word alignment + waveform | sentence end |
-| 187 | 816.483 | 820.033 | 3.55 | 11.5 | And it is not a simple story of progress. (41) | sentence span | sentence end |
-| 188 | 820.183 | 822.948 | 2.76 | 15.2 | Timber beam bridges are still built today, (42) | whisper word alignment + waveform | after “today,” at 2.77s (-83.6 dBFS) |
-| 189 | 822.948 | 827.633 | 4.69 | 13.2 | and stone arches briefly returned (33) / during the Great Depression. (28) | whisper word alignment + waveform | sentence end |
-| 190 | 827.783 | 831.448 | 3.66 | 17.2 | And the most common steel bridge (32) / today is still a kind of beam: (30) | whisper word alignment + waveform | after “beam:” at 3.67s (-77.7 dBFS) |
-| 191 | 831.448 | 833.983 | 2.54 | 9.5 | the welded plate girder. (24) | whisper word alignment + waveform | sentence end |
-| 192 | 834.133 | 838.358 | 4.23 | 14.0 | Each form can still be the (26) / right answer in the right place. (32) | sentence span | sentence end |
-| 193 | 839.317 | 843.017 | 3.70 | 13.0 | Next time you cross a bridge, (29) / look at its shape. (18) | sentence span | sentence end |
-| 194 | 843.167 | 846.062 | 2.89 | 14.2 | It shows how the load reaches the ground, (41) | whisper word alignment + waveform | after “ground,” at 2.90s (-68.3 dBFS) |
-| 195 | 846.062 | 849.192 | 3.13 | 14.1 | and something about the (23) / people who built it. (20) | whisper word alignment + waveform | sentence end |
-| 196 | 849.342 | 851.687 | 2.35 | 13.2 | These models are illustrations, (31) | whisper word alignment + waveform | after “illustrations,” at 2.35s (-74.7 dBFS) |
-| 197 | 851.687 | 858.292 | 6.60 | 11.2 | not engineering designs, and the arrows (39) / show ideas, not calculated forces. (34) | whisper word alignment + waveform | sentence end |
-| 198 | 859.275 | 862.100 | 2.83 | 11.7 | Thank you very much for watching. (33) | sentence span | sentence end |
-| 199 | 862.250 | 867.075 | 4.83 | 12.4 | The sources and photo credits (29) / are listed in the description. (30) | sentence span | sentence end |
+| 142 | 612.817 | 616.342 | 3.52 | 12.2 | Cables have a materials (23) / story of their own. (19) | sentence span | sentence end |
+| 143 | 616.492 | 621.037 | 4.54 | 13.9 | America's first metal suspension (32) / bridges hung from iron chains, (30) | whisper word alignment + waveform | after “chains,” at 4.54s (-71.5 dBFS) |
+| 144 | 621.037 | 626.397 | 5.36 | 14.0 | and many failed after only a few years: (39) / critics said such a bridge was only (35) | whisper word alignment + waveform | after “only” at 9.90s (-30.3 dBFS) |
+| 145 | 626.397 | 629.967 | 3.57 | 13.7 | as good as the weakest link (27) / in one of its chains. (21) | whisper word alignment + waveform | sentence end |
+| 146 | 630.117 | 632.472 | 2.36 | 13.2 | Wire cables answered that fear, (31) | whisper word alignment + waveform | after “fear,” at 2.35s (-82.1 dBFS) |
+| 147 | 632.472 | 638.592 | 6.12 | 12.9 | and suspension and cable-stayed bridges (39) / now rely on high-strength steel cables. (39) | whisper word alignment + waveform | sentence end |
+| 148 | 639.567 | 642.492 | 2.92 | 11.3 | The site of a bridge matters too. (33) | sentence span | sentence end |
+| 149 | 642.642 | 648.617 | 5.98 | 12.2 | Railway engines have limited traction, (38) / so railways need gentle gradients. (34) | sentence span | sentence end |
+| 150 | 648.767 | 653.222 | 4.46 | 14.4 | Where a valley was too deep (27) / and wide to fill with an embankment, (36) | whisper word alignment + waveform | after “embankment,” at 4.46s (-82.4 dBFS) |
+| 151 | 653.222 | 658.667 | 5.44 | 14.9 | engineers built viaducts and trestles to (40) / keep the line nearly straight and level. (40) | whisper word alignment + waveform | sentence end |
+| 152 | 659.650 | 664.400 | 4.75 | 12.0 | Long spans make the ground (26) / beneath them matter even more. (30) | sentence span | sentence end |
+| 153 | 664.550 | 668.595 | 4.04 | 15.6 | A suspension bridge has to anchor (33) / its cables in massive blocks, (29) | whisper word alignment + waveform | after “blocks,” at 4.04s (-79.5 dBFS) |
+| 154 | 668.595 | 671.375 | 2.78 | 8.3 | or directly in bedrock. (23) | whisper word alignment + waveform | sentence end |
+| 155 | 671.525 | 674.000 | 2.48 | 14.5 | The towers of a cable-stayed bridge, (36) | whisper word alignment + waveform | after “bridge,” at 2.48s (-71.6 dBFS) |
+| 156 | 674.000 | 679.375 | 5.38 | 13.4 | by contrast, can be built where good (36) / rock does not lie near the surface. (35) | whisper word alignment + waveform | sentence end |
+| 157 | 680.358 | 684.508 | 4.15 | 11.8 | Cantilevers had an advantage (28) / on uncertain ground. (20) | sentence span | sentence end |
+| 158 | 684.658 | 689.283 | 4.62 | 13.0 | Unstable soil troubled many foundations, (40) / and if a pier sank, (19) | whisper word alignment + waveform | after “sank,” at 4.62s (-74.1 dBFS) |
+| 159 | 689.283 | 694.258 | 4.98 | 12.5 | a cantilever could adjust, (26) / where a continuous beam might fail. (35) | whisper word alignment + waveform | sentence end |
+| 160 | 695.233 | 697.708 | 2.48 | 9.3 | Then there is the wind. (23) | sentence span | sentence end |
+| 161 | 697.858 | 703.603 | 5.75 | 12.2 | In 1940, the four-month-old Tacoma (34) / Narrows suspension bridge collapsed (35) | whisper word alignment + waveform | after “collapsed” at 5.75s (-75.1 dBFS) |
+| 162 | 703.603 | 706.483 | 2.88 | 10.4 | in only moderately high winds. (30) | whisper word alignment + waveform | sentence end |
+| 163 | 706.633 | 710.288 | 3.65 | 12.3 | The disaster led to (19) / intense research on wind, (25) | whisper word alignment + waveform | after “wind,” at 3.65s (-77.3 dBFS) |
+| 164 | 710.288 | 715.708 | 5.42 | 14.2 | and later suspension bridges were built (39) / to new standards for stiffened decks. (37) | whisper word alignment + waveform | sentence end |
+| 165 | 716.692 | 719.467 | 2.77 | 9.4 | Span decides a great deal. (26) | sentence span | sentence end |
+| 166 | 719.617 | 720.912 | 1.29 | 6.9 | In steel, (9) | whisper word alignment + waveform | after “steel,” at 1.29s (-71.9 dBFS) |
+| 167 | 720.912 | 726.332 | 5.42 | 12.4 | a federal handbook puts plate girders (37) / at about 90 to over 500 feet, (29) | whisper word alignment + waveform | after “feet,” at 6.71s (-73.4 dBFS) |
+| 168 | 726.332 | 733.217 | 6.88 | 11.5 | simple trusses at up to about 750, and (38) / cantilever trusses considerably farther. (40) | whisper word alignment + waveform | sentence end |
+| 169 | 733.367 | 738.002 | 4.63 | 10.6 | Arches have spanned (19) / from about 200 to 1,800 feet, (29) | whisper word alignment + waveform | after “feet,” at 4.63s (-81.3 dBFS) |
+| 170 | 738.002 | 743.642 | 5.64 | 9.9 | and cable-stayed bridges (24) / from under 200 to nearly 3,000. (31) | whisper word alignment + waveform | sentence end |
+| 171 | 743.792 | 745.277 | 1.49 | 9.4 | And as we saw, (14) | whisper word alignment + waveform | after “saw,” at 1.49s (-74.3 dBFS) |
+| 172 | 745.277 | 750.742 | 5.47 | 12.1 | suspension bridges only pay off (31) / as main spans approach 3,000 feet. (34) | whisper word alignment + waveform | sentence end |
+| 173 | 751.692 | 755.192 | 3.50 | 12.6 | Cost and skill pull (19) / in different directions. (24) | sentence span | sentence end |
+| 174 | 755.342 | 761.417 | 6.07 | 11.9 | A cantilever avoided the expensive (34) / anchorages a suspension bridge needs. (37) | sentence span | sentence end |
+| 175 | 761.567 | 766.042 | 4.48 | 12.7 | And a suspension bridge often (29) / takes a long time to build: (27) | whisper word alignment + waveform | after “build:” at 4.47s (-75.9 dBFS) |
+| 176 | 766.042 | 772.242 | 6.20 | 12.6 | installing its main cables calls for (36) / expertise that very few contractors have. (41) | whisper word alignment + waveform | sentence end |
+| 177 | 773.192 | 776.487 | 3.29 | 17.0 | Cable-stayed bridges are (24) / becoming more common worldwide, (31) | whisper word alignment + waveform | after “worldwide,” at 3.29s (-40.3 dBFS) |
+| 178 | 776.487 | 779.117 | 2.63 | 11.0 | and one significant reason is (29) | whisper word alignment + waveform | after “is” at 5.92s (-49.5 dBFS) |
+| 179 | 779.117 | 783.942 | 4.83 | 12.6 | that the methods for erecting (29) / them are now better understood. (31) | whisper word alignment + waveform | sentence end |
+| 180 | 784.900 | 788.725 | 3.83 | 11.0 | Finally, every bridge belongs to its time. (42) | sentence span | sentence end |
+| 181 | 788.875 | 792.740 | 3.87 | 13.5 | As metal trusses spread, (24) / skilled masons became fewer (27) | whisper word alignment + waveform | after “fewer” at 3.87s (-30.3 dBFS) |
+| 182 | 792.740 | 798.225 | 5.49 | 12.0 | and reinforced concrete arrived, (32) / stone arch construction declined. (33) | whisper word alignment + waveform | sentence end |
+| 183 | 798.375 | 802.600 | 4.23 | 13.0 | Then, during the Great Depression, (34) / it briefly returned. (20) | sentence span | sentence end |
+| 184 | 803.567 | 806.992 | 3.42 | 11.7 | Long spans have a timeline of their own. (40) | sentence span | sentence end |
+| 185 | 807.142 | 813.037 | 5.89 | 10.2 | By 1849, a suspension bridge (28) / at Wheeling spanned 1,010 feet, (31) | whisper word alignment + waveform | after “feet,” at 5.89s (-78.0 dBFS) |
+| 186 | 813.037 | 816.767 | 3.73 | 12.6 | the longest bridge (18) / in the world for many years. (28) | whisper word alignment + waveform | sentence end |
+| 187 | 816.917 | 822.792 | 5.88 | 12.3 | Cantilevers were a standard American (36) / answer from the 1880s to the 1960s, (35) | whisper word alignment + waveform | after “1960s,” at 5.88s (-82.4 dBFS) |
+| 188 | 822.792 | 826.572 | 3.78 | 11.4 | and since 1980 almost (21) / every American bridge (21) | whisper word alignment + waveform | after “bridge” at 9.65s (-47.0 dBFS) |
+| 189 | 826.572 | 831.467 | 4.90 | 11.2 | with a main span over 1,000 (27) / feet has been cable-stayed. (27) | whisper word alignment + waveform | sentence end |
+| 190 | 832.442 | 835.957 | 3.51 | 17.4 | These trade-offs played out (27) / across nineteenth-century America (33) | whisper word alignment + waveform | after “America” at 3.52s (-74.8 dBFS) |
+| 191 | 835.957 | 838.642 | 2.68 | 8.6 | as the railways spread. (23) | whisper word alignment + waveform | sentence end |
+| 192 | 838.792 | 842.657 | 3.87 | 13.5 | In the East, railroads built (28) / massive stone viaducts, (23) | whisper word alignment + waveform | after “viaducts,” at 3.87s (-72.7 dBFS) |
+| 193 | 842.657 | 846.417 | 3.76 | 12.0 | while western builders (22) / generally used timber. (22) | whisper word alignment + waveform | sentence end |
+| 194 | 846.567 | 851.867 | 5.30 | 12.3 | Three documented examples show (30) / how differently builders answered. (34) | sentence span | sentence end |
+| 195 | 852.817 | 858.742 | 5.92 | 10.3 | Near Baltimore, the Carrollton (30) / Viaduct was completed in 1829. (30) | sentence span | sentence end |
+| 196 | 858.892 | 861.997 | 3.11 | 15.5 | Built of roughly twelve (23) / thousand granite blocks, (24) | whisper word alignment + waveform | after “blocks,” at 3.10s (-75.6 dBFS) |
+| 197 | 861.997 | 867.167 | 5.17 | 12.4 | it carries the railway over Gwynns (34) / Falls on an eighty foot arch. (29) | whisper word alignment + waveform | sentence end |
+| 198 | 867.317 | 873.302 | 5.99 | 13.4 | A national report in 2005 called it the (39) / world's oldest stone railroad span still (40) | whisper word alignment + waveform | after “still” at 5.99s (-77.8 dBFS) |
+| 199 | 873.302 | 874.992 | 1.69 | 6.5 | in service. (11) | whisper word alignment + waveform | sentence end |
+| 200 | 875.942 | 880.917 | 4.97 | 12.3 | Early railroads needed durable (30) / bridges to carry heavy trains. (30) | sentence span | sentence end |
+| 201 | 881.067 | 885.092 | 4.02 | 11.7 | For a line meant to last, (25) / stone was the answer. (21) | sentence span | sentence end |
+| 202 | 886.067 | 889.167 | 3.10 | 12.9 | In the West, the pressure was different. (40) | sentence span | sentence end |
+| 203 | 889.317 | 893.082 | 3.76 | 15.1 | Railroads had to open new (25) / lines quickly and economically, (31) | whisper word alignment + waveform | after “economically,” at 3.77s (-82.8 dBFS) |
+| 204 | 893.082 | 896.217 | 3.13 | 10.8 | and timber was abundant and cheap. (34) | whisper word alignment + waveform | sentence end |
+| 205 | 896.367 | 899.602 | 3.24 | 12.1 | This timber trestle near Corinne, Utah, (39) | whisper word alignment + waveform | after “Utah,” at 3.23s (-79.7 dBFS) |
+| 206 | 899.602 | 904.867 | 5.26 | 9.5 | was built in 1872 by the (24) / Central Pacific Railroad. (25) | whisper word alignment + waveform | sentence end |
+| 207 | 905.817 | 910.517 | 4.70 | 12.6 | A trestle is a succession of (28) / towers supporting short spans. (30) | sentence span | sentence end |
+| 208 | 910.667 | 915.212 | 4.54 | 13.9 | It is the same beam idea as our (31) / timber model, repeated as often (31) | whisper word alignment + waveform | after “often” at 4.54s (-48.0 dBFS) |
+| 209 | 915.212 | 917.342 | 2.13 | 10.3 | as the crossing needs. (22) | whisper word alignment + waveform | sentence end |
+| 210 | 918.317 | 921.067 | 2.75 | 9.5 | Iron offered a third path. (26) | sentence span | sentence end |
+| 211 | 921.217 | 924.832 | 3.62 | 10.0 | The Bollman truss, patented in 1852, (36) | whisper word alignment + waveform | after “1852,” at 3.62s (-69.6 dBFS) |
+| 212 | 924.832 | 931.017 | 6.18 | 13.3 | was one of the first designs to use iron (40) / in all of its essential structural parts. (41) | whisper word alignment + waveform | sentence end |
+| 213 | 931.167 | 933.162 | 2.00 | 18.0 | It could be built relatively quickly (36) | whisper word alignment + waveform | after “quickly” at 2.00s (-73.7 dBFS) |
+| 214 | 933.162 | 938.717 | 5.56 | 12.6 | and inexpensively, while offering (33) / the long-lasting qualities of metal. (36) | whisper word alignment + waveform | sentence end |
+| 215 | 938.867 | 945.067 | 6.20 | 12.3 | The bridge at Savage, Maryland, is the (38) / only remaining example of the design. (37) | sentence span | sentence end |
+| 216 | 946.025 | 947.850 | 1.83 | 11.5 | Stone for permanence, (21) | whisper word alignment + waveform | after “permanence,” at 1.82s (-81.2 dBFS) |
+| 217 | 947.850 | 953.100 | 5.25 | 13.9 | timber for speed and economy, and iron (38) / trusses that offered some of both. (34) | whisper word alignment + waveform | sentence end |
+| 218 | 953.250 | 958.125 | 4.88 | 13.3 | Three places, three sets of constraints, (40) / three different bridges. (24) | sentence span | sentence end |
+| 219 | 959.108 | 962.558 | 3.45 | 10.7 | Long spans forced hard decisions too. (37) | sentence span | sentence end |
+| 220 | 962.708 | 964.953 | 2.25 | 3.6 | In 1855, (8) | whisper word alignment + waveform | after “1855,” at 2.25s (-72.6 dBFS) |
+| 221 | 964.953 | 969.683 | 4.73 | 15.6 | John Roebling's suspension bridge (33) / carried trains across the Niagara Gorge, (40) | whisper word alignment + waveform | after “Gorge,” at 6.97s (-77.5 dBFS) |
+| 222 | 969.683 | 971.933 | 2.25 | 13.8 | but railroad executives doubted (31) | whisper word alignment + waveform | after “doubted” at 9.22s (-42.7 dBFS) |
+| 223 | 971.933 | 975.708 | 3.77 | 12.7 | that suspension bridges (23) / could bear heavy trains. (24) | whisper word alignment + waveform | sentence end |
+| 224 | 975.858 | 980.663 | 4.80 | 13.9 | Their doubts were not unjustified: (34) / the bridge needed major repairs, (32) | whisper word alignment + waveform | after “repairs,” at 4.80s (-57.7 dBFS) |
+| 225 | 980.663 | 986.813 | 6.15 | 9.4 | was declared inadequate in 1890, (32) / and it would be 133 years (25) | whisper word alignment + waveform | after “years” at 10.96s (-50.0 dBFS) |
+| 226 | 986.813 | 991.308 | 4.49 | 14.0 | before another suspension bridge (32) / was built for railway traffic. (30) | whisper word alignment + waveform | sentence end |
+| 227 | 992.275 | 997.400 | 5.12 | 11.5 | Cantilevers, by contrast, (25) / were first used by the railroads. (33) | sentence span | sentence end |
+| 228 | 997.550 | 1000.085 | 2.53 | 13.0 | A cantilever is inherently rigid, (33) | whisper word alignment + waveform | after “rigid,” at 2.54s (-80.0 dBFS) |
+| 229 | 1000.085 | 1006.100 | 6.02 | 13.0 | so if properly designed, heavy locomotives (42) / pulling trains are no threat to it. (35) | whisper word alignment + waveform | sentence end |
+| 230 | 1006.250 | 1009.375 | 3.12 | 7.7 | In 1877, one carried the (24) | whisper word alignment + waveform | after “the” at 3.12s (-44.2 dBFS) |
+| 231 | 1009.375 | 1015.565 | 6.19 | 12.1 | Cincinnati Southern Railroad across (35) / the 275-foot-deep Kentucky River gorge: (39) | whisper word alignment + waveform | after “gorge:” at 9.31s (-84.0 dBFS) |
+| 232 | 1015.565 | 1018.800 | 3.23 | 11.1 | the longest cantilever in the world. (36) | whisper word alignment + waveform | sentence end |
+| 233 | 1019.775 | 1025.850 | 6.07 | 9.2 | In San Francisco, the Golden (28) / Gate Bridge opened in 1937. (27) | sentence span | sentence end |
+| 234 | 1026.000 | 1031.050 | 5.05 | 10.1 | For 27 years, it stood (22) / as the world's longest span. (28) | sentence span | sentence end |
+| 235 | 1032.025 | 1037.425 | 5.40 | 11.7 | Today, the long-span answer (27) / in America is usually cable-stayed. (35) | sentence span | sentence end |
+| 236 | 1037.575 | 1042.530 | 4.95 | 11.1 | In Maine, the Penobscot Narrows Bridge, (39) / opened in 2006, (15) | whisper word alignment + waveform | after “2006,” at 4.96s (-73.8 dBFS) |
+| 237 | 1042.530 | 1045.970 | 3.44 | 7.8 | carries its 1,161-foot main (27) | whisper word alignment + waveform | after “main” at 8.39s (-59.5 dBFS) |
+| 238 | 1045.970 | 1051.050 | 5.08 | 8.3 | span on two concrete pylons 430 feet tall. (42) | whisper word alignment + waveform | sentence end |
+| 239 | 1051.200 | 1055.095 | 3.89 | 13.6 | It took just 42 months (22) / from conception to completion, (30) | whisper word alignment + waveform | after “completion,” at 3.90s (-78.1 dBFS) |
+| 240 | 1055.095 | 1059.900 | 4.81 | 12.1 | and one of its pylons has a (27) / public observatory at the top. (30) | whisper word alignment + waveform | sentence end |
+| 241 | 1060.858 | 1064.083 | 3.23 | 12.1 | So why don't bridges all look the same? (39) | sentence span | sentence end |
+| 242 | 1064.233 | 1068.958 | 4.73 | 13.3 | Because a bridge's form comes (29) / from two things working together. (33) | sentence span | sentence end |
+| 243 | 1069.108 | 1074.593 | 5.48 | 13.1 | One is how its structure carries load: (38) / beams resist bending, arches work (33) | whisper word alignment + waveform | after “work” at 5.49s (-73.3 dBFS) |
+| 244 | 1074.593 | 1080.333 | 5.74 | 13.9 | in compression, and trusses share load (38) / among members in tension and compression. (41) | whisper word alignment + waveform | sentence end |
+| 245 | 1081.317 | 1083.732 | 2.41 | 16.1 | Cantilevers reach out from their piers, (39) | whisper word alignment + waveform | after “piers,” at 2.42s (-79.9 dBFS) |
+| 246 | 1083.732 | 1089.492 | 5.76 | 13.0 | and suspension and cable-stayed bridges (39) / hang their decks from steel cables. (35) | whisper word alignment + waveform | sentence end |
+| 247 | 1090.442 | 1095.947 | 5.51 | 13.4 | The other is the world it was built in: (39) / its materials, its site, its span, (34) | whisper word alignment + waveform | after “span,” at 5.50s (-60.0 dBFS) |
+| 248 | 1095.947 | 1098.142 | 2.19 | 12.8 | its budget and its builders. (28) | whisper word alignment + waveform | sentence end |
+| 249 | 1099.108 | 1102.658 | 3.55 | 11.5 | And it is not a simple story of progress. (41) | sentence span | sentence end |
+| 250 | 1102.808 | 1105.573 | 2.77 | 15.2 | Timber beam bridges are still built today, (42) | whisper word alignment + waveform | after “today,” at 2.77s (-83.6 dBFS) |
+| 251 | 1105.573 | 1110.258 | 4.68 | 13.2 | and stone arches briefly returned (33) / during the Great Depression. (28) | whisper word alignment + waveform | sentence end |
+| 252 | 1110.408 | 1114.073 | 3.66 | 17.2 | And the most common steel bridge (32) / today is still a kind of beam: (30) | whisper word alignment + waveform | after “beam:” at 3.67s (-77.7 dBFS) |
+| 253 | 1114.073 | 1116.608 | 2.53 | 9.5 | the welded plate girder. (24) | whisper word alignment + waveform | sentence end |
+| 254 | 1116.758 | 1118.073 | 1.32 | 9.1 | At one time, (12) | whisper word alignment + waveform | after “time,” at 1.31s (-79.9 dBFS) |
+| 255 | 1118.073 | 1123.033 | 4.96 | 16.1 | a great number of small suspension bridges (42) / were built across the country, simply (37) | whisper word alignment + waveform | after “simply” at 6.28s (-72.9 dBFS) |
+| 256 | 1123.033 | 1125.858 | 2.82 | 11.7 | because they were easy to put up. (33) | whisper word alignment + waveform | sentence end |
+| 257 | 1126.008 | 1130.233 | 4.22 | 14.0 | Each form can still be the (26) / right answer in the right place. (32) | sentence span | sentence end |
+| 258 | 1131.192 | 1134.892 | 3.70 | 13.0 | Next time you cross a bridge, (29) / look at its shape. (18) | sentence span | sentence end |
+| 259 | 1135.042 | 1137.937 | 2.89 | 14.2 | It shows how the load reaches the ground, (41) | whisper word alignment + waveform | after “ground,” at 2.90s (-68.3 dBFS) |
+| 260 | 1137.937 | 1141.067 | 3.13 | 14.1 | and something about the (23) / people who built it. (20) | whisper word alignment + waveform | sentence end |
+| 261 | 1141.217 | 1143.562 | 2.35 | 13.2 | These models are illustrations, (31) | whisper word alignment + waveform | after “illustrations,” at 2.35s (-74.7 dBFS) |
+| 262 | 1143.562 | 1150.167 | 6.61 | 11.2 | not engineering designs, and the arrows (39) / show ideas, not calculated forces. (34) | whisper word alignment + waveform | sentence end |
+| 263 | 1151.150 | 1153.975 | 2.82 | 11.7 | Thank you very much for watching. (33) | sentence span | sentence end |
+| 264 | 1154.125 | 1158.950 | 4.83 | 12.4 | The sources and photo credits (29) / are listed in the description. (30) | sentence span | sentence end |

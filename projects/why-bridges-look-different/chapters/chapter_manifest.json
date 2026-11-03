@@ -2,8 +2,8 @@
   "schema": "chapter_manifest/1",
   "project": "why-bridges-look-different",
   "fps": 24,
-  "total_frames": 20823,
-  "total_seconds": 867.625,
+  "total_frames": 27828,
+  "total_seconds": 1159.5,
   "chapters": [
     {
       "id": "C1",
@@ -46,7 +46,7 @@
         "sources": [],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [],
         "historical_accuracy": [
           "illustrative 3D archetypes (not replicas)",
@@ -108,7 +108,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "2 · The problem every bridge must solve"
         ],
@@ -182,7 +182,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "3 · The beam",
           "Illustrative model"
@@ -259,7 +259,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "4 · The arch"
         ],
@@ -336,7 +336,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "5 · The truss",
           "By 1860: prefabricated parts",
@@ -416,7 +416,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "6 · The cantilever",
           "A wider crossing (illustrative, not to scale)",
@@ -494,7 +494,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "7 · The suspension bridge",
           "Illustrative model",
@@ -572,7 +572,7 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "8 · The cable-stayed bridge",
           "Built outward from the towers",
@@ -593,15 +593,18 @@
     {
       "id": "C9",
       "title": "Why different designs exist",
-      "purpose": "Materials, weather, site, span and the era: the trade-offs.",
+      "purpose": "Materials (stone, iron, timber, chains and cables), the ground and the wind.",
       "beats": [
         "B19",
         "B20A",
         "B20B",
         "B20C",
         "B21",
+        "B20E",
         "B22",
-        "B24"
+        "B22B",
+        "B22C",
+        "B22D"
       ],
       "shots": [
         "SC_044",
@@ -610,31 +613,36 @@
         "SC_047",
         "SC_048",
         "SC_049",
-        "SC_050"
+        "SC_050",
+        "SC_051",
+        "SC_052",
+        "SC_053"
       ],
       "start_frame": 13181,
-      "frames": 2447,
+      "frames": 4010,
       "start_seconds": 549.208,
-      "duration_seconds": 101.958,
-      "sentences": 16,
-      "words": 198,
+      "duration_seconds": 167.083,
+      "sentences": 24,
+      "words": 337,
       "claims": [
         "CLM_712",
         "CLM_726",
-        "CLM_727",
-        "CLM_728",
-        "CLM_729",
         "CLM_733",
         "CLM_734",
         "CLM_735",
         "CLM_736",
-        "CLM_738",
-        "CLM_739",
         "CLM_742",
-        "CLM_746"
+        "CLM_746",
+        "CLM_761",
+        "CLM_765",
+        "CLM_776",
+        "CLM_780",
+        "CLM_781",
+        "CLM_782",
+        "CLM_783"
       ],
       "visual_kinds": {
-        "3D_HOLD": 3,
+        "3D_HOLD": 6,
         "DIAGRAM": 2,
         "PHOTO": 1,
         "TITLE": 1
@@ -646,17 +654,19 @@
         "claims_used": [
           "CLM_712",
           "CLM_726",
-          "CLM_727",
-          "CLM_728",
-          "CLM_729",
           "CLM_733",
           "CLM_734",
           "CLM_735",
           "CLM_736",
-          "CLM_738",
-          "CLM_739",
           "CLM_742",
-          "CLM_746"
+          "CLM_746",
+          "CLM_761",
+          "CLM_765",
+          "CLM_776",
+          "CLM_780",
+          "CLM_781",
+          "CLM_782",
+          "CLM_783"
         ],
         "claim_statuses": [
           "SOURCE_VERIFIED"
@@ -664,6 +674,7 @@
         "missing_claims": [],
         "sources": [
           "SRC_ASCE_BOLLMAN",
+          "SRC_FHWA_BRIDGE_TYPES",
           "SRC_FHWA_CBM",
           "SRC_NCHRP_CONTEXT",
           "SRC_SCI_TRUSSES",
@@ -671,11 +682,17 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
+          "Afterwards: research and stiffened decks",
+          "If a pier sank, the cantilever could adjust",
+          "Illustrative model",
+          "Iron chains: only as strong as the weakest link",
           "Stone: strong under compression",
+          "Tacoma Narrows, 1940: lost to the wind",
           "Timber: plentiful and cheap, but it decays",
           "Truss members: tension and compression",
+          "Wire cables, then high-strength steel",
           "Wrought iron: valued in tension and compression",
           "image IMG_HAER_HUMPBACK: Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER)"
         ],
@@ -688,14 +705,110 @@
       },
       "render": {
         "preset": "internal_1080p",
-        "frames_on_disk": 2447,
+        "frames_on_disk": 4010,
         "complete": true
       }
     },
     {
       "id": "C10",
+      "title": "Span, cost and time",
+      "purpose": "How far each family reaches, what it costs to build and when each family flourished.",
+      "beats": [
+        "B23C",
+        "B23D",
+        "B23E",
+        "B24",
+        "B24B"
+      ],
+      "shots": [
+        "SC_054",
+        "SC_055",
+        "SC_056",
+        "SC_057",
+        "SC_058"
+      ],
+      "start_frame": 17191,
+      "frames": 2778,
+      "start_seconds": 716.292,
+      "duration_seconds": 115.75,
+      "sentences": 14,
+      "words": 214,
+      "claims": [
+        "CLM_727",
+        "CLM_728",
+        "CLM_729",
+        "CLM_738",
+        "CLM_739",
+        "CLM_754",
+        "CLM_756",
+        "CLM_757",
+        "CLM_766",
+        "CLM_768",
+        "CLM_774",
+        "CLM_775",
+        "CLM_784",
+        "CLM_785",
+        "CLM_786",
+        "CLM_787",
+        "CLM_788"
+      ],
+      "visual_kinds": {
+        "3D_HOLD": 1,
+        "3D_PUSH_IN": 1,
+        "DIAGRAM": 3
+      },
+      "external_assets": [],
+      "evidence": {
+        "claims_used": [
+          "CLM_727",
+          "CLM_728",
+          "CLM_729",
+          "CLM_738",
+          "CLM_739",
+          "CLM_754",
+          "CLM_756",
+          "CLM_757",
+          "CLM_766",
+          "CLM_768",
+          "CLM_774",
+          "CLM_775",
+          "CLM_784",
+          "CLM_785",
+          "CLM_786",
+          "CLM_787",
+          "CLM_788"
+        ],
+        "claim_statuses": [
+          "SOURCE_VERIFIED"
+        ],
+        "missing_claims": [],
+        "sources": [
+          "SRC_FHWA_BRIDGE_TYPES",
+          "SRC_NCHRP_CONTEXT"
+        ],
+        "sources_known": true,
+        "unsupported_fact_beats": [],
+        "narration_revision": "m8-r2",
+        "visual_assumptions": [
+          "Erection methods now better understood",
+          "Illustrative model"
+        ],
+        "historical_accuracy": [
+          "illustrative 3D archetypes (not replicas)",
+          "self-made conceptual/schematic graphics"
+        ],
+        "editorial_status": "PENDING_EDITORIAL_REVIEW"
+      },
+      "render": {
+        "preset": "internal_1080p",
+        "frames_on_disk": 2778,
+        "complete": true
+      }
+    },
+    {
+      "id": "C11",
       "title": "Real-world decisions",
-      "purpose": "Three documented 19th-century American bridges and the choices behind them.",
+      "purpose": "Documented bridges from 19th-century railways to a 21st-century cable-stayed crossing.",
       "beats": [
         "B25",
         "B26",
@@ -703,23 +816,31 @@
         "B28",
         "B29",
         "B30",
-        "B31"
+        "B31",
+        "B31A",
+        "B31B",
+        "B31C",
+        "B31D"
       ],
       "shots": [
-        "SC_051",
-        "SC_052",
-        "SC_053",
-        "SC_054",
-        "SC_055",
-        "SC_056",
-        "SC_057"
+        "SC_059",
+        "SC_060",
+        "SC_061",
+        "SC_062",
+        "SC_063",
+        "SC_064",
+        "SC_065",
+        "SC_066",
+        "SC_067",
+        "SC_068",
+        "SC_069"
       ],
-      "start_frame": 15628,
-      "frames": 3040,
-      "start_seconds": 651.167,
-      "duration_seconds": 126.667,
-      "sentences": 19,
-      "words": 240,
+      "start_frame": 19969,
+      "frames": 5482,
+      "start_seconds": 832.042,
+      "duration_seconds": 228.417,
+      "sentences": 30,
+      "words": 417,
       "claims": [
         "CLM_725",
         "CLM_737",
@@ -729,16 +850,24 @@
         "CLM_742",
         "CLM_743",
         "CLM_744",
-        "CLM_745"
+        "CLM_745",
+        "CLM_774",
+        "CLM_789",
+        "CLM_790",
+        "CLM_791",
+        "CLM_792",
+        "CLM_793"
       ],
       "visual_kinds": {
-        "3D_PUSH_IN": 2,
+        "3D_HOLD": 1,
+        "3D_PUSH_IN": 4,
         "DIAGRAM": 1,
-        "PHOTO": 4
+        "PHOTO": 5
       },
       "external_assets": [
         "IMG_HAER_BOLLMAN",
         "IMG_HAER_CARROLLTON",
+        "IMG_HAER_GOLDENGATE",
         "IMG_HAER_PROMONTORY"
       ],
       "evidence": {
@@ -751,7 +880,13 @@
           "CLM_742",
           "CLM_743",
           "CLM_744",
-          "CLM_745"
+          "CLM_745",
+          "CLM_774",
+          "CLM_789",
+          "CLM_790",
+          "CLM_791",
+          "CLM_792",
+          "CLM_793"
         ],
         "claim_statuses": [
           "SOURCE_VERIFIED"
@@ -759,16 +894,28 @@
         "missing_claims": [],
         "sources": [
           "SRC_ASCE_BOLLMAN",
+          "SRC_FHWA_BRIDGE_TYPES",
+          "SRC_FHWA_PENOBSCOT",
           "SRC_NCHRP_CONTEXT"
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
+          "1877: the world's longest cantilever",
+          "42 months from conception to completion",
           "Illustrative model, not the Carrollton Viaduct",
+          "Illustrative model, not the Kentucky River bridge",
+          "Illustrative model, not the Niagara bridge",
+          "Illustrative model, not the Penobscot Narrows Bridge",
           "Illustrative model, not the Promontory trestle",
+          "Inherently rigid: suited to heavy trains",
+          "Next railway suspension bridge: 133 years later",
+          "Niagara Gorge, 1855: trains on a suspension bridge",
+          "Penobscot Narrows, 2006: 430 ft concrete pylons",
           "image IMG_HAER_BOLLMAN: Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER)",
           "image IMG_HAER_CARROLLTON: Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER)",
+          "image IMG_HAER_GOLDENGATE: Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER)",
           "image IMG_HAER_PROMONTORY: Public domain (PD-USGov-NPS: work of the U.S. National Park Service / HAER)"
         ],
         "historical_accuracy": [
@@ -780,12 +927,12 @@
       },
       "render": {
         "preset": "internal_1080p",
-        "frames_on_disk": 3040,
+        "frames_on_disk": 5482,
         "complete": true
       }
     },
     {
-      "id": "C11",
+      "id": "C12",
       "title": "Why they look different",
       "purpose": "Answer the question for all six families; not a story of linear progress.",
       "beats": [
@@ -797,19 +944,19 @@
         "B35"
       ],
       "shots": [
-        "SC_058",
-        "SC_059",
-        "SC_060",
-        "SC_061",
-        "SC_062",
-        "SC_063"
+        "SC_070",
+        "SC_071",
+        "SC_072",
+        "SC_073",
+        "SC_074",
+        "SC_075"
       ],
-      "start_frame": 18668,
-      "frames": 2155,
-      "start_seconds": 777.833,
-      "duration_seconds": 89.792,
-      "sentences": 14,
-      "words": 190,
+      "start_frame": 25451,
+      "frames": 2377,
+      "start_seconds": 1060.458,
+      "duration_seconds": 99.042,
+      "sentences": 15,
+      "words": 213,
       "claims": [
         "CLM_706",
         "CLM_709",
@@ -820,6 +967,7 @@
         "CLM_742",
         "CLM_750",
         "CLM_760",
+        "CLM_767",
         "CLM_770",
         "CLM_777"
       ],
@@ -841,6 +989,7 @@
           "CLM_742",
           "CLM_750",
           "CLM_760",
+          "CLM_767",
           "CLM_770",
           "CLM_777"
         ],
@@ -858,10 +1007,10 @@
         ],
         "sources_known": true,
         "unsupported_fact_beats": [],
-        "narration_revision": "m8-r1",
+        "narration_revision": "m8-r2",
         "visual_assumptions": [
           "1 · How the structure carries load",
-          "11 · Why they look different",
+          "12 · Why they look different",
           "Models are illustrations, not engineering designs"
         ],
         "historical_accuracy": [
@@ -872,11 +1021,11 @@
       },
       "render": {
         "preset": "internal_1080p",
-        "frames_on_disk": 2155,
+        "frames_on_disk": 2377,
         "complete": true
       }
     }
   ],
   "errors": [],
-  "timing_sha256": "4952397e26296b4b42d1f6d473758f994b1baba17e11ae3b05c0bbbdfa178a93"
+  "timing_sha256": "74329d8cbef6b02933c2c2bf82a3a58e0fe9d75130b415c4d74aa887ef8db516"
 }

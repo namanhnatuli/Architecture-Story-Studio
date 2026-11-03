@@ -1,9 +1,9 @@
 # Visual coverage: Why Bridges Don't All Look the Same
 
-- Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 63 shots, 867.62 s.
-- Executable: **True** · COVERED 54
-- Publication: INTERNAL_ONLY — M8 revision m8-r1: claims are source-verified, not yet editorially approved; review cut only.
-- Visibility (offline Level 1 estimate): 22 shots, 25/27 target rows read, issues 2, auto-repaired 2, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
+- Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 75 shots, 1159.50 s.
+- Executable: **True** · COVERED 66
+- Publication: INTERNAL_ONLY — M8 revision m8-r2: claims are source-verified, not yet editorially approved; review cut only.
+- Visibility (offline Level 1 estimate): 27 shots, 30/32 target rows read, issues 2, auto-repaired 2, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
 
 | Beat | Intent | Strategy | Assets | Semantic targets | Templates (shots) | Expected / planned s | Evidence | Readable | Coverage | Issues |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -46,21 +46,33 @@
 | B20B | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | truss_members | HOLD (SC_046) | 15.88 / 15.88 | INTERNAL_PREVIEW | truss_members: reads | **COVERED** | — |
 | B20C | INTRODUCE_ARCHITECTURE | HOLD | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | — | HOLD (SC_047) | 7.22 / 7.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B21 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_048) | 16.00 / 16.00 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B22 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_049) | 20.05 / 20.08 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B24 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_050) | 18.65 / 18.67 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B25 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_051) | 20.38 / 20.38 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION'] |
-| B26 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_052) | 23.12 / 23.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B27 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_053) | 10.10 / 10.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B28 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_054) | 19.75 / 19.75 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B29 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | trestle_bent | HOLD (SC_055) | 12.47 / 12.50 | INTERNAL_PREVIEW | trestle_bent: reads | **COVERED** | — |
-| B30 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_056) | 27.70 / 27.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B31 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_057) | 13.05 / 13.08 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['COMPARE_VARIANTS'] |
-| B32 | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | SIDE_BY_SIDE (SC_058) | 20.43 / 20.46 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B32L | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01`<br>suspension_bridge: REUSE_EXISTING → `bridge_suspension_01`<br>cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | SIDE_BY_SIDE (SC_059) | 9.12 / 9.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B32B | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_060) | 8.65 / 8.67 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT'] |
-| B33 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_061) | 22.82 / 22.83 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B34 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_062) | 19.93 / 19.96 | FRAMING | — | **COVERED** | — |
-| B35 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_063) | 8.75 / 8.75 | FRAMING | — | **COVERED** | — |
+| B20E | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | main_cable | HOLD (SC_049) | 26.73 / 26.75 | INTERNAL_PREVIEW | main_cable: reads | **COVERED** | — |
+| B22 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_050) | 20.05 / 20.08 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B22B | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_051) | 20.68 / 20.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B22C | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | pier | HOLD (SC_052) | 14.85 / 14.88 | INTERNAL_PREVIEW | pier: reads | **COVERED** | — |
+| B22D | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | stiffening_truss | HOLD (SC_053) | 21.43 / 21.46 | INTERNAL_PREVIEW | stiffening_truss: reads | **COVERED** | — |
+| B23C | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_054) | 35.00 / 35.00 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B23D | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | anchorage | HOLD (SC_055) | 21.50 / 21.50 | INTERNAL_PREVIEW | anchorage: reads | **COVERED** | — |
+| B23E | INTRODUCE_ARCHITECTURE | HOLD | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | HOLD (SC_056) | 11.70 / 11.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B24 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_057) | 18.65 / 18.67 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B24B | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_058) | 28.85 / 28.88 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B25 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_059) | 20.38 / 20.38 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION'] |
+| B26 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_060) | 23.12 / 23.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B27 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_061) | 10.10 / 10.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B28 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_062) | 19.75 / 19.75 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B29 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | trestle_bent | HOLD (SC_063) | 12.47 / 12.50 | INTERNAL_PREVIEW | trestle_bent: reads | **COVERED** | — |
+| B30 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_064) | 27.70 / 27.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B31 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_065) | 13.05 / 13.08 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['COMPARE_VARIANTS'] |
+| B31A | INTRODUCE_ARCHITECTURE | HOLD | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | — | HOLD (SC_066) | 33.15 / 33.17 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B31B | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | cantilever_truss | HOLD (SC_067) | 27.48 / 27.50 | INTERNAL_PREVIEW | cantilever_truss: reads | **COVERED** | — |
+| B31C | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_068) | 12.22 / 12.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B31D | INTRODUCE_ARCHITECTURE | HOLD | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | HOLD (SC_069) | 28.82 / 28.83 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B32 | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | SIDE_BY_SIDE (SC_070) | 20.43 / 20.46 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B32L | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01`<br>suspension_bridge: REUSE_EXISTING → `bridge_suspension_01`<br>cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | SIDE_BY_SIDE (SC_071) | 9.12 / 9.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B32B | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_072) | 8.65 / 8.67 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT'] |
+| B33 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_073) | 32.08 / 32.08 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B34 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_074) | 19.93 / 19.96 | FRAMING | — | **COVERED** | — |
+| B35 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_075) | 8.75 / 8.75 | FRAMING | — | **COVERED** | — |
 
 ## Planner decisions
 
@@ -103,8 +115,16 @@
 - **B20B**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
 - **B20C**: HOLD: Hold the structure
 - **B21**: CARD: 2D card (text/arrows) supplied by the beat
+- **B20E**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
 - **B22**: CARD: 2D card (text/arrows) supplied by the beat
+- **B22B**: CARD: 2D card (text/arrows) supplied by the beat
+- **B22C**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B22D**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B23C**: CARD: 2D card (text/arrows) supplied by the beat
+- **B23D**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B23E**: HOLD: Hold the structure
 - **B24**: CARD: 2D card (text/arrows) supplied by the beat
+- **B24B**: CARD: 2D card (text/arrows) supplied by the beat
 - **B25**: CARD: 2D card (text/arrows) supplied by the beat
 - **B26**: CARD: 2D card (text/arrows) supplied by the beat
 - **B27**: HOLD: Hold the structure
@@ -112,6 +132,10 @@
 - **B29**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
 - **B30**: CARD: 2D card (text/arrows) supplied by the beat
 - **B31**: CARD: 2D card (text/arrows) supplied by the beat
+- **B31A**: HOLD: Hold the structure
+- **B31B**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B31C**: CARD: 2D card (text/arrows) supplied by the beat
+- **B31D**: HOLD: Hold the structure
 - **B32**: COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned (layout chosen by planner/composition.py: STACK or ROW, gap)
 - **B32L**: COMPARE_SIDE_BY_SIDE: All variants at identical scale, captioned (layout chosen by planner/composition.py: STACK or ROW, gap)
 - **B32B**: CARD: 2D card (text/arrows) supplied by the beat
@@ -130,12 +154,12 @@
 - SC_002: SEQUENTIAL_COMPARISON, purpose detail, scale COMMON, smallest member 14.3 px, smallest model 88% of the frame width
 - SC_003: SEQUENTIAL_COMPARISON, purpose detail, scale COMMON, smallest member 3.9 px, smallest model 88% of the frame width
 - SC_004: SIDE_BY_SIDE_ROW gap 0.2, purpose overview, scale COMMON, smallest member 1.1 px, smallest model 26% of the frame width
-- SC_058: SIDE_BY_SIDE_ROW gap 0.2, purpose overview, scale COMMON, smallest member 1.1 px, smallest model 26% of the frame width
+- SC_070: SIDE_BY_SIDE_ROW gap 0.2, purpose overview, scale COMMON, smallest member 1.1 px, smallest model 26% of the frame width
   - candidate STACK gap 0.5: smallest model 25% of the frame width (< 25%)
   - candidate STACK gap 0.25: captions collide with the next row
   - candidate ROW gap 0.35: smallest model 24% of the frame width (< 25%)
   - candidate ROW gap 0.2: readable
-- SC_059: SIDE_BY_SIDE_STACK gap 0.5, purpose overview, scale COMMON, smallest member 0.7 px, smallest model 33% of the frame width
+- SC_071: SIDE_BY_SIDE_STACK gap 0.5, purpose overview, scale COMMON, smallest member 0.7 px, smallest model 33% of the frame width
   - candidate STACK gap 0.5: readable
   - candidate STACK gap 0.25: captions collide with the next row
   - candidate ROW gap 0.35: smallest model 24% of the frame width (< 25%)

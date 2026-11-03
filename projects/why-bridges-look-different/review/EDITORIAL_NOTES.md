@@ -15,7 +15,16 @@
 - **Mô hình nhịp lớn không theo tỉ lệ thật.** Chúng đặt trên một khúc sông 72 m minh họa; cầu thật dài hàng trăm đến hàng nghìn mét. NOTE ở B40 ghi "A wider crossing (illustrative, not to scale)".
 - **Cầu Queensboro thật không có nhịp treo ở giữa** (NCHRP §3.7: "It had no central suspended span"). Phim không nói nó có, nhưng mô hình minh họa có nhịp treo xuất hiện ngay trước ảnh. Người duyệt có thể muốn thêm một NOTE.
 - Nguồn FHWA-IF-12-052 (2012) là bản lưu Internet Archive của URL FHWA (URL gốc nay trả 404). Các nhận định kinh tế được nói là "by 2012, a federal handbook said…", không khẳng định cho hiện tại.
-- "Since 1980, almost every American bridge with a main span over 1,000 feet has been cable-stayed" (CLM_774) đã bỏ khỏi m8-r1 cùng dòng thời gian B24B. Phim chỉ dùng 750 ft và 3.000 ft từ cùng đoạn.
+- "Since 1980, almost every American bridge with a main span over 1,000 feet has been cable-stayed" (CLM_774, FHWA 2012). Bỏ ở m8-r1; có lại ở m8-r2 (dòng thời gian B24B và B31D, câu "Today, the long-span answer in America is usually cable-stayed").
 - Không trình bày các loại cầu như một chuỗi tiến bộ:
   - B02, B19, B33 nói rõ điều ngược lại;
   - B33 thêm "the most common steel bridge today is still a kind of beam" (CLM_777, FHWA 2012).
+- **m8-r2 (yêu cầu của chủ kênh, 2026-11-03):** các chương 9–12 nay nói cả về công-xôn, cầu treo và dây văng.
+  - **Tacoma Narrows (1940)** chỉ được kể bằng lời, kèm hình giàn tăng cứng trên mô hình. Không có hình sập hay cảnh phá hủy. Nguồn: NCHRP §2.2 và FHWA §2.6 ("only moderately high winds").
+  - **"133 years before another suspension bridge was built for railway traffic"** và **"only as good as the weakest link"** là lời của báo cáo NCHRP. Lời dẫn nói rõ "critics said…" và "Their doubts were not unjustified…", đúng theo nguồn.
+  - **"Cantilevers, by contrast, were first used by the railroads"**: nguồn không nói đường sắt chọn công-xôn *vì* cầu treo bị nghi ngờ. Lời dẫn chỉ đặt hai sự thật cạnh nhau.
+  - **Penobscot Narrows:** số liệu (nhịp 1.161 ft, tháp 430 ft, 42 tháng, thông xe 2006, đài quan sát) lấy từ FHWA-HRT-14-067 (2014).
+  - **Dải nhịp (card B23C):** dải kinh tế cho cầu **thép** theo FHWA 2012, không phải giới hạn tuyệt đối. Thanh "Cantilever truss" chỉ có mũi tên ("considerably farther"), không có điểm cuối, vì nguồn không cho con số.
+  - **Card nền đất (B22B)** là sơ đồ, không theo tỉ lệ. Ý của nó chỉ là: cầu treo cần neo vào khối lớn hoặc đá gốc (CLM_761); tháp cầu dây văng dựng được ở nơi đá không gần mặt đất (CLM_776).
+  - **Thời lượng 19,3 phút** theo quyết định của chủ kênh: không giữ khắt khe giới hạn 15 phút. Trần 20 phút là agent đặt (`project.json` → `runtime_decision`).
+

@@ -149,3 +149,8 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
   - Khi làm lại phim: cất bản đã duyệt vào `output/baseline_*`, gắn tag git, và đưa profile về `NARRATED_INTERNAL_REVIEW`.
 - **Cầu di động** (cầu cất, cầu quay) là loại theo chức năng, chưa có bộ sinh (`bascule_bridge` có `supported: false`). Planner báo NEW_ASSET_REQUIRED, không thay bằng thứ khác.
 - Tài liệu: `docs/m8/M8_REPORT.md`.
+- **Bổ sung M8.1 (2026-11-03): quyết định thời lượng của chủ kênh.**
+  - Khoảng 8–15 phút của QA phim dài chỉ được đổi cho một dự án khi chủ kênh đã quyết định. Bản ghi ở `project.json` → `runtime_decision` phải có đủ `acceptable_minutes`, `decided_by`, `decided_on` và `basis` (trích lời chủ kênh). Thiếu trường nào thì QA dùng mặc định.
+  - Agent không tự nới thời lượng.
+- **Snapshot nguồn:** để ở `projects/<slug>/research/snapshots/` (git bỏ qua), không để trong scratchpad vì hệ thống có thể xóa.
+

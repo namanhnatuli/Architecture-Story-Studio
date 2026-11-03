@@ -67,7 +67,7 @@ class ChapterStructureTest(unittest.TestCase):
 
     def test_film_chapters_are_valid_and_ordered(self):
         self.assertEqual(CH.validate(self.doc, self.narration, self.beats), [])
-        self.assertEqual([c["id"] for c in self.doc["chapters"]], [f"C{i}" for i in range(1, 12)])   # M8: 11 chapters
+        self.assertEqual([c["id"] for c in self.doc["chapters"]], [f"C{i}" for i in range(1, 13)])   # M8.1: 12 chapters
         flat = [b for c in self.doc["chapters"] for b in c["beat_ids"]]
         self.assertEqual(flat, [b["id"] for b in self.narration["beats"]])
 
@@ -125,9 +125,12 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
     def test_runtime_is_within_the_long_form_range(self):
         timing = read(FILM / "script/timing.json")
         self.assertTrue(timing["locked"])
-        lo, hi = CH.RUNTIME_RANGE
+        lo, hi, decision = CH.runtime_range(FILM)
         self.assertGreaterEqual(timing["total_seconds"], lo)
         self.assertLessEqual(timing["total_seconds"], hi)
+        if decision:   # M8.1: the owner relaxed the runtime for this film; the record must be complete
+            self.assertIn("Tran Nam Anh", decision["decided_by"])
+            self.assertIn("không cần quá khắt khe về mặt thời gian", decision["basis"])
 
     def test_the_m7_owner_approval_does_not_carry_over_to_m8(self):
         # The owner approved 41 claims of narration m7-r1 on 2026-10-30 (the record stays as written);
@@ -138,7 +141,7 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         record = read(FILM / "research/editorial_approval.json")
         self.assertEqual((record["narration_revision"], len(record["claims"])), ("m7-r1", 41))
         self.assertIn("Tran Nam Anh", record["approved_by"])
-        self.assertEqual(narration["revision"]["version"], "m8-r1")
+        self.assertEqual(narration["revision"]["version"], "m8-r2")
         self.assertTrue(used <= set(claims), used - set(claims))
         self.assertEqual({c["review_status"] for c in claims.values()}, {"SOURCE_VERIFIED"})
         self.assertFalse(any("editorial_approval" in c for c in claims.values()))
@@ -152,10 +155,10 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         with tmp:
             self.assertFalse(any("approval is for narration" in e for e in validator.validate_project(p)[0]))
             n = read(p / "script/narration.json")
-            n["revision"]["version"] = "m8-r2"
+            n["revision"]["version"] = "m8-r3"
             (p / "script/narration.json").write_text(json.dumps(n))
             errors, _ = validator.validate_project(p)
-            self.assertTrue(any("approval is for narration 'm8-r1'" in e for e in errors))
+            self.assertTrue(any("approval is for narration 'm8-r2'" in e for e in errors))
 
     def test_am_michael_approval_is_the_owners_and_project_scoped(self):
         # Approved by the owner on 2026-10-30 for this documentary only (finalization request, section 3.2).
@@ -209,7 +212,7 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         from integrations.tts import kokoro
         manifest = read(FILM / "audio/narration_manifest.json")
         keys = [s["cache_key"] for b in manifest["beats"].values() for s in b["sentences"]]
-        self.assertEqual(len(keys), 133)   # M8: 133 sentences
+        self.assertEqual(len(keys), 167)   # M8.1: 167 sentences
         for k in set(keys):
             seg = manifest["segments"][k]
             self.assertEqual((seg["voice"], seg["voice_sha256"], seg["lang_code"]),
@@ -253,7 +256,7 @@ class ArchivalImageRightsTest(unittest.TestCase):
 
     def test_every_external_image_has_a_complete_rights_record(self):
         externals = [a for a in self.assets["assets"] if a.get("origin") == "external"]
-        self.assertEqual(len(externals), 6)   # M8: + Brooklyn (HAER NY-18) and Queensboro (HAER NY-19)
+        self.assertEqual(len(externals), 7)   # M8: + Brooklyn (NY-18), Queensboro (NY-19); M8.1: + Golden Gate (CA-31)
         for a in externals:
             self.assertEqual([k for k in validator.EXTERNAL_LICENSE_FIELDS if not a.get(k)], [], a["id"])
             self.assertEqual(a["status"], "approved")
@@ -528,7 +531,7 @@ class LongFormQATest(unittest.TestCase):
         rows, m = CH.longform_qa(FILM)
         failed = [(r["check"], r["detail"]) for r in rows if r["status"] == "FAIL"]
         self.assertEqual(failed, [])
-        self.assertEqual(len(m["chapters"]), 11)
+        self.assertEqual(len(m["chapters"]), 12)
         kinds = {k for c in m["chapters"] for k in c["visual_kinds"]}
         self.assertTrue({"PHOTO", "DIAGRAM", "3D_HOLD", "3D_PUSH_IN"} <= kinds, kinds)
 
@@ -550,9 +553,21 @@ class LongFormQATest(unittest.TestCase):
     def test_runtime_outside_the_range_fails(self):
         tmp, p = copy_film()
         with tmp:
+            project = read(p / "project.json")
+            project.pop("runtime_decision", None)
+            (p / "project.json").write_text(json.dumps(project))
             with mock.patch.object(CH, "RUNTIME_RANGE", (20 * 60.0, 30 * 60.0)):
                 rows = {r["check"]: r for r in CH.longform_qa(p)[0]}
             self.assertEqual(rows["runtime"]["status"], "FAIL")
+            # an owner decision moves the range only when it is complete
+            project["runtime_decision"] = {"acceptable_minutes": [20, 30], "decided_by": "TEST OWNER", "decided_on": "2099-01-01"}
+            (p / "project.json").write_text(json.dumps(project))
+            self.assertEqual(CH.runtime_range(p)[2], None)
+            project["runtime_decision"]["basis"] = "unit test"
+            (p / "project.json").write_text(json.dumps(project))
+            self.assertEqual(CH.runtime_range(p)[:2], (1200.0, 1800.0))
+            rows = {r["check"]: r for r in CH.longform_qa(p)[0]}
+            self.assertEqual(rows["runtime"]["status"], "FAIL")   # this film is shorter than 20 min
 
 
 class AudioFirstNarrateTest(unittest.TestCase):
@@ -636,7 +651,7 @@ class ReviewDocumentsTest(unittest.TestCase):
             self.assertIn("never uploads" if candidate else "not for publication", desc.splitlines()[0])
             stamps = [l.split(" ", 1)[0] for l in desc.split("Chapters\n\n")[1].split("\n\n")[0].splitlines()]
             self.assertEqual(stamps[0], "0:00")
-            self.assertEqual(len(stamps), 11)
+            self.assertEqual(len(stamps), 12)
             self.assertIn("AI-generated voice", desc)
             for name in ("William E. Barrett", "Jack E. Boucher", "Jet Lowe", "Historic American Engineering Record"):
                 self.assertIn(name, desc)
@@ -719,11 +734,12 @@ class ChapterEvidenceTest(unittest.TestCase):
             self.assertEqual(ev["unsupported_fact_beats"], [], c["id"])
             self.assertEqual(ev["missing_claims"], [], c["id"])
             self.assertTrue(ev["sources_known"], c["id"])
-            self.assertEqual(ev["narration_revision"], "m8-r1")
+            self.assertEqual(ev["narration_revision"], "m8-r2")
             self.assertNotEqual(ev["editorial_status"], "EDITORIALLY_APPROVED", c["id"])   # pending the owner
             self.assertTrue(ev["historical_accuracy"], c["id"])
-        c10 = next(c for c in m["chapters"] if c["id"] == "C10")
-        self.assertIn("Illustrative model, not the Carrollton Viaduct", c10["evidence"]["visual_assumptions"])
+        c11 = next(c for c in m["chapters"] if c["id"] == "C11")
+        for bridge in ("Carrollton Viaduct", "Niagara bridge", "Kentucky River bridge", "Penobscot Narrows Bridge"):
+            self.assertIn(f"Illustrative model, not the {bridge}", c11["evidence"]["visual_assumptions"])
 
 
 class ChapterCacheAndRegenerationTest(unittest.TestCase):
@@ -779,7 +795,7 @@ class SubtitleAndMediaTest(unittest.TestCase):
         self.assertEqual(r["problems"], [])
         self.assertEqual(r["frames"], timing["total_frames"])
         self.assertEqual((r["video"]["width"], r["video"]["height"]), (1920, 1080))
-        lo, hi = CH.RUNTIME_RANGE
+        lo, hi, _ = CH.runtime_range(FILM)
         self.assertTrue(lo <= r["seconds"] <= hi)
         self.assertIn("M8_INTERNAL_REVIEW_1080p", Path(r["output"]).name)
         self.assertAlmostEqual(r["loudness_after"]["integrated_lufs"], -16.0, delta=1.0)

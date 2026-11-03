@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.9.1 — 2026-11-03 — M8.1: ba họ nhịp lớn trong các chương yếu tố, quyết định và kết luận (nhánh `m8-all-bridge-families`)
+- **Yêu cầu của chủ kênh:** các chương sau phần giới thiệu các loại cầu cũng phải nói về công-xôn, cầu treo và dây văng (có nghiên cứu, lôi cuốn), và không giữ khắt khe giới hạn thời lượng.
+- **Revision m8-r2:** 12 chương (thêm C10 "Span, cost and time"), 66 beat, 167 câu, 19,3 phút. 14 claim mới (tổng 81).
+  - Câu chuyện mới: xích sắt và "weakest link"; nền đất và khối neo; công-xôn khi trụ lún; gió và Tacoma Narrows (chỉ kể bằng lời); dải nhịp của sáu họ cho cầu thép; chi phí và tay nghề; dòng thời gian nhịp lớn; cầu đường sắt Niagara và "133 years"; hẻm Kentucky 1877; Golden Gate; Penobscot Narrows; các cầu treo nhỏ.
+  - Nguồn mới: FHWA-HRT-14-067. Ảnh mới: HAER CA-31 cầu Golden Gate.
+- **Thời lượng:** `project.json` → `runtime_decision` (quyết định của chủ kênh, 8–20 phút; trần 20 do agent đặt).
+  - `pipeline/chapters.runtime_range` chỉ dùng bản ghi khi có đủ người quyết định, ngày và cơ sở. Test kiểm cả trường hợp bản ghi thiếu.
+- **Phần tử dòng thời gian hiện theo từ được đọc** (sửa một đoạn tĩnh 15,2 s).
+- **Card dải nhịp chỉ vẽ con số có nguồn:** giàn đơn 450–750 ft; công-xôn chỉ có mũi tên.
+- **Snapshot nguồn** chuyển vào `research/snapshots/` (git bỏ qua); `source_snapshots.json` nay có cả FHWA (vốn bị bỏ sót ở 0.9.0) và Penobscot.
+- **Bản review nội bộ 1080p của m8-r2:** 27.828 frame, 19:19,5, −16,4 LUFS, 264 cue phụ đề.
+  - Gates: `TECHNICALLY_VALIDATED`; G1 PENDING_EDITORIAL (0/75 claim, 32 thuật ngữ); G6 BLOCKED.
+  - Agent xem lại trên video và sửa 3 chỗ: nhãn "Stiffening truss" ở cảnh Tacoma; NOTE "Niagara Gorge, 1855"; tiêu đề card dòng thời gian nhịp lớn.
+- **Đã biết, chưa sửa:** `runtime_decision` không nằm trong `PROJECT_NON_VISUAL` (`tools/render_cache.py`), nên ghi trường này làm mọi shot mất cache; 48 shot render lại chỉ vì lý do này. Đề xuất sửa cùng lần thay đổi kế tiếp mà dù sao cũng phải render lại.
+
 ## 0.9.0 — 2026-10-31 — M8: phim làm lại với đủ sáu họ cầu (nhánh `m8-all-bridge-families`)
 - **Yêu cầu của chủ kênh:** làm lại `why-bridges-look-different`, kết hợp nội dung đã có, với đủ các loại cầu và đủ mô hình. Bản 4K đã duyệt của m7-r1 được giữ (tag `m7-final-4k`, `output/baseline_m7_final_4k/`).
 - **Mô hình mới:**

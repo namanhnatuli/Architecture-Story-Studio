@@ -9,9 +9,9 @@
   "production_profile": "NARRATED_INTERNAL_REVIEW",
   "chapters": "script/chapters.json",
   "audio_timing_locked": true,
-  "duration_seconds": 867.625,
+  "duration_seconds": 1159.5,
   "review_label": "M8_INTERNAL_REVIEW",
-  "factual_review_basis": "m8-r1: 25 new claims (CLM_750-777) are SOURCE_VERIFIED, not yet editorially approved; the owner's approval of 2026-10-30 covers the m7-r1 film only (tag m7-final-4k)",
+  "factual_review_basis": "m8-r2: the 39 claims added in M8 and M8.1 (CLM_750-793) are SOURCE_VERIFIED, not yet editorially approved; the owner's approval of 2026-10-30 covers the m7-r1 film only (tag m7-final-4k)",
   "publication_metadata": {
     "title": "Why Bridges Don't All Look the Same",
     "description": "review/YOUTUBE_DESCRIPTION.md",
@@ -20,5 +20,15 @@
     "disclosure": "Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael) - in the description",
     "approvals": "review/OWNER_APPROVALS.json",
     "summary": "Why does one bridge rest on rows of timber posts, another leap the gap in stone curves, and another hang from great steel cables? This documentary explains how beam, arch, truss, cantilever, suspension and cable-stayed bridges carry load, and how materials, sites, spans, budgets and builders shaped the bridges people built."
+  },
+  "runtime_decision": {
+    "acceptable_minutes": [
+      8,
+      20
+    ],
+    "decided_by": "Tran Nam Anh (channel owner)",
+    "decided_on": "2026-11-03",
+    "basis": "in-session instruction of 2026-11-03: 'không cần quá khắt khe về mặt thời gian, thứ tôi muốn là truyền tải đầy đủ nội dung của video'",
+    "note": "The owner named no number; the agent set the upper bound at 20 min so the check keeps a limit. The Studio default (8-15 min) still applies to every other project."
   }
 }

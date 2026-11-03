@@ -1,3 +1,78 @@
+# Xem lại biên tập có mốc thời gian: M8.1, revision m8-r2 (ba họ cầu nhịp lớn trong C9–C12)
+
+- **Người xem:** agent, trên bản review 1080p của m8-r2 (`output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, 1159,5 s = 19:19,5).
+- **Cách xem:**
+  - frame trích từ video ở từng shot mới (2–4 frame mỗi shot);
+  - frame gốc PNG ở những chỗ nghi ngờ;
+  - ảnh render lại sau khi sửa.
+- **Phạm vi:**
+  - các beat mới hoặc đổi trong C9–C12;
+  - C1–C8 giữ nguyên hình của m8-r1 (xem phần dưới), chỉ được render lại.
+- Đây là nhận xét **của agent**, không phải duyệt biên tập. Không có số liệu khán giả thật.
+
+## Nội dung mới và mốc thời gian
+| Mốc | Shot (beat) | Nội dung | Hình |
+|---|---|---|---|
+| 10:12–10:39 | SC_049 (B20E) | Xích sắt "chỉ chắc bằng mắt xích yếu nhất", rồi cáp dây và thép cường độ cao | Mô hình cầu treo, hai NOTE theo câu |
+| 10:59–11:20 | SC_051 (B22B) | Cầu treo neo cáp vào khối lớn hoặc đá gốc; tháp dây văng dựng được nơi đá nằm sâu | Sơ đồ mặt cắt đất/đá, hai hàng hiện theo câu |
+| 11:20–11:35 | SC_052 (B22C) | Công-xôn tự điều chỉnh khi một trụ lún | Mô hình công-xôn, nhãn "Main pier" |
+| 11:35–11:56 | SC_053 (B22D) | Tacoma Narrows 1940, rồi nghiên cứu gió và mặt cầu tăng cứng | Mô hình cầu treo, giàn tăng cứng được tô sáng và gắn nhãn. Không có hình sập |
+| 11:56–12:31 | SC_054 (B23C) | Dải nhịp kinh tế của sáu họ cầu thép (FHWA 2012) | Card thanh nhịp, mỗi hàng hiện theo câu |
+| 12:31–12:53 | SC_055 (B23D) | Công-xôn tránh được khối neo đắt; kéo cáp chính cần nhà thầu hiếm | Mô hình cầu treo, nhãn "Anchorages: costly", "Main cables: specialist work" |
+| 12:53–13:05 | SC_056 (B23E) | Dây văng phổ biến dần vì phương pháp dựng đã được hiểu rõ hơn | Push-in mô hình dây văng |
+| 13:23–13:52 | SC_058 (B24B) | Dòng thời gian cầu nhịp lớn: Wheeling 1849, Brooklyn 1883, Queensboro 1909, thời công-xôn, thời dây văng | Card, mỗi mốc hiện theo từ được đọc |
+| 15:59–16:32 | SC_066 (B31A) | Cầu treo đường sắt Niagara 1855; 133 năm sau mới có cầu treo đường sắt tiếp theo | Push-in mô hình cầu treo, NOTE "Illustrative model, not the Niagara bridge" |
+| 16:32–16:59 | SC_067 (B31B) | Công-xôn cứng nên hợp tàu hỏa; Kentucky River 1877 | Mô hình công-xôn, giàn được tô sáng |
+| 16:59–17:12 | SC_068 (B31C) | Golden Gate 1937, nhịp dài nhất thế giới suốt 27 năm | Ảnh HAER (Jet Lowe, 1984) |
+| 17:12–17:40 | SC_069 (B31D) | Penobscot Narrows 2006: nhịp chính 1.161 ft, tháp 430 ft, 42 tháng | Push-in mô hình dây văng, NOTE "Illustrative model, not the Penobscot Narrows Bridge" |
+| 18:01–18:10 | SC_071 (B32L) | Phần kết: công-xôn vươn ra từ trụ, cầu treo và dây văng treo mặt cầu bằng cáp | Ba cầu nhịp lớn xếp chồng |
+| 18:19–18:51 | SC_073 (B33) | Thêm: từng có rất nhiều cầu treo nhỏ, chỉ vì chúng dễ dựng | Dòng thời gian M7, thêm hai dòng chữ |
+
+## Lỗi tìm thấy và đã sửa
+**Trước bản 1080p** (QA phim dài, ảnh tĩnh):
+| Shot (beat) | Vấn đề | Cách sửa |
+|---|---|---|
+| SC_058 (B24B) | 15,2 s không đổi hình, quá ngưỡng 14 s. Mốc Golden Gate trên dòng thời gian không được đọc | Các mốc hiện theo từ được đọc. Bỏ mốc Golden Gate (đã có card ảnh riêng ở C11) |
+| C9 | 4 shot 3D_HOLD liền nhau (chạm ngưỡng) | Dời B20E ra sau card B21; dài nhất còn 3 |
+| SC_051 (B22B) | Sơ đồ nền đất khó đọc; nhãn chạm dải đá | Vẽ lại với lớp đất và đá tách bạch, khối neo cắm vào đá, móng tháp sâu; nhãn dời lên y 0,522 |
+| SC_054 (B23C) | Hai đầu thanh do agent tự đặt (600 ft, 1.150 ft), không có trong nguồn | Chỉ giữ số có nguồn: giàn đơn giản 450–750 ft (FHWA); công-xôn chỉ có mũi tên "considerably farther" |
+
+**Trên bản 1080p đầu của m8-r2:**
+| Mốc | Shot (beat) | Vấn đề | Vì sao quan trọng | Cách sửa | Ảnh hưởng | Phải render lại |
+|---|---|---|---|---|---|---|
+| 11:46–11:56 | SC_053 (B22D) | Giàn tăng cứng được tô sáng ở cường độ mặc định 0,45 nhưng gần như không thấy (bộ phận mảnh, nằm dưới mặt cầu) | Lời nói "stiffened decks" mà người xem không biết nhìn vào đâu | Thêm nhãn "Stiffening truss" chỉ vào giàn, hiện cùng lúc với tô sáng (đầu câu 2) | Chú thích | SC_053 |
+| 15:59–16:15 | SC_066 (B31A) | 16 s đầu chỉ có dòng "Illustrative model, not the Niagara bridge"; trên hình không có tên hay năm của cây cầu đang được kể | Câu chuyện mạnh nhất chương bị mất điểm neo trên hình | NOTE "Niagara Gorge, 1855: trains on a suspension bridge" ở câu 1 | Chú thích | SC_066 (push-in, 796 frame) |
+| 13:23–13:30 | SC_058 (B24B) | Khoảng 6 s chỉ có trục thời gian trống, trước khi mốc đầu tiên hiện | Đoạn mở của card trông như chưa tải xong | Tiêu đề "Long spans: a timeline of their own" ở câu 0 | Card | SC_058 |
+
+**Kiểm lại trên bản 1080p lượt 4** (2026-11-04, frame ở 11:49, 13:25, 16:06, 16:25): cả 3 bản sửa đều hiện đúng.
+- Nhãn "Stiffening truss" chỉ vào giàn dưới mặt cầu.
+- Tiêu đề card hiện ngay từ câu đầu.
+- NOTE Niagara hiện ở câu 1, rồi nhường chỗ cho "133 years later" ở câu 2.
+
+## Rủi ro người xem rời đi (định tính) và còn để ngỏ
+- **Thời lượng 19,3 phút.** Chủ kênh đã nói không cần giữ khắt khe thời lượng; trần 20 phút là agent đặt (`project.json` → `runtime_decision`). Nếu chủ kênh muốn ngắn lại, ứng viên cắt là: B24 (dòng thời gian giàn của M7, trùng ý "mỗi cầu thuộc thời của nó" với B24B), B31C (Golden Gate), B23E.
+- **C11 dài 3:48**, chương dài nhất. Nửa đầu là ba địa danh của M7 (đá, gỗ, sắt), nửa sau là bốn câu chuyện nhịp lớn. Người xem có thể thấy dài, nhưng mỗi câu chuyện có tên, năm và một chi tiết đáng nhớ.
+- **Card thanh nhịp B23C dài 35 s**, là shot 2D dài nhất phim. Các hàng hiện theo câu, nên hình đổi đều.
+- **C10 dày số liệu** (dải nhịp, năm, 1.000 ft). Mọi số đều có nguồn, nhưng người xem phổ thông có thể bị quá tải.
+- **Tacoma Narrows chỉ được kể bằng lời.** Không dùng phim tư liệu năm 1940 vì chưa xác minh quyền.
+- **B33:** dòng "Small suspension bridges: simple and easy to put up" nằm ở góc phải của dòng thời gian, gần khoảng 1920–1940. Nguồn không cho năm ("at one time"), nên người duyệt có thể muốn dời nó ra khỏi vùng trục năm.
+- **Mô hình ở cảnh Penobscot là cầu dây văng chung** của thư viện, không mô phỏng tháp thật. Nguồn chỉ cho chiều cao tháp, số dây văng (40 mỗi tháp) và đài quan sát ở tháp phía tây, không cho hình dáng tháp. NOTE nói rõ đây là mô hình minh họa.
+- **Hai UNCERTAIN của kiểm tra lời–hình** vẫn để người duyệt xem: B33.s4 (SIDE) và B34.s2 (ARROWS).
+
+## Mười câu hỏi trải nghiệm người xem (đánh giá của agent, m8-r2)
+1. **C9–C12 có nói về công-xôn, cầu treo và dây văng không?** Có. C9 có cáp (B20E), nền đất (B22B, B22C), gió (B22D). C10 có dải nhịp đủ sáu họ (B23C), chi phí và tay nghề (B23D, B23E), dòng thời gian nhịp lớn (B24B). C11 có Niagara, Kentucky River, Golden Gate, Penobscot. C12 có B32L và câu về cầu treo nhỏ ở B33.
+2. **Nội dung mới có lôi cuốn, hay chỉ là danh sách?** Mỗi yếu tố gắn với một chuyện có tên: mắt xích yếu nhất, Tacoma 1940, 133 năm không có cầu treo đường sắt, hẻm sâu 275 ft ở Kentucky, 27 năm dài nhất thế giới, 42 tháng ở Penobscot.
+3. **Số liệu có nguồn không?** Có, 81 claim `SOURCE_VERIFIED`. Card chỉ vẽ giá trị có trong nguồn; công-xôn không có điểm cuối vì nguồn không cho số.
+4. **Thảm họa có được trình bày đúng mực không?** Tacoma được kể bằng lời, hình chỉ cho thấy giàn tăng cứng, tức bài học rút ra. Không có hình sập.
+5. **Có kể chuyện tiến bộ tuyến tính không?** Không. Cầu treo đã dài nhất thế giới năm 1849; thời công-xôn kéo dài 1880–1960; công-xôn và cầu treo được chọn vì lý do khác nhau (tàu hỏa, khối neo); B33 giữ ý "không phải câu chuyện tiến bộ".
+6. **Có đoạn tĩnh dài không?** Dài nhất 13,5 s ở 10:16 (B20E), dưới ngưỡng 14 s.
+7. **Chương nào yếu nhất?** C2 vẫn toàn 3D_HOLD (cảnh báo `chapter_variety`). Trong phần mới, B23C là đoạn đòi người xem đọc nhiều nhất.
+8. **Người xem có hiểu mô hình chỉ là minh họa không?** Có. Mỗi cầu thật được kể bên cạnh mô hình đều có NOTE "Illustrative model, not the …" (Niagara, Kentucky River, Penobscot), các mô hình khác mang "Illustrative model".
+9. **Phụ đề:** 264 cue cho 167 câu, dòng dài nhất 42 ký tự, tối đa 18 ký tự/giây.
+10. **Âm lượng:** −16,4 LUFS, true peak −1,2 dBTP.
+
+---
+
 # Xem lại biên tập có mốc thời gian: M8, revision m8-r1 (đủ sáu họ cầu)
 
 - **Người xem:** agent, trên bản review 1080p đầu tiên của m8-r1 (`output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, 867,6 s).

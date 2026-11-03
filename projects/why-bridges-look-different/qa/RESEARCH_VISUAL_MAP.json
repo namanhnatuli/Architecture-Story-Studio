@@ -4756,10 +4756,199 @@
       "annotations": []
     },
     {
+      "beat_id": "B20E",
+      "sentence": 0,
+      "text": "Cables have a materials story of their own.",
+      "start_seconds": 612.816667,
+      "beat_claims": [
+        "CLM_780",
+        "CLM_781"
+      ],
+      "claims": [
+        {
+          "id": "CLM_780",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            }
+          ]
+        },
+        {
+          "id": "CLM_781",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_049"
+      ],
+      "annotations": [
+        {
+          "annotation": "B20E_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "claim_id": null,
+          "shot": "SC_049",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 612.708,
+          "disappear_seconds": 639.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B20E",
+      "sentence": 1,
+      "text": "America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains.",
+      "start_seconds": 616.491667,
+      "beat_claims": [
+        "CLM_780",
+        "CLM_781"
+      ],
+      "claims": [
+        {
+          "id": "CLM_780",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            }
+          ]
+        },
+        {
+          "id": "CLM_781",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_049"
+      ],
+      "annotations": [
+        {
+          "annotation": "B20E_chain",
+          "type": "NOTE",
+          "text": "Iron chains: only as strong as the weakest link",
+          "claim_id": "CLM_780",
+          "shot": "SC_049",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 616.375,
+          "disappear_seconds": 630.0,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B20E",
+      "sentence": 2,
+      "text": "Wire cables answered that fear, and suspension and cable-stayed bridges now rely on high-strength steel cables.",
+      "start_seconds": 630.116667,
+      "beat_claims": [
+        "CLM_780",
+        "CLM_781"
+      ],
+      "claims": [
+        {
+          "id": "CLM_780",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            }
+          ]
+        },
+        {
+          "id": "CLM_781",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.5 Cable-Stayed"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_049"
+      ],
+      "annotations": [
+        {
+          "annotation": "B20E_cable",
+          "type": "NOTE",
+          "text": "Wire cables, then high-strength steel",
+          "claim_id": "CLM_781",
+          "shot": "SC_049",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 630.0,
+          "disappear_seconds": 639.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
       "beat_id": "B22",
       "sentence": 0,
       "text": "The site of a bridge matters too.",
-      "start_seconds": 612.816667,
+      "start_seconds": 639.566667,
       "beat_claims": [
         "CLM_736"
       ],
@@ -4780,7 +4969,7 @@
         }
       ],
       "shots": [
-        "SC_049"
+        "SC_050"
       ],
       "annotations": []
     },
@@ -4788,7 +4977,7 @@
       "beat_id": "B22",
       "sentence": 1,
       "text": "Railway engines have limited traction, so railways need gentle gradients.",
-      "start_seconds": 615.891667,
+      "start_seconds": 642.641667,
       "beat_claims": [
         "CLM_736"
       ],
@@ -4809,7 +4998,7 @@
         }
       ],
       "shots": [
-        "SC_049"
+        "SC_050"
       ],
       "annotations": []
     },
@@ -4817,7 +5006,7 @@
       "beat_id": "B22",
       "sentence": 2,
       "text": "Where a valley was too deep and wide to fill with an embankment, engineers built viaducts and trestles to keep the line nearly straight and level.",
-      "start_seconds": 622.016667,
+      "start_seconds": 648.766667,
       "beat_claims": [
         "CLM_736"
       ],
@@ -4838,15 +5027,965 @@
         }
       ],
       "shots": [
-        "SC_049"
+        "SC_050"
       ],
       "annotations": []
+    },
+    {
+      "beat_id": "B22B",
+      "sentence": 0,
+      "text": "Long spans make the ground beneath them matter even more.",
+      "start_seconds": 659.65,
+      "beat_claims": [
+        "CLM_761",
+        "CLM_776"
+      ],
+      "claims": [
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_776",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_051"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B22B",
+      "sentence": 1,
+      "text": "A suspension bridge has to anchor its cables in massive blocks, or directly in bedrock.",
+      "start_seconds": 664.55,
+      "beat_claims": [
+        "CLM_761",
+        "CLM_776"
+      ],
+      "claims": [
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_776",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_051"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B22B",
+      "sentence": 2,
+      "text": "The towers of a cable-stayed bridge, by contrast, can be built where good rock does not lie near the surface.",
+      "start_seconds": 671.525,
+      "beat_claims": [
+        "CLM_761",
+        "CLM_776"
+      ],
+      "claims": [
+        {
+          "id": "CLM_761",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_776",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_051"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B22C",
+      "sentence": 0,
+      "text": "Cantilevers had an advantage on uncertain ground.",
+      "start_seconds": 680.358333,
+      "beat_claims": [
+        "CLM_782"
+      ],
+      "claims": [
+        {
+          "id": "CLM_782",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_052"
+      ],
+      "annotations": [
+        {
+          "annotation": "B22C_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "claim_id": null,
+          "shot": "SC_052",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [],
+          "appear_seconds": 680.25,
+          "disappear_seconds": 694.833,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B22C",
+      "sentence": 1,
+      "text": "Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail.",
+      "start_seconds": 684.658333,
+      "beat_claims": [
+        "CLM_782"
+      ],
+      "claims": [
+        {
+          "id": "CLM_782",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_052"
+      ],
+      "annotations": [
+        {
+          "annotation": "B22C_note",
+          "type": "NOTE",
+          "text": "If a pier sank, the cantilever could adjust",
+          "claim_id": "CLM_782",
+          "shot": "SC_052",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [],
+          "appear_seconds": 684.542,
+          "disappear_seconds": 694.833,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B22C_pier",
+          "type": "COMPONENT_LABEL",
+          "text": "Main pier",
+          "claim_id": "CLM_782",
+          "shot": "SC_052",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [
+            "cantilever_bridge_pier_left"
+          ],
+          "appear_seconds": 688.375,
+          "disappear_seconds": 694.833,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B22D",
+      "sentence": 0,
+      "text": "Then there is the wind.",
+      "start_seconds": 695.233333,
+      "beat_claims": [
+        "CLM_783",
+        "CLM_765"
+      ],
+      "claims": [
+        {
+          "id": "CLM_765",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_783",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_053"
+      ],
+      "annotations": [
+        {
+          "annotation": "B22D_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "claim_id": null,
+          "shot": "SC_053",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 695.125,
+          "disappear_seconds": 716.292,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B22D",
+      "sentence": 1,
+      "text": "In 1940, the four-month-old Tacoma Narrows suspension bridge collapsed in only moderately high winds.",
+      "start_seconds": 697.858333,
+      "beat_claims": [
+        "CLM_783",
+        "CLM_765"
+      ],
+      "claims": [
+        {
+          "id": "CLM_765",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_783",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_053"
+      ],
+      "annotations": [
+        {
+          "annotation": "B22D_tacoma",
+          "type": "NOTE",
+          "text": "Tacoma Narrows, 1940: lost to the wind",
+          "claim_id": "CLM_783",
+          "shot": "SC_053",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 697.75,
+          "disappear_seconds": 706.542,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B22D",
+      "sentence": 2,
+      "text": "The disaster led to intense research on wind, and later suspension bridges were built to new standards for stiffened decks.",
+      "start_seconds": 706.633333,
+      "beat_claims": [
+        "CLM_783",
+        "CLM_765"
+      ],
+      "claims": [
+        {
+          "id": "CLM_765",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        },
+        {
+          "id": "CLM_783",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "2.6 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_053"
+      ],
+      "annotations": [
+        {
+          "annotation": "B22D_stiff",
+          "type": "NOTE",
+          "text": "Afterwards: research and stiffened decks",
+          "claim_id": "CLM_783",
+          "shot": "SC_053",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 706.542,
+          "disappear_seconds": 716.292,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        },
+        {
+          "annotation": "B22D_truss",
+          "type": "COMPONENT_LABEL",
+          "text": "Stiffening truss",
+          "claim_id": "CLM_765",
+          "shot": "SC_053",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_stiffening_truss_south"
+          ],
+          "appear_seconds": 706.542,
+          "disappear_seconds": 716.292,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B23C",
+      "sentence": 0,
+      "text": "Span decides a great deal.",
+      "start_seconds": 716.691667,
+      "beat_claims": [
+        "CLM_784",
+        "CLM_785",
+        "CLM_786",
+        "CLM_775"
+      ],
+      "claims": [
+        {
+          "id": "CLM_775",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_784",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_785",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_786",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_054"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B23C",
+      "sentence": 1,
+      "text": "In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther.",
+      "start_seconds": 719.616667,
+      "beat_claims": [
+        "CLM_784",
+        "CLM_785",
+        "CLM_786",
+        "CLM_775"
+      ],
+      "claims": [
+        {
+          "id": "CLM_775",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_784",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_785",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_786",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_054"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B23C",
+      "sentence": 2,
+      "text": "Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000.",
+      "start_seconds": 733.366667,
+      "beat_claims": [
+        "CLM_784",
+        "CLM_785",
+        "CLM_786",
+        "CLM_775"
+      ],
+      "claims": [
+        {
+          "id": "CLM_775",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_784",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_785",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_786",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_054"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B23C",
+      "sentence": 3,
+      "text": "And as we saw, suspension bridges only pay off as main spans approach 3,000 feet.",
+      "start_seconds": 743.791667,
+      "beat_claims": [
+        "CLM_784",
+        "CLM_785",
+        "CLM_786",
+        "CLM_775"
+      ],
+      "claims": [
+        {
+          "id": "CLM_775",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_784",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_785",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_786",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_054"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B23D",
+      "sentence": 0,
+      "text": "Cost and skill pull in different directions.",
+      "start_seconds": 751.691667,
+      "beat_claims": [
+        "CLM_757",
+        "CLM_787"
+      ],
+      "claims": [
+        {
+          "id": "CLM_757",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_787",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.5 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.5 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_055"
+      ],
+      "annotations": [
+        {
+          "annotation": "B23D_model",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "claim_id": null,
+          "shot": "SC_055",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 751.583,
+          "disappear_seconds": 772.792,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B23D",
+      "sentence": 1,
+      "text": "A cantilever avoided the expensive anchorages a suspension bridge needs.",
+      "start_seconds": 755.341667,
+      "beat_claims": [
+        "CLM_757",
+        "CLM_787"
+      ],
+      "claims": [
+        {
+          "id": "CLM_757",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_787",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.5 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.5 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_055"
+      ],
+      "annotations": [
+        {
+          "annotation": "B23D_anchor",
+          "type": "COMPONENT_LABEL",
+          "text": "Anchorages: costly",
+          "claim_id": "CLM_757",
+          "shot": "SC_055",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_anchorage_left"
+          ],
+          "appear_seconds": 758.167,
+          "disappear_seconds": 772.792,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B23D",
+      "sentence": 2,
+      "text": "And a suspension bridge often takes a long time to build: installing its main cables calls for expertise that very few contractors have.",
+      "start_seconds": 761.566667,
+      "beat_claims": [
+        "CLM_757",
+        "CLM_787"
+      ],
+      "claims": [
+        {
+          "id": "CLM_757",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            }
+          ]
+        },
+        {
+          "id": "CLM_787",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.5 Suspension Bridges"
+            },
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.5 Suspension Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_055"
+      ],
+      "annotations": [
+        {
+          "annotation": "B23D_cable",
+          "type": "COMPONENT_LABEL",
+          "text": "Main cables: specialist work",
+          "claim_id": "CLM_787",
+          "shot": "SC_055",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [
+            "suspension_bridge_main_cable_south"
+          ],
+          "appear_seconds": 766.167,
+          "disappear_seconds": 772.792,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B23E",
+      "sentence": 0,
+      "text": "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood.",
+      "start_seconds": 773.191667,
+      "beat_claims": [
+        "CLM_788"
+      ],
+      "claims": [
+        {
+          "id": "CLM_788",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "4.4 Cable-Stayed Bridges"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_056"
+      ],
+      "annotations": [
+        {
+          "annotation": "B23E_note",
+          "type": "NOTE",
+          "text": "Erection methods now better understood",
+          "claim_id": "CLM_788",
+          "shot": "SC_056",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 773.083,
+          "disappear_seconds": 784.5,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
     },
     {
       "beat_id": "B24",
       "sentence": 0,
       "text": "Finally, every bridge belongs to its time.",
-      "start_seconds": 632.9,
+      "start_seconds": 784.9,
       "beat_claims": [
         "CLM_738",
         "CLM_739",
@@ -4907,7 +6046,7 @@
         }
       ],
       "shots": [
-        "SC_050"
+        "SC_057"
       ],
       "annotations": []
     },
@@ -4915,7 +6054,7 @@
       "beat_id": "B24",
       "sentence": 1,
       "text": "As metal trusses spread, skilled masons became fewer and reinforced concrete arrived, stone arch construction declined.",
-      "start_seconds": 636.875,
+      "start_seconds": 788.875,
       "beat_claims": [
         "CLM_738",
         "CLM_739",
@@ -4976,7 +6115,7 @@
         }
       ],
       "shots": [
-        "SC_050"
+        "SC_057"
       ],
       "annotations": []
     },
@@ -4984,7 +6123,7 @@
       "beat_id": "B24",
       "sentence": 2,
       "text": "Then, during the Great Depression, it briefly returned.",
-      "start_seconds": 646.375,
+      "start_seconds": 798.375,
       "beat_claims": [
         "CLM_738",
         "CLM_739",
@@ -5045,7 +6184,238 @@
         }
       ],
       "shots": [
-        "SC_050"
+        "SC_057"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B24B",
+      "sentence": 0,
+      "text": "Long spans have a timeline of their own.",
+      "start_seconds": 803.566667,
+      "beat_claims": [
+        "CLM_766",
+        "CLM_768",
+        "CLM_754",
+        "CLM_756",
+        "CLM_774"
+      ],
+      "claims": [
+        {
+          "id": "CLM_754",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_756",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_766",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_768",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_058"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B24B",
+      "sentence": 1,
+      "text": "By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest bridge in the world for many years.",
+      "start_seconds": 807.141667,
+      "beat_claims": [
+        "CLM_766",
+        "CLM_768",
+        "CLM_754",
+        "CLM_756",
+        "CLM_774"
+      ],
+      "claims": [
+        {
+          "id": "CLM_754",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_756",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_766",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_768",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_058"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B24B",
+      "sentence": 2,
+      "text": "Cantilevers were a standard American answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+      "start_seconds": 816.916667,
+      "beat_claims": [
+        "CLM_766",
+        "CLM_768",
+        "CLM_754",
+        "CLM_756",
+        "CLM_774"
+      ],
+      "claims": [
+        {
+          "id": "CLM_754",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_756",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_766",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_768",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_058"
       ],
       "annotations": []
     },
@@ -5053,7 +6423,7 @@
       "beat_id": "B25",
       "sentence": 0,
       "text": "These trade-offs played out across nineteenth-century America as the railways spread.",
-      "start_seconds": 651.566667,
+      "start_seconds": 832.441667,
       "beat_claims": [
         "CLM_741",
         "CLM_742"
@@ -5085,7 +6455,7 @@
         }
       ],
       "shots": [
-        "SC_051"
+        "SC_059"
       ],
       "annotations": []
     },
@@ -5093,7 +6463,7 @@
       "beat_id": "B25",
       "sentence": 1,
       "text": "In the East, railroads built massive stone viaducts, while western builders generally used timber.",
-      "start_seconds": 657.916667,
+      "start_seconds": 838.791667,
       "beat_claims": [
         "CLM_741",
         "CLM_742"
@@ -5125,7 +6495,7 @@
         }
       ],
       "shots": [
-        "SC_051"
+        "SC_059"
       ],
       "annotations": []
     },
@@ -5133,7 +6503,7 @@
       "beat_id": "B25",
       "sentence": 2,
       "text": "Three documented examples show how differently builders answered.",
-      "start_seconds": 665.691667,
+      "start_seconds": 846.566667,
       "beat_claims": [
         "CLM_741",
         "CLM_742"
@@ -5165,7 +6535,7 @@
         }
       ],
       "shots": [
-        "SC_051"
+        "SC_059"
       ],
       "annotations": []
     },
@@ -5173,7 +6543,7 @@
       "beat_id": "B26",
       "sentence": 0,
       "text": "Near Baltimore, the Carrollton Viaduct was completed in 1829.",
-      "start_seconds": 671.941667,
+      "start_seconds": 852.816667,
       "beat_claims": [
         "CLM_739",
         "CLM_740"
@@ -5201,7 +6571,7 @@
         }
       ],
       "shots": [
-        "SC_052"
+        "SC_060"
       ],
       "annotations": []
     },
@@ -5209,7 +6579,7 @@
       "beat_id": "B26",
       "sentence": 1,
       "text": "Built of roughly twelve thousand granite blocks, it carries the railway over Gwynns Falls on an eighty foot arch.",
-      "start_seconds": 678.016667,
+      "start_seconds": 858.891667,
       "beat_claims": [
         "CLM_739",
         "CLM_740"
@@ -5237,7 +6607,7 @@
         }
       ],
       "shots": [
-        "SC_052"
+        "SC_060"
       ],
       "annotations": []
     },
@@ -5245,7 +6615,7 @@
       "beat_id": "B26",
       "sentence": 2,
       "text": "A national report in 2005 called it the world's oldest stone railroad span still in service.",
-      "start_seconds": 686.441667,
+      "start_seconds": 867.316667,
       "beat_claims": [
         "CLM_739",
         "CLM_740"
@@ -5273,7 +6643,7 @@
         }
       ],
       "shots": [
-        "SC_052"
+        "SC_060"
       ],
       "annotations": []
     },
@@ -5281,7 +6651,7 @@
       "beat_id": "B27",
       "sentence": 0,
       "text": "Early railroads needed durable bridges to carry heavy trains.",
-      "start_seconds": 695.066667,
+      "start_seconds": 875.941667,
       "beat_claims": [
         "CLM_741",
         "CLM_725"
@@ -5313,7 +6683,7 @@
         }
       ],
       "shots": [
-        "SC_053"
+        "SC_061"
       ],
       "annotations": [
         {
@@ -5321,12 +6691,12 @@
           "type": "NOTE",
           "text": "Illustrative model, not the Carrollton Viaduct",
           "claim_id": null,
-          "shot": "SC_053",
+          "shot": "SC_061",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [],
-          "appear_seconds": 694.958,
-          "disappear_seconds": 704.792,
+          "appear_seconds": 875.833,
+          "disappear_seconds": 885.667,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -5340,7 +6710,7 @@
       "beat_id": "B27",
       "sentence": 1,
       "text": "For a line meant to last, stone was the answer.",
-      "start_seconds": 700.191667,
+      "start_seconds": 881.066667,
       "beat_claims": [
         "CLM_741",
         "CLM_725"
@@ -5372,7 +6742,7 @@
         }
       ],
       "shots": [
-        "SC_053"
+        "SC_061"
       ],
       "annotations": []
     },
@@ -5380,7 +6750,7 @@
       "beat_id": "B28",
       "sentence": 0,
       "text": "In the West, the pressure was different.",
-      "start_seconds": 705.191667,
+      "start_seconds": 886.066667,
       "beat_claims": [
         "CLM_742",
         "CLM_743"
@@ -5408,7 +6778,7 @@
         }
       ],
       "shots": [
-        "SC_054"
+        "SC_062"
       ],
       "annotations": []
     },
@@ -5416,7 +6786,7 @@
       "beat_id": "B28",
       "sentence": 1,
       "text": "Railroads had to open new lines quickly and economically, and timber was abundant and cheap.",
-      "start_seconds": 708.441667,
+      "start_seconds": 889.316667,
       "beat_claims": [
         "CLM_742",
         "CLM_743"
@@ -5444,7 +6814,7 @@
         }
       ],
       "shots": [
-        "SC_054"
+        "SC_062"
       ],
       "annotations": []
     },
@@ -5452,7 +6822,7 @@
       "beat_id": "B28",
       "sentence": 2,
       "text": "This timber trestle near Corinne, Utah, was built in 1872 by the Central Pacific Railroad.",
-      "start_seconds": 715.491667,
+      "start_seconds": 896.366667,
       "beat_claims": [
         "CLM_742",
         "CLM_743"
@@ -5480,7 +6850,7 @@
         }
       ],
       "shots": [
-        "SC_054"
+        "SC_062"
       ],
       "annotations": []
     },
@@ -5488,7 +6858,7 @@
       "beat_id": "B29",
       "sentence": 0,
       "text": "A trestle is a succession of towers supporting short spans.",
-      "start_seconds": 724.941667,
+      "start_seconds": 905.816667,
       "beat_claims": [
         "CLM_737"
       ],
@@ -5505,7 +6875,7 @@
         }
       ],
       "shots": [
-        "SC_055"
+        "SC_063"
       ],
       "annotations": [
         {
@@ -5513,12 +6883,12 @@
           "type": "NOTE",
           "text": "Illustrative model, not the Promontory trestle",
           "claim_id": null,
-          "shot": "SC_055",
+          "shot": "SC_063",
           "state": "timber_beam_bridge",
           "asset": "bridge_timber_beam_01",
           "components": [],
-          "appear_seconds": 724.833,
-          "disappear_seconds": 737.042,
+          "appear_seconds": 905.708,
+          "disappear_seconds": 917.917,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -5532,7 +6902,7 @@
       "beat_id": "B29",
       "sentence": 1,
       "text": "It is the same beam idea as our timber model, repeated as often as the crossing needs.",
-      "start_seconds": 729.791667,
+      "start_seconds": 910.666667,
       "beat_claims": [
         "CLM_737"
       ],
@@ -5549,7 +6919,7 @@
         }
       ],
       "shots": [
-        "SC_055"
+        "SC_063"
       ],
       "annotations": []
     },
@@ -5557,7 +6927,7 @@
       "beat_id": "B30",
       "sentence": 0,
       "text": "Iron offered a third path.",
-      "start_seconds": 737.441667,
+      "start_seconds": 918.316667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -5589,7 +6959,7 @@
         }
       ],
       "shots": [
-        "SC_056"
+        "SC_064"
       ],
       "annotations": []
     },
@@ -5597,7 +6967,7 @@
       "beat_id": "B30",
       "sentence": 1,
       "text": "The Bollman truss, patented in 1852, was one of the first designs to use iron in all of its essential structural parts.",
-      "start_seconds": 740.341667,
+      "start_seconds": 921.216667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -5629,7 +6999,7 @@
         }
       ],
       "shots": [
-        "SC_056"
+        "SC_064"
       ],
       "annotations": []
     },
@@ -5637,7 +7007,7 @@
       "beat_id": "B30",
       "sentence": 2,
       "text": "It could be built relatively quickly and inexpensively, while offering the long-lasting qualities of metal.",
-      "start_seconds": 750.291667,
+      "start_seconds": 931.166667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -5669,7 +7039,7 @@
         }
       ],
       "shots": [
-        "SC_056"
+        "SC_064"
       ],
       "annotations": []
     },
@@ -5677,7 +7047,7 @@
       "beat_id": "B30",
       "sentence": 3,
       "text": "The bridge at Savage, Maryland, is the only remaining example of the design.",
-      "start_seconds": 757.991667,
+      "start_seconds": 938.866667,
       "beat_claims": [
         "CLM_744",
         "CLM_745"
@@ -5709,7 +7079,7 @@
         }
       ],
       "shots": [
-        "SC_056"
+        "SC_064"
       ],
       "annotations": []
     },
@@ -5717,7 +7087,7 @@
       "beat_id": "B31",
       "sentence": 0,
       "text": "Stone for permanence, timber for speed and economy, and iron trusses that offered some of both.",
-      "start_seconds": 765.15,
+      "start_seconds": 946.025,
       "beat_claims": [
         "CLM_741",
         "CLM_742",
@@ -5764,7 +7134,7 @@
         }
       ],
       "shots": [
-        "SC_057"
+        "SC_065"
       ],
       "annotations": []
     },
@@ -5772,7 +7142,7 @@
       "beat_id": "B31",
       "sentence": 1,
       "text": "Three places, three sets of constraints, three different bridges.",
-      "start_seconds": 772.375,
+      "start_seconds": 953.25,
       "beat_claims": [
         "CLM_741",
         "CLM_742",
@@ -5819,15 +7189,599 @@
         }
       ],
       "shots": [
-        "SC_057"
+        "SC_065"
       ],
       "annotations": []
+    },
+    {
+      "beat_id": "B31A",
+      "sentence": 0,
+      "text": "Long spans forced hard decisions too.",
+      "start_seconds": 959.108333,
+      "beat_claims": [
+        "CLM_789"
+      ],
+      "claims": [
+        {
+          "id": "CLM_789",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_066"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31A_note",
+          "type": "NOTE",
+          "text": "Illustrative model, not the Niagara bridge",
+          "claim_id": null,
+          "shot": "SC_066",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 959.0,
+          "disappear_seconds": 991.875,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31A",
+      "sentence": 1,
+      "text": "In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains.",
+      "start_seconds": 962.708333,
+      "beat_claims": [
+        "CLM_789"
+      ],
+      "claims": [
+        {
+          "id": "CLM_789",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_066"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31A_1855",
+          "type": "NOTE",
+          "text": "Niagara Gorge, 1855: trains on a suspension bridge",
+          "claim_id": "CLM_789",
+          "shot": "SC_066",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 962.625,
+          "disappear_seconds": 975.75,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31A",
+      "sentence": 2,
+      "text": "Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic.",
+      "start_seconds": 975.858333,
+      "beat_claims": [
+        "CLM_789"
+      ],
+      "claims": [
+        {
+          "id": "CLM_789",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-132"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_066"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31A_133",
+          "type": "NOTE",
+          "text": "Next railway suspension bridge: 133 years later",
+          "claim_id": "CLM_789",
+          "shot": "SC_066",
+          "state": "suspension_bridge",
+          "asset": "bridge_suspension_01",
+          "components": [],
+          "appear_seconds": 975.75,
+          "disappear_seconds": 991.875,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31B",
+      "sentence": 0,
+      "text": "Cantilevers, by contrast, were first used by the railroads.",
+      "start_seconds": 992.275,
+      "beat_claims": [
+        "CLM_790",
+        "CLM_791"
+      ],
+      "claims": [
+        {
+          "id": "CLM_790",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_791",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_067"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31B_note",
+          "type": "NOTE",
+          "text": "Illustrative model, not the Kentucky River bridge",
+          "claim_id": null,
+          "shot": "SC_067",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [],
+          "appear_seconds": 992.167,
+          "disappear_seconds": 1019.375,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31B",
+      "sentence": 1,
+      "text": "A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it.",
+      "start_seconds": 997.55,
+      "beat_claims": [
+        "CLM_790",
+        "CLM_791"
+      ],
+      "claims": [
+        {
+          "id": "CLM_790",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_791",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_067"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31B_rigid",
+          "type": "NOTE",
+          "text": "Inherently rigid: suited to heavy trains",
+          "claim_id": "CLM_790",
+          "shot": "SC_067",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [],
+          "appear_seconds": 997.458,
+          "disappear_seconds": 1006.167,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31B",
+      "sentence": 2,
+      "text": "In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world.",
+      "start_seconds": 1006.25,
+      "beat_claims": [
+        "CLM_790",
+        "CLM_791"
+      ],
+      "claims": [
+        {
+          "id": "CLM_790",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-142"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        },
+        {
+          "id": "CLM_791",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.7 Cantilevers, p. 3-143"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_067"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31B_1877",
+          "type": "NOTE",
+          "text": "1877: the world's longest cantilever",
+          "claim_id": "CLM_791",
+          "shot": "SC_067",
+          "state": "cantilever_bridge",
+          "asset": "bridge_cantilever_truss_01",
+          "components": [],
+          "appear_seconds": 1006.167,
+          "disappear_seconds": 1019.375,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31C",
+      "sentence": 0,
+      "text": "In San Francisco, the Golden Gate Bridge opened in 1937.",
+      "start_seconds": 1019.775,
+      "beat_claims": [
+        "CLM_792"
+      ],
+      "claims": [
+        {
+          "id": "CLM_792",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_068"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B31C",
+      "sentence": 1,
+      "text": "For 27 years, it stood as the world's longest span.",
+      "start_seconds": 1026.0,
+      "beat_claims": [
+        "CLM_792"
+      ],
+      "claims": [
+        {
+          "id": "CLM_792",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "2.2, p. 2-28"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_068"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B31D",
+      "sentence": 0,
+      "text": "Today, the long-span answer in America is usually cable-stayed.",
+      "start_seconds": 1032.025,
+      "beat_claims": [
+        "CLM_774",
+        "CLM_793"
+      ],
+      "claims": [
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_793",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_069"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31D_note",
+          "type": "NOTE",
+          "text": "Illustrative model, not the Penobscot Narrows Bridge",
+          "claim_id": null,
+          "shot": "SC_069",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 1031.917,
+          "disappear_seconds": 1060.458,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31D",
+      "sentence": 1,
+      "text": "In Maine, the Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall.",
+      "start_seconds": 1037.575,
+      "beat_claims": [
+        "CLM_774",
+        "CLM_793"
+      ],
+      "claims": [
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_793",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_069"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31D_fact",
+          "type": "NOTE",
+          "text": "Penobscot Narrows, 2006: 430 ft concrete pylons",
+          "claim_id": "CLM_793",
+          "shot": "SC_069",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 1037.458,
+          "disappear_seconds": 1051.083,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "B31D",
+      "sentence": 2,
+      "text": "It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top.",
+      "start_seconds": 1051.2,
+      "beat_claims": [
+        "CLM_774",
+        "CLM_793"
+      ],
+      "claims": [
+        {
+          "id": "CLM_774",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        },
+        {
+          "id": "CLM_793",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            },
+            {
+              "source": "SRC_FHWA_PENOBSCOT",
+              "locator": "Chapter 3, The test bridge"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_069"
+      ],
+      "annotations": [
+        {
+          "annotation": "B31D_42",
+          "type": "NOTE",
+          "text": "42 months from conception to completion",
+          "claim_id": "CLM_793",
+          "shot": "SC_069",
+          "state": "cable_stayed_bridge",
+          "asset": "bridge_cable_stayed_01",
+          "components": [],
+          "appear_seconds": 1051.083,
+          "disappear_seconds": 1060.458,
+          "qa": {
+            "annotation_objects": "PASS",
+            "annotation_anchors": "PASS",
+            "annotation_layout": "PASS",
+            "annotation_timing": "PASS"
+          }
+        }
+      ]
     },
     {
       "beat_id": "B32",
       "sentence": 0,
       "text": "So why don't bridges all look the same?",
-      "start_seconds": 778.233333,
+      "start_seconds": 1060.858333,
       "beat_claims": [
         "CLM_706",
         "CLM_709",
@@ -5882,20 +7836,20 @@
         }
       ],
       "shots": [
-        "SC_058"
+        "SC_070"
       ],
       "annotations": [
         {
           "annotation": "B32_ch",
           "type": "NOTE",
-          "text": "11 · Why they look different",
+          "text": "12 · Why they look different",
           "claim_id": null,
-          "shot": "SC_058",
+          "shot": "SC_070",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 778.133,
-          "disappear_seconds": 786.383,
+          "appear_seconds": 1060.758,
+          "disappear_seconds": 1069.008,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -5909,7 +7863,7 @@
       "beat_id": "B32",
       "sentence": 1,
       "text": "Because a bridge's form comes from two things working together.",
-      "start_seconds": 781.608333,
+      "start_seconds": 1064.233333,
       "beat_claims": [
         "CLM_706",
         "CLM_709",
@@ -5964,7 +7918,7 @@
         }
       ],
       "shots": [
-        "SC_058"
+        "SC_070"
       ],
       "annotations": []
     },
@@ -5972,7 +7926,7 @@
       "beat_id": "B32",
       "sentence": 2,
       "text": "One is how its structure carries load: beams resist bending, arches work in compression, and trusses share load among members in tension and compression.",
-      "start_seconds": 786.483333,
+      "start_seconds": 1069.108333,
       "beat_claims": [
         "CLM_706",
         "CLM_709",
@@ -6027,7 +7981,7 @@
         }
       ],
       "shots": [
-        "SC_058"
+        "SC_070"
       ],
       "annotations": [
         {
@@ -6035,12 +7989,12 @@
           "type": "NOTE",
           "text": "1 · How the structure carries load",
           "claim_id": null,
-          "shot": "SC_058",
+          "shot": "SC_070",
           "state": "steel_truss_bridge",
           "asset": "bridge_steel_truss_pratt_01",
           "components": [],
-          "appear_seconds": 786.383,
-          "disappear_seconds": 798.292,
+          "appear_seconds": 1069.008,
+          "disappear_seconds": 1080.917,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -6054,7 +8008,7 @@
       "beat_id": "B32L",
       "sentence": 0,
       "text": "Cantilevers reach out from their piers, and suspension and cable-stayed bridges hang their decks from steel cables.",
-      "start_seconds": 798.691667,
+      "start_seconds": 1081.316667,
       "beat_claims": [
         "CLM_750",
         "CLM_760",
@@ -6097,7 +8051,7 @@
         }
       ],
       "shots": [
-        "SC_059"
+        "SC_071"
       ],
       "annotations": [
         {
@@ -6105,12 +8059,12 @@
           "type": "NOTE",
           "text": "1 · How the structure carries load",
           "claim_id": null,
-          "shot": "SC_059",
+          "shot": "SC_071",
           "state": "cable_stayed_bridge",
           "asset": "bridge_cable_stayed_01",
           "components": [],
-          "appear_seconds": 798.592,
-          "disappear_seconds": 807.417,
+          "appear_seconds": 1081.217,
+          "disappear_seconds": 1090.042,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -6124,7 +8078,7 @@
       "beat_id": "B32B",
       "sentence": 0,
       "text": "The other is the world it was built in: its materials, its site, its span, its budget and its builders.",
-      "start_seconds": 807.816667,
+      "start_seconds": 1090.441667,
       "beat_claims": [
         "CLM_742",
         "CLM_724"
@@ -6152,7 +8106,7 @@
         }
       ],
       "shots": [
-        "SC_060"
+        "SC_072"
       ],
       "annotations": []
     },
@@ -6160,11 +8114,12 @@
       "beat_id": "B33",
       "sentence": 0,
       "text": "And it is not a simple story of progress.",
-      "start_seconds": 816.483333,
+      "start_seconds": 1099.108333,
       "beat_claims": [
         "CLM_721",
         "CLM_738",
-        "CLM_777"
+        "CLM_777",
+        "CLM_767"
       ],
       "claims": [
         {
@@ -6192,6 +8147,16 @@
           ]
         },
         {
+          "id": "CLM_767",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
           "id": "CLM_777",
           "status": "SOURCE_VERIFIED",
           "evidence": [
@@ -6203,7 +8168,7 @@
         }
       ],
       "shots": [
-        "SC_061"
+        "SC_073"
       ],
       "annotations": []
     },
@@ -6211,11 +8176,12 @@
       "beat_id": "B33",
       "sentence": 1,
       "text": "Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression.",
-      "start_seconds": 820.183333,
+      "start_seconds": 1102.808333,
       "beat_claims": [
         "CLM_721",
         "CLM_738",
-        "CLM_777"
+        "CLM_777",
+        "CLM_767"
       ],
       "claims": [
         {
@@ -6243,6 +8209,16 @@
           ]
         },
         {
+          "id": "CLM_767",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
           "id": "CLM_777",
           "status": "SOURCE_VERIFIED",
           "evidence": [
@@ -6254,7 +8230,7 @@
         }
       ],
       "shots": [
-        "SC_061"
+        "SC_073"
       ],
       "annotations": []
     },
@@ -6262,11 +8238,12 @@
       "beat_id": "B33",
       "sentence": 2,
       "text": "And the most common steel bridge today is still a kind of beam: the welded plate girder.",
-      "start_seconds": 827.783333,
+      "start_seconds": 1110.408333,
       "beat_claims": [
         "CLM_721",
         "CLM_738",
-        "CLM_777"
+        "CLM_777",
+        "CLM_767"
       ],
       "claims": [
         {
@@ -6294,6 +8271,16 @@
           ]
         },
         {
+          "id": "CLM_767",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
           "id": "CLM_777",
           "status": "SOURCE_VERIFIED",
           "evidence": [
@@ -6305,19 +8292,20 @@
         }
       ],
       "shots": [
-        "SC_061"
+        "SC_073"
       ],
       "annotations": []
     },
     {
       "beat_id": "B33",
       "sentence": 3,
-      "text": "Each form can still be the right answer in the right place.",
-      "start_seconds": 834.133333,
+      "text": "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up.",
+      "start_seconds": 1116.758333,
       "beat_claims": [
         "CLM_721",
         "CLM_738",
-        "CLM_777"
+        "CLM_777",
+        "CLM_767"
       ],
       "claims": [
         {
@@ -6345,6 +8333,16 @@
           ]
         },
         {
+          "id": "CLM_767",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
           "id": "CLM_777",
           "status": "SOURCE_VERIFIED",
           "evidence": [
@@ -6356,7 +8354,69 @@
         }
       ],
       "shots": [
-        "SC_061"
+        "SC_073"
+      ],
+      "annotations": []
+    },
+    {
+      "beat_id": "B33",
+      "sentence": 4,
+      "text": "Each form can still be the right answer in the right place.",
+      "start_seconds": 1126.008333,
+      "beat_claims": [
+        "CLM_721",
+        "CLM_738",
+        "CLM_777",
+        "CLM_767"
+      ],
+      "claims": [
+        {
+          "id": "CLM_721",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.3.1 Timber Stringer, p. 3-80"
+            },
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.3.1 Timber Stringer, p. 3-80"
+            }
+          ]
+        },
+        {
+          "id": "CLM_738",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.2.1 Stone Arch, p. 3-49"
+            }
+          ]
+        },
+        {
+          "id": "CLM_767",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_NCHRP_CONTEXT",
+              "locator": "3.5 Suspension, p. 3-133"
+            }
+          ]
+        },
+        {
+          "id": "CLM_777",
+          "status": "SOURCE_VERIFIED",
+          "evidence": [
+            {
+              "source": "SRC_FHWA_BRIDGE_TYPES",
+              "locator": "3.0 Economics"
+            }
+          ]
+        }
+      ],
+      "shots": [
+        "SC_073"
       ],
       "annotations": []
     },
@@ -6364,11 +8424,11 @@
       "beat_id": "B34",
       "sentence": 0,
       "text": "Next time you cross a bridge, look at its shape.",
-      "start_seconds": 839.316667,
+      "start_seconds": 1131.191667,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_062"
+        "SC_074"
       ],
       "annotations": []
     },
@@ -6376,11 +8436,11 @@
       "beat_id": "B34",
       "sentence": 1,
       "text": "It shows how the load reaches the ground, and something about the people who built it.",
-      "start_seconds": 843.166667,
+      "start_seconds": 1135.041667,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_062"
+        "SC_074"
       ],
       "annotations": []
     },
@@ -6388,11 +8448,11 @@
       "beat_id": "B34",
       "sentence": 2,
       "text": "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.",
-      "start_seconds": 849.341667,
+      "start_seconds": 1141.216667,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_062"
+        "SC_074"
       ],
       "annotations": [
         {
@@ -6400,12 +8460,12 @@
           "type": "NOTE",
           "text": "Models are illustrations, not engineering designs",
           "claim_id": null,
-          "shot": "SC_062",
+          "shot": "SC_074",
           "state": "stone_arch_bridge",
           "asset": "bridge_stone_arch_03",
           "components": [],
-          "appear_seconds": 849.25,
-          "disappear_seconds": 858.875,
+          "appear_seconds": 1141.125,
+          "disappear_seconds": 1150.75,
           "qa": {
             "annotation_objects": "PASS",
             "annotation_anchors": "PASS",
@@ -6419,11 +8479,11 @@
       "beat_id": "B35",
       "sentence": 0,
       "text": "Thank you very much for watching.",
-      "start_seconds": 859.275,
+      "start_seconds": 1151.15,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_063"
+        "SC_075"
       ],
       "annotations": []
     },
@@ -6431,11 +8491,11 @@
       "beat_id": "B35",
       "sentence": 1,
       "text": "The sources and photo credits are listed in the description.",
-      "start_seconds": 862.25,
+      "start_seconds": 1154.125,
       "beat_claims": [],
       "claims": [],
       "shots": [
-        "SC_063"
+        "SC_075"
       ],
       "annotations": []
     }

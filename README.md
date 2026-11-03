@@ -165,6 +165,9 @@ Tài liệu: [`docs/m7/`](docs/m7/).
 Phim được làm lại theo yêu cầu của chủ kênh, với dầm, vòm, giàn, công-xôn, cầu treo và cầu dây văng.
 - Revision m8-r1: 11 chương, 14,46 phút.
 - Ba mô hình nhịp lớn mới đặt trên site 72 m.
+- **M8.1 (2026-11-03), revision m8-r2:**
+  - Các chương yếu tố, quyết định và kết luận nay nói cả về công-xôn, cầu treo và dây văng. Có thêm chương C10 "Span, cost and time".
+  - Phim dài 12 chương, 19,3 phút, theo quyết định của chủ kênh về thời lượng (`project.json` → `runtime_decision`).
 - Bản review nội bộ: `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, chờ chủ kênh duyệt.
 - Bản 4K đã duyệt của m7-r1 giữ ở tag `m7-final-4k`.
 
