@@ -283,6 +283,19 @@ class OwnerEditorialReviewTest(unittest.TestCase):
         solid = {e["word"] for e in bars if e.get("color")}
         self.assertEqual((outlined, solid), ({"girders", "simple"}, {"arches", "cable"}))
 
+    def test_second_text_review_keeps_the_conditions_on_the_cards(self):
+        # M8.2, owner's second text review: the card says what the narration says, with its conditions.
+        beats = {b["beat_id"]: b for b in read(FILM / "script/visual_beats.json")["beats"]}
+        texts = lambda bid: " ".join(e.get("text", "") for e in beats[bid]["graphic"]["elements"])   # noqa: E731
+        self.assertIn("almost all new U.S. bridges with main spans over 1,000 ft were cable-stayed", texts("B24B"))
+        self.assertIn("long after timber trusses stopped being competitive", texts("B33"))
+        self.assertIn("timber trusses stopped being competitive", self.sentences()["B33"][1])
+        self.assertIn("timber trusses stopped being competitive", self.sentences()["B09"][1])
+        notes = (FILM / "review/EDITORIAL_NOTES.md").read_text(encoding="utf-8")
+        current = notes.split("## Đã bỏ")[0]   # the removed statements are listed only under their own heading
+        for gone in ("200 to 300", "133 years", "Today, the long-span", "19,3 phút", "muốn thêm một NOTE"):
+            self.assertNotIn(gone, current)
+
     def test_ground_card_says_or(self):
         beats = {b["beat_id"]: b for b in read(FILM / "script/visual_beats.json")["beats"]}
         texts = [e.get("text", "") for e in beats["B22B"]["graphic"]["elements"]]

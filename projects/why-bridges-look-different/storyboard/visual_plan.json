@@ -7,14 +7,14 @@
   "timing_mode": "AUDIO_LOCKED",
   "publication": {
     "restriction": "INTERNAL_ONLY",
-    "reason": "M8 revision m8-r2: claims are source-verified, not yet editorially approved; review cut only."
+    "reason": "M8 revision m8-r4: claims are source-verified, not yet editorially approved; review cut only."
   },
   "fps": 24,
-  "total_frames": 28651,
-  "duration_seconds": 1193.791667,
+  "total_frames": 28687,
+  "duration_seconds": 1195.291667,
   "executable": true,
   "inputs": {
-    "beats_sha256": "55135f42a5bba175d1eaf00efb39bd67f6853794d8a4f0d34083faecc8663da7",
+    "beats_sha256": "2ae3d237800f1c78224ef9318474f400cbdf9ee8f00e6eb517c699da5706438e",
     "sources_sha256": "6903c6bf7d41cd02e58a998d6322f93c7ae89980823203cbcfc1b4392ba66f88",
     "vocabulary_sha256": "ce7e6cbfb1ebfe7c0fab010aa7e9c02b9cd80e1b19e0c823cd47d15051157777",
     "planning_config_sha256": "f2d5a77d7092e865b348f5f044488d6165d3503195a16df36287c55d14e32262",
@@ -28,7 +28,7 @@
       "bridge_timber_beam_01": "9a416c794cb5a56c22eab1960a56ad195306971d223e723f17c831e9be201411"
     },
     "annotation_style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
-    "timing_sha256": "b276ae37abeeef6098a930c54a12e52ebf001f9ac0efac9a0505ec5814a760a8"
+    "timing_sha256": "9d1a67d86ad995b92b537099d82a09d3f7df419f27cadda1984f3df6efc6ed1b"
   },
   "family": "bridge",
   "scene_contexts": [
@@ -32915,9 +32915,9 @@
             {
               "id": "B24B_25",
               "kind": "text",
-              "text": "1980–2012: U.S. spans over 1,000 ft cable-stayed",
+              "text": "1980–2012: almost all new U.S. bridges with",
               "position": [
-                0.7802,
+                0.7958,
                 0.7
               ],
               "size": 0.024,
@@ -32928,6 +32928,20 @@
             },
             {
               "id": "B24B_26",
+              "kind": "text",
+              "text": "main spans over 1,000 ft were cable-stayed",
+              "position": [
+                0.7958,
+                0.645
+              ],
+              "size": 0.024,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 24.445
+            },
+            {
+              "id": "B24B_27",
               "kind": "text",
               "text": "Long spans: a timeline of their own",
               "position": [
@@ -32955,7 +32969,7 @@
           "CLM_774"
         ],
         "narration": "Long spans have a timeline of their own. By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest span in the world when it opened. Cantilevers were a standard American answer from the 1880s to the 1960s, and a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed.",
-        "visual_purpose": "Long-span timeline (dates from the evidence registry) [CARD 1/1: 2D card supplied by the beat (27 elements)]"
+        "visual_purpose": "Long-span timeline (dates from the evidence registry) [CARD 1/1: 2D card supplied by the beat (28 elements)]"
       },
       "beat_id": "B24B",
       "visual_intent": "SHOW_CONTEXT",
@@ -32982,7 +32996,7 @@
         "beat_offset_seconds": 0.0,
         "start_seconds": 832.666667
       },
-      "explanation": "2D card supplied by the beat (27 elements)",
+      "explanation": "2D card supplied by the beat (28 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -36798,7 +36812,7 @@
     {
       "shot": {
         "id": "SC_073",
-        "duration_seconds": 36.75,
+        "duration_seconds": 38.25,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -37238,7 +37252,7 @@
               "text": "Stone arches return briefly",
               "position": [
                 0.8458,
-                0.7
+                0.64
               ],
               "size": 0.024,
               "align": "CENTER",
@@ -37277,6 +37291,20 @@
             {
               "id": "B33_31",
               "kind": "text",
+              "text": "stopped being competitive",
+              "position": [
+                0.8,
+                0.75
+              ],
+              "size": 0.025,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 4.0
+            },
+            {
+              "id": "B33_32",
+              "kind": "text",
               "text": "2012: most common steel bridge",
               "position": [
                 0.24,
@@ -37286,10 +37314,10 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 15.445
+              "appear": 16.92
             },
             {
-              "id": "B33_32",
+              "id": "B33_33",
               "kind": "text",
               "text": "is the plate girder, a beam",
               "position": [
@@ -37300,10 +37328,10 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 15.445
+              "appear": 16.92
             },
             {
-              "id": "B33_33",
+              "id": "B33_34",
               "kind": "text",
               "text": "Small suspension bridges:",
               "position": [
@@ -37314,10 +37342,10 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 25.105
+              "appear": 26.58
             },
             {
-              "id": "B33_34",
+              "id": "B33_35",
               "kind": "text",
               "text": "simple and easy to put up",
               "position": [
@@ -37328,7 +37356,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 25.105
+              "appear": 26.58
             }
           ]
         },
@@ -37343,8 +37371,8 @@
           "CLM_777",
           "CLM_767"
         ],
-        "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
-        "visual_purpose": "Not a linear progression (timeline) [CARD 1/1: 2D card supplied by the beat (35 elements)]"
+        "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
+        "visual_purpose": "Not a linear progression (timeline) [CARD 1/1: 2D card supplied by the beat (36 elements)]"
       },
       "beat_id": "B33",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
@@ -37365,13 +37393,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 882,
-        "duration_seconds": 36.75,
-        "min_seconds": 25.4583,
+        "frames": 918,
+        "duration_seconds": 38.25,
+        "min_seconds": 26.9583,
         "beat_offset_seconds": 0.0,
         "start_seconds": 1128.333333
       },
-      "explanation": "2D card supplied by the beat (35 elements)",
+      "explanation": "2D card supplied by the beat (36 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -37494,7 +37522,7 @@
         "duration_seconds": 19.958333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1165.083333
+        "start_seconds": 1166.583333
       },
       "explanation": "hold stone_arch_bridge; slow push-in (12%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -37706,7 +37734,7 @@
         "duration_seconds": 8.75,
         "min_seconds": 1.5,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1185.041667
+        "start_seconds": 1186.541667
       },
       "explanation": "2D card supplied by the beat (7 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -41161,7 +41189,7 @@
     {
       "beat_id": "B33",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
+      "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -41172,7 +41200,7 @@
       "shot_ids": [
         "SC_073"
       ],
-      "expected_seconds": 36.75,
+      "expected_seconds": 38.225,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [

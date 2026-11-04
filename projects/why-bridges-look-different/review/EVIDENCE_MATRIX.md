@@ -1,4 +1,4 @@
-# Ma trận bằng chứng: Why Bridges Don't All Look the Same (narration `m8-r3`)
+# Ma trận bằng chứng: Why Bridges Don't All Look the Same (narration `m8-r4`)
 
 Sinh tự động bởi `tools/longform_reports.py` từ `research/sources.json`, `script/narration.json` và `script/visual_beats.json`. Mọi trích dẫn đã được khớp nguyên văn với văn bản nguồn tải về (`research/build_sources.py`). **Chưa claim nào được duyệt biên tập.**
 

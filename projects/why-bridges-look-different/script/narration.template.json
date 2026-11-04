@@ -141,7 +141,7 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "m8-r3",
+    "version": "m8-r4",
     "date": "2026-11-04",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
     "previous": {
@@ -150,7 +150,7 @@
       "status": "EDITORIALLY_APPROVED (41 claims, 2026-10-30)",
       "note": "m7-r1 is the approved film (git tag m7-final-4k); its approvals do not carry over to m8-r1"
     },
-    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31; m8-r2 (owner request of 2026-11-03): chapters 9-12 also cover the long-span families; m8-r3 (owner's editorial review of 2026-11-04): wording corrected where a claim was broader, more present-tense or less conditional than its evidence",
+    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31; m8-r2 (owner request of 2026-11-03): chapters 9-12 also cover the long-span families; m8-r3 (owner's editorial review of 2026-11-04): wording corrected where a claim was broader, more present-tense or less conditional than its evidence; m8-r4 (owner's second text review of 2026-11-04): B33 keeps the condition 'stopped being competitive', the B24B card keeps 'almost all', 'main spans' and 'built since 1980', and the review package's notes describe the current film",
     "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
     "edits": [
       {
@@ -314,6 +314,12 @@
         "draft": "Cantilevers, by contrast, were first used by the railroads.",
         "m8-r3": "In America, modern cantilevers were first used by the railroads, and only later for highways.",
         "why": "same review (minor): the source speaks of the modern cantilever in the U.S. ('and then as highway bridges') and also describes ancient cantilevers"
+      },
+      {
+        "sentence": "B33.s1",
+        "draft": "Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression.",
+        "m8-r4": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
+        "why": "owner's second text review (2026-11-04): without 'stopped being competitive' the sentence can be read as timber trusses no longer being built at all; same wording as B09 and as NCHRP §3.3.1 ('ceased to be competitive with metal truss bridges')"
       }
     ],
     "voice_change": {
@@ -351,6 +357,12 @@
       "date": "2026-11-03",
       "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
       "note": "m8-r2 added the long-span families to chapters 9-12 (commit eabe12c); the owner's editorial review of 2026-11-04 requested changes; never approved"
+    },
+    "previous_m8_r3": {
+      "version": "m8-r3",
+      "date": "2026-11-04",
+      "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+      "note": "m8-r3 corrected the wording after the owner's editorial review (commit 55f937a; 720p review cut 32795d4); the owner's second text review of 2026-11-04 requested three more changes; never approved"
     }
   },
   "beats": []

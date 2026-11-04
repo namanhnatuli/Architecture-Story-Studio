@@ -839,8 +839,12 @@ beat("C10", "B24", "fact", "SHOW_CONTEXT", [
 c = timeline("B24B", [(1849, "Wheeling suspension bridge: 1,010 ft span", 1, "wheeling"), (1883, "Brooklyn Bridge", 1, "longest"),
                       (1909, "Queensboro cantilever", 2, "cantilevers")],
              [(1880, 1965, "Cantilevers: a standard U.S. type", IRON, 2, 0.79, "cantilevers"),
-              (1980, 2012, "1980–2012: U.S. spans over 1,000 ft cable-stayed", ACCENT, 2, 0.7, "since")],
-             start=1840, end=2015, ticks=(1840, 1870, 1900, 1930, 1960, 1990))
+              (1980, 2012, "1980–2012: almost all new U.S. bridges with", ACCENT, 2, 0.7, "since")],
+             start=1840, end=2015, ticks=(1840, 1870, 1900, 1930, 1960, 1990),
+             extra=lambda c: c.text("main spans over 1,000 ft were cable-stayed",
+                                    clamp_x(0.08 + (1996 - 1840) / 175.0 * 0.84,
+                                            text_width("1980–2012: almost all new U.S. bridges with", 0.024)),
+                                    0.645, 0.024, 2, plate=True, word="since"))
 c.text("Long spans: a timeline of their own", 0.5, 0.87, 0.04, 0)
 beat("C10", "B24B", "fact", "SHOW_CONTEXT", [
     "Long spans have a timeline of their own.",
@@ -989,16 +993,17 @@ beat("C12", "B32B", "interpretation", "SUMMARIZE_DIFFERENCES", [
     ["CLM_742", "CLM_724"], strategy="CARD", graphic=c.spec(), visual_goal="The second answer: the world around it",
     required_concepts=[])
 
-c = timeline("B33", TL_EVENTS, [(1929, 1939, "Stone arches return briefly", STONE, 1, 0.7)],
+c = timeline("B33", TL_EVENTS, [(1929, 1939, "Stone arches return briefly", STONE, 1, 0.64)],
              extra=lambda c: (c.text("Timber beam bridges: built", 0.8, 0.86, 0.025, 1, plate=True),
                               c.text("long after timber trusses", 0.8, 0.805, 0.025, 1, plate=True),
+                              c.text("stopped being competitive", 0.8, 0.75, 0.025, 1, plate=True),
                               c.text("2012: most common steel bridge", 0.24, 0.86, 0.025, 2, plate=True, word="handbook"),
                               c.text("is the plate girder, a beam", 0.24, 0.805, 0.025, 2, plate=True, word="handbook"),
                               c.text("Small suspension bridges:", 0.79, 0.3, 0.025, 3, plate=True, word="small"),
                               c.text("simple and easy to put up", 0.79, 0.245, 0.025, 3, plate=True, word="small")))
 beat("C12", "B33", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "And it is not a simple story of progress.",
-    "Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression.",
+    "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
     "And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge.",
     "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up.",
     "Each form can still be the right answer in the right place."],
@@ -1036,7 +1041,7 @@ def main():
     doc = {"schema": "narrative_beats/1", "project_id": "why-bridges-look-different",
            "title": "Why Bridges Don't All Look the Same", "status": "INTERNAL_REVIEW_DRAFT", "timing_mode": "AUDIO_LOCKED",
            "publication": {"restriction": "INTERNAL_ONLY",
-                           "reason": "M8 revision m8-r2: claims are source-verified, not yet editorially approved; review cut only."},
+                           "reason": "M8 revision m8-r4: claims are source-verified, not yet editorially approved; review cut only."},
            "beats": []}
     for b in BEATS:
         v = dict(b["visual"])

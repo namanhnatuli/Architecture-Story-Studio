@@ -1,7 +1,6 @@
 {
-  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (EDITORIAL_REVIEW_PENDING)",
+  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (NOT TECHNICALLY VALIDATED; EDITORIAL_REVIEW_PENDING)",
   "statuses": [
-    "TECHNICALLY_VALIDATED",
     "EDITORIAL_REVIEW_PENDING"
   ],
   "gates": {
@@ -31,26 +30,26 @@
     "G3 narration timing lock": {
       "status": "PASS",
       "notes": [
-        "28651 frames, locked=True"
+        "28687 frames, locked=True"
       ]
     },
     "G4 Blender visual preview": {
-      "status": "PASS",
+      "status": "FAIL",
       "notes": [
         "Blender QA 944/944",
-        "media QA PASS"
+        "media QA is stale (rendered for a different timing)"
       ]
     },
     "G5 media assembly & subtitles": {
-      "status": "PASS",
+      "status": "FAIL",
       "notes": [
-        "28651 frames, -16.4 LUFS, 271 subtitle cues"
+        "assembly report is stale (assembled for a different timing)"
       ]
     },
     "GL long-form chapters & rights": {
       "status": "PASS",
       "notes": [
-        "17 checks pass, 2 warnings"
+        "17 checks pass, 3 warnings"
       ]
     },
     "G6 final publication readiness": {

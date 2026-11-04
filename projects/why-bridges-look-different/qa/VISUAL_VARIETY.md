@@ -2,12 +2,12 @@
 
 Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu trúc; phần nhận xét của người xem nằm trong `qa/EDITORIAL_REVIEW_TIMECODED.md`.
 
-- 75 shot, 1193.8 s. Shot dài nhất 44.4 s; trung bình 15.9 s.
+- 75 shot, 1195.3 s. Shot dài nhất 44.4 s; trung bình 15.9 s.
 
 | Loại hình | Số shot | Thời lượng | Tỉ lệ |
 |---|---|---|---|
 | 3D_HOLD | 33 | 421.2 s | 35% |
-| DIAGRAM | 12 | 297.7 s | 25% |
+| DIAGRAM | 12 | 299.2 s | 25% |
 | PHOTO | 8 | 160.1 s | 13% |
 | 3D_PUSH_IN | 7 | 141.5 s | 12% |
 | 3D_EXPLODED_VIEW | 6 | 75.5 s | 6% |
@@ -32,7 +32,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 | C9 Why different designs exist | 9:22 | 172 s | 10 | 3D_HOLD ×6, DIAGRAM ×2, PHOTO ×1, TITLE ×1 |
 | C10 Span, cost and time | 12:15 | 129 s | 5 | 3D_HOLD ×1, 3D_PUSH_IN ×1, DIAGRAM ×3 |
 | C11 Real-world decisions | 14:23 | 226 s | 11 | 3D_HOLD ×1, 3D_PUSH_IN ×4, DIAGRAM ×1, PHOTO ×5 |
-| C12 Why they look different | 18:10 | 104 s | 6 | 3D_PUSH_IN ×1, 3D_SIDE_BY_SIDE ×2, DIAGRAM ×1, TITLE ×2 |
+| C12 Why they look different | 18:10 | 105 s | 6 | 3D_PUSH_IN ×1, 3D_SIDE_BY_SIDE ×2, DIAGRAM ×1, TITLE ×2 |
 
 ## Từng shot
 
@@ -110,7 +110,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 | SC_070 | B32 | 3D_SIDE_BY_SIDE | 20.5 s | hard |
 | SC_071 | B32L | 3D_SIDE_BY_SIDE | 9.1 s | hard |
 | SC_072 | B32B | TITLE | 8.7 s | hard |
-| SC_073 | B33 | DIAGRAM | 36.8 s | hard |
+| SC_073 | B33 | DIAGRAM | 38.2 s | hard |
 | SC_074 | B34 | 3D_PUSH_IN | 20.0 s | hard |
 | SC_075 | B35 | TITLE | 8.8 s | hard |
 
@@ -125,8 +125,8 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 ## Kiểm tra phim dài (pipeline/chapters.py)
 
 - PASS `chapters_structure`: 12 chapters cover every beat contiguously, in order
-- PASS `chapter_durations`: C1 52s, C2 49s, C3 70s, C4 82s, C5 84s, C6 88s, C7 59s, C8 78s, C9 172s, C10 129s, C11 226s, C12 104s
-- PASS `runtime`: 19.90 min (28651 frames); acceptable 8-20 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)
+- PASS `chapter_durations`: C1 52s, C2 49s, C3 70s, C4 82s, C5 84s, C6 88s, C7 59s, C8 78s, C9 172s, C10 129s, C11 226s, C12 105s
+- PASS `runtime`: 19.92 min (28687 frames); acceptable 8-30 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)
 - PASS `no_duplicate_shots`: 75 unique shots
 - WARN `no_repeated_sentences`: so why don't bridges all look the same?
 - PASS `narration_sentences_complete`: 169 sentences scheduled, same text and order as narration.json

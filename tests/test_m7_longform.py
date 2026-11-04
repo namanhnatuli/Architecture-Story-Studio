@@ -147,7 +147,7 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         record = read(FILM / "research/editorial_approval.json")
         self.assertEqual((record["narration_revision"], len(record["claims"])), ("m7-r1", 41))
         self.assertIn("Tran Nam Anh", record["approved_by"])
-        self.assertEqual(narration["revision"]["version"], "m8-r3")
+        self.assertEqual(narration["revision"]["version"], "m8-r4")
         self.assertTrue(used <= set(claims), used - set(claims))
         self.assertEqual({c["review_status"] for c in claims.values()}, {"SOURCE_VERIFIED"})
         self.assertFalse(any("editorial_approval" in c for c in claims.values()))
@@ -161,10 +161,10 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         with tmp:
             self.assertFalse(any("approval is for narration" in e for e in validator.validate_project(p)[0]))
             n = read(p / "script/narration.json")
-            n["revision"]["version"] = "m8-r4"
+            n["revision"]["version"] = "m8-r5"
             (p / "script/narration.json").write_text(json.dumps(n))
             errors, _ = validator.validate_project(p)
-            self.assertTrue(any("approval is for narration 'm8-r3'" in e for e in errors))
+            self.assertTrue(any("approval is for narration 'm8-r4'" in e for e in errors))
 
     def test_am_michael_approval_is_the_owners_and_project_scoped(self):
         # Approved by the owner on 2026-10-30 for this documentary only (finalization request, section 3.2).
@@ -740,7 +740,7 @@ class ChapterEvidenceTest(unittest.TestCase):
             self.assertEqual(ev["unsupported_fact_beats"], [], c["id"])
             self.assertEqual(ev["missing_claims"], [], c["id"])
             self.assertTrue(ev["sources_known"], c["id"])
-            self.assertEqual(ev["narration_revision"], "m8-r3")
+            self.assertEqual(ev["narration_revision"], "m8-r4")
             self.assertNotEqual(ev["editorial_status"], "EDITORIALLY_APPROVED", c["id"])   # pending the owner
             self.assertTrue(ev["historical_accuracy"], c["id"])
         c11 = next(c for c in m["chapters"] if c["id"] == "C11")

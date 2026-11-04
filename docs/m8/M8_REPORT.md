@@ -269,3 +269,12 @@ File: `projects/why-bridges-look-different/output/why_bridges_look_different_M8_
 - **Bản review nội bộ cuối 720p (m8-r3):** `output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.mp4` + `.en.srt`; 1280×720, 28 651 khung (19:54), −16,4 LUFS, 271 cue phụ đề. Render 75 shot + 12 chương + ghép mất 2 giờ 10 phút (07:28–09:38, 2026-11-04). Cổng G0–G5, GL, GV đạt; G1 và G6 vẫn chờ chủ kênh (claim, phát âm, giọng nghe thực).
 - **Trần thời lượng:** `runtime_decision` 8–30 phút (30 do agent chọn khi chủ kênh bảo nâng trần; `DEC-M8.2-CEILING-AND-720P`).
 - **Preset mới:** `internal_720p` (1280×720). Test offline 321/321.
+
+## M8.2 (2026-11-04): m8-r4, lần nhận xét thứ hai của chủ kênh (chưa render)
+- **Nhận xét** (`REV-M8.2-SECOND-TEXT-REVIEW`): yêu cầu sửa, không phải duyệt. Chưa render gì, theo yêu cầu.
+- **Gói duyệt:** phần "Các điểm cần lưu ý" (từ `review/EDITORIAL_NOTES.md`) viết lại theo phim hiện tại. Các câu đã bỏ ("200 to 300 feet", "133 years", "Today…") chỉ còn ở mục "Đã bỏ" kèm lý do. Card B23C được mô tả là hai loại số, không phải toàn dải kinh tế. Thời lượng và trần ghi đúng 19,9 phút / 30 phút.
+- **Card B24B:** "1980–2012: almost all new U.S. bridges with / main spans over 1,000 ft were cable-stayed" (trước: "U.S. spans over 1,000 ft cable-stayed").
+- **B33:** lời dẫn và card giữ "long after timber trusses stopped being competitive", như B09 và NCHRP §3.3.1. Nhãn "Stone arches return briefly" hạ xuống để có chỗ cho dòng thứ ba.
+- **Revision m8-r4:** 169 câu, 19,92 phút (28 687 khung); B33.s1 đọc lại, ASR WER 0. QA dài PASS; 2 shot cần render (SC_058, SC_073).
+- **Kiểm tra:** test offline 321/322; test còn lại so bản ghép 720p (m8-r3) với timing m8-r4 và sẽ đạt sau lần render tới. Gates G4/G5 FAIL vì media cũ. Không chạy Blender.
+

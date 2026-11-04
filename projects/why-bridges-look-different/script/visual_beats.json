@@ -6,7 +6,7 @@
   "timing_mode": "AUDIO_LOCKED",
   "publication": {
     "restriction": "INTERNAL_ONLY",
-    "reason": "M8 revision m8-r2: claims are source-verified, not yet editorially approved; review cut only."
+    "reason": "M8 revision m8-r4: claims are source-verified, not yet editorially approved; review cut only."
   },
   "beats": [
     {
@@ -7239,9 +7239,9 @@
             "id": "B24B_25",
             "kind": "text",
             "sentence": 2,
-            "text": "1980–2012: U.S. spans over 1,000 ft cable-stayed",
+            "text": "1980–2012: almost all new U.S. bridges with",
             "position": [
-              0.7802,
+              0.7958,
               0.7
             ],
             "size": 0.024,
@@ -7252,6 +7252,21 @@
           },
           {
             "id": "B24B_26",
+            "kind": "text",
+            "sentence": 2,
+            "text": "main spans over 1,000 ft were cable-stayed",
+            "position": [
+              0.7958,
+              0.645
+            ],
+            "size": 0.024,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "since"
+          },
+          {
+            "id": "B24B_27",
             "kind": "text",
             "sentence": 0,
             "text": "Long spans: a timeline of their own",
@@ -8634,7 +8649,7 @@
         "CLM_777",
         "CLM_767"
       ],
-      "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
+      "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
       "visual_goal": "Not a linear progression (timeline)",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
@@ -9076,7 +9091,7 @@
             "text": "Stone arches return briefly",
             "position": [
               0.8458,
-              0.7
+              0.64
             ],
             "size": 0.024,
             "align": "CENTER",
@@ -9114,6 +9129,20 @@
           {
             "id": "B33_31",
             "kind": "text",
+            "sentence": 1,
+            "text": "stopped being competitive",
+            "position": [
+              0.8,
+              0.75
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true
+          },
+          {
+            "id": "B33_32",
+            "kind": "text",
             "sentence": 2,
             "text": "2012: most common steel bridge",
             "position": [
@@ -9127,7 +9156,7 @@
             "word": "handbook"
           },
           {
-            "id": "B33_32",
+            "id": "B33_33",
             "kind": "text",
             "sentence": 2,
             "text": "is the plate girder, a beam",
@@ -9142,7 +9171,7 @@
             "word": "handbook"
           },
           {
-            "id": "B33_33",
+            "id": "B33_34",
             "kind": "text",
             "sentence": 3,
             "text": "Small suspension bridges:",
@@ -9157,7 +9186,7 @@
             "word": "small"
           },
           {
-            "id": "B33_34",
+            "id": "B33_35",
             "kind": "text",
             "sentence": 3,
             "text": "simple and easy to put up",

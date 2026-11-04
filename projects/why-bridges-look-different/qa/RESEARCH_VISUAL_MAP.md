@@ -902,51 +902,51 @@ Claim nào cũng mới ở mức `SOURCE_VERIFIED`, **chưa được duyệt bi�
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_073
 
-## B33.s1 (1132.43 s): "Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression."
+## B33.s1 (1132.43 s): "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
 - Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_073
 
-## B33.s2 (1141.66 s): "And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge."
+## B33.s2 (1143.13 s): "And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
 - Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_073
 
-## B33.s3 (1151.06 s): "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up."
+## B33.s3 (1152.53 s): "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
 - Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_073
 
-## B33.s4 (1160.31 s): "Each form can still be the right answer in the right place."
+## B33.s4 (1161.78 s): "Each form can still be the right answer in the right place."
 - Claim `CLM_721` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80); SRC_NCHRP_CONTEXT (3.3.1 Timber Stringer, p. 3-80)
 - Claim `CLM_738` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.2.1 Stone Arch, p. 3-49)
 - Claim `CLM_767` [SOURCE_VERIFIED]: SRC_NCHRP_CONTEXT (3.5 Suspension, p. 3-133)
 - Claim `CLM_777` [SOURCE_VERIFIED]: SRC_FHWA_BRIDGE_TYPES (3.0 Economics)
 - Shot: SC_073
 
-## B34.s0 (1165.48 s): "Next time you cross a bridge, look at its shape."
+## B34.s0 (1166.98 s): "Next time you cross a bridge, look at its shape."
 - Không có claim (câu dẫn dắt).
 - Shot: SC_074
 
-## B34.s1 (1169.33 s): "It shows how the load reaches the ground, and something about the people who built it."
+## B34.s1 (1170.83 s): "It shows how the load reaches the ground, and something about the people who built it."
 - Không có claim (câu dẫn dắt).
 - Shot: SC_074
 
-## B34.s2 (1175.51 s): "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces."
+## B34.s2 (1177.01 s): "These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces."
 - Không có claim (câu dẫn dắt).
 - Shot: SC_074
-- Chú thích `B34_note` NOTE "Models are illustrations, not engineering designs" → SC_074 / bridge_stone_arch_03 / ; 1175.42–1185.04 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
+- Chú thích `B34_note` NOTE "Models are illustrations, not engineering designs" → SC_074 / bridge_stone_arch_03 / ; 1176.92–1186.54 s; QA: annotation_objects PASS, annotation_anchors PASS, annotation_layout PASS, annotation_timing PASS
 
-## B35.s0 (1185.44 s): "Thank you very much for watching."
+## B35.s0 (1186.94 s): "Thank you very much for watching."
 - Không có claim (câu dẫn dắt).
 - Shot: SC_075
 
-## B35.s1 (1188.42 s): "The sources and photo credits are listed in the description."
+## B35.s1 (1189.92 s): "The sources and photo credits are listed in the description."
 - Không có claim (câu dẫn dắt).
 - Shot: SC_075

@@ -1,4 +1,4 @@
-# Gói duyệt biên tập: "Why Bridges Don't All Look the Same" (narration `m8-r3`)
+# Gói duyệt biên tập: "Why Bridges Don't All Look the Same" (narration `m8-r4`)
 
 > **Đang chờ duyệt.** Agent soạn gói này nhưng không tự duyệt claim, giọng hay phát âm. Tới khi chủ kênh duyệt, mọi bản dựng mang nhãn INTERNAL REVIEW.
 
@@ -15,35 +15,67 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 
 ## Các điểm cần lưu ý (agent tự nêu)
 
-- Năm xây cầu Bollman ở Savage **không** được nói, vì các nguồn không thống nhất (ASCE chỉ chắc chắn về bằng sáng chế 1852; các hồ sơ khác ghi khoảng 1869). Phim chỉ nói 'patented in 1852'.
-- 'world's oldest stone railroad span still in service' được gán cho báo cáo năm 2005 ('A national report in 2005 called it…'), không khẳng định cho hiện tại.
-- 'America's greatest stone arch' (M7) đã bỏ khỏi m8-r1 cùng card thanh nhịp B23B.
-- Lời đánh giá về cầu Brooklyn ('few suspension bridges since can claim to stand entirely clear of its shadow') là của báo cáo NCHRP, được gán rõ ('one report says').
-- Địa danh trong chú thích ảnh (Covington, Virginia; Corinne, Utah; Savage, Maryland; East River, New York) lấy từ tiêu đề hồ sơ HAER/LOC của chính bức ảnh.
-- Không có con số về nội lực, sức chịu tải, ứng suất, độ võng hay hệ số an toàn. Các số trong phim gồm:
-  - nhịp "200 to 300 feet" (NCHRP §3.7);
-  - 750 ft, 1.200 ft, 3.000 ft (FHWA 2012, kinh tế nhịp lớn ở Mỹ);
-  - năm 1883 và 1909.
-- Đánh dấu nén/kéo:
+Các ghi chú dưới đây mô tả phim **hiện tại** (narration m8-r4). Những câu đã bỏ nằm riêng ở mục cuối, kèm lý do, để người duyệt không nhầm với nội dung đang dùng.
+
+- **Số liệu trong phim.** Không có con số về nội lực, sức chịu tải, ứng suất, độ võng hay hệ số an toàn. Các số được nói hoặc hiện trên card:
+  - Dải nhịp theo loại cầu: card B23C và B53, từ FHWA 2012, được nói kèm năm ("by 2012, a federal handbook said…").
+  - Nhịp của từng cây cầu cụ thể có nguồn riêng: Wheeling 1.010 ft (NCHRP, e-WV), Penobscot Narrows 1.161 ft, tháp 430 ft, 42 tháng (FHWA-HRT-14-067).
+  - Năm: 1829, 1844, 1848, 1849, 1852, 1860, 1883, 1909, 1940, 2006…
+- **Card dải nhịp (B23C) có hai loại số, không phải giới hạn:**
+  - Viền rỗng là dải thực dụng hoặc kinh tế cho cầu thép: dầm bản, giàn đơn, công-xôn, cầu treo.
+  - Thanh đặc là nhịp đã xây: vòm, dây văng.
+  - Thanh "Cantilever truss" chỉ có mũi tên ("considerably farther"), không có điểm cuối, vì nguồn không cho con số.
+  - Chân card ghi "ranges, not limits of what a type can span".
+- **Nhận định có năm được nói kèm năm**, không khẳng định cho hiện tại:
+  - 2005: báo cáo NCHRP (CLM_721, cầu dầm gỗ; B09 "in 2005 a national report found them…"; "world's oldest stone railroad span still in service" được gán cho báo cáo này).
+  - 2012: sổ tay FHWA (CLM_774, CLM_777, CLM_788). Nguồn FHWA-IF-12-052 là bản lưu Internet Archive của URL FHWA (URL gốc nay trả 404).
+- **CLM_774 (cầu dây văng ở Mỹ):** lời dẫn B24B và card đều giữ đủ điều kiện: "almost all", "main span(s) over 1,000 ft", "built since 1980".
+  - Lời dẫn: "a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed".
+  - Card B24B: "1980–2012: almost all new U.S. bridges with / main spans over 1,000 ft were cable-stayed".
+- **Cầu dầm gỗ và giàn gỗ (CLM_721):** B09 và B33 cùng nói "long after timber trusses stopped being competitive", đúng NCHRP §3.3.1 ("ceased to be competitive with metal truss bridges"). Phim không nói giàn gỗ ngừng được xây hẳn. Card B33 có cùng ba dòng: "Timber beam bridges: built / long after timber trusses / stopped being competitive".
+- **Không trình bày các loại cầu như một chuỗi tiến bộ:**
+  - B02, B19, B33 nói rõ điều ngược lại.
+  - B33: "in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge" (CLM_777).
+  - Cầu treo đã có nhịp dài nhất thế giới năm 1849; thời công-xôn kéo dài 1880–1960.
+- **Cầu Queensboro thật không có nhịp treo ở giữa** (NCHRP §3.7, CLM_794). Lời dẫn B44 nói "Unlike our model, it has no suspended span in the middle"; card ảnh có dòng "No central suspended span, unlike the model".
+- **Cầu treo và đường sắt (B31A):** "only as good as the weakest link" là lời của báo cáo NCHRP, lời dẫn gán rõ ("critics said…"). Lời dẫn chỉ kể các lần sửa (1877, 1880) và việc cầu bị coi là không đủ năm 1890; không nói bao lâu sau mới có cầu treo đường sắt khác.
+- **Công-xôn và đường sắt (B31B):** "In America, modern cantilevers were first used by the railroads, and only later for highways." Nguồn không nói đường sắt chọn công-xôn *vì* cầu treo bị nghi ngờ, nên lời dẫn không nối hai ý bằng quan hệ nhân quả.
+- **Công-xôn khi trụ lún (CLM_782, B22C):** nói rõ dạng có khớp, tĩnh định ("hinges built in … easy to calculate"), và chỉ kết cấu phần trên tự điều chỉnh. Không gợi ý công-xôn chữa được nền móng.
+- **Card nền đất (B22B)** là sơ đồ, không theo tỉ lệ. Cầu treo neo cáp vào khối lớn **hoặc** đá gốc (CLM_761), mỗi bờ vẽ một cách. Tháp cầu dây văng dựng được ở nơi đá không gần mặt đất (CLM_776); móng tháp nằm trong đất, đá ở sâu.
+- **Tacoma Narrows (1940)** chỉ được kể bằng lời, kèm hình giàn tăng cứng trên mô hình. Không có hình sập hay cảnh phá hủy. Nguồn: NCHRP §2.2 và FHWA §2.6 ("only moderately high winds").
+- **Penobscot Narrows (B31D):** "In Maine, a modern cable-stayed bridge went up remarkably fast", chỉ trích CLM_793 (FHWA-HRT-14-067, 2014).
+- **Đánh dấu nén/kéo:**
   - Biên trên/biên dưới giàn đơn giản dưới tải hướng xuống (CLM_713). Thanh bụng không được tô màu (CLM_714 chỉ nói 'một số').
   - Cáp cầu treo chịu kéo, tháp chịu nén (CLM_760, NCHRP nguyên văn).
   - Mặt cầu dây văng bị nén dọc (CLM_773, FHWA).
   - **Dây văng không được gắn nhãn kéo:** không có câu nguyên văn nào trong bộ nguồn nói điều đó.
 - **Mô hình nhịp lớn không theo tỉ lệ thật.** Chúng đặt trên một khúc sông 72 m minh họa; cầu thật dài hàng trăm đến hàng nghìn mét. NOTE ở B40 ghi "A wider crossing (illustrative, not to scale)".
-- **Cầu Queensboro thật không có nhịp treo ở giữa** (NCHRP §3.7: "It had no central suspended span"). Phim không nói nó có, nhưng mô hình minh họa có nhịp treo xuất hiện ngay trước ảnh. Người duyệt có thể muốn thêm một NOTE.
-- Nguồn FHWA-IF-12-052 (2012) là bản lưu Internet Archive của URL FHWA (URL gốc nay trả 404). Các nhận định kinh tế được nói là "by 2012, a federal handbook said…", không khẳng định cho hiện tại.
-- "Since 1980, almost every American bridge with a main span over 1,000 feet has been cable-stayed" (CLM_774, FHWA 2012). Bỏ ở m8-r1; có lại ở m8-r2 (dòng thời gian B24B và B31D, câu "Today, the long-span answer in America is usually cable-stayed").
-- Không trình bày các loại cầu như một chuỗi tiến bộ:
-  - B02, B19, B33 nói rõ điều ngược lại;
-  - B33 thêm "the most common steel bridge today is still a kind of beam" (CLM_777, FHWA 2012).
-- **m8-r2 (yêu cầu của chủ kênh, 2026-11-03):** các chương 9–12 nay nói cả về công-xôn, cầu treo và dây văng.
-  - **Tacoma Narrows (1940)** chỉ được kể bằng lời, kèm hình giàn tăng cứng trên mô hình. Không có hình sập hay cảnh phá hủy. Nguồn: NCHRP §2.2 và FHWA §2.6 ("only moderately high winds").
-  - **"133 years before another suspension bridge was built for railway traffic"** và **"only as good as the weakest link"** là lời của báo cáo NCHRP. Lời dẫn nói rõ "critics said…" và "Their doubts were not unjustified…", đúng theo nguồn.
-  - **"Cantilevers, by contrast, were first used by the railroads"**: nguồn không nói đường sắt chọn công-xôn *vì* cầu treo bị nghi ngờ. Lời dẫn chỉ đặt hai sự thật cạnh nhau.
-  - **Penobscot Narrows:** số liệu (nhịp 1.161 ft, tháp 430 ft, 42 tháng, thông xe 2006, đài quan sát) lấy từ FHWA-HRT-14-067 (2014).
-  - **Dải nhịp (card B23C):** dải kinh tế cho cầu **thép** theo FHWA 2012, không phải giới hạn tuyệt đối. Thanh "Cantilever truss" chỉ có mũi tên ("considerably farther"), không có điểm cuối, vì nguồn không cho con số.
-  - **Card nền đất (B22B)** là sơ đồ, không theo tỉ lệ. Ý của nó chỉ là: cầu treo cần neo vào khối lớn hoặc đá gốc (CLM_761); tháp cầu dây văng dựng được ở nơi đá không gần mặt đất (CLM_776).
-  - **Thời lượng 19,3 phút** theo quyết định của chủ kênh: không giữ khắt khe giới hạn 15 phút. Trần 20 phút là agent đặt (`project.json` → `runtime_decision`).
+- **Ghi rõ nguồn của các lời đánh giá:** cầu Brooklyn ("few suspension bridges since can claim to stand entirely clear of its shadow") là lời của báo cáo NCHRP ("one report says"). B48 mô tả các bộ phận trong bản thiết kế cầu Brooklyn, không định nghĩa mọi cầu treo.
+- **Không nói:**
+  - Năm xây cầu Bollman ở Savage, vì các nguồn không thống nhất (ASCE chỉ chắc chắn về bằng sáng chế 1852; các hồ sơ khác ghi khoảng 1869). Phim chỉ nói "patented in 1852".
+  - "America's greatest stone arch" (M7).
+- **Địa danh trong chú thích ảnh** (Covington, Virginia; Corinne, Utah; Savage, Maryland; East River, New York) lấy từ tiêu đề hồ sơ HAER/LOC của chính bức ảnh.
+- **Thời lượng khoảng 19,9 phút.** Chủ kênh không giữ khắt khe giới hạn 15 phút và cho nâng trần; trần 30 phút là con số agent chọn (`project.json` → `runtime_decision`, `DEC-M8.2-CEILING-AND-720P`).
+- **Phát âm:** chủ kênh mới rà chuỗi âm vị và kết quả ASR, chưa nghe audio.
+  - Hai mục ghi đè chỉ cho giọng đọc (`script/pronunciation.json`), đều `PENDING_LISTENING_REVIEW`: Corinne /kəɹˈɪn/ và Cincinnati /sˌɪnsɪnˈæTi/. Bản cũ vẫn còn trong `audio/segments/` để so.
+  - Nguồn cách đọc Corinne: Cambridge và bài Wikipedia về thị trấn (không trích nguồn). Chưa tìm được bản ghi giọng địa phương.
+  - Promontory, Covington, Finley không được đọc trong phim, nên không nằm trong danh sách nghe.
+
+## Đã bỏ hoặc đã sửa theo nhận xét của chủ kênh (không còn trong phim)
+
+Mỗi chỗ sửa có lý do trong `script/narration.template.json` → `revision.edits` và giả định trong `research/sources.json`. Hai lần nhận xét (2026-11-04) đều là yêu cầu sửa, không phải duyệt.
+
+- **m8-r3** (`REV-M8.2-EDITORIAL-REVIEW`):
+  - Bỏ "133 years before another suspension bridge was built for railway traffic" (CLM_789, B31A). Cầu treo Williamsburg mở năm 1903 có đường ray ([NYC DOT](https://www.nyc.gov/html/dot/html/infrastructure/williamsburg-bridge.shtml)); câu của NCHRP cần một giới hạn mà nguồn không nêu.
+  - Bỏ nhịp "200 to 300 feet" (CLM_757, B40). Con số không có thời kỳ hay điều kiện, và mâu thuẫn với vòm 1.800 ft ở C10 (cầu Eads năm 1874 đã có nhịp vòm 520 ft). B40 nay dùng ví dụ của nguồn: sông Ohio, Mississippi và hẻm Niagara (CLM_752).
+  - Bỏ câu thì hiện tại "Today, the long-span answer in America is usually cable-stayed" (B31D).
+  - Card B23C trước đó gọi mọi thanh là "dải kinh tế"; nay tách hai loại số như trên.
+  - Các câu 2005/2012 trước đó nói ở thì hiện tại; nay nói kèm năm.
+  - Nhẹ hơn: B03 "through its supports"; B51 "at the same span"; B24B "the longest span in the world when it opened" (trước là "longest bridge"); B48; B31B "modern cantilevers" (bỏ "by contrast").
+- **m8-r4** (`REV-M8.2-SECOND-TEXT-REVIEW`):
+  - B33: thêm lại "stopped being competitive" vào lời dẫn và card (trước là "long after timber trusses").
+  - Card B24B: "1980–2012: U.S. spans over 1,000 ft cable-stayed" thành hai dòng có đủ "almost all", "new" và "main spans".
+  - Mục ghi chú này viết lại theo phim hiện tại. Bản trước còn mô tả m8-r2.
 
 ## Lời dẫn theo câu
 
@@ -548,10 +580,10 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 **B33** (interpretation; claim: CLM_721, CLM_738, CLM_777, CLM_767)
 
 - `18:48` And it is not a simple story of progress.
-- `18:52` Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression.
-- `19:01` And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge.
-- `19:11` At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up.
-- `19:20` Each form can still be the right answer in the right place.
+- `18:52` Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.
+- `19:03` And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge.
+- `19:12` At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up.
+- `19:21` Each form can still be the right answer in the right place.
   - CLM_721: SRC_NCHRP_CONTEXT 3.3.1 Timber Stringer, p. 3-80: "Long after wood truss bridges had ceased to be competitive with metal truss bridges for use in short spans in the nineteenth century, timber beam bridges were still being built. Because of the structure’s simplicity and readily available material (wood), the timber beam has endured to the present day" · SRC_NCHRP_CONTEXT 3.3.1 Timber Stringer, p. 3-80: "Today, these structures are built on low-trafficked, rural backcountry roads, private roads, or in national forests and parks."
   - CLM_738: SRC_NCHRP_CONTEXT 3.2.1 Stone Arch, p. 3-49: "Increased use of metal truss bridges on highways from the late 1800s into the early twentieth century, coupled with a decrease in the number of skilled masons, and advancements in reinforced concrete construction technology in the early decades of the twentieth century, led to a decline in stone arch bridge construction. A brief resurgence in construction of this type occurred during the Great Depression"
   - CLM_777: SRC_FHWA_BRIDGE_TYPES 3.0 Economics: "Welded plate girders are currently the most common type of steel bridge." — giả định: A 2012 FHWA statement about steel bridges; M8.2: narrated with its date ('in 2012'), not as the present.
@@ -559,14 +591,14 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 
 **B34** (framing; claim: không, câu dẫn dắt)
 
-- `19:25` Next time you cross a bridge, look at its shape.
-- `19:29` It shows how the load reaches the ground, and something about the people who built it.
-- `19:35` These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.
+- `19:26` Next time you cross a bridge, look at its shape.
+- `19:30` It shows how the load reaches the ground, and something about the people who built it.
+- `19:37` These models are illustrations, not engineering designs, and the arrows show ideas, not calculated forces.
 
 **B35** (framing; claim: không, câu dẫn dắt)
 
-- `19:45` Thank you very much for watching.
-- `19:48` The sources and photo credits are listed in the description.
+- `19:46` Thank you very much for watching.
+- `19:49` The sources and photo credits are listed in the description.
 
 ## Bộ kiểm nhất quán lời/hình: cần người duyệt xác nhận
 
@@ -588,7 +620,7 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - **SC_051** (B22B): Schematic — not to scale | Rock | Rock | Massive block | Into bedrock | Suspension: cables anchored in massive blocks or in bedrock | Cable-stayed: good rock near the surface is not required
 - **SC_054** (B23C): 10 · Span, cost and time | Two kinds of span numbers (steel bridge handbook, 2012) | 0 ft | 1,000 ft | 2,000 ft | 3,000 ft | Practical or economic range | Spans actually built | Plate girder: about 90 to over 500 ft | Simple truss: about 450 to about 750 ft | Cantilever truss: considerably farther | Arch: about 200 to 1,800 ft | Cable-stayed: under 200 to nearly 3,000 ft | Suspension: economic as main spans approach 3,000 ft | After FHWA, Steel Bridge Design Handbook (FHWA-IF-12-052), 2012 — ranges, not limits of what a type can span
 - **SC_057** (B24): 1820 | 1840 | 1860 | 1880 | 1900 | 1920 | 1940 | 1829  Carrollton Viaduct (stone) | 1844  Pratt truss patented | 1848  Warren truss patented | 1860  Prefabricated truss parts | Metal trusses spread; stone arches decline | Great Depression: stone arches return
-- **SC_058** (B24B): 1840 | 1870 | 1900 | 1930 | 1960 | 1990 | 1849  Wheeling suspension bridge: 1,010 ft span | 1883  Brooklyn Bridge | 1909  Queensboro cantilever | Cantilevers: a standard U.S. type | 1980–2012: U.S. spans over 1,000 ft cable-stayed | Long spans: a timeline of their own
+- **SC_058** (B24B): 1840 | 1870 | 1900 | 1930 | 1960 | 1990 | 1849  Wheeling suspension bridge: 1,010 ft span | 1883  Brooklyn Bridge | 1909  Queensboro cantilever | Cantilevers: a standard U.S. type | 1980–2012: almost all new U.S. bridges with | main spans over 1,000 ft were cable-stayed | Long spans: a timeline of their own
 - **SC_059** (B25): 11 · Real-world decisions | WEST | EAST | United States — schematic, not to scale | Timber, built fast | Massive stone viaducts | Corinne, Utah | Baltimore | Savage, Maryland
 - **SC_060** (B26): Carrollton Viaduct | Baltimore, Maryland | completed 1829 | about 12,000 granite blocks | 80 ft arch over Gwynns Falls | Photo: William E. Barrett, HAER, Library of Congress (public domain)
 - **SC_062** (B28): Promontory Route trestle | Timber: abundant, cheap | and quick to build | near Corinne, Utah | Central Pacific, 1872 | Photo: HAER, Library of Congress (public domain)
@@ -596,7 +628,7 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - **SC_065** (B31): Stone: permanence | Timber: speed and economy | Iron: some of both | Three places, three sets of constraints | Photos: HAER, Library of Congress (public domain)
 - **SC_068** (B31C): Golden Gate Bridge | San Francisco, California | opened 1937 | World's longest span | for 27 years | Photo: Jet Lowe, HAER, Library of Congress (public domain)
 - **SC_072** (B32B): 2 · The world it was built in | Materials | Site | Span | Budget | Builders
-- **SC_073** (B33): 1820 | 1840 | 1860 | 1880 | 1900 | 1920 | 1940 | 1829  Carrollton Viaduct (stone) | 1844  Pratt truss patented | 1848  Warren truss patented | 1860  Prefabricated truss parts | Stone arches return briefly | Timber beam bridges: built | long after timber trusses | 2012: most common steel bridge | is the plate girder, a beam | Small suspension bridges: | simple and easy to put up
+- **SC_073** (B33): 1820 | 1840 | 1860 | 1880 | 1900 | 1920 | 1940 | 1829  Carrollton Viaduct (stone) | 1844  Pratt truss patented | 1848  Warren truss patented | 1860  Prefabricated truss parts | Stone arches return briefly | Timber beam bridges: built | long after timber trusses | stopped being competitive | 2012: most common steel bridge | is the plate girder, a beam | Small suspension bridges: | simple and easy to put up
 - **SC_075** (B35): Why Bridges Don't All Look the Same | Archival photographs: Historic American Engineering Record, | Library of Congress Prints & Photographs Division (public domain) | Sources: TRB NCHRP 25-25(15); FHWA; Ohio DOT; ASCE; | SteelConstruction.info; Yale-New Haven Teachers Institute | 3D models and diagrams are illustrative, not engineering designs | Architecture Story Studio
 
 ## Chú thích trên cảnh 3D
@@ -716,3 +748,4 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - B24B.s1 (m8-r3): "... the longest bridge in the world for many years." → "... the longest span in the world when it opened." (same review (minor): span, not total length; 'for many years' not corroborated (e-WV, Emory L. Kemp: 'the longest (1,010 feet) clear span in the world'))
 - B48.s0-s1 (m8-r3): "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge. / The Brooklyn Bridge ... has them all, and one report says ..." → "The Brooklyn Bridge in New York, completed in 1883, was planned with two towers, cables and suspenders, anchorages and a stiffening truss. / One report says few suspension bridges built since ..." (same review (minor): the source lists these parts for the Brooklyn Bridge plan; B47 (FHWA) calls a stiffening truss only 'common')
 - B31B.s0 (m8-r3): "Cantilevers, by contrast, were first used by the railroads." → "In America, modern cantilevers were first used by the railroads, and only later for highways." (same review (minor): the source speaks of the modern cantilever in the U.S. ('and then as highway bridges') and also describes ancient cantilevers)
+- B33.s1 (m8-r4): "Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression." → "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression." (owner's second text review (2026-11-04): without 'stopped being competitive' the sentence can be read as timber trusses no longer being built at all; same wording as B09 and as NCHRP §3.3.1 ('ceased to be competitive with metal truss bridges'))

@@ -1,6 +1,6 @@
 {
   "generated_by": "planner 1.0.0 (tools/cli.py build-shots); edit script/visual_beats.json and re-plan, not this file",
-  "plan_sha256": "67c73221682b08070beaef521b8477adeb9fa6314989302c9d2d3c0728c8b007",
+  "plan_sha256": "dead0b547800dd99f58e84f90dbcba6826330e6b08351baf3da845b3b75582c0",
   "key_stills": [
     {
       "id": "SC_001_B01_hold",
@@ -365,7 +365,7 @@
     {
       "id": "SC_073_B33_motion_graphics",
       "shot": "SC_073",
-      "time_seconds": 20.2125
+      "time_seconds": 21.0375
     },
     {
       "id": "SC_074_B34_hold",
@@ -19917,9 +19917,9 @@
           {
             "id": "B24B_25",
             "kind": "text",
-            "text": "1980–2012: U.S. spans over 1,000 ft cable-stayed",
+            "text": "1980–2012: almost all new U.S. bridges with",
             "position": [
-              0.7802,
+              0.7958,
               0.7
             ],
             "size": 0.024,
@@ -19930,6 +19930,20 @@
           },
           {
             "id": "B24B_26",
+            "kind": "text",
+            "text": "main spans over 1,000 ft were cable-stayed",
+            "position": [
+              0.7958,
+              0.645
+            ],
+            "size": 0.024,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "appear": 24.445
+          },
+          {
+            "id": "B24B_27",
             "kind": "text",
             "text": "Long spans: a timeline of their own",
             "position": [
@@ -19957,7 +19971,7 @@
         "CLM_774"
       ],
       "narration": "Long spans have a timeline of their own. By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest span in the world when it opened. Cantilevers were a standard American answer from the 1880s to the 1960s, and a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed.",
-      "visual_purpose": "Long-span timeline (dates from the evidence registry) [CARD 1/1: 2D card supplied by the beat (27 elements)]",
+      "visual_purpose": "Long-span timeline (dates from the evidence registry) [CARD 1/1: 2D card supplied by the beat (28 elements)]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B24B",
@@ -22453,7 +22467,7 @@
     },
     {
       "id": "SC_073",
-      "duration_seconds": 36.75,
+      "duration_seconds": 38.25,
       "visual_type": "MOTION_GRAPHICS",
       "transition": "CARD",
       "camera": "CARD",
@@ -22893,7 +22907,7 @@
             "text": "Stone arches return briefly",
             "position": [
               0.8458,
-              0.7
+              0.64
             ],
             "size": 0.024,
             "align": "CENTER",
@@ -22932,6 +22946,20 @@
           {
             "id": "B33_31",
             "kind": "text",
+            "text": "stopped being competitive",
+            "position": [
+              0.8,
+              0.75
+            ],
+            "size": 0.025,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "appear": 4.0
+          },
+          {
+            "id": "B33_32",
+            "kind": "text",
             "text": "2012: most common steel bridge",
             "position": [
               0.24,
@@ -22941,10 +22969,10 @@
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
-            "appear": 15.445
+            "appear": 16.92
           },
           {
-            "id": "B33_32",
+            "id": "B33_33",
             "kind": "text",
             "text": "is the plate girder, a beam",
             "position": [
@@ -22955,10 +22983,10 @@
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
-            "appear": 15.445
+            "appear": 16.92
           },
           {
-            "id": "B33_33",
+            "id": "B33_34",
             "kind": "text",
             "text": "Small suspension bridges:",
             "position": [
@@ -22969,10 +22997,10 @@
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
-            "appear": 25.105
+            "appear": 26.58
           },
           {
-            "id": "B33_34",
+            "id": "B33_35",
             "kind": "text",
             "text": "simple and easy to put up",
             "position": [
@@ -22983,7 +23011,7 @@
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
-            "appear": 25.105
+            "appear": 26.58
           }
         ]
       },
@@ -22998,8 +23026,8 @@
         "CLM_777",
         "CLM_767"
       ],
-      "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
-      "visual_purpose": "Not a linear progression (timeline) [CARD 1/1: 2D card supplied by the beat (35 elements)]",
+      "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
+      "visual_purpose": "Not a linear progression (timeline) [CARD 1/1: 2D card supplied by the beat (36 elements)]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B33",
@@ -23092,7 +23120,7 @@
         "reserved": []
       },
       "scene_context": "bridge",
-      "start_seconds": 1165.083333,
+      "start_seconds": 1166.583333,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B34"
@@ -23223,7 +23251,7 @@
           }
         ]
       },
-      "start_seconds": 1185.041667,
+      "start_seconds": 1186.541667,
       "cut_from_previous": "hard",
       "beat_ids": [
         "B35"

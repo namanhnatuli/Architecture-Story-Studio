@@ -1,7 +1,7 @@
 {
-  "utc": "2026-11-04T11:57:11.533545+00:00",
+  "utc": "2026-11-04T12:13:40.093960+00:00",
   "preset": "internal_720p",
-  "timing_sha256": "fa19a1f7c38771465b2959954eae46c655fc865491e5a26ec15ae52baad54cd0",
+  "timing_sha256": "ca77d8351a647115965cf7cfdd487a2c614be5c0aa72365be857e36f117ff099",
   "results": [
     {
       "check": "chapters_structure",
@@ -11,12 +11,12 @@
     {
       "check": "chapter_durations",
       "status": "PASS",
-      "detail": "C1 52s, C2 49s, C3 70s, C4 82s, C5 84s, C6 88s, C7 59s, C8 78s, C9 172s, C10 129s, C11 226s, C12 104s"
+      "detail": "C1 52s, C2 49s, C3 70s, C4 82s, C5 84s, C6 88s, C7 59s, C8 78s, C9 172s, C10 129s, C11 226s, C12 105s"
     },
     {
       "check": "runtime",
       "status": "PASS",
-      "detail": "19.90 min (28651 frames); acceptable 8-30 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
+      "detail": "19.92 min (28687 frames); acceptable 8-30 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
     },
     {
       "check": "no_duplicate_shots",
@@ -70,8 +70,8 @@
     },
     {
       "check": "render_cache_current",
-      "status": "PASS",
-      "detail": "all 75 shots rendered at internal_720p with current cache keys"
+      "status": "WARN",
+      "detail": "2/75 shots not rendered or stale at internal_720p: SC_058, SC_073"
     },
     {
       "check": "chapter_variety",

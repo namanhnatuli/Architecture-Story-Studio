@@ -1,8 +1,8 @@
 # Visual coverage: Why Bridges Don't All Look the Same
 
-- Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 75 shots, 1193.79 s.
+- Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 75 shots, 1195.29 s.
 - Executable: **True** · COVERED 66
-- Publication: INTERNAL_ONLY — M8 revision m8-r2: claims are source-verified, not yet editorially approved; review cut only.
+- Publication: INTERNAL_ONLY — M8 revision m8-r4: claims are source-verified, not yet editorially approved; review cut only.
 - Visibility (offline Level 1 estimate): 27 shots, 30/32 target rows read, issues 2, auto-repaired 2, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
 
 | Beat | Intent | Strategy | Assets | Semantic targets | Templates (shots) | Expected / planned s | Evidence | Readable | Coverage | Issues |
@@ -70,7 +70,7 @@
 | B32 | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | SIDE_BY_SIDE (SC_070) | 20.43 / 20.46 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B32L | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01`<br>suspension_bridge: REUSE_EXISTING → `bridge_suspension_01`<br>cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | SIDE_BY_SIDE (SC_071) | 9.12 / 9.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B32B | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_072) | 8.65 / 8.67 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT'] |
-| B33 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_073) | 36.75 / 36.75 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B33 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_073) | 38.23 / 38.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B34 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_074) | 19.93 / 19.96 | FRAMING | — | **COVERED** | — |
 | B35 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_075) | 8.75 / 8.75 | FRAMING | — | **COVERED** | — |
 

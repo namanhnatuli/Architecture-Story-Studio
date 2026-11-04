@@ -39748,6 +39748,179 @@
           }
         ]
       }
+    },
+    "5a628d7074ebf3eef29abdea391cf651a92ae6c768b8b90c1e9ec41219372d59": {
+      "role": "sentence",
+      "beat_id": "B33",
+      "sentence_index": 1,
+      "pronunciation": [],
+      "license_status": "APPROVED",
+      "text": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
+      "spoken_text": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/5a628d7074ebf3eef29a.wav",
+      "duration": 10.3,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.9,
+      "peak_db": -8.0,
+      "words_per_second": 2.233,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 7.908,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "tˈɪmbəɹ bˈim bɹˈɪʤɪz wɜɹ stˈɪl bˈiɪŋ bˈɪlt lˈɔŋ ˈæftəɹ tˈɪmbəɹ tɹˈʌsᵻz stˈɑpt bˈiɪŋ kəmpˈɛTəTɪv, ænd stˈOn ˈɑɹʧᵻz bɹˈifli ɹətˈɜɹnd dˈʊɹɪŋ ðə ɡɹˈAt dəpɹˈɛʃən.",
+      "lang_code": "a",
+      "cache_key": "5a628d7074ebf3eef29abdea391cf651a92ae6c768b8b90c1e9ec41219372d59",
+      "sha256": "c31f544448ace18e54b0df3b6e7b194fe91e248cc562342b871375e8c7ae2e04",
+      "stored_utc": "2026-11-04T12:13:00.814210+00:00",
+      "asr": {
+        "text": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "c31f544448ace18e54b0df3b6e7b194fe91e248cc562342b871375e8c7ae2e04",
+        "reference": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "c31f544448ace18e54b0df3b6e7b194fe91e248cc562342b871375e8c7ae2e04",
+        "heard": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
+        "words": [
+          {
+            "text": "Timber",
+            "start": 0.0,
+            "end": 0.7
+          },
+          {
+            "text": "beam",
+            "start": 0.7,
+            "end": 1.06
+          },
+          {
+            "text": "bridges",
+            "start": 1.06,
+            "end": 1.44
+          },
+          {
+            "text": "were",
+            "start": 1.44,
+            "end": 1.82
+          },
+          {
+            "text": "still",
+            "start": 1.82,
+            "end": 2.04
+          },
+          {
+            "text": "being",
+            "start": 2.04,
+            "end": 2.34
+          },
+          {
+            "text": "built",
+            "start": 2.34,
+            "end": 2.66
+          },
+          {
+            "text": "long",
+            "start": 2.66,
+            "end": 3.04
+          },
+          {
+            "text": "after",
+            "start": 3.04,
+            "end": 3.4
+          },
+          {
+            "text": "timber",
+            "start": 3.4,
+            "end": 3.76
+          },
+          {
+            "text": "trusses",
+            "start": 3.76,
+            "end": 4.26
+          },
+          {
+            "text": "stopped",
+            "start": 4.26,
+            "end": 4.54
+          },
+          {
+            "text": "being",
+            "start": 4.54,
+            "end": 4.82
+          },
+          {
+            "text": "competitive,",
+            "start": 4.82,
+            "end": 5.46
+          },
+          {
+            "text": "and",
+            "start": 6.1,
+            "end": 6.24
+          },
+          {
+            "text": "stone",
+            "start": 6.24,
+            "end": 6.62
+          },
+          {
+            "text": "arches",
+            "start": 6.62,
+            "end": 7.16
+          },
+          {
+            "text": "briefly",
+            "start": 7.16,
+            "end": 7.64
+          },
+          {
+            "text": "returned",
+            "start": 7.64,
+            "end": 8.2
+          },
+          {
+            "text": "during",
+            "start": 8.2,
+            "end": 8.62
+          },
+          {
+            "text": "the",
+            "start": 8.62,
+            "end": 8.78
+          },
+          {
+            "text": "Great",
+            "start": 8.78,
+            "end": 8.98
+          },
+          {
+            "text": "Depression.",
+            "start": 8.98,
+            "end": 9.64
+          }
+        ]
+      }
     }
   },
   "beats": {
@@ -41529,8 +41702,8 @@
     },
     "B33": {
       "file": "audio/beats/B33.wav",
-      "duration": 35.55,
-      "sha256": "0824ac1825e081d7a0f93e3e2a55157d3f21cf32785d60be041ab92756895d71",
+      "duration": 37.025,
+      "sha256": "bcd144f7651d0c3befa3a3ec5bf3a6069542a530a748d00d66c980e06c784c38",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
@@ -41543,33 +41716,33 @@
         },
         {
           "index": 1,
-          "text": "Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression.",
+          "text": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
           "start": 3.7,
-          "end": 12.525,
-          "cache_key": "bc484c271d29fb5b9cb3d80b5100d86f9516a8783ad25945189926a1791e1dd8",
+          "end": 14.0,
+          "cache_key": "5a628d7074ebf3eef29abdea391cf651a92ae6c768b8b90c1e9ec41219372d59",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 2,
           "text": "And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge.",
-          "start": 12.925,
-          "end": 21.925,
+          "start": 14.4,
+          "end": 23.4,
           "cache_key": "84e8498701b4a607f588135f421af32cf6881807972d8322ff26a3aa9456d6c6",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 3,
           "text": "At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up.",
-          "start": 22.325,
-          "end": 31.175,
+          "start": 23.8,
+          "end": 32.65,
           "cache_key": "d3935600a06bece6872b17c27f21f99f25f12bc9f14dd6c5c03b9e6f02dc7586",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 4,
           "text": "Each form can still be the right answer in the right place.",
-          "start": 31.575,
-          "end": 35.55,
+          "start": 33.05,
+          "end": 37.025,
           "cache_key": "203b2a0942fe03531753a56910eff4a955a83d088de68a5cd1087b7d5a53afe7",
           "rights_class": "PUBLICATION_CLEARED"
         }
@@ -41638,5 +41811,5 @@
     "purpose": "publication",
     "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md"
   },
-  "narration_sha256": "369f28e483fd7b59947cafb9df331c0ec1106055c71a0ae6db59422dc3659b9e"
+  "narration_sha256": "a5705d7177f23beaf233262d991b21490d376a912a48553961dffb9fc863fb7e"
 }

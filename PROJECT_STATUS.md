@@ -1,20 +1,20 @@
 # Current project status
 
-- Phase: **M8.2: nội dung đã sửa theo nhận xét biên tập của chủ kênh (2026-11-04). Bản review nội bộ cuối 720p của m8-r3 đã render (2026-11-04).** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
-- **Phim `why-bridges-look-different`, revision m8-r3:**
-  - 12 chương; 19,90 phút (1.193,8 s); 169 câu; 75 shot, 18 shot cần render lại;
-  - thời lượng theo quyết định của chủ kênh (`project.json` → `runtime_decision`, chấp nhận 8–20 phút; trần 20 do agent đặt);
+- Phase: **M8.2: nội dung sửa theo hai lần nhận xét biên tập của chủ kênh (2026-11-04), revision m8-r4. Chưa render m8-r4, theo yêu cầu.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
+- **Phim `why-bridges-look-different`, revision m8-r4:**
+  - 12 chương; 19,92 phút (1.195,3 s, 28 687 khung); 169 câu; 75 shot, 2 shot cần render lại (SC_058 B24B, SC_073 B33);
+  - thời lượng theo quyết định của chủ kênh (`project.json` → `runtime_decision`, chấp nhận 8–30 phút; trần 30 do agent chọn);
   - giọng `am_michael`; hai mục ghi đè phát âm (Corinne, Cincinnati) chờ chủ kênh nghe;
   - 82 claim SOURCE_VERIFIED (76 được lời dẫn dùng), 18 nguồn; 7 ảnh HAER phạm vi công cộng.
 - **Trạng thái:** INTERNAL REVIEW (`NARRATED_INTERNAL_REVIEW`).
-  - Nhận xét của chủ kênh ngày 2026-11-04 là yêu cầu sửa (`REV-M8.2-EDITORIAL-REVIEW`), không phải duyệt.
-  - Duyệt claim và phát âm của m7-r1 không áp sang m8-r3. Duyệt giọng theo dự án vẫn giữ.
-  - Video review hiện có là của m8-r2. Gates: G4/G5 FAIL vì media cũ, cho tới khi render lại.
+  - Hai lần nhận xét của chủ kênh ngày 2026-11-04 là yêu cầu sửa (`REV-M8.2-EDITORIAL-REVIEW`, `REV-M8.2-SECOND-TEXT-REVIEW`), không phải duyệt.
+  - Duyệt claim và phát âm của m7-r1 không áp sang m8-r4. Duyệt giọng theo dự án vẫn giữ.
+  - Video review 720p hiện có (`output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.mp4`) là của **m8-r3**: chưa có câu B33 và hai card B24B, B33 đã sửa. Gates: G4/G5 FAIL vì media cũ; test ghép video 1 FAIL vì cùng lý do, cho tới khi render lại.
   - Bản 4K đã duyệt của m7-r1: tag `m7-final-4k`, `output/baseline_m7_final_4k/`.
 - Tài liệu: `docs/m8/M8_REPORT.md`.
 
 ## Việc của chủ kênh
-1. Xem bản review 720p (`output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.mp4`; các chỗ sửa ở `review/EDITORIAL_NOTES.md`).
+1. Đọc các chỗ sửa của m8-r4 (`review/EDITORIAL_NOTES.md`), rồi cho render lại 2 shot và ghép bản 720p (SC_058, SC_073; vài phút cho shot, cộng thời gian ghép 12 chương).
 2. Duyệt hoặc sửa claim (`review/EDITORIAL_APPROVAL_PACKAGE.md`, `review/EVIDENCE_MATRIX.md`), phát âm (`review/PRONUNCIATION_REVIEW.md`), và xác nhận lại giọng.
 3. Sau khi duyệt: profile `PUBLICATION_CANDIDATE`, render 4K theo chương (`docs/m7/REPRODUCIBILITY.md` §8).
 
