@@ -1,6 +1,7 @@
 {
-  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (NOT TECHNICALLY VALIDATED; EDITORIAL_REVIEW_PENDING)",
+  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (EDITORIAL_REVIEW_PENDING)",
   "statuses": [
+    "TECHNICALLY_VALIDATED",
     "EDITORIAL_REVIEW_PENDING"
   ],
   "gates": {
@@ -34,22 +35,22 @@
       ]
     },
     "G4 Blender visual preview": {
-      "status": "FAIL",
+      "status": "PASS",
       "notes": [
         "Blender QA 944/944",
-        "media QA is stale (rendered for a different timing)"
+        "media QA PASS"
       ]
     },
     "G5 media assembly & subtitles": {
-      "status": "FAIL",
+      "status": "PASS",
       "notes": [
-        "assembly report is stale (assembled for a different timing)"
+        "28651 frames, -16.4 LUFS, 271 subtitle cues"
       ]
     },
     "GL long-form chapters & rights": {
       "status": "PASS",
       "notes": [
-        "17 checks pass, 3 warnings"
+        "17 checks pass, 2 warnings"
       ]
     },
     "G6 final publication readiness": {

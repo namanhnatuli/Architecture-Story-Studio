@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.3 — 2026-11-04 — M8.2: bản review nội bộ cuối 720p
+- **Bản review nội bộ cuối 720p (m8-r3):** `output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.mp4` + `.en.srt`; 1280×720, 28 651 khung (19:54), −16,4 LUFS, 271 cue phụ đề. Render 75 shot + 12 chương + ghép mất 2 giờ 10 phút (07:28–09:38, 2026-11-04). Cổng G0–G5, GL, GV đạt; G1 và G6 vẫn chờ chủ kênh (claim, phát âm, giọng nghe thực).
+- **Trần thời lượng:** `runtime_decision` 8–30 phút (30 do agent chọn khi chủ kênh bảo nâng trần; `DEC-M8.2-CEILING-AND-720P`).
+- **Preset mới:** `internal_720p` (1280×720). Test offline 321/321.
+
 ## 0.9.2 — 2026-11-04 — M8.2: sửa nội dung theo nhận xét biên tập của chủ kênh (nhánh `m8-all-bridge-families`)
 - **Nhận xét của chủ kênh** (`REV-M8.2-EDITORIAL-REVIEW`): là yêu cầu sửa, không phải duyệt. Chưa render video, theo yêu cầu.
 - **Revision m8-r3:** 169 câu, 19,90 phút; 82 claim, 18 nguồn.

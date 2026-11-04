@@ -1,6 +1,6 @@
 {
-  "utc": "2026-11-04T00:10:59.335631+00:00",
-  "preset": "internal_1080p",
+  "utc": "2026-11-04T11:57:11.533545+00:00",
+  "preset": "internal_720p",
   "timing_sha256": "fa19a1f7c38771465b2959954eae46c655fc865491e5a26ec15ae52baad54cd0",
   "results": [
     {
@@ -16,7 +16,7 @@
     {
       "check": "runtime",
       "status": "PASS",
-      "detail": "19.90 min (28651 frames); acceptable 8-20 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
+      "detail": "19.90 min (28651 frames); acceptable 8-30 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
     },
     {
       "check": "no_duplicate_shots",
@@ -70,8 +70,8 @@
     },
     {
       "check": "render_cache_current",
-      "status": "WARN",
-      "detail": "18/75 shots not rendered or stale at internal_1080p: SC_009, SC_017, SC_030, SC_034, SC_039, SC_041"
+      "status": "PASS",
+      "detail": "all 75 shots rendered at internal_720p with current cache keys"
     },
     {
       "check": "chapter_variety",

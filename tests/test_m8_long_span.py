@@ -226,7 +226,7 @@ class LongSpanThroughTheFilmTest(unittest.TestCase):
     def test_the_owner_runtime_decision_is_recorded(self):
         from pipeline import chapters as CH
         lo, hi, decision = CH.runtime_range(FILM)
-        self.assertEqual((lo, hi), (8 * 60.0, 20 * 60.0))
+        self.assertEqual((lo, hi), (8 * 60.0, 30 * 60.0))
         self.assertIn("Tran Nam Anh", decision["decided_by"])
         self.assertIn("truyền tải đầy đủ nội dung", decision["basis"])
         record = read(FILM / "review/OWNER_APPROVALS.json")

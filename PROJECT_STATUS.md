@@ -1,6 +1,6 @@
 # Current project status
 
-- Phase: **M8.2: nội dung đã sửa theo nhận xét biên tập của chủ kênh (2026-11-04). Chưa render bản review cho m8-r3, theo yêu cầu.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
+- Phase: **M8.2: nội dung đã sửa theo nhận xét biên tập của chủ kênh (2026-11-04). Bản review nội bộ cuối 720p của m8-r3 đã render (2026-11-04).** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
 - **Phim `why-bridges-look-different`, revision m8-r3:**
   - 12 chương; 19,90 phút (1.193,8 s); 169 câu; 75 shot, 18 shot cần render lại;
   - thời lượng theo quyết định của chủ kênh (`project.json` → `runtime_decision`, chấp nhận 8–20 phút; trần 20 do agent đặt);
@@ -14,7 +14,7 @@
 - Tài liệu: `docs/m8/M8_REPORT.md`.
 
 ## Việc của chủ kênh
-1. Đọc các chỗ sửa của m8-r3 (`review/EDITORIAL_NOTES.md`), rồi cho render lại bản review 1080p (khoảng 1,5–1,75 giờ).
+1. Xem bản review 720p (`output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.mp4`; các chỗ sửa ở `review/EDITORIAL_NOTES.md`).
 2. Duyệt hoặc sửa claim (`review/EDITORIAL_APPROVAL_PACKAGE.md`, `review/EVIDENCE_MATRIX.md`), phát âm (`review/PRONUNCIATION_REVIEW.md`), và xác nhận lại giọng.
 3. Sau khi duyệt: profile `PUBLICATION_CANDIDATE`, render 4K theo chương (`docs/m7/REPRODUCIBILITY.md` §8).
 

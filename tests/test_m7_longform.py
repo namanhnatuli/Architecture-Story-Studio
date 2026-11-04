@@ -795,17 +795,17 @@ class SubtitleAndMediaTest(unittest.TestCase):
         self.assertEqual([c["start"] for c in cues], sorted(c["start"] for c in cues))
 
     def test_final_internal_review_assembly_matches_the_locked_timing(self):
-        report = FILM / "qa" / "assembly_report_internal_1080p.json"
+        report = FILM / "qa" / "assembly_report_internal_720p.json"
         if not report.is_file():
-            self.skipTest("1080p internal review not assembled yet")
+            self.skipTest("720p internal review not assembled yet")
         r = read(report)
         timing = read(FILM / "script/timing.json")
         self.assertEqual(r["problems"], [])
         self.assertEqual(r["frames"], timing["total_frames"])
-        self.assertEqual((r["video"]["width"], r["video"]["height"]), (1920, 1080))
+        self.assertEqual((r["video"]["width"], r["video"]["height"]), (1280, 720))   # M8.2: the final internal review is 720p
         lo, hi, _ = CH.runtime_range(FILM)
         self.assertTrue(lo <= r["seconds"] <= hi)
-        self.assertIn("M8_INTERNAL_REVIEW_1080p", Path(r["output"]).name)
+        self.assertIn("M8_INTERNAL_REVIEW_720p", Path(r["output"]).name)
         self.assertAlmostEqual(r["loudness_after"]["integrated_lufs"], -16.0, delta=1.0)
         self.assertEqual(r["subtitle_entries"], r["subtitle_stats"]["cues"])
 

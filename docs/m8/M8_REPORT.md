@@ -264,3 +264,8 @@ File: `projects/why-bridges-look-different/output/why_bridges_look_different_M8_
 **Còn để ngỏ:**
 - **Thời lượng 19,90 phút** sát trần 20 phút do agent đặt. Thêm nội dung nữa sẽ vượt trần; khi đó chủ kênh cần quyết định trần mới hoặc chỗ cắt.
 - **Render lại:** 18 shot ở 1080p. Theo thời gian render lần trước của chính các shot đó, khoảng 89 phút, cộng thêm preview và ghép phim là khoảng **1,5–1,75 giờ**. Phần lớn thời gian là bốn cảnh push-in (B09, B23E, B31A, B31D), phải render lại vì lời dẫn đổi độ dài.
+
+## M8.2 (2026-11-04): bản review nội bộ cuối 720p
+- **Bản review nội bộ cuối 720p (m8-r3):** `output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.mp4` + `.en.srt`; 1280×720, 28 651 khung (19:54), −16,4 LUFS, 271 cue phụ đề. Render 75 shot + 12 chương + ghép mất 2 giờ 10 phút (07:28–09:38, 2026-11-04). Cổng G0–G5, GL, GV đạt; G1 và G6 vẫn chờ chủ kênh (claim, phát âm, giọng nghe thực).
+- **Trần thời lượng:** `runtime_decision` 8–30 phút (30 do agent chọn khi chủ kênh bảo nâng trần; `DEC-M8.2-CEILING-AND-720P`).
+- **Preset mới:** `internal_720p` (1280×720). Test offline 321/321.

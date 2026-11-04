@@ -115,6 +115,16 @@
       "evidence": "owner message in session, 2026-11-04 ('đọc nhận xét sau và sửa nội dung trước, chưa cần tạo video internal review')",
       "consequence": "narration revision m8-r3 (script/narration.template.json revision.edits); claims re-scoped in research/build_sources.py (CLM_721, 757, 764, 766, 774, 777, 782, 788, 789, 790; new CLM_794; new source SRC_EWV_WHEELING); speech-only overrides PRON_CORINNE and PRON_CINCINNATI (PENDING_LISTENING_REVIEW); no review video rendered, at the owner's instruction",
       "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "DEC-M8.2-CEILING-AND-720P",
+      "subject": "runtime ceiling and the format of the final internal review",
+      "scope": "why-bridges-look-different",
+      "decision": "owner: the runtime ceiling may be raised, and the last internal review is rendered at 720p ('có thể tăng trần thời gian lên, render lại internal review video ở chất lượng 720p cho lần review cuối')",
+      "date": "2026-11-04",
+      "evidence": "owner instruction in session, 2026-11-04",
+      "consequence": "project.json runtime_decision 8-30 min (the number is the agent's); new preset internal_720p; review video m8-r3 at 1280x720",
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
     }
   ]
 }

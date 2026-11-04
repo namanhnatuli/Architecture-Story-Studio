@@ -493,6 +493,7 @@ def do_encode(p, preset):
 
 
 STILLS_ONLY_PRESETS = ("production_test",)
+INTERNAL_PRESETS = ("internal_1080p", "internal_720p")
 FINAL_PRESETS = ("final", "final_4k")   # these require the FINAL gate before anything is rendered
 HEADROOM_GB = 8.0                        # never let a render run the volume below this
 
@@ -926,13 +927,13 @@ def do_assemble(p, preset):
     # Never give restricted narration (M7: or unapproved claims) a publishable-looking name.
     label = output_label(p)
     out = p / "output" / f"{slug_name(p)}_{label}{suffix(preset)}.mp4"
-    if preset == "internal_1080p":   # M7: an internal review at delivery resolution, never publication-named
+    if preset in INTERNAL_PRESETS:   # M7: an internal review, never publication-named (M8.2: also 720p)
         review_label = read_json(p / "project.json").get("review_label", "FINAL_INTERNAL_REVIEW")
-        out = p / "output" / f"{slug_name(p)}_{review_label}_1080p.mp4"
+        out = p / "output" / f"{slug_name(p)}_{review_label}_{preset.split('_')[1]}.mp4"
         label = "documentary_INTERNAL_REVIEW"
     report = assemble.assemble(p, video, out, comment=internal_comment(label) if label.startswith("documentary") else None)
-    if preset == "internal_1080p" and "INTERNAL_REVIEW" not in out.name:
-        raise SystemExit(f"refusing an internal_1080p output without INTERNAL_REVIEW in its name: {out.name}")
+    if preset in INTERNAL_PRESETS and "INTERNAL_REVIEW" not in out.name:
+        raise SystemExit(f"refusing an {preset} output without INTERNAL_REVIEW in its name: {out.name}")
     if label.startswith("documentary"):   # M7: clean narration master + loudness-normalised full audio next to the film
         raw = Path(report["narration_track"]).with_name("narration_track_full.wav")
         for src, name in ((raw, "narration_master_clean"), (Path(report["narration_track"]), "audio_master")):
@@ -1429,7 +1430,7 @@ def main():
     parser.add_argument("--topic", help="new-episode: the documentary topic")
     parser.add_argument("--slug", help="new-episode: project slug (default: derived from the topic)")
     parser.add_argument("--preset", default="preview",
-                        choices=["preview", "review", "production_test", "internal_1080p", "final", "final_4k"])
+                        choices=["preview", "review", "production_test", "internal_1080p", "internal_720p", "final", "final_4k"])
     parser.add_argument("--release-frames", action="store_true",
                         help="chapter: delete the chapter's PNG frames after its intermediate is verified")
     parser.add_argument("--shot", help="Shot id for the `shot` command, e.g. SC_002")
