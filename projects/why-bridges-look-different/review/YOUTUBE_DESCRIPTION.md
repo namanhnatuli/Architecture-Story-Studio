@@ -8,16 +8,16 @@ Chapters
 
 0:00 Hook
 0:52 The problem every bridge must solve
-1:40 The beam
-2:47 The arch
-4:09 The truss
-5:33 The cantilever
-6:52 The suspension bridge
-7:55 The cable-stayed bridge
-9:09 Why different designs exist
-11:56 Span, cost and time
-13:52 Real-world decisions
-17:40 Why they look different
+1:41 The beam
+2:50 The arch
+4:12 The truss
+5:37 The cantilever
+7:05 The suspension bridge
+8:04 The cable-stayed bridge
+9:22 Why different designs exist
+12:15 Span, cost and time
+14:23 Real-world decisions
+18:10 Why they look different
 
 Sources
 
@@ -31,6 +31,7 @@ Sources
 - Bollman Truss Bridge (Historic Civil Engineering Landmark), American Society of Civil Engineers (web page, accessed 2026-10-29). https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/bollman-truss-bridge
 - Steel Bridge Design Handbook: Selecting the Right Bridge Type (Publication No. FHWA-IF-12-052, Vol. 5), U.S. Department of Transportation, Federal Highway Administration (November 2012). https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf (archived copy: https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf)
 - Dynamic Properties of Stay Cables on the Penobscot Narrows Bridge (FHWA-HRT-14-067), Chapter 3: Experimental Procedures, U.S. Department of Transportation, Federal Highway Administration (Turner-Fairbank Highway Research Center) (September 2014). https://www.fhwa.dot.gov/publications/research/infrastructure/structures/bridge/14067/003.cfm
+- Wheeling Suspension Bridge (e-WV: The West Virginia Encyclopedia), by Emory L. Kemp, West Virginia Humanities Council (last revised 24 April 2026). https://www.wvencyclopedia.org/entries/1183
 
 Archival photographs
 

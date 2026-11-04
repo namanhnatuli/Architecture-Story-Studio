@@ -10,12 +10,12 @@
     "reason": "M8 revision m8-r2: claims are source-verified, not yet editorially approved; review cut only."
   },
   "fps": 24,
-  "total_frames": 27828,
-  "duration_seconds": 1159.5,
+  "total_frames": 28651,
+  "duration_seconds": 1193.791667,
   "executable": true,
   "inputs": {
-    "beats_sha256": "6980122112ca8a46c17d3dd30c50f48532f5d9852d4f2f91f61ff96259110e48",
-    "sources_sha256": "4c71c5476170654ba84818011094a985b35310e7d04e7ff91e4ae2df9157cdd1",
+    "beats_sha256": "55135f42a5bba175d1eaf00efb39bd67f6853794d8a4f0d34083faecc8663da7",
+    "sources_sha256": "6903c6bf7d41cd02e58a998d6322f93c7ae89980823203cbcfc1b4392ba66f88",
     "vocabulary_sha256": "ce7e6cbfb1ebfe7c0fab010aa7e9c02b9cd80e1b19e0c823cd47d15051157777",
     "planning_config_sha256": "f2d5a77d7092e865b348f5f044488d6165d3503195a16df36287c55d14e32262",
     "assets": {
@@ -28,7 +28,7 @@
       "bridge_timber_beam_01": "9a416c794cb5a56c22eab1960a56ad195306971d223e723f17c831e9be201411"
     },
     "annotation_style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
-    "timing_sha256": "7d0f5f090d2d32c6a82402dedc54ef57e362b5090bf2f4f37cbb0ce7a1ad97b2"
+    "timing_sha256": "b276ae37abeeef6098a930c54a12e52ebf001f9ac0efac9a0505ec5814a760a8"
   },
   "family": "bridge",
   "scene_contexts": [
@@ -992,7 +992,7 @@
     {
       "shot": {
         "id": "SC_009",
-        "duration_seconds": 15.625,
+        "duration_seconds": 15.708333333333334,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -1011,7 +1011,7 @@
           "CLM_701",
           "CLM_702"
         ],
-        "narration": "Every bridge has the same basic job. It has to carry loads: the traffic crossing it, and the weight of the bridge itself. And it has to pass all of that down into the ground on either side.",
+        "narration": "Every bridge has the same basic job. It has to carry loads: the traffic crossing it, and the weight of the bridge itself. And it has to pass all of that down through its supports into the ground.",
         "visual_purpose": "A whole bridge; the load on its deck and the ground it must reach [HOLD 1/1: hold steel_truss_bridge]",
         "build_variants": [
           "steel_truss_bridge"
@@ -1023,7 +1023,7 @@
               "id": "CONCEPTUAL_TAG",
               "type": "TAG",
               "appear": 3.9583,
-              "disappear": 15.2917,
+              "disappear": 15.375,
               "elements": [
                 {
                   "kind": "plate",
@@ -1120,7 +1120,7 @@
               "id": "B03_load",
               "type": "LOAD_ARROW",
               "appear": 3.9583,
-              "disappear": 15.2917,
+              "disappear": 15.375,
               "claim_id": "CLM_701",
               "text": "Load",
               "style": null,
@@ -1344,7 +1344,7 @@
               "id": "B03_ground",
               "type": "COMPONENT_LABEL",
               "appear": 10.125,
-              "disappear": 15.2917,
+              "disappear": 15.375,
               "claim_id": null,
               "text": "Ground",
               "style": null,
@@ -1488,8 +1488,8 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 375,
-        "duration_seconds": 15.625,
+        "frames": 377,
+        "duration_seconds": 15.708333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
         "start_seconds": 52.333333
@@ -1511,7 +1511,7 @@
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
             "appear": 3.9583,
-            "disappear": 15.2917,
+            "disappear": 15.375,
             "elements": [
               {
                 "kind": "plate",
@@ -1608,7 +1608,7 @@
             "id": "B03_load",
             "type": "LOAD_ARROW",
             "appear": 3.9583,
-            "disappear": 15.2917,
+            "disappear": 15.375,
             "claim_id": "CLM_701",
             "text": "Load",
             "style": null,
@@ -1832,7 +1832,7 @@
             "id": "B03_ground",
             "type": "COMPONENT_LABEL",
             "appear": 10.125,
-            "disappear": 15.2917,
+            "disappear": 15.375,
             "claim_id": null,
             "text": "Ground",
             "style": null,
@@ -3165,7 +3165,7 @@
         "duration_seconds": 23.5,
         "min_seconds": 11.2917,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 67.958333
+        "start_seconds": 68.041667
       },
       "explanation": "hold steel_truss_bridge, glowing substructure from sentence 2",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -4432,7 +4432,7 @@
         "duration_seconds": 9.458333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 91.458333
+        "start_seconds": 91.541667
       },
       "explanation": "the empty shared site: the gap any of the structures must span",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -4573,7 +4573,7 @@
         "duration_seconds": 9.375,
         "min_seconds": 2.3333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 100.916667
+        "start_seconds": 101.0
       },
       "explanation": "timber_beam_bridge assembles into the shown empty site (its parts drop in by assembly layer)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -4796,7 +4796,7 @@
         "duration_seconds": 4.75,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 9.375,
-        "start_seconds": 110.291667
+        "start_seconds": 110.375
       },
       "explanation": "then stringer glow; repaired (GHOST:plank): stringer was OCCLUDED",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -5076,7 +5076,7 @@
         "duration_seconds": 4.458333,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 115.041667
+        "start_seconds": 115.125
       },
       "explanation": "glow deck_planks, stringer, cap_beam",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -5549,7 +5549,7 @@
         "duration_seconds": 8.291667,
         "min_seconds": 5.0,
         "beat_offset_seconds": 4.458333,
-        "start_seconds": 119.5
+        "start_seconds": 119.583333
       },
       "explanation": "take timber_beam_bridge apart by assembly layer (15 components, 4 layers) and back; 13 focus components glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6629,7 +6629,7 @@
         "duration_seconds": 14.916667,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 127.791667
+        "start_seconds": 127.875
       },
       "explanation": "hold timber_beam_bridge, glowing stringer from sentence 0; repaired (GHOST:plank): stringer was OCCLUDED",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -7532,7 +7532,7 @@
     {
       "shot": {
         "id": "SC_017",
-        "duration_seconds": 24.875,
+        "duration_seconds": 28.0,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -7551,7 +7551,7 @@
               "timber_beam_bridge_bent4",
               "timber_beam_bridge_bent5"
             ],
-            "start_seconds": 16.5,
+            "start_seconds": 19.625,
             "rise_seconds": 0.4,
             "hold_seconds": 7.275,
             "fall_seconds": 0.4,
@@ -7569,7 +7569,7 @@
           "CLM_721",
           "CLM_722"
         ],
-        "narration": "Beams are simple, and wood was usually easy to find. That is why timber beam bridges were still being built long after timber trusses fell out of use, and why they are still built on quiet rural roads and in parks today. But many early timber bridges had relatively short spans, which is why this one needs so many posts.",
+        "narration": "Beams are simple, and wood was usually easy to find. That is why timber beam bridges were still being built long after timber trusses stopped being competitive, and in 2005 a national report found them still being built on quiet rural roads and in parks. But many early timber bridges had relatively short spans, which is why this one needs so many posts.",
         "visual_purpose": "The posts that short spans require [HOLD_HIGHLIGHT 1/1: hold timber_beam_bridge, glowing trestle_bent from sentence 2; slow push-in (12%)]",
         "build_variants": [
           "site",
@@ -7582,7 +7582,7 @@
               "id": "B09_note",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 24.875,
+              "disappear": 28.0,
               "claim_id": null,
               "text": "Illustrative model",
               "style": null,
@@ -7673,11 +7673,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 597,
-        "duration_seconds": 24.875,
-        "min_seconds": 17.9167,
+        "frames": 672,
+        "duration_seconds": 28.0,
+        "min_seconds": 21.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 142.708333
+        "start_seconds": 142.791667
       },
       "explanation": "hold timber_beam_bridge, glowing trestle_bent from sentence 2; slow push-in (12%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -7691,15 +7691,15 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 149,
-          "mid": 298,
-          "q75": 448,
-          "end": 597,
-          "camera_move_end": 597,
-          "highlight_end": 591,
-          "highlight_peak": 494,
-          "highlight_start": 397,
-          "middle": 299
+          "q25": 168,
+          "mid": 336,
+          "q75": 504,
+          "end": 672,
+          "camera_move_end": 672,
+          "highlight_end": 666,
+          "highlight_peak": 569,
+          "highlight_start": 472,
+          "middle": 336
         },
         "explanatory": [
           "highlight_peak"
@@ -7761,7 +7761,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 494,
+            "frame": 569,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -7776,7 +7776,7 @@
             "id": "B09_note",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 24.875,
+            "disappear": 28.0,
             "claim_id": null,
             "text": "Illustrative model",
             "style": null,
@@ -8037,7 +8037,7 @@
         "duration_seconds": 3.791667,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 167.583333
+        "start_seconds": 170.791667
       },
       "explanation": "establish stone_arch_bridge with arch_ring glowing",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -8868,7 +8868,7 @@
         "duration_seconds": 6.791667,
         "min_seconds": 4.25,
         "beat_offset_seconds": 3.791667,
-        "start_seconds": 171.375
+        "start_seconds": 174.583333
       },
       "explanation": "frontal close-up: only the 13 focus pieces (voussoir, keystone) come forward out of the face, spread apart and return, so each piece's shape reads (voussoir, keystone are read as pieces)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -10727,7 +10727,7 @@
         "duration_seconds": 17.25,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 178.166667
+        "start_seconds": 181.375
       },
       "explanation": "hold stone_arch_bridge, glowing arch_ring from sentence 0",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -12621,7 +12621,7 @@
         "duration_seconds": 14.625,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 195.416667
+        "start_seconds": 198.625
       },
       "explanation": "hold stone_arch_bridge",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -13645,7 +13645,7 @@
         "duration_seconds": 17.25,
         "min_seconds": 12.0833,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 210.041667
+        "start_seconds": 213.25
       },
       "explanation": "2D card supplied by the beat (30 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -13913,7 +13913,7 @@
         "duration_seconds": 22.333333,
         "min_seconds": 18.4167,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 227.291667
+        "start_seconds": 230.5
       },
       "explanation": "2D card supplied by the beat (15 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -14388,7 +14388,7 @@
         "duration_seconds": 15.916667,
         "min_seconds": 4.5833,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 249.625
+        "start_seconds": 252.833333
       },
       "explanation": "hold steel_truss_bridge, glowing truss_members from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -15544,7 +15544,7 @@
         "duration_seconds": 14.583333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 265.541667
+        "start_seconds": 268.75
       },
       "explanation": "hold steel_truss_bridge",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -16332,7 +16332,7 @@
         "duration_seconds": 16.458333,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 280.125
+        "start_seconds": 283.333333
       },
       "explanation": "glow the parts of steel_truss_bridge that will change",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -16637,7 +16637,7 @@
         "duration_seconds": 8.625,
         "min_seconds": 3.125,
         "beat_offset_seconds": 16.458333,
-        "start_seconds": 296.583333
+        "start_seconds": 299.791667
       },
       "explanation": "swap 8 parts of steel_truss_bridge for 4 parts of warren_truss on the shared frame",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -16851,7 +16851,7 @@
         "duration_seconds": 7.083333,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 25.083333,
-        "start_seconds": 305.208333
+        "start_seconds": 308.416667
       },
       "explanation": "glow the new parts of warren_truss",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -17387,7 +17387,7 @@
         "duration_seconds": 21.666667,
         "min_seconds": 5.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 312.291667
+        "start_seconds": 315.5
       },
       "explanation": "take steel_truss_bridge apart by assembly layer (24 components, 4 layers) and back",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -17511,7 +17511,7 @@
     {
       "shot": {
         "id": "SC_030",
-        "duration_seconds": 15.625,
+        "duration_seconds": 15.875,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -17527,10 +17527,9 @@
           "B40"
         ],
         "claim_ids": [
-          "CLM_752",
-          "CLM_757"
+          "CLM_752"
         ],
-        "narration": "To cross wide rivers and deep gorges, bridges needed longer spans. Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+        "narration": "To cross wide rivers and deep gorges, bridges needed longer spans. Wide rivers like the Ohio and the Mississippi, and deep gorges like the one at Niagara, needed bridges that could reach farther.",
         "visual_purpose": "The wide crossing, empty [SITE_HOLD 1/1: the empty shared site: the gap any of the structures must span]",
         "build_variants": [
           "site_long_span",
@@ -17543,7 +17542,7 @@
               "id": "B40_ch",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 15.2917,
+              "disappear": 15.5417,
               "claim_id": null,
               "text": "6 · The cantilever",
               "style": null,
@@ -17594,7 +17593,7 @@
               "id": "B40_note",
               "type": "NOTE",
               "appear": 6.0833,
-              "disappear": 15.2917,
+              "disappear": 15.5417,
               "claim_id": null,
               "text": "A wider crossing (illustrative, not to scale)",
               "style": null,
@@ -17670,11 +17669,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 375,
-        "duration_seconds": 15.625,
+        "frames": 381,
+        "duration_seconds": 15.875,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 333.958333
+        "start_seconds": 337.166667
       },
       "explanation": "the empty shared site: the gap any of the structures must span",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -17691,7 +17690,7 @@
             "id": "B40_ch",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 15.2917,
+            "disappear": 15.5417,
             "claim_id": null,
             "text": "6 · The cantilever",
             "style": null,
@@ -17742,7 +17741,7 @@
             "id": "B40_note",
             "type": "NOTE",
             "appear": 6.0833,
-            "disappear": 15.2917,
+            "disappear": 15.5417,
             "claim_id": null,
             "text": "A wider crossing (illustrative, not to scale)",
             "style": null,
@@ -17922,7 +17921,7 @@
         "duration_seconds": 14.041667,
         "min_seconds": 2.375,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 349.583333
+        "start_seconds": 353.041667
       },
       "explanation": "cantilever_bridge assembles into the shown empty site (its parts drop in by assembly layer)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -18455,7 +18454,7 @@
         "duration_seconds": 15.083333,
         "min_seconds": 5.7083,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 363.625
+        "start_seconds": 367.083333
       },
       "explanation": "hold cantilever_bridge, glowing cantilever_truss from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -19193,7 +19192,7 @@
         "duration_seconds": 14.833333,
         "min_seconds": 5.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 378.708333
+        "start_seconds": 382.166667
       },
       "explanation": "take cantilever_bridge apart by assembly layer (14 components, 4 layers) and back; 2 focus components glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -19319,7 +19318,7 @@
     {
       "shot": {
         "id": "SC_034",
-        "duration_seconds": 19.166666666666668,
+        "duration_seconds": 28.625,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -19440,6 +19439,34 @@
             {
               "id": "B44_07",
               "kind": "text",
+              "text": "No central suspended span,",
+              "position": [
+                0.805,
+                0.472
+              ],
+              "size": 0.028,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": false,
+              "appear": 18.65
+            },
+            {
+              "id": "B44_08",
+              "kind": "text",
+              "text": "unlike the model",
+              "position": [
+                0.805,
+                0.41
+              ],
+              "size": 0.028,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": false,
+              "appear": 18.65
+            },
+            {
+              "id": "B44_09",
+              "kind": "text",
               "text": "Photo: Jet Lowe, HAER, Library of Congress (public domain)",
               "position": [
                 0.805,
@@ -19460,10 +19487,11 @@
         ],
         "claim_ids": [
           "CLM_754",
-          "CLM_756"
+          "CLM_756",
+          "CLM_794"
         ],
-        "narration": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s. The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
-        "visual_purpose": "Archival photograph of the Queensboro Bridge [CARD 1/1: 2D card supplied by the beat (8 elements)]"
+        "narration": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s. The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909. Unlike our model, it has no suspended span in the middle, something one report calls unique among cantilevers of its size.",
+        "visual_purpose": "Archival photograph of the Queensboro Bridge [CARD 1/1: 2D card supplied by the beat (10 elements)]"
       },
       "beat_id": "B44",
       "visual_intent": "SHOW_CONTEXT",
@@ -19484,13 +19512,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 460,
-        "duration_seconds": 19.166667,
-        "min_seconds": 10.4583,
+        "frames": 687,
+        "duration_seconds": 28.625,
+        "min_seconds": 19.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 393.541667
+        "start_seconds": 397.0
       },
-      "explanation": "2D card supplied by the beat (8 elements)",
+      "explanation": "2D card supplied by the beat (10 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -19926,7 +19954,7 @@
         "duration_seconds": 13.125,
         "min_seconds": 6.625,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 412.708333
+        "start_seconds": 425.625
       },
       "explanation": "hold suspension_bridge, glowing hanger from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -21044,7 +21072,7 @@
         "duration_seconds": 13.333333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 425.833333
+        "start_seconds": 438.75
       },
       "explanation": "hold suspension_bridge",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -21776,7 +21804,7 @@
         "duration_seconds": 5.875,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 439.166667
+        "start_seconds": 452.083333
       },
       "explanation": "glow stiffening_truss",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -22071,7 +22099,7 @@
         "duration_seconds": 6.875,
         "min_seconds": 5.0,
         "beat_offset_seconds": 5.875,
-        "start_seconds": 445.041667
+        "start_seconds": 457.958333
       },
       "explanation": "take suspension_bridge apart by assembly layer (8 components, 4 layers) and back; 2 focus components glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -22209,7 +22237,7 @@
     {
       "shot": {
         "id": "SC_039",
-        "duration_seconds": 23.083333333333332,
+        "duration_seconds": 19.708333333333332,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -22274,7 +22302,7 @@
             {
               "id": "B48_03",
               "kind": "text",
-              "text": "Towers, cables, suspenders,",
+              "text": "East River, New York",
               "position": [
                 0.805,
                 0.72
@@ -22288,7 +22316,7 @@
             {
               "id": "B48_04",
               "kind": "text",
-              "text": "anchorages, stiffening truss",
+              "text": "completed 1883",
               "position": [
                 0.805,
                 0.658
@@ -22302,7 +22330,7 @@
             {
               "id": "B48_05",
               "kind": "text",
-              "text": "East River, New York",
+              "text": "Towers, cables, suspenders,",
               "position": [
                 0.805,
                 0.596
@@ -22311,12 +22339,12 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 9.525
+              "appear": 0.3
             },
             {
               "id": "B48_06",
               "kind": "text",
-              "text": "completed 1883",
+              "text": "anchorages, stiffening truss",
               "position": [
                 0.805,
                 0.534
@@ -22325,7 +22353,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 9.525
+              "appear": 0.3
             },
             {
               "id": "B48_07",
@@ -22352,7 +22380,7 @@
           "CLM_764",
           "CLM_768"
         ],
-        "narration": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge. The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+        "narration": "The Brooklyn Bridge in New York, completed in 1883, was planned with two towers, cables and suspenders, anchorages and a stiffening truss. One report says few suspension bridges built since can claim to stand entirely clear of its shadow.",
         "visual_purpose": "Archival photograph of the Brooklyn Bridge [CARD 1/1: 2D card supplied by the beat (8 elements)]"
       },
       "beat_id": "B48",
@@ -22374,11 +22402,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 554,
-        "duration_seconds": 23.083333,
-        "min_seconds": 9.875,
+        "frames": 473,
+        "duration_seconds": 19.708333,
+        "min_seconds": 1.5,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 451.916667
+        "start_seconds": 464.833333
       },
       "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -22852,7 +22880,7 @@
         "duration_seconds": 13.708333,
         "min_seconds": 8.25,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 475.0
+        "start_seconds": 484.541667
       },
       "explanation": "hold cable_stayed_bridge, glowing stay_cable from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -23370,7 +23398,7 @@
     {
       "shot": {
         "id": "SC_041",
-        "duration_seconds": 18.791666666666668,
+        "duration_seconds": 22.625,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -23490,7 +23518,7 @@
               ],
               "layer": 0,
               "color": "#4F5A64",
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_08",
@@ -23503,7 +23531,7 @@
               ],
               "layer": 0,
               "color": "#4F5A64",
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_09",
@@ -23516,7 +23544,7 @@
               ],
               "layer": 0,
               "color": "#B9A887",
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_10",
@@ -23529,7 +23557,7 @@
               ],
               "layer": 0,
               "color": "#B9A887",
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_11",
@@ -23639,7 +23667,7 @@
               "color": "#4F5A64",
               "width": 0.004,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_12",
@@ -23657,7 +23685,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_13",
@@ -23675,7 +23703,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_14",
@@ -23693,7 +23721,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_15",
@@ -23711,7 +23739,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_16",
@@ -23729,7 +23757,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_17",
@@ -23747,7 +23775,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_18",
@@ -23765,7 +23793,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_19",
@@ -23783,7 +23811,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_20",
@@ -23801,7 +23829,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_21",
@@ -23819,7 +23847,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_22",
@@ -23837,7 +23865,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_23",
@@ -23855,7 +23883,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_24",
@@ -23873,7 +23901,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_25",
@@ -23891,7 +23919,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_26",
@@ -23909,7 +23937,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_27",
@@ -23927,7 +23955,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_28",
@@ -23945,7 +23973,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_29",
@@ -23963,7 +23991,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_30",
@@ -23981,7 +24009,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_31",
@@ -23999,7 +24027,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_32",
@@ -24017,7 +24045,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_33",
@@ -24035,7 +24063,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_34",
@@ -24053,7 +24081,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_35",
@@ -24071,7 +24099,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_36",
@@ -24089,7 +24117,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_37",
@@ -24107,7 +24135,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_38",
@@ -24125,7 +24153,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_39",
@@ -24143,7 +24171,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_40",
@@ -24161,7 +24189,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_41",
@@ -24179,7 +24207,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_42",
@@ -24197,7 +24225,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_43",
@@ -24215,7 +24243,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_44",
@@ -24233,7 +24261,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_45",
@@ -24251,7 +24279,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_46",
@@ -24269,7 +24297,7 @@
               "color": "#8A867C",
               "width": 0.0022,
               "layer": 0,
-              "appear": 3.825
+              "appear": 5.1
             },
             {
               "id": "B51_47",
@@ -24283,7 +24311,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 4.305
+              "appear": 5.58
             },
             {
               "id": "B51_48",
@@ -24296,7 +24324,7 @@
               ],
               "layer": 0,
               "color": "#9C988D",
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_49",
@@ -24314,7 +24342,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_50",
@@ -24332,7 +24360,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_51",
@@ -24350,7 +24378,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_52",
@@ -24368,7 +24396,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_53",
@@ -24386,7 +24414,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_54",
@@ -24404,7 +24432,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_55",
@@ -24422,7 +24450,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_56",
@@ -24440,7 +24468,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_57",
@@ -24458,7 +24486,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_58",
@@ -24476,7 +24504,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_59",
@@ -24489,7 +24517,7 @@
               ],
               "layer": 0,
               "color": "#9C988D",
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_60",
@@ -24507,7 +24535,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_61",
@@ -24525,7 +24553,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_62",
@@ -24543,7 +24571,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_63",
@@ -24561,7 +24589,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_64",
@@ -24579,7 +24607,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_65",
@@ -24597,7 +24625,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_66",
@@ -24615,7 +24643,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_67",
@@ -24633,7 +24661,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_68",
@@ -24651,7 +24679,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_69",
@@ -24669,7 +24697,7 @@
               "color": "#1E5C96",
               "width": 0.0025,
               "layer": 0,
-              "appear": 11.7
+              "appear": 13.15
             },
             {
               "id": "B51_70",
@@ -24683,7 +24711,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 12.18
+              "appear": 13.63
             }
           ]
         },
@@ -24698,7 +24726,7 @@
           "CLM_770",
           "CLM_771"
         ],
-        "narration": "Seen in outline, the difference is clear. The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end. The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+        "narration": "Drawn in outline at the same span, the two types differ. The suspension bridge has much shorter towers, and its main cables run over them to anchorages at each end. The cable-stayed bridge needs taller towers, because their height depends on the span, and its stays end at the deck itself.",
         "visual_purpose": "Suspension and cable-stayed elevations compared (diagram) [CARD 1/1: 2D card supplied by the beat (71 elements)]"
       },
       "beat_id": "B51",
@@ -24720,11 +24748,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 451,
-        "duration_seconds": 18.791667,
-        "min_seconds": 12.5417,
+        "frames": 543,
+        "duration_seconds": 22.625,
+        "min_seconds": 14.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 488.708333
+        "start_seconds": 498.25
       },
       "explanation": "2D card supplied by the beat (71 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -25489,7 +25517,7 @@
         "duration_seconds": 17.083333,
         "min_seconds": 5.7083,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 507.5
+        "start_seconds": 520.875
       },
       "explanation": "take cable_stayed_bridge apart by assembly layer (41 components, 6 layers) and back; 21 focus components glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -26167,7 +26195,7 @@
             {
               "id": "B53_15",
               "kind": "text",
-              "text": "Suspension now: as spans approach 3,000 ft",
+              "text": "Suspension by 2012: as spans approach 3,000 ft",
               "position": [
                 0.1,
                 0.44
@@ -26229,7 +26257,7 @@
         "duration_seconds": 24.625,
         "min_seconds": 22.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 524.583333
+        "start_seconds": 537.958333
       },
       "explanation": "2D card supplied by the beat (17 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -26396,7 +26424,7 @@
         "duration_seconds": 14.416667,
         "min_seconds": 10.5417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 549.208333
+        "start_seconds": 562.583333
       },
       "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -26617,7 +26645,7 @@
         "duration_seconds": 9.666667,
         "min_seconds": 4.7917,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 563.625
+        "start_seconds": 577.0
       },
       "explanation": "hold stone_arch_bridge, glowing arch_ring from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -27138,7 +27166,7 @@
         "duration_seconds": 15.875,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 573.291667
+        "start_seconds": 586.666667
       },
       "explanation": "hold steel_truss_bridge, glowing truss_members from sentence 0",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -27466,7 +27494,7 @@
         "duration_seconds": 7.25,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 589.166667
+        "start_seconds": 602.541667
       },
       "explanation": "hold timber_beam_bridge",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -27708,7 +27736,7 @@
         "duration_seconds": 16.0,
         "min_seconds": 9.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 596.416667
+        "start_seconds": 609.791667
       },
       "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -27722,7 +27750,7 @@
     {
       "shot": {
         "id": "SC_049",
-        "duration_seconds": 26.75,
+        "duration_seconds": 27.041666666666668,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -27736,7 +27764,7 @@
             ],
             "start_seconds": 17.5,
             "rise_seconds": 0.4,
-            "hold_seconds": 8.15,
+            "hold_seconds": 8.4417,
             "fall_seconds": 0.4,
             "strength": 0.45
           }
@@ -27752,7 +27780,7 @@
           "CLM_780",
           "CLM_781"
         ],
-        "narration": "Cables have a materials story of their own. America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains. Wire cables answered that fear, and suspension and cable-stayed bridges now rely on high-strength steel cables.",
+        "narration": "Cables have a materials story of their own. America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains. Wire cables answered that fear, and suspension and cable-stayed bridges came to rely on high-strength steel cables.",
         "visual_purpose": "The main cables of the suspension model [HOLD_HIGHLIGHT 1/1: hold suspension_bridge, glowing main_cable from sentence 2]",
         "build_variants": [
           "suspension_bridge"
@@ -27764,7 +27792,7 @@
               "id": "B20E_model",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 26.75,
+              "disappear": 27.0417,
               "claim_id": null,
               "text": "Illustrative model",
               "style": null,
@@ -27866,7 +27894,7 @@
               "id": "B20E_cable",
               "type": "NOTE",
               "appear": 17.5833,
-              "disappear": 26.75,
+              "disappear": 27.0417,
               "claim_id": "CLM_781",
               "text": "Wire cables, then high-strength steel",
               "style": null,
@@ -27953,11 +27981,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 642,
-        "duration_seconds": 26.75,
+        "frames": 649,
+        "duration_seconds": 27.041667,
         "min_seconds": 18.9167,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 612.416667
+        "start_seconds": 625.791667
       },
       "explanation": "hold suspension_bridge, glowing main_cable from sentence 2",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -27971,14 +27999,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 160,
-          "mid": 321,
-          "q75": 482,
-          "end": 642,
-          "highlight_end": 636,
-          "highlight_peak": 528,
+          "q25": 162,
+          "mid": 324,
+          "q75": 487,
+          "end": 649,
+          "highlight_end": 643,
+          "highlight_peak": 532,
           "highlight_start": 421,
-          "middle": 321
+          "middle": 325
         },
         "explanatory": [
           "highlight_peak"
@@ -28021,7 +28049,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 528,
+            "frame": 532,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -28036,7 +28064,7 @@
             "id": "B20E_model",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 26.75,
+            "disappear": 27.0417,
             "claim_id": null,
             "text": "Illustrative model",
             "style": null,
@@ -28138,7 +28166,7 @@
             "id": "B20E_cable",
             "type": "NOTE",
             "appear": 17.5833,
-            "disappear": 26.75,
+            "disappear": 27.0417,
             "claim_id": "CLM_781",
             "text": "Wire cables, then high-strength steel",
             "style": null,
@@ -28440,7 +28468,7 @@
         "duration_seconds": 20.083333,
         "min_seconds": 9.875,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 639.166667
+        "start_seconds": 652.833333
       },
       "explanation": "2D card supplied by the beat (11 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -28630,9 +28658,9 @@
               "kind": "rect",
               "box": [
                 0.08,
-                0.575,
+                0.61,
                 0.16,
-                0.675
+                0.7
               ],
               "layer": 1,
               "color": "#B9A887",
@@ -28644,15 +28672,13 @@
               "id": "B22B_13",
               "kind": "rect",
               "box": [
-                0.84,
-                0.575,
-                0.92,
-                0.675
+                0.875,
+                0.574,
+                0.905,
+                0.586
               ],
               "layer": 1,
-              "color": "#B9A887",
-              "border": "#7A6E58",
-              "border_width": 0.004,
+              "color": "#24231F",
               "appear": 5.2
             },
             {
@@ -28661,7 +28687,7 @@
               "points": [
                 [
                   0.12,
-                  0.665
+                  0.69
                 ],
                 [
                   0.33,
@@ -28741,7 +28767,11 @@
                 ],
                 [
                   0.88,
-                  0.665
+                  0.655
+                ],
+                [
+                  0.89,
+                  0.58
                 ]
               ],
               "color": "#4F5A64",
@@ -28752,7 +28782,35 @@
             {
               "id": "B22B_15",
               "kind": "text",
-              "text": "Suspension: cables anchored in massive blocks, set into rock",
+              "text": "Massive block",
+              "position": [
+                0.12,
+                0.725
+              ],
+              "size": 0.018,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
+              "appear": 8.74
+            },
+            {
+              "id": "B22B_16",
+              "kind": "text",
+              "text": "Into bedrock",
+              "position": [
+                0.91,
+                0.69
+              ],
+              "size": 0.018,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
+              "appear": 10.62
+            },
+            {
+              "id": "B22B_17",
+              "kind": "text",
+              "text": "Suspension: cables anchored in massive blocks or in bedrock",
               "position": [
                 0.5,
                 0.85
@@ -28764,11 +28822,11 @@
               "appear": 7.08
             },
             {
-              "id": "B22B_16",
+              "id": "B22B_18",
               "kind": "rect",
               "box": [
                 0.318,
-                0.255,
+                0.29,
                 0.342,
                 0.355
               ],
@@ -28777,7 +28835,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_17",
+              "id": "B22B_19",
               "kind": "rect",
               "box": [
                 0.323,
@@ -28790,7 +28848,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_18",
+              "id": "B22B_20",
               "kind": "line",
               "points": [
                 [
@@ -28808,7 +28866,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_19",
+              "id": "B22B_21",
               "kind": "line",
               "points": [
                 [
@@ -28826,7 +28884,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_20",
+              "id": "B22B_22",
               "kind": "line",
               "points": [
                 [
@@ -28844,7 +28902,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_21",
+              "id": "B22B_23",
               "kind": "line",
               "points": [
                 [
@@ -28862,7 +28920,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_22",
+              "id": "B22B_24",
               "kind": "line",
               "points": [
                 [
@@ -28880,7 +28938,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_23",
+              "id": "B22B_25",
               "kind": "line",
               "points": [
                 [
@@ -28898,7 +28956,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_24",
+              "id": "B22B_26",
               "kind": "line",
               "points": [
                 [
@@ -28916,7 +28974,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_25",
+              "id": "B22B_27",
               "kind": "line",
               "points": [
                 [
@@ -28934,11 +28992,11 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_26",
+              "id": "B22B_28",
               "kind": "rect",
               "box": [
                 0.658,
-                0.255,
+                0.29,
                 0.682,
                 0.355
               ],
@@ -28947,7 +29005,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_27",
+              "id": "B22B_29",
               "kind": "rect",
               "box": [
                 0.663,
@@ -28960,7 +29018,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_28",
+              "id": "B22B_30",
               "kind": "line",
               "points": [
                 [
@@ -28978,7 +29036,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_29",
+              "id": "B22B_31",
               "kind": "line",
               "points": [
                 [
@@ -28996,7 +29054,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_30",
+              "id": "B22B_32",
               "kind": "line",
               "points": [
                 [
@@ -29014,7 +29072,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_31",
+              "id": "B22B_33",
               "kind": "line",
               "points": [
                 [
@@ -29032,7 +29090,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_32",
+              "id": "B22B_34",
               "kind": "line",
               "points": [
                 [
@@ -29050,7 +29108,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_33",
+              "id": "B22B_35",
               "kind": "line",
               "points": [
                 [
@@ -29068,7 +29126,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_34",
+              "id": "B22B_36",
               "kind": "line",
               "points": [
                 [
@@ -29086,7 +29144,7 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_35",
+              "id": "B22B_37",
               "kind": "line",
               "points": [
                 [
@@ -29104,15 +29162,15 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_36",
+              "id": "B22B_38",
               "kind": "line",
               "points": [
                 [
-                  0.2,
+                  0.16,
                   0.395
                 ],
                 [
-                  0.8,
+                  0.84,
                   0.395
                 ]
               ],
@@ -29122,9 +29180,9 @@
               "appear": 12.175
             },
             {
-              "id": "B22B_37",
+              "id": "B22B_39",
               "kind": "text",
-              "text": "Cable-stayed: towers can stand where rock lies deep",
+              "text": "Cable-stayed: good rock near the surface is not required",
               "position": [
                 0.5,
                 0.522
@@ -29147,7 +29205,7 @@
           "CLM_776"
         ],
         "narration": "Long spans make the ground beneath them matter even more. A suspension bridge has to anchor its cables in massive blocks, or directly in bedrock. The towers of a cable-stayed bridge, by contrast, can be built where good rock does not lie near the surface.",
-        "visual_purpose": "Ground and foundations for the two cable families (schematic) [CARD 1/1: 2D card supplied by the beat (38 elements)]"
+        "visual_purpose": "Ground and foundations for the two cable families (schematic) [CARD 1/1: 2D card supplied by the beat (40 elements)]"
       },
       "beat_id": "B22B",
       "visual_intent": "SHOW_CONTEXT",
@@ -29172,9 +29230,9 @@
         "duration_seconds": 20.708333,
         "min_seconds": 13.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 659.25
+        "start_seconds": 672.916667
       },
-      "explanation": "2D card supplied by the beat (38 elements)",
+      "explanation": "2D card supplied by the beat (40 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -29186,7 +29244,7 @@
     {
       "shot": {
         "id": "SC_052",
-        "duration_seconds": 14.875,
+        "duration_seconds": 19.958333333333332,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -29198,9 +29256,9 @@
               "cantilever_bridge_pier_left",
               "cantilever_bridge_pier_right"
             ],
-            "start_seconds": 4.5,
+            "start_seconds": 8.975,
             "rise_seconds": 0.4,
-            "hold_seconds": 9.275,
+            "hold_seconds": 9.8833,
             "fall_seconds": 0.4,
             "strength": 0.45
           }
@@ -29215,7 +29273,7 @@
         "claim_ids": [
           "CLM_782"
         ],
-        "narration": "Cantilevers had an advantage on uncertain ground. Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail.",
+        "narration": "A cantilever like this one is a continuous girder with hinges built in, which made its forces easy to calculate. So on unstable soil, if a pier sank, its superstructure could adjust, where a continuous beam might build up hidden stresses and fail.",
         "visual_purpose": "The cantilever's main piers [HOLD_HIGHLIGHT 1/1: hold cantilever_bridge, glowing pier from sentence 1]",
         "build_variants": [
           "cantilever_bridge"
@@ -29227,7 +29285,7 @@
               "id": "B22C_model",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 14.875,
+              "disappear": 19.9583,
               "claim_id": null,
               "text": "Illustrative model",
               "style": null,
@@ -29277,10 +29335,10 @@
             {
               "id": "B22C_note",
               "type": "NOTE",
-              "appear": 4.5833,
-              "disappear": 14.875,
+              "appear": 9.0833,
+              "disappear": 19.9583,
               "claim_id": "CLM_782",
-              "text": "If a pier sank, the cantilever could adjust",
+              "text": "Hinged: superstructure could adjust if a pier sank",
               "style": null,
               "force": null,
               "direction": null,
@@ -29291,7 +29349,7 @@
                   "box": [
                     0.045,
                     0.8993,
-                    0.351227,
+                    0.410641,
                     0.95
                   ],
                   "fill": "#FBF9F4",
@@ -29300,17 +29358,17 @@
                 },
                 {
                   "kind": "text",
-                  "text": "If a pier sank, the cantilever could adjust",
+                  "text": "Hinged: superstructure could adjust if a pier sank",
                   "size": 0.03,
                   "color": "#4C4A44",
                   "center": [
-                    0.198114,
+                    0.22782,
                     0.92465
                   ],
                   "box": [
                     0.045,
                     0.8993,
-                    0.351227,
+                    0.410641,
                     0.95
                   ]
                 }
@@ -29319,7 +29377,7 @@
                 [
                   0.045,
                   0.8993,
-                  0.351227,
+                  0.410641,
                   0.95
                 ]
               ],
@@ -29328,8 +29386,8 @@
             {
               "id": "B22C_pier",
               "type": "COMPONENT_LABEL",
-              "appear": 8.4167,
-              "disappear": 14.875,
+              "appear": 11.5417,
+              "disappear": 19.9583,
               "claim_id": "CLM_782",
               "text": "Main pier",
               "style": null,
@@ -29485,11 +29543,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 357,
-        "duration_seconds": 14.875,
-        "min_seconds": 5.9167,
+        "frames": 479,
+        "duration_seconds": 19.958333,
+        "min_seconds": 10.4167,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 679.958333
+        "start_seconds": 693.625
       },
       "explanation": "hold cantilever_bridge, glowing pier from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -29503,14 +29561,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 89,
-          "mid": 178,
-          "q75": 268,
-          "end": 357,
-          "highlight_end": 351,
-          "highlight_peak": 230,
-          "highlight_start": 109,
-          "middle": 179
+          "q25": 120,
+          "mid": 240,
+          "q75": 359,
+          "end": 479,
+          "highlight_end": 473,
+          "highlight_peak": 345,
+          "highlight_start": 216,
+          "middle": 240
         },
         "explanatory": [
           "highlight_peak"
@@ -29557,7 +29615,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 230,
+            "frame": 345,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -29572,7 +29630,7 @@
             "id": "B22C_model",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 14.875,
+            "disappear": 19.9583,
             "claim_id": null,
             "text": "Illustrative model",
             "style": null,
@@ -29622,10 +29680,10 @@
           {
             "id": "B22C_note",
             "type": "NOTE",
-            "appear": 4.5833,
-            "disappear": 14.875,
+            "appear": 9.0833,
+            "disappear": 19.9583,
             "claim_id": "CLM_782",
-            "text": "If a pier sank, the cantilever could adjust",
+            "text": "Hinged: superstructure could adjust if a pier sank",
             "style": null,
             "force": null,
             "direction": null,
@@ -29636,7 +29694,7 @@
                 "box": [
                   0.045,
                   0.8993,
-                  0.351227,
+                  0.410641,
                   0.95
                 ],
                 "fill": "#FBF9F4",
@@ -29645,17 +29703,17 @@
               },
               {
                 "kind": "text",
-                "text": "If a pier sank, the cantilever could adjust",
+                "text": "Hinged: superstructure could adjust if a pier sank",
                 "size": 0.03,
                 "color": "#4C4A44",
                 "center": [
-                  0.198114,
+                  0.22782,
                   0.92465
                 ],
                 "box": [
                   0.045,
                   0.8993,
-                  0.351227,
+                  0.410641,
                   0.95
                 ]
               }
@@ -29664,7 +29722,7 @@
               [
                 0.045,
                 0.8993,
-                0.351227,
+                0.410641,
                 0.95
               ]
             ],
@@ -29673,8 +29731,8 @@
           {
             "id": "B22C_pier",
             "type": "COMPONENT_LABEL",
-            "appear": 8.4167,
-            "disappear": 14.875,
+            "appear": 11.5417,
+            "disappear": 19.9583,
             "claim_id": "CLM_782",
             "text": "Main pier",
             "style": null,
@@ -30152,7 +30210,7 @@
         "duration_seconds": 21.458333,
         "min_seconds": 13.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 694.833333
+        "start_seconds": 713.583333
       },
       "explanation": "hold suspension_bridge, glowing stiffening_truss from sentence 2",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -30511,7 +30569,7 @@
     {
       "shot": {
         "id": "SC_054",
-        "duration_seconds": 35.0,
+        "duration_seconds": 44.375,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -30535,12 +30593,12 @@
             {
               "id": "B23C_01",
               "kind": "text",
-              "text": "How far each type reaches (steel bridges)",
+              "text": "Two kinds of span numbers (steel bridge handbook, 2012)",
               "position": [
                 0.5,
-                0.87
+                0.88
               ],
-              "size": 0.04,
+              "size": 0.036,
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
@@ -30696,200 +30754,258 @@
               "id": "B23C_11",
               "kind": "rect",
               "box": [
-                0.1428,
-                0.774,
-                0.2467,
-                0.806
+                0.2,
+                0.808,
+                0.25,
+                0.826
               ],
               "layer": 0,
-              "color": "#8C654D",
-              "appear": 6.205
+              "border": "#24231F",
+              "border_width": 0.003,
+              "appear": 7.065
             },
             {
               "id": "B23C_12",
-              "kind": "arrow",
-              "start": [
-                0.2467,
-                0.79
+              "kind": "text",
+              "text": "Practical or economic range",
+              "position": [
+                0.26,
+                0.817
               ],
-              "end": [
-                0.2967,
-                0.79
-              ],
-              "color": "#8C654D",
-              "width": 0.005,
-              "appear": 6.205
+              "size": 0.022,
+              "align": "LEFT",
+              "color": "#24231F",
+              "plate": false,
+              "appear": 7.065
             },
             {
               "id": "B23C_13",
-              "kind": "text",
-              "text": "Plate girder: about 90 to over 500 ft",
-              "position": [
-                0.12,
-                0.83
+              "kind": "rect",
+              "box": [
+                0.56,
+                0.808,
+                0.61,
+                0.826
               ],
-              "size": 0.024,
-              "align": "LEFT",
+              "layer": 0,
               "color": "#24231F",
-              "plate": false,
-              "appear": 6.205
+              "appear": 7.065
             },
             {
               "id": "B23C_14",
-              "kind": "rect",
-              "box": [
-                0.234,
-                0.679,
-                0.31,
-                0.711
-              ],
-              "layer": 0,
-              "color": "#4F5A64",
-              "appear": 10.125
-            },
-            {
-              "id": "B23C_15",
               "kind": "text",
-              "text": "Simple truss: about 450 to 750 ft",
+              "text": "Spans actually built",
               "position": [
-                0.12,
-                0.735
+                0.62,
+                0.817
               ],
-              "size": 0.024,
+              "size": 0.022,
               "align": "LEFT",
               "color": "#24231F",
               "plate": false,
-              "appear": 10.125
+              "appear": 7.065
+            },
+            {
+              "id": "B23C_15",
+              "kind": "rect",
+              "box": [
+                0.1428,
+                0.706,
+                0.2467,
+                0.734
+              ],
+              "layer": 0,
+              "border": "#8C654D",
+              "border_width": 0.004,
+              "appear": 12.01
             },
             {
               "id": "B23C_16",
               "kind": "arrow",
               "start": [
-                0.31,
-                0.6
+                0.2467,
+                0.72
               ],
               "end": [
-                0.41000000000000003,
-                0.6
+                0.2967,
+                0.72
               ],
-              "color": "#4F5A64",
-              "width": 0.006,
-              "appear": 13.485
+              "color": "#8C654D",
+              "width": 0.005,
+              "appear": 12.01
             },
             {
               "id": "B23C_17",
               "kind": "text",
-              "text": "Cantilever truss: considerably farther",
+              "text": "Plate girder: about 90 to over 500 ft",
               "position": [
                 0.12,
-                0.64
+                0.756
               ],
-              "size": 0.024,
+              "size": 0.022,
               "align": "LEFT",
               "color": "#24231F",
               "plate": false,
-              "appear": 13.485
+              "appear": 12.01
             },
             {
               "id": "B23C_18",
               "kind": "rect",
               "box": [
-                0.1707,
-                0.489,
-                0.576,
-                0.521
+                0.234,
+                0.621,
+                0.31,
+                0.649
               ],
               "layer": 0,
-              "color": "#B9A887",
-              "appear": 16.975
+              "border": "#4F5A64",
+              "border_width": 0.004,
+              "appear": 15.57
             },
             {
               "id": "B23C_19",
               "kind": "text",
-              "text": "Arch: about 200 to 1,800 ft",
+              "text": "Simple truss: about 450 to about 750 ft",
               "position": [
                 0.12,
-                0.545
+                0.671
               ],
-              "size": 0.024,
+              "size": 0.022,
               "align": "LEFT",
               "color": "#24231F",
               "plate": false,
-              "appear": 16.975
+              "appear": 15.57
             },
             {
               "id": "B23C_20",
-              "kind": "rect",
-              "box": [
-                0.1681,
-                0.394,
-                0.8673,
-                0.426
+              "kind": "arrow",
+              "start": [
+                0.31,
+                0.55
               ],
-              "layer": 0,
-              "color": "#1E5C96",
-              "appear": 22.115
+              "end": [
+                0.41000000000000003,
+                0.55
+              ],
+              "color": "#4F5A64",
+              "width": 0.006,
+              "appear": 20.59
             },
             {
               "id": "B23C_21",
               "kind": "text",
-              "text": "Cable-stayed: under 200 to nearly 3,000 ft",
+              "text": "Cantilever truss: considerably farther",
               "position": [
                 0.12,
-                0.45
+                0.586
               ],
-              "size": 0.024,
+              "size": 0.022,
               "align": "LEFT",
               "color": "#24231F",
               "plate": false,
-              "appear": 22.115
+              "appear": 20.59
             },
             {
               "id": "B23C_22",
               "kind": "rect",
               "box": [
-                0.8597,
-                0.299,
-                0.88,
-                0.331
+                0.1707,
+                0.451,
+                0.576,
+                0.479
               ],
               "layer": 0,
-              "color": "#4F5A64",
-              "appear": 28.82
+              "color": "#B9A887",
+              "appear": 27.27
             },
             {
               "id": "B23C_23",
-              "kind": "arrow",
-              "start": [
-                0.88,
-                0.315
-              ],
-              "end": [
-                0.93,
-                0.315
-              ],
-              "color": "#4F5A64",
-              "width": 0.005,
-              "appear": 28.82
-            },
-            {
-              "id": "B23C_24",
               "kind": "text",
-              "text": "Suspension: as main spans approach 3,000 ft",
+              "text": "Arch: about 200 to 1,800 ft",
               "position": [
                 0.12,
-                0.355
+                0.501
               ],
-              "size": 0.024,
+              "size": 0.022,
               "align": "LEFT",
               "color": "#24231F",
               "plate": false,
-              "appear": 28.82
+              "appear": 27.27
+            },
+            {
+              "id": "B23C_24",
+              "kind": "rect",
+              "box": [
+                0.1681,
+                0.366,
+                0.8673,
+                0.394
+              ],
+              "layer": 0,
+              "color": "#1E5C96",
+              "appear": 31.57
             },
             {
               "id": "B23C_25",
               "kind": "text",
-              "text": "After FHWA, Steel Bridge Design Handbook (FHWA-IF-12-052), 2012 — economic ranges for steel",
+              "text": "Cable-stayed: under 200 to nearly 3,000 ft",
+              "position": [
+                0.12,
+                0.416
+              ],
+              "size": 0.022,
+              "align": "LEFT",
+              "color": "#24231F",
+              "plate": false,
+              "appear": 31.57
+            },
+            {
+              "id": "B23C_26",
+              "kind": "rect",
+              "box": [
+                0.8597,
+                0.281,
+                0.88,
+                0.309
+              ],
+              "layer": 0,
+              "border": "#4F5A64",
+              "border_width": 0.004,
+              "appear": 38.17
+            },
+            {
+              "id": "B23C_27",
+              "kind": "arrow",
+              "start": [
+                0.88,
+                0.295
+              ],
+              "end": [
+                0.93,
+                0.295
+              ],
+              "color": "#4F5A64",
+              "width": 0.005,
+              "appear": 38.17
+            },
+            {
+              "id": "B23C_28",
+              "kind": "text",
+              "text": "Suspension: economic as main spans approach 3,000 ft",
+              "position": [
+                0.12,
+                0.331
+              ],
+              "size": 0.022,
+              "align": "LEFT",
+              "color": "#24231F",
+              "plate": false,
+              "appear": 38.17
+            },
+            {
+              "id": "B23C_29",
+              "kind": "text",
+              "text": "After FHWA, Steel Bridge Design Handbook (FHWA-IF-12-052), 2012 — ranges, not limits of what a type can span",
               "position": [
                 0.5,
                 0.205
@@ -30913,8 +31029,8 @@
           "CLM_786",
           "CLM_775"
         ],
-        "narration": "Span decides a great deal. In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther. Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000. And as we saw, suspension bridges only pay off as main spans approach 3,000 feet.",
-        "visual_purpose": "Span ranges of the six families (sourced values only) [CARD 1/1: 2D card supplied by the beat (26 elements)]"
+        "narration": "Span decides a great deal. A 2012 federal handbook for steel bridges gives two kinds of numbers. Some are practical ranges: plate girders from about 90 to over 500 feet, simple trusses from about 450 to about 750, and cantilever trusses considerably farther. Others are spans that have actually been built: arches from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000. And as we saw, suspension bridges only pay off as main spans approach 3,000 feet.",
+        "visual_purpose": "Practical ranges and built spans of the six families, kept apart (sourced values only) [CARD 1/1: 2D card supplied by the beat (30 elements)]"
       },
       "beat_id": "B23C",
       "visual_intent": "EXPLAIN_STRUCTURE",
@@ -30935,13 +31051,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 840,
-        "duration_seconds": 35.0,
-        "min_seconds": 29.2083,
+        "frames": 1065,
+        "duration_seconds": 44.375,
+        "min_seconds": 38.5417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 716.291667
+        "start_seconds": 735.041667
       },
-      "explanation": "2D card supplied by the beat (26 elements)",
+      "explanation": "2D card supplied by the beat (30 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -31326,7 +31442,7 @@
         "duration_seconds": 21.5,
         "min_seconds": 5.25,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 751.291667
+        "start_seconds": 779.416667
       },
       "explanation": "hold suspension_bridge, glowing anchorage from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -31695,7 +31811,7 @@
     {
       "shot": {
         "id": "SC_056",
-        "duration_seconds": 11.708333333333334,
+        "duration_seconds": 13.083333333333334,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -31717,7 +31833,7 @@
         "claim_ids": [
           "CLM_788"
         ],
-        "narration": "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood.",
+        "narration": "By 2012, cable-stayed bridges were becoming more common worldwide, and one significant reason was that the methods for erecting them had become better understood.",
         "visual_purpose": "The cable-stayed model [HOLD 1/1: hold cable_stayed_bridge; slow push-in (10%)]",
         "build_variants": [
           "cable_stayed_bridge"
@@ -31729,9 +31845,9 @@
               "id": "B23E_note",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 11.7083,
+              "disappear": 13.0833,
               "claim_id": "CLM_788",
-              "text": "Erection methods now better understood",
+              "text": "By 2012: erection methods better understood",
               "style": null,
               "force": null,
               "direction": null,
@@ -31742,7 +31858,7 @@
                   "box": [
                     0.045,
                     0.8993,
-                    0.34904,
+                    0.385126,
                     0.95
                   ],
                   "fill": "#FBF9F4",
@@ -31751,17 +31867,17 @@
                 },
                 {
                   "kind": "text",
-                  "text": "Erection methods now better understood",
+                  "text": "By 2012: erection methods better understood",
                   "size": 0.03,
                   "color": "#4C4A44",
                   "center": [
-                    0.19702,
+                    0.215063,
                     0.92465
                   ],
                   "box": [
                     0.045,
                     0.8993,
-                    0.34904,
+                    0.385126,
                     0.95
                   ]
                 }
@@ -31770,7 +31886,7 @@
                 [
                   0.045,
                   0.8993,
-                  0.34904,
+                  0.385126,
                   0.95
                 ]
               ],
@@ -31804,11 +31920,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 281,
-        "duration_seconds": 11.708333,
+        "frames": 314,
+        "duration_seconds": 13.083333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 772.791667
+        "start_seconds": 800.916667
       },
       "explanation": "hold cable_stayed_bridge; slow push-in (10%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -31827,9 +31943,9 @@
             "id": "B23E_note",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 11.7083,
+            "disappear": 13.0833,
             "claim_id": "CLM_788",
-            "text": "Erection methods now better understood",
+            "text": "By 2012: erection methods better understood",
             "style": null,
             "force": null,
             "direction": null,
@@ -31840,7 +31956,7 @@
                 "box": [
                   0.045,
                   0.8993,
-                  0.34904,
+                  0.385126,
                   0.95
                 ],
                 "fill": "#FBF9F4",
@@ -31849,17 +31965,17 @@
               },
               {
                 "kind": "text",
-                "text": "Erection methods now better understood",
+                "text": "By 2012: erection methods better understood",
                 "size": 0.03,
                 "color": "#4C4A44",
                 "center": [
-                  0.19702,
+                  0.215063,
                   0.92465
                 ],
                 "box": [
                   0.045,
                   0.8993,
-                  0.34904,
+                  0.385126,
                   0.95
                 ]
               }
@@ -31868,7 +31984,7 @@
               [
                 0.045,
                 0.8993,
-                0.34904,
+                0.385126,
                 0.95
               ]
             ],
@@ -32396,7 +32512,7 @@
         "duration_seconds": 18.666667,
         "min_seconds": 14.125,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 784.5
+        "start_seconds": 814.0
       },
       "explanation": "2D card supplied by the beat (31 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -32410,7 +32526,7 @@
     {
       "shot": {
         "id": "SC_058",
-        "duration_seconds": 28.875,
+        "duration_seconds": 30.958333333333332,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -32643,7 +32759,7 @@
               "color": "#8A867C",
               "width": 0.003,
               "layer": 0,
-              "appear": 7.495
+              "appear": 7.455
             },
             {
               "id": "B24B_14",
@@ -32654,21 +32770,21 @@
               ],
               "radius": 0.009,
               "color": "#24231F",
-              "appear": 7.495
+              "appear": 7.455
             },
             {
               "id": "B24B_15",
               "kind": "text",
-              "text": "1849  Wheeling suspension bridge: 1,010 ft",
+              "text": "1849  Wheeling suspension bridge: 1,010 ft span",
               "position": [
-                0.2065,
+                0.2228,
                 0.64
               ],
               "size": 0.025,
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 7.495
+              "appear": 7.455
             },
             {
               "id": "B24B_16",
@@ -32729,7 +32845,7 @@
               "color": "#8A867C",
               "width": 0.003,
               "layer": 0,
-              "appear": 13.65
+              "appear": 13.425
             },
             {
               "id": "B24B_20",
@@ -32740,7 +32856,7 @@
               ],
               "radius": 0.009,
               "color": "#24231F",
-              "appear": 13.65
+              "appear": 13.425
             },
             {
               "id": "B24B_21",
@@ -32754,7 +32870,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 13.65
+              "appear": 13.425
             },
             {
               "id": "B24B_22",
@@ -32767,7 +32883,7 @@
               ],
               "layer": 0,
               "color": "#4F5A64",
-              "appear": 13.65
+              "appear": 13.425
             },
             {
               "id": "B24B_23",
@@ -32781,7 +32897,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 13.65
+              "appear": 13.425
             },
             {
               "id": "B24B_24",
@@ -32794,21 +32910,21 @@
               ],
               "layer": 0,
               "color": "#1E5C96",
-              "appear": 20.07
+              "appear": 24.445
             },
             {
               "id": "B24B_25",
               "kind": "text",
-              "text": "Long U.S. spans: cable-stayed",
+              "text": "1980–2012: U.S. spans over 1,000 ft cable-stayed",
               "position": [
-                0.8288,
+                0.7802,
                 0.7
               ],
               "size": 0.024,
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 20.07
+              "appear": 24.445
             },
             {
               "id": "B24B_26",
@@ -32838,7 +32954,7 @@
           "CLM_756",
           "CLM_774"
         ],
-        "narration": "Long spans have a timeline of their own. By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest bridge in the world for many years. Cantilevers were a standard American answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+        "narration": "Long spans have a timeline of their own. By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest span in the world when it opened. Cantilevers were a standard American answer from the 1880s to the 1960s, and a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed.",
         "visual_purpose": "Long-span timeline (dates from the evidence registry) [CARD 1/1: 2D card supplied by the beat (27 elements)]"
       },
       "beat_id": "B24B",
@@ -32860,11 +32976,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 693,
-        "duration_seconds": 28.875,
-        "min_seconds": 20.4583,
+        "frames": 743,
+        "duration_seconds": 30.958333,
+        "min_seconds": 24.8333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 803.166667
+        "start_seconds": 832.666667
       },
       "explanation": "2D card supplied by the beat (27 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -33130,7 +33246,7 @@
         "duration_seconds": 20.375,
         "min_seconds": 14.7917,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 832.041667
+        "start_seconds": 863.625
       },
       "explanation": "2D card supplied by the beat (15 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -33313,7 +33429,7 @@
         "duration_seconds": 23.125,
         "min_seconds": 6.75,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 852.416667
+        "start_seconds": 884.0
       },
       "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -33441,7 +33557,7 @@
         "duration_seconds": 10.125,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 875.541667
+        "start_seconds": 907.125
       },
       "explanation": "hold stone_arch_bridge; slow push-in (14%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -33514,7 +33630,7 @@
     {
       "shot": {
         "id": "SC_062",
-        "duration_seconds": 19.75,
+        "duration_seconds": 19.625,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -33679,11 +33795,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 474,
-        "duration_seconds": 19.75,
+        "frames": 471,
+        "duration_seconds": 19.625,
         "min_seconds": 10.9583,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 885.666667
+        "start_seconds": 917.25
       },
       "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -33839,7 +33955,7 @@
         "duration_seconds": 12.5,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 905.416667
+        "start_seconds": 936.875
       },
       "explanation": "hold timber_beam_bridge, glowing trestle_bent from sentence 0; slow push-in (10%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -34175,7 +34291,7 @@
         "duration_seconds": 27.708333,
         "min_seconds": 21.2083,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 917.916667
+        "start_seconds": 949.375
       },
       "explanation": "2D card supplied by the beat (9 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -34373,7 +34489,7 @@
         "duration_seconds": 13.083333,
         "min_seconds": 7.875,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 945.625
+        "start_seconds": 977.083333
       },
       "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -34387,7 +34503,7 @@
     {
       "shot": {
         "id": "SC_066",
-        "duration_seconds": 33.166666666666664,
+        "duration_seconds": 29.75,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -34409,7 +34525,7 @@
         "claim_ids": [
           "CLM_789"
         ],
-        "narration": "Long spans forced hard decisions too. In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains. Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic.",
+        "narration": "Long spans forced hard decisions too. In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains. Their doubts were not unjustified: the bridge needed substantial repairs in 1877 and 1880, and it was declared inadequate in 1890.",
         "visual_purpose": "The suspension model [HOLD 1/1: hold suspension_bridge; slow push-in (10%)]",
         "build_variants": [
           "suspension_bridge"
@@ -34421,7 +34537,7 @@
               "id": "B31A_note",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 33.1667,
+              "disappear": 29.75,
               "claim_id": null,
               "text": "Illustrative model, not the Niagara bridge",
               "style": null,
@@ -34520,12 +34636,12 @@
               "segments": []
             },
             {
-              "id": "B31A_133",
+              "id": "B31A_1890",
               "type": "NOTE",
               "appear": 17.0417,
-              "disappear": 33.1667,
+              "disappear": 29.75,
               "claim_id": "CLM_789",
-              "text": "Next railway suspension bridge: 133 years later",
+              "text": "Repaired 1877 and 1880; declared inadequate in 1890",
               "style": null,
               "force": null,
               "direction": null,
@@ -34536,7 +34652,7 @@
                   "box": [
                     0.045,
                     0.8993,
-                    0.406813,
+                    0.460759,
                     0.95
                   ],
                   "fill": "#FBF9F4",
@@ -34545,17 +34661,17 @@
                 },
                 {
                   "kind": "text",
-                  "text": "Next railway suspension bridge: 133 years later",
+                  "text": "Repaired 1877 and 1880; declared inadequate in 1890",
                   "size": 0.03,
                   "color": "#4C4A44",
                   "center": [
-                    0.225907,
+                    0.25288,
                     0.92465
                   ],
                   "box": [
                     0.045,
                     0.8993,
-                    0.406813,
+                    0.460759,
                     0.95
                   ]
                 }
@@ -34564,7 +34680,7 @@
                 [
                   0.045,
                   0.8993,
-                  0.406813,
+                  0.460759,
                   0.95
                 ]
               ],
@@ -34598,11 +34714,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 796,
-        "duration_seconds": 33.166667,
+        "frames": 714,
+        "duration_seconds": 29.75,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 958.708333
+        "start_seconds": 990.166667
       },
       "explanation": "hold suspension_bridge; slow push-in (10%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -34621,7 +34737,7 @@
             "id": "B31A_note",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 33.1667,
+            "disappear": 29.75,
             "claim_id": null,
             "text": "Illustrative model, not the Niagara bridge",
             "style": null,
@@ -34720,12 +34836,12 @@
             "segments": []
           },
           {
-            "id": "B31A_133",
+            "id": "B31A_1890",
             "type": "NOTE",
             "appear": 17.0417,
-            "disappear": 33.1667,
+            "disappear": 29.75,
             "claim_id": "CLM_789",
-            "text": "Next railway suspension bridge: 133 years later",
+            "text": "Repaired 1877 and 1880; declared inadequate in 1890",
             "style": null,
             "force": null,
             "direction": null,
@@ -34736,7 +34852,7 @@
                 "box": [
                   0.045,
                   0.8993,
-                  0.406813,
+                  0.460759,
                   0.95
                 ],
                 "fill": "#FBF9F4",
@@ -34745,17 +34861,17 @@
               },
               {
                 "kind": "text",
-                "text": "Next railway suspension bridge: 133 years later",
+                "text": "Repaired 1877 and 1880; declared inadequate in 1890",
                 "size": 0.03,
                 "color": "#4C4A44",
                 "center": [
-                  0.225907,
+                  0.25288,
                   0.92465
                 ],
                 "box": [
                   0.045,
                   0.8993,
-                  0.406813,
+                  0.460759,
                   0.95
                 ]
               }
@@ -34764,7 +34880,7 @@
               [
                 0.045,
                 0.8993,
-                0.406813,
+                0.460759,
                 0.95
               ]
             ],
@@ -34777,7 +34893,7 @@
     {
       "shot": {
         "id": "SC_067",
-        "duration_seconds": 27.5,
+        "duration_seconds": 29.833333333333332,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -34797,9 +34913,9 @@
               "cantilever_bridge_suspended_span_north",
               "cantilever_bridge_suspended_span_south"
             ],
-            "start_seconds": 5.475,
+            "start_seconds": 7.875,
             "rise_seconds": 0.4,
-            "hold_seconds": 20.925,
+            "hold_seconds": 20.8583,
             "fall_seconds": 0.4,
             "strength": 0.45
           }
@@ -34815,7 +34931,7 @@
           "CLM_790",
           "CLM_791"
         ],
-        "narration": "Cantilevers, by contrast, were first used by the railroads. A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it. In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world.",
+        "narration": "In America, modern cantilevers were first used by the railroads, and only later for highways. A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it. In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world.",
         "visual_purpose": "The rigid cantilever truss [HOLD_HIGHLIGHT 1/1: hold cantilever_bridge, glowing cantilever_truss from sentence 1]",
         "build_variants": [
           "cantilever_bridge"
@@ -34827,7 +34943,7 @@
               "id": "B31B_note",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 27.5,
+              "disappear": 29.8333,
               "claim_id": null,
               "text": "Illustrative model, not the Kentucky River bridge",
               "style": null,
@@ -34877,8 +34993,8 @@
             {
               "id": "B31B_rigid",
               "type": "NOTE",
-              "appear": 5.5833,
-              "disappear": 14.2917,
+              "appear": 7.9583,
+              "disappear": 16.6667,
               "claim_id": "CLM_790",
               "text": "Inherently rigid: suited to heavy trains",
               "style": null,
@@ -34928,8 +35044,8 @@
             {
               "id": "B31B_1877",
               "type": "NOTE",
-              "appear": 14.2917,
-              "disappear": 27.5,
+              "appear": 16.6667,
+              "disappear": 29.8333,
               "claim_id": "CLM_791",
               "text": "1877: the world's longest cantilever",
               "style": null,
@@ -35026,11 +35142,11 @@
       ],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 660,
-        "duration_seconds": 27.5,
-        "min_seconds": 6.875,
+        "frames": 716,
+        "duration_seconds": 29.833333,
+        "min_seconds": 9.2917,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 991.875
+        "start_seconds": 1019.916667
       },
       "explanation": "hold cantilever_bridge, glowing cantilever_truss from sentence 1",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -35044,14 +35160,14 @@
       "visibility": {
         "frames": {
           "start": 1,
-          "q25": 165,
-          "mid": 330,
-          "q75": 495,
-          "end": 660,
-          "highlight_end": 654,
-          "highlight_peak": 393,
-          "highlight_start": 132,
-          "middle": 330
+          "q25": 179,
+          "mid": 358,
+          "q75": 537,
+          "end": 716,
+          "highlight_end": 710,
+          "highlight_peak": 450,
+          "highlight_start": 190,
+          "middle": 358
         },
         "explanatory": [
           "highlight_peak"
@@ -35138,7 +35254,7 @@
               }
             },
             "geometry": "MESH",
-            "frame": 393,
+            "frame": 450,
             "label": "highlight_peak",
             "ok": true,
             "verification": "ESTIMATED",
@@ -35153,7 +35269,7 @@
             "id": "B31B_note",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 27.5,
+            "disappear": 29.8333,
             "claim_id": null,
             "text": "Illustrative model, not the Kentucky River bridge",
             "style": null,
@@ -35203,8 +35319,8 @@
           {
             "id": "B31B_rigid",
             "type": "NOTE",
-            "appear": 5.5833,
-            "disappear": 14.2917,
+            "appear": 7.9583,
+            "disappear": 16.6667,
             "claim_id": "CLM_790",
             "text": "Inherently rigid: suited to heavy trains",
             "style": null,
@@ -35254,8 +35370,8 @@
           {
             "id": "B31B_1877",
             "type": "NOTE",
-            "appear": 14.2917,
-            "disappear": 27.5,
+            "appear": 16.6667,
+            "disappear": 29.8333,
             "claim_id": "CLM_791",
             "text": "1877: the world's longest cantilever",
             "style": null,
@@ -35477,7 +35593,7 @@
         "duration_seconds": 12.25,
         "min_seconds": 6.875,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1019.375
+        "start_seconds": 1049.75
       },
       "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -35491,7 +35607,7 @@
     {
       "shot": {
         "id": "SC_069",
-        "duration_seconds": 28.833333333333332,
+        "duration_seconds": 28.083333333333332,
         "visual_type": "BLENDER_3D",
         "transition": "HOLD",
         "camera": "BRIDGE_THREE_QUARTER",
@@ -35511,10 +35627,9 @@
           "B31D"
         ],
         "claim_ids": [
-          "CLM_774",
           "CLM_793"
         ],
-        "narration": "Today, the long-span answer in America is usually cable-stayed. In Maine, the Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall. It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top.",
+        "narration": "In Maine, a modern cable-stayed bridge went up remarkably fast. The Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall. It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top.",
         "visual_purpose": "The cable-stayed model [HOLD 1/1: hold cable_stayed_bridge; slow push-in (12%)]",
         "build_variants": [
           "cable_stayed_bridge"
@@ -35526,7 +35641,7 @@
               "id": "B31D_note",
               "type": "NOTE",
               "appear": 0.2917,
-              "disappear": 28.8333,
+              "disappear": 28.0833,
               "claim_id": null,
               "text": "Illustrative model, not the Penobscot Narrows Bridge",
               "style": null,
@@ -35576,8 +35691,8 @@
             {
               "id": "B31D_fact",
               "type": "NOTE",
-              "appear": 5.8333,
-              "disappear": 19.4583,
+              "appear": 5.5833,
+              "disappear": 18.7083,
               "claim_id": "CLM_793",
               "text": "Penobscot Narrows, 2006: 430 ft concrete pylons",
               "style": null,
@@ -35627,8 +35742,8 @@
             {
               "id": "B31D_42",
               "type": "NOTE",
-              "appear": 19.4583,
-              "disappear": 28.8333,
+              "appear": 18.7083,
+              "disappear": 28.0833,
               "claim_id": "CLM_793",
               "text": "42 months from conception to completion",
               "style": null,
@@ -35703,11 +35818,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 692,
-        "duration_seconds": 28.833333,
+        "frames": 674,
+        "duration_seconds": 28.083333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1031.625
+        "start_seconds": 1062.0
       },
       "explanation": "hold cable_stayed_bridge; slow push-in (12%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -35726,7 +35841,7 @@
             "id": "B31D_note",
             "type": "NOTE",
             "appear": 0.2917,
-            "disappear": 28.8333,
+            "disappear": 28.0833,
             "claim_id": null,
             "text": "Illustrative model, not the Penobscot Narrows Bridge",
             "style": null,
@@ -35776,8 +35891,8 @@
           {
             "id": "B31D_fact",
             "type": "NOTE",
-            "appear": 5.8333,
-            "disappear": 19.4583,
+            "appear": 5.5833,
+            "disappear": 18.7083,
             "claim_id": "CLM_793",
             "text": "Penobscot Narrows, 2006: 430 ft concrete pylons",
             "style": null,
@@ -35827,8 +35942,8 @@
           {
             "id": "B31D_42",
             "type": "NOTE",
-            "appear": 19.4583,
-            "disappear": 28.8333,
+            "appear": 18.7083,
+            "disappear": 28.0833,
             "claim_id": "CLM_793",
             "text": "42 months from conception to completion",
             "style": null,
@@ -36060,7 +36175,7 @@
         "duration_seconds": 20.458333,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1060.458333
+        "start_seconds": 1090.083333
       },
       "explanation": "3 variants at identical scale (ROW, gap 0.2); differing parts glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -36390,7 +36505,7 @@
         "duration_seconds": 9.125,
         "min_seconds": 2.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1080.916667
+        "start_seconds": 1110.541667
       },
       "explanation": "3 variants at identical scale (STACK, gap 0.5); differing parts glow",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -36669,7 +36784,7 @@
         "duration_seconds": 8.666667,
         "min_seconds": 6.9167,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1090.041667
+        "start_seconds": 1119.666667
       },
       "explanation": "2D card supplied by the beat (6 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -36683,7 +36798,7 @@
     {
       "shot": {
         "id": "SC_073",
-        "duration_seconds": 32.083333333333336,
+        "duration_seconds": 36.75,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -37134,7 +37249,7 @@
             {
               "id": "B33_29",
               "kind": "text",
-              "text": "Today: timber beam bridges",
+              "text": "Timber beam bridges: built",
               "position": [
                 0.8,
                 0.86
@@ -37148,7 +37263,7 @@
             {
               "id": "B33_30",
               "kind": "text",
-              "text": "are still built on quiet roads",
+              "text": "long after timber trusses",
               "position": [
                 0.8,
                 0.805
@@ -37162,7 +37277,7 @@
             {
               "id": "B33_31",
               "kind": "text",
-              "text": "Most common steel bridge:",
+              "text": "2012: most common steel bridge",
               "position": [
                 0.24,
                 0.86
@@ -37171,12 +37286,12 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 12.4
+              "appear": 15.445
             },
             {
               "id": "B33_32",
               "kind": "text",
-              "text": "the plate girder, a beam",
+              "text": "is the plate girder, a beam",
               "position": [
                 0.24,
                 0.805
@@ -37185,7 +37300,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 12.4
+              "appear": 15.445
             },
             {
               "id": "B33_33",
@@ -37199,7 +37314,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 20.43
+              "appear": 25.105
             },
             {
               "id": "B33_34",
@@ -37213,7 +37328,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 20.43
+              "appear": 25.105
             }
           ]
         },
@@ -37228,7 +37343,7 @@
           "CLM_777",
           "CLM_767"
         ],
-        "narration": "And it is not a simple story of progress. Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression. And the most common steel bridge today is still a kind of beam: the welded plate girder. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
+        "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
         "visual_purpose": "Not a linear progression (timeline) [CARD 1/1: 2D card supplied by the beat (35 elements)]"
       },
       "beat_id": "B33",
@@ -37250,11 +37365,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 770,
-        "duration_seconds": 32.083333,
-        "min_seconds": 20.7917,
+        "frames": 882,
+        "duration_seconds": 36.75,
+        "min_seconds": 25.4583,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1098.708333
+        "start_seconds": 1128.333333
       },
       "explanation": "2D card supplied by the beat (35 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -37379,7 +37494,7 @@
         "duration_seconds": 19.958333,
         "min_seconds": 2.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1130.791667
+        "start_seconds": 1165.083333
       },
       "explanation": "hold stone_arch_bridge; slow push-in (12%)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -37591,7 +37706,7 @@
         "duration_seconds": 8.75,
         "min_seconds": 1.5,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 1150.75
+        "start_seconds": 1185.041667
       },
       "explanation": "2D card supplied by the beat (7 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -37766,7 +37881,7 @@
     {
       "beat_id": "B03",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Every bridge has the same basic job. It has to carry loads: the traffic crossing it, and the weight of the bridge itself. And it has to pass all of that down into the ground on either side.",
+      "narration": "Every bridge has the same basic job. It has to carry loads: the traffic crossing it, and the weight of the bridge itself. And it has to pass all of that down through its supports into the ground.",
       "status": "COVERED",
       "strategy": "HOLD",
       "assets": [
@@ -37784,7 +37899,7 @@
       "shot_ids": [
         "SC_009"
       ],
-      "expected_seconds": 15.625,
+      "expected_seconds": 15.675,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -37816,7 +37931,7 @@
           "until": null,
           "window": [
             3.95,
-            15.625
+            15.708
           ],
           "shots": [
             "SC_009"
@@ -37832,7 +37947,7 @@
           "until": null,
           "window": [
             10.125,
-            15.625
+            15.708
           ],
           "shots": [
             "SC_009"
@@ -38251,7 +38366,7 @@
     {
       "beat_id": "B09",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Beams are simple, and wood was usually easy to find. That is why timber beam bridges were still being built long after timber trusses fell out of use, and why they are still built on quiet rural roads and in parks today. But many early timber bridges had relatively short spans, which is why this one needs so many posts.",
+      "narration": "Beams are simple, and wood was usually easy to find. That is why timber beam bridges were still being built long after timber trusses stopped being competitive, and in 2005 a national report found them still being built on quiet rural roads and in parks. But many early timber bridges had relatively short spans, which is why this one needs so many posts.",
       "status": "COVERED",
       "strategy": "HOLD_HIGHLIGHT",
       "assets": [
@@ -38271,7 +38386,7 @@
       "shot_ids": [
         "SC_017"
       ],
-      "expected_seconds": 24.85,
+      "expected_seconds": 27.975,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -38287,7 +38402,7 @@
           "until": null,
           "window": [
             0.3,
-            24.875
+            28.0
           ],
           "shots": [
             "SC_017"
@@ -38942,7 +39057,7 @@
     {
       "beat_id": "B40",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "To cross wide rivers and deep gorges, bridges needed longer spans. Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+      "narration": "To cross wide rivers and deep gorges, bridges needed longer spans. Wide rivers like the Ohio and the Mississippi, and deep gorges like the one at Niagara, needed bridges that could reach farther.",
       "status": "COVERED",
       "strategy": "SITE_HOLD",
       "assets": [
@@ -38960,7 +39075,7 @@
       "shot_ids": [
         "SC_030"
       ],
-      "expected_seconds": 15.625,
+      "expected_seconds": 15.875,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -38976,7 +39091,7 @@
           "until": null,
           "window": [
             0.3,
-            15.625
+            15.875
           ],
           "shots": [
             "SC_030"
@@ -38992,7 +39107,7 @@
           "until": null,
           "window": [
             6.075,
-            15.625
+            15.875
           ],
           "shots": [
             "SC_030"
@@ -39186,7 +39301,7 @@
     {
       "beat_id": "B44",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s. The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909.",
+      "narration": "In the United States, cantilevers were a standard answer for intermediate to longer spans from the 1880s to the 1960s. The Queensboro Bridge in New York was the country's longest cantilever when it was completed in 1909. Unlike our model, it has no suspended span in the middle, something one report calls unique among cantilevers of its size.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -39197,7 +39312,7 @@
       "shot_ids": [
         "SC_034"
       ],
-      "expected_seconds": 19.15,
+      "expected_seconds": 28.6,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -39455,7 +39570,7 @@
     {
       "beat_id": "B48",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge. The Brooklyn Bridge in New York, completed in 1883, has them all, and one report says few suspension bridges since can claim to stand entirely clear of its shadow.",
+      "narration": "The Brooklyn Bridge in New York, completed in 1883, was planned with two towers, cables and suspenders, anchorages and a stiffening truss. One report says few suspension bridges built since can claim to stand entirely clear of its shadow.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -39466,7 +39581,7 @@
       "shot_ids": [
         "SC_039"
       ],
-      "expected_seconds": 23.05,
+      "expected_seconds": 19.675,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -39575,7 +39690,7 @@
     {
       "beat_id": "B51",
       "visual_intent": "COMPARE_VARIANTS",
-      "narration": "Seen in outline, the difference is clear. The suspension bridge has shorter towers, and its main cables run over them to anchorages at each end. The cable-stayed bridge needs much taller towers, and its stays end at the deck itself.",
+      "narration": "Drawn in outline at the same span, the two types differ. The suspension bridge has much shorter towers, and its main cables run over them to anchorages at each end. The cable-stayed bridge needs taller towers, because their height depends on the span, and its stays end at the deck itself.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -39586,7 +39701,7 @@
       "shot_ids": [
         "SC_041"
       ],
-      "expected_seconds": 18.775,
+      "expected_seconds": 22.6,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -39908,7 +40023,7 @@
     {
       "beat_id": "B20E",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Cables have a materials story of their own. America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains. Wire cables answered that fear, and suspension and cable-stayed bridges now rely on high-strength steel cables.",
+      "narration": "Cables have a materials story of their own. America's first metal suspension bridges hung from iron chains, and many failed after only a few years: critics said such a bridge was only as good as the weakest link in one of its chains. Wire cables answered that fear, and suspension and cable-stayed bridges came to rely on high-strength steel cables.",
       "status": "COVERED",
       "strategy": "HOLD_HIGHLIGHT",
       "assets": [
@@ -39928,7 +40043,7 @@
       "shot_ids": [
         "SC_049"
       ],
-      "expected_seconds": 26.725,
+      "expected_seconds": 27.025,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -39960,7 +40075,7 @@
           "until": null,
           "window": [
             17.6,
-            26.75
+            27.042
           ],
           "shots": [
             "SC_049"
@@ -39976,7 +40091,7 @@
           "until": null,
           "window": [
             0.3,
-            26.75
+            27.042
           ],
           "shots": [
             "SC_049"
@@ -40034,7 +40149,7 @@
     {
       "beat_id": "B22C",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Cantilevers had an advantage on uncertain ground. Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail.",
+      "narration": "A cantilever like this one is a continuous girder with hinges built in, which made its forces easy to calculate. So on unstable soil, if a pier sank, its superstructure could adjust, where a continuous beam might build up hidden stresses and fail.",
       "status": "COVERED",
       "strategy": "HOLD_HIGHLIGHT",
       "assets": [
@@ -40054,7 +40169,7 @@
       "shot_ids": [
         "SC_052"
       ],
-      "expected_seconds": 14.85,
+      "expected_seconds": 19.95,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40069,8 +40184,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            8.42,
-            14.875
+            11.555,
+            19.958
           ],
           "shots": [
             "SC_052"
@@ -40085,8 +40200,8 @@
           "sentence": 1,
           "until": null,
           "window": [
-            4.6,
-            14.875
+            9.075,
+            19.958
           ],
           "shots": [
             "SC_052"
@@ -40102,7 +40217,7 @@
           "until": null,
           "window": [
             0.3,
-            14.875
+            19.958
           ],
           "shots": [
             "SC_052"
@@ -40214,7 +40329,7 @@
     {
       "beat_id": "B23C",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "Span decides a great deal. In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther. Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000. And as we saw, suspension bridges only pay off as main spans approach 3,000 feet.",
+      "narration": "Span decides a great deal. A 2012 federal handbook for steel bridges gives two kinds of numbers. Some are practical ranges: plate girders from about 90 to over 500 feet, simple trusses from about 450 to about 750, and cantilever trusses considerably farther. Others are spans that have actually been built: arches from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000. And as we saw, suspension bridges only pay off as main spans approach 3,000 feet.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -40225,7 +40340,7 @@
       "shot_ids": [
         "SC_054"
       ],
-      "expected_seconds": 35.0,
+      "expected_seconds": 44.35,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40318,7 +40433,7 @@
     {
       "beat_id": "B23E",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood.",
+      "narration": "By 2012, cable-stayed bridges were becoming more common worldwide, and one significant reason was that the methods for erecting them had become better understood.",
       "status": "COVERED",
       "strategy": "HOLD",
       "assets": [
@@ -40336,7 +40451,7 @@
       "shot_ids": [
         "SC_056"
       ],
-      "expected_seconds": 11.7,
+      "expected_seconds": 13.075,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40352,7 +40467,7 @@
           "until": null,
           "window": [
             0.3,
-            11.708
+            13.083
           ],
           "shots": [
             "SC_056"
@@ -40388,7 +40503,7 @@
     {
       "beat_id": "B24B",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "Long spans have a timeline of their own. By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest bridge in the world for many years. Cantilevers were a standard American answer from the 1880s to the 1960s, and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+      "narration": "Long spans have a timeline of their own. By 1849, a suspension bridge at Wheeling spanned 1,010 feet, the longest span in the world when it opened. Cantilevers were a standard American answer from the 1880s to the 1960s, and a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -40399,7 +40514,7 @@
       "shot_ids": [
         "SC_058"
       ],
-      "expected_seconds": 28.85,
+      "expected_seconds": 30.95,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40515,7 +40630,7 @@
       "shot_ids": [
         "SC_062"
       ],
-      "expected_seconds": 19.75,
+      "expected_seconds": 19.625,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40622,7 +40737,7 @@
     {
       "beat_id": "B31A",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Long spans forced hard decisions too. In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains. Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic.",
+      "narration": "Long spans forced hard decisions too. In 1855, John Roebling's suspension bridge carried trains across the Niagara Gorge, but railroad executives doubted that suspension bridges could bear heavy trains. Their doubts were not unjustified: the bridge needed substantial repairs in 1877 and 1880, and it was declared inadequate in 1890.",
       "status": "COVERED",
       "strategy": "HOLD",
       "assets": [
@@ -40640,7 +40755,7 @@
       "shot_ids": [
         "SC_066"
       ],
-      "expected_seconds": 33.15,
+      "expected_seconds": 29.75,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40656,7 +40771,7 @@
           "until": null,
           "window": [
             0.3,
-            33.167
+            29.75
           ],
           "shots": [
             "SC_066"
@@ -40681,14 +40796,14 @@
           "issues": []
         },
         {
-          "id": "B31A_133",
+          "id": "B31A_1890",
           "type": "NOTE",
           "claim_id": "CLM_789",
           "sentence": 2,
           "until": null,
           "window": [
             17.05,
-            33.167
+            29.75
           ],
           "shots": [
             "SC_066"
@@ -40702,7 +40817,7 @@
     {
       "beat_id": "B31B",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Cantilevers, by contrast, were first used by the railroads. A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it. In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world.",
+      "narration": "In America, modern cantilevers were first used by the railroads, and only later for highways. A cantilever is inherently rigid, so if properly designed, heavy locomotives pulling trains are no threat to it. In 1877, one carried the Cincinnati Southern Railroad across the 275-foot-deep Kentucky River gorge: the longest cantilever in the world.",
       "status": "COVERED",
       "strategy": "HOLD_HIGHLIGHT",
       "assets": [
@@ -40722,7 +40837,7 @@
       "shot_ids": [
         "SC_067"
       ],
-      "expected_seconds": 27.475,
+      "expected_seconds": 29.825,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40738,7 +40853,7 @@
           "until": null,
           "window": [
             0.3,
-            27.5
+            29.833
           ],
           "shots": [
             "SC_067"
@@ -40753,8 +40868,8 @@
           "sentence": 1,
           "until": 2,
           "window": [
-            5.575,
-            14.275
+            7.975,
+            16.675
           ],
           "shots": [
             "SC_067"
@@ -40769,8 +40884,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            14.275,
-            27.5
+            16.675,
+            29.833
           ],
           "shots": [
             "SC_067"
@@ -40806,7 +40921,7 @@
     {
       "beat_id": "B31D",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "Today, the long-span answer in America is usually cable-stayed. In Maine, the Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall. It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top.",
+      "narration": "In Maine, a modern cable-stayed bridge went up remarkably fast. The Penobscot Narrows Bridge, opened in 2006, carries its 1,161-foot main span on two concrete pylons 430 feet tall. It took just 42 months from conception to completion, and one of its pylons has a public observatory at the top.",
       "status": "COVERED",
       "strategy": "HOLD",
       "assets": [
@@ -40824,7 +40939,7 @@
       "shot_ids": [
         "SC_069"
       ],
-      "expected_seconds": 28.825,
+      "expected_seconds": 28.075,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -40840,7 +40955,7 @@
           "until": null,
           "window": [
             0.3,
-            28.833
+            28.083
           ],
           "shots": [
             "SC_069"
@@ -40855,8 +40970,8 @@
           "sentence": 1,
           "until": 2,
           "window": [
-            5.85,
-            19.475
+            5.575,
+            18.725
           ],
           "shots": [
             "SC_069"
@@ -40871,8 +40986,8 @@
           "sentence": 2,
           "until": null,
           "window": [
-            19.475,
-            28.833
+            18.725,
+            28.083
           ],
           "shots": [
             "SC_069"
@@ -41046,7 +41161,7 @@
     {
       "beat_id": "B33",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "narration": "And it is not a simple story of progress. Timber beam bridges are still built today, and stone arches briefly returned during the Great Depression. And the most common steel bridge today is still a kind of beam: the welded plate girder. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
+      "narration": "And it is not a simple story of progress. Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression. And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge. At one time, a great number of small suspension bridges were built across the country, simply because they were easy to put up. Each form can still be the right answer in the right place.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -41057,7 +41172,7 @@
       "shot_ids": [
         "SC_073"
       ],
-      "expected_seconds": 32.075,
+      "expected_seconds": 36.75,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [

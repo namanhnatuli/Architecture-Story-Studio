@@ -1,7 +1,6 @@
 {
-  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (EDITORIAL_REVIEW_PENDING)",
+  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (NOT TECHNICALLY VALIDATED; EDITORIAL_REVIEW_PENDING)",
   "statuses": [
-    "TECHNICALLY_VALIDATED",
     "EDITORIAL_REVIEW_PENDING"
   ],
   "gates": {
@@ -14,47 +13,51 @@
     "G1 evidence, script & pronunciation review": {
       "status": "PENDING_EDITORIAL",
       "notes": [
-        "0/75 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
+        "0/76 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
         "factual_review: pending",
-        "pronunciation pending: voice.pronunciation_review PENDING (32 terms)"
+        "pronunciation pending: PRON_CINCINNATI (Cincinnati) PENDING_LISTENING_REVIEW",
+        "pronunciation pending: PRON_CORINNE (Corinne) PENDING_LISTENING_REVIEW",
+        "pronunciation pending: voice.pronunciation_review PENDING (29 terms)"
       ]
     },
     "G2 narration audio & TTS rights": {
       "status": "PASS",
       "notes": [
-        "166 sentences generated + ASR-verified",
+        "168 sentences generated + ASR-verified",
         "provider kokoro: rights class PUBLICATION_CLEARED; voice licence APPROVED"
       ]
     },
     "G3 narration timing lock": {
       "status": "PASS",
       "notes": [
-        "27828 frames, locked=True"
+        "28651 frames, locked=True"
       ]
     },
     "G4 Blender visual preview": {
-      "status": "PASS",
+      "status": "FAIL",
       "notes": [
         "Blender QA 944/944",
-        "media QA PASS"
+        "media QA is stale (rendered for a different timing)"
       ]
     },
     "G5 media assembly & subtitles": {
-      "status": "PASS",
+      "status": "FAIL",
       "notes": [
-        "27828 frames, -16.4 LUFS, 264 subtitle cues"
+        "assembly report is stale (assembled for a different timing)"
       ]
     },
     "GL long-form chapters & rights": {
       "status": "PASS",
       "notes": [
-        "17 checks pass, 2 warnings"
+        "17 checks pass, 3 warnings"
       ]
     },
     "G6 final publication readiness": {
       "status": "BLOCKED",
       "notes": [
         "FINAL gate: unverified claims used in the film (claims must be EDITORIALLY_APPROVED): CLM_701, CLM_702, CLM_703, CLM_704, CLM_705, CLM_706, CLM_707, CLM_708",
+        "FINAL gate: pronunciation PRON_CINCINNATI (Cincinnati) is PENDING_LISTENING_REVIEW, not CONFIRMED by a human listener",
+        "FINAL gate: pronunciation PRON_CORINNE (Corinne) is PENDING_LISTENING_REVIEW, not CONFIRMED by a human listener",
         "FINAL gate: factual_review is not verified"
       ]
     },

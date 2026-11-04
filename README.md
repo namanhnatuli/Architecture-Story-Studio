@@ -168,6 +168,10 @@ Phim được làm lại theo yêu cầu của chủ kênh, với dầm, vòm, g
 - **M8.1 (2026-11-03), revision m8-r2:**
   - Các chương yếu tố, quyết định và kết luận nay nói cả về công-xôn, cầu treo và dây văng. Có thêm chương C10 "Span, cost and time".
   - Phim dài 12 chương, 19,3 phút, theo quyết định của chủ kênh về thời lượng (`project.json` → `runtime_decision`).
+- **M8.2 (2026-11-04), revision m8-r3:** sửa nội dung theo nhận xét biên tập của chủ kênh.
+  - Bỏ hai nhận định có phản chứng hoặc thiếu điều kiện. Các nhận định có năm nguồn được nói kèm năm. Card dải nhịp tách hai loại số.
+  - Có hai mục ghi đè phát âm chờ chủ kênh nghe.
+  - Chưa render lại video, theo yêu cầu.
 - Bản review nội bộ: `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, chờ chủ kênh duyệt.
 - Bản 4K đã duyệt của m7-r1 giữ ở tag `m7-final-4k`.
 

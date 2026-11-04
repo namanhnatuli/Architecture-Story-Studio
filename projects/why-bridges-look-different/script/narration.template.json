@@ -2,7 +2,7 @@
   "schema_version": 1,
   "language": "en",
   "title": "Why Bridges Don't All Look the Same",
-  "status": "INTERNAL_REVIEW_DRAFT - claims source-verified, not editorially approved (revision m7-r1)",
+  "status": "INTERNAL_REVIEW_DRAFT - claims source-verified, not editorially approved (revision m8-r3)",
   "voice": {
     "provider": "kokoro",
     "id": "kokoro_am_michael",
@@ -85,7 +85,6 @@
         "Carrollton",
         "Gwynns Falls",
         "Corinne",
-        "Promontory",
         "Dunlap Creek",
         "Humpback",
         "trestle",
@@ -96,7 +95,6 @@
         "Roebling",
         "Wheeling",
         "Cincinnati",
-        "Covington",
         "cable-stayed",
         "suspenders",
         "anchorages",
@@ -104,10 +102,9 @@
         "Niagara",
         "Penobscot",
         "Kentucky",
-        "Golden Gate",
-        "Finley"
+        "Golden Gate"
       ],
-      "note": "m8-r2 regenerates the narration: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it",
+      "note": "m8-r3 regenerates the changed sentences: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it. Promontory, Covington and Finley were removed from the list (2026-11-04): they are not spoken in the narration (on-screen text only, or not at all).",
       "previous_acceptance": {
         "status": "ACCEPTED_BY_OWNER",
         "accepted_by": "Tran Nam Anh (channel owner)",
@@ -122,7 +119,20 @@
         "'site' heard as 'sight', 'chord' as 'cord' (homophones)",
         "'support it' heard as 'supported' (B06.s1)"
       ],
-      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids this acceptance"
+      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids this acceptance",
+      "owner_text_review": {
+        "date": "2026-11-04",
+        "by": "Tran Nam Anh (channel owner)",
+        "kind": "text review of the phoneme strings and ASR results; not a listening session",
+        "notes": [
+          "Corinne: Kokoro gave kuh-REEN; Cambridge /kəˈrɪn/ - re-listen first",
+          "Bollman: ASR 'Bauman'; listen for the l and the first vowel",
+          "Tacoma Narrows: ASR dropped the final s; the phonemes end in /z/ - listen",
+          "Cincinnati: phonemes start sɪnts...; reference /ˌsɪn.sɪˈnæt̬.i/ - listen for an intrusive t",
+          "voussoirs, Gwynns Falls: ASR spelling differences, not evidence of mispronunciation"
+        ],
+        "status_effect": "none: pronunciation_review stays PENDING"
+      }
     }
   },
   "pacing": {
@@ -131,8 +141,8 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "m8-r2",
-    "date": "2026-11-03",
+    "version": "m8-r3",
+    "date": "2026-11-04",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
     "previous": {
       "version": "m7-r1",
@@ -140,7 +150,7 @@
       "status": "EDITORIALLY_APPROVED (41 claims, 2026-10-30)",
       "note": "m7-r1 is the approved film (git tag m7-final-4k); its approvals do not carry over to m8-r1"
     },
-    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31; m8-r2 (owner request of 2026-11-03): chapters 9-12 also cover the long-span families",
+    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31; m8-r2 (owner request of 2026-11-03): chapters 9-12 also cover the long-span families; m8-r3 (owner's editorial review of 2026-11-04): wording corrected where a claim was broader, more present-tense or less conditional than its evidence",
     "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
     "edits": [
       {
@@ -202,6 +212,108 @@
         "draft": "Side by side, the difference is clear.",
         "m8-r1": "Seen in outline, the difference is clear.",
         "why": "planner/consistency.py: 'side by side' promised two models on screen together, but the comparison is a diagram (two 72 m models do not read side by side at 640x360)"
+      },
+      {
+        "sentence": "B31A.s2",
+        "draft": "Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic.",
+        "m8-r3": "Their doubts were not unjustified: the bridge needed substantial repairs in 1877 and 1880, and it was declared inadequate in 1890.",
+        "why": "owner's editorial review of 2026-11-04, item 1: the Williamsburg Bridge (1903) carried rail on its suspension deck (NYC DOT), so the report's '133 years' needs a restriction the source does not give; NOTE '133 years later' removed"
+      },
+      {
+        "sentence": "B40.s1",
+        "draft": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+        "m8-r3": "Wide rivers like the Ohio and the Mississippi, and deep gorges like the one at Niagara, needed bridges that could reach farther.",
+        "why": "owner's editorial review of 2026-11-04, item 2: the 200-300 ft limit had no period or conditions and contradicts the 1,800 ft arches of C10 (and the Eads Bridge, 1874, 520 ft); replaced by the source's own examples (CLM_752)"
+      },
+      {
+        "sentence": "B23C.s1-s3",
+        "draft": "In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther. / Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000.",
+        "m8-r3": "A 2012 federal handbook for steel bridges gives two kinds of numbers. / Some are practical ranges: ... / Others are spans that have actually been built: ...",
+        "why": "owner's editorial review of 2026-11-04, item 3: the card mixed practical/economic ranges with spans built and called all of them 'economic ranges'; the narration and the card now keep the two kinds apart (outlined vs solid bars)"
+      },
+      {
+        "sentence": "B24B.s2",
+        "draft": "... and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+        "m8-r3": "... and a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed.",
+        "why": "owner's editorial review of 2026-11-04, item 4: a 2012 statistic, now dated"
+      },
+      {
+        "sentence": "B31D.s0",
+        "draft": "Today, the long-span answer in America is usually cable-stayed.",
+        "m8-r3": "In Maine, a modern cable-stayed bridge went up remarkably fast.",
+        "why": "owner's editorial review of 2026-11-04, item 4: the present-tense claim dropped the conditions of CLM_774 (built in the U.S., main span over 1,000 ft, as of 2012)"
+      },
+      {
+        "sentence": "B33.s1-s2",
+        "draft": "Timber beam bridges are still built today, ... / And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+        "m8-r3": "Timber beam bridges were still being built long after timber trusses, ... / And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge.",
+        "why": "owner's editorial review of 2026-11-04, item 4: 2005 and 2012 statements, now dated (card text too)"
+      },
+      {
+        "sentence": "B23E.s0",
+        "draft": "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood.",
+        "m8-r3": "By 2012, cable-stayed bridges were becoming more common worldwide, and one significant reason was that the methods for erecting them had become better understood.",
+        "why": "owner's editorial review of 2026-11-04, item 4: a 2012 statement, now dated"
+      },
+      {
+        "sentence": "B09.s1",
+        "draft": "... long after timber trusses fell out of use, and why they are still built on quiet rural roads and in parks today.",
+        "m8-r3": "... long after timber trusses stopped being competitive, and in 2005 a national report found them still being built on quiet rural roads and in parks.",
+        "why": "owner's editorial review of 2026-11-04, item 4: a 2005 statement, now dated; 'fell out of use' was stronger than the source ('ceased to be competitive')"
+      },
+      {
+        "sentence": "B20E.s2",
+        "draft": "... suspension and cable-stayed bridges now rely on high-strength steel cables.",
+        "m8-r3": "... suspension and cable-stayed bridges came to rely on high-strength steel cables.",
+        "why": "same review, item 4 (present tense)"
+      },
+      {
+        "sentence": "B22C.s0-s1",
+        "draft": "Cantilevers had an advantage on uncertain ground. / Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail.",
+        "m8-r3": "A cantilever like this one is a continuous girder with hinges built in, which made its forces easy to calculate. / So on unstable soil, if a pier sank, its superstructure could adjust, where a continuous beam might build up hidden stresses and fail.",
+        "why": "owner's editorial review of 2026-11-04, item 5: the source attributes the advantage to the hinged, statically determinate form and to the superstructure"
+      },
+      {
+        "sentence": "B22B (card)",
+        "draft": "Suspension: cables anchored in massive blocks, set into rock",
+        "m8-r3": "Suspension: cables anchored in massive blocks or in bedrock (one bank each); cable-stayed foundations drawn in the earth, rock deep",
+        "why": "owner's editorial review of 2026-11-04, item 6: the card said 'and' where the narration and CLM_761 say 'or'"
+      },
+      {
+        "sentence": "B44.s2",
+        "draft": "(none)",
+        "m8-r3": "Unlike our model, it has no suspended span in the middle, something one report calls unique among cantilevers of its size.",
+        "why": "owner's editorial review of 2026-11-04, item 7: the illustrative model (with a suspended span) is shown just before the Queensboro photograph (CLM_794)"
+      },
+      {
+        "sentence": "B03.s2",
+        "draft": "And it has to pass all of that down into the ground on either side.",
+        "m8-r3": "And it has to pass all of that down through its supports into the ground.",
+        "why": "same review (minor): the load also reaches the ground through the piers"
+      },
+      {
+        "sentence": "B51.s0-s2",
+        "draft": "Seen in outline, the difference is clear. / The suspension bridge has shorter towers ... / The cable-stayed bridge needs much taller towers ...",
+        "m8-r3": "Drawn in outline at the same span, the two types differ. / ... much shorter towers ... / ... taller towers, because their height depends on the span ...",
+        "why": "same review (minor): the tower comparison holds at a comparable span (CLM_763, CLM_771); not an identification rule"
+      },
+      {
+        "sentence": "B24B.s1",
+        "draft": "... the longest bridge in the world for many years.",
+        "m8-r3": "... the longest span in the world when it opened.",
+        "why": "same review (minor): span, not total length; 'for many years' not corroborated (e-WV, Emory L. Kemp: 'the longest (1,010 feet) clear span in the world')"
+      },
+      {
+        "sentence": "B48.s0-s1",
+        "draft": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge. / The Brooklyn Bridge ... has them all, and one report says ...",
+        "m8-r3": "The Brooklyn Bridge in New York, completed in 1883, was planned with two towers, cables and suspenders, anchorages and a stiffening truss. / One report says few suspension bridges built since ...",
+        "why": "same review (minor): the source lists these parts for the Brooklyn Bridge plan; B47 (FHWA) calls a stiffening truss only 'common'"
+      },
+      {
+        "sentence": "B31B.s0",
+        "draft": "Cantilevers, by contrast, were first used by the railroads.",
+        "m8-r3": "In America, modern cantilevers were first used by the railroads, and only later for highways.",
+        "why": "same review (minor): the source speaks of the modern cantilever in the U.S. ('and then as highway bridges') and also describes ancient cantilevers"
       }
     ],
     "voice_change": {
@@ -233,6 +345,12 @@
       "date": "2026-10-31",
       "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
       "note": "m8-r1 was the first all-families review cut (commit 0cd48f0); never approved"
+    },
+    "previous_m8_r2": {
+      "version": "m8-r2",
+      "date": "2026-11-03",
+      "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+      "note": "m8-r2 added the long-span families to chapters 9-12 (commit eabe12c); the owner's editorial review of 2026-11-04 requested changes; never approved"
     }
   },
   "beats": []

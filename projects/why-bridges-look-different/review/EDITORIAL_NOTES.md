@@ -3,28 +3,41 @@
 - 'America's greatest stone arch' (M7) đã bỏ khỏi m8-r1 cùng card thanh nhịp B23B.
 - Lời đánh giá về cầu Brooklyn ('few suspension bridges since can claim to stand entirely clear of its shadow') là của báo cáo NCHRP, được gán rõ ('one report says').
 - Địa danh trong chú thích ảnh (Covington, Virginia; Corinne, Utah; Savage, Maryland; East River, New York) lấy từ tiêu đề hồ sơ HAER/LOC của chính bức ảnh.
-- Không có con số về nội lực, sức chịu tải, ứng suất, độ võng hay hệ số an toàn. Các số trong phim gồm:
-  - nhịp "200 to 300 feet" (NCHRP §3.7);
-  - 750 ft, 1.200 ft, 3.000 ft (FHWA 2012, kinh tế nhịp lớn ở Mỹ);
-  - năm 1883 và 1909.
+- Không có con số về nội lực, sức chịu tải, ứng suất, độ võng hay hệ số an toàn. Dải nhịp theo từng loại cầu (card B23C, B53) đều từ FHWA 2012 và được nói kèm năm. Nhịp của từng cây cầu cụ thể (Wheeling, Penobscot…) có nguồn riêng. Con số "200 to 300 feet" của NCHRP §3.7 đã bỏ ở m8-r3 (xem dưới).
 - Đánh dấu nén/kéo:
   - Biên trên/biên dưới giàn đơn giản dưới tải hướng xuống (CLM_713). Thanh bụng không được tô màu (CLM_714 chỉ nói 'một số').
   - Cáp cầu treo chịu kéo, tháp chịu nén (CLM_760, NCHRP nguyên văn).
   - Mặt cầu dây văng bị nén dọc (CLM_773, FHWA).
   - **Dây văng không được gắn nhãn kéo:** không có câu nguyên văn nào trong bộ nguồn nói điều đó.
 - **Mô hình nhịp lớn không theo tỉ lệ thật.** Chúng đặt trên một khúc sông 72 m minh họa; cầu thật dài hàng trăm đến hàng nghìn mét. NOTE ở B40 ghi "A wider crossing (illustrative, not to scale)".
-- **Cầu Queensboro thật không có nhịp treo ở giữa** (NCHRP §3.7: "It had no central suspended span"). Phim không nói nó có, nhưng mô hình minh họa có nhịp treo xuất hiện ngay trước ảnh. Người duyệt có thể muốn thêm một NOTE.
+- **Cầu Queensboro thật không có nhịp treo ở giữa** (NCHRP §3.7: "It had no central suspended span"). Từ m8-r3, lời dẫn nói rõ "Unlike our model, it has no suspended span in the middle", và card ảnh có dòng "No central suspended span, unlike the model" (CLM_794).
 - Nguồn FHWA-IF-12-052 (2012) là bản lưu Internet Archive của URL FHWA (URL gốc nay trả 404). Các nhận định kinh tế được nói là "by 2012, a federal handbook said…", không khẳng định cho hiện tại.
-- "Since 1980, almost every American bridge with a main span over 1,000 feet has been cable-stayed" (CLM_774, FHWA 2012). Bỏ ở m8-r1; có lại ở m8-r2 (dòng thời gian B24B và B31D, câu "Today, the long-span answer in America is usually cable-stayed").
+- CLM_774 (FHWA 2012, cầu xây ở Mỹ từ 1980 có nhịp chính trên 1.000 ft): từ m8-r3 chỉ còn ở B24B, nói kèm năm và đủ điều kiện ("a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed"). Câu thì hiện tại ở B31D đã bỏ.
 - Không trình bày các loại cầu như một chuỗi tiến bộ:
   - B02, B19, B33 nói rõ điều ngược lại;
   - B33 thêm "the most common steel bridge today is still a kind of beam" (CLM_777, FHWA 2012).
 - **m8-r2 (yêu cầu của chủ kênh, 2026-11-03):** các chương 9–12 nay nói cả về công-xôn, cầu treo và dây văng.
   - **Tacoma Narrows (1940)** chỉ được kể bằng lời, kèm hình giàn tăng cứng trên mô hình. Không có hình sập hay cảnh phá hủy. Nguồn: NCHRP §2.2 và FHWA §2.6 ("only moderately high winds").
-  - **"133 years before another suspension bridge was built for railway traffic"** và **"only as good as the weakest link"** là lời của báo cáo NCHRP. Lời dẫn nói rõ "critics said…" và "Their doubts were not unjustified…", đúng theo nguồn.
-  - **"Cantilevers, by contrast, were first used by the railroads"**: nguồn không nói đường sắt chọn công-xôn *vì* cầu treo bị nghi ngờ. Lời dẫn chỉ đặt hai sự thật cạnh nhau.
+  - **"Only as good as the weakest link"** là lời của báo cáo NCHRP; lời dẫn nói rõ "critics said…". Câu "133 years…" đã bỏ ở m8-r3 (xem dưới).
+  - **Công-xôn và đường sắt:** nguồn không nói đường sắt chọn công-xôn *vì* cầu treo bị nghi ngờ. Từ m8-r3, lời dẫn nói "In America, modern cantilevers were first used by the railroads, and only later for highways" và bỏ "by contrast".
   - **Penobscot Narrows:** số liệu (nhịp 1.161 ft, tháp 430 ft, 42 tháng, thông xe 2006, đài quan sát) lấy từ FHWA-HRT-14-067 (2014).
   - **Dải nhịp (card B23C):** dải kinh tế cho cầu **thép** theo FHWA 2012, không phải giới hạn tuyệt đối. Thanh "Cantilever truss" chỉ có mũi tên ("considerably farther"), không có điểm cuối, vì nguồn không cho con số.
   - **Card nền đất (B22B)** là sơ đồ, không theo tỉ lệ. Ý của nó chỉ là: cầu treo cần neo vào khối lớn hoặc đá gốc (CLM_761); tháp cầu dây văng dựng được ở nơi đá không gần mặt đất (CLM_776).
   - **Thời lượng 19,3 phút** theo quyết định của chủ kênh: không giữ khắt khe giới hạn 15 phút. Trần 20 phút là agent đặt (`project.json` → `runtime_decision`).
-
+- **m8-r3 (nhận xét biên tập của chủ kênh, 2026-11-04).** Chủ kênh yêu cầu sửa; đây không phải duyệt. Mỗi chỗ sửa có lý do trong `script/narration.template.json` → `revision.edits` và giả định trong `research/sources.json`.
+  - **Bỏ "133 years" (CLM_789, B31A).** Cầu treo Williamsburg mở năm 1903 có đường ray, và giàn tăng cứng được thiết kế để đỡ giao thông đường sắt ([NYC DOT](https://www.nyc.gov/html/dot/html/infrastructure/williamsburg-bridge.shtml)). Câu của NCHRP cần một giới hạn mà nguồn không nêu. Lời dẫn nay dừng ở "repairs in 1877 and 1880 … declared inadequate in 1890".
+  - **Bỏ "200 to 300 feet" (CLM_757, B40).** Con số không có thời kỳ hay điều kiện, và mâu thuẫn với vòm 1.800 ft ở C10 (cầu Eads năm 1874 đã có nhịp vòm 520 ft). B40 nay dùng chính ví dụ của nguồn: sông Ohio, Mississippi và hẻm Niagara (CLM_752).
+  - **Card dải nhịp (B23C)** tách hai loại số. Viền rỗng là dải thực dụng hoặc kinh tế: dầm bản, giàn đơn, công-xôn, cầu treo. Thanh đặc là nhịp đã xây: vòm, dây văng. Chân card ghi "ranges, not limits of what a type can span".
+  - **Nói kèm năm:** CLM_774 (2012), CLM_777 (2012), CLM_788 (2012), CLM_721 (2005); B20E "came to rely".
+  - **Công-xôn khi trụ lún (CLM_782, B22C):** nói rõ dạng có khớp, tĩnh định ("hinges built in … easy to calculate"), và chỉ kết cấu phần trên tự điều chỉnh. Không gợi ý công-xôn chữa được nền móng.
+  - **Card nền đất (B22B):** ghi "massive blocks **or** in bedrock". Mỗi bờ vẽ một cách. Móng tháp dây văng nằm trong đất, đá ở sâu.
+  - **Nhẹ hơn:**
+    - B03: "through its supports";
+    - B51: "at the same span", và chiều cao tháp phụ thuộc nhịp (CLM_771);
+    - B24B: "the longest span in the world when it opened", có thêm nguồn e-WV (Emory L. Kemp);
+    - B48: các bộ phận của bản thiết kế cầu Brooklyn, không phải định nghĩa mọi cầu treo;
+    - B31B: "modern cantilevers".
+  - **Phát âm:** chủ kênh rà chuỗi âm vị và kết quả ASR, chưa nghe audio.
+    - Hai mục ghi đè chỉ cho giọng đọc (`script/pronunciation.json`), đều `PENDING_LISTENING_REVIEW`: Corinne /kəɹˈɪn/ và Cincinnati /sˌɪnsɪnˈæTi/. Bản cũ vẫn còn trong `audio/segments/` để so.
+    - Nguồn cách đọc Corinne: Cambridge và bài Wikipedia về thị trấn (không trích nguồn). Chưa tìm được bản ghi giọng địa phương.
+    - Promontory, Covington, Finley không được đọc trong phim, nên bỏ khỏi danh sách nghe.

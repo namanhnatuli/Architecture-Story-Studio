@@ -1,3 +1,14 @@
+# m8-r3 (2026-11-04): nội dung đã sửa, chưa render
+
+- Chủ kênh nhận xét biên tập ngày 2026-11-04 và yêu cầu sửa nội dung trước, chưa cần bản review video. Các mục đã sửa nằm ở `review/EDITORIAL_NOTES.md` (m8-r3).
+- **Mốc thời gian bên dưới là của bản video m8-r2.** m8-r3 dài 1.193,8 s (19:53,8), nên từ khoảng 1:00 trở đi các mốc lệch dần, tối đa khoảng 34 s ở cuối phim.
+- 18/75 shot cần render lại. Chưa có bản xem lại nào cho m8-r3.
+- Agent chỉ xem ảnh tĩnh preview (640×360) của 8 card đã sửa: B22B, B23C, B24B, B33, B44, B48, B51, B53. Đã sửa hai lỗi hình phát hiện ở đó:
+  - cáp neo vào đá cắt ngang mặt cầu;
+  - dây văng ngoài cùng của card nền đất kết thúc ngoài không trung (lỗi có từ m8-r2).
+
+---
+
 # Xem lại biên tập có mốc thời gian: M8.1, revision m8-r2 (ba họ cầu nhịp lớn trong C9–C12)
 
 - **Người xem:** agent, trên bản review 1080p của m8-r2 (`output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, 1159,5 s = 19:19,5).

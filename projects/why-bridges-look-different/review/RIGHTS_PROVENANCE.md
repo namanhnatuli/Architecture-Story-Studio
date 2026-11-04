@@ -1,15 +1,15 @@
-# Bản kê quyền và nguồn gốc: why-bridges-look-different (revision m8-r2)
+# Bản kê quyền và nguồn gốc: why-bridges-look-different (revision m8-r3)
 
 - Ngày lập: 2026-10-31, cho bản review nội bộ M8 (đủ sáu họ cầu). Người lập: agent. Đây là bản kê, **không phải tư vấn pháp lý**.
 - **Trạng thái duyệt** (chi tiết ở `review/OWNER_APPROVALS.json`):
-  - Duyệt claim và chấp nhận phát âm của chủ kênh (2026-10-30) gắn với revision m7-r1, tức bản 4K đã duyệt (git tag `m7-final-4k`, file ở `output/baseline_m7_final_4k/`). Hai duyệt này **không áp dụng** cho m8-r1 hay m8-r2.
+  - Duyệt claim và chấp nhận phát âm của chủ kênh (2026-10-30) gắn với revision m7-r1, tức bản 4K đã duyệt (git tag `m7-final-4k`, file ở `output/baseline_m7_final_4k/`). Hai duyệt này **không áp dụng** cho m8-r1, m8-r2 hay m8-r3.
   - Duyệt giọng `am_michael` được cấp cho cả dự án và vẫn còn hiệu lực. Chủ kênh có thể xác nhận lại hoặc rút.
-  - Vì vậy m8-r2 là **INTERNAL REVIEW**.
+  - Vì vậy m8-r3 là **INTERNAL REVIEW**. Nhận xét biên tập của chủ kênh ngày 2026-11-04 là yêu cầu sửa, không phải duyệt (`REV-M8.2-EDITORIAL-REVIEW`).
 
 | Thành phần | Nguồn gốc | Quyền / license | Trạng thái |
 |---|---|---|---|
-| Lời dẫn (167 câu) | Sinh cục bộ bằng Kokoro-82M (`hexgrad/Kokoro-82M` @ `f3ff3571`, giọng **`am_michael`** SHA256 `9a443b79…`, G2P Anh–Mỹ `lang_code='a'`, speed 1.0, seed 0). Mỗi câu có bản ghi provider, revision, hash và tham số trong `audio/narration_manifest.json` | Apache-2.0 (trọng số, code, giọng). Fallback G2P là GPL, chỉ dùng cục bộ. Các điểm mở về dữ liệu huấn luyện: `docs/licensing/KOKORO_LICENSE_AUDIT.md` §5, §8 | Licence APPROVED theo duyệt của chủ kênh cho dự án (`config/tts_providers.json` → `clearance.voice_approvals`). **Phát âm của m8-r2: PENDING** |
-| Kịch bản | Agent viết từ 81 claim đã đối chiếu (`research/sources.json`: 42 claim từ M7, 25 claim M8 cho ba họ cầu nhịp lớn, 14 claim m8-r2 cho các yếu tố, quyết định thực tế và phần kết) | Nội dung của dự án | **Chưa duyệt biên tập** (`SOURCE_VERIFIED`) |
+| Lời dẫn (169 câu) | Sinh cục bộ bằng Kokoro-82M (`hexgrad/Kokoro-82M` @ `f3ff3571`, giọng **`am_michael`** SHA256 `9a443b79…`, G2P Anh–Mỹ `lang_code='a'`, speed 1.0, seed 0). Mỗi câu có bản ghi provider, revision, hash và tham số trong `audio/narration_manifest.json` | Apache-2.0 (trọng số, code, giọng). Fallback G2P là GPL, chỉ dùng cục bộ. Các điểm mở về dữ liệu huấn luyện: `docs/licensing/KOKORO_LICENSE_AUDIT.md` §5, §8 | Licence APPROVED theo duyệt của chủ kênh cho dự án (`config/tts_providers.json` → `clearance.voice_approvals`). **Phát âm của m8-r3: PENDING**. Hai mục ghi đè chỉ cho giọng đọc (Corinne, Cincinnati, `script/pronunciation.json`) chờ chủ kênh nghe |
+| Kịch bản | Agent viết từ 82 claim đã đối chiếu (`research/sources.json`: 42 claim từ M7, 25 claim M8 cho ba họ cầu nhịp lớn, 14 claim m8-r2 cho các yếu tố, quyết định thực tế và phần kết, 1 claim m8-r3 về cầu Queensboro). m8-r3 thu hẹp 10 claim theo nhận xét của chủ kênh | Nội dung của dự án | **Chưa duyệt biên tập** (`SOURCE_VERIFIED`) |
 | Mô hình 3D | Sinh thủ tục trong dự án: dầm gỗ, vòm đá, giàn Pratt/Warren trên site 24 m (M4); **công-xôn, cầu treo, cầu dây văng trên site 72 m (M8)** (`asset_library/architecture/…`) | `generated_in_project` | Mô hình minh họa, có nhãn "Illustrative model". Bộ phận và tỉ lệ chính bám theo NCHRP 25-25(15) §3.1, §3.5, §3.7 và FHWA-IF-12-052 §2.5–2.6 (ghi ở `provenance` của từng asset) |
 | Sơ đồ, bản đồ, dòng thời gian, thanh tỉ lệ | Agent vẽ bằng phần tử phẳng (`engine/diagram.py`) từ giá trị trong claim | Của dự án | Có nhãn "Conceptual diagram — not to scale" hoặc "Schematic — not to scale". Card kinh tế nhịp lớn (B53) ghi "After FHWA … 2012" |
 | Ảnh: Carrollton Viaduct (HAER MD-9) | William E. Barrett cho HAER, 1970–71; LOC `hhh.md0908`; rendition 3840 px từ Wikimedia Commons | Phạm vi công cộng (PD-USGov-NPS) | `approved`. Chỉ cắt viền phim; trôi chậm |
@@ -33,6 +33,7 @@
   - đây là tài liệu của chính phủ liên bang Mỹ;
   - trích dẫn được khớp nguyên văn sau khi bỏ các mảnh chữ watermark "Archived".
 
+- **e-WV: The West Virginia Encyclopedia**, bài "Wheeling Suspension Bridge" của Emory L. Kemp (West Virginia Humanities Council, bản sửa 24/4/2026) (m8-r3): "the longest (1,010 feet) clear span in the world". Chỉ trích dẫn.
 - **FHWA-HRT-14-067 (2014)**, *Dynamic Properties of Stay Cables on the Penobscot Narrows Bridge*, chương 3 (m8-r2): số liệu cầu Penobscot Narrows. Là tài liệu của chính phủ liên bang Mỹ; trích dẫn khớp nguyên văn.
 
 ## Ghi công và công bố
@@ -41,4 +42,4 @@
 - Mỗi card ảnh mang dòng "Photo: …, HAER, Library of Congress (public domain)". QA `image_attribution` kiểm mọi `credit_keys`.
 
 ## Không được làm
-Không đăng, không upload, không gọi m8-r2 là sẵn sàng xuất bản khi chủ kênh chưa duyệt gói biên tập và phát âm của revision này.
+Không đăng, không upload, không gọi m8-r3 là sẵn sàng xuất bản khi chủ kênh chưa duyệt gói biên tập và phát âm của revision này.

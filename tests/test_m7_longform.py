@@ -48,6 +48,12 @@ def owner_approved_copy(ignore=("renders", "output", "scenes", "qa", "*.wav", "*
             c["editorial_approval"] = {"approved_by": "TEST OWNER (simulated)", "approved_on": "2099-01-01",
                                        "narration_revision": n["revision"]["version"], "basis": "unit test"}
     (p / "research/sources.json").write_text(json.dumps(src))
+    lex_path = p / "script/pronunciation.json"   # M8.2: speech-only overrides need a listener too
+    if lex_path.is_file():
+        lex = read(lex_path)
+        for e in lex["entries"]:
+            e.update(status="CONFIRMED", confirmed_by="TEST OWNER (simulated)", confirmed_on="2099-01-01")
+        lex_path.write_text(json.dumps(lex))
     n["voice"]["pronunciation_review"].update(
         status="ACCEPTED_BY_OWNER", accepted_by="TEST OWNER (simulated)", accepted_on="2099-01-01",
         basis="unit test. No per-item listening session or phonetic verification is recorded here.",
@@ -141,7 +147,7 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         record = read(FILM / "research/editorial_approval.json")
         self.assertEqual((record["narration_revision"], len(record["claims"])), ("m7-r1", 41))
         self.assertIn("Tran Nam Anh", record["approved_by"])
-        self.assertEqual(narration["revision"]["version"], "m8-r2")
+        self.assertEqual(narration["revision"]["version"], "m8-r3")
         self.assertTrue(used <= set(claims), used - set(claims))
         self.assertEqual({c["review_status"] for c in claims.values()}, {"SOURCE_VERIFIED"})
         self.assertFalse(any("editorial_approval" in c for c in claims.values()))
@@ -155,10 +161,10 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         with tmp:
             self.assertFalse(any("approval is for narration" in e for e in validator.validate_project(p)[0]))
             n = read(p / "script/narration.json")
-            n["revision"]["version"] = "m8-r3"
+            n["revision"]["version"] = "m8-r4"
             (p / "script/narration.json").write_text(json.dumps(n))
             errors, _ = validator.validate_project(p)
-            self.assertTrue(any("approval is for narration 'm8-r2'" in e for e in errors))
+            self.assertTrue(any("approval is for narration 'm8-r3'" in e for e in errors))
 
     def test_am_michael_approval_is_the_owners_and_project_scoped(self):
         # Approved by the owner on 2026-10-30 for this documentary only (finalization request, section 3.2).
@@ -212,7 +218,7 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         from integrations.tts import kokoro
         manifest = read(FILM / "audio/narration_manifest.json")
         keys = [s["cache_key"] for b in manifest["beats"].values() for s in b["sentences"]]
-        self.assertEqual(len(keys), 167)   # M8.1: 167 sentences
+        self.assertEqual(len(keys), 169)   # M8.2: 169 sentences
         for k in set(keys):
             seg = manifest["segments"][k]
             self.assertEqual((seg["voice"], seg["voice_sha256"], seg["lang_code"]),
@@ -734,7 +740,7 @@ class ChapterEvidenceTest(unittest.TestCase):
             self.assertEqual(ev["unsupported_fact_beats"], [], c["id"])
             self.assertEqual(ev["missing_claims"], [], c["id"])
             self.assertTrue(ev["sources_known"], c["id"])
-            self.assertEqual(ev["narration_revision"], "m8-r2")
+            self.assertEqual(ev["narration_revision"], "m8-r3")
             self.assertNotEqual(ev["editorial_status"], "EDITORIALLY_APPROVED", c["id"])   # pending the owner
             self.assertTrue(ev["historical_accuracy"], c["id"])
         c11 = next(c for c in m["chapters"] if c["id"] == "C11")
@@ -761,9 +767,11 @@ class ChapterCacheAndRegenerationTest(unittest.TestCase):
         timing = read(FILM / "script/timing.json")
         story = read(FILM / "storyboard/storyboard.json")
         project = read(FILM / "project.json")
-        self.assertEqual(validator.validate_timing(timing, n, story, project["fps"], project["duration_seconds"]), [])
+        from pipeline import pronunciation as pron
+        lex = pron.load(FILM)   # M8.2: the film has speech-only overrides, part of the narration hash
+        self.assertEqual(validator.validate_timing(timing, n, story, project["fps"], project["duration_seconds"], lex), [])
         n["beats"][9]["sentences"][0] += " Indeed."
-        errors = validator.validate_timing(timing, n, story, project["fps"], project["duration_seconds"])
+        errors = validator.validate_timing(timing, n, story, project["fps"], project["duration_seconds"], lex)
         self.assertTrue(any("timing lock is stale" in e for e in errors))
 
 
@@ -854,6 +862,7 @@ class InternalReviewGateTest(unittest.TestCase):
         errors, warnings = validator.validate_project(FILM, final=True)   # m8-r1: the used claims are pending
         self.assertTrue(any(e.startswith("FINAL gate: unverified claims used in the film") for e in errors))
         self.assertIn("FINAL gate: factual_review is not verified", errors)
+        self.assertTrue(any(e.startswith("FINAL gate: pronunciation PRON_CORINNE") for e in errors))   # M8.2: not yet heard
         tmp, p = owner_approved_copy()
         with tmp:
             errors, _ = validator.validate_project(p, final=True)

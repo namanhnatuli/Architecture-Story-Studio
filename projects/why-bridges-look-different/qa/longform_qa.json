@@ -1,7 +1,7 @@
 {
-  "utc": "2026-11-03T20:31:05.287753+00:00",
+  "utc": "2026-11-04T00:10:59.335631+00:00",
   "preset": "internal_1080p",
-  "timing_sha256": "74329d8cbef6b02933c2c2bf82a3a58e0fe9d75130b415c4d74aa887ef8db516",
+  "timing_sha256": "fa19a1f7c38771465b2959954eae46c655fc865491e5a26ec15ae52baad54cd0",
   "results": [
     {
       "check": "chapters_structure",
@@ -11,12 +11,12 @@
     {
       "check": "chapter_durations",
       "status": "PASS",
-      "detail": "C1 52s, C2 49s, C3 67s, C4 82s, C5 84s, C6 79s, C7 62s, C8 74s, C9 167s, C10 116s, C11 228s, C12 99s"
+      "detail": "C1 52s, C2 49s, C3 70s, C4 82s, C5 84s, C6 88s, C7 59s, C8 78s, C9 172s, C10 129s, C11 226s, C12 104s"
     },
     {
       "check": "runtime",
       "status": "PASS",
-      "detail": "19.32 min (27828 frames); acceptable 8-20 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
+      "detail": "19.90 min (28651 frames); acceptable 8-20 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
     },
     {
       "check": "no_duplicate_shots",
@@ -31,7 +31,7 @@
     {
       "check": "narration_sentences_complete",
       "status": "PASS",
-      "detail": "167 sentences scheduled, same text and order as narration.json"
+      "detail": "169 sentences scheduled, same text and order as narration.json"
     },
     {
       "check": "audio_no_overlap",
@@ -46,7 +46,7 @@
     {
       "check": "no_static_stretches",
       "status": "PASS",
-      "detail": "longest stretch without a visual change 13.5s at 616.4s (limit 14.0s)"
+      "detail": "longest stretch without a visual change 13.5s at 629.8s (limit 14.0s)"
     },
     {
       "check": "visual_variety",
@@ -70,8 +70,8 @@
     },
     {
       "check": "render_cache_current",
-      "status": "PASS",
-      "detail": "all 75 shots rendered at internal_1080p with current cache keys"
+      "status": "WARN",
+      "detail": "18/75 shots not rendered or stale at internal_1080p: SC_009, SC_017, SC_030, SC_034, SC_039, SC_041"
     },
     {
       "check": "chapter_variety",

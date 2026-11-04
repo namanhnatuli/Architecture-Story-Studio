@@ -1,5 +1,5 @@
 {
-  "note": "Evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720-747 were added in M7, CLM_750-777 (long-span families) in M8. Every excerpt was matched verbatim against the downloaded source text (research/build_sources.py). Nothing here is editorially approved.",
+  "note": "Evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720-747 were added in M7, CLM_750-777 (long-span families) in M8, CLM_780-793 in M8.1, CLM_794 in M8.2 (owner's editorial review of 2026-11-04). Every excerpt was matched verbatim against the downloaded source text (research/build_sources.py). Nothing here is editorially approved.",
   "sources": [
     {
       "id": "SRC_ODOT_MBI",
@@ -142,6 +142,17 @@
       "accessed": "2026-11-03",
       "verification": "HTML downloaded 2026-11-03; text extracted (tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
       "license": "U.S. federal government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_EWV_WHEELING",
+      "title": "Wheeling Suspension Bridge (e-WV: The West Virginia Encyclopedia), by Emory L. Kemp",
+      "publisher": "West Virginia Humanities Council",
+      "kind": "state encyclopedia article by a historian of engineering (Kemp is also cited by the NCHRP report)",
+      "edition": "last revised 24 April 2026",
+      "url": "https://www.wvencyclopedia.org/entries/1183",
+      "accessed": "2026-11-04",
+      "verification": "HTML downloaded 2026-11-04; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "Quoted for research/citation."
     },
     {
       "id": "SRC_HAER_GOLDENGATE",
@@ -665,7 +676,7 @@
     },
     {
       "id": "CLM_721",
-      "text": "Because of their simplicity and readily available wood, timber beam bridges were still built long after wood trusses stopped being competitive, and today they are built on low-traffic rural roads, private roads, forests and parks.",
+      "text": "Because of their simplicity and readily available wood, timber beam bridges were still built long after wood trusses stopped being competitive; in 2005 a national report said they were being built on low-traffic rural roads, private roads, forests and parks.",
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
@@ -1409,7 +1420,7 @@
     },
     {
       "id": "CLM_752",
-      "text": "The cantilever was developed to make bridges longer, to cross wide rivers and deep gorges; it made longer spans and wider clearance beneath possible.",
+      "text": "The cantilever was developed to make bridges longer, to cross wide rivers like the Ohio and the Mississippi and deep gorges like the Niagara Gorge; it made longer spans and wider clearance beneath possible.",
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
@@ -1537,7 +1548,7 @@
     },
     {
       "id": "CLM_757",
-      "text": "Beam and arch bridges of steel or reinforced concrete had limited spans, not exceeding 200 to 300 feet; the cantilever provided an alternative, and also avoided the costly anchorages a suspension bridge requires.",
+      "text": "The cantilever eliminated the high cost of the anchorages that suspension bridges require, saving money and materials.",
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
@@ -1547,23 +1558,16 @@
         {
           "source_id": "SRC_NCHRP_CONTEXT",
           "locator": "3.7 Cantilevers, p. 3-142",
-          "excerpt": "It provided alternatives to beam and arch bridges, which had limited spans not exceeding 200 to 300 feet when constructed of steel or reinforced concrete."
-        },
-        {
-          "source_id": "SRC_NCHRP_CONTEXT",
-          "locator": "3.7 Cantilevers, p. 3-142",
           "excerpt": "The cantilever also eliminated the high cost of building anchorages required by the other long span bridge type, suspension bridges, thus saving money and materials."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: the report's preceding sentence (beam and arch bridges of steel or reinforced concrete 'had limited spans not exceeding 200 to 300 feet') is not used. It gives no period or conditions, and far longer arches were built (FHWA 2012: about 200 to 1,800 ft; the Eads Bridge, 1874, has a 520 ft arch span).",
       "applies_to": [
         "cantilever",
-        "beam",
-        "arch",
         "suspension"
       ],
       "components": [],
-      "intended_visual": "Comparison / span card",
+      "intended_visual": "Suspension model, anchorages labelled",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
       "caveat": "Not editorially approved."
     },
@@ -1695,7 +1699,7 @@
     },
     {
       "id": "CLM_764",
-      "text": "Two towers, cables and suspenders, anchorages and a stiffening truss are the character-defining features of a suspension bridge.",
+      "text": "The Brooklyn Bridge plan involved two towers, cables and suspenders, anchorages and a stiffening truss, which the report calls the character-defining features of a suspension bridge.",
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
@@ -1705,10 +1709,10 @@
         {
           "source_id": "SRC_NCHRP_CONTEXT",
           "locator": "3.5 Suspension, p. 3-133",
-          "excerpt": "The plan involved two towers, cables and suspenders, anchorages and a stiffening truss - the character-defining features of a suspension bridge."
+          "excerpt": "Few suspension bridges in the world built since the time of the Roeblings can claim to stand entirely clear of the shadow cast by the Brooklyn Bridge. The plan involved two towers, cables and suspenders, anchorages and a stiffening truss - the character-defining features of a suspension bridge."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: 'The plan' is the Brooklyn Bridge plan (the preceding sentence). The film lists these parts for that bridge, not as a definition every suspension bridge meets: FHWA 2012 (CLM_765) calls a stiffening truss 'common'.",
       "applies_to": [
         "suspension"
       ],
@@ -1719,7 +1723,7 @@
         "anchorage",
         "stiffening_truss"
       ],
-      "intended_visual": "Brooklyn Bridge photograph; the model's parts",
+      "intended_visual": "Brooklyn Bridge photograph",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
       "caveat": "Not editorially approved."
     },
@@ -1756,8 +1760,9 @@
     },
     {
       "id": "CLM_766",
-      "text": "Ellet's Wheeling bridge (1849) spanned 1,010 feet and was the longest bridge in the world for many years; Roebling's Cincinnati-Covington bridge (1867) had a 1,057-foot main span, the longest clear span in the world when completed.",
+      "text": "Ellet's Wheeling bridge, completed in 1849, spanned 1,010 feet, the longest clear span in the world when it opened; Roebling's Cincinnati-Covington bridge (1867) had a 1,057-foot main span, the longest clear span in the world when completed.",
       "source_ids": [
+        "SRC_EWV_WHEELING",
         "SRC_NCHRP_CONTEXT"
       ],
       "review_status": "SOURCE_VERIFIED",
@@ -1769,17 +1774,22 @@
           "excerpt": "He quickly turned his full attention to the Wheeling Bridge, which was completed in 1849. Spanning 1,010 feet, this was the longest bridge in the world for many years after its completion"
         },
         {
+          "source_id": "SRC_EWV_WHEELING",
+          "locator": "Wheeling Suspension Bridge, first paragraph",
+          "excerpt": "The wire suspension bridge over the Ohio River at Wheeling was opened for traffic in October 1849 amid great public acclaim. It was the longest (1,010 feet) clear span in the world."
+        },
+        {
           "source_id": "SRC_NCHRP_CONTEXT",
           "locator": "3.5 Suspension, p. 3-133",
           "excerpt": "Officially opened on January 1, 1867, this bridge has a main span of 1,057 feet. It had the longest clear span of any bridge in the world when completed"
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: NCHRP says 'longest bridge in the world for many years'; the film says only 'the longest span in the world when it opened' (e-WV: 'the longest (1,010 feet) clear span in the world'), because 'bridge' could be read as total length and the duration is not corroborated.",
       "applies_to": [
         "suspension"
       ],
       "components": [],
-      "intended_visual": "Span scale card (sourced values only)",
+      "intended_visual": "Long-span timeline (sourced values only)",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
       "caveat": "Not editorially approved."
     },
@@ -1950,7 +1960,7 @@
     },
     {
       "id": "CLM_774",
-      "text": "In the United States, cable-stayed bridges become very cost competitive for main spans over 750 feet, and almost all bridges with main spans over 1,000 feet built since 1980 have been cable-stayed.",
+      "text": "A 2012 federal handbook: in the United States, cable-stayed bridges become very cost competitive for main spans over 750 feet, and almost all bridges with main spans over 1,000 feet built in the U.S. since 1980 had been cable-stayed.",
       "source_ids": [
         "SRC_FHWA_BRIDGE_TYPES"
       ],
@@ -1963,7 +1973,7 @@
           "excerpt": "In the U.S., cable-stayed bridges become very cost competitive for main span lengths over 750 feet. Almost all bridges with main span lengths in excess of 1000 feet built in the U.S. since 1980 have been cable-stayed structures."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: a 2012 statement about bridges built 1980-2012; narrated with its date and its conditions (built in the U.S., main span over 1,000 ft), not as the present.",
       "applies_to": [
         "cable_stayed"
       ],
@@ -2024,7 +2034,7 @@
     },
     {
       "id": "CLM_777",
-      "text": "Welded plate girders, a form of beam, are currently the most common type of steel bridge.",
+      "text": "In 2012, a federal handbook called welded plate girders, a form of beam, the most common type of steel bridge.",
       "source_ids": [
         "SRC_FHWA_BRIDGE_TYPES"
       ],
@@ -2037,7 +2047,7 @@
           "excerpt": "Welded plate girders are currently the most common type of steel bridge."
         }
       ],
-      "assumptions": "A 2012 FHWA statement about steel bridges.",
+      "assumptions": "A 2012 FHWA statement about steel bridges; M8.2: narrated with its date ('in 2012'), not as the present.",
       "applies_to": [
         "beam"
       ],
@@ -2112,7 +2122,7 @@
     },
     {
       "id": "CLM_782",
-      "text": "A cantilever's superstructure can adjust if a pier or abutment sinks, where a continuous beam may fail; with unstable soil a common problem, this was a significant breakthrough.",
+      "text": "A cantilever is a continuous girder with hinges at the points of zero moment; the form is statically determinate and easy to calculate, and its superstructure can adjust if a pier or abutment sinks, where a continuous beam may develop hidden stresses and fail; with unstable soil a common problem, this was a significant breakthrough.",
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
@@ -2122,10 +2132,20 @@
         {
           "source_id": "SRC_NCHRP_CONTEXT",
           "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "a cantilever is a continuous girder with hinges at the points of zero moments"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "The form was statically determinant, which meant that it was easy to calculate and"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
           "excerpt": "the members did not have the inherent deficiency of the continuous beam or girder developing indiscernible internal stresses and possibly failing should one of the piers or abutments subside. Unstable soil conditions plagued foundation, pier, and abutment design, so the ability of a bridge’s superstructure to adjust should one of the piers or abutments sink, was a significant design breakthrough."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: the advantage belongs to the hinged, statically determinate form and to the superstructure; the film does not suggest a cantilever cures bad foundations.",
       "applies_to": [
         "cantilever"
       ],
@@ -2291,7 +2311,7 @@
     },
     {
       "id": "CLM_788",
-      "text": "Cable-stayed bridges are becoming more common worldwide, one significant reason being that their erection methods have become better understood.",
+      "text": "By 2012, cable-stayed bridges were becoming more common worldwide, one significant reason being that their erection methods had become better understood over the previous 25 years.",
       "source_ids": [
         "SRC_FHWA_BRIDGE_TYPES"
       ],
@@ -2304,7 +2324,7 @@
           "excerpt": "Cable-stayed bridges are becoming more common worldwide. One significant reason for this is that the erection methods required for cable-stayed bridges have become better understood over the past 25 years."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: a 2012 statement; narrated with 'by 2012', not as the present.",
       "applies_to": [
         "cable_stayed"
       ],
@@ -2315,7 +2335,7 @@
     },
     {
       "id": "CLM_789",
-      "text": "Roebling's 1855 suspension bridge across the Niagara Gorge carried railway traffic, but railroad executives doubted suspension bridges could bear heavy trains; the bridge needed substantial repairs, was declared inadequate in 1890, and 133 years passed before the next railway suspension bridge.",
+      "text": "Roebling's 1855 suspension bridge across the Niagara Gorge carried railway traffic, but railroad executives doubted suspension bridges could bear heavy trains; the bridge needed substantial repairs in 1877 and 1880 and was declared inadequate in 1890.",
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
@@ -2330,10 +2350,10 @@
         {
           "source_id": "SRC_NCHRP_CONTEXT",
           "locator": "3.5 Suspension, p. 3-133",
-          "excerpt": "railroad company executives were not convinced that suspension bridges were capable of bearing the live loads imposed on them by heavy rail traffic. Their skepticism was not unjustified because the Niagara Bridge needed substantial repair in 1877 and 1880, and was declared inadequate in 1890. It would be 133 years before the next suspension bridge designed for railway traffic was built"
+          "excerpt": "railroad company executives were not convinced that suspension bridges were capable of bearing the live loads imposed on them by heavy rail traffic. Their skepticism was not unjustified because the Niagara Bridge needed substantial repair in 1877 and 1880, and was declared inadequate in 1890."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: the report's next sentence ('It would be 133 years before the next suspension bridge designed for railway traffic was built') is not used. The Williamsburg Bridge, a suspension bridge opened in 1903, carried rail and trolley traffic on stiffening trusses 'designed ... to support rail traffic on the deck' (NYC DOT, https://www.nyc.gov/html/dot/html/infrastructure/williamsburg-bridge.shtml); the statement would need a restriction the source does not give.",
       "applies_to": [
         "suspension"
       ],
@@ -2344,7 +2364,7 @@
     },
     {
       "id": "CLM_790",
-      "text": "Cantilevers were first used by the railroads; a cantilever is inherently rigid, so heavy locomotives pulling trains are no threat to a properly designed one.",
+      "text": "In the United States, modern cantilevers were first used by the railroads and then as highway bridges; a cantilever is inherently rigid, so heavy locomotives pulling trains are no threat to a properly designed one.",
       "source_ids": [
         "SRC_NCHRP_CONTEXT"
       ],
@@ -2354,7 +2374,7 @@
         {
           "source_id": "SRC_NCHRP_CONTEXT",
           "locator": "3.7 Cantilevers, p. 3-142",
-          "excerpt": "Cantilevers first were used by the railroads"
+          "excerpt": "Cantilevers first were used by the railroads (Poughkeepsie, Memphis, High Bridge) and then as highway bridges"
         },
         {
           "source_id": "SRC_NCHRP_CONTEXT",
@@ -2362,7 +2382,7 @@
           "excerpt": "Another is that it is inherently rigid so that heavy locomotives pulling trains of cars are no threat to the structure if properly designed."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "M8.2: the passage follows Gerber's Hassfurt Bridge (1867), 'the first modern cantilever', and the type's use in the U.S.; the report also describes far older cantilevers (Nikko, fourth century; Wandipore, about 1643), so the film says 'in America, modern cantilevers'.",
       "applies_to": [
         "cantilever"
       ],
@@ -2462,6 +2482,32 @@
       ],
       "components": [],
       "intended_visual": "Cable-stayed model with 'Illustrative model, not the Penobscot Narrows Bridge'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_794",
+      "text": "The Queensboro Bridge had no central suspended span, which the report calls unique among cantilevers of its size; it was designed with a single hinge to prevent the reversal of stresses.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "It had no central suspended span which was unique among cantilevers of its size designed with a single hinge to prevent the reversal of stresses."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "suspended_span"
+      ],
+      "intended_visual": "Queensboro photograph; the narration contrasts it with the model's suspended span",
       "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
       "caveat": "Not editorially approved."
     },

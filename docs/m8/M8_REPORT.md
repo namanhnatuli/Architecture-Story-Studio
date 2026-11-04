@@ -210,3 +210,57 @@ File: `projects/why-bridges-look-different/output/why_bridges_look_different_M8_
 2. Xác nhận hoặc chỉnh trần 20 phút mà agent đặt.
 3. Duyệt hoặc sửa claim (`review/EDITORIAL_APPROVAL_PACKAGE.md`, `review/EVIDENCE_MATRIX.md`) và phát âm (`review/PRONUNCIATION_REVIEW.md`).
 4. Sau đó: profile PUBLICATION_CANDIDATE, render 4K theo chương.
+
+---
+
+## M8.2 (2026-11-04): sửa nội dung theo nhận xét biên tập của chủ kênh
+**Yêu cầu:** "đọc nhận xét sau và sửa nội dung trước, chưa cần tạo video internal review". Chủ kênh rà 75 claim và 32 mục phát âm của m8-r2.
+- Đây là **yêu cầu sửa**, không phải duyệt. Bản ghi: `review/OWNER_APPROVALS.json` → `REV-M8.2-EDITORIAL-REVIEW`.
+- Chủ kênh nói rõ không coi nhận xét này là chứng nhận độc lập cho cả 75 claim.
+
+**Revision m8-r3:**
+- 12 chương, 66 beat, 169 câu, 2.416 từ;
+- **19,90 phút** (1.193,8 s, 28.651 frame), 75 shot;
+- 82 claim (76 được lời dẫn dùng), 18 nguồn.
+
+### Đã sửa
+| # | Nhận xét | Sửa | Claim |
+|---|---|---|---|
+| 1 | "133 năm mới có cầu treo đường sắt tiếp theo": cầu Williamsburg (1903) có đường ray | Bỏ câu và NOTE; B31A dừng ở "repairs in 1877 and 1880 … declared inadequate in 1890". Phản chứng ghi trong `assumptions` | CLM_789 |
+| 2 | Giới hạn 200–300 ft của dầm/vòm kể quá rộng | Bỏ con số; B40 dùng ví dụ của nguồn (sông Ohio, Mississippi, hẻm Niagara) | CLM_757, CLM_752 |
+| 3 | Card dải nhịp trộn các loại số khác nghĩa | Lời dẫn và card tách hai loại: viền rỗng = dải thực dụng/kinh tế, đặc = nhịp đã xây; tiêu đề "Two kinds of span numbers"; chân card "ranges, not limits" | CLM_784–786, 775 |
+| 4 | Nhận định 2005/2012 nói ở thì hiện tại | Nói kèm năm: B24B, B23E, B33, B09; câu B31D bỏ; B20E "came to rely"; nhãn B53 "by 2012" | CLM_774, 777, 788, 721 |
+| 5 | Lợi thế khi trụ lún của công-xôn mất điều kiện | "a continuous girder with hinges built in … its superstructure could adjust" | CLM_782 |
+| 6 | Card nền đất ghi "set into rock" | "massive blocks **or** in bedrock", mỗi bờ một cách; móng tháp dây văng trong đất, đá sâu | CLM_761, 776 |
+| 7 | Mô hình có nhịp treo đứng trước ảnh Queensboro | B44 thêm câu "Unlike our model, it has no suspended span in the middle…"; card ảnh thêm hai dòng | CLM_794 (mới) |
+| nhẹ | B03, B51, B24B, B48, B31B | Lần lượt: "through its supports"; "at the same span" và chiều cao tháp phụ thuộc nhịp; "longest span … when it opened" (thêm nguồn e-WV của Emory L. Kemp); các bộ phận của bản thiết kế cầu Brooklyn; "modern cantilevers … and only later for highways" | CLM_771, 766, 764, 790 |
+
+**Phát âm:**
+- **Ghi đè chỉ cho giọng đọc** (`script/pronunciation.json`, `PENDING_LISTENING_REVIEW`):
+  - Corinne: /kəɹˈɪn/ (Cambridge; Wikipedia không trích nguồn; chưa có bản ghi giọng địa phương);
+  - Cincinnati: /sˌɪnsɪnˈæTi/ (Cambridge).
+  - ASR nay nghe "Corrine" (trước là "Kareen") và nghe đúng "Cincinnati". Đây không phải bằng chứng phát âm đúng.
+- **Promontory, Covington, Finley:** bỏ khỏi danh sách nghe vì không được đọc trong phim. Danh sách còn 29 thuật ngữ.
+- **Bollman, Tacoma Narrows:** để chủ kênh nghe.
+- `pronunciation_review` vẫn PENDING. Nhận xét dạng chữ của chủ kênh được ghi ở `owner_text_review`.
+
+**Lỗi hình phát hiện khi xem ảnh preview của 8 card đã sửa** (đã sửa):
+- cáp neo vào đá cắt ngang mặt cầu;
+- dây văng ngoài cùng ở card nền đất kết thúc ngoài không trung (có từ m8-r2);
+- QA phim dài báo đoạn tĩnh 16,2 s ở B33, vì chữ card chờ từ "common" ở cuối câu; nay chữ hiện ở từ "handbook".
+
+### Kiểm tra (không render video, theo yêu cầu)
+| Kiểm tra | Kết quả |
+|---|---|
+| Sổ claim | 18 nguồn, 82 claim, mọi trích dẫn khớp nguyên văn; nguồn mới e-WV có snapshot và SHA256 |
+| ASR | PASS, 26 câu mới |
+| QA phim dài | PASS: thời lượng 19,90 phút (trong khoảng 8–20); đoạn tĩnh dài nhất 13,5 s; `render_cache_current` WARN: 18/75 shot cần render lại |
+| Blender QA | 944/944 |
+| `gates --preset internal_1080p` | G0, G2, G3, GL, GV PASS. **G4, G5 FAIL vì media cũ** (chưa render). G1 PENDING_EDITORIAL: 0/76 claim, 2 mục ghi đè, 29 thuật ngữ. G6 BLOCKED |
+| Test offline | 320/321. Không đạt duy nhất: `test_final_internal_review_assembly_matches_the_locked_timing` (bản ghép cũ 27.828 frame so với 28.651), sẽ đạt sau khi render |
+| Test Blender | 21/21; trạng thái repo không đổi |
+| `evaluate-planning` | 29/29 |
+
+**Còn để ngỏ:**
+- **Thời lượng 19,90 phút** sát trần 20 phút do agent đặt. Thêm nội dung nữa sẽ vượt trần; khi đó chủ kênh cần quyết định trần mới hoặc chỗ cắt.
+- **Render lại:** 18 shot ở 1080p. Theo thời gian render lần trước của chính các shot đó, khoảng 89 phút, cộng thêm preview và ghép phim là khoảng **1,5–1,75 giờ**. Phần lớn thời gian là bốn cảnh push-in (B09, B23E, B31A, B31D), phải render lại vì lời dẫn đổi độ dài.

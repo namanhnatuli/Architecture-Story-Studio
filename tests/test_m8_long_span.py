@@ -182,16 +182,19 @@ class LongSpanEvidenceTest(unittest.TestCase):
         self.assertTrue(fhwa["archived_url"].startswith("https://web.archive.org/"))
         claims = {c["id"]: c for c in src["claims"]}
         m8 = [c for cid, c in claims.items() if "CLM_750" <= cid < "CLM_780"]
-        m81 = [c for cid, c in claims.items() if cid >= "CLM_780"]   # M8.1: factors, decisions, conclusion
-        self.assertEqual((len(m8), len(m81)), (25, 14))
+        m81 = [c for cid, c in claims.items() if cid >= "CLM_780"]   # M8.1/M8.2: factors, decisions, conclusion
+        self.assertEqual((len(m8), len(m81)), (25, 15))
         allowed = {"SRC_NCHRP_CONTEXT", "SRC_FHWA_BRIDGE_TYPES"}
         for c in m8 + m81:
             self.assertEqual(c["review_status"], "SOURCE_VERIFIED", c["id"])
-            ok = allowed | ({"SRC_FHWA_PENOBSCOT"} if c in m81 else set())
+            ok = allowed | ({"SRC_FHWA_PENOBSCOT"} if c in m81 else set()) \
+                | ({"SRC_EWV_WHEELING"} if c["id"] == "CLM_766" else set())   # M8.2: span, not bridge length
             self.assertTrue(set(c["source_ids"]) <= ok, c["id"])
             self.assertTrue(all(e["excerpt"] and e["locator"] for e in c["evidence"]), c["id"])
         self.assertIn("weakest link", " ".join(e["excerpt"] for e in claims["CLM_780"]["evidence"]))
-        self.assertIn("133 years", " ".join(e["excerpt"] for e in claims["CLM_789"]["evidence"]))
+        # M8.2 (owner's review): the report's "133 years" is not used; the counter-example is recorded
+        self.assertNotIn("133 years", " ".join(e["excerpt"] for e in claims["CLM_789"]["evidence"]))
+        self.assertIn("Williamsburg Bridge", claims["CLM_789"]["assumptions"])
         self.assertIn("in tension, passing over towers that are in compression", claims["CLM_760"]["evidence"][0]["excerpt"])
         self.assertIn("22 degrees", " ".join(e["excerpt"] for e in claims["CLM_771"]["evidence"]))
 
@@ -230,6 +233,73 @@ class LongSpanThroughTheFilmTest(unittest.TestCase):
         self.assertIn("DEC-M8.1-CONTENT-AND-RUNTIME", [d["id"] for d in record["decisions"]])
         timing = read(FILM / "script/timing.json")
         self.assertLessEqual(timing["total_seconds"], hi)
+
+
+class OwnerEditorialReviewTest(unittest.TestCase):
+    """M8.2 (owner's editorial review, 2026-11-04): wording no broader, more present-tense or less
+    conditional than its evidence; practical ranges kept apart from built spans; Queensboro vs the model."""
+
+    def sentences(self):
+        n = read(FILM / "script/narration.json")
+        return {b["id"]: b["sentences"] for b in n["beats"]}
+
+    def test_removed_or_narrowed_statements(self):
+        s = self.sentences()
+        text = " ".join(" ".join(v) for v in s.values())
+        for gone in ("133 years", "200 to 300 feet", "Today, the long-span answer", "still built today",
+                     "most common steel bridge today", "are becoming more common", "the features that define",
+                     "longest bridge in the world", "into the ground on either side"):
+            self.assertNotIn(gone, text)
+        self.assertIn("2012 federal handbook found", s["B24B"][2])
+        self.assertIn("main span over 1,000 feet", s["B24B"][2])
+        self.assertIn("in 2012", s["B33"][2])
+        self.assertTrue(s["B23E"][0].startswith("By 2012"))
+        self.assertIn("in 2005 a national report", s["B09"][1])
+        self.assertIn("hinges", s["B22C"][0])
+        self.assertIn("superstructure could adjust", s["B22C"][1])
+        self.assertIn("modern cantilevers", s["B31B"][0])
+        self.assertIn("longest span in the world when it opened", s["B24B"][1])
+        self.assertIn("same span", s["B51"][0])
+        self.assertIn("Unlike our model, it has no suspended span", s["B44"][2])
+
+    def test_dated_claims_say_so(self):
+        claims = {c["id"]: c for c in read(FILM / "research/sources.json")["claims"]}
+        for cid in ("CLM_774", "CLM_777", "CLM_788"):
+            self.assertIn("2012", claims[cid]["text"], cid)
+        self.assertIn("2005", claims["CLM_721"]["text"])
+        self.assertIn("200 to 300", claims["CLM_757"]["assumptions"])   # recorded as not used
+        self.assertNotIn("200 to 300", " ".join(e["excerpt"] for e in claims["CLM_757"]["evidence"]))
+        self.assertIn("unique among cantilevers of its size", claims["CLM_794"]["evidence"][0]["excerpt"])
+
+    def test_span_card_keeps_practical_ranges_apart_from_built_spans(self):
+        beats = {b["beat_id"]: b for b in read(FILM / "script/visual_beats.json")["beats"]}
+        card = beats["B23C"]["graphic"]["elements"]
+        texts = [e.get("text", "") for e in card]
+        self.assertIn("Practical or economic range", texts)
+        self.assertIn("Spans actually built", texts)
+        self.assertFalse(any("economic ranges for steel" in t or "How far each type reaches" in t for t in texts))
+        bars = [e for e in card if e.get("kind") == "rect" and e.get("word") in ("girders", "simple", "arches", "cable")]
+        outlined = {e["word"] for e in bars if not e.get("color")}
+        solid = {e["word"] for e in bars if e.get("color")}
+        self.assertEqual((outlined, solid), ({"girders", "simple"}, {"arches", "cable"}))
+
+    def test_ground_card_says_or(self):
+        beats = {b["beat_id"]: b for b in read(FILM / "script/visual_beats.json")["beats"]}
+        texts = [e.get("text", "") for e in beats["B22B"]["graphic"]["elements"]]
+        self.assertIn("Suspension: cables anchored in massive blocks or in bedrock", texts)
+        self.assertFalse(any("set into rock" in t for t in texts))
+
+    def test_pronunciation_overrides_wait_for_the_owner(self):
+        from pipeline import pronunciation as pron
+        lex = pron.load(FILM)
+        self.assertEqual(pron.validate(lex), [])
+        entries = {e["written"]: e for e in lex["entries"]}
+        self.assertEqual(set(entries), {"Corinne", "Cincinnati"})
+        self.assertTrue(all(e["status"] == "PENDING_LISTENING_REVIEW" and not e["confirmed_by"] for e in entries.values()))
+        review = read(FILM / "script/narration.json")["voice"]["pronunciation_review"]
+        self.assertEqual(review["status"], "PENDING")
+        self.assertFalse({"Promontory", "Covington", "Finley"} & set(review["terms"]))   # not spoken
+        self.assertIn("not a listening session", review["owner_text_review"]["kind"])
 
 
 if __name__ == "__main__":

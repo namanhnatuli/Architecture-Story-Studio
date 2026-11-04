@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.9.2 — 2026-11-04 — M8.2: sửa nội dung theo nhận xét biên tập của chủ kênh (nhánh `m8-all-bridge-families`)
+- **Nhận xét của chủ kênh** (`REV-M8.2-EDITORIAL-REVIEW`): là yêu cầu sửa, không phải duyệt. Chưa render video, theo yêu cầu.
+- **Revision m8-r3:** 169 câu, 19,90 phút; 82 claim, 18 nguồn.
+  - Bỏ câu "133 years" (phản chứng: cầu Williamsburg 1903) và giới hạn "200 to 300 feet".
+  - Card dải nhịp tách dải thực dụng/kinh tế khỏi nhịp đã xây.
+  - Các nhận định 2005/2012 được nói kèm năm.
+  - Công-xôn: nói rõ dạng có khớp. Card nền đất: "blocks or bedrock". Queensboro: "Unlike our model, it has no suspended span".
+  - Năm sửa nhỏ về câu chữ.
+  - Mỗi claim thu hẹp có `assumptions` ghi phần không dùng và lý do.
+- **Nguồn mới:** e-WV "Wheeling Suspension Bridge" (Emory L. Kemp): nhịp, không phải chiều dài cầu. **Claim mới:** CLM_794.
+- **Ghi đè phát âm đầu tiên của phim** (`script/pronunciation.json`): Corinne, Cincinnati, đều chờ chủ kênh nghe. Promontory, Covington, Finley bỏ khỏi danh sách vì không được đọc.
+- **Test:**
+  - class `OwnerEditorialReviewTest` mới;
+  - bản sao "chủ kênh đã duyệt" giả lập trong test nay đánh dấu cả mục ghi đè phát âm;
+  - kiểm tra khóa timing truyền lexicon;
+  - cổng cuối của phim thật phải báo PRON_CORINNE chưa nghe.
+
 ## 0.9.1 — 2026-11-03 — M8.1: ba họ nhịp lớn trong các chương yếu tố, quyết định và kết luận (nhánh `m8-all-bridge-families`)
 - **Yêu cầu của chủ kênh:** các chương sau phần giới thiệu các loại cầu cũng phải nói về công-xôn, cầu treo và dây văng (có nghiên cứu, lôi cuốn), và không giữ khắt khe giới hạn thời lượng.
 - **Revision m8-r2:** 12 chương (thêm C10 "Span, cost and time"), 66 beat, 167 câu, 19,3 phút. 14 claim mới (tổng 81).

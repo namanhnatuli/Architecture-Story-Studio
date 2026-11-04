@@ -103,6 +103,18 @@
       "evidence": "owner instruction in session, 2026-11-03",
       "consequence": "narration revision m8-r2; project.json runtime_decision (acceptable 8-20 min; the 20 min bound is the agent's guardrail, not the owner's number)",
       "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "REV-M8.2-EDITORIAL-REVIEW",
+      "subject": "the owner's editorial review of the 75 claims and the 32 pronunciation items of m8-r2",
+      "scope": "why-bridges-look-different, narration m8-r2",
+      "decision": "CHANGES_REQUESTED, not an approval. Priority items: (1) CLM_789 '133 years before the next railway suspension bridge' contradicted by the Williamsburg Bridge (1903, rail on the deck, NYC DOT); (2) CLM_757 '200 to 300 ft' limit for beam/arch bridges told too broadly (Eads Bridge 1874, 520 ft; C10's 1,800 ft arches); (3) the B23C span card mixes practical/economic ranges with spans built; (4) 2005/2012 statements narrated in the present tense (CLM_774, CLM_777, CLM_788, CLM_721); (5) the cantilever's settlement advantage lost its condition (hinged, statically determinate); (6) the B22B card said the anchorage blocks are 'set into rock' where the narration says 'or'; (7) the cantilever model with a suspended span shown before the Queensboro photograph (Queensboro has none). Minor: B03 'on either side', B51 tower heights need a comparable span, B24B 'longest bridge' vs longest span, B48 'define' vs 'commonly', B31B 'first used by the railroads' needs the modern-cantilever context.",
+      "pronunciation_notes": "text review of the phoneme strings, not a listening session: Corinne first (Kokoro 'kuh-REEN' vs Cambridge /kəˈrɪn/), Bollman, Tacoma Narrows (final s), Cincinnati (intrusive t); voussoirs and Gwynns Falls are ASR spelling differences; Promontory, Covington and Finley are not spoken",
+      "owner_note": "the owner does not regard the review as an independent certification of all 75 claims",
+      "date": "2026-11-04",
+      "evidence": "owner message in session, 2026-11-04 ('đọc nhận xét sau và sửa nội dung trước, chưa cần tạo video internal review')",
+      "consequence": "narration revision m8-r3 (script/narration.template.json revision.edits); claims re-scoped in research/build_sources.py (CLM_721, 757, 764, 766, 774, 777, 782, 788, 789, 790; new CLM_794; new source SRC_EWV_WHEELING); speech-only overrides PRON_CORINNE and PRON_CINCINNATI (PENDING_LISTENING_REVIEW); no review video rendered, at the owner's instruction",
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
     }
   ]
 }

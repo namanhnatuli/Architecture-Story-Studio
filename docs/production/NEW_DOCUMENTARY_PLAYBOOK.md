@@ -41,6 +41,9 @@ AGENT viết câu hỏi trung tâm và câu hỏi nghiên cứu vào `research/R
   - không kể chuyện tiến bộ tuyến tính, không nói một kiểu luôn tốt hơn;
   - mô hình đứng cạnh công trình thật phải mang NOTE "Illustrative model, not the …";
   - đánh dấu nén/kéo chỉ khi có trường hợp tải được ghi lại.
+  - nhận định có năm của nguồn (ví dụ sổ tay 2012) được nói kèm năm, không chuyển sang thì hiện tại; giữ đủ điều kiện của nguồn (nơi, cỡ nhịp, dạng kết cấu) (M8.2);
+  - trích đúng nguồn chưa đủ: một câu nguồn có phản chứng đã biết thì không dùng, và ghi lý do vào `assumptions` của claim (M8.2, "133 years");
+  - không đặt các con số khác nghĩa trên cùng một thang mà không phân biệt, ví dụ dải kinh tế và nhịp đã xây (M8.2).
 
 ## 7–8. Tính khả thi về hình và beat (AGENT, kiểm bằng CLI)
 - Mỗi beat có ý đồ, claim, mục tiêu hình, concept bộ phận, chiến lược và phương án dự phòng.

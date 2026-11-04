@@ -1,19 +1,20 @@
 # Current project status
 
-- Phase: **M8.1: ba họ cầu nhịp lớn được đưa vào các chương yếu tố, quyết định và kết luận. Bản review nội bộ 1080p xong (2026-11-04), chờ chủ kênh duyệt.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
-- **Phim `why-bridges-look-different`, revision m8-r2:**
-  - 12 chương; 19,32 phút (1.159,5 s); 167 câu; 75 shot;
+- Phase: **M8.2: nội dung đã sửa theo nhận xét biên tập của chủ kênh (2026-11-04). Chưa render bản review cho m8-r3, theo yêu cầu.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
+- **Phim `why-bridges-look-different`, revision m8-r3:**
+  - 12 chương; 19,90 phút (1.193,8 s); 169 câu; 75 shot, 18 shot cần render lại;
   - thời lượng theo quyết định của chủ kênh (`project.json` → `runtime_decision`, chấp nhận 8–20 phút; trần 20 do agent đặt);
-  - giọng `am_michael`;
-  - sáu họ cầu: dầm, vòm, giàn trên site 24 m; công-xôn, cầu treo, dây văng trên site 72 m;
-  - 81 claim SOURCE_VERIFIED (14 mới ở m8-r2, thêm FHWA-HRT-14-067); 7 ảnh HAER phạm vi công cộng (thêm Golden Gate).
+  - giọng `am_michael`; hai mục ghi đè phát âm (Corinne, Cincinnati) chờ chủ kênh nghe;
+  - 82 claim SOURCE_VERIFIED (76 được lời dẫn dùng), 18 nguồn; 7 ảnh HAER phạm vi công cộng.
 - **Trạng thái:** INTERNAL REVIEW (`NARRATED_INTERNAL_REVIEW`).
-  - Duyệt claim và phát âm của m7-r1 không áp sang m8-r2. Duyệt giọng theo dự án vẫn giữ.
+  - Nhận xét của chủ kênh ngày 2026-11-04 là yêu cầu sửa (`REV-M8.2-EDITORIAL-REVIEW`), không phải duyệt.
+  - Duyệt claim và phát âm của m7-r1 không áp sang m8-r3. Duyệt giọng theo dự án vẫn giữ.
+  - Video review hiện có là của m8-r2. Gates: G4/G5 FAIL vì media cũ, cho tới khi render lại.
   - Bản 4K đã duyệt của m7-r1: tag `m7-final-4k`, `output/baseline_m7_final_4k/`.
 - Tài liệu: `docs/m8/M8_REPORT.md`.
 
 ## Việc của chủ kênh
-1. Xem `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`.
+1. Đọc các chỗ sửa của m8-r3 (`review/EDITORIAL_NOTES.md`), rồi cho render lại bản review 1080p (khoảng 1,5–1,75 giờ).
 2. Duyệt hoặc sửa claim (`review/EDITORIAL_APPROVAL_PACKAGE.md`, `review/EVIDENCE_MATRIX.md`), phát âm (`review/PRONUNCIATION_REVIEW.md`), và xác nhận lại giọng.
 3. Sau khi duyệt: profile `PUBLICATION_CANDIDATE`, render 4K theo chương (`docs/m7/REPRODUCIBILITY.md` §8).
 
