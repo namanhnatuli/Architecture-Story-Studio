@@ -94,16 +94,17 @@ class ScaffoldTest(unittest.TestCase):
 
 
 class OwnerStopTest(unittest.TestCase):
-    def test_reference_film_waits_for_the_owner_after_its_m8_revision(self):
-        # M8 (2026-10-31): the film was remade with all six bridge families; the owner's approvals of
-        # m7-r1 are kept on record but do not cover m8-r1, so the workflow stops for the owner again.
+    def test_reference_film_records_the_owner_approval_of_its_m8_revision(self):
+        # M8 (2026-10-31): the owner's approvals of m7-r1 did not cover the remade film, so the workflow
+        # stopped for the owner. 2026-11-04: the owner approved the claims and pronunciations of m8-r4
+        # (APP-M8.4-CLAIMS-AND-PRONUNCIATION); the stop is exercised on a copy below.
         rows = rows_of(FILM)
-        for stage in ("TOPIC", "RESEARCH", "SCRIPT", "CLAIM_SOURCE_VERIFICATION", "TTS", "AUDIO_LOCK", "VISUAL_PLAN"):
+        for stage in ("TOPIC", "RESEARCH", "SCRIPT", "CLAIM_SOURCE_VERIFICATION", "TTS", "AUDIO_LOCK", "VISUAL_PLAN",
+                      "OWNER_APPROVAL", "PUBLICATION_CANDIDATE"):
             self.assertEqual(rows[stage][0], "DONE", (stage, rows[stage]))
-        self.assertIn(rows["OWNER_APPROVAL"][0], ("WAITING_FOR_OWNER", "TODO"))
-        self.assertNotEqual(rows["PUBLICATION_CANDIDATE"][0], "DONE")
-        record = read(FILM / "review/OWNER_APPROVALS.json")
-        self.assertIn("REQ-M8-ALL-FAMILIES", [d["id"] for d in record["decisions"]])
+        ids = [d["id"] for d in read(FILM / "review/OWNER_APPROVALS.json")["decisions"]]
+        for want in ("REQ-M8-ALL-FAMILIES", "APP-M8.4-CLAIMS-AND-PRONUNCIATION"):
+            self.assertIn(want, ids)
 
     def test_without_owner_decisions_the_workflow_stops_for_the_owner(self):
         with tempfile.TemporaryDirectory() as tmp:

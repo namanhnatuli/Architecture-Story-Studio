@@ -5,49 +5,52 @@
     "PUBLICATION_CLEARED"
   ],
   "publication_audio": true,
-  "narration_track": "audio/narration_mix_SC_001-SC_005.wav",
+  "narration_track": "audio/narration_mix_SC_001-SC_008.wav",
   "shots": [
     "SC_001",
     "SC_002",
     "SC_003",
     "SC_004",
-    "SC_005"
+    "SC_005",
+    "SC_006",
+    "SC_007",
+    "SC_008"
   ],
-  "frames": 807,
-  "seconds": 33.625,
+  "frames": 1256,
+  "seconds": 52.333333333333336,
   "video": {
     "codec_name": "h264",
     "codec_type": "video",
     "width": 3840,
     "height": 2160,
-    "duration": "33.625000",
-    "nb_read_frames": "807"
+    "duration": "52.333333",
+    "nb_read_frames": "1256"
   },
   "audio": {
     "codec_name": "aac",
     "codec_type": "audio",
     "sample_rate": "48000",
-    "duration": "33.625000",
-    "nb_read_frames": "1577"
+    "duration": "52.333333",
+    "nb_read_frames": "2454"
   },
   "loudness_before": {
-    "I": "-27.05",
-    "TP": "-6.50"
+    "I": "-26.87",
+    "TP": "-5.52"
   },
   "loudness_after": {
-    "integrated_lufs": -16.4,
-    "true_peak_dbtp": -1.5
+    "integrated_lufs": -16.5,
+    "true_peak_dbtp": -1.4
   },
-  "subtitle_entries": 8,
+  "subtitle_entries": 12,
   "subtitle_stats": {
-    "cues": 8,
-    "sentences": 7,
+    "cues": 12,
+    "sentences": 11,
     "max_line": 41,
     "lines_over_42": 0,
-    "two_line_cues": 3,
+    "two_line_cues": 5,
     "aligned_boundaries": 1,
     "sentence_fallbacks": 0,
-    "max_cps": 16.1
+    "max_cps": 14.4
   },
   "subtitle_warnings": [],
   "subtitle_cues": [
@@ -101,7 +104,57 @@
     },
     {
       "start": 16.15,
-      "end": 19.375,
+      "end": 20.15,
+      "lines": [
+        "Over wider water,",
+        "the answers change again."
+      ],
+      "text": "Over wider water, the answers change again.",
+      "sentence": "B01B.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 19.9
+    },
+    {
+      "start": 20.3,
+      "end": 23.625,
+      "lines": [
+        "One bridge reaches out from its piers."
+      ],
+      "text": "One bridge reaches out from its piers.",
+      "sentence": "B01B.s1",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 23.375
+    },
+    {
+      "start": 24.608333,
+      "end": 28.183333,
+      "lines": [
+        "Another hangs from huge draped cables."
+      ],
+      "text": "Another hangs from huge draped cables.",
+      "sentence": "B01C.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 27.933333
+    },
+    {
+      "start": 29.15,
+      "end": 32.825,
+      "lines": [
+        "A third is held up by",
+        "straight lines of steel."
+      ],
+      "text": "A third is held up by straight lines of steel.",
+      "sentence": "B01D.s0",
+      "source": "sentence span",
+      "boundary": null,
+      "speech_end": 32.575
+    },
+    {
+      "start": 33.775,
+      "end": 37.0,
       "lines": [
         "So why don't bridges all look the same?"
       ],
@@ -109,11 +162,11 @@
       "sentence": "B02.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 19.125
+      "speech_end": 36.75
     },
     {
-      "start": 19.525,
-      "end": 24.175,
+      "start": 37.15,
+      "end": 41.8,
       "lines": [
         "It isn't because one design is",
         "simply better than the others."
@@ -122,38 +175,38 @@
       "sentence": "B02.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 23.925
+      "speech_end": 41.55
     },
     {
-      "start": 24.325,
-      "end": 27.56,
+      "start": 41.95,
+      "end": 47.005,
       "lines": [
-        "Each form is a different",
-        "answer to the same problem,"
+        "Each form is a different answer to",
+        "the same problem, shaped by materials,"
       ],
-      "text": "Each form is a different answer to the same problem,",
+      "text": "Each form is a different answer to the same problem, shaped by materials,",
       "sentence": "B02.s2",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "problem,",
-        "before_word": "shaped",
-        "whisper_boundary": 3.38,
-        "placed_at": 3.235,
-        "rms_db_at_boundary": -71.9
+        "after_word": "materials,",
+        "before_word": "by",
+        "whisper_boundary": 5.0,
+        "placed_at": 5.055,
+        "rms_db_at_boundary": -71.6
       }
     },
     {
-      "start": 27.56,
-      "end": 33.075,
+      "start": 47.005,
+      "end": 51.75,
       "lines": [
-        "shaped by materials, by the site,",
+        "by the site, by the span,",
         "and by the time it was built in."
       ],
-      "text": "shaped by materials, by the site, and by the time it was built in.",
+      "text": "by the site, by the span, and by the time it was built in.",
       "sentence": "B02.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 32.825
+      "speech_end": 51.5
     }
   ],
   "problems": [],
@@ -165,17 +218,20 @@
       "SC_002",
       "SC_003",
       "SC_004",
-      "SC_005"
+      "SC_005",
+      "SC_006",
+      "SC_007",
+      "SC_008"
     ],
-    "expected_frames": 807,
+    "expected_frames": 1256,
     "probe": {
       "codec": "h264",
       "width": 3840,
       "height": 2160,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 807,
-      "duration": 33.625,
+      "frames": 1256,
+      "duration": 52.333333,
       "black_segments": 0,
       "decode_errors": 0,
       "streams": {
@@ -187,25 +243,43 @@
       {
         "cut": "SC_001->SC_002",
         "mode": "hard",
-        "ssim": 0.88149,
+        "ssim": 0.88446,
         "ok": true
       },
       {
         "cut": "SC_002->SC_003",
         "mode": "hard",
-        "ssim": 0.89176,
+        "ssim": 0.89432,
         "ok": true
       },
       {
         "cut": "SC_003->SC_004",
         "mode": "hard",
-        "ssim": 0.86097,
+        "ssim": 0.86382,
         "ok": true
       },
       {
         "cut": "SC_004->SC_005",
         "mode": "hard",
-        "ssim": 0.93255,
+        "ssim": 0.88223,
+        "ok": true
+      },
+      {
+        "cut": "SC_005->SC_006",
+        "mode": "hard",
+        "ssim": 0.89932,
+        "ok": true
+      },
+      {
+        "cut": "SC_006->SC_007",
+        "mode": "hard",
+        "ssim": 0.90272,
+        "ok": true
+      },
+      {
+        "cut": "SC_007->SC_008",
+        "mode": "hard",
+        "ssim": 0.91905,
         "ok": true
       }
     ],
@@ -216,7 +290,10 @@
     "SC_002": "rendered",
     "SC_003": "rendered",
     "SC_004": "rendered",
-    "SC_005": "rendered"
+    "SC_005": "rendered",
+    "SC_006": "rendered",
+    "SC_007": "rendered",
+    "SC_008": "rendered"
   },
   "chapter_audio": "output/chapters_final_4k/why_bridges_look_different_C1_narration.wav"
 }

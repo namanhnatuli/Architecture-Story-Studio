@@ -135,6 +135,18 @@
       "evidence": "owner message in session, 2026-11-04 ('sửa lại một vài ý nữa cho tôi, chưa cần render gì cả')",
       "consequence": "narration revision m8-r4 (B33.s1); B24B and B33 cards re-worded; review/EDITORIAL_NOTES.md rewritten to the current film and the package regenerated; nothing rendered, at the owner's instruction",
       "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "APP-M8.4-CLAIMS-AND-PRONUNCIATION",
+      "subject": "editorial approval of narration m8-r4: the 76 claims the film uses, and its pronunciations",
+      "scope": "why-bridges-look-different, narration m8-r4 (audio hash a5705d71…)",
+      "decision": "APPROVED by the owner: the 76 narrated claims (EDITORIALLY_APPROVED), the pronunciation review list of 29 terms (ACCEPTED_BY_OWNER for this audio) and the two speech-only overrides PRON_CORINNE and PRON_CINCINNATI (CONFIRMED). Native 4K final to be rendered.",
+      "date": "2026-11-04",
+      "evidence": "owner message in session, 2026-11-04 ('tôi duyệt các claim và phát âm, hãy render bản final 4k')",
+      "limits": "The agent records the owner's words only. It did not witness, and records no, per-item listening session. The existing project-scoped approval of voice am_michael is unchanged; no publication or upload is authorised by this record.",
+      "consequence": "research/editorial_approval.json (m8-r4); narration.voice.pronunciation_review ACCEPTED_BY_OWNER; script/pronunciation.json CONFIRMED; project.json factual_review verified, production_profile PUBLICATION_CANDIDATE",
+      "invalidation": "a change to any claim text or to the narration revision (claims), or to the narrated audio (pronunciation)",
+      "recorded_by": "agent (records the owner's decision; approves nothing itself)"
     }
   ]
 }

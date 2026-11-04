@@ -185,8 +185,9 @@ class LongSpanEvidenceTest(unittest.TestCase):
         m81 = [c for cid, c in claims.items() if cid >= "CLM_780"]   # M8.1/M8.2: factors, decisions, conclusion
         self.assertEqual((len(m8), len(m81)), (25, 15))
         allowed = {"SRC_NCHRP_CONTEXT", "SRC_FHWA_BRIDGE_TYPES"}
-        for c in m8 + m81:
-            self.assertEqual(c["review_status"], "SOURCE_VERIFIED", c["id"])
+        used = {c for b in read(FILM / "script/narration.json")["beats"] for c in b["claim_ids"]}
+        for c in m8 + m81:   # the owner approved the narrated claims on 2026-11-04; the unnarrated stay SOURCE_VERIFIED
+            self.assertEqual(c["review_status"], "EDITORIALLY_APPROVED" if c["id"] in used else "SOURCE_VERIFIED", c["id"])
             ok = allowed | ({"SRC_FHWA_PENOBSCOT"} if c in m81 else set()) \
                 | ({"SRC_EWV_WHEELING"} if c["id"] == "CLM_766" else set())   # M8.2: span, not bridge length
             self.assertTrue(set(c["source_ids"]) <= ok, c["id"])
@@ -302,15 +303,18 @@ class OwnerEditorialReviewTest(unittest.TestCase):
         self.assertIn("Suspension: cables anchored in massive blocks or in bedrock", texts)
         self.assertFalse(any("set into rock" in t for t in texts))
 
-    def test_pronunciation_overrides_wait_for_the_owner(self):
+    def test_pronunciation_overrides_are_the_owners_and_never_claim_a_listening(self):
         from pipeline import pronunciation as pron
         lex = pron.load(FILM)
         self.assertEqual(pron.validate(lex), [])
         entries = {e["written"]: e for e in lex["entries"]}
         self.assertEqual(set(entries), {"Corinne", "Cincinnati"})
-        self.assertTrue(all(e["status"] == "PENDING_LISTENING_REVIEW" and not e["confirmed_by"] for e in entries.values()))
+        for e in entries.values():   # confirmed on the owner's instruction of 2026-11-04, not on a witnessed listening
+            self.assertEqual((e["status"], e["confirmed_by"], e["confirmed_on"]),
+                             ("CONFIRMED", "Tran Nam Anh (channel owner)", "2026-11-04"))
+            self.assertIn("did not witness or record a listening session", e["confirmation_basis"])
         review = read(FILM / "script/narration.json")["voice"]["pronunciation_review"]
-        self.assertEqual(review["status"], "PENDING")
+        self.assertEqual(review["status"], "ACCEPTED_BY_OWNER")
         self.assertFalse({"Promontory", "Covington", "Finley"} & set(review["terms"]))   # not spoken
         self.assertIn("not a listening session", review["owner_text_review"]["kind"])
 

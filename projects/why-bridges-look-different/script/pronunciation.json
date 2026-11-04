@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "note": "Speech-only overrides (pipeline/pronunciation.py). The written word stays unchanged in narration, subtitles, citations and metadata. Added for m8-r3 after the owner's text review of 2026-11-04; nothing here is confirmed until the owner listens.",
+  "note": "Speech-only overrides (pipeline/pronunciation.py). The written word stays unchanged in narration, subtitles, citations and metadata. Added for m8-r3 after the owner's text review of 2026-11-04; the owner accepted both on 2026-11-04 (see confirmation_basis).",
   "entries": [
     {
       "id": "PRON_CORINNE",
@@ -12,10 +12,11 @@
         "kokoro": "[Corinne](/kəɹˈɪn/)"
       },
       "asr_aliases": [],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md (B28.s2); the previous take without the override: audio/segments/ae22a511868feda58b97.wav (misaki: kəɹɹˈin, 'kuh-REEN')",
-      "confirmed_by": null,
-      "confirmed_on": null
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-04",
+      "confirmation_basis": "owner instruction in session, 2026-11-04 ('tôi duyệt các claim và phát âm, hãy render bản final 4k'). Recorded as the owner's decision; the agent did not witness or record a listening session."
     },
     {
       "id": "PRON_CINCINNATI",
@@ -27,10 +28,11 @@
         "kokoro": "[Cincinnati](/sˌɪnsɪnˈæTi/)"
       },
       "asr_aliases": [],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md (B31B.s2); the previous take without the override: audio/segments/864653bb5ed4d30de671.wav (misaki: sˌɪntsənˈædi, an intrusive t)",
-      "confirmed_by": null,
-      "confirmed_on": null
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-04",
+      "confirmation_basis": "owner instruction in session, 2026-11-04 ('tôi duyệt các claim và phát âm, hãy render bản final 4k'). Recorded as the owner's decision; the agent did not witness or record a listening session."
     }
   ]
 }

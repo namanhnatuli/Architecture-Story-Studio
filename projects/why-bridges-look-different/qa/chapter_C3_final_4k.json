@@ -5,58 +5,58 @@
     "PUBLICATION_CLEARED"
   ],
   "publication_audio": true,
-  "narration_track": "audio/narration_mix_SC_009-SC_014.wav",
+  "narration_track": "audio/narration_mix_SC_012-SC_017.wav",
   "shots": [
-    "SC_009",
-    "SC_010",
-    "SC_011",
     "SC_012",
     "SC_013",
-    "SC_014"
+    "SC_014",
+    "SC_015",
+    "SC_016",
+    "SC_017"
   ],
-  "frames": 1600,
-  "seconds": 66.66666666666667,
+  "frames": 1675,
+  "seconds": 69.79166666666667,
   "video": {
     "codec_name": "h264",
     "codec_type": "video",
     "width": 3840,
     "height": 2160,
-    "duration": "66.666667",
-    "nb_read_frames": "1600"
+    "duration": "69.791667",
+    "nb_read_frames": "1675"
   },
   "audio": {
     "codec_name": "aac",
     "codec_type": "audio",
     "sample_rate": "48000",
-    "duration": "66.666667",
-    "nb_read_frames": "3125"
+    "duration": "69.791667",
+    "nb_read_frames": "3272"
   },
   "loudness_before": {
-    "I": "-27.18",
+    "I": "-27.20",
     "TP": "-5.97"
   },
   "loudness_after": {
     "integrated_lufs": -16.4,
     "true_peak_dbtp": -1.5
   },
-  "subtitle_entries": 15,
+  "subtitle_entries": 17,
   "subtitle_stats": {
-    "cues": 15,
+    "cues": 17,
     "sentences": 11,
     "max_line": 42,
     "lines_over_42": 0,
     "two_line_cues": 11,
-    "aligned_boundaries": 4,
+    "aligned_boundaries": 6,
     "sentence_fallbacks": 0,
-    "max_cps": 17.4
+    "max_cps": 17.8
   },
   "subtitle_warnings": [
-    "cue 12 (B09.s1): 17.4 characters/s (> 17.0)"
+    "cue 13 (B09.s1): 17.8 characters/s (> 17.0)"
   ],
   "subtitle_cues": [
     {
-      "start": 0.3999996666666732,
-      "end": 3.2499996666666675,
+      "start": 0.4000000000000057,
+      "end": 3.25,
       "lines": [
         "The first answer is the beam."
       ],
@@ -64,11 +64,11 @@
       "sentence": "B06.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 2.9999996666666675
+      "speech_end": 3.0
     },
     {
-      "start": 3.399999666666673,
-      "end": 7.474999666666673,
+      "start": 3.4000000000000057,
+      "end": 7.475000000000006,
       "lines": [
         "Lay a strong member across the gap,",
         "support it at each end,"
@@ -85,8 +85,8 @@
       }
     },
     {
-      "start": 7.474999666666673,
-      "end": 9.424999666666665,
+      "start": 7.475000000000006,
+      "end": 9.424999999999997,
       "lines": [
         "and you have a bridge."
       ],
@@ -94,11 +94,11 @@
       "sentence": "B06.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 9.174999666666665
+      "speech_end": 9.174999999999997
     },
     {
-      "start": 9.57499966666667,
-      "end": 13.549999666666665,
+      "start": 9.575000000000003,
+      "end": 13.549999999999997,
       "lines": [
         "It is one of the oldest ideas",
         "in bridge building."
@@ -107,11 +107,11 @@
       "sentence": "B06.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 13.299999666666665
+      "speech_end": 13.299999999999997
     },
     {
-      "start": 14.524999666666673,
-      "end": 18.599999666666676,
+      "start": 14.525000000000006,
+      "end": 18.599999999999994,
       "lines": [
         "This timber bridge is a",
         "row of short beam spans."
@@ -120,11 +120,11 @@
       "sentence": "B07.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 18.349999666666676
+      "speech_end": 18.349999999999994
     },
     {
-      "start": 18.749999666666668,
-      "end": 20.33499966666667,
+      "start": 18.75,
+      "end": 20.335,
       "lines": [
         "Planks form the deck,"
       ],
@@ -140,8 +140,8 @@
       }
     },
     {
-      "start": 20.33499966666667,
-      "end": 26.299999666666665,
+      "start": 20.335,
+      "end": 26.299999999999997,
       "lines": [
         "long beams carry the planks, cap beams",
         "carry the beams, and posts carry the caps."
@@ -150,11 +150,11 @@
       "sentence": "B07.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 26.049999666666665
+      "speech_end": 26.049999999999997
     },
     {
-      "start": 27.274999666666673,
-      "end": 31.399999666666673,
+      "start": 27.275000000000006,
+      "end": 31.400000000000006,
       "lines": [
         "Each beam carries its",
         "load by resisting bending."
@@ -163,11 +163,11 @@
       "sentence": "B08.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 31.149999666666673
+      "speech_end": 31.150000000000006
     },
     {
-      "start": 31.549999666666665,
-      "end": 36.32499966666667,
+      "start": 31.55000000000001,
+      "end": 36.32499999999999,
       "lines": [
         "At each support, a cap beam",
         "spreads the load onto the posts."
@@ -176,11 +176,11 @@
       "sentence": "B08.s1",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 36.07499966666667
+      "speech_end": 36.07499999999999
     },
     {
-      "start": 36.474999666666676,
-      "end": 41.224999666666676,
+      "start": 36.474999999999994,
+      "end": 41.224999999999994,
       "lines": [
         "The posts then carry it down",
         "into the ground in compression."
@@ -189,11 +189,11 @@
       "sentence": "B08.s2",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 40.974999666666676
+      "speech_end": 40.974999999999994
     },
     {
-      "start": 42.19166666666668,
-      "end": 46.96666666666668,
+      "start": 42.191666999999995,
+      "end": 46.966667,
       "lines": [
         "Beams are simple,",
         "and wood was usually easy to find."
@@ -202,42 +202,76 @@
       "sentence": "B09.s0",
       "source": "sentence span",
       "boundary": null,
-      "speech_end": 46.71666666666668
+      "speech_end": 46.716667
     },
     {
-      "start": 47.11666666666666,
-      "end": 51.99166666666666,
+      "start": 47.11666700000001,
+      "end": 49.431667000000004,
       "lines": [
-        "That is why timber beam bridges were still",
-        "being built long after timber trusses fell"
+        "That is why timber beam bridges"
       ],
-      "text": "That is why timber beam bridges were still being built long after timber trusses fell",
+      "text": "That is why timber beam bridges",
       "sentence": "B09.s1",
       "source": "whisper word alignment + waveform",
       "boundary": {
-        "after_word": "fell",
-        "before_word": "out",
-        "whisper_boundary": 4.98,
-        "placed_at": 4.875,
-        "rms_db_at_boundary": -46.2
+        "after_word": "bridges",
+        "before_word": "were",
+        "whisper_boundary": 2.16,
+        "placed_at": 2.315,
+        "rms_db_at_boundary": -47.0
       }
     },
     {
-      "start": 51.99166666666666,
-      "end": 58.34166666666668,
+      "start": 49.431667000000004,
+      "end": 53.861667000000004,
       "lines": [
-        "out of use, and why they are still built",
-        "on quiet rural roads and in parks today."
+        "were still being built long after timber",
+        "trusses stopped being competitive, and"
       ],
-      "text": "out of use, and why they are still built on quiet rural roads and in parks today.",
+      "text": "were still being built long after timber trusses stopped being competitive, and",
+      "sentence": "B09.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "and",
+        "before_word": "in",
+        "whisper_boundary": 6.84,
+        "placed_at": 6.745,
+        "rms_db_at_boundary": -67.7
+      }
+    },
+    {
+      "start": 53.861667000000004,
+      "end": 59.791667000000004,
+      "lines": [
+        "in 2005 a national report found them",
+        "still being built on quiet rural roads"
+      ],
+      "text": "in 2005 a national report found them still being built on quiet rural roads",
+      "sentence": "B09.s1",
+      "source": "whisper word alignment + waveform",
+      "boundary": {
+        "after_word": "roads",
+        "before_word": "and",
+        "whisper_boundary": 12.56,
+        "placed_at": 12.675,
+        "rms_db_at_boundary": -74.0
+      }
+    },
+    {
+      "start": 59.791667000000004,
+      "end": 61.466667,
+      "lines": [
+        "and in parks."
+      ],
+      "text": "and in parks.",
       "sentence": "B09.s1",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 58.09166666666668
+      "speech_end": 61.216667
     },
     {
-      "start": 58.49166666666666,
-      "end": 62.48666666666666,
+      "start": 61.61666700000001,
+      "end": 65.61166700000001,
       "lines": [
         "But many early timber bridges",
         "had relatively short spans,"
@@ -254,8 +288,8 @@
       }
     },
     {
-      "start": 62.48666666666666,
-      "end": 66.09166666666668,
+      "start": 65.61166700000001,
+      "end": 69.216667,
       "lines": [
         "which is why this one needs so many posts."
       ],
@@ -263,7 +297,7 @@
       "sentence": "B09.s2",
       "source": "whisper word alignment + waveform",
       "boundary": null,
-      "speech_end": 65.84166666666668
+      "speech_end": 68.966667
     }
   ],
   "problems": [],
@@ -271,22 +305,22 @@
     "chapter": "C3",
     "video": "output/chapters_final_4k/why_bridges_look_different_C3_silent.mp4",
     "shots": [
-      "SC_009",
-      "SC_010",
-      "SC_011",
       "SC_012",
       "SC_013",
-      "SC_014"
+      "SC_014",
+      "SC_015",
+      "SC_016",
+      "SC_017"
     ],
-    "expected_frames": 1600,
+    "expected_frames": 1675,
     "probe": {
       "codec": "h264",
       "width": 3840,
       "height": 2160,
       "pix_fmt": "yuv420p",
       "fps": "24/1",
-      "frames": 1600,
-      "duration": 66.666667,
+      "frames": 1675,
+      "duration": 69.791667,
       "black_segments": 0,
       "decode_errors": 0,
       "streams": {
@@ -296,31 +330,31 @@
     },
     "cuts": [
       {
-        "cut": "SC_009->SC_010",
+        "cut": "SC_012->SC_013",
         "mode": "match",
         "ssim": 0.99733,
         "ok": true
       },
       {
-        "cut": "SC_010->SC_011",
-        "mode": "match",
-        "ssim": 1.0,
-        "ok": true
-      },
-      {
-        "cut": "SC_011->SC_012",
-        "mode": "match",
-        "ssim": 1.0,
-        "ok": true
-      },
-      {
-        "cut": "SC_012->SC_013",
-        "mode": "match",
-        "ssim": 1.0,
-        "ok": true
-      },
-      {
         "cut": "SC_013->SC_014",
+        "mode": "match",
+        "ssim": 1.0,
+        "ok": true
+      },
+      {
+        "cut": "SC_014->SC_015",
+        "mode": "match",
+        "ssim": 1.0,
+        "ok": true
+      },
+      {
+        "cut": "SC_015->SC_016",
+        "mode": "match",
+        "ssim": 1.0,
+        "ok": true
+      },
+      {
+        "cut": "SC_016->SC_017",
         "mode": "match",
         "ssim": 1.0,
         "ok": true
@@ -329,12 +363,12 @@
     "problems": []
   },
   "render_results": {
-    "SC_009": "rendered",
-    "SC_010": "rendered",
-    "SC_011": "rendered",
     "SC_012": "rendered",
     "SC_013": "rendered",
-    "SC_014": "rendered"
+    "SC_014": "rendered",
+    "SC_015": "rendered",
+    "SC_016": "rendered",
+    "SC_017": "rendered"
   },
   "chapter_audio": "output/chapters_final_4k/why_bridges_look_different_C3_narration.wav"
 }

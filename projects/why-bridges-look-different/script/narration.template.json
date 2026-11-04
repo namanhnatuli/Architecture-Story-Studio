@@ -72,7 +72,7 @@
     },
     "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
     "pronunciation_review": {
-      "status": "PENDING",
+      "status": "ACCEPTED_BY_OWNER",
       "terms": [
         "voussoirs",
         "falsework",
@@ -104,7 +104,7 @@
         "Kentucky",
         "Golden Gate"
       ],
-      "note": "m8-r3 regenerates the changed sentences: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it. Promontory, Covington and Finley were removed from the list (2026-11-04): they are not spoken in the narration (on-screen text only, or not at all).",
+      "note": "m8-r3 regenerates the changed sentences: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it. Promontory, Covington and Finley were removed from the list (2026-11-04): they are not spoken in the narration (on-screen text only, or not at all). Accepted by the owner on 2026-11-04 for the m8-r4 audio (audio_revision below); the m7-r1 acceptance in previous_acceptance is superseded for this narration.",
       "previous_acceptance": {
         "status": "ACCEPTED_BY_OWNER",
         "accepted_by": "Tran Nam Anh (channel owner)",
@@ -132,7 +132,11 @@
           "voussoirs, Gwynns Falls: ASR spelling differences, not evidence of mispronunciation"
         ],
         "status_effect": "none: pronunciation_review stays PENDING"
-      }
+      },
+      "accepted_by": "Tran Nam Anh (channel owner)",
+      "accepted_on": "2026-11-04",
+      "basis": "owner instruction in session, 2026-11-04 ('tôi duyệt các claim và phát âm, hãy render bản final 4k') for the 29 terms of this review list. The agent records the owner's acceptance of the m8-r4 audio; no per-item listening session or phonetic verification is recorded here (same form as the 2026-10-30 acceptance).",
+      "audio_revision": "a5705d7177f23beaf233262d991b21490d376a912a48553961dffb9fc863fb7e"
     }
   },
   "pacing": {

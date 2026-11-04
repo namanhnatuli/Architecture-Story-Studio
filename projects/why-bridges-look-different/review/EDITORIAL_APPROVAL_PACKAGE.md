@@ -1,6 +1,6 @@
 # Gói duyệt biên tập: "Why Bridges Don't All Look the Same" (narration `m8-r4`)
 
-> **Đang chờ duyệt.** Agent soạn gói này nhưng không tự duyệt claim, giọng hay phát âm. Tới khi chủ kênh duyệt, mọi bản dựng mang nhãn INTERNAL REVIEW.
+> **Đã duyệt claim:** Tran Nam Anh (channel owner) duyệt 76 claim được lời dẫn dùng, ngày 2026-11-04, cho narration `m8-r4` (`research/editorial_approval.json`). Agent chỉ ghi lại quyết định. Phát âm và quyền giọng cho phim vẫn là các bước duyệt riêng; tới khi đủ, mọi bản dựng mang nhãn INTERNAL REVIEW.
 
 ## Cần chủ kênh quyết định
 

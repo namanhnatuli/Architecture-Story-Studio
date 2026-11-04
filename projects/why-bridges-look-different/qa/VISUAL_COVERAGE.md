@@ -12,65 +12,65 @@
 | B01C | INTRODUCE_ARCHITECTURE | HOLD | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | — | HOLD (SC_006) | 4.53 / 4.54 | FRAMING | — | **COVERED** | — |
 | B01D | INTRODUCE_ARCHITECTURE | HOLD | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | HOLD (SC_007) | 4.62 / 4.62 | FRAMING | — | **COVERED** | — |
 | B02 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_008) | 18.93 / 18.96 | FRAMING | — | **COVERED** | — |
-| B03 | INTRODUCE_ARCHITECTURE | HOLD | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_009) | 15.68 / 15.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B04 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | substructure | HOLD (SC_010) | 23.50 / 23.50 | INTERNAL_PREVIEW | substructure: reads | **COVERED** | — |
+| B03 | INTRODUCE_ARCHITECTURE | HOLD | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_009) | 15.68 / 15.71 | APPROVED | — | **COVERED** | — |
+| B04 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | substructure | HOLD (SC_010) | 23.50 / 23.50 | APPROVED | substructure: reads | **COVERED** | — |
 | B05 | SHOW_CONTEXT | SITE_HOLD | river_crossing_site: REUSE_EXISTING → `site_river_crossing_24` | — | HOLD (SC_011) | 9.43 / 9.46 | FRAMING | — | **COVERED** | — |
-| B06 | INTRODUCE_ARCHITECTURE | ASSEMBLE_IN | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | stringer | REPLACE_PARTS (SC_012), HOLD (SC_013) | 14.10 / 14.12 | INTERNAL_PREVIEW | stringer: reads | **COVERED** | — |
-| B07 | EXPLAIN_STRUCTURE | HIGHLIGHT_THEN_EXPLODE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | cap_beam, deck_planks, stringer | HOLD (SC_014), EXPLODED_VIEW (SC_015) | 12.72 / 12.75 | INTERNAL_PREVIEW | cap_beam: reads<br>deck_planks: reads<br>stringer: reads | **COVERED** | — |
-| B08 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | stringer | HOLD (SC_016) | 14.90 / 14.92 | INTERNAL_PREVIEW | stringer: reads | **COVERED** | — |
-| B09 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | trestle_bent | HOLD (SC_017) | 27.98 / 28.00 | INTERNAL_PREVIEW | trestle_bent: reads | **COVERED** | — |
-| B10 | SHOW_COMPONENT | CLOSEUP_EXPLODE | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring, keystone, voussoir | HOLD (SC_018), EXPLODED_VIEW (SC_019) | 10.55 / 10.58 | INTERNAL_PREVIEW | arch_ring: reads<br>keystone: reads<br>voussoir: reads | **COVERED** | — |
-| B11 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring | HOLD (SC_020) | 17.23 / 17.25 | INTERNAL_PREVIEW | arch_ring: reads | **COVERED** | — |
-| B12 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_021) | 14.60 / 14.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B13 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_022) | 17.23 / 17.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B14 | EXPLAIN_DESIGN_CHANGE | CARD | — | — | MOTION_GRAPHICS (SC_023) | 22.30 / 22.33 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B15 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | truss_members | HOLD (SC_024) | 15.90 / 15.92 | INTERNAL_PREVIEW | truss_members: reads | **COVERED** | — |
-| B16 | EXPLAIN_LOAD_PATH | HOLD | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_025) | 14.57 / 14.58 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B17 | EXPLAIN_DESIGN_CHANGE | HIGHLIGHT_REPLACE_HIGHLIGHT | pratt_truss: REUSE_EXISTING → `bridge_steel_truss_pratt_01`<br>warren_truss: REUSE_EXISTING → `bridge_steel_truss_warren_01` | truss_web | HOLD (SC_026), REPLACE_PARTS (SC_027), HOLD (SC_028) | 32.15 / 32.17 | INTERNAL_PREVIEW | truss_web: reads | **COVERED** | — |
-| B18 | EXPLAIN_STRUCTURE | EXPLODE | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | EXPLODED_VIEW (SC_029) | 21.65 / 21.67 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['EXPLAIN_DESIGN_CHANGE', 'SHOW_CONTEXT', 'SHOW_EVOLUTION'] |
-| B40 | SHOW_CONTEXT | SITE_HOLD | wide_river_crossing_site: REUSE_EXISTING → `site_river_crossing_72` | — | HOLD (SC_030) | 15.88 / 15.88 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B41 | INTRODUCE_ARCHITECTURE | ASSEMBLE_IN | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | — | REPLACE_PARTS (SC_031) | 14.03 / 14.04 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B42 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | cantilever_truss | HOLD (SC_032) | 15.05 / 15.08 | INTERNAL_PREVIEW | cantilever_truss: reads | **COVERED** | — |
-| B43 | EXPLAIN_STRUCTURE | EXPLODE | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | suspended_span | EXPLODED_VIEW (SC_033) | 14.80 / 14.83 | INTERNAL_PREVIEW | suspended_span: reads | **COVERED** | — |
-| B44 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_034) | 28.60 / 28.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B45 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | hanger | HOLD (SC_035) | 13.10 / 13.12 | INTERNAL_PREVIEW | hanger: reads | **COVERED** | — |
-| B46 | EXPLAIN_LOAD_PATH | HOLD | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | — | HOLD (SC_036) | 13.30 / 13.33 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B47 | EXPLAIN_STRUCTURE | HIGHLIGHT_THEN_EXPLODE | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | stiffening_truss | HOLD (SC_037), EXPLODED_VIEW (SC_038) | 12.75 / 12.75 | INTERNAL_PREVIEW | stiffening_truss: reads | **COVERED** | — |
-| B48 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_039) | 19.68 / 19.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B50 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | stay_cable | HOLD (SC_040) | 13.70 / 13.71 | INTERNAL_PREVIEW | stay_cable: reads | **COVERED** | — |
-| B51 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_041) | 22.60 / 22.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B52 | EXPLAIN_STRUCTURE | EXPLODE | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | deck_segment | EXPLODED_VIEW (SC_042) | 17.05 / 17.08 | INTERNAL_PREVIEW | deck_segment: reads | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['COMPARE_VARIANTS'] |
-| B53 | EXPLAIN_DESIGN_CHANGE | CARD | — | — | MOTION_GRAPHICS (SC_043) | 24.62 / 24.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B06 | INTRODUCE_ARCHITECTURE | ASSEMBLE_IN | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | stringer | REPLACE_PARTS (SC_012), HOLD (SC_013) | 14.10 / 14.12 | APPROVED | stringer: reads | **COVERED** | — |
+| B07 | EXPLAIN_STRUCTURE | HIGHLIGHT_THEN_EXPLODE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | cap_beam, deck_planks, stringer | HOLD (SC_014), EXPLODED_VIEW (SC_015) | 12.72 / 12.75 | APPROVED | cap_beam: reads<br>deck_planks: reads<br>stringer: reads | **COVERED** | — |
+| B08 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | stringer | HOLD (SC_016) | 14.90 / 14.92 | APPROVED | stringer: reads | **COVERED** | — |
+| B09 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | trestle_bent | HOLD (SC_017) | 27.98 / 28.00 | APPROVED | trestle_bent: reads | **COVERED** | — |
+| B10 | SHOW_COMPONENT | CLOSEUP_EXPLODE | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring, keystone, voussoir | HOLD (SC_018), EXPLODED_VIEW (SC_019) | 10.55 / 10.58 | APPROVED | arch_ring: reads<br>keystone: reads<br>voussoir: reads | **COVERED** | — |
+| B11 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring | HOLD (SC_020) | 17.23 / 17.25 | APPROVED | arch_ring: reads | **COVERED** | — |
+| B12 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_021) | 14.60 / 14.62 | APPROVED | — | **COVERED** | — |
+| B13 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_022) | 17.23 / 17.25 | APPROVED | — | **COVERED** | — |
+| B14 | EXPLAIN_DESIGN_CHANGE | CARD | — | — | MOTION_GRAPHICS (SC_023) | 22.30 / 22.33 | APPROVED | — | **COVERED** | — |
+| B15 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | truss_members | HOLD (SC_024) | 15.90 / 15.92 | APPROVED | truss_members: reads | **COVERED** | — |
+| B16 | EXPLAIN_LOAD_PATH | HOLD | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | HOLD (SC_025) | 14.57 / 14.58 | APPROVED | — | **COVERED** | — |
+| B17 | EXPLAIN_DESIGN_CHANGE | HIGHLIGHT_REPLACE_HIGHLIGHT | pratt_truss: REUSE_EXISTING → `bridge_steel_truss_pratt_01`<br>warren_truss: REUSE_EXISTING → `bridge_steel_truss_warren_01` | truss_web | HOLD (SC_026), REPLACE_PARTS (SC_027), HOLD (SC_028) | 32.15 / 32.17 | APPROVED | truss_web: reads | **COVERED** | — |
+| B18 | EXPLAIN_STRUCTURE | EXPLODE | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | EXPLODED_VIEW (SC_029) | 21.65 / 21.67 | APPROVED | — | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['EXPLAIN_DESIGN_CHANGE', 'SHOW_CONTEXT', 'SHOW_EVOLUTION'] |
+| B40 | SHOW_CONTEXT | SITE_HOLD | wide_river_crossing_site: REUSE_EXISTING → `site_river_crossing_72` | — | HOLD (SC_030) | 15.88 / 15.88 | APPROVED | — | **COVERED** | — |
+| B41 | INTRODUCE_ARCHITECTURE | ASSEMBLE_IN | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | — | REPLACE_PARTS (SC_031) | 14.03 / 14.04 | APPROVED | — | **COVERED** | — |
+| B42 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | cantilever_truss | HOLD (SC_032) | 15.05 / 15.08 | APPROVED | cantilever_truss: reads | **COVERED** | — |
+| B43 | EXPLAIN_STRUCTURE | EXPLODE | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | suspended_span | EXPLODED_VIEW (SC_033) | 14.80 / 14.83 | APPROVED | suspended_span: reads | **COVERED** | — |
+| B44 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_034) | 28.60 / 28.62 | APPROVED | — | **COVERED** | — |
+| B45 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | hanger | HOLD (SC_035) | 13.10 / 13.12 | APPROVED | hanger: reads | **COVERED** | — |
+| B46 | EXPLAIN_LOAD_PATH | HOLD | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | — | HOLD (SC_036) | 13.30 / 13.33 | APPROVED | — | **COVERED** | — |
+| B47 | EXPLAIN_STRUCTURE | HIGHLIGHT_THEN_EXPLODE | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | stiffening_truss | HOLD (SC_037), EXPLODED_VIEW (SC_038) | 12.75 / 12.75 | APPROVED | stiffening_truss: reads | **COVERED** | — |
+| B48 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_039) | 19.68 / 19.71 | APPROVED | — | **COVERED** | — |
+| B50 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | stay_cable | HOLD (SC_040) | 13.70 / 13.71 | APPROVED | stay_cable: reads | **COVERED** | — |
+| B51 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_041) | 22.60 / 22.62 | APPROVED | — | **COVERED** | — |
+| B52 | EXPLAIN_STRUCTURE | EXPLODE | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | deck_segment | EXPLODED_VIEW (SC_042) | 17.05 / 17.08 | APPROVED | deck_segment: reads | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['COMPARE_VARIANTS'] |
+| B53 | EXPLAIN_DESIGN_CHANGE | CARD | — | — | MOTION_GRAPHICS (SC_043) | 24.62 / 24.62 | APPROVED | — | **COVERED** | — |
 | B19 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_044) | 14.40 / 14.42 | FRAMING | — | **COVERED** | — |
-| B20A | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring | HOLD (SC_045) | 9.65 / 9.67 | INTERNAL_PREVIEW | arch_ring: reads | **COVERED** | — |
-| B20B | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | truss_members | HOLD (SC_046) | 15.88 / 15.88 | INTERNAL_PREVIEW | truss_members: reads | **COVERED** | — |
-| B20C | INTRODUCE_ARCHITECTURE | HOLD | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | — | HOLD (SC_047) | 7.22 / 7.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B21 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_048) | 16.00 / 16.00 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B20E | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | main_cable | HOLD (SC_049) | 27.02 / 27.04 | INTERNAL_PREVIEW | main_cable: reads | **COVERED** | — |
-| B22 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_050) | 20.05 / 20.08 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B22B | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_051) | 20.68 / 20.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B22C | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | pier | HOLD (SC_052) | 19.95 / 19.96 | INTERNAL_PREVIEW | pier: reads | **COVERED** | — |
-| B22D | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | stiffening_truss | HOLD (SC_053) | 21.43 / 21.46 | INTERNAL_PREVIEW | stiffening_truss: reads | **COVERED** | — |
-| B23C | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_054) | 44.35 / 44.38 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B23D | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | anchorage | HOLD (SC_055) | 21.50 / 21.50 | INTERNAL_PREVIEW | anchorage: reads | **COVERED** | — |
-| B23E | INTRODUCE_ARCHITECTURE | HOLD | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | HOLD (SC_056) | 13.07 / 13.08 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B24 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_057) | 18.65 / 18.67 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B24B | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_058) | 30.95 / 30.96 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B25 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_059) | 20.38 / 20.38 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION'] |
-| B26 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_060) | 23.12 / 23.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B27 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_061) | 10.10 / 10.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B28 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_062) | 19.62 / 19.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B29 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | trestle_bent | HOLD (SC_063) | 12.47 / 12.50 | INTERNAL_PREVIEW | trestle_bent: reads | **COVERED** | — |
-| B30 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_064) | 27.70 / 27.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B31 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_065) | 13.05 / 13.08 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['COMPARE_VARIANTS'] |
-| B31A | INTRODUCE_ARCHITECTURE | HOLD | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | — | HOLD (SC_066) | 29.75 / 29.75 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B31B | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | cantilever_truss | HOLD (SC_067) | 29.82 / 29.83 | INTERNAL_PREVIEW | cantilever_truss: reads | **COVERED** | — |
-| B31C | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_068) | 12.22 / 12.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B31D | INTRODUCE_ARCHITECTURE | HOLD | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | HOLD (SC_069) | 28.07 / 28.08 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B32 | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | SIDE_BY_SIDE (SC_070) | 20.43 / 20.46 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B32L | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01`<br>suspension_bridge: REUSE_EXISTING → `bridge_suspension_01`<br>cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | SIDE_BY_SIDE (SC_071) | 9.12 / 9.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B32B | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_072) | 8.65 / 8.67 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT'] |
-| B33 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_073) | 38.23 / 38.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B20A | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | arch_ring | HOLD (SC_045) | 9.65 / 9.67 | APPROVED | arch_ring: reads | **COVERED** | — |
+| B20B | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | truss_members | HOLD (SC_046) | 15.88 / 15.88 | APPROVED | truss_members: reads | **COVERED** | — |
+| B20C | INTRODUCE_ARCHITECTURE | HOLD | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | — | HOLD (SC_047) | 7.22 / 7.25 | APPROVED | — | **COVERED** | — |
+| B21 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_048) | 16.00 / 16.00 | APPROVED | — | **COVERED** | — |
+| B20E | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | main_cable | HOLD (SC_049) | 27.02 / 27.04 | APPROVED | main_cable: reads | **COVERED** | — |
+| B22 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_050) | 20.05 / 20.08 | APPROVED | — | **COVERED** | — |
+| B22B | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_051) | 20.68 / 20.71 | APPROVED | — | **COVERED** | — |
+| B22C | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | pier | HOLD (SC_052) | 19.95 / 19.96 | APPROVED | pier: reads | **COVERED** | — |
+| B22D | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | stiffening_truss | HOLD (SC_053) | 21.43 / 21.46 | APPROVED | stiffening_truss: reads | **COVERED** | — |
+| B23C | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_054) | 44.35 / 44.38 | APPROVED | — | **COVERED** | — |
+| B23D | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | anchorage | HOLD (SC_055) | 21.50 / 21.50 | APPROVED | anchorage: reads | **COVERED** | — |
+| B23E | INTRODUCE_ARCHITECTURE | HOLD | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | HOLD (SC_056) | 13.07 / 13.08 | APPROVED | — | **COVERED** | — |
+| B24 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_057) | 18.65 / 18.67 | APPROVED | — | **COVERED** | — |
+| B24B | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_058) | 30.95 / 30.96 | APPROVED | — | **COVERED** | — |
+| B25 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_059) | 20.38 / 20.38 | APPROVED | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION'] |
+| B26 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_060) | 23.12 / 23.12 | APPROVED | — | **COVERED** | — |
+| B27 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_061) | 10.10 / 10.12 | APPROVED | — | **COVERED** | — |
+| B28 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_062) | 19.62 / 19.62 | APPROVED | — | **COVERED** | — |
+| B29 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01` | trestle_bent | HOLD (SC_063) | 12.47 / 12.50 | APPROVED | trestle_bent: reads | **COVERED** | — |
+| B30 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_064) | 27.70 / 27.71 | APPROVED | — | **COVERED** | — |
+| B31 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_065) | 13.05 / 13.08 | APPROVED | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['COMPARE_VARIANTS'] |
+| B31A | INTRODUCE_ARCHITECTURE | HOLD | suspension_bridge: REUSE_EXISTING → `bridge_suspension_01` | — | HOLD (SC_066) | 29.75 / 29.75 | APPROVED | — | **COVERED** | — |
+| B31B | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01` | cantilever_truss | HOLD (SC_067) | 29.82 / 29.83 | APPROVED | cantilever_truss: reads | **COVERED** | — |
+| B31C | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_068) | 12.22 / 12.25 | APPROVED | — | **COVERED** | — |
+| B31D | INTRODUCE_ARCHITECTURE | HOLD | cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | HOLD (SC_069) | 28.07 / 28.08 | APPROVED | — | **COVERED** | — |
+| B32 | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | timber_beam_bridge: REUSE_EXISTING → `bridge_timber_beam_01`<br>stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03`<br>steel_truss_bridge: REUSE_EXISTING → `bridge_steel_truss_pratt_01` | — | SIDE_BY_SIDE (SC_070) | 20.43 / 20.46 | APPROVED | — | **COVERED** | — |
+| B32L | SUMMARIZE_DIFFERENCES | COMPARE_SIDE_BY_SIDE | cantilever_bridge: REUSE_EXISTING → `bridge_cantilever_truss_01`<br>suspension_bridge: REUSE_EXISTING → `bridge_suspension_01`<br>cable_stayed_bridge: REUSE_EXISTING → `bridge_cable_stayed_01` | — | SIDE_BY_SIDE (SC_071) | 9.12 / 9.12 | APPROVED | — | **COVERED** | — |
+| B32B | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_072) | 8.65 / 8.67 | APPROVED | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT'] |
+| B33 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_073) | 38.23 / 38.25 | APPROVED | — | **COVERED** | — |
 | B34 | INTRODUCE_ARCHITECTURE | HOLD | stone_arch_bridge: REUSE_EXISTING → `bridge_stone_arch_03` | — | HOLD (SC_074) | 19.93 / 19.96 | FRAMING | — | **COVERED** | — |
 | B35 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_075) | 8.75 / 8.75 | FRAMING | — | **COVERED** | — |
 

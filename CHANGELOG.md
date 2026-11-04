@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.5 — 2026-11-05 — M8.2: duyệt m8-r4 và bản cuối 4K
+- **Bản cuối 4K của m8-r4:** `output/why_bridges_look_different_FINAL_4K_2160p.mp4` (+ `.en.srt`, `audio_master_final_4k.wav`, `.sha256`; `shasum -a 256 -c` đạt cả bốn file). 3840×2160, H.264 BT.709, 24 fps, 28 687 khung (19:55), −16,4 LUFS, đỉnh thật −1,3 dBTP, 271 cue phụ đề. MP4 sha256 `47bd654f…`. Mọi gate `--preset final_4k` đạt: **PUBLICATION_READY**. Chưa đăng, chưa merge, chưa push; đăng là quyết định của chủ kênh.
+- **Duyệt (2026-11-04, `APP-M8.4-CLAIMS-AND-PRONUNCIATION`):** 76 claim được lời dẫn dùng EDITORIALLY_APPROVED (6 claim không được nói giữ SOURCE_VERIFIED); danh sách 29 thuật ngữ ACCEPTED_BY_OWNER cho audio m8-r4; Corinne và Cincinnati CONFIRMED theo lời chủ kênh. **Agent không chứng kiến và không ghi một buổi nghe nào**; hồ sơ ghi rõ điều đó (`confirmation_basis`). Duyệt giọng `am_michael` theo dự án giữ nguyên.
+- **Render:** 12 chương theo thứ tự, mỗi lần một Blender, `--release-frames`. Từ 19:27 đến 04:08 (8 giờ 41 phút; thời gian render thực 8,2 giờ, không có khoảng nghỉ do máy ngủ). Khoảng 3,1 giây mỗi khung ở shot 3D 4K, khoảng 0,6 giây ở shot 2D. Chương nặng nhất: C11 (khoảng 4,4 giờ).
+- **Dọn dẹp trước render:** xóa PNG và video review cũ (m8-r2 1080p, m8-r3 720p, `renders/review`, `renders/preview`), giải phóng khoảng 31 GB. Giữ `renders/final_4k`, `output/chapters_final_4k` (bản trung gian 4K) và hai thư mục `baseline_*` của M7. Các file này nằm ngoài git (`.gitignore`).
+- **Kiểm tra:** test offline 322/322, test Blender 21/21 (repo không đổi), đánh giá lập kế hoạch 29/29, Blender QA 944/944, manifest khớp.
+- **Đã sửa khi ghép:** kế hoạch hình báo cũ vì `sources.json` đổi khi ghi duyệt; chạy lại `plan-visuals`, `validate-plan`, `build-shots`. Chỉ hai hash của kế hoạch đổi; shot, khung và timing giữ nguyên.
+
 ## 0.9.4 — 2026-11-04 — M8.2: m8-r4 theo lần nhận xét thứ hai của chủ kênh (chưa render)
 - **Nhận xét** (`REV-M8.2-SECOND-TEXT-REVIEW`): yêu cầu sửa, không phải duyệt. Chưa render gì, theo yêu cầu.
 - **Gói duyệt:** phần "Các điểm cần lưu ý" (từ `review/EDITORIAL_NOTES.md`) viết lại theo phim hiện tại. Các câu đã bỏ ("200 to 300 feet", "133 years", "Today…") chỉ còn ở mục "Đã bỏ" kèm lý do. Card B23C được mô tả là hai loại số, không phải toàn dải kinh tế. Thời lượng và trần ghi đúng 19,9 phút / 30 phút.

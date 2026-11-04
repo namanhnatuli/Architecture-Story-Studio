@@ -1,6 +1,6 @@
 # Subtitle QA
 
-- File: `output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.en.srt` — 271 cues for 169 sentences; 173 two-line cues; longest line 42 chars (limit 42); max reading speed 18.0 chars/s.
+- File: `output/why_bridges_look_different_FINAL_4K_2160p.en.srt` — 271 cues for 169 sentences; 173 two-line cues; longest line 42 chars (limit 42); max reading speed 18.0 chars/s.
 - Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: 102; sentence-span fallbacks: 0.
 - Text comes from the script (official spellings kept); ASR text is never used as subtitle text.
 - Problems: none
@@ -271,18 +271,18 @@
 | 254 | 1120.067 | 1125.572 | 5.51 | 13.4 | The other is the world it was built in: (39) / its materials, its site, its span, (34) | whisper word alignment + waveform | after “span,” at 5.50s (-60.0 dBFS) |
 | 255 | 1125.572 | 1127.767 | 2.19 | 12.8 | its budget and its builders. (28) | whisper word alignment + waveform | sentence end |
 | 256 | 1128.733 | 1132.283 | 3.55 | 11.5 | And it is not a simple story of progress. (41) | sentence span | sentence end |
-| 257 | 1132.433 | 1136.788 | 4.36 | 15.8 | Timber beam bridges were still being (36) / built long after timber trusses, (32) | whisper word alignment + waveform | after “trusses,” at 4.36s (-77.9 dBFS) |
-| 258 | 1136.788 | 1141.508 | 4.72 | 13.1 | and stone arches briefly returned (33) / during the Great Depression. (28) | whisper word alignment + waveform | sentence end |
-| 259 | 1141.658 | 1146.103 | 4.44 | 13.3 | And in 2012, a federal handbook (31) / still named a kind of beam, (27) | whisper word alignment + waveform | after “beam,” at 4.45s (-75.0 dBFS) |
-| 260 | 1146.103 | 1150.908 | 4.81 | 11.9 | the welded plate girder, (24) / as the most common steel bridge. (32) | whisper word alignment + waveform | sentence end |
-| 261 | 1151.058 | 1152.373 | 1.32 | 9.1 | At one time, (12) | whisper word alignment + waveform | after “time,” at 1.31s (-79.9 dBFS) |
-| 262 | 1152.373 | 1157.333 | 4.96 | 16.1 | a great number of small suspension bridges (42) / were built across the country, simply (37) | whisper word alignment + waveform | after “simply” at 6.28s (-72.9 dBFS) |
-| 263 | 1157.333 | 1160.158 | 2.83 | 11.7 | because they were easy to put up. (33) | whisper word alignment + waveform | sentence end |
-| 264 | 1160.308 | 1164.533 | 4.23 | 14.0 | Each form can still be the (26) / right answer in the right place. (32) | sentence span | sentence end |
-| 265 | 1165.483 | 1169.183 | 3.70 | 13.0 | Next time you cross a bridge, (29) / look at its shape. (18) | sentence span | sentence end |
-| 266 | 1169.333 | 1172.228 | 2.89 | 14.2 | It shows how the load reaches the ground, (41) | whisper word alignment + waveform | after “ground,” at 2.90s (-68.3 dBFS) |
-| 267 | 1172.228 | 1175.358 | 3.13 | 14.1 | and something about the (23) / people who built it. (20) | whisper word alignment + waveform | sentence end |
-| 268 | 1175.508 | 1177.853 | 2.35 | 13.2 | These models are illustrations, (31) | whisper word alignment + waveform | after “illustrations,” at 2.35s (-74.7 dBFS) |
-| 269 | 1177.853 | 1184.458 | 6.61 | 11.2 | not engineering designs, and the arrows (39) / show ideas, not calculated forces. (34) | whisper word alignment + waveform | sentence end |
-| 270 | 1185.442 | 1188.267 | 2.83 | 11.7 | Thank you very much for watching. (33) | sentence span | sentence end |
-| 271 | 1188.417 | 1193.242 | 4.83 | 12.4 | The sources and photo credits (29) / are listed in the description. (30) | sentence span | sentence end |
+| 257 | 1132.433 | 1137.378 | 4.94 | 16.6 | Timber beam bridges were still being built (42) / long after timber trusses stopped being (39) | whisper word alignment + waveform | after “being” at 4.95s (-56.5 dBFS) |
+| 258 | 1137.378 | 1142.983 | 5.61 | 13.4 | competitive, and stone arches briefly (37) / returned during the Great Depression. (37) | whisper word alignment + waveform | sentence end |
+| 259 | 1143.133 | 1147.578 | 4.44 | 13.3 | And in 2012, a federal handbook (31) / still named a kind of beam, (27) | whisper word alignment + waveform | after “beam,” at 4.45s (-75.0 dBFS) |
+| 260 | 1147.578 | 1152.383 | 4.81 | 11.9 | the welded plate girder, (24) / as the most common steel bridge. (32) | whisper word alignment + waveform | sentence end |
+| 261 | 1152.533 | 1153.848 | 1.32 | 9.1 | At one time, (12) | whisper word alignment + waveform | after “time,” at 1.31s (-79.9 dBFS) |
+| 262 | 1153.848 | 1158.808 | 4.96 | 16.1 | a great number of small suspension bridges (42) / were built across the country, simply (37) | whisper word alignment + waveform | after “simply” at 6.28s (-72.9 dBFS) |
+| 263 | 1158.808 | 1161.633 | 2.82 | 11.7 | because they were easy to put up. (33) | whisper word alignment + waveform | sentence end |
+| 264 | 1161.783 | 1166.008 | 4.22 | 14.0 | Each form can still be the (26) / right answer in the right place. (32) | sentence span | sentence end |
+| 265 | 1166.983 | 1170.683 | 3.70 | 13.0 | Next time you cross a bridge, (29) / look at its shape. (18) | sentence span | sentence end |
+| 266 | 1170.833 | 1173.728 | 2.89 | 14.2 | It shows how the load reaches the ground, (41) | whisper word alignment + waveform | after “ground,” at 2.90s (-68.3 dBFS) |
+| 267 | 1173.728 | 1176.858 | 3.13 | 14.1 | and something about the (23) / people who built it. (20) | whisper word alignment + waveform | sentence end |
+| 268 | 1177.008 | 1179.353 | 2.35 | 13.2 | These models are illustrations, (31) | whisper word alignment + waveform | after “illustrations,” at 2.35s (-74.7 dBFS) |
+| 269 | 1179.353 | 1185.958 | 6.61 | 11.2 | not engineering designs, and the arrows (39) / show ideas, not calculated forces. (34) | whisper word alignment + waveform | sentence end |
+| 270 | 1186.942 | 1189.767 | 2.83 | 11.7 | Thank you very much for watching. (33) | sentence span | sentence end |
+| 271 | 1189.917 | 1194.742 | 4.83 | 12.4 | The sources and photo credits (29) / are listed in the description. (30) | sentence span | sentence end |

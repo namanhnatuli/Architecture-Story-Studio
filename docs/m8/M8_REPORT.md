@@ -278,3 +278,11 @@ File: `projects/why-bridges-look-different/output/why_bridges_look_different_M8_
 - **Revision m8-r4:** 169 câu, 19,92 phút (28 687 khung); B33.s1 đọc lại, ASR WER 0. QA dài PASS; 2 shot cần render (SC_058, SC_073).
 - **Kiểm tra:** test offline 321/322; test còn lại so bản ghép 720p (m8-r3) với timing m8-r4 và sẽ đạt sau lần render tới. Gates G4/G5 FAIL vì media cũ. Không chạy Blender.
 
+
+## M8.2 (2026-11-05): duyệt m8-r4 và bản cuối 4K
+- **Bản cuối 4K của m8-r4:** `output/why_bridges_look_different_FINAL_4K_2160p.mp4` (+ `.en.srt`, `audio_master_final_4k.wav`, `.sha256`; `shasum -a 256 -c` đạt cả bốn file). 3840×2160, H.264 BT.709, 24 fps, 28 687 khung (19:55), −16,4 LUFS, đỉnh thật −1,3 dBTP, 271 cue phụ đề. MP4 sha256 `47bd654f…`. Mọi gate `--preset final_4k` đạt: **PUBLICATION_READY**. Chưa đăng, chưa merge, chưa push; đăng là quyết định của chủ kênh.
+- **Duyệt (2026-11-04, `APP-M8.4-CLAIMS-AND-PRONUNCIATION`):** 76 claim được lời dẫn dùng EDITORIALLY_APPROVED (6 claim không được nói giữ SOURCE_VERIFIED); danh sách 29 thuật ngữ ACCEPTED_BY_OWNER cho audio m8-r4; Corinne và Cincinnati CONFIRMED theo lời chủ kênh. **Agent không chứng kiến và không ghi một buổi nghe nào**; hồ sơ ghi rõ điều đó (`confirmation_basis`). Duyệt giọng `am_michael` theo dự án giữ nguyên.
+- **Render:** 12 chương theo thứ tự, mỗi lần một Blender, `--release-frames`. Từ 19:27 đến 04:08 (8 giờ 41 phút; thời gian render thực 8,2 giờ, không có khoảng nghỉ do máy ngủ). Khoảng 3,1 giây mỗi khung ở shot 3D 4K, khoảng 0,6 giây ở shot 2D. Chương nặng nhất: C11 (khoảng 4,4 giờ).
+- **Dọn dẹp trước render:** xóa PNG và video review cũ (m8-r2 1080p, m8-r3 720p, `renders/review`, `renders/preview`), giải phóng khoảng 31 GB. Giữ `renders/final_4k`, `output/chapters_final_4k` (bản trung gian 4K) và hai thư mục `baseline_*` của M7. Các file này nằm ngoài git (`.gitignore`).
+- **Kiểm tra:** test offline 322/322, test Blender 21/21 (repo không đổi), đánh giá lập kế hoạch 29/29, Blender QA 944/944, manifest khớp.
+- **Đã sửa khi ghép:** kế hoạch hình báo cũ vì `sources.json` đổi khi ghi duyệt; chạy lại `plan-visuals`, `validate-plan`, `build-shots`. Chỉ hai hash của kế hoạch đổi; shot, khung và timing giữ nguyên.

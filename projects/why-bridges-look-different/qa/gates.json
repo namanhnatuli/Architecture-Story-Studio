@@ -1,7 +1,7 @@
 {
-  "verdict": "INTERNAL PREVIEW — NOT PUBLICATION-READY (NOT TECHNICALLY VALIDATED; EDITORIAL_REVIEW_PENDING)",
+  "verdict": "PUBLICATION_READY",
   "statuses": [
-    "EDITORIAL_REVIEW_PENDING"
+    "PUBLICATION_READY"
   ],
   "gates": {
     "G0 project & schema validation": {
@@ -11,13 +11,9 @@
       ]
     },
     "G1 evidence, script & pronunciation review": {
-      "status": "PENDING_EDITORIAL",
+      "status": "PASS",
       "notes": [
-        "0/76 narrated claims editorially approved (see review/EDITORIAL_APPROVAL_PACKAGE.md)",
-        "factual_review: pending",
-        "pronunciation pending: PRON_CINCINNATI (Cincinnati) PENDING_LISTENING_REVIEW",
-        "pronunciation pending: PRON_CORINNE (Corinne) PENDING_LISTENING_REVIEW",
-        "pronunciation pending: voice.pronunciation_review PENDING (29 terms)"
+        "76 claims editorially approved; factual_review verified; pronunciation: current audio accepted by the owner (no per-item listening recorded)"
       ]
     },
     "G2 narration audio & TTS rights": {
@@ -34,31 +30,28 @@
       ]
     },
     "G4 Blender visual preview": {
-      "status": "FAIL",
+      "status": "PASS",
       "notes": [
         "Blender QA 944/944",
-        "media QA is stale (rendered for a different timing)"
+        "media QA PASS"
       ]
     },
     "G5 media assembly & subtitles": {
-      "status": "FAIL",
+      "status": "PASS",
       "notes": [
-        "assembly report is stale (assembled for a different timing)"
+        "28687 frames, -16.4 LUFS, 271 subtitle cues"
       ]
     },
     "GL long-form chapters & rights": {
       "status": "PASS",
       "notes": [
-        "17 checks pass, 3 warnings"
+        "17 checks pass, 2 warnings"
       ]
     },
     "G6 final publication readiness": {
-      "status": "BLOCKED",
+      "status": "PASS",
       "notes": [
-        "FINAL gate: unverified claims used in the film (claims must be EDITORIALLY_APPROVED): CLM_701, CLM_702, CLM_703, CLM_704, CLM_705, CLM_706, CLM_707, CLM_708",
-        "FINAL gate: pronunciation PRON_CINCINNATI (Cincinnati) is PENDING_LISTENING_REVIEW, not CONFIRMED by a human listener",
-        "FINAL gate: pronunciation PRON_CORINNE (Corinne) is PENDING_LISTENING_REVIEW, not CONFIRMED by a human listener",
-        "FINAL gate: factual_review is not verified"
+        "all gates pass"
       ]
     },
     "GV visual plan & coverage": {
@@ -68,5 +61,5 @@
       ]
     }
   },
-  "profile": "NARRATED_INTERNAL_REVIEW"
+  "profile": "PUBLICATION_CANDIDATE"
 }

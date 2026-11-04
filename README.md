@@ -171,8 +171,7 @@ Phim được làm lại theo yêu cầu của chủ kênh, với dầm, vòm, g
 - **M8.2 (2026-11-04), revision m8-r3:** sửa nội dung theo nhận xét biên tập của chủ kênh.
   - Bỏ hai nhận định có phản chứng hoặc thiếu điều kiện. Các nhận định có năm nguồn được nói kèm năm. Card dải nhịp tách hai loại số.
   - Có hai mục ghi đè phát âm chờ chủ kênh nghe.
-  - Chưa render lại video, theo yêu cầu.
-- Bản review nội bộ: `output/why_bridges_look_different_M8_INTERNAL_REVIEW_1080p.mp4`, chờ chủ kênh duyệt.
+- **Revision m8-r4 (2026-11-04/05):** chủ kênh duyệt 76 claim và phát âm; bản cuối native 4K (`output/why_bridges_look_different_FINAL_4K_2160p.mp4`) đạt mọi gate → PUBLICATION_READY. Chưa đăng.
 - Bản 4K đã duyệt của m7-r1 giữ ở tag `m7-final-4k`.
 
 Chi tiết: [`docs/m8/M8_REPORT.md`](docs/m8/M8_REPORT.md).
