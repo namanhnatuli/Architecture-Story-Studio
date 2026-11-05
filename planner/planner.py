@@ -422,10 +422,26 @@ def build_strategy(name, ctx):
                 raise StrategyRejected("INVALID_REQUEST", f"highlight_at_sentence {k} is not a sentence of the beat")
             glow_start = max(m["highlight"]["start"], spans[k][0] - 0.2)
         move = beat.get("camera_move")
-        return [Draft("HOLD", mode, hold(sid, tg, mode, glow_start=glow_start, move=move), w["HOLD"], [sid], tg,
+        # The framing: only the highlighted parts (close_on_targets), or named parts (close_on), so that two
+        # beats lighting different parts can share one locked view. The Draft carries it: the cut type compares it.
+        focus = None
+        if beat.get("close_on"):
+            try:
+                focus = ids_of(mapper.resolve_targets(beat["close_on"], model.parts(sid), model.vocab, sid))
+            except mapper.MappingError as e:
+                raise StrategyRejected("INVALID_REQUEST", f"close_on: {e}")
+        elif beat.get("close_on_targets") and tg:
+            focus = ids_of(tg)
+        glow = None
+        if beat.get("glow_only"):   # the beat is about all its targets, but only these light up
+            try:
+                glow = ids_of(mapper.resolve_targets(beat["glow_only"], model.parts(sid), model.vocab, sid))
+            except mapper.MappingError as e:
+                raise StrategyRejected("INVALID_REQUEST", f"glow_only: {e}")
+        return [Draft("HOLD", mode, hold(sid, tg, mode, focus=focus, glow=glow, glow_start=glow_start, move=move), w["HOLD"], [sid], tg,
                       f"hold {sid}" + (f", glowing {', '.join(t['concept'] for t in tg)}" if tg else "")
                       + (f" from sentence {k}" if glow_start is not None else "")
-                      + (f"; slow push-in ({move.get('amount', 0.1):.0%})" if move else ""))]
+                      + (f"; slow push-in ({move.get('amount', 0.1):.0%})" if move else ""), focus=focus)]
 
     if name == "ASSEMBLE_IN":
         need_states(1)
@@ -546,11 +562,24 @@ def build_strategy(name, ctx):
                 raise StrategyRejected("INVALID_REQUEST", f"REPLACE_PARTS {a} -> {b} is not possible: {why}")
             support(b, "REPLACE_PARTS")
         out_ids, in_ids = templates.replace_sets(ctx["draft_states"], a, b) if name != "SEQUENTIAL_STATES" else ([], [])
-        tga, tgb = targets_in(a) if ctx["component_refs"] else [], targets_in(b) if ctx["component_refs"] else []
+        per_state = beat.get("state_targets") or {}   # two different structures can light different parts
+
+        def targets_of(sid):
+            if sid in per_state:
+                return mapper.resolve_targets(per_state[sid], model.parts(sid), model.vocab, sid)
+            return targets_in(sid) if ctx["component_refs"] else []
+        tga, tgb = targets_of(a), targets_of(b)
         if name == "SEQUENTIAL_STATES":
-            return [Draft("HOLD", "FULL_OBJECT", hold(a, tga, "FULL_OBJECT"), w["HOLD"], [a], tga, f"show {a}"),
-                    Draft("HOLD", "FULL_OBJECT", hold(b, tgb, "FULL_OBJECT"), w["HOLD"], [b], tgb,
-                          f"cut to {b} (not swap-compatible with {a}, shown separately)")]
+            same = beat.get("same_scale")   # one locked camera for both, captioned, so their sizes compare honestly
+            drafts = [Draft("HOLD", "FULL_OBJECT", hold(s_, t_, "FULL_OBJECT", label=model.states[s_]["label"] if same else None),
+                            w["HOLD"], [s_], t_, why) for s_, t_, why in (
+                                (a, tga, f"show {a}"), (b, tgb, f"cut to {b} (not swap-compatible with {a}, shown separately)"))]
+            if same:
+                for d in drafts:
+                    d.sequence = f"SEQ_{beat['beat_id']}"
+                    d.composition = {"layout": "SEQUENTIAL_COMPARISON", "purpose": beat["narrative_intent"], "scale": "COMMON",
+                                     "sequence": [a, b], "metrics": {}}
+            return drafts
         r = m["replace"]
 
         def make_rep(extra_start):

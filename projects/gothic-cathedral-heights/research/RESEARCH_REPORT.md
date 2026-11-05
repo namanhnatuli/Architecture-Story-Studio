@@ -1,14 +1,15 @@
 # Báo cáo nghiên cứu: How Gothic Cathedrals Reached Impossible Heights
 
-Ngày 2026-11-05. Sổ claim: `research/sources.json` (sinh bằng `research/build_sources.py`). 30 trang/tài liệu nguồn, 56 claim `SOURCE_VERIFIED`, mỗi trích dẫn đều được script khớp nguyên văn với bản tải về (`research/source_snapshots.json`, có SHA256). Chưa claim nào được duyệt biên tập. Khớp nguyên văn chỉ cho biết nguồn có viết câu đó, **không chứng minh phép khái quát của phim là đúng**: lần duyệt đầu của chủ kênh (2026-11-05) đã tìm ra nhiều chỗ như vậy (revision g-r2, mục cuối).
+Ngày 2026-11-05. Sổ claim: `research/sources.json` (sinh bằng `research/build_sources.py`). 35 trang/tài liệu nguồn, 56 claim `SOURCE_VERIFIED`, mỗi trích dẫn đều được script khớp nguyên văn với bản tải về (`research/source_snapshots.json`, có SHA256). Chưa claim nào được duyệt biên tập. Khớp nguyên văn chỉ cho biết nguồn có viết câu đó, **không chứng minh phép khái quát của phim là đúng**: lần duyệt đầu của chủ kênh (2026-11-05) đã tìm ra nhiều chỗ như vậy (revision g-r2, mục cuối).
 
 ## Nguồn chính
 
 | Nhóm | Nguồn | Mức tin cậy và cách dùng |
 |---|---|---|
-| Kết cấu đá | Luận văn MIT của Philippe Block, 2005 (tóm tắt lý thuyết của Jacques Heyman); Block, DeJong và Ochsendorf, Nexus Network Journal 2006; trang dự án Romano và Ochsendorf (MIT) | Cao. Dùng cho ổn định, đường lực đẩy và các giả định của nó, Hooke 1675, so sánh vòm tròn và vòm nhọn, luật hình học của thợ cả |
+| Kết cấu đá | Luận văn MIT của Philippe Block, 2005 (tóm tắt lý thuyết của Jacques Heyman); Block, DeJong và Ochsendorf, Nexus Network Journal 2006; luận án tiến sĩ Cambridge của John Ochsendorf, 2002; trang dự án Romano và Ochsendorf (MIT) | Cao. Dùng cho ổn định, đường lực đẩy và các giả định của nó, vòm trên gối dịch chuyển, Hooke 1675, so sánh vòm tròn và vòm nhọn, luật hình học của thợ cả |
 | Durham | Roger Stalley, trang dạy học của Columbia; trang của nhà thờ Durham | Cao. Dùng cho niên đại xây dựng, các giai đoạn vòm, vòm nhọn và cao độ đỉnh |
-| Beauvais | Vernhes, Renault, Zotna, hai bài ECSMGE 2024, truy cập mở (tác giả gồm cơ quan bảo tồn di tích vùng) | Cao. Dùng cho niên đại, quyết định nâng vòm, ba cách giải thích năm 1284, tháp năm 1573 |
+| Beauvais | Vernhes, Renault, Zotna, hai bài ECSMGE 2024, truy cập mở (tác giả gồm cơ quan bảo tồn di tích vùng); Stephen Murray, các trang Columbia về Beauvais | Cao. Dùng cho niên đại, quyết định nâng vòm, ba cách giải thích năm 1284, tháp năm 1573, ba gian thành sáu, chiều cao đỉnh vòm |
+| Cluny | Trang của di tích (Centre des monuments nationaux); thư viện Loeb, Harvard; New Catholic Encyclopedia | Cao. Dùng cho năm 1088 của công trình và việc Cluny III có vòm nhọn |
 | Amiens và Gothic nói chung | Columbia University, "Life of a Cathedral" (Stephen Murray) | Cao, nhưng là trang dạy học: có lỗi đánh máy và một lỗi niên đại (xem dưới) |
 | Vòm nhọn, vòm gân, trụ chống bay | BnF Essentiels / Passerelles (Thư viện Quốc gia Pháp) | Cao, nhưng là tài liệu phổ thông: một câu về Chartres được nói hẹp lại |
 | Saint-Denis | Arnaud Timbert, France Mémoire; Columbia (bản đồ Paris) | Cao |
@@ -29,12 +30,13 @@ Nguồn **không mở được và không dùng**: Britannica, UNESCO, Smarthist
 9. **Vòm nhọn đẩy ít hơn bao nhiêu:** bài Block 2006 viết "about 15% less", nhưng các số làm tròn trong chính bài (16% và 25% so với 14% và 23% trọng lượng bản thân) cho khoảng 12,5% và 8%. Phim không đọc và không ghi con số phần trăm: hai vòm trên hình không phải hai vòm của nghiên cứu, và các khoảng số cần giải thích riêng về lực đẩy tối thiểu và tối đa (nhận xét lần hai của chủ kênh).
 10. **Hai vòm nhọn chéo nhau:** hội Beauvais và BnF gọi các gân chéo là "hai vòm nhọn". Stalley mô tả gân chéo ở Durham là một đoạn cung tròn, còn vòm nhọn nằm ở vị trí ngang. Phim chỉ nói "two ribs".
 11. **Vì sao có gân:** Stalley cho rằng ở Durham lý do có thể là thẩm mỹ và ý nghĩa nhiều hơn kết cấu. Theo quyết định biên tập của chủ kênh, lời dẫn không nêu ý này vì nó kéo người xem khỏi câu hỏi vòm làm việc thế nào; ý này giữ trong sổ claim (`CLM_144`).
-12. **Cluny và năm 1088:** trang của di tích (Centre des monuments nationaux) gắn 1088 với dự án xây nhà thờ mới, còn hội Beauvais viết "around 1088" về công trường. Chưa có nguồn nào cho niên đại của chính các vòm nhọn, nên phim nói "whose construction began around 1088" và timeline ghi "Cluny III: construction begins". Việc Cluny III có vòm nhọn hiện dựa vào hội Beauvais; BnF chỉ nói Romanesque thỉnh thoảng dùng vòm nhọn.
+12. **Cluny và năm 1088:** trang của di tích (Centre des monuments nationaux) gắn 1088 với dự án xây nhà thờ mới, còn hội Beauvais viết "around 1088" về công trường. Chưa có nguồn nào cho niên đại của chính các vòm nhọn, nên phim nói "whose construction began around 1088" và timeline ghi "Cluny III: construction begins". Việc Cluny III có vòm nhọn nay có nguồn độc lập: thư viện Loeb của Harvard và New Catholic Encyclopedia ("pointed, ribbed barrel vault"). Câu "lần đầu ở quy mô đó" của New Catholic Encyclopedia không được dùng.
+13. **Ba gian thành sáu:** chính Stephen Murray viết trên trang Columbia: "additional supports have been interposed between the piers of the main arcade, transforming three bays into six and quadripartite vaults to sexpartite". Mục này không còn chỉ dựa vào hội Beauvais.
 
 ## Giới hạn
 
 - Các claim về lực là định tính, phim không có con số về lực, ứng suất hay hệ số an toàn.
-- Vài chi tiết chỉ có một nguồn thứ cấp: ví von "như cánh cung", vòm nhọn ở Cluny, ba gian thành sáu, tháp 150 m. Chủ kênh nên xem kỹ các claim `confidence: medium` khi duyệt.
+- Vài chi tiết chỉ có một nguồn thứ cấp: ví von "như cánh cung", tháp 150 m. Chủ kênh nên xem kỹ các claim `confidence: medium` khi duyệt.
 - Câu "chuỗi vẫn còn chạy qua tòa nhà" dựa vào thì hiện tại trên trang Columbia (bản quyền 2017), chưa kiểm tra tại chỗ.
 - `CLM_105` (Gothic xuất hiện ở Pháp những năm 1140), `CLM_133` (câu của Columbia về đường dây xích) và `CLM_144` (ý của Stalley về gân vòm) có trong sổ nhưng lời dẫn không dùng.
 - Câu "A taller arch can push less" dựa trên nhiều nguồn định tính và một ví dụ vòm trên gối dịch chuyển, nên phim nói "can". Tôi chưa đọc toàn văn nghiên cứu của Romano và Ochsendorf, chỉ đọc trang tóm tắt; bản đầy đủ sẽ cho biết điều kiện cụ thể hơn.
@@ -45,16 +47,36 @@ Sổ claim được viết lại ở những chỗ phép khái quát vượt qu�
 
 ## Thay đổi sau lần nhận xét thứ hai (g-r3)
 
-**Hình B40 là tính toán lại, không phải chép hình.** Một đường vẽ không vừa không chứng minh được rằng không có đường nào vừa, nên B40 nay dựng theo ví dụ vòm trên gối dịch chuyển trong Block, DeJong và Ochsendorf 2006, Hình 5. Tôi tính lại bằng cùng phương pháp (`script/arch_statics.py`, chỉ trọng lượng bản thân, khớp xoay ở 54,4° như in trên hình) và đối chiếu với các số in trong bài:
+**Hình B40 là tính toán lại, không phải chép hình.** Một đường vẽ không vừa không chứng minh được rằng không có đường nào vừa, nên B40 dựng theo ví dụ vòm trên gối dịch chuyển trong Block, DeJong và Ochsendorf 2006, Hình 5.
 
-| Đại lượng | Trong bài | Tính lại |
-|---|---|---|
-| Hình 4(a), vòm bán nguyệt t/R 18%: lực đẩy tối thiểu và tối đa, % trọng lượng | 16 và 25 | 16,2 và 24,4 |
-| Hình 5, t/R 15,24%, 160°: lực đẩy tối thiểu, % trọng lượng | 19,80 | 19,66 (dùng 54,4°: 19,59) |
-| Hình 5(b), nhịp tăng 5,09%: lực đẩy tăng, % | 24,59 | 28 |
-| Hình 5(c), giới hạn sập: nhịp tăng, % | 11,49 | 10,6 |
-| Hình 5(c), giới hạn sập: lực đẩy tăng, % | 85,10 | 86 |
+**Bản g-r3 đầu tiên có hai lỗi trong phép tính giới hạn sập, đã sửa:**
+1. Tôi đo độ tăng nhịp theo đường tâm, trong khi chương trình gốc đo theo nhịp mặt trong, `(2R − t)·sinα`. Vì vậy tôi so hai đại lượng khác nhau.
+2. Tôi cố định khớp xoay và thêm một dung sai tự đặt. Luận án Ochsendorf 2002 cho thấy khớp xoay dịch dần về phía đỉnh vòm khi gối đỡ dịch ra.
 
-Các số gần nhau nhưng không trùng, và bài không nêu cách chia khối của nó. Các số trong Hình 5 được đọc từ nhãn trên hình, không có trong phần chữ. Phim và card không nêu số nào trong bảng này. Test `GothicThrustLineTest` giữ các so sánh trên.
+`script/arch_statics.py` nay chuyển đúng thuật toán của chương trình ArchSpread (Phụ lục A.1 của luận án) sang Python: chỉ trọng lượng bản thân, voussoir 0,1°, 1000 bước như chương trình gốc. Đối chiếu với kết quả đã công bố:
+
+| Trường hợp | Đại lượng | Công bố | Tính lại |
+|---|---|---|---|
+| Luận án, Bảng 5.3 (t/R 0,10, α 60°, voussoir 0,1°) | Khớp ban đầu → khi sập | 53,8° → 42,7° | 53,8° → 42,8° |
+| | Nhịp tăng | 8,2% | 8,20% |
+| | Lực đẩy | 2,16 Hmin | 2,16 Hmin |
+| | Độ võng đỉnh | 1,73 t | 1,71 t |
+| Luận án, mục 5.5 (t/R 0,1075, α 80°) | Khớp | 54,5° → 52,2° | 54,5° → 52,2° |
+| Luận án, mục 5.5 (t/R 0,1075, α 60°) | Khớp | 54,5° → 43,2° | 54,5° → 43,2° |
+| Block 2006, Hình 4(a) (t/R 18%) | Lực đẩy tối thiểu và tối đa, % trọng lượng | 16 và 25 | 16,2 và 24,4 |
+| Block 2006, Hình 5 (t/R 15,24%, 160°) | Lực đẩy tối thiểu, % trọng lượng | 19,80 | 19,66 |
+| | Lực đẩy tăng khi nhịp tăng 5,00% | 24,59% | 22,6% |
+| | Giới hạn sập: nhịp tăng | 11,49% | 11,17% |
+| | Giới hạn sập: lực đẩy tăng | 85,10% | 83,8% |
+| | Khớp khi sập | 54,4° | 53,9° |
+
+**Kiểm tra độc lập:** giới hạn sập được tính bằng hai đường khác nhau và khớp nhau trong test: khả năng chịu của phần vòm sát gối (cân bằng mô-men quanh mép ngoài ở gối) và vị trí điểm áp lực trên từng mạch đá trong hình đã biến dạng.
+
+**Chỗ chưa khớp, ghi rõ:**
+- Với voussoir lớn (1° đến 10°), độ tăng nhịp gần đúng (7,95 đến 9,26% so với 8,0 đến 9,3%), nhưng khớp khi sập lệch (43° đến 50° so với 40° đến 42°). Phim không dùng các trường hợp này.
+- Kết quả phụ thuộc nhẹ vào số bước: với Bảng 5.3, 1000 bước cho 8,20%, còn 20.000 bước cho 7,82%. Với ví dụ của phim, độ lệch dưới 0,1%.
+- Các số của Hình 5 được đọc từ nhãn trên hình độ phân giải thấp. Tôi không phải kỹ sư kết cấu; nếu cần chắc hơn nên nhờ người có chuyên môn xem lại.
+
+Phim và card không nêu số nào trong bảng này. Test `GothicThrustLineTest` giữ các phép đối chiếu.
 
 Sổ claim cũng được thu hẹp để người duyệt không phải chấp thuận phát biểu rộng hơn lời dẫn: `CLM_123` theo yêu cầu của chủ kênh, và `CLM_143`, `CLM_156`, `CLM_157`, `CLM_161`, `CLM_185`, `CLM_190`, `CLM_191` do tôi rà thêm.

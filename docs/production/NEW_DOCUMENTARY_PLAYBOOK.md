@@ -44,6 +44,15 @@ AGENT viết câu hỏi trung tâm và câu hỏi nghiên cứu vào `research/R
   - nhận định có năm của nguồn (ví dụ sổ tay 2012) được nói kèm năm, không chuyển sang thì hiện tại; giữ đủ điều kiện của nguồn (nơi, cỡ nhịp, dạng kết cấu) (M8.2);
   - trích đúng nguồn chưa đủ: một câu nguồn có phản chứng đã biết thì không dùng, và ghi lý do vào `assumptions` của claim (M8.2, "133 years");
   - không đặt các con số khác nghĩa trên cùng một thang mà không phân biệt, ví dụ dải kinh tế và nhịp đã xây (M8.2).
+- **Kiểm tra bắt buộc: lời và hình có khẳng định vượt quá bằng chứng không?** (yêu cầu của chủ kênh, 2026-11-05). Làm trước khi giao kịch bản và làm lại trước khi giao bản review. Khớp nguyên văn với nguồn chỉ chứng minh nguồn có viết câu đó. Với từng câu và từng hình, hỏi:
+  - **Điều kiện:** câu tổng quát có giữ điều kiện của nguồn không (hình học, tải, giả định phân tích)? Một phép so sánh cụ thể không phải quy luật.
+  - **Hình chứng minh gì:** hình có nói nhiều hơn điều nó thực sự cho thấy không? Một đường vẽ không vừa không chứng minh rằng không có đường nào vừa. Hình so sánh phải có thay đổi thật về tải, hình dạng hoặc gối đỡ.
+  - **Số trên hình:** số có bị hiểu là của chính vật đang vẽ không? Số của một nghiên cứu chỉ đặt cạnh hình tái hiện đúng ví dụ của nghiên cứu đó, kèm giải thích.
+  - **Niên đại:** năm của cả công trình có bị đọc thành năm của một bộ phận không (Durham 1093, Cluny 1088)?
+  - **Nguồn được nêu tên:** câu nêu tên nguồn có được beat đó dẫn đúng nguồn không?
+  - **Sổ claim:** claim có rộng hơn lời dẫn không? Người duyệt không phải chấp thuận phát biểu rộng hơn điều phim nói.
+  - **Đối lập:** phần đầu có tạo ấn tượng mà kết luận của phim phủ nhận không (Romanesque tối, Gothic thông minh)?
+  - **Hình dựa trên phép tính:** phải tái hiện ví dụ đã công bố bằng phương pháp đã công bố, đối chiếu với kết quả in trong nguồn, có test giữ phép đối chiếu, và ghi rõ chỗ chưa khớp. Không dùng dung sai tự đặt để qua kiểm tra.
 - **Lời kêu gọi cuối phim** (yêu cầu của chủ kênh, 2026-11-05; `production_defaults.json` → `closing_call_to_action`):
   - một beat `framing` trong chương cuối, sau kết luận và trước card ghi công;
   - mời người xem gợi ý chủ đề trong phần bình luận, like và subscribe; tối đa 60 từ;
@@ -59,6 +68,9 @@ Nếu chủ kênh yêu cầu xem kịch bản trước khi có video:
 
 ## 7–8. Tính khả thi về hình và beat (AGENT, kiểm bằng CLI)
 - Mỗi beat có ý đồ, claim, mục tiêu hình, concept bộ phận, chiến lược và phương án dự phòng.
+- Hai mô hình khác nhau cần so kích thước: `SEQUENTIAL_STATES` với `same_scale: true` (một camera khóa) và `state_targets` (bộ phận phát sáng riêng cho từng mô hình). Với mô hình `ILLUSTRATIVE`, chênh lệch kích thước trên hình không phải số đo: đừng ghi "same scale" nếu lời dẫn và sổ claim không nói về kích thước đó.
+- Hai beat liên tiếp cùng một góc nhìn: đặt `close_on` giống nhau (bộ phận để lấy khung, độc lập với bộ phận phát sáng), planner sẽ cho match cut. Khung khác nhau thì là cut thường. `glow_only` chọn riêng bộ phận phát sáng; `highlight_at_sentence` chọn câu bắt đầu. Hai bộ phận sát nhau cùng sáng sẽ lẫn vào nhau, nên cho sáng từng bộ phận.
+- Chú thích `THRUST_ARROW`: mũi tên đẩy ngang ra ngoài, cùng độ dài như mọi mũi tên, phải có claim đã kể.
 - Chiến lược có sẵn: HOLD, HOLD_HIGHLIGHT, ASSEMBLE_IN, EXPLODE, HIGHLIGHT_THEN_EXPLODE, CLOSEUP_EXPLODE, HIGHLIGHT_REPLACE_HIGHLIGHT, COMPARE_SIDE_BY_SIDE, DETAIL_THEN_OVERVIEW, SITE_HOLD, CARD; HOLD có thể kèm `camera_move: PUSH_IN`.
 - Trộn 3D, sơ đồ, bản đồ sơ lược, dòng thời gian và ảnh có quyền. Tránh chuỗi 2D dài.
 
@@ -66,6 +78,7 @@ Nếu chủ kênh yêu cầu xem kịch bản trước khi có video:
 - `python3 tools/cli.py asset-catalog` liệt kê thư viện:
   - cầu trên site 24 m: dầm gỗ, vòm đá, giàn Pratt/Warren;
   - cầu nhịp lớn trên site 72 m (M8): công-xôn, cầu treo, dây văng;
+  - mặt cắt nhà thờ (phim Gothic): Gothic và Romanesque kiểu vòm nôi, trên nền `site_level_ground`; camera `CATHEDRAL_SECTION` cho cảnh chung, `CATHEDRAL_FROM_BELOW` cho cận cảnh vòm (`camera_mode: COMPONENT_CLOSEUP`, `close_on` hoặc `close_on_targets: true`; cắt sát một gian, vì khung rộng để lộ chân trụ nhìn từ dưới lên);
   - nhà, mái (gồm states mái cũ ở `asset_library/legacy_states/`), site.
 - Một concept cần site riêng thì khai báo `scene_context` và `site` trong `config/visual_vocabulary.json` (xem M8).
 - Asset mới: viết spec trong `asset_library/architecture/`, chạy `asset-check --asset …` và `asset-render --asset …`. Chỉ tạo khi thật sự cần.
@@ -105,6 +118,10 @@ python3 tools/cli.py preview $P --preset preview && python3 tools/cli.py assembl
 
 ## 20–22. Ghép media, QA, giao bản review
 - AGENT xem rough cut bằng ảnh mỗi 3 giây và frame gốc, rồi ghi `qa/EDITORIAL_REVIEW_TIMECODED.md`. Mỗi lỗi có: mốc, vấn đề, vì sao quan trọng, cách sửa, ảnh hưởng, phải render lại hay không. Kèm 10 câu hỏi trải nghiệm người xem.
+  - Tìm riêng những gì QA tự động không bắt được: card trống hoặc chỉ có trục trong lúc đang có lời; nhãn chỉ vào phần không còn nhìn thấy; hai bộ phận cùng sáng đến mức lẫn vào nhau; một góc máy lặp lại quá nhiều.
+  - Đọc cả `render_*.log`: `Media QA failed` không làm lệnh `preview` dừng chuỗi lệnh nối bằng `;`, nên phải tìm dòng này trước khi ghép phim.
+  - Ảnh tách bằng `fps=1/3` lệch mốc khoảng 1,5 giây. Muốn mốc chính xác thì lấy frame bằng `-ss`.
+  - Render lại ít nhất có thể: mọi thay đổi trong `engine/**` hoặc `config/visual_style.json` làm toàn bộ shot thành stale. Thử sửa bằng planner hoặc nội dung trước.
 - Bản review:
 ```bash
 python3 tools/cli.py preview $P --preset internal_1080p && python3 tools/cli.py assemble $P --preset internal_1080p

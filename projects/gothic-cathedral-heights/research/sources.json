@@ -69,6 +69,61 @@
       "license": "Quoted for research/citation only."
     },
     {
+      "id": "SRC_CAM_OCHSENDORF_2002",
+      "title": "Collapse of Masonry Structures (PhD dissertation), John Allen Ochsendorf",
+      "publisher": "University of Cambridge, Department of Engineering; Apollo repository (1810/244820)",
+      "kind": "doctoral dissertation (structural mechanics of masonry)",
+      "edition": "June 2002",
+      "url": "https://www.repository.cam.ac.uk/bitstream/1810/244820/1/Ochsendorf25710.pdf",
+      "accessed": "2026-11-05",
+      "verification": "PDF downloaded 2026-11-05 (78 MB, 204 pages, scanned with an embedded text layer); text extracted with pdftotext; excerpts chosen where the text layer is clean and matched verbatim. Table 5.3 and program ArchSpread (Appendix A.1) were read from the same text and page images.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_CU_MURRAY_COLLAPSE",
+      "title": "The Collapse of the Choir in 1284 and the Subsequent Rebuilding, Saint-Pierre de Beauvais, by Professor Stephen Murray",
+      "publisher": "Columbia University Media Center for Art History (Medieval Architecture briefing)",
+      "kind": "university teaching website by the author of the standard study of Beauvais",
+      "edition": "web page",
+      "url": "https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_collapse.htm",
+      "accessed": "2026-11-05",
+      "verification": "HTML downloaded 2026-11-05; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_CU_MURRAY_PHASE3",
+      "title": "Phase III, 1250s-1260s, Saint-Pierre de Beauvais, by Professor Stephen Murray",
+      "publisher": "Columbia University Media Center for Art History (Medieval Architecture briefing)",
+      "kind": "university teaching website by the author of the standard study of Beauvais",
+      "edition": "web page",
+      "url": "https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_phase3.htm",
+      "accessed": "2026-11-05",
+      "verification": "HTML downloaded 2026-11-05; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_HARVARD_CLUNY",
+      "title": "'Ah, Cluny... How Wonderful... Only Paradise is More Beautiful'",
+      "publisher": "Harvard University, Graduate School of Design, Frances Loeb Library, Special Collections",
+      "kind": "university library essay",
+      "edition": "web page",
+      "url": "https://sites.gsd.harvard.edu/specialcollections/ah-clunyhow-wonderfulonly-paradise-is-more-beautiful",
+      "accessed": "2026-11-05",
+      "verification": "HTML downloaded 2026-11-05; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_NCE_CLUNY",
+      "title": "Cluniac Art and Architecture, by C. F. Barnes, Jr. (New Catholic Encyclopedia)",
+      "publisher": "New Catholic Encyclopedia, via Encyclopedia.com",
+      "kind": "reference encyclopedia article by an art historian",
+      "edition": "web page",
+      "url": "https://encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/cluniac-art-and-architecture",
+      "accessed": "2026-11-05",
+      "verification": "HTML downloaded 2026-11-05; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
       "id": "SRC_CMN_CLUNY",
       "title": "History of the Abbey of Cluny",
       "publisher": "Abbaye de Cluny, Centre des monuments nationaux (cluny-abbaye.fr)",
@@ -439,7 +494,8 @@
         "SRC_ABC_DESCRIPTION",
         "SRC_ABC_FRENCH_ART",
         "SRC_ABC_HISTORY",
-        "SRC_CU_AMIENS_UPPER_NAVE"
+        "SRC_CU_AMIENS_UPPER_NAVE",
+        "SRC_CU_MURRAY_PHASE3"
       ],
       "review_status": "SOURCE_VERIFIED",
       "confidence": "medium",
@@ -463,9 +519,14 @@
           "source_id": "SRC_CU_AMIENS_UPPER_NAVE",
           "locator": "Amiens Cathedral, upper nave, north",
           "excerpt": "Amiens at 43.3 meters is a little lower than Beauvais at 46m."
+        },
+        {
+          "source_id": "SRC_CU_MURRAY_PHASE3",
+          "locator": "Phase III",
+          "excerpt": "In royal feet of thirty-two and a half centimeters the keystones of the vaults are about 144 feet above the pavement"
         }
       ],
-      "assumptions": "The figures disagree, even within one association's pages (nearly 47 m, 46.7 m, above 48 m; Columbia: 46 m). The narration says only 'more than 45 meters', which all of them support, and the card lists the published figures, from 46 m to above 48 m (owner's script review, 2026-11-05).",
+      "assumptions": "The figures disagree, even within one association's pages (nearly 47 m, 46.7 m, above 48 m; Columbia: 46 m). The narration says only 'more than 45 meters', which all of them support, and the card lists the published figures, from 46 m to above 48 m (owner's script review, 2026-11-05). Murray's 144 royal feet of 32.5 cm come to about 46.8 m, the agent's multiplication.",
       "applies_to": [
         "beauvais"
       ],
@@ -785,8 +846,9 @@
     },
     {
       "id": "CLM_118",
-      "text": "In the published example of an arch on spreading supports, with thickness 15% of the radius and a total angle of embrace of 160 degrees, the arch deforms as its supports move apart; collapse comes when a thrust line can no longer fit, with the line touching the boundaries in more than three places.",
+      "text": "In the published example of an arch on spreading supports, with thickness 15% of the radius and a total angle of embrace of 160 degrees, the arch deforms as its supports move apart; most such arches fail by a five-hinge mechanism, when a thrust line can no longer fit.",
       "source_ids": [
+        "SRC_CAM_OCHSENDORF_2002",
         "SRC_MIT_BLOCK_2006"
       ],
       "review_status": "SOURCE_VERIFIED",
@@ -806,9 +868,19 @@
           "source_id": "SRC_MIT_BLOCK_2006",
           "locator": "Arch on spreading supports, p. 14",
           "excerpt": "Masonry arches commonly collapse due to instability caused by large displacements (ground settlements, leaning buttresses etc.)."
+        },
+        {
+          "source_id": "SRC_CAM_OCHSENDORF_2002",
+          "locator": "5.4",
+          "excerpt": "For most arches, failure will be governed by the five-hinge collapse mechanism, in which the central portion of the arch is a three-hinged arch, which deforms to accommodate the span increase."
+        },
+        {
+          "source_id": "SRC_CAM_OCHSENDORF_2002",
+          "locator": "5.5",
+          "excerpt": "This demonstrates that the intrados hinge locations may move substantially as the arch deforms to the collapse state."
         }
       ],
-      "assumptions": "The card's geometry is the agent's recalculation of this example with the paper's method (script/arch_statics.py, self-weight only, hinge at 54.4 degrees as printed in Fig. 5), not a tracing of the figure. Against the values printed on the figure: minimum thrust 19.6% of total weight (paper 19.80%); at span +5.09%, thrust +28% (paper +24.59%); limit at span +10.6% and thrust +86% (paper +11.49% and +85.10%). Close, not identical, and the paper does not state its block layout. The card and the narration give none of these numbers. The narration says 'this idealized arch', not any building.",
+      "assumptions": "The card's geometry is the agent's port of Ochsendorf's program ArchSpread (script/arch_statics.py, self-weight only, voussoirs of 0.1 degree, 1000 steps, span measured on the intrados), applied to this example; it is not a tracing of the figure. Checked against thesis table 5.3 (t/R 0.10, half-angle 60): hinge 53.8 to 42.8 degrees (thesis 42.7), span +8.20% (8.2), thrust 2.16 Hmin (2.16), dip 1.71 t (1.73); and the thesis's text (t/R 0.1075): 54.5 to 52.2 degrees at half-angle 80, 54.5 to 43.2 at 60, both exact. For voussoirs of 1 to 10 degrees the spans agree (7.95 to 9.26%; thesis 8.0 to 9.3) but the final hinges do not (43 to 50; thesis 40 to 42), and the film uses neither. On this example: hinge 57.9 to 53.9 degrees (figure 54.4), span +11.17% (11.49), thrust +83.8% (85.10); at span +5.00%, thrust +22.6% (24.59). Figure values are read from its labels. The film and the card state none of these numbers, and the narration says 'this idealized arch', not any building.",
       "applies_to": [
         "all"
       ],
@@ -1047,10 +1119,12 @@
         "SRC_ABC_THRUST",
         "SRC_BNF_ARC_BRISE",
         "SRC_CMN_CLUNY",
-        "SRC_CU_AMIENS_REVOLUTION"
+        "SRC_CU_AMIENS_REVOLUTION",
+        "SRC_HARVARD_CLUNY",
+        "SRC_NCE_CLUNY"
       ],
       "review_status": "SOURCE_VERIFIED",
-      "confidence": "medium",
+      "confidence": "high",
       "evidence": [
         {
           "source_id": "SRC_ABC_THRUST",
@@ -1071,9 +1145,24 @@
           "source_id": "SRC_BNF_ARC_BRISE",
           "locator": "Arc brisé et voûte sur croisée d’ogive",
           "excerpt": "L’art roman privilégie l’arc en plein cintre (qui dessine un demi-cercle parfait), même s’il utilise à l’occasion l’arc brisé."
+        },
+        {
+          "source_id": "SRC_HARVARD_CLUNY",
+          "locator": "The abbey church",
+          "excerpt": "The last and greatest of these, begun in 1088"
+        },
+        {
+          "source_id": "SRC_HARVARD_CLUNY",
+          "locator": "The abbey church",
+          "excerpt": "was among the earliest buildings north of the Alps to have an ambulatory with radiating chapels, pointed arches, and flying buttresses in the nave"
+        },
+        {
+          "source_id": "SRC_NCE_CLUNY",
+          "locator": "Cluny III",
+          "excerpt": "under its pointed, ribbed barrel vault (part of which collapsed in 1125 but was rebuilt by 1130)"
         }
       ],
-      "assumptions": "1088 dates the building project (the monument's own page), not the pointed arches themselves, so the film gives no year for the arches (owner's script review, 2026-11-05). That Cluny III had pointed arches rests here on the association; BnF says only that Romanesque used them occasionally.",
+      "assumptions": "1088 dates the building project (the monument's own page, Harvard), not the pointed arches themselves, so the film gives no year for the arches (owner's script review, 2026-11-05). The New Catholic Encyclopedia puts the church between its founding in 1088 and its dedication in 1130. Its 'for the first time on such a scale' is not used.",
       "applies_to": [
         "gothic"
       ],
@@ -2042,11 +2131,11 @@
       "id": "CLM_185",
       "text": "After 1284 the Beauvais choir was rebuilt with new intermediate piers that divided its three straight bays into six.",
       "source_ids": [
-        "SRC_ABC_DESCRIPTION",
-        "SRC_ABC_HISTORY"
+        "SRC_ABC_HISTORY",
+        "SRC_CU_MURRAY_COLLAPSE"
       ],
       "review_status": "SOURCE_VERIFIED",
-      "confidence": "medium",
+      "confidence": "high",
       "evidence": [
         {
           "source_id": "SRC_ABC_HISTORY",
@@ -2054,9 +2143,9 @@
           "excerpt": "As a precaution, the bays were subdivided with new, narrower intermediate piers. This changed the straight section of the choir from 3 to 6 bays."
         },
         {
-          "source_id": "SRC_ABC_DESCRIPTION",
-          "locator": "The choir",
-          "excerpt": "After the partial collapse of 1284, the choir was rebuilt in the 14th century with additional piers"
+          "source_id": "SRC_CU_MURRAY_COLLAPSE",
+          "locator": "The Collapse of the Choir in 1284",
+          "excerpt": "In the straight bays additional supports have been interposed between the piers of the main arcade, transforming three bays into six and quadripartite vaults to sexpartite"
         }
       ],
       "assumptions": "None beyond the quoted wording.",

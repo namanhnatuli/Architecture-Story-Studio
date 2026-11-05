@@ -1,13 +1,13 @@
 {
   "project_id": "gothic-cathedral-heights",
-  "executable": false,
+  "executable": true,
   "visibility_summary": {
-    "shots_assessed": 0,
-    "target_rows": 0,
-    "rows_passing": 0,
+    "shots_assessed": 15,
+    "target_rows": 29,
+    "rows_passing": 29,
     "uncertain_rows": 0,
-    "issues_detected": 0,
-    "auto_repaired": 0,
+    "issues_detected": 1,
+    "auto_repaired": 1,
     "manual_review": 0,
     "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
   },
@@ -15,28 +15,31 @@
     {
       "beat_id": "B01",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 20.975,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD: Hold the structure"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "planned_seconds": 21.0,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -45,32 +48,52 @@
     {
       "beat_id": "B02",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 14.625,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "clerestory_window"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_002"
+      ],
+      "planned_seconds": 14.625,
+      "readable": {
+        "clerestory_window": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_002",
+          "concept": "clerestory_window",
+          "label": "highlight_peak",
+          "frame": 222,
+          "visible_share": 0.5038,
+          "core_area": 0.00087,
+          "visible_area": 0.00632,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B03",
@@ -90,7 +113,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_001"
+        "SC_003"
       ],
       "planned_seconds": 16.5,
       "readable": {},
@@ -116,7 +139,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_002"
+        "SC_004"
       ],
       "planned_seconds": 13.375,
       "readable": {},
@@ -126,29 +149,32 @@
     },
     {
       "beat_id": "B05",
-      "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "visual_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 19.525,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD: Hold the structure"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "romanesque_church_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_romanesque_section_01",
+          "explanation": "cathedral_romanesque_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/romanesque_section"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_005"
+      ],
+      "planned_seconds": 19.542,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -157,60 +183,130 @@
     {
       "beat_id": "B06",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 24.125,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "romanesque_church_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_romanesque_section_01",
+          "explanation": "cathedral_romanesque_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/romanesque_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "shallow_buttress",
+        "thick_wall"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_006"
+      ],
+      "planned_seconds": 24.125,
+      "readable": {
+        "shallow_buttress": true,
+        "thick_wall": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_006",
+          "concept": "thick_wall",
+          "label": "highlight_peak",
+          "frame": 349,
+          "visible_share": 0.7462,
+          "core_area": 0.05382,
+          "visible_area": 0.07485,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_006",
+          "concept": "shallow_buttress",
+          "label": "highlight_peak",
+          "frame": 349,
+          "visible_share": 0.6155,
+          "core_area": 0.00926,
+          "visible_area": 0.02609,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B07",
-      "visual_intent": "SHOW_CONTEXT",
-      "strategy": "CARD",
-      "status": "COVERED",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 20.825,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD: 2D card (text/arrows) supplied by the beat"
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "assets": [],
-      "semantic_targets": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+        }
+      ],
+      "semantic_targets": [
+        "flying_buttress",
+        "rib"
+      ],
       "templates": [
-        "MOTION_GRAPHICS"
+        "HOLD"
       ],
       "shot_ids": [
-        "SC_003"
+        "SC_007"
       ],
       "planned_seconds": 20.833,
-      "readable": {},
+      "readable": {
+        "flying_buttress": true,
+        "rib": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_007",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 411,
+          "visible_share": 0.2914,
+          "core_area": 0.00058,
+          "visible_area": 0.00391,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_007",
+          "concept": "flying_buttress",
+          "label": "highlight_peak",
+          "frame": 411,
+          "visible_share": 0.3974,
+          "core_area": 0.00029,
+          "visible_area": 0.00289,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B08",
@@ -230,7 +326,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_004"
+        "SC_008"
       ],
       "planned_seconds": 32.25,
       "readable": {},
@@ -258,7 +354,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_005"
+        "SC_009"
       ],
       "planned_seconds": 29.75,
       "readable": {},
@@ -284,7 +380,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_006"
+        "SC_010"
       ],
       "planned_seconds": 25.625,
       "readable": {},
@@ -310,7 +406,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_007"
+        "SC_011"
       ],
       "planned_seconds": 18.833,
       "readable": {},
@@ -320,59 +416,151 @@
     },
     {
       "beat_id": "B12",
-      "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": "CARD",
-      "status": "COVERED",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 19.625,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "CARD: 2D card (text/arrows) supplied by the beat"
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "assets": [],
-      "semantic_targets": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+        }
+      ],
+      "semantic_targets": [
+        "rib"
+      ],
       "templates": [
-        "MOTION_GRAPHICS"
+        "HOLD"
       ],
       "shot_ids": [
-        "SC_008"
+        "SC_012"
       ],
       "planned_seconds": 19.625,
-      "readable": {},
+      "readable": {
+        "rib": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_012",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 275,
+          "visible_share": 0.4056,
+          "core_area": 0.00632,
+          "visible_area": 0.01606,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_012",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 275,
+          "visible_share": 0.6714,
+          "core_area": 0.0081,
+          "visible_area": 0.01587,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_012",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 275,
+          "visible_share": 0.3067,
+          "core_area": 0.00246,
+          "visible_area": 0.00723,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B13",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 21.8,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "rib"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_013"
+      ],
+      "planned_seconds": 21.833,
+      "readable": {
+        "rib": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_013",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 451,
+          "visible_share": 0.4056,
+          "core_area": 0.00632,
+          "visible_area": 0.01606,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_013",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 451,
+          "visible_share": 0.6714,
+          "core_area": 0.0081,
+          "visible_area": 0.01587,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_013",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 451,
+          "visible_share": 0.3067,
+          "core_area": 0.00246,
+          "visible_area": 0.00723,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B14",
@@ -392,7 +580,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_009"
+        "SC_014"
       ],
       "planned_seconds": 25.542,
       "readable": {},
@@ -403,58 +591,95 @@
     {
       "beat_id": "B15",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 16.775,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "clerestory_window",
+        "nave_pier"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_015"
+      ],
+      "planned_seconds": 16.792,
+      "readable": {
+        "clerestory_window": true,
+        "nave_pier": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_015",
+          "concept": "nave_pier",
+          "label": "highlight_peak",
+          "frame": 340,
+          "visible_share": 0.5946,
+          "core_area": 0.00231,
+          "visible_area": 0.02744,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_015",
+          "concept": "clerestory_window",
+          "label": "highlight_peak",
+          "frame": 340,
+          "visible_share": 0.5038,
+          "core_area": 0.00087,
+          "visible_area": 0.00632,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B16",
-      "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "visual_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": "HOLD",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 14.925,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD: Hold the structure"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_016"
+      ],
+      "planned_seconds": 14.958,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -463,130 +688,330 @@
     {
       "beat_id": "B17",
       "visual_intent": "EXPLAIN_LOAD_PATH",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 21.475,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "aisle_roof",
+        "flying_buttress",
+        "pier_buttress",
+        "pinnacle"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_017"
+      ],
+      "planned_seconds": 21.5,
+      "readable": {
+        "aisle_roof": true,
+        "flying_buttress": true,
+        "pier_buttress": true,
+        "pinnacle": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_017",
+          "concept": "flying_buttress",
+          "label": "highlight_peak",
+          "frame": 314,
+          "visible_share": 0.3974,
+          "core_area": 0.00029,
+          "visible_area": 0.00289,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_017",
+          "concept": "pier_buttress",
+          "label": "highlight_peak",
+          "frame": 314,
+          "visible_share": 0.7305,
+          "core_area": 0.04374,
+          "visible_area": 0.05425,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_017",
+          "concept": "pinnacle",
+          "label": "highlight_peak",
+          "frame": 314,
+          "visible_share": 0.8722,
+          "core_area": 0.00039,
+          "visible_area": 0.00559,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_017",
+          "concept": "aisle_roof",
+          "label": "highlight_peak",
+          "frame": 314,
+          "visible_share": 0.2857,
+          "core_area": 0.00096,
+          "visible_area": 0.0026,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B18",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENTIAL_STATES",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 21.875,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype)",
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "SEQUENTIAL_STATES timing: cuts on sentence starts [2]",
+        "SEQUENTIAL_STATES: Show A, cut, show B (states not geometrically compatible)"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "romanesque_church_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_romanesque_section_01",
+          "explanation": "cathedral_romanesque_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/romanesque_section"
         },
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "pier_buttress",
+        "thick_wall"
+      ],
+      "templates": [
+        "HOLD",
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_018",
+        "SC_019"
+      ],
+      "planned_seconds": 21.875,
+      "readable": {
+        "pier_buttress": true,
+        "thick_wall": true
+      },
       "visual_repairs": [],
-      "composition": [],
-      "visibility": []
+      "composition": [
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "EXPLAIN_DESIGN_CHANGE",
+          "scale": "COMMON",
+          "sequence": [
+            "romanesque_church_section",
+            "gothic_cathedral_section"
+          ],
+          "metrics": {},
+          "shot_id": "SC_018"
+        },
+        {
+          "layout": "SEQUENTIAL_COMPARISON",
+          "purpose": "EXPLAIN_DESIGN_CHANGE",
+          "scale": "COMMON",
+          "sequence": [
+            "romanesque_church_section",
+            "gothic_cathedral_section"
+          ],
+          "metrics": {},
+          "shot_id": "SC_019"
+        }
+      ],
+      "visibility": [
+        {
+          "shot_id": "SC_018",
+          "concept": "thick_wall",
+          "label": "highlight_peak",
+          "frame": 157,
+          "visible_share": 0.6973,
+          "core_area": 0.00854,
+          "visible_area": 0.01722,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_019",
+          "concept": "pier_buttress",
+          "label": "highlight_peak",
+          "frame": 115,
+          "visible_share": 0.7305,
+          "core_area": 0.04374,
+          "visible_area": 0.05425,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B19",
-      "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 31.5,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "flying_buttress"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_020"
+      ],
+      "planned_seconds": 31.5,
+      "readable": {
+        "flying_buttress": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_020",
+          "concept": "flying_buttress",
+          "label": "highlight_peak",
+          "frame": 383,
+          "visible_share": 0.3974,
+          "core_area": 0.00029,
+          "visible_area": 0.00289,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B20",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 12.35,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
-      "visual_repairs": [],
+      "semantic_targets": [
+        "flying_buttress"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_021"
+      ],
+      "planned_seconds": 12.375,
+      "readable": {
+        "flying_buttress": true
+      },
+      "visual_repairs": [
+        {
+          "beat_id": "B20",
+          "shot_id": "SC_021",
+          "concept": "flying_buttress",
+          "problems": [
+            "TOO_SMALL"
+          ],
+          "frame": "highlight_peak",
+          "before": {
+            "visible_share": 0.8261,
+            "core_area": 0.00014,
+            "visible_area": 0.00092
+          },
+          "after": {
+            "visible_share": 0.8554,
+            "core_area": 0.01292,
+            "visible_area": 0.01712
+          },
+          "evaluated": [
+            {
+              "remedy": "REFRAME",
+              "result": "PASS",
+              "detail": "share 0.86, core 1.29%, area 1.71% -> PASS"
+            }
+          ],
+          "chosen": "REFRAME"
+        }
+      ],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_021",
+          "concept": "flying_buttress",
+          "label": "highlight_peak",
+          "frame": 208,
+          "visible_share": 0.8554,
+          "core_area": 0.01292,
+          "visible_area": 0.01712,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_021",
+          "concept": "flying_buttress",
+          "label": "highlight_peak",
+          "frame": 208,
+          "visible_share": 0.8639,
+          "core_area": 0.01075,
+          "visible_area": 0.015,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B21",
@@ -606,7 +1031,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_010"
+        "SC_022"
       ],
       "planned_seconds": 23.458,
       "readable": {},
@@ -632,7 +1057,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_011"
+        "SC_023"
       ],
       "planned_seconds": 12.583,
       "readable": {},
@@ -642,29 +1067,53 @@
     },
     {
       "beat_id": "B23",
-      "visual_intent": "SHOW_CONTEXT",
-      "strategy": "CARD",
-      "status": "COVERED",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 8.825,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "CARD: 2D card (text/arrows) supplied by the beat"
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "assets": [],
-      "semantic_targets": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+        }
+      ],
+      "semantic_targets": [
+        "clerestory_window"
+      ],
       "templates": [
-        "MOTION_GRAPHICS"
+        "HOLD"
       ],
       "shot_ids": [
-        "SC_012"
+        "SC_024"
       ],
       "planned_seconds": 8.833,
-      "readable": {},
+      "readable": {
+        "clerestory_window": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_024",
+          "concept": "clerestory_window",
+          "label": "highlight_peak",
+          "frame": 111,
+          "visible_share": 0.5038,
+          "core_area": 0.00087,
+          "visible_area": 0.00632,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B24",
@@ -684,7 +1133,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_013"
+        "SC_025"
       ],
       "planned_seconds": 18.875,
       "readable": {},
@@ -712,7 +1161,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_014"
+        "SC_026"
       ],
       "planned_seconds": 18.208,
       "readable": {},
@@ -740,7 +1189,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_015"
+        "SC_027"
       ],
       "planned_seconds": 16.208,
       "readable": {},
@@ -766,7 +1215,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_016"
+        "SC_028"
       ],
       "planned_seconds": 23.875,
       "readable": {},
@@ -794,7 +1243,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_017"
+        "SC_029"
       ],
       "planned_seconds": 14.083,
       "readable": {},
@@ -805,32 +1254,66 @@
     {
       "beat_id": "B29",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 11.525,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "flying_buttress",
+        "pier_buttress"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_030"
+      ],
+      "planned_seconds": 11.542,
+      "readable": {
+        "flying_buttress": true,
+        "pier_buttress": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_030",
+          "concept": "flying_buttress",
+          "label": "highlight_peak",
+          "frame": 175,
+          "visible_share": 0.3974,
+          "core_area": 0.00029,
+          "visible_area": 0.00289,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_030",
+          "concept": "pier_buttress",
+          "label": "highlight_peak",
+          "frame": 175,
+          "visible_share": 0.7305,
+          "core_area": 0.04374,
+          "visible_area": 0.05425,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B30",
@@ -850,7 +1333,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_018"
+        "SC_031"
       ],
       "planned_seconds": 13.333,
       "readable": {},
@@ -876,7 +1359,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_019"
+        "SC_032"
       ],
       "planned_seconds": 15.25,
       "readable": {},
@@ -902,7 +1385,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_020"
+        "SC_033"
       ],
       "planned_seconds": 21.458,
       "readable": {},
@@ -928,7 +1411,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_021"
+        "SC_034"
       ],
       "planned_seconds": 10.833,
       "readable": {},
@@ -938,34 +1421,53 @@
     },
     {
       "beat_id": "B34",
-      "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "PARTIALLY_COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 16.675,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION']",
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "vault_web"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_035"
+      ],
+      "planned_seconds": 16.708,
+      "readable": {
+        "vault_web": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_035",
+          "concept": "vault_web",
+          "label": "highlight_peak",
+          "frame": 205,
+          "visible_share": 0.303,
+          "core_area": 0.00207,
+          "visible_area": 0.0053,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B35",
@@ -985,7 +1487,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_022"
+        "SC_036"
       ],
       "planned_seconds": 31.5,
       "readable": {},
@@ -1011,7 +1513,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_023"
+        "SC_037"
       ],
       "planned_seconds": 19.542,
       "readable": {},
@@ -1039,7 +1541,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_024"
+        "SC_038"
       ],
       "planned_seconds": 37.333,
       "readable": {},
@@ -1067,7 +1569,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_025"
+        "SC_039"
       ],
       "planned_seconds": 21.958,
       "readable": {},
@@ -1078,28 +1580,31 @@
     {
       "beat_id": "B39",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 21.75,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD: Hold the structure"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_040"
+      ],
+      "planned_seconds": 21.75,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1123,7 +1628,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_026"
+        "SC_041"
       ],
       "planned_seconds": 38.0,
       "readable": {},
@@ -1149,7 +1654,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_027"
+        "SC_042"
       ],
       "planned_seconds": 34.125,
       "readable": {},
@@ -1160,32 +1665,80 @@
     {
       "beat_id": "B42",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD_HIGHLIGHT",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 20.725,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
-      "readable": {},
+      "semantic_targets": [
+        "clerestory_window",
+        "flying_buttress",
+        "rib"
+      ],
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_043"
+      ],
+      "planned_seconds": 20.75,
+      "readable": {
+        "clerestory_window": true,
+        "flying_buttress": true,
+        "rib": true
+      },
       "visual_repairs": [],
       "composition": [],
-      "visibility": []
+      "visibility": [
+        {
+          "shot_id": "SC_043",
+          "concept": "rib",
+          "label": "highlight_peak",
+          "frame": 288,
+          "visible_share": 0.2914,
+          "core_area": 0.00058,
+          "visible_area": 0.00391,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_043",
+          "concept": "flying_buttress",
+          "label": "highlight_peak",
+          "frame": 288,
+          "visible_share": 0.3974,
+          "core_area": 0.00029,
+          "visible_area": 0.00289,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        },
+        {
+          "shot_id": "SC_043",
+          "concept": "clerestory_window",
+          "label": "highlight_peak",
+          "frame": 288,
+          "visible_share": 0.5038,
+          "core_area": 0.00087,
+          "visible_area": 0.00632,
+          "ok": true,
+          "problems": [],
+          "verification": "ESTIMATED"
+        }
+      ]
     },
     {
       "beat_id": "B43",
@@ -1207,7 +1760,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_028"
+        "SC_044"
       ],
       "planned_seconds": 21.083,
       "readable": {},
@@ -1218,28 +1771,31 @@
     {
       "beat_id": "B44",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "HOLD",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 9.55,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
-        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      "issues": [],
+      "explanation": [
+        "HOLD: Hold the structure"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
-          "status": "NEW_ASSET_REQUIRED",
-          "asset_id": null,
-          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+          "status": "REUSE_EXISTING",
+          "asset_id": "cathedral_gothic_section_01",
+          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "HOLD"
+      ],
+      "shot_ids": [
+        "SC_045"
+      ],
+      "planned_seconds": 9.583,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1263,7 +1819,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_029"
+        "SC_046"
       ],
       "planned_seconds": 12.667,
       "readable": {},
@@ -1289,7 +1845,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_030"
+        "SC_047"
       ],
       "planned_seconds": 7.417,
       "readable": {},

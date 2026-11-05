@@ -24,6 +24,10 @@
     {
       "url": "https://visit-amiens.com/cathedral",
       "reason": "connection failed on 2026-11-05; not read"
+    },
+    {
+      "url": "https://www.mdpi.com/2571-9408/8/6/203 (Beauvais Cathedral: The Ambition, Collapse and Legacy of Gothic Engineering, 2025)",
+      "reason": "HTTP 403 on 2026-11-05; not read"
     }
   ],
   "snapshots": [
@@ -325,6 +329,56 @@
       "sha256": "3e98005cf50850801f1e70ee280742543fee94419f1a999630d9e2bb5d4259c2",
       "downloaded": "2026-11-05",
       "text": "web/cluny/cmn_history_en.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CAM_OCHSENDORF_2002",
+      "file": "pdf/ochsendorf_phd_2002.pdf",
+      "url": "https://www.repository.cam.ac.uk/bitstream/1810/244820/1/Ochsendorf25710.pdf",
+      "bytes": 77912136,
+      "sha256": "20454f63d7e7469119d7d12af53d40a669fd720751c31070b1d1d26016f21105",
+      "downloaded": "2026-11-05",
+      "text": "pdf/ochsendorf_phd_2002.txt",
+      "extraction": "pdftotext (embedded text layer of a scanned thesis)"
+    },
+    {
+      "source_id": "SRC_CU_MURRAY_COLLAPSE",
+      "file": "web/beauvais/murray_collapse.html",
+      "url": "https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_collapse.htm",
+      "bytes": 19118,
+      "sha256": "b3273af0e2851a85ac15cab259ed2b9119a8b1b0a7bdf5b60e35c19e1412f997",
+      "downloaded": "2026-11-05",
+      "text": "web/beauvais/murray_collapse.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_MURRAY_PHASE3",
+      "file": "web/beauvais/murray_phase3.html",
+      "url": "https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_phase3.htm",
+      "bytes": 12584,
+      "sha256": "4f45c3d4d4a19518051753b1c311379adc83311fccf40fc765d4123681364eb8",
+      "downloaded": "2026-11-05",
+      "text": "web/beauvais/murray_phase3.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_HARVARD_CLUNY",
+      "file": "web/cluny/harvard_gsd_cluny.html",
+      "url": "https://sites.gsd.harvard.edu/specialcollections/ah-clunyhow-wonderfulonly-paradise-is-more-beautiful",
+      "bytes": 199036,
+      "sha256": "c5f7f9bab9128d3d107371006980f3a2b9b1d46a6ba91492376bb73bfb5a6d40",
+      "downloaded": "2026-11-05",
+      "text": "web/cluny/harvard_gsd_cluny.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_NCE_CLUNY",
+      "file": "web/cluny/nce_cluniac_art.html",
+      "url": "https://encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/cluniac-art-and-architecture",
+      "bytes": 63846,
+      "sha256": "9cd318513ee9356b8564860b8723babb2d74cfead6cabe1b6b40190575cdacd8",
+      "downloaded": "2026-11-05",
+      "text": "web/cluny/nce_cluniac_art.txt",
       "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
     }
   ]

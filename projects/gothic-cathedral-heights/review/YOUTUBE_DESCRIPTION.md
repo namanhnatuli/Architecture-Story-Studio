@@ -1,0 +1,65 @@
+<!-- DRAFT: not for publication until the editorial approval package is approved. -->
+
+# How Gothic Cathedrals Reached Impossible Heights
+
+Chapters
+
+0:00 Hook
+0:52 Stone and its outward push
+2:10 The pointed arch
+3:56 The rib vault
+5:20 The flying buttress
+7:02 Walls of light
+8:06 Building by geometry
+9:43 The limit: Beauvais
+12:38 Why they stand
+14:11 Never impossible
+
+Sources
+
+- Equilibrium Systems: Studies in Masonry Structure (S.M.Arch.S. thesis), Philippe Block, Massachusetts Institute of Technology, Department of Architecture (supervisor: John A. Ochsendorf) (June 2005). http://web.mit.edu/masonry/papers/block_SMArchS_2005.pdf
+- As Hangs the Flexible Line: Equilibrium of Masonry Arches, Philippe Block, Matt DeJong and John Ochsendorf, Nexus Network Journal, vol. 8, no. 2 (2006), DOI 10.1007/s00004-006-0015-9; copy hosted by the MIT Masonry Research Group (2006). https://web.mit.edu/masonry/papers/block_dejong_ochs_NNJ.pdf
+- Comparison of Pointed vs. Circular Arches (research summary), A. Romano and J. Ochsendorf, MIT Masonry Research Group (web page). https://web.mit.edu/masonry/projects/projects_romano.html
+- The Structural System, Durham Cathedral and Anglo-Norman Romanesque, by Professor Roger Stalley, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/sr/ma_sr_discuss_dc_structure.htm
+- Architectural Description and Analysis, Durham Cathedral and Anglo-Norman Romanesque, by Professor Roger Stalley, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/sr/ma_sr_discuss_dc_describe.htm
+- Central Tower Restoration (section 'The Norman cathedral'), Durham Cathedral (durhamcathedral.co.uk) (web page). https://www.durhamcathedral.co.uk/explore/caring-conservation/central-tower-restoration
+- Collapse of Masonry Structures (PhD dissertation), John Allen Ochsendorf, University of Cambridge, Department of Engineering; Apollo repository (1810/244820) (June 2002). https://www.repository.cam.ac.uk/bitstream/1810/244820/1/Ochsendorf25710.pdf
+- The Collapse of the Choir in 1284 and the Subsequent Rebuilding, Saint-Pierre de Beauvais, by Professor Stephen Murray, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_collapse.htm
+- Phase III, 1250s-1260s, Saint-Pierre de Beauvais, by Professor Stephen Murray, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_phase3.htm
+- 'Ah, Cluny... How Wonderful... Only Paradise is More Beautiful', Harvard University, Graduate School of Design, Frances Loeb Library, Special Collections (web page). https://sites.gsd.harvard.edu/specialcollections/ah-clunyhow-wonderfulonly-paradise-is-more-beautiful
+- Cluniac Art and Architecture, by C. F. Barnes, Jr. (New Catholic Encyclopedia), New Catholic Encyclopedia, via Encyclopedia.com (web page). https://encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/cluniac-art-and-architecture
+- History of the Abbey of Cluny, Abbaye de Cluny, Centre des monuments nationaux (cluny-abbaye.fr) (web page). https://www.cluny-abbaye.fr/en/discover/history-of-the-abbey-of-cluny
+- Cathédrale de Beauvais : les accidents structurels des XIIIe et XVIe siècles eurent-ils une origine géotechnique ? Partie 1 : contexte historique et naturel (J.-D. Vernhes, P. Renault, Y. Zotna), Proceedings of the XVIII European Conference on Soil Mechanics and Geotechnical Engineering (ECSMGE 2024, Lisbon); ISSMGE Online Library (2024). https://www.issmge.org/uploads/publications/51/126/1039_C_cathdrale_de_beauvais_les_accidents_structurels_de.pdf
+- Cathédrale de Beauvais : les accidents structurels des XIIIe et XVIe siècles eurent-ils une origine géotechnique ? Partie 2 : accidents structurels et rôle de la géotechnique (J.-D. Vernhes, P. Renault, Y. Zotna), Proceedings of the XVIII ECSMGE 2024 (DOI 10.1201/9781003431749-378); ISSMGE Online Library (2024). https://www.issmge.org/uploads/publications/51/126/1040_C_cathdrale_de_beauvais_les_accidents_structurels_de.pdf
+- The Gothic Structural Revolution (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/gothic-structural-revolution.html
+- The Pointed Arch (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/pointed-arch.html
+- Dynamic Geometry (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/dynamic-geometry.html
+- The Work of the Carpenters (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/detail/work-carpenters.html
+- The Work of the Masons, First Phase c.1220-25 (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/detail/work-masons.html
+- Amiens Cathedral, upper nave, north (image essay) (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/detail/amiens-cathedral-0.html
+- Amiens Cathedral (Ascent): triforium passage and iron chain (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/node/3012.html
+- E-Text 1: Introduction to Amiens Cathedral, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/node/3418.html
+- E-Text 4: Entering the Cathedral, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-4.html
+- E-Text 11: Presence of the Clergy, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-11.html
+- E-Text 17: Forces in the Cathedral, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-17.html
+- E-Text 18: Gothic as One of the Three Great Architectural Revolutions, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-18.html
+- Saint-Denis (Paris and its monuments teaching map), Columbia University (CCNMTL) (web page, undated). https://ccnmtl.columbia.edu/projects/paris_map/buildings/stdenis/1300.html
+- Arc brisé et voûte sur croisée d'ogive (Passerelles, dossier 'La cathédrale Notre-Dame de Chartres'), Bibliothèque nationale de France, BnF Essentiels / Passerelles (web page). https://passerelles.essentiels.bnf.fr/fr/article/8fc27d60-6dd7-4cbd-88c3-8d8a50988db4-arc-brise-et-voute-sur-croisee-ogive
+- Les arcs-boutants (Passerelles, dossier 'La cathédrale Notre-Dame de Chartres'), Bibliothèque nationale de France, BnF Essentiels / Passerelles (web page). https://passerelles.essentiels.bnf.fr/fr/article/6e7cfc7d-da13-4d81-bb7c-c85c1698aa76-arcs-boutants
+- La naissance du style gothique à Saint-Denis (Passerelles), Bibliothèque nationale de France, BnF Essentiels / Passerelles (web page). https://passerelles.essentiels.bnf.fr/fr/chronologie/construction/55e1a07f-e1e6-47e3-a690-ef8c003c9159-basilique-saint-denis/article/3038d0ed-badc-47e6-a520-5c8b6caeeca8-naissance-style-gothique-saint-denis
+- L'abbatiale de Saint-Denis et les débuts de l'architecture gothique, by Arnaud Timbert (professor of medieval art history, Université de Picardie Jules Verne), France Mémoire (web page). https://www.france-memoire.fr/labbatiale-de-saint-denis-et-les-debuts-de-larchitecture-gothique/
+- History of Beauvais Cathedral, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page, copyright 2026). https://cathedrale-beauvais.fr/en/history-of-beauvais-cathedral/
+- From Romanesque to Gothic art: the thrust revolution, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page, consulted sources dated 2026). https://cathedrale-beauvais.fr/en/from-romanesque-to-gothic-art-the-thrust-revolution/
+- French art, known as 'Gothic', in Beauvais, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page). https://cathedrale-beauvais.fr/en/french-art-known-as-gothic/
+- Description of the cathedral, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page). https://cathedrale-beauvais.fr/en/description-of-the-cathedral/
+
+Archival photographs
+
+
+Credits and disclosures
+
+- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael).
+- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs or reconstructions of the bridges shown in the photographs.
+- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given.
+- Historic American Engineering Record (HAER), National Park Service; Library of Congress Prints & Photographs Division. Photographs are public-domain works of the U.S. Government.
+

@@ -10,7 +10,7 @@ from pathlib import Path
 
 from engine.arch import GENERATOR_VERSION
 from engine.arch import semantic
-from engine.arch.families import bridge, site
+from engine.arch.families import bridge, cathedral, site
 
 ROOT = Path(__file__).resolve().parents[2]
 ACCURACY_LEVELS = ("ILLUSTRATIVE", "REFERENCE_BASED", "HISTORICALLY_VERIFIED")
@@ -82,7 +82,37 @@ FAMILIES = {
                            pylon_size_m=num(0.5, 2.0, 0.9), stay_size_m=num(0.06, 0.3, 0.14)),
         },
     },
+    # Sections through a few bays, for the worm's-eye axonometric camera (preset CATHEDRAL_FROM_BELOW)
+    "cathedral": {
+        "gothic_section": {
+            "generator": cathedral.gothic_section,
+            "materials": ("stone", "stone_dark", "stone_light", "stained_glass", "roof_lead"),
+            "animation": ("HOLD", "HIGHLIGHT"),
+            "params": {"bay_count": num(1, 6, 3, integer=True), "bay_length_m": num(4, 12, 7.5), "nave_half_width_m": num(4, 12, 7.0),
+                       "aisle_width_m": num(3, 12, 7.0), "pier_radius_m": num(0.4, 1.6, 0.8), "vault_spring_m": num(10, 40, 26.0),
+                       "vault_crown_m": num(15, 55, 42.0), "arcade_top_m": num(8, 30, 20.0), "arcade_rise_m": num(2, 12, 7.0),
+                       "triforium_top_m": num(9, 35, 24.0), "window_spring_m": num(10, 45, 31.0), "window_rise_m": num(2, 12, 6.5),
+                       "upper_wall_thickness_m": num(0.3, 1.5, 0.7), "rib_width_m": num(0.2, 1.0, 0.45), "rib_depth_m": num(0.2, 1.2, 0.7),
+                       "aisle_spring_m": num(4, 16, 11.0), "aisle_crown_m": num(6, 24, 17.5), "aisle_top_m": num(6, 24, 18.5),
+                       "ridge_m": num(20, 70, 52.0), "pier_buttress_depth_m": num(2, 10, 5.5), "pier_buttress_width_m": num(1, 4, 1.9),
+                       "pier_buttress_top_m": num(10, 50, 32.0), "pinnacle_shaft_m": num(1, 10, 3.5), "pinnacle_spire_m": num(1, 10, 4.5),
+                       "flyer_head_m": num(10, 50, 34.0), "flyer_width_m": num(0.5, 2.5, 1.1)},
+        },
+        "romanesque_section": {
+            "generator": cathedral.romanesque_section,
+            "materials": ("stone", "stone_dark", "stone_light", "stained_glass", "roof_lead"),
+            "animation": ("HOLD", "HIGHLIGHT"),
+            "params": {"bay_count": num(1, 6, 3, integer=True), "bay_length_m": num(4, 12, 7.5), "interior_half_width_m": num(3, 10, 6.0),
+                       "wall_thickness_m": num(1, 4, 2.4), "wall_height_m": num(6, 25, 13.0), "vault_thickness_m": num(0.5, 2.5, 1.1),
+                       "window_half_width_m": num(0.4, 1.5, 0.7), "window_spring_m": num(3, 18, 9.0), "buttress_depth_m": num(0.3, 1.5, 0.6),
+                       "buttress_width_m": num(0.8, 3.0, 1.6), "roof_rise_m": num(2, 10, 4.5)},
+        },
+    },
     "site": {
+        "level_ground": {
+            "generator": site.level_ground, "materials": ("stone_dark",), "animation": ("HOLD",),
+            "params": {"site_width_m": num(10, 120, 64.0), "site_length_m": num(10, 120, 36.0), "front_margin_m": num(0, 20, 3.0)},
+        },
         "river_crossing": {
             "generator": site.river_crossing, "materials": ("earth_bank", "water"), "animation": ("HOLD",),
             "params": {"gap_m": num(8, 80, 24.0), "deck_level_m": num(2.5, 20, 5.0), "site_width_m": num(6, 40, 12.0),
@@ -279,11 +309,15 @@ def site_for(path):
     """The library site whose gap and deck level a bridge spans (M8: the long-span bridges have their
     own wider site), as a repository-relative path; None when no site matches."""
     data, _ = load(path)
+    if data.get("family") == "cathedral":
+        return "asset_library/architecture/sites/site_level_ground.json"
     if data.get("family") != "bridge":
         return None
     p = resolve_params(data["family"], data["variant"], data["parameters"])[0]
     for site in sorted((ROOT / "asset_library/architecture/sites").glob("*.json")):
         s, _ = load(site)
+        if s["variant"] != "river_crossing":
+            continue
         sp = resolve_params(s["family"], s["variant"], s["parameters"])[0]
         if abs(sp["gap_m"] - p["total_length_m"]) < 1e-6 and abs(sp["deck_level_m"] - p["deck_level_m"]) < 1e-6:
             return str(site.relative_to(ROOT))

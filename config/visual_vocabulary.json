@@ -2,81 +2,604 @@
   "schema": "visual_vocabulary/1",
   "note": "Narrative concepts -> what they mean visually. kind: site | architecture | component. architecture: family/variant (+ 'where' parameter predicates; 'supported': false = known concept without a generator). component: semantic roles (engine/arch component role = semantic type in lower case; legacy house/roof roles as built by engine/geometry.py). 'ambiguous_if_multiple': the concept matches several roles in one asset and must be made specific. 'read_as': 'pieces' = the explanation is the shape of the individual pieces (wedge-shaped voussoirs): a close-up separates them (CLOSEUP_EXPLODE). Used by planner/ (M5).",
   "concepts": {
-    "river_crossing_site": {"kind": "site", "family": "site", "variant": "river_crossing", "where": {"gap_m": {"max": 40}}, "label": "Site with a gap to span"},
-    "wide_river_crossing_site": {"kind": "site", "family": "site", "variant": "river_crossing", "where": {"gap_m": {"min": 50}}, "scene_context": "long_span", "label": "Wide crossing for long-span bridges"},
-    "timber_beam_bridge":  {"kind": "architecture", "family": "bridge", "variant": "timber_beam", "label": "Timber beam bridge"},
-    "beam_bridge":         {"kind": "architecture", "family": "bridge", "variant": "timber_beam", "label": "Beam bridge (timber example)"},
-    "stone_arch_bridge":   {"kind": "architecture", "family": "bridge", "variant": "stone_arch", "label": "Stone arch bridge"},
-    "five_arch_stone_bridge": {"kind": "architecture", "family": "bridge", "variant": "stone_arch", "where": {"arch_count": 5}, "label": "Stone arch bridge, five arches"},
-    "steel_truss_bridge":  {"kind": "architecture", "family": "bridge", "variant": "steel_truss", "where": {"truss_pattern": "pratt"}, "label": "Steel truss bridge"},
-    "pratt_truss":         {"kind": "architecture", "family": "bridge", "variant": "steel_truss", "where": {"truss_pattern": "pratt"}, "label": "Pratt truss"},
-    "warren_truss":        {"kind": "architecture", "family": "bridge", "variant": "steel_truss", "where": {"truss_pattern": "warren"}, "label": "Warren truss"},
-    "suspension_bridge":   {"kind": "architecture", "family": "bridge", "variant": "suspension", "site": "wide_river_crossing_site", "scene_context": "long_span", "label": "Suspension bridge"},
-    "cable_stayed_bridge": {"kind": "architecture", "family": "bridge", "variant": "cable_stayed", "site": "wide_river_crossing_site", "scene_context": "long_span", "label": "Cable-stayed bridge"},
-    "cantilever_bridge":   {"kind": "architecture", "family": "bridge", "variant": "cantilever", "site": "wide_river_crossing_site", "scene_context": "long_span", "label": "Cantilever bridge"},
-    "bascule_bridge":      {"kind": "architecture", "family": "bridge", "variant": "bascule", "supported": false, "label": "Bascule (movable) bridge"},
-    "house_with_gable_roof": {"kind": "architecture", "family": "roof", "variant": "gable_roof", "label": "House with a gable roof"},
-    "low_pitch_gable_roof":  {"kind": "architecture", "family": "roof", "variant": "gable_roof", "where": {"roof_pitch_degrees": {"max": 30}}, "label": "Low-pitched gable roof"},
-    "steep_gable_roof":      {"kind": "architecture", "family": "roof", "variant": "gable_roof", "where": {"roof_pitch_degrees": {"min": 40}}, "label": "Steep gable roof"},
-
-    "voussoir":        {"kind": "component", "read_as": "pieces", "roles": ["voussoir"], "label": "voussoirs"},
-    "keystone":        {"kind": "component", "read_as": "pieces", "roles": ["keystone"], "label": "keystones"},
-    "arch_ring":       {"kind": "component", "roles": ["voussoir", "keystone"], "label": "arch rings"},
-    "spandrel":        {"kind": "component", "roles": ["spandrel"], "label": "spandrel fill"},
-    "pier":            {"kind": "component", "roles": ["pier"], "label": "piers"},
-    "abutment":        {"kind": "component", "roles": ["abutment"], "label": "abutments"},
-    "parapet":         {"kind": "component", "roles": ["parapet", "coping"], "label": "parapets"},
-    "deck":            {"kind": "component", "roles": ["deck", "plank"], "label": "deck"},
-    "deck_planks":     {"kind": "component", "roles": ["plank"], "label": "deck planks"},
-    "stringer":        {"kind": "component", "roles": ["stringer"], "label": "stringers (primary beams)"},
-    "primary_beams":   {"kind": "component", "roles": ["stringer"], "label": "primary beams"},
-    "cap_beam":        {"kind": "component", "roles": ["cap_beam"], "label": "cap beams"},
-    "trestle_bent":    {"kind": "component", "roles": ["support"], "label": "trestle bents"},
-    "railing":         {"kind": "component", "roles": ["railing"], "label": "railings"},
-    "truss_chord":     {"kind": "component", "roles": ["truss_chord"], "label": "chords"},
-    "end_post":        {"kind": "component", "roles": ["end_post"], "label": "end posts"},
-    "vertical_members": {"kind": "component", "roles": ["truss_vertical"], "label": "vertical members"},
-    "diagonal_members": {"kind": "component", "roles": ["truss_diagonal"], "label": "diagonal members"},
-    "truss_web":       {"kind": "component", "roles": ["truss_vertical", "truss_diagonal"], "label": "truss web"},
-    "truss_members":   {"kind": "component", "roles": ["truss_chord", "end_post", "truss_vertical", "truss_diagonal"], "label": "truss members"},
-    "truss_joint":     {"kind": "component", "roles": ["joint"], "label": "joints"},
-    "floor_beam":      {"kind": "component", "roles": ["floor_beam"], "label": "floor beams"},
-    "beam":            {"kind": "component", "roles": ["stringer", "cap_beam", "floor_beam", "beam"], "ambiguous_if_multiple": true, "label": "beams"},
-    "member":          {"kind": "component", "roles": ["truss_chord", "end_post", "truss_vertical", "truss_diagonal"], "ambiguous_if_multiple": true, "label": "members"},
-    "superstructure":  {"kind": "component", "roles": ["deck", "plank", "stringer", "floor_beam", "truss_chord", "end_post", "truss_vertical", "truss_diagonal", "joint", "railing", "voussoir", "keystone", "spandrel", "parapet", "coping"], "label": "superstructure", "note": "M6 (CLM_603): the parts that provide the horizontal span, incl. the deck"},
-    "substructure":    {"kind": "component", "roles": ["abutment", "pier", "support", "cap_beam"], "label": "substructure", "note": "M6 (CLM_604, CLM_607): abutments, piers and bents (posts + caps)"},
-    "ground":          {"kind": "component", "roles": ["ground"], "label": "ground", "note": "M6: the banks of the shared river-crossing site (end of a load path)"},
-    "anchor_arm":      {"kind": "component", "roles": ["anchor_arm"], "label": "anchor arms"},
-    "cantilever_arm":  {"kind": "component", "roles": ["cantilever_arm"], "label": "cantilever arms"},
-    "suspended_span":  {"kind": "component", "roles": ["suspended_span"], "label": "suspended span"},
-    "cantilever_truss": {"kind": "component", "roles": ["anchor_arm", "cantilever_arm", "suspended_span"], "label": "cantilever truss"},
-    "tower":           {"kind": "component", "roles": ["tower"], "label": "towers"},
-    "pylon":           {"kind": "component", "roles": ["pylon"], "label": "pylons (towers)"},
-    "main_cable":      {"kind": "component", "roles": ["main_cable"], "label": "main cables"},
-    "hanger":          {"kind": "component", "roles": ["hanger"], "label": "hangers (suspenders)"},
-    "anchorage":       {"kind": "component", "roles": ["anchorage"], "label": "anchorages"},
-    "stiffening_truss": {"kind": "component", "roles": ["stiffening_truss"], "label": "stiffening trusses"},
-    "stay_cable":      {"kind": "component", "roles": ["stay_cable"], "label": "stay cables"},
-    "deck_segment":    {"kind": "component", "roles": ["deck"], "label": "deck segments"},
-
-    "roof_covering":   {"kind": "component", "roles": ["roof_covering"], "label": "roof covering"},
-    "rafters":         {"kind": "component", "roles": ["rafters"], "label": "rafters"},
-    "ridge_beam":      {"kind": "component", "roles": ["ridge_beam"], "label": "ridge beam"},
-    "gable_wall":      {"kind": "component", "roles": ["gable_wall"], "label": "gable walls"},
-    "roof_structure":  {"kind": "component", "roles": ["gable_wall", "rafters", "ridge_beam"], "label": "roof structure"},
-
-    "gothic_cathedral_section":  {"kind": "architecture", "family": "cathedral", "variant": "gothic_section", "supported": false, "label": "Gothic cathedral (section through one bay)"},
-    "romanesque_church_section": {"kind": "architecture", "family": "cathedral", "variant": "romanesque_section", "supported": false, "label": "Romanesque church (section through one bay)"},
-    "rib":               {"kind": "component", "roles": ["rib"], "label": "ribs"},
-    "vault_web":         {"kind": "component", "roles": ["vault_web"], "label": "vault web"},
-    "barrel_vault":      {"kind": "component", "roles": ["barrel_vault"], "label": "barrel vault"},
-    "nave_pier":         {"kind": "component", "roles": ["nave_pier"], "label": "piers"},
-    "thick_wall":        {"kind": "component", "roles": ["thick_wall"], "label": "thick outer wall"},
-    "shallow_buttress":  {"kind": "component", "roles": ["shallow_buttress"], "label": "shallow buttresses"},
-    "clerestory_window": {"kind": "component", "roles": ["clerestory_window"], "label": "upper windows"},
-    "flying_buttress":   {"kind": "component", "roles": ["flying_buttress"], "label": "flying buttress"},
-    "pier_buttress":     {"kind": "component", "roles": ["pier_buttress"], "label": "pier buttress"},
-    "pinnacle":          {"kind": "component", "roles": ["pinnacle"], "label": "pinnacle"},
-    "aisle_roof":        {"kind": "component", "roles": ["aisle_roof"], "label": "aisle roof"}
+    "river_crossing_site": {
+      "kind": "site",
+      "family": "site",
+      "variant": "river_crossing",
+      "where": {
+        "gap_m": {
+          "max": 40
+        }
+      },
+      "label": "Site with a gap to span"
+    },
+    "wide_river_crossing_site": {
+      "kind": "site",
+      "family": "site",
+      "variant": "river_crossing",
+      "where": {
+        "gap_m": {
+          "min": 50
+        }
+      },
+      "scene_context": "long_span",
+      "label": "Wide crossing for long-span bridges"
+    },
+    "timber_beam_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "timber_beam",
+      "label": "Timber beam bridge"
+    },
+    "beam_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "timber_beam",
+      "label": "Beam bridge (timber example)"
+    },
+    "stone_arch_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "stone_arch",
+      "label": "Stone arch bridge"
+    },
+    "five_arch_stone_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "stone_arch",
+      "where": {
+        "arch_count": 5
+      },
+      "label": "Stone arch bridge, five arches"
+    },
+    "steel_truss_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "steel_truss",
+      "where": {
+        "truss_pattern": "pratt"
+      },
+      "label": "Steel truss bridge"
+    },
+    "pratt_truss": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "steel_truss",
+      "where": {
+        "truss_pattern": "pratt"
+      },
+      "label": "Pratt truss"
+    },
+    "warren_truss": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "steel_truss",
+      "where": {
+        "truss_pattern": "warren"
+      },
+      "label": "Warren truss"
+    },
+    "suspension_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "suspension",
+      "site": "wide_river_crossing_site",
+      "scene_context": "long_span",
+      "label": "Suspension bridge"
+    },
+    "cable_stayed_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "cable_stayed",
+      "site": "wide_river_crossing_site",
+      "scene_context": "long_span",
+      "label": "Cable-stayed bridge"
+    },
+    "cantilever_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "cantilever",
+      "site": "wide_river_crossing_site",
+      "scene_context": "long_span",
+      "label": "Cantilever bridge"
+    },
+    "bascule_bridge": {
+      "kind": "architecture",
+      "family": "bridge",
+      "variant": "bascule",
+      "supported": false,
+      "label": "Bascule (movable) bridge"
+    },
+    "house_with_gable_roof": {
+      "kind": "architecture",
+      "family": "roof",
+      "variant": "gable_roof",
+      "label": "House with a gable roof"
+    },
+    "low_pitch_gable_roof": {
+      "kind": "architecture",
+      "family": "roof",
+      "variant": "gable_roof",
+      "where": {
+        "roof_pitch_degrees": {
+          "max": 30
+        }
+      },
+      "label": "Low-pitched gable roof"
+    },
+    "steep_gable_roof": {
+      "kind": "architecture",
+      "family": "roof",
+      "variant": "gable_roof",
+      "where": {
+        "roof_pitch_degrees": {
+          "min": 40
+        }
+      },
+      "label": "Steep gable roof"
+    },
+    "voussoir": {
+      "kind": "component",
+      "read_as": "pieces",
+      "roles": [
+        "voussoir"
+      ],
+      "label": "voussoirs"
+    },
+    "keystone": {
+      "kind": "component",
+      "read_as": "pieces",
+      "roles": [
+        "keystone"
+      ],
+      "label": "keystones"
+    },
+    "arch_ring": {
+      "kind": "component",
+      "roles": [
+        "voussoir",
+        "keystone"
+      ],
+      "label": "arch rings"
+    },
+    "spandrel": {
+      "kind": "component",
+      "roles": [
+        "spandrel"
+      ],
+      "label": "spandrel fill"
+    },
+    "pier": {
+      "kind": "component",
+      "roles": [
+        "pier"
+      ],
+      "label": "piers"
+    },
+    "abutment": {
+      "kind": "component",
+      "roles": [
+        "abutment"
+      ],
+      "label": "abutments"
+    },
+    "parapet": {
+      "kind": "component",
+      "roles": [
+        "parapet",
+        "coping"
+      ],
+      "label": "parapets"
+    },
+    "deck": {
+      "kind": "component",
+      "roles": [
+        "deck",
+        "plank"
+      ],
+      "label": "deck"
+    },
+    "deck_planks": {
+      "kind": "component",
+      "roles": [
+        "plank"
+      ],
+      "label": "deck planks"
+    },
+    "stringer": {
+      "kind": "component",
+      "roles": [
+        "stringer"
+      ],
+      "label": "stringers (primary beams)"
+    },
+    "primary_beams": {
+      "kind": "component",
+      "roles": [
+        "stringer"
+      ],
+      "label": "primary beams"
+    },
+    "cap_beam": {
+      "kind": "component",
+      "roles": [
+        "cap_beam"
+      ],
+      "label": "cap beams"
+    },
+    "trestle_bent": {
+      "kind": "component",
+      "roles": [
+        "support"
+      ],
+      "label": "trestle bents"
+    },
+    "railing": {
+      "kind": "component",
+      "roles": [
+        "railing"
+      ],
+      "label": "railings"
+    },
+    "truss_chord": {
+      "kind": "component",
+      "roles": [
+        "truss_chord"
+      ],
+      "label": "chords"
+    },
+    "end_post": {
+      "kind": "component",
+      "roles": [
+        "end_post"
+      ],
+      "label": "end posts"
+    },
+    "vertical_members": {
+      "kind": "component",
+      "roles": [
+        "truss_vertical"
+      ],
+      "label": "vertical members"
+    },
+    "diagonal_members": {
+      "kind": "component",
+      "roles": [
+        "truss_diagonal"
+      ],
+      "label": "diagonal members"
+    },
+    "truss_web": {
+      "kind": "component",
+      "roles": [
+        "truss_vertical",
+        "truss_diagonal"
+      ],
+      "label": "truss web"
+    },
+    "truss_members": {
+      "kind": "component",
+      "roles": [
+        "truss_chord",
+        "end_post",
+        "truss_vertical",
+        "truss_diagonal"
+      ],
+      "label": "truss members"
+    },
+    "truss_joint": {
+      "kind": "component",
+      "roles": [
+        "joint"
+      ],
+      "label": "joints"
+    },
+    "floor_beam": {
+      "kind": "component",
+      "roles": [
+        "floor_beam"
+      ],
+      "label": "floor beams"
+    },
+    "beam": {
+      "kind": "component",
+      "roles": [
+        "stringer",
+        "cap_beam",
+        "floor_beam",
+        "beam"
+      ],
+      "ambiguous_if_multiple": true,
+      "label": "beams"
+    },
+    "member": {
+      "kind": "component",
+      "roles": [
+        "truss_chord",
+        "end_post",
+        "truss_vertical",
+        "truss_diagonal"
+      ],
+      "ambiguous_if_multiple": true,
+      "label": "members"
+    },
+    "superstructure": {
+      "kind": "component",
+      "roles": [
+        "deck",
+        "plank",
+        "stringer",
+        "floor_beam",
+        "truss_chord",
+        "end_post",
+        "truss_vertical",
+        "truss_diagonal",
+        "joint",
+        "railing",
+        "voussoir",
+        "keystone",
+        "spandrel",
+        "parapet",
+        "coping"
+      ],
+      "label": "superstructure",
+      "note": "M6 (CLM_603): the parts that provide the horizontal span, incl. the deck"
+    },
+    "substructure": {
+      "kind": "component",
+      "roles": [
+        "abutment",
+        "pier",
+        "support",
+        "cap_beam"
+      ],
+      "label": "substructure",
+      "note": "M6 (CLM_604, CLM_607): abutments, piers and bents (posts + caps)"
+    },
+    "ground": {
+      "kind": "component",
+      "roles": [
+        "ground"
+      ],
+      "label": "ground",
+      "note": "M6: the banks of the shared river-crossing site (end of a load path)"
+    },
+    "anchor_arm": {
+      "kind": "component",
+      "roles": [
+        "anchor_arm"
+      ],
+      "label": "anchor arms"
+    },
+    "cantilever_arm": {
+      "kind": "component",
+      "roles": [
+        "cantilever_arm"
+      ],
+      "label": "cantilever arms"
+    },
+    "suspended_span": {
+      "kind": "component",
+      "roles": [
+        "suspended_span"
+      ],
+      "label": "suspended span"
+    },
+    "cantilever_truss": {
+      "kind": "component",
+      "roles": [
+        "anchor_arm",
+        "cantilever_arm",
+        "suspended_span"
+      ],
+      "label": "cantilever truss"
+    },
+    "tower": {
+      "kind": "component",
+      "roles": [
+        "tower"
+      ],
+      "label": "towers"
+    },
+    "pylon": {
+      "kind": "component",
+      "roles": [
+        "pylon"
+      ],
+      "label": "pylons (towers)"
+    },
+    "main_cable": {
+      "kind": "component",
+      "roles": [
+        "main_cable"
+      ],
+      "label": "main cables"
+    },
+    "hanger": {
+      "kind": "component",
+      "roles": [
+        "hanger"
+      ],
+      "label": "hangers (suspenders)"
+    },
+    "anchorage": {
+      "kind": "component",
+      "roles": [
+        "anchorage"
+      ],
+      "label": "anchorages"
+    },
+    "stiffening_truss": {
+      "kind": "component",
+      "roles": [
+        "stiffening_truss"
+      ],
+      "label": "stiffening trusses"
+    },
+    "stay_cable": {
+      "kind": "component",
+      "roles": [
+        "stay_cable"
+      ],
+      "label": "stay cables"
+    },
+    "deck_segment": {
+      "kind": "component",
+      "roles": [
+        "deck"
+      ],
+      "label": "deck segments"
+    },
+    "roof_covering": {
+      "kind": "component",
+      "roles": [
+        "roof_covering"
+      ],
+      "label": "roof covering"
+    },
+    "rafters": {
+      "kind": "component",
+      "roles": [
+        "rafters"
+      ],
+      "label": "rafters"
+    },
+    "ridge_beam": {
+      "kind": "component",
+      "roles": [
+        "ridge_beam"
+      ],
+      "label": "ridge beam"
+    },
+    "gable_wall": {
+      "kind": "component",
+      "roles": [
+        "gable_wall"
+      ],
+      "label": "gable walls"
+    },
+    "roof_structure": {
+      "kind": "component",
+      "roles": [
+        "gable_wall",
+        "rafters",
+        "ridge_beam"
+      ],
+      "label": "roof structure"
+    },
+    "gothic_cathedral_section": {
+      "kind": "architecture",
+      "family": "cathedral",
+      "variant": "gothic_section",
+      "site": "cathedral_ground_site",
+      "scene_context": "cathedral",
+      "label": "Gothic cathedral (section)"
+    },
+    "romanesque_church_section": {
+      "kind": "architecture",
+      "family": "cathedral",
+      "variant": "romanesque_section",
+      "site": "cathedral_ground_site",
+      "scene_context": "cathedral",
+      "label": "Romanesque church (section)"
+    },
+    "rib": {
+      "kind": "component",
+      "roles": [
+        "rib"
+      ],
+      "label": "ribs"
+    },
+    "vault_web": {
+      "kind": "component",
+      "roles": [
+        "vault_web"
+      ],
+      "label": "vault web"
+    },
+    "barrel_vault": {
+      "kind": "component",
+      "roles": [
+        "barrel_vault"
+      ],
+      "label": "barrel vault"
+    },
+    "nave_pier": {
+      "kind": "component",
+      "roles": [
+        "nave_pier"
+      ],
+      "label": "piers"
+    },
+    "thick_wall": {
+      "kind": "component",
+      "roles": [
+        "thick_wall"
+      ],
+      "label": "thick outer wall"
+    },
+    "shallow_buttress": {
+      "kind": "component",
+      "roles": [
+        "shallow_buttress"
+      ],
+      "label": "shallow buttresses"
+    },
+    "clerestory_window": {
+      "kind": "component",
+      "roles": [
+        "clerestory_window"
+      ],
+      "label": "upper windows"
+    },
+    "flying_buttress": {
+      "kind": "component",
+      "roles": [
+        "flying_buttress"
+      ],
+      "label": "flying buttress"
+    },
+    "pier_buttress": {
+      "kind": "component",
+      "roles": [
+        "pier_buttress"
+      ],
+      "label": "pier buttress"
+    },
+    "pinnacle": {
+      "kind": "component",
+      "roles": [
+        "pinnacle"
+      ],
+      "label": "pinnacle"
+    },
+    "aisle_roof": {
+      "kind": "component",
+      "roles": [
+        "aisle_roof"
+      ],
+      "label": "aisle roof"
+    },
+    "cathedral_ground_site": {
+      "kind": "site",
+      "family": "site",
+      "variant": "level_ground",
+      "scene_context": "cathedral",
+      "label": "Level ground for a church section"
+    },
+    "arcade_wall": {
+      "kind": "component",
+      "roles": [
+        "wall"
+      ],
+      "label": "arcade"
+    },
+    "small_window": {
+      "kind": "component",
+      "roles": [
+        "small_window"
+      ],
+      "label": "small windows"
+    }
   }
 }

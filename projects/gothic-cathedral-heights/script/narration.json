@@ -95,7 +95,7 @@
     "version": "g-r3",
     "date": "2026-11-05",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
-    "scope": "after the owner's second script review of 2026-11-05 (B40, B08, B10, the claim record, B14); structure, opening and call to action kept; no internal review render yet",
+    "scope": "after the owner's second script review of 2026-11-05; on the owner's instruction of 2026-11-05 the cathedral models were built and a 720p internal review was rendered. Narration words unchanged since this revision; nothing is approved",
     "review_package": "review/SCRIPT_REVIEW.md",
     "edits": [
       {
@@ -200,6 +200,26 @@
         "sentence": "B14.s2, B15.s0",
         "owner_review": "second review, editorial",
         "why": "The sentence naming Roger Stalley is gone, for pacing; his remark stays in the sources (CLM_144). B15 no longer needs 'Whatever first inspired them'."
+      },
+      {
+        "sentence": "B40 (card only)",
+        "owner_review": "third remark: 'B40 chưa chốt: cần sửa và kiểm chứng phép tính giới hạn sập'",
+        "why": "The earlier calculation measured the span on the centreline and fixed the hinge, with a tolerance of its own. arch_statics.py now ports Ochsendorf's ArchSpread (span on the intrados, a hinge that moves toward the crown) and is tested against his table 5.3. Narration unchanged."
+      },
+      {
+        "sentence": "B07, B12, B23 (visuals)",
+        "owner_review": "owner's remark on long runs of word cards",
+        "why": "These beats moved from 2D cards to the model: the three tools named on the section, the ribs from below, the windows lit. Narration unchanged."
+      },
+      {
+        "sentence": "B05, B16, B17, B18, B19, B34 (intent, annotations)",
+        "owner_review": "building the models",
+        "why": "Bound to the new cathedral family: thrust arrows (new annotation type), labels, a conceptual path, one shared scale for the Romanesque and Gothic models in B18. Narration unchanged."
+      },
+      {
+        "sentence": "B05, B06, B11, B13, B14, B34 (on-screen text)",
+        "owner_review": "building the models",
+        "why": "Text or labels added so that no stretch stays static past the 14 s limit, which was not changed."
       }
     ]
   },

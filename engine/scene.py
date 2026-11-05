@@ -247,6 +247,37 @@ def build_environment(scene, style, materials, collection):
     return ground
 
 
+def show_backdrop_to_camera(scene, color):
+    """A camera below the ground plane sees the world directly: give camera rays a flat backdrop colour, while the
+    world keeps lighting the model exactly as in every other shot."""
+    tree = scene.world.node_tree
+    output = next(n for n in tree.nodes if n.type == "OUTPUT_WORLD")
+    lit = next(n for n in tree.nodes if n.type == "BACKGROUND")
+    path = tree.nodes.new("ShaderNodeLightPath")
+    seen = tree.nodes.new("ShaderNodeBackground")
+    seen.inputs["Color"].default_value = hex_to_rgba(color)
+    seen.inputs["Strength"].default_value = 1.0
+    mix = tree.nodes.new("ShaderNodeMixShader")
+    tree.links.new(path.outputs["Is Camera Ray"], mix.inputs[0])
+    tree.links.new(lit.outputs[0], mix.inputs[1])
+    tree.links.new(seen.outputs[0], mix.inputs[2])
+    tree.links.new(mix.outputs[0], output.inputs["Surface"])
+
+
+def apply_from_below(scene, style, cam_preset, objects):
+    """Presets for a camera below the ground plane (CATHEDRAL_FROM_BELOW): no ground plane, a flat backdrop, and no
+    parts whose undersides would fill the frame. Hidden parts still count for the framing, which is computed earlier."""
+    if not cam_preset.get("hide_ground"):
+        return
+    if "ground" in bpy.data.objects:
+        bpy.data.objects["ground"].hide_render = True
+    show_backdrop_to_camera(scene, cam_preset.get("backdrop", style["background_color"]))
+    for obj in objects:
+        if obj.get("role") in cam_preset.get("hide_roles", ()):
+            obj.hide_render = obj.hide_viewport = True
+            obj["hidden_by_camera"] = True
+
+
 def camera_preset(style, name):
     presets = style.get("camera", {}).get("presets", {})
     if name not in presets:

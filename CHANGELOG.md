@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.9.9 — 2026-11-06 — Phim Gothic: họ mô hình nhà thờ và bản review 720p
+- **Chủ kênh yêu cầu:** dựng mô hình và bản internal review 720p; sửa và kiểm chứng B40; bổ sung nguồn Cluny và Beauvais; thêm bước kiểm tra vào playbook. Chưa có gì được duyệt.
+- **B40:** số ở mục 0.9.8 (+10,6%, +86%) là của phép tính cũ, đã sai. `script/arch_statics.py` viết lại theo chương trình ArchSpread trong luận án Ochsendorf 2002: đo nhịp ở mặt trong, khớp mặt trong dịch chuyển, sập khi đường áp lực chạm mặt ngoài ở gối.
+  - Bảng 5.3 (t/R 0,10, α 60°, voussoir 0,1°): nhịp +8,20% so với +8,2%; lực đẩy 2,16 Hmin; khớp 53,8→42,8° so với 53,8→42,7°.
+  - Block 2006, Hình 5: giới hạn sập nhịp +11,17%, lực đẩy +83,8%, so với +11,49%, +85,10%.
+  - Còn lệch: voussoir 1–10° cho khớp lúc sập 43–50°, luận án 40–42°; kết quả hơi đổi theo số bước tính. Phim không đọc các số này. Test `GothicThrustLineTest` giữ các so sánh.
+- **Nguồn:** 35 nguồn, thêm luận án Ochsendorf, hai trang Stephen Murray, Harvard (Loeb Library), New Catholic Encyclopedia. `CLM_131`, `CLM_185` lên `high`; 9 claim dùng ở mức `medium`. Bài MDPI 2025 (HTTP 403) ghi ở `not_used`, không lách qua bản sao.
+- **Họ mô hình `cathedral`:** mặt cắt Gothic và Romanesque vòm nôi, nền `site_level_ground`, vật liệu `stained_glass`, `roof_lead`, preset `CATHEDRAL_SECTION`, `CATHEDRAL_FROM_BELOW`. Đều `ILLUSTRATIVE`.
+- **Planner và chú thích:**
+  - `THRUST_ARROW`: mũi tên đẩy ngang, cùng độ dài, phải có claim.
+  - `close_on`, `close_on_targets`: bộ phận để lấy khung hình. `glow_only`: bộ phận phát sáng.
+  - `state_targets`, `same_scale` cho `SEQUENTIAL_STATES`.
+  - Sửa lỗi: `close_on_targets` không truyền khung hình để so kiểu cắt, nên planner cho match cut trong khi camera có nhảy.
+- **Tự xem bản dựng đầu rồi sửa** (`qa/EDITORIAL_REVIEW_TIMECODED.md`): camera nhảy và gân, web lẫn vào nhau ở B12–B13; hình gần như trống lúc có lời ở B09, B10, B21, B25, B41; cờ bay không được chỉ ra ở B19; ghi chú "same scale" ở B18 vượt quá bằng chứng. Không đổi lời dẫn, timing, ngưỡng hay cổng.
+- **Playbook:** thêm bước bắt buộc "lời và hình có khẳng định vượt quá bằng chứng không?" và những lỗi QA tự động không bắt được.
+
 ## 0.9.8 — 2026-11-05 — Phim Gothic: g-r3 theo nhận xét thứ hai của chủ kênh (chưa render)
 - **Nhận xét của chủ kênh về g-r2:** yêu cầu sửa, không phải duyệt. Chưa render, chưa dựng mô hình, chưa có gì được duyệt.
 - **B40:** một đường vẽ lệch không chứng minh được rằng không có đường nào vừa. Card nay cho thấy nhiều đường hợp lệ trong một vòm, rồi chính vòm đó khi gối đỡ dịch ra tới giới hạn. Lời dẫn nói rõ thay đổi này.

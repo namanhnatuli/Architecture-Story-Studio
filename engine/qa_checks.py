@@ -366,6 +366,8 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
             final_states = ctx.visible_variants[slot_id]
         ids = templates.visible_component_ids(states, final_states)
         expected_visible |= {templates.object_name(slot_id, i) for i in ids}
+    # A camera below the ground plane hides these parts on purpose (camera preset hide_roles; engine/scene.py).
+    expected_visible -= {n for n, o in ctx.objects.items() if o.get("hidden_by_camera")}
     actual_visible = {n for n, o in ctx.objects.items() if _visible(o)}
     report.add(sid, "final_visibility", actual_visible == expected_visible,
                f"missing {sorted(expected_visible - actual_visible)}, unexpected {sorted(actual_visible - expected_visible)}"

@@ -9,7 +9,8 @@ in front of the orthographic camera (geometry never hides them; subtitles stay o
 Rules (docs/m6/ANNOTATION_STYLE_GUIDE.md):
 - every arrow has the same length and width: size never encodes magnitude;
 - LOAD arrows point straight down onto their target; REACTION arrows point up (UP) or up
-  and towards the middle of their target (UP_INWARD);
+  and towards the middle of their target (UP_INWARD); THRUST arrows point level and outward,
+  away from the middle of their target (a vault's sideways push);
 - text sits on a plate inside the title-safe area and above the subtitle zone, never on
   another visible text, the legend, the tag or its own target, and its leader does not
   cross another visible text;
@@ -21,7 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STYLE_PATH = ROOT / "config" / "annotation_style.json"
-FORCE_TYPES = ("LOAD_ARROW", "REACTION_ARROW", "CONCEPTUAL_LOAD_PATH", "TENSION_COMPRESSION_LEGEND")
+FORCE_TYPES = ("LOAD_ARROW", "REACTION_ARROW", "THRUST_ARROW", "CONCEPTUAL_LOAD_PATH", "TENSION_COMPRESSION_LEGEND")
 _NARROW = set("iljtfrI.,:;'!|() -")
 _WIDE = set("mwMW@")
 
@@ -269,6 +270,19 @@ def layout_shot(items, style, aspect, reserved=()):
                 tails.append(tail)
             if it.get("text"):
                 text_near(it["text"], tails, prefer=-90, leaders=False)
+        elif kind == "THRUST_ARROW":
+            color = style["colors"]["LOAD"]
+            tails = []
+            for p, s in zip(anchors, it.get("inward") or [0] * len(anchors)):
+                tail_i = (p[0] * aspect - s * a["gap"], p[1])     # inward +1 = left of the middle: the arrow points left
+                tip_i = (tail_i[0] - s * a["length"], p[1])
+                tip, tail = _frame(tip_i, aspect), _frame(tail_i, aspect)
+                elements.append(_arrow(tail, tip, "arrow", style, color))
+                segments.append([tail, tip])
+                L.occupy([tail, tip], t0, t1, owner, "segment")
+                tails.append(tip)
+            if it.get("text"):
+                text_near(it["text"], tails, prefer=90, leaders=False)
         elif kind == "CONCEPTUAL_LOAD_PATH":
             color = style["colors"]["COMPRESSION" if it.get("style") == "COMPRESSION" else "LOAD"]
             p = style["path"]
@@ -437,7 +451,7 @@ def check(laid, style, aspect, text_extent=None, caption_boxes=()):
             for pt in [e.get("tip"), e.get("tail"), e.get("center")] + list(e.get("points") or []):
                 if pt is not None and not (0.0 <= pt[0] <= 1.0 and 0.0 <= pt[1] <= 1.0):
                     problems.append(f"{ann['id']}: ELEMENT_OUTSIDE_FRAME at {pt}")
-        if ann["type"] in ("LOAD_ARROW", "REACTION_ARROW"):
+        if ann["type"] in ("LOAD_ARROW", "REACTION_ARROW", "THRUST_ARROW"):
             for e in ann["elements"]:
                 if e["kind"] != "arrow":
                     continue

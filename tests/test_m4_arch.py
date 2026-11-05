@@ -19,7 +19,7 @@ LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kep
 
 LIB = ROOT / "asset_library" / "architecture"
 BRIDGES = {p.stem: p for p in (LIB / "bridges").glob("*.json")}
-SITE_GAPS = {json.loads(p.read_text())["parameters"]["gap_m"] for p in (LIB / "sites").glob("*.json")}
+SITE_GAPS = {json.loads(p.read_text())["parameters"]["gap_m"] for p in (LIB / "sites").glob("site_river_crossing*.json")}
 SITE = LIB / "sites" / "site_river_crossing_24.json"
 PILOT = LEGACY / "bridge-structure-evolution"
 

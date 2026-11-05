@@ -27,6 +27,9 @@ SEMANTIC_TYPES = (
     # long-span bridges (M8): cantilever trusses, suspension and cable-stayed
     "ANCHOR_ARM", "CANTILEVER_ARM", "SUSPENDED_SPAN", "TOWER", "PYLON", "MAIN_CABLE", "HANGER", "STAY_CABLE",
     "ANCHORAGE", "STIFFENING_TRUSS",
+    # cathedrals (engine/arch/families/cathedral.py)
+    "NAVE_PIER", "RIB", "VAULT_WEB", "BARREL_VAULT", "AISLE_VAULT", "THICK_WALL", "SHALLOW_BUTTRESS", "CLERESTORY_WINDOW",
+    "AISLE_WINDOW", "SMALL_WINDOW", "FLYING_BUTTRESS", "PIER_BUTTRESS", "PINNACLE", "AISLE_ROOF",
     # buildings (existing house builders use their own roles)
     "ROOF", "WALL", "FLOOR", "DECORATION",
 )

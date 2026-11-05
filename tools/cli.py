@@ -766,7 +766,7 @@ def do_asset_catalog():
         entries.append({
             "asset_id": data["asset_id"], "title": data.get("title"), "family": data["family"], "variant": data["variant"],
             "generator": {"name": f"{data['family']}.{data['variant']}", "version": GENERATOR_VERSION,
-                          "module": "engine/arch/families/" + ("bridge.py" if data["family"] == "bridge" else "site.py")},
+                          "module": f"engine/arch/families/{data['family']}.py"},
             "source_config": {"path": rel, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()},
             "units": data["units"], "accuracy": data["accuracy"], "provenance": data.get("provenance", {}),
             "geometry": {k: meta[k] for k in ("components", "unique_meshes", "by_type", "verts", "faces", "bbox", "dimensions_m")},

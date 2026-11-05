@@ -142,7 +142,7 @@ def check_plan(plan, doc, offsets, style):
                         "figurative); editorial check")
             if re.search(RULES["ARROWS_SPECIFIC"], low):
                 arrows = [a["id"] for ps, t0, t1 in win for a in _visible_annotations(ps, t0, t1)
-                          if a["type"] in ("LOAD_ARROW", "REACTION_ARROW", "CONCEPTUAL_LOAD_PATH")]
+                          if a["type"] in ("LOAD_ARROW", "REACTION_ARROW", "THRUST_ARROW", "CONCEPTUAL_LOAD_PATH")]
                 row("ARROWS", "CONSISTENT" if arrows else "CONTRADICTION",
                     f"arrows visible: {arrows}" if arrows else "the sentence points at arrows, none is visible")
             elif re.search(RULES["ARROWS_GENERIC"], low):

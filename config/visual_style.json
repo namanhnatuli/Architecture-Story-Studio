@@ -54,6 +54,26 @@
         "elevation_degrees": 24.0,
         "margin": 0.05,
         "note": "M4: SIDE_BY_SIDE layout STACK (models stacked in depth, one row per model on screen)."
+      },
+      "CATHEDRAL_FROM_BELOW": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -60.0,
+        "elevation_degrees": -38.0,
+        "margin": 0.05,
+        "hide_ground": true,
+        "hide_roles": [
+          "floor",
+          "ground"
+        ],
+        "backdrop": "#E2DFD6",
+        "note": "Worm's-eye axonometric (Choisy's classic view of vaults) for close-ups of the vault: ribs and web read from below. The camera lies below the ground plane, which is hidden for these shots, with a flat backdrop."
+      },
+      "CATHEDRAL_SECTION": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -66.0,
+        "elevation_degrees": 7.0,
+        "margin": 0.11,
+        "note": "A church section open at the front (near y = 0): low enough to read the arches, buttresses and the inner face of the far wall."
       }
     }
   },

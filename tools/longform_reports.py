@@ -172,8 +172,11 @@ def editorial_package(p, d):
                              (f" ({a['claim_id']})" if a.get("claim_id") else ""))
     lines += ["", "## Bản ghi sửa câu (ASR / tốc độ đọc)", ""]
     for e in rev.get("edits", []):   # the edited wording is keyed by the revision that made it (m7-r1, m8-r1, ...)
-        made = next(k for k in e if k not in ("sentence", "draft", "why"))
-        lines.append(f"- {e['sentence']} ({made}): \"{e['draft']}\" → \"{e[made]}\" ({e['why']})")
+        made = next((k for k in e if k not in ("sentence", "draft", "why")), None)
+        if made and "draft" in e:
+            lines.append(f"- {e['sentence']} ({made}): \"{e['draft']}\" → \"{e[made]}\" ({e['why']})")
+        else:   # a note about a group of sentences: no single draft to quote
+            lines.append(f"- {e['sentence']}" + (f" ({made}: {e[made]})" if made else "") + f": {e['why']}")
     out = p / "review" / "EDITORIAL_APPROVAL_PACKAGE.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return out

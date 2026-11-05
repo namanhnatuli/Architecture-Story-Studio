@@ -5,6 +5,13 @@ from engine.arch.semantic import Component
 GROUND_Z = -0.38   # top of the environment ground plane (engine/scene.py build_environment)
 
 
+def level_ground(p):
+    """A plain paved plinth for a building: the shared base of one scene context."""
+    return [Component(id="ground_plinth", type="GROUND", material="stone_dark", group="ground",
+                      mesh=P.box((p["site_width_m"], p["site_length_m"], 0.2), (0.0, p["site_length_m"] / 2.0 - p["front_margin_m"], GROUND_Z - 0.1)),
+                      layer=0, animation=("STATIC",))]
+
+
 def river_crossing(p):
     """Two banks with vertical faces at x = +/- gap/2 and a water strip between them.
 

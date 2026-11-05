@@ -24,16 +24,16 @@ import math
 from engine import annotation_layout as AL, framing, templates
 from planner import mapper, timing as T, vocabulary as V, visibility as VIS
 
-TYPES = ("COMPONENT_LABEL", "CALLOUT", "LOAD_ARROW", "REACTION_ARROW", "CONCEPTUAL_LOAD_PATH",
+TYPES = ("COMPONENT_LABEL", "CALLOUT", "LOAD_ARROW", "REACTION_ARROW", "THRUST_ARROW", "CONCEPTUAL_LOAD_PATH",
          "TENSION_COMPRESSION_LEGEND", "HIGHLIGHT_REGION", "NOTE")   # NOTE (M7): screen-fixed caption
 POINTS = {"TOP": (0, 1), "BOTTOM": (0, -1), "CENTER": (0, 0), "LEFT": (-1, 0), "RIGHT": (1, 0),
           "TOP_LEFT": (-1, 1), "TOP_RIGHT": (1, 1), "BOTTOM_LEFT": (-1, -1), "BOTTOM_RIGHT": (1, -1)}
 PICKS = ("ALL", "LEFTMOST", "RIGHTMOST", "CENTERMOST")
 FORCES = ("COMPRESSION", "TENSION")
-MAX_TEXT = {"COMPONENT_LABEL": 28, "CALLOUT": 36, "HIGHLIGHT_REGION": 28, "LOAD_ARROW": 16, "REACTION_ARROW": 24,
+MAX_TEXT = {"THRUST_ARROW": 16, "COMPONENT_LABEL": 28, "CALLOUT": 36, "HIGHLIGHT_REGION": 28, "LOAD_ARROW": 16, "REACTION_ARROW": 24,
             "CONCEPTUAL_LOAD_PATH": 24, "NOTE": 52}
 NOTE_POSITIONS = ("TOP_LEFT", "TOP_RIGHT", "BOTTOM_LEFT", "BOTTOM_RIGHT")
-NEEDS_TARGET = ("COMPONENT_LABEL", "CALLOUT", "LOAD_ARROW", "REACTION_ARROW", "HIGHLIGHT_REGION")
+NEEDS_TARGET = ("COMPONENT_LABEL", "CALLOUT", "LOAD_ARROW", "REACTION_ARROW", "THRUST_ARROW", "HIGHLIGHT_REGION")
 CLAIM_OK = ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED", "verified")
 VARIANT_TYPE = {"timber_beam": "beam", "stone_arch": "arch", "steel_truss": "truss"}
 
@@ -530,7 +530,7 @@ def _resolve(a, rec, ps, scene, parts, vocab, sid, btype, claims, rasters, style
         anc, boxes = resolve_ref(a["target"], p, each)
         item["anchors"] += anc
         item["target_boxes"] += boxes
-    if kind == "REACTION_ARROW":
+    if kind in ("REACTION_ARROW", "THRUST_ARROW"):
         box = item["target_boxes"][0]
         mid = (box[0] + box[2]) / 2
         item["inward"] = [1 if x["screen"][0] < mid else -1 for x in item["anchors"]]

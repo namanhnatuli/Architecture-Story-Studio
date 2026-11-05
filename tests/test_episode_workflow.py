@@ -182,7 +182,7 @@ class GothicFilmTest(unittest.TestCase):
         rows = rows_of(self.P)
         for stage in ("RESEARCH", "SCRIPT", "CLAIM_SOURCE_VERIFICATION", "TTS", "AUDIO_LOCK"):
             self.assertEqual(rows[stage][0], "DONE", (stage, rows[stage]))
-        self.assertEqual(rows["VISUAL_PLAN"][0], "BLOCKED")   # the cathedral family has no generator yet
+        self.assertEqual(rows["VISUAL_PLAN"][0], "DONE")   # the cathedral family (engine/arch/families/cathedral.py)
         n = read(self.P / "script/narration.json")
         self.assertEqual(n["voice"]["license"]["status"], "LICENSE_REVIEW_REQUIRED")
         self.assertEqual(n["voice"]["license"]["owner_confirmation_for_this_film"], "PENDING")
@@ -192,7 +192,33 @@ class GothicFilmTest(unittest.TestCase):
         self.assertEqual(read(self.P / "project.json")["production_profile"], "NARRATED_INTERNAL_REVIEW")
         self.assertFalse((self.P / "review/OWNER_APPROVALS.json").exists())
         self.assertFalse((self.P / "research/editorial_approval.json").exists())
-        self.assertEqual(list(self.P.glob("output/*.mp4")), [])
+        # the owner asked for a 720p internal review; every video must say so, and no final may exist
+        for video in self.P.glob("output/*.mp4"):
+            self.assertIn("INTERNAL", video.name.upper())
+        self.assertEqual(list(self.P.glob("output/*FINAL*")), [])
+
+    def test_a_match_cut_never_moves_the_camera(self):
+        """A match cut promises the same view. SC_012 to SC_013 once jumped because the framing differed."""
+        plan = read(self.P / "storyboard/visual_plan.json")
+        matches = [(a, b) for a, b in zip(plan["shots"], plan["shots"][1:]) if b["cut_from_previous"] == "match"]
+        self.assertTrue(matches)
+        for a, b in matches:
+            self.assertEqual(a["camera"]["preset"], b["camera"]["preset"], b["shot"]["id"])
+            self.assertEqual(a["shot"].get("camera_focus"), b["shot"].get("camera_focus"), b["shot"]["id"])
+
+    def test_b13_names_the_ribs_then_lights_the_web(self):
+        """Ribs and web lit together wash out: the ribs must stay readable while the web is lit."""
+        shots = {s["beat_id"]: s for s in read(self.P / "storyboard/visual_plan.json")["shots"]}
+        b12, b13 = shots["B12"], shots["B13"]
+        self.assertEqual(b13["cut_from_previous"], "match")
+        self.assertEqual(b12["shot"]["camera_focus"], b13["shot"]["camera_focus"])
+        glow = b13["shot"]["animation"]["highlight"]
+        self.assertTrue(glow["components"])
+        self.assertTrue(all("vault_web" in c for c in glow["components"]), glow["components"])
+        timing = {b["id"]: b for b in read(self.P / "script/timing.json")["beats"]}["B13"]
+        carries_load = timing["sentences"][2]
+        self.assertIn("carries load", carries_load["text"])
+        self.assertAlmostEqual(glow["start_seconds"], carries_load["rel_start"], delta=1.0)
 
     def test_runtime_is_the_owners_and_within_it(self):
         decision = read(self.P / "project.json")["runtime_decision"]
@@ -270,7 +296,10 @@ class GothicFilmTest(unittest.TestCase):
         self.assertIn("move its supports apart", said["B40"])
         self.assertIn("Many lines can fit. One is enough", cards["B40"])
         self.assertFalse([w for w in cards["B40"] if "No line fits" in w])
-        self.assertTrue(any("Fig. 5, recalculated" in w for w in cards["B40"]))
+        self.assertTrue(any("Fig. 5, recalculated by Ochsendorf's 2002 method" in w for w in cards["B40"]))
+        # the sources the owner asked for: Cluny's pointed arches and the three bays no longer rest on the association alone
+        self.assertIn("SRC_HARVARD_CLUNY", ledger["CLM_131"]["source_ids"])
+        self.assertIn("SRC_CU_MURRAY_COLLAPSE", ledger["CLM_185"]["source_ids"])
         # remarks: no dark Romanesque, no long debate of names
         self.assertNotIn("dark", said["B06"])
         self.assertIn("type shown here", said["B06"])
@@ -300,10 +329,9 @@ class GothicFilmTest(unittest.TestCase):
 
 
 class GothicThrustLineTest(unittest.TestCase):
-    """The geometry of card B40 is a recalculation of a published example: it must keep agreeing with the values
-    printed in Block, DeJong and Ochsendorf 2006 (figures 4 and 5). The tolerances are the differences found when it
-    was first checked; the paper does not state its block layout, so an exact match is not expected."""
-    T, HALF, HINGE = 0.1524, 80.0, 54.4
+    """The geometry of card B40 comes from a port of Ochsendorf's program ArchSpread (Cambridge PhD, 2002). It must keep
+    reproducing his published results and agreeing with the example of Block, DeJong and Ochsendorf 2006, figure 5."""
+    T, HALF = 0.1524, 80.0
 
     @classmethod
     def setUpClass(cls):
@@ -312,32 +340,52 @@ class GothicThrustLineTest(unittest.TestCase):
         cls.a = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(cls.a)
 
-    def test_figure_4_range_of_thrust_of_a_semicircular_arch(self):
+    def test_thesis_table_5_3_small_voussoirs(self):
+        s = self.a.spread_to_collapse(60, 0.10, 0.1)
+        self.assertAlmostEqual(s["initial_hinge"], 53.8, places=1)
+        self.assertAlmostEqual(s["hinge"], 42.7, delta=0.15)
+        self.assertAlmostEqual(s["span_increase"] * 100, 8.2, delta=0.05)
+        self.assertAlmostEqual(s["thrust_ratio"], 2.16, delta=0.01)
+        self.assertAlmostEqual(s["dip"], 1.73, delta=0.03)
+
+    def test_thesis_hinge_movements_at_minimum_thickness(self):
+        for half, end in ((80, 52.2), (60, 43.2)):
+            s = self.a.spread_to_collapse(half, 0.1075, 0.1)
+            self.assertAlmostEqual(s["initial_hinge"], 54.5, places=1)
+            self.assertAlmostEqual(s["hinge"], end, places=1)
+
+    def test_block_figure_4_range_of_thrust(self):
         total = 2 * self.a.half_weight(90, 0.18)
         valid = self.a.thrust_range(90, 0.18)
         self.assertAlmostEqual(valid["min"][1] / total, 0.16, delta=0.005)
         self.assertAlmostEqual(valid["max"][1] / total, 0.25, delta=0.01)
 
-    def test_figure_5_arch_on_spreading_supports(self):
+    def test_block_figure_5_arch_on_spreading_supports(self):
         a = self.a
-        total = 2 * a.half_weight(self.HALF, self.T)
-        self.assertAlmostEqual(a.thrust_range(self.HALF, self.T)["min"][1] / total, 0.198, delta=0.003)
-        rest = a.spread_state(self.HALF, self.T, self.HINGE, 0)["h"]
-        self.assertAlmostEqual(a.spread_state(self.HALF, self.T, self.HINGE, 0.0509)["h"] / rest - 1, 0.2459, delta=0.05)
-        limit = a.collapse_span_increase(self.HALF, self.T, self.HINGE)
-        self.assertAlmostEqual(limit, 0.1149, delta=0.01)
-        self.assertAlmostEqual(a.spread_state(self.HALF, self.T, self.HINGE, limit)["h"] / rest - 1, 0.851, delta=0.03)
+        self.assertAlmostEqual(a.thrust_range(self.HALF, self.T)["min"][1] / (2 * a.half_weight(self.HALF, self.T)), 0.198, delta=0.003)
+        s = a.spread_to_collapse(self.HALF, self.T)
+        self.assertAlmostEqual(s["span_increase"], 0.1149, delta=0.004)
+        self.assertAlmostEqual(s["thrust_ratio"] - 1, 0.851, delta=0.02)
+        self.assertAlmostEqual(s["hinge"], 54.4, delta=0.6)
+        self.assertAlmostEqual(a.spread_to_collapse(self.HALF, self.T, stop_at=0.05)["thrust_ratio"] - 1, 0.2459, delta=0.025)
 
     def test_the_lines_on_the_card_are_valid_and_the_limit_is_real(self):
         a = self.a
         for crown, h in a.thrust_range(self.HALF, self.T).values():
             self.assertTrue(a.fits(a.line_radii(self.HALF, self.T, crown, h)[0], self.T))
-        limit = a.collapse_span_increase(self.HALF, self.T, self.HINGE)
-        at = a.spread_state(self.HALF, self.T, self.HINGE, limit)["radii"]
-        self.assertAlmostEqual(at[-1], 1 + self.T / 2, places=3)              # the line reaches the extrados at the foot
-        beyond = a.spread_state(self.HALF, self.T, self.HINGE, limit + 0.01)["radii"]
-        self.assertGreater(max(beyond), 1 + self.T / 2)                       # any further, and it leaves the stone
-        with self.assertRaises(ValueError):                                   # an arch too thin has no valid line
+        ri, ro = 1 - self.T / 2, 1 + self.T / 2
+        # two separate calculations of the collapse: the capacity of the support part, and the pressure points on the joints
+        s = a.spread_to_collapse(self.HALF, self.T)
+        self.assertAlmostEqual(s["thrust"] / s["capacity"], 1.0, delta=0.005)
+        shape = a.spread_shape(self.HALF, self.T, s)
+        self.assertAlmostEqual(shape["radii"][-1], ro, delta=0.001)        # the locus reaches the extrados at the support
+        self.assertGreaterEqual(min(shape["radii"]), ri - 0.0005)          # and never leaves the stone before that
+        self.assertLessEqual(max(shape["radii"]), ro + 0.0005)
+        self.assertAlmostEqual(shape["crown"][0], 0.0, places=6)           # the crown hinge stays on the axis
+        self.assertAlmostEqual(shape["lower"](0, 0)[0], s["shift"])
+        moving = a.spread_to_collapse(self.HALF, self.T, stop_at=0.05)
+        self.assertGreater(moving["hinge"], s["hinge"])                    # the hinge moves toward the crown as it spreads
+        with self.assertRaises(ValueError):                                # an arch too thin has no valid line
             a.thrust_range(90, 0.09)
 
 

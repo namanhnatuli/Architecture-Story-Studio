@@ -27,12 +27,13 @@
     "family": {
       "enum": [
         "bridge",
+        "cathedral",
         "site"
       ]
     },
     "variant": {
       "type": "string",
-      "description": "bridge: timber_beam | stone_arch | steel_truss; site: river_crossing"
+      "description": "bridge: timber_beam | stone_arch | steel_truss | cantilever | suspension | cable_stayed; cathedral: gothic_section | romanesque_section; site: river_crossing | level_ground"
     },
     "units": {
       "const": "METRIC"

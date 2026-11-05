@@ -1,0 +1,2855 @@
+{
+  "blender": "5.2.2 LTS",
+  "preset": "internal_720p",
+  "summary": {
+    "passed": 474,
+    "failed": 0,
+    "total": 474
+  },
+  "results": [
+    {
+      "shot": "SC_001",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_001",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "8 animated objects x 19 frames, max error 1.38e-05"
+    },
+    {
+      "shot": "SC_001",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "89 objects (1 shared) unchanged on 19 frames"
+    },
+    {
+      "shot": "SC_001",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0 (7 push-in overlay objects excepted)"
+    },
+    {
+      "shot": "SC_001",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_001",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_001",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_001",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.110 at gothic_cathedral_section_high_roof@1; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_001",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "push-in by design: starts on the locked framing, ortho 147.184 -> 132.466"
+    },
+    {
+      "shot": "SC_001",
+      "check": "overlays_screen_fixed",
+      "status": "PASS",
+      "detail": "6 annotation objects keep their frame position during the push-in (max drift 2.4e-07)"
+    },
+    {
+      "shot": "SC_001",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_001",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "2 annotations, 6 objects"
+    },
+    {
+      "shot": "SC_001",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_001",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_001",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "2 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_002",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_002",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "9 animated objects x 26 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_002",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "83 objects (1 shared) unchanged on 26 frames"
+    },
+    {
+      "shot": "SC_002",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_002",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_002",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_002",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_002",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B02_note_00_plate_border@14; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_002",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_002",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "50% of the highlighted silhouette visible, 0.63% of the frame, compact face 0.09% at frame 222"
+    },
+    {
+      "shot": "SC_002",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_002",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "1 annotations, 3 objects"
+    },
+    {
+      "shot": "SC_002",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_002",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_002",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "1 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_003",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "5 elements"
+    },
+    {
+      "shot": "SC_003",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "5 objects x 25 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_003",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_003",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_003",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_004",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "20 elements"
+    },
+    {
+      "shot": "SC_004",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "40 objects x 26 frames, max error 8.99e-08"
+    },
+    {
+      "shot": "SC_004",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_004",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_004",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_005",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "32 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_005",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "16 animated objects x 26 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_005",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "32 objects (1 shared) unchanged on 26 frames"
+    },
+    {
+      "shot": "SC_005",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_005",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_005",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_005",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "32 visible parts as expected"
+    },
+    {
+      "shot": "SC_005",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B05_note_00_plate_border@111; lowest point y=0.179 (label band 0.10); ortho_scale 73.616"
+    },
+    {
+      "shot": "SC_005",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_005",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.74e-07"
+    },
+    {
+      "shot": "SC_005",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "4 annotations, 16 objects"
+    },
+    {
+      "shot": "SC_005",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "2 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_005",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 18.7 px at internal_720p"
+    },
+    {
+      "shot": "SC_005",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "4 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_006",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "32 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_006",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "41 animated objects x 45 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_006",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "18 objects (1 shared) unchanged on 45 frames"
+    },
+    {
+      "shot": "SC_006",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_006",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_006",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_006",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "32 visible parts as expected"
+    },
+    {
+      "shot": "SC_006",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B06_note_00_plate_border@134; lowest point y=0.210 (label band 0.10); ortho_scale 73.616"
+    },
+    {
+      "shot": "SC_006",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_006",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "94% of the highlighted silhouette visible, 10.07% of the frame, compact face 8.57% at frame 349"
+    },
+    {
+      "shot": "SC_006",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.74e-07"
+    },
+    {
+      "shot": "SC_006",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "5 annotations, 27 objects"
+    },
+    {
+      "shot": "SC_006",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "4 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_006",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "5 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_006",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "5 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_007",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_007",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "36 animated objects x 44 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_007",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "74 objects (1 shared) unchanged on 44 frames"
+    },
+    {
+      "shot": "SC_007",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_007",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_007",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_007",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_007",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B07_note_00_plate_border@14; lowest point y=0.179 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_007",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_007",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "36% of the highlighted silhouette visible, 0.68% of the frame, compact face 0.09% at frame 411"
+    },
+    {
+      "shot": "SC_007",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_007",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "4 annotations, 21 objects"
+    },
+    {
+      "shot": "SC_007",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "3 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_007",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_007",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "4 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_008",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "13 elements"
+    },
+    {
+      "shot": "SC_008",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "19 objects x 25 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_008",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_008",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_008",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "7 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_009",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "23 elements"
+    },
+    {
+      "shot": "SC_009",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "29 objects x 40 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_009",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_009",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_009",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "9 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_010",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "20 elements"
+    },
+    {
+      "shot": "SC_010",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "26 objects x 25 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_010",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_010",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_010",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "9 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_011",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "12 elements"
+    },
+    {
+      "shot": "SC_011",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "18 objects x 25 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_011",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_011",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_011",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "6 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_012",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_012",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "21 animated objects x 42 frames, max error 6.37e-08"
+    },
+    {
+      "shot": "SC_012",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "86 objects (1 shared) unchanged on 42 frames"
+    },
+    {
+      "shot": "SC_012",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_012",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_012",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_012",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "87 visible parts as expected"
+    },
+    {
+      "shot": "SC_012",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.050 at gothic_cathedral_section_rib_transverse_0@1; lowest point y=0.150 (label band 0.10); ortho_scale 43.167"
+    },
+    {
+      "shot": "SC_012",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_012",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "59% of the highlighted silhouette visible, 3.70% of the frame, compact face 1.92% at frame 275"
+    },
+    {
+      "shot": "SC_012",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 8.16e-08"
+    },
+    {
+      "shot": "SC_012",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "4 annotations, 18 objects"
+    },
+    {
+      "shot": "SC_012",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "2 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_012",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_012",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "4 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_013",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_013",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "18 animated objects x 36 frames, max error 8.70e-08"
+    },
+    {
+      "shot": "SC_013",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "86 objects (1 shared) unchanged on 36 frames"
+    },
+    {
+      "shot": "SC_013",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_013",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_013",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_013",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "87 visible parts as expected"
+    },
+    {
+      "shot": "SC_013",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.050 at gothic_cathedral_section_rib_transverse_0@1; lowest point y=0.150 (label band 0.10); ortho_scale 43.167"
+    },
+    {
+      "shot": "SC_013",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_013",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "25% of the highlighted silhouette visible, 6.24% of the frame, compact face 3.59% at frame 451"
+    },
+    {
+      "shot": "SC_013",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 8.16e-08"
+    },
+    {
+      "shot": "SC_013",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "3 annotations, 15 objects"
+    },
+    {
+      "shot": "SC_013",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "2 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_013",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "3 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_013",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "3 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_014",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "22 elements"
+    },
+    {
+      "shot": "SC_014",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "32 objects x 31 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_014",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_014",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_014",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "11 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_015",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_015",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "15 animated objects x 20 frames, max error 1.20e-05"
+    },
+    {
+      "shot": "SC_015",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "75 objects (1 shared) unchanged on 20 frames"
+    },
+    {
+      "shot": "SC_015",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_015",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_015",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_015",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_015",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.110 at gothic_cathedral_section_high_roof@1; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_015",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "push-in by design: starts on the locked framing, ortho 147.184 -> 132.466"
+    },
+    {
+      "shot": "SC_015",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "58% of the highlighted silhouette visible, 4.22% of the frame, compact face 1.07% at frame 340"
+    },
+    {
+      "shot": "SC_015",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_016",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_016",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "16 animated objects x 31 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_016",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "89 objects (1 shared) unchanged on 31 frames"
+    },
+    {
+      "shot": "SC_016",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_016",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_016",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_016",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_016",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B16_ch_00_plate_border@14; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_016",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_016",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_016",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "4 annotations, 16 objects"
+    },
+    {
+      "shot": "SC_016",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "2 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_016",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 18.7 px at internal_720p"
+    },
+    {
+      "shot": "SC_016",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "4 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_017",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_017",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "58 animated objects x 34 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_017",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "63 objects (1 shared) unchanged on 34 frames"
+    },
+    {
+      "shot": "SC_017",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_017",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_017",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_017",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_017",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_CONCEPTUAL_TAG_00_plate_border@126; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_017",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_017",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "68% of the highlighted silhouette visible, 5.88% of the frame, compact face 3.95% at frame 314"
+    },
+    {
+      "shot": "SC_017",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_017",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "6 annotations, 32 objects"
+    },
+    {
+      "shot": "SC_017",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "7 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_017",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "5 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 18.7 px at internal_720p"
+    },
+    {
+      "shot": "SC_017",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "6 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_018",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "120 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_018",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "9 animated objects x 24 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_018",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "114 objects (1 shared) unchanged on 24 frames"
+    },
+    {
+      "shot": "SC_018",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_018",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_018",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_018",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "32 visible parts as expected"
+    },
+    {
+      "shot": "SC_018",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B18_note_00_plate_border@14; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_018",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_018",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "70% of the highlighted silhouette visible, 1.72% of the frame, compact face 0.85% at frame 157"
+    },
+    {
+      "shot": "SC_018",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_018",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "1 captions inside the label band, centred under their models, no overlap"
+    },
+    {
+      "shot": "SC_018",
+      "check": "captions_clear_of_subtitles",
+      "status": "PASS",
+      "detail": "1 caption(s) above the subtitle zone (0.17)"
+    },
+    {
+      "shot": "SC_018",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "1 annotations, 3 objects"
+    },
+    {
+      "shot": "SC_018",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_018",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_018",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "1 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_019",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "120 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_019",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "11 animated objects x 23 frames, max error 6.37e-08"
+    },
+    {
+      "shot": "SC_019",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "112 objects (1 shared) unchanged on 23 frames"
+    },
+    {
+      "shot": "SC_019",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_019",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_019",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_019",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_019",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B18_note_00_plate_border@1; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_019",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_019",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "73% of the highlighted silhouette visible, 5.43% of the frame, compact face 4.37% at frame 115"
+    },
+    {
+      "shot": "SC_019",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_019",
+      "check": "labels_in_band",
+      "status": "PASS",
+      "detail": "1 captions inside the label band, centred under their models, no overlap"
+    },
+    {
+      "shot": "SC_019",
+      "check": "captions_clear_of_subtitles",
+      "status": "PASS",
+      "detail": "1 caption(s) above the subtitle zone (0.17)"
+    },
+    {
+      "shot": "SC_019",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "1 annotations, 3 objects"
+    },
+    {
+      "shot": "SC_019",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_019",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_019",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "1 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_020",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "120 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_020",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "13 animated objects x 23 frames, max error 1.40e-05"
+    },
+    {
+      "shot": "SC_020",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "112 objects (1 shared) unchanged on 23 frames"
+    },
+    {
+      "shot": "SC_020",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0 (4 push-in overlay objects excepted)"
+    },
+    {
+      "shot": "SC_020",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_020",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_020",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_020",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.110 at gothic_cathedral_section_high_roof@1; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_020",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "push-in by design: starts on the locked framing, ortho 147.184 -> 132.466"
+    },
+    {
+      "shot": "SC_020",
+      "check": "overlays_screen_fixed",
+      "status": "PASS",
+      "detail": "3 annotation objects keep their frame position during the push-in (max drift 1.2e-07)"
+    },
+    {
+      "shot": "SC_020",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "47% of the highlighted silhouette visible, 0.37% of the frame, compact face 0.05% at frame 383"
+    },
+    {
+      "shot": "SC_020",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_020",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "1 annotations, 3 objects"
+    },
+    {
+      "shot": "SC_020",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_020",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_020",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "1 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_021",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_021",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "2 animated objects x 21 frames, max error 1.40e-08"
+    },
+    {
+      "shot": "SC_021",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "87 objects (1 shared) unchanged on 21 frames"
+    },
+    {
+      "shot": "SC_021",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_021",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_021",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_021",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_021",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.110 at gothic_cathedral_section_flying_buttress_east0@1; lowest point y=0.365 (label band 0.10); ortho_scale 34.012"
+    },
+    {
+      "shot": "SC_021",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_021",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "86% of the highlighted silhouette visible, 3.21% of the frame, compact face 2.37% at frame 208"
+    },
+    {
+      "shot": "SC_021",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 8.38e-08"
+    },
+    {
+      "shot": "SC_022",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "24 elements"
+    },
+    {
+      "shot": "SC_022",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "38 objects x 51 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_022",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_022",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_022",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "14 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_023",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "4 elements"
+    },
+    {
+      "shot": "SC_023",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "6 objects x 19 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_023",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_023",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_023",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_024",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_024",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "12 animated objects x 23 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_024",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "83 objects (1 shared) unchanged on 23 frames"
+    },
+    {
+      "shot": "SC_024",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_024",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_024",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_024",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_024",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B23_note_00_plate_border@14; lowest point y=0.179 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_024",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_024",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "50% of the highlighted silhouette visible, 0.63% of the frame, compact face 0.09% at frame 111"
+    },
+    {
+      "shot": "SC_024",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_024",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "2 annotations, 6 objects"
+    },
+    {
+      "shot": "SC_024",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_024",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_024",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "2 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_025",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "9 elements"
+    },
+    {
+      "shot": "SC_025",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "11 objects x 38 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_025",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_025",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_025",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "8 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_026",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "6 elements"
+    },
+    {
+      "shot": "SC_026",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "12 objects x 26 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_026",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_026",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_026",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "3 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_027",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "10 elements"
+    },
+    {
+      "shot": "SC_027",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "16 objects x 26 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_027",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_027",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_027",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_028",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "29 elements"
+    },
+    {
+      "shot": "SC_028",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "53 objects x 29 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_028",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_028",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_028",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "5 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_029",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "6 elements"
+    },
+    {
+      "shot": "SC_029",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "14 objects x 42 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_029",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_029",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_029",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "6 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_030",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_030",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "17 animated objects x 21 frames, max error 1.33e-05"
+    },
+    {
+      "shot": "SC_030",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "73 objects (1 shared) unchanged on 21 frames"
+    },
+    {
+      "shot": "SC_030",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_030",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_030",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_030",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_030",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.110 at gothic_cathedral_section_high_roof@1; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_030",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "push-in by design: starts on the locked framing, ortho 147.184 -> 129.522"
+    },
+    {
+      "shot": "SC_030",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "73% of the highlighted silhouette visible, 7.06% of the frame, compact face 5.67% at frame 175"
+    },
+    {
+      "shot": "SC_030",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_031",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "17 elements"
+    },
+    {
+      "shot": "SC_031",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "23 objects x 31 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_031",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_031",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_031",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "7 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_032",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "4 elements"
+    },
+    {
+      "shot": "SC_032",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "6 objects x 25 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_032",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_032",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_032",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_033",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "12 elements"
+    },
+    {
+      "shot": "SC_033",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "24 objects x 37 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_033",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_033",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_033",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "8 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_034",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "11 elements"
+    },
+    {
+      "shot": "SC_034",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "15 objects x 19 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_034",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_034",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_034",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "9 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_035",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_035",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "9 animated objects x 30 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_035",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "86 objects (1 shared) unchanged on 30 frames"
+    },
+    {
+      "shot": "SC_035",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_035",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_035",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_035",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_035",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B34_note_00_plate_border@14; lowest point y=0.179 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_035",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_035",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "30% of the highlighted silhouette visible, 0.53% of the frame, compact face 0.21% at frame 205"
+    },
+    {
+      "shot": "SC_035",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_035",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "2 annotations, 6 objects"
+    },
+    {
+      "shot": "SC_035",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_035",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "2 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_035",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "2 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_036",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "10 elements"
+    },
+    {
+      "shot": "SC_036",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "16 objects x 43 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_036",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_036",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_036",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "9 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_037",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "19 elements"
+    },
+    {
+      "shot": "SC_037",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "25 objects x 32 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_037",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_037",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_037",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_038",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "20 elements"
+    },
+    {
+      "shot": "SC_038",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "30 objects x 43 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_038",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_038",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_038",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "9 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_039",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "7 elements"
+    },
+    {
+      "shot": "SC_039",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "11 objects x 31 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_039",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_039",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_039",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_040",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_040",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "5 animated objects x 19 frames, max error 1.38e-05"
+    },
+    {
+      "shot": "SC_040",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "89 objects (1 shared) unchanged on 19 frames"
+    },
+    {
+      "shot": "SC_040",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0 (4 push-in overlay objects excepted)"
+    },
+    {
+      "shot": "SC_040",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_040",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_040",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_040",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.110 at gothic_cathedral_section_high_roof@1; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_040",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "push-in by design: starts on the locked framing, ortho 147.184 -> 132.466"
+    },
+    {
+      "shot": "SC_040",
+      "check": "overlays_screen_fixed",
+      "status": "PASS",
+      "detail": "3 annotation objects keep their frame position during the push-in (max drift 2.4e-07)"
+    },
+    {
+      "shot": "SC_040",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_040",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "1 annotations, 3 objects"
+    },
+    {
+      "shot": "SC_040",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_040",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_040",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "1 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_041",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "77 elements"
+    },
+    {
+      "shot": "SC_041",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "141 objects x 40 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_041",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_041",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_041",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "7 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_042",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "8 elements"
+    },
+    {
+      "shot": "SC_042",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "16 objects x 43 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_042",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_042",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_042",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "6 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_043",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_043",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "26 animated objects x 32 frames, max error 1.44e-05"
+    },
+    {
+      "shot": "SC_043",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "68 objects (1 shared) unchanged on 32 frames"
+    },
+    {
+      "shot": "SC_043",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0 (4 push-in overlay objects excepted)"
+    },
+    {
+      "shot": "SC_043",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_043",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_043",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_043",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.110 at gothic_cathedral_section_high_roof@1; lowest point y=0.210 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_043",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "push-in by design: starts on the locked framing, ortho 147.184 -> 135.410"
+    },
+    {
+      "shot": "SC_043",
+      "check": "overlays_screen_fixed",
+      "status": "PASS",
+      "detail": "3 annotation objects keep their frame position during the push-in (max drift 2.4e-07)"
+    },
+    {
+      "shot": "SC_043",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "50% of the highlighted silhouette visible, 1.48% of the frame, compact face 0.34% at frame 288"
+    },
+    {
+      "shot": "SC_043",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_043",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "1 annotations, 3 objects"
+    },
+    {
+      "shot": "SC_043",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_043",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_043",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "1 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_044",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "5 elements"
+    },
+    {
+      "shot": "SC_044",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "11 objects x 37 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_044",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_044",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_044",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "5 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_045",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "89 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_045",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "3 animated objects x 13 frames, max error 3.89e-08"
+    },
+    {
+      "shot": "SC_045",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "89 objects (1 shared) unchanged on 13 frames"
+    },
+    {
+      "shot": "SC_045",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_045",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_045",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_045",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "89 visible parts as expected"
+    },
+    {
+      "shot": "SC_045",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.044 at ANN_B44_note_00_plate_border@14; lowest point y=0.179 (label band 0.10); ortho_scale 147.184"
+    },
+    {
+      "shot": "SC_045",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "camera never moves"
+    },
+    {
+      "shot": "SC_045",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 2.91e-07"
+    },
+    {
+      "shot": "SC_045",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "1 annotations, 3 objects"
+    },
+    {
+      "shot": "SC_045",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "0 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_045",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "1 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_045",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "1 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_046",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "4 elements"
+    },
+    {
+      "shot": "SC_046",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "8 objects x 31 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_046",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_046",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_046",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "4 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "SC_047",
+      "check": "card_elements_built",
+      "status": "PASS",
+      "detail": "7 elements"
+    },
+    {
+      "shot": "SC_047",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "7 objects x 13 frames, max error 5.74e-08"
+    },
+    {
+      "shot": "SC_047",
+      "check": "camera_locked",
+      "status": "PASS",
+      "detail": "card camera never moves"
+    },
+    {
+      "shot": "SC_047",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "every lasting element visible on the last frame; disappearing elements gone"
+    },
+    {
+      "shot": "SC_047",
+      "check": "card_layout",
+      "status": "PASS",
+      "detail": "7 texts inside the safe area and above the subtitle zone, none overlapping; images inside the frame"
+    },
+    {
+      "shot": "ALL",
+      "check": "camera_identical_across_single_model_shots",
+      "status": "PASS",
+      "detail": "20 shots in 5 continuity group(s), one locked camera per group"
+    },
+    {
+      "shot": "SC_001",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 8c33c122a0fab110"
+    },
+    {
+      "shot": "SC_002",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 309176c75bd4ea17"
+    },
+    {
+      "shot": "SC_003",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 3343f2e57cff20af"
+    },
+    {
+      "shot": "SC_004",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 2a5366ed923451e6"
+    },
+    {
+      "shot": "SC_005",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 5478ac0b41c3390e"
+    },
+    {
+      "shot": "SC_006",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 b6119e57be14e00b"
+    },
+    {
+      "shot": "SC_007",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 c52b043393dc472b"
+    },
+    {
+      "shot": "SC_008",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 0c78bcffbeb4a466"
+    },
+    {
+      "shot": "SC_009",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 b1c7d6939ad1cec3"
+    },
+    {
+      "shot": "SC_010",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 0f7c4f92533cf5ae"
+    },
+    {
+      "shot": "SC_011",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 5f4d2283d1377273"
+    },
+    {
+      "shot": "SC_012",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 77ccd96bc2da5a17"
+    },
+    {
+      "shot": "SC_013",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 a6859181c817d9c2"
+    },
+    {
+      "shot": "SC_014",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 d4a40f20302f4f70"
+    },
+    {
+      "shot": "SC_015",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 b191fb4956b8fc0a"
+    },
+    {
+      "shot": "SC_016",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 f800391d454c0f33"
+    },
+    {
+      "shot": "SC_017",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 a7c64445d5afccd5"
+    },
+    {
+      "shot": "SC_018",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 1f0bb894e393a4d1"
+    },
+    {
+      "shot": "SC_019",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 fe286492f28672b2"
+    },
+    {
+      "shot": "SC_020",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 8e25eda3a4091231"
+    },
+    {
+      "shot": "SC_021",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 f00efc2b7c8c9ab0"
+    },
+    {
+      "shot": "SC_022",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 71720a0907241b79"
+    },
+    {
+      "shot": "SC_023",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 bd247aaf08488ef9"
+    },
+    {
+      "shot": "SC_024",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 d3f23f70b54973a6"
+    },
+    {
+      "shot": "SC_025",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 0723388ae85df81a"
+    },
+    {
+      "shot": "SC_026",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 f02c279c623ba144"
+    },
+    {
+      "shot": "SC_027",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 9c97410e701c1ad3"
+    },
+    {
+      "shot": "SC_028",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 074a642e7f1fde37"
+    },
+    {
+      "shot": "SC_029",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 bfa8964235d057ce"
+    },
+    {
+      "shot": "SC_030",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 7a6a0f2b26a92084"
+    },
+    {
+      "shot": "SC_031",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 64524d2e612c5d32"
+    },
+    {
+      "shot": "SC_032",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 681dfbe275e81d7b"
+    },
+    {
+      "shot": "SC_033",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 5d51bdb910848b2d"
+    },
+    {
+      "shot": "SC_034",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 fa08d847295d6222"
+    },
+    {
+      "shot": "SC_035",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 7e345ef9c5a260f1"
+    },
+    {
+      "shot": "SC_036",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 e7a671b6443deec1"
+    },
+    {
+      "shot": "SC_037",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 d5e7ab7a3191439e"
+    },
+    {
+      "shot": "SC_038",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 b7c97215eb5563d8"
+    },
+    {
+      "shot": "SC_039",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 b756a41ec9ec0975"
+    },
+    {
+      "shot": "SC_040",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 00520e4e911e0f66"
+    },
+    {
+      "shot": "SC_041",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 6290957ad95b42ec"
+    },
+    {
+      "shot": "SC_042",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 609264fc2af81ac8"
+    },
+    {
+      "shot": "SC_043",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 926e81eeb8b1d8c6"
+    },
+    {
+      "shot": "SC_044",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 79d807ed8e738821"
+    },
+    {
+      "shot": "SC_045",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 4348cf0f97266f2d"
+    },
+    {
+      "shot": "SC_046",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 2525f58c278d4835"
+    },
+    {
+      "shot": "SC_047",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 eb22cc0ae48eb7dd"
+    }
+  ]
+}

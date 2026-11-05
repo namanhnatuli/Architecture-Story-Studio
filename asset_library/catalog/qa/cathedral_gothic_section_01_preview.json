@@ -1,0 +1,69 @@
+{
+  "asset_id": "cathedral_gothic_section_01",
+  "signature": "d6b6cdabc610446173f3abfaa84ac538aeeba671c4a8160c46a9c3baeaa2eeb4",
+  "stats": {
+    "build_seconds": 0.065,
+    "objects": 89,
+    "asset_objects": 88,
+    "mesh_datablocks": 72,
+    "asset_mesh_datablocks": 71,
+    "evaluated_verts": 7752
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.053,
+    "objects": 89,
+    "asset_objects": 88,
+    "mesh_datablocks": 72,
+    "asset_mesh_datablocks": 71
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "89 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (117 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 d6b6cdabc6104461 twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "88 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/cathedrals/previews/cathedral_gothic_section_01/preview/three_quarter.png",
+      "render_seconds": 0.903,
+      "build_seconds": 0.053
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/cathedrals/previews/cathedral_gothic_section_01/preview/elevation.png",
+      "render_seconds": 0.386,
+      "build_seconds": 0.055
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/cathedrals/previews/cathedral_gothic_section_01/preview/top.png",
+      "render_seconds": 0.725,
+      "build_seconds": 0.066
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/cathedrals/previews/cathedral_gothic_section_01/preview/exploded.png",
+      "render_seconds": 0.703,
+      "build_seconds": 0.053
+    }
+  },
+  "process": {
+    "wall_seconds": 4.2,
+    "peak_rss_mb": 516.7,
+    "peak_memory_footprint_mb": 1886.5,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

@@ -158,5 +158,6 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **Mỗi phim mới kết bằng lời kêu gọi** gợi ý chủ đề trong bình luận, like và subscribe (`config/production_defaults.json` → `closing_call_to_action`): một beat `framing` trong chương cuối, sau kết luận, tối đa 60 từ, không claim, không hứa điều Studio không kiểm được, không logo nền tảng. `episode.py status` chặn bước SCRIPT khi thiếu. Chỉ áp dụng cho dự án có quy định này trong `episode.json`; phim cầu không bị kiểm lại.
 - **Chủ kênh có thể đọc kịch bản trước khi có video:** `tools/script_review.py` (xem playbook). Không dựng asset mới trước khi kịch bản được duyệt.
 - **Nguồn chặn tải tự động:** không lấy bản lưu trữ của nguồn đó để lách, ghi vào `research/source_snapshots.json` → `not_used` và tìm nguồn khác.
+- **Kiểm tra "lời và hình có khẳng định vượt quá bằng chứng không?"** là bắt buộc trước khi giao kịch bản và trước khi giao bản review (danh sách câu hỏi ở playbook, mục 4–6). Khớp nguyên văn với nguồn chưa đủ.
 - **Các nguồn lệch nhau về một con số:** nói cách diễn đạt đúng với mọi nguồn đã đọc ("more than 42 meters") và ghi rõ trên hình khi cần. Đừng chọn một con số rồi im lặng.
 

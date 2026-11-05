@@ -21,7 +21,7 @@ from engine.arch import assets, checks, realize, semantic
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SITE = "asset_library/architecture/sites/site_river_crossing_24.json"
 VIEWS = {"three_quarter": "BRIDGE_THREE_QUARTER", "elevation": "ELEVATION", "top": "TOP",
-         "exploded": "BRIDGE_THREE_QUARTER"}
+         "exploded": "BRIDGE_THREE_QUARTER", "from_below": "CATHEDRAL_FROM_BELOW", "section": "CATHEDRAL_SECTION"}
 # Designed interpenetration (framing, embedding); everything else must not overlap.
 ALLOWED_INTERSECT = {frozenset(p) for p in (
     ("TRUSS_CHORD", "END_POST"), ("TRUSS_CHORD", "TRUSS_VERTICAL"), ("TRUSS_CHORD", "TRUSS_DIAGONAL"),
@@ -36,6 +36,14 @@ ALLOWED_INTERSECT = {frozenset(p) for p in (
     ("CANTILEVER_ARM", "FLOOR_BEAM"), ("SUSPENDED_SPAN", "FLOOR_BEAM"), ("ANCHORAGE", "MAIN_CABLE"),
     ("TOWER", "MAIN_CABLE"), ("HANGER", "MAIN_CABLE"), ("HANGER", "FLOOR_BEAM"), ("STIFFENING_TRUSS", "FLOOR_BEAM"),
     ("STIFFENING_TRUSS", "DECK"), ("STAY_CABLE", "DECK"), ("STAY_CABLE", "PYLON"),
+    # cathedral sections: ribs and web bedded in each other and in the piers, roofs and flyers bedded in what carries them
+    ("RIB", "VAULT_WEB"), ("RIB", "NAVE_PIER"), ("RIB", "WALL"), ("RIB", "RIB"), ("VAULT_WEB", "WALL"), ("VAULT_WEB", "NAVE_PIER"),
+    ("VAULT_WEB", "VAULT_WEB"), ("AISLE_VAULT", "AISLE_VAULT"), ("AISLE_VAULT", "NAVE_PIER"), ("AISLE_VAULT", "WALL"),
+    ("AISLE_VAULT", "PIER_BUTTRESS"), ("ROOF", "NAVE_PIER"), ("ROOF", "WALL"), ("ROOF", "THICK_WALL"), ("ROOF", "BARREL_VAULT"),
+    ("AISLE_ROOF", "NAVE_PIER"), ("AISLE_ROOF", "PIER_BUTTRESS"), ("AISLE_ROOF", "WALL"), ("FLYING_BUTTRESS", "NAVE_PIER"),
+    ("FLYING_BUTTRESS", "PIER_BUTTRESS"), ("PINNACLE", "PIER_BUTTRESS"), ("BARREL_VAULT", "WALL"), ("BARREL_VAULT", "THICK_WALL"),
+    ("SHALLOW_BUTTRESS", "THICK_WALL"), ("PIER_BUTTRESS", "WALL"), ("WALL", "WALL"), ("WALL", "NAVE_PIER"),
+    ("CLERESTORY_WINDOW", "WALL"), ("AISLE_WINDOW", "WALL"), ("SMALL_WINDOW", "THICK_WALL"),
 )} | {frozenset(("WATER", t)) for t in semantic.SEMANTIC_TYPES}
 CROPPED_VIEWS = ("elevation", "top")
 TOUCH = 0.03
@@ -88,6 +96,7 @@ def frame_camera(scene, style, preset, view, objs):
         bpy.data.objects.remove(cam)
     camera, fit, basis = scene_mod.build_camera(scene, scene.collection, cam_preset, pts,
                                                 preset["width"] / preset["height"])
+    scene_mod.apply_from_below(scene, style, cam_preset, objs.values())
     scene.render.use_border = scene.render.use_crop_to_border = view in CROPPED_VIEWS
     if view in CROPPED_VIEWS:   # technical views: crop to the model (no empty sky / under-ground bands)
         from engine import framing

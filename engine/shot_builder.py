@@ -200,6 +200,7 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     camera, fit, basis = scene_mod.build_camera(scene, geometry.make_collection("90_CAMERA", root),
                                                 cam_preset, points, aspect, bottom_band)
 
+    scene_mod.apply_from_below(scene, style, cam_preset, objects.values())
     shown = {sid: templates.visible_component_ids(states, vis) for sid, vis in visible.items()}
     for obj in objects.values():
         if obj["component_id"] not in shown[obj["slot_id"]]:

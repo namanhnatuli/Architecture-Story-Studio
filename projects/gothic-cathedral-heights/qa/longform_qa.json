@@ -1,0 +1,93 @@
+{
+  "utc": "2026-11-05T17:55:28.582280+00:00",
+  "preset": "internal_720p",
+  "timing_sha256": "de98195dbf86b2012365836fb44ed1cb53e75e308557133e1fb258d329a3f7ff",
+  "results": [
+    {
+      "check": "chapters_structure",
+      "status": "PASS",
+      "detail": "10 chapters cover every beat contiguously, in order"
+    },
+    {
+      "check": "chapter_durations",
+      "status": "PASS",
+      "detail": "C1 52s, C2 78s, C3 106s, C4 84s, C5 102s, C6 64s, C7 97s, C8 175s, C9 94s, C10 72s"
+    },
+    {
+      "check": "runtime",
+      "status": "PASS",
+      "detail": "15.39 min (22162 frames); acceptable 10-18 min (owner decision, Tran Nam Anh (channel owner), 2026-11-05)"
+    },
+    {
+      "check": "no_duplicate_shots",
+      "status": "PASS",
+      "detail": "47 unique shots"
+    },
+    {
+      "check": "no_repeated_sentences",
+      "status": "PASS",
+      "detail": "136 sentences, none repeated verbatim"
+    },
+    {
+      "check": "narration_sentences_complete",
+      "status": "PASS",
+      "detail": "136 sentences scheduled, same text and order as narration.json"
+    },
+    {
+      "check": "audio_no_overlap",
+      "status": "PASS",
+      "detail": "no two beats' speech overlaps"
+    },
+    {
+      "check": "narration_silences",
+      "status": "PASS",
+      "detail": "longest gap 1.23s (limit 4.0s), after the last line 0.82s"
+    },
+    {
+      "check": "no_static_stretches",
+      "status": "PASS",
+      "detail": "longest stretch without a visual change 13.7s at 135.0s (limit 14.0s)"
+    },
+    {
+      "check": "visual_variety",
+      "status": "PASS",
+      "detail": "longest run of one visual kind: 4 x DIAGRAM (limit 4); 3D_HOLD 14, 3D_PUSH_IN 6, DIAGRAM 21, TITLE 6"
+    },
+    {
+      "check": "no_repeated_visuals",
+      "status": "PASS",
+      "detail": "no two consecutive shots show the same picture"
+    },
+    {
+      "check": "chapter_openings",
+      "status": "PASS",
+      "detail": "chapters 2-10 open with a numbered title on their first shot"
+    },
+    {
+      "check": "annotations_consistent",
+      "status": "PASS",
+      "detail": "narration/visual consistency: no contradiction; 3 UNCERTAIN for the reviewer (B26.s1 SIDE, B35.s4 SIDE, B44.s0 ARROWS); every annotation placed"
+    },
+    {
+      "check": "render_cache_current",
+      "status": "WARN",
+      "detail": "2/47 shots not rendered or stale at internal_720p: SC_018, SC_019"
+    },
+    {
+      "check": "chapter_variety",
+      "status": "WARN",
+      "detail": "C3"
+    },
+    {
+      "check": "image_licences",
+      "status": "PASS",
+      "detail": "0 external images, all approved with matching files"
+    },
+    {
+      "check": "image_attribution",
+      "status": "PASS",
+      "detail": "every external image is credited (credit card or description)"
+    }
+  ],
+  "failed": 0
+}

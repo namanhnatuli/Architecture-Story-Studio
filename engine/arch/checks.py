@@ -24,7 +24,16 @@ ALLOWED_OVERLAP = {frozenset(p) for p in (("WATER", t) for t in semantic.SEMANTI
 def expected_counts(family, variant, p):
     """Component counts implied by the parameters."""
     if family == "site":
-        return {"GROUND": 2, "WATER": 1}
+        return {"GROUND": 1} if variant == "level_ground" else {"GROUND": 2, "WATER": 1}
+    if variant == "gothic_section":
+        n, sides = p["bay_count"], 2
+        return {"FLOOR": 1, "NAVE_PIER": sides * (n + 1), "WALL": 4 * sides * n, "CLERESTORY_WINDOW": sides * n, "AISLE_WINDOW": sides * n,
+                "VAULT_WEB": n, "RIB": n + n + 1, "AISLE_VAULT": sides * n, "ROOF": 1, "AISLE_ROOF": sides,
+                "PIER_BUTTRESS": sides * (n + 1), "PINNACLE": sides * (n + 1), "FLYING_BUTTRESS": sides * (n + 1)}
+    if variant == "romanesque_section":
+        n, sides = p["bay_count"], 2
+        return {"FLOOR": 1, "THICK_WALL": sides * n, "SMALL_WINDOW": sides * n, "BARREL_VAULT": n, "WALL": sides * n,
+                "SHALLOW_BUTTRESS": sides * (n + 1), "ROOF": 1}
     if variant == "timber_beam":
         return {"SUPPORT": p["span_count"] + 1, "CAP_BEAM": p["span_count"] + 1, "STRINGER": p["span_count"],
                 "PLANK": p["span_count"], "RAILING": 2}
