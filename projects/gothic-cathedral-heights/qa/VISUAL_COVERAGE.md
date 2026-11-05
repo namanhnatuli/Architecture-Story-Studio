@@ -1,8 +1,8 @@
 # Visual coverage: How Gothic Cathedrals Reached Impossible Heights
 
-- Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 30 shots, 618.54 s.
+- Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 30 shots, 622.96 s.
 - Executable: **False** · COVERED 30, MISSING_ASSET 16
-- Publication: INTERNAL_ONLY — Revision g-r2: script after the owner's first review; claims source-verified, not editorially approved.
+- Publication: INTERNAL_ONLY — Revision g-r3: script after the owner's second review; claims source-verified, not editorially approved.
 - Visibility (offline Level 1 estimate): 0 shots, 0/0 target rows read, issues 0, auto-repaired 0, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
 
 | Beat | Intent | Strategy | Assets | Semantic targets | Templates (shots) | Expected / planned s | Evidence | Readable | Coverage | Issues |
@@ -14,14 +14,14 @@
 | B05 | EXPLAIN_CAUSE_EFFECT | — | romanesque_church_section: NEW_ASSET_REQUIRED | — | — | 19.52 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype) |
 | B06 | EXPLAIN_STRUCTURE | — | romanesque_church_section: NEW_ASSET_REQUIRED | — | — | 24.12 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype) |
 | B07 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_003) | 20.82 / 20.83 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE'] |
-| B08 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_004) | 31.18 / 31.21 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B08 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_004) | 32.25 / 32.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B09 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_005) | 29.73 / 29.75 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['EXPLAIN_DESIGN_CHANGE'] |
-| B10 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_006) | 23.98 / 24.00 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B10 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_006) | 25.60 / 25.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B11 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_007) | 18.80 / 18.83 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B12 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_008) | 19.62 / 19.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B13 | SHOW_COMPONENT | — | gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 21.80 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
-| B14 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_009) | 32.52 / 32.54 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B15 | EXPLAIN_DESIGN_CHANGE | — | gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 18.85 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
+| B14 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_009) | 25.52 / 25.54 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B15 | EXPLAIN_DESIGN_CHANGE | — | gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 16.77 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
 | B16 | EXPLAIN_CAUSE_EFFECT | — | gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 14.93 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
 | B17 | EXPLAIN_LOAD_PATH | — | gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 21.48 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
 | B18 | EXPLAIN_DESIGN_CHANGE | — | romanesque_church_section: NEW_ASSET_REQUIRED<br>gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 21.88 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype)<br>'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
@@ -46,7 +46,7 @@
 | B37 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_024) | 37.33 / 37.33 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE', 'SHOW_EVOLUTION'] |
 | B38 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_025) | 21.93 / 21.96 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION'] |
 | B39 | EXPLAIN_STRUCTURE | — | gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 21.75 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
-| B40 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_026) | 29.25 / 29.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B40 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_026) | 38.00 / 38.00 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B41 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_027) | 34.12 / 34.12 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B42 | SUMMARIZE_DIFFERENCES | — | gothic_cathedral_section: NEW_ASSET_REQUIRED | — | — | 20.73 / 0.00 | INTERNAL_PREVIEW | — | **MISSING_ASSET** | 'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted<br>generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype) |
 | B43 | SUMMARIZE_DIFFERENCES | CARD | — | — | MOTION_GRAPHICS (SC_028) | 21.05 / 21.08 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_EVOLUTION'] |

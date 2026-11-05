@@ -226,6 +226,7 @@ class GothicFilmTest(unittest.TestCase):
         # 1: the pointed arch is no general rule; the garbled Columbia sentence carries nothing
         self.assertIn("can rise higher", said["B08"])
         self.assertIn("not to every arch", said["B08"])
+        self.assertIn("of two other arches", said["B08"])   # the arches drawn on the card are not the study's
         self.assertIn("same weights", said["B09"])
         self.assertNotIn("more efficient", text)
         self.assertNotIn("CLM_133", {c for b in beats.values() for c in b["claim_ids"]})
@@ -247,6 +248,29 @@ class GothicFilmTest(unittest.TestCase):
         # 6: Durham's dates belong to the building, not to the vaults
         self.assertIn("begun in 1093", said["B14"])
         self.assertNotIn("as early as 1093", text)
+        # second review: Cluny likewise; 1088 dates the building, and no year is given for the arches
+        self.assertIn("whose construction began around 1088", said["B10"])
+        cards = {b["beat_id"]: [e["text"] for e in b["graphic"]["elements"] if e["kind"] == "text"]
+                 for b in read(self.P / "script/visual_beats.json")["beats"] if b.get("graphic")}
+        for b in ("B10", "B14"):
+            self.assertIn("1088  Cluny III: construction begins", cards[b])
+        # second review: no percentages under the arches of B08
+        self.assertFalse([w for w in cards["B08"] if "%" in w])
+        self.assertTrue(any("not the arches of the study" in w for w in cards["B08"]))
+        # second review: a pacing choice; Stalley's remark stays in the sources and is not spoken
+        self.assertNotIn("Stalley", text)
+        ledger = {c["id"]: c for c in read(self.P / "research/sources.json")["claims"]}
+        self.assertIn("Stalley", ledger["CLM_144"]["text"])
+        self.assertNotIn("CLM_144", {c for b in beats.values() for c in b["claim_ids"]})
+        # second review: a claim is no wider than the narration it backs
+        self.assertNotIn("stopped fighting", ledger["CLM_123"]["text"])
+        self.assertIn("rearranged", ledger["CLM_123"]["text"])
+        # second review: a badly drawn line proves nothing; B40 shows a real change of the supports
+        self.assertIn("many such lines", said["B40"])
+        self.assertIn("move its supports apart", said["B40"])
+        self.assertIn("Many lines can fit. One is enough", cards["B40"])
+        self.assertFalse([w for w in cards["B40"] if "No line fits" in w])
+        self.assertTrue(any("Fig. 5, recalculated" in w for w in cards["B40"]))
         # remarks: no dark Romanesque, no long debate of names
         self.assertNotIn("dark", said["B06"])
         self.assertIn("type shown here", said["B06"])
@@ -262,7 +286,7 @@ class GothicFilmTest(unittest.TestCase):
     def test_a_sentence_that_names_a_source_cites_that_source(self):
         # Verbatim excerpts do not catch a sentence attributed to a source its beat never cites (B22 in g-r1).
         marks = {"Columbia": "SRC_CU_", "national library": "SRC_BNF_", "MIT": "SRC_MIT_", "Heyman": "SRC_MIT_BLOCK",
-                 "Stalley": "SRC_CU_STALLEY", "Murray": "SRC_ISSMGE", "2024 study": "SRC_ISSMGE", "Viollet-le-Duc": "SRC_ISSMGE"}
+                 "Murray": "SRC_ISSMGE", "2024 study": "SRC_ISSMGE", "Viollet-le-Duc": "SRC_ISSMGE"}
         claims = {c["id"]: c for c in read(self.P / "research/sources.json")["claims"]}
         seen = set()
         for b in read(self.P / "script/narration.json")["beats"]:
@@ -273,6 +297,48 @@ class GothicFilmTest(unittest.TestCase):
                         seen.add(name)
                         self.assertTrue(any(s.startswith(prefix) for s in sources), (b["id"], name))
         self.assertEqual(seen, set(marks))
+
+
+class GothicThrustLineTest(unittest.TestCase):
+    """The geometry of card B40 is a recalculation of a published example: it must keep agreeing with the values
+    printed in Block, DeJong and Ochsendorf 2006 (figures 4 and 5). The tolerances are the differences found when it
+    was first checked; the paper does not state its block layout, so an exact match is not expected."""
+    T, HALF, HINGE = 0.1524, 80.0, 54.4
+
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("arch_statics", GothicFilmTest.P / "script/arch_statics.py")
+        cls.a = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.a)
+
+    def test_figure_4_range_of_thrust_of_a_semicircular_arch(self):
+        total = 2 * self.a.half_weight(90, 0.18)
+        valid = self.a.thrust_range(90, 0.18)
+        self.assertAlmostEqual(valid["min"][1] / total, 0.16, delta=0.005)
+        self.assertAlmostEqual(valid["max"][1] / total, 0.25, delta=0.01)
+
+    def test_figure_5_arch_on_spreading_supports(self):
+        a = self.a
+        total = 2 * a.half_weight(self.HALF, self.T)
+        self.assertAlmostEqual(a.thrust_range(self.HALF, self.T)["min"][1] / total, 0.198, delta=0.003)
+        rest = a.spread_state(self.HALF, self.T, self.HINGE, 0)["h"]
+        self.assertAlmostEqual(a.spread_state(self.HALF, self.T, self.HINGE, 0.0509)["h"] / rest - 1, 0.2459, delta=0.05)
+        limit = a.collapse_span_increase(self.HALF, self.T, self.HINGE)
+        self.assertAlmostEqual(limit, 0.1149, delta=0.01)
+        self.assertAlmostEqual(a.spread_state(self.HALF, self.T, self.HINGE, limit)["h"] / rest - 1, 0.851, delta=0.03)
+
+    def test_the_lines_on_the_card_are_valid_and_the_limit_is_real(self):
+        a = self.a
+        for crown, h in a.thrust_range(self.HALF, self.T).values():
+            self.assertTrue(a.fits(a.line_radii(self.HALF, self.T, crown, h)[0], self.T))
+        limit = a.collapse_span_increase(self.HALF, self.T, self.HINGE)
+        at = a.spread_state(self.HALF, self.T, self.HINGE, limit)["radii"]
+        self.assertAlmostEqual(at[-1], 1 + self.T / 2, places=3)              # the line reaches the extrados at the foot
+        beyond = a.spread_state(self.HALF, self.T, self.HINGE, limit + 0.01)["radii"]
+        self.assertGreater(max(beyond), 1 + self.T / 2)                       # any further, and it leaves the stone
+        with self.assertRaises(ValueError):                                   # an arch too thin has no valid line
+            a.thrust_range(90, 0.09)
 
 
 class OwnerStopTest(unittest.TestCase):

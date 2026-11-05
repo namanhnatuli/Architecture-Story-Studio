@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.8 — 2026-11-05 — Phim Gothic: g-r3 theo nhận xét thứ hai của chủ kênh (chưa render)
+- **Nhận xét của chủ kênh về g-r2:** yêu cầu sửa, không phải duyệt. Chưa render, chưa dựng mô hình, chưa có gì được duyệt.
+- **B40:** một đường vẽ lệch không chứng minh được rằng không có đường nào vừa. Card nay cho thấy nhiều đường hợp lệ trong một vòm, rồi chính vòm đó khi gối đỡ dịch ra tới giới hạn. Lời dẫn nói rõ thay đổi này.
+- **`script/arch_statics.py` (mới):** tính lại ví dụ của Block, DeJong và Ochsendorf 2006 (Hình 4, Hình 5). So với số in trong bài: lực đẩy 16,2–24,4% so với 16–25%; giới hạn sập nhịp +10,6%, lực đẩy +86% so với +11,49%, +85,10%. Gần nhau, không trùng; bảng đầy đủ ở `research/RESEARCH_REPORT.md`. Phim không nêu các số này. Test `GothicThrustLineTest` giữ các so sánh.
+- **B08:** bỏ phần trăm khỏi card, vì hai vòm trên hình không phải hai vòm của nghiên cứu.
+- **B10, B14:** Cluny "whose construction began around 1088", timeline "Cluny III: construction begins". Nguồn mới: trang của di tích (Centre des monuments nationaux).
+- **B14, B15:** bỏ câu đọc tên Roger Stalley vì nhịp kể; ý của ông giữ trong sổ claim (`CLM_144`).
+- **Sổ claim:** 30 nguồn, 56 claim, phim dùng 53. `CLM_123` đồng bộ với B07 theo yêu cầu; tự rà thêm `CLM_143`, `CLM_156`, `CLM_157`, `CLM_161`, `CLM_185`, `CLM_190`, `CLM_191` để claim không rộng hơn lời dẫn.
+- **Lời dẫn và timing:** 136 câu, 1.964 từ, 15:22; ASR đạt toàn bộ.
+- **Xem trước:** ảnh vẽ thử 30 card ở `output/card_previews_g-r3/` (ngoài git), không phải bản render của engine.
+
 ## 0.9.7 — 2026-11-05 — Phim Gothic: g-r2 theo nhận xét đầu tiên của chủ kênh (chưa render)
 - **Nhận xét của chủ kênh về g-r1:** yêu cầu sửa, không phải duyệt. Giữ cấu trúc, cách mở và lời kêu gọi. Chưa render, chưa dựng mô hình, chưa có gì được duyệt.
 - **Lời dẫn:**

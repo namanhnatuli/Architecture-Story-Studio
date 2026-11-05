@@ -11,9 +11,13 @@ yet), so `plan-visuals` reports NEW_ASSET_REQUIRED for them until the owner has 
 """
 import json
 import math
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import arch_statics as statics   # noqa: E402
+
 ASPECT = 16 / 9
 INK, MUTED, FAINT = "#24231F", "#55524A", "#8A867C"
 STONE, WOOD, GLASS = "#B9A887", "#8C654D", "#5E86A6"
@@ -164,12 +168,12 @@ CHAPTERS = [
     ("C1", "Hook", "The highest vaults of the Middle Ages came down; others still stand. Pose the central question."),
     ("C2", "Stone and its outward push", "Stone cannot be pulled apart; a vault pushes outward; one Romanesque answer, the barrel-vaulted church; Gothic rearranges the supports."),
     ("C3", "The pointed arch", "Taller over the same span, thrust depends on geometry and loads, the hanging chain, not a Gothic invention, level crowns over different widths."),
-    ("C4", "The rib vault", "In the four-part vault shown, ribs direct the load toward four piers; how vaults stand is debated; the web works too; the wall is no longer the main support."),
+    ("C4", "The rib vault", "In the four-part vault shown, ribs direct the load toward four piers; how vaults stand is debated; the web works too; Durham's dates; the wall is no longer the main support."),
     ("C5", "The flying buttress", "The thrust is carried outside, over the aisle roof, down to a massive buttress."),
     ("C6", "Walls of light", "Why they did it: Saint-Denis, Chartres; was it a revolution or continuity?"),
     ("C7", "Building by geometry", "Rules from trial and error, ropes and squares, templates, centering, carpenters, little room for error."),
     ("C8", "The limit: Beauvais", "Raised beyond its proportions, the vaults fell in 1284; the repair, the tower of 1573; Amiens' iron chain."),
-    ("C9", "Why they stand", "Stability rather than strength: the line of thrust under its assumptions, what a scaled model does and does not show."),
+    ("C9", "Why they stand", "Stability rather than strength: the line of thrust under its assumptions, an arch on moving supports, what a scaled model does and does not show."),
     ("C10", "Never impossible", "Answer the question; not a simple story of progress; call to action; credits."),
 ]
 
@@ -286,14 +290,13 @@ c.arrow([0.3 + 0.18 / ASPECT, Y8], [0.3 + 0.18 / ASPECT + 0.07, Y8 - 0.03], THRU
 c.arrow([0.7 - 0.18 / ASPECT, Y8], [0.7 - 0.18 / ASPECT - 0.025, Y8 - 0.07], THRUST, 0.008, 1)
 c.arrow([0.7 + 0.18 / ASPECT, Y8], [0.7 + 0.18 / ASPECT + 0.025, Y8 - 0.07], THRUST, 0.008, 1)
 c.text("Conceptual arrows: direction only, not calculated", 0.5, 0.3, 0.021, 1, color=MUTED)
-c.text("Two arches, same thickness-to-radius ratio: thrust 16–25% of weight (round), 14–23% (pointed)", 0.5, 0.262, 0.022, 3)
-c.text("Block, DeJong and Ochsendorf, 2006. A result for those two arches, not a rule", 0.5, 0.225, 0.021, 3, color=MUTED)
+c.text("Illustrations, not the arches of the study (Block, DeJong and Ochsendorf, 2006)", 0.5, 0.25, 0.022, 3, color=MUTED)
 beat("C3", "B08", "fact", "COMPARE_VARIANTS", [
     "A pointed arch is two arcs of a circle that meet at a point.",
     "Over the same span, it can rise higher than a round arch, and a taller arch can push less to the sides.",
     "How much less depends on its exact shape, its thickness and the weight it carries.",
-    "In one comparison by MIT engineers, a pointed arch did push less than a round one, but that result belongs to those two arches, not to every arch."],
-    ["CLM_130", "CLM_134"], strategy="CARD", graphic=c.spec(), visual_goal="Round and pointed arch on the same span; the higher rise, then one credited comparison",
+    "One comparison by MIT engineers, of two other arches, did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch."],
+    ["CLM_130", "CLM_134"], strategy="CARD", graphic=c.spec(), visual_goal="Round and pointed arch on the same span; the higher rise. No thrust figures: these are not the arches of the study",
     required_concepts=[])
 
 c = Card("B09")
@@ -323,11 +326,11 @@ beat("C3", "B09", "fact", "EXPLAIN_STRUCTURE", [
     ["CLM_114", "CLM_115"], strategy="CARD", graphic=c.spec(), visual_goal="Hanging chain with weights, inverted; different weights give a different curve", required_concepts=[])
 
 EARLY = dict(start=1060, end=1160, ticks=(1060, 1080, 1100, 1120, 1140, 1160))
-c = timeline("B10", [(1088, "Cluny, Burgundy: pointed arches", 1, "cluny")],
+c = timeline("B10", [(1088, "Cluny III: construction begins", 1, "cluny")],
              [(1130, 1144, "Saint-Denis: used systematically", "#5E86A6", 2, 0.64)], **EARLY)
 beat("C3", "B10", "fact", "SHOW_CONTEXT", [
     "The pointed arch was not a Gothic invention.",
-    "It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
+    "It already appears in Burgundy, at the great abbey church of Cluny, whose construction began around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
     "At the abbey of Saint-Denis, it was used systematically, together with the other new ideas."],
     ["CLM_131"], strategy="CARD", graphic=c.spec(), visual_goal="Short timeline: pointed arches before Gothic", required_concepts=[])
 
@@ -360,7 +363,7 @@ c.line([[bx0, by1], [bx1, by0]], ACCENT, 0.009, 1)
 for x, y in ((bx0, by0), (bx1, by0), (bx0, by1), (bx1, by1)):
     c.circle([x, y], 0.02, INK, 2)
 c.text("Diagonal ribs", 0.82, 0.62, 0.03, 1, plate=True, color=ACCENT)
-c.text("Stone web between the ribs", 0.82, 0.5, 0.026, 1, plate=True)
+c.text("Stone web", 0.6, 0.54, 0.026, 1, plate=True)
 c.text("Four piers", 0.18, 0.62, 0.03, 2, plate=True)
 c.text("One type: a four-part vault", 0.5, 0.86, 0.03, 1, plate=True)
 c.text("One bay from above. Simplified: how vaults stand is debated", 0.5, 0.235, 0.022, 2, color=MUTED)
@@ -376,17 +379,17 @@ beat("C4", "B13", "fact", "SHOW_COMPONENT", [
     ["CLM_141"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="Ribs highlighted, then the web between them: it must read as working stone, never as empty infill",
     required_concepts=[GOTHIC, "rib", "vault_web"],
     annotations=[note("B13_note", "Illustrative model of one analysis, still debated", 0, position="BOTTOM_RIGHT")])
-c = timeline("B14", [(1088, "Cluny: pointed arches", 0)],
+c = timeline("B14", [(1088, "Cluny III: construction begins", 0)],
              [(1093, 1133, "Durham, begun 1093, finished 1133: ribbed vaults, in phases", STONE, 1, 0.72, "durham"),
               (1140, 1144, "Saint-Denis choir", "#5E86A6", 0, 0.64)], **EARLY)
 beat("C4", "B14", "fact", "SHOW_CONTEXT", [
     "Ribs were not new either.",
     "Durham Cathedral in England, begun in 1093, was completely covered by ribbed vaults by the time it was finished in 1133.",
-    "Its masons refined them in phases over some forty years, and the historian Roger Stalley argues that the ribs there may owe more to appearance and meaning than to structure.",
+    "Its masons refined them in phases over some forty years.",
     "Columbia's project traces ribs to Islamic, Roman and Byzantine sources."],
     ["CLM_142"], strategy="CARD", graphic=c.spec(), visual_goal="The same timeline, with Durham's building years as a band, not one date", required_concepts=[])
 beat("C4", "B15", "fact", "EXPLAIN_DESIGN_CHANGE", [
-    "Whatever first inspired them, this kind of vault changes the job of the wall.",
+    "This kind of vault changes the job of the wall.",
     "With the vault's load directed toward the piers, the wall between them was no longer its main support.",
     "It could be thinned, and opened up with wide windows."],
     ["CLM_143"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=2, visual_goal="The wall between two piers opens into a tall window",
@@ -677,21 +680,92 @@ beat("C9", "B39", "fact", "EXPLAIN_STRUCTURE", [
     required_concepts=[GOTHIC],
     annotations=[note("B39_ch", "9 · Why they stand", 0, 2)])
 
+# Block, DeJong and Ochsendorf 2006, figure 5: thickness 15.24% of the radius, 160 degrees, hinge at 54.4 degrees.
+T40, HALF40, HINGE40 = 0.1524, 80.0, 54.4
+R40, FOOT40 = 0.3, 0.345
+JOINTS40 = [0, 10, 20, 30, 40, 50, HINGE40, 60, 70, 80]
+
+
+def arch_card(cx):
+    """Arch coordinates (radius 1, crown on +y) to card coordinates, with the feet at FOOT40."""
+    base = math.cos(math.radians(HALF40))
+    return lambda x, y: [cx + R40 * x / ASPECT, FOOT40 + R40 * (y - base)]
+
+
+def joint_point(degrees, r):
+    return r * math.sin(math.radians(degrees)), r * math.cos(math.radians(degrees))
+
+
+def arch40(c, cx, sentence, state=None, until=None):
+    """Stones and abutments of the arch, at rest or in a spread_state: the stones above the hinge turn as one
+    part, the stones below it and the abutment move with the support."""
+    card = arch_card(cx)
+    upper = state["upper"] if state else (lambda x, y: (x, y))
+    lower = state["lower"] if state else (lambda x, y: (x, y))
+    ri, ro = 1 - T40 / 2, 1 + T40 / 2
+    for side in (1, -1):
+        def to_card(move, x, y):
+            mx, my = move(x, y)
+            return card(side * mx, my)
+        for a0, a1 in zip(JOINTS40, JOINTS40[1:]):
+            move = upper if a1 <= HINGE40 else lower
+            inner = [to_card(move, *joint_point(a0 + (a1 - a0) * k / 2, ri)) for k in range(3)]
+            outer = [to_card(move, *joint_point(a1 - (a1 - a0) * k / 2, ro)) for k in range(3)]
+            c.polygon(inner + outer, STONE, border="#7A6E58", sentence=sentence, until=until, layer=1)
+        ix, iy = joint_point(HALF40, ri)
+        ox, oy = joint_point(HALF40, ro)
+        c.polygon([to_card(lower, ix, iy), to_card(lower, ox, oy), to_card(lower, ox + 0.05, -0.06), to_card(lower, ix - 0.03, -0.06)],
+                  "#9A927F", sentence=sentence, until=until)
+
+
+def line40(c, cx, radii, joints, sentence, state=None, color=ACCENT, width=0.006, until=None, step=8):
+    """A thrust line through the pressure points on the joints; symmetric about the crown."""
+    card = arch_card(cx)
+    right = []
+    for k in list(range(0, len(joints), step)) + [len(joints) - 1]:
+        x, y = joint_point(math.degrees(joints[k]), radii[k])
+        if state:
+            x, y = (state["upper"] if k <= state["hinge_joint"] else state["lower"])(x, y)
+        right.append((x, y))
+    c.line([card(-x, y) for x, y in reversed(right[1:])] + [card(x, y) for x, y in right], color, width, sentence, until=until, layer=2)
+
+
+REST40, MOVED40 = 0.26, 0.74   # centres of the two arches on the card
 c = Card("B40")
-voussoirs(c, 0.3, 0.3, 0.34, 0.36, 0.07, 7, 0)
-c.line(place(pointed_arch(0.41, 0.42), 0.3, 0.3), ACCENT, 0.006, 0, dash=True)
+valid = statics.thrust_range(HALF40, T40)
+arch40(c, REST40, 0)
+line40(c, REST40, *statics.line_radii(HALF40, T40, *valid["middle"]), 0)
+c.text("The line of thrust", REST40, 0.69, 0.028, 0, plate=True, color=ACCENT)
 c.text("Assumed: stones resist no pulling, never slide, never crush", 0.5, 0.9, 0.028, 1, plate=True)
-c.text("A line fits inside: it can stand", 0.3, 0.82, 0.028, 2, plate=True, color=ACCENT)
-voussoirs(c, 0.7, 0.3, 0.34, 0.36, 0.07, 7, 3)
-c.line(place(catenary(0.41, 0.3), 0.7, 0.3), THRUST, 0.006, 3, dash=True)
-c.text("No line fits: this model collapses", 0.7, 0.82, 0.028, 3, plate=True, color=THRUST)
-c.text("One idealized arch under one load. Conceptual lines, not calculated", 0.5, 0.235, 0.021, 0, color=MUTED)
+line40(c, REST40, *statics.line_radii(HALF40, T40, *valid["min"]), 2)
+line40(c, REST40, *statics.line_radii(HALF40, T40, *valid["max"]), 2)
+c.text("Many lines can fit. One is enough", REST40, 0.76, 0.028, 2, plate=True, color=ACCENT)
+moving = statics.spread_state(HALF40, T40, HINGE40, 0.0509)
+limit = statics.spread_state(HALF40, T40, HINGE40, statics.collapse_span_increase(HALF40, T40, HINGE40))
+arch40(c, MOVED40, 3, moving, until=4)
+line40(c, MOVED40, moving["radii"], moving["joints"], 3, moving, THRUST, until=4)
+c.text("Supports moved apart: the arch deforms", MOVED40, 0.76, 0.028, 3, plate=True, until=4)
+for side in (1, -1):
+    foot = MOVED40 + side * R40 * 1.3 / ASPECT
+    c.arrow([foot, 0.3], [foot + side * 0.025, 0.3], INK, 0.006, 3)
+arch40(c, MOVED40, 4, limit)
+line40(c, MOVED40, limit["radii"], limit["joints"], 4, limit, THRUST)
+card40 = arch_card(MOVED40)
+hinges = [limit["upper"](*joint_point(0, 1 + T40 / 2)), limit["lower"](*joint_point(HINGE40, 1 - T40 / 2)),
+          limit["lower"](*joint_point(HALF40, 1 + T40 / 2))]
+for x, y in hinges + [(-x, y) for x, y in hinges[1:]]:
+    c.circle(card40(x, y), 0.009, THRUST, 4)
+c.text("At the limit, the line touches the stone at five points", MOVED40, 0.76, 0.028, 4, plate=True, color=THRUST)
+c.text("Any further, and no line can fit", MOVED40, 0.69, 0.028, 4, plate=True, color=THRUST)
+c.text("After Block, DeJong and Ochsendorf, 2006, Fig. 5, recalculated. One idealized arch, self-weight only", 0.5, 0.225, 0.021, 0, color=MUTED)
 beat("C9", "B40", "fact", "EXPLAIN_STRUCTURE", [
     "Picture one idealized arch, and the path of the force through its stones, which engineers call the line of thrust.",
     "This analysis assumes that the stones resist no pulling, never slide and never crush.",
-    "Under those assumptions and a given load, the arch can stand if that line can stay inside the masonry.",
-    "If no such line fits, this idealized arch collapses."],
-    ["CLM_113", "CLM_111"], strategy="CARD", graphic=c.spec(), visual_goal="The line of thrust inside one idealized arch; a line that no longer fits; the assumptions on screen",
+    "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
+    "Now move its supports apart, and the arch deforms.",
+    "Past a certain point, no line can fit inside it, and this idealized arch collapses."],
+    ["CLM_113", "CLM_111", "CLM_117", "CLM_118"], strategy="CARD", graphic=c.spec(),
+    visual_goal="One arch at rest with several valid lines; the same arch with its supports moved apart, up to the limit. The fall itself is not shown",
     required_concepts=[])
 
 c = Card("B41")
@@ -751,7 +825,7 @@ c = Card("B46")
 c.text("How Gothic Cathedrals Reached Impossible Heights", 0.5, 0.8, 0.044, 0)
 for y, line in ((0.68, "Sources: Columbia University (Life of a Cathedral; S. Murray; R. Stalley);"),
                 (0.63, "MIT (P. Block, 2005; Block, DeJong and Ochsendorf, 2006; Romano and Ochsendorf);"),
-                (0.58, "Bibliothèque nationale de France; France Mémoire (A. Timbert); Durham Cathedral;"),
+                (0.58, "Bibliothèque nationale de France; France Mémoire (A. Timbert); Durham Cathedral; Abbaye de Cluny (CMN);"),
                 (0.53, "ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale"),
                 (0.44, "3D models and diagrams are illustrative, not structural analyses")):
     c.text(line, 0.5, y, 0.026, 0, color=MUTED)
@@ -771,7 +845,7 @@ def main():
     doc = {"schema": "narrative_beats/1", "project_id": "gothic-cathedral-heights",
            "title": "How Gothic Cathedrals Reached Impossible Heights", "status": "INTERNAL_REVIEW_DRAFT", "timing_mode": "AUDIO_LOCKED",
            "publication": {"restriction": "INTERNAL_ONLY",
-                           "reason": "Revision g-r2: script after the owner's first review; claims source-verified, not editorially approved."},
+                           "reason": "Revision g-r3: script after the owner's second review; claims source-verified, not editorially approved."},
            "beats": []}
     for b in BEATS:
         v = dict(b["visual"])

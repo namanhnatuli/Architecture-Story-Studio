@@ -1,6 +1,6 @@
 # Báo cáo nghiên cứu: How Gothic Cathedrals Reached Impossible Heights
 
-Ngày 2026-11-05. Sổ claim: `research/sources.json` (sinh bằng `research/build_sources.py`). 29 trang/tài liệu nguồn, 53 claim `SOURCE_VERIFIED`, mỗi trích dẫn đều được script khớp nguyên văn với bản tải về (`research/source_snapshots.json`, có SHA256). Chưa claim nào được duyệt biên tập. Khớp nguyên văn chỉ cho biết nguồn có viết câu đó, **không chứng minh phép khái quát của phim là đúng**: lần duyệt đầu của chủ kênh (2026-11-05) đã tìm ra nhiều chỗ như vậy (revision g-r2, mục cuối).
+Ngày 2026-11-05. Sổ claim: `research/sources.json` (sinh bằng `research/build_sources.py`). 30 trang/tài liệu nguồn, 56 claim `SOURCE_VERIFIED`, mỗi trích dẫn đều được script khớp nguyên văn với bản tải về (`research/source_snapshots.json`, có SHA256). Chưa claim nào được duyệt biên tập. Khớp nguyên văn chỉ cho biết nguồn có viết câu đó, **không chứng minh phép khái quát của phim là đúng**: lần duyệt đầu của chủ kênh (2026-11-05) đã tìm ra nhiều chỗ như vậy (revision g-r2, mục cuối).
 
 ## Nguồn chính
 
@@ -26,18 +26,35 @@ Nguồn **không mở được và không dùng**: Britannica, UNESCO, Smarthist
 6. **Vòm gân ở Durham:** hội Beauvais viết "the very first ... as early as 1093", nhưng 1093 là năm khởi công, không phải niên đại của vòm. Stalley mô tả hệ vòm phát triển qua ít nhất ba giai đoạn trong khoảng bốn mươi năm, và cho rằng việc ai đi trước ở bắc Âu là điều còn tranh cãi. Phim nói "begun in 1093", hoàn thành năm 1133, không nói ai đầu tiên.
 7. **Lỗi trên trang Columbia:** Hooke bị gọi là nhà vật lý thế kỷ 18 (ông viết năm 1675, theo MIT), và một câu về đường dây xích bị sai ngữ pháp. Từ g-r2 phim không dùng câu này nữa (`CLM_133`), năm lấy từ MIT.
 8. **Gian giữa Beauvais:** bài 2024 nói chưa từng xây, hội Beauvais nói dừng ở một gian. Phim nói "the great Gothic nave was never built".
-9. **Vòm nhọn đẩy ít hơn bao nhiêu:** bài Block 2006 viết "about 15% less", nhưng các số làm tròn trong chính bài (16% và 25% so với 14% và 23% trọng lượng bản thân) cho khoảng 12,5% và 8%. Phim không đọc con số phần trăm; hình chỉ ghi hai khoảng, kèm tên tác giả và lưu ý đây là kết quả của hai vòm đó.
+9. **Vòm nhọn đẩy ít hơn bao nhiêu:** bài Block 2006 viết "about 15% less", nhưng các số làm tròn trong chính bài (16% và 25% so với 14% và 23% trọng lượng bản thân) cho khoảng 12,5% và 8%. Phim không đọc và không ghi con số phần trăm: hai vòm trên hình không phải hai vòm của nghiên cứu, và các khoảng số cần giải thích riêng về lực đẩy tối thiểu và tối đa (nhận xét lần hai của chủ kênh).
 10. **Hai vòm nhọn chéo nhau:** hội Beauvais và BnF gọi các gân chéo là "hai vòm nhọn". Stalley mô tả gân chéo ở Durham là một đoạn cung tròn, còn vòm nhọn nằm ở vị trí ngang. Phim chỉ nói "two ribs".
-11. **Vì sao có gân:** Stalley cho rằng ở Durham lý do có thể là thẩm mỹ và ý nghĩa nhiều hơn kết cấu. Phim nêu ý này và gán cho ông, trước khi nói về vai trò kết cấu của loại vòm này.
+11. **Vì sao có gân:** Stalley cho rằng ở Durham lý do có thể là thẩm mỹ và ý nghĩa nhiều hơn kết cấu. Theo quyết định biên tập của chủ kênh, lời dẫn không nêu ý này vì nó kéo người xem khỏi câu hỏi vòm làm việc thế nào; ý này giữ trong sổ claim (`CLM_144`).
+12. **Cluny và năm 1088:** trang của di tích (Centre des monuments nationaux) gắn 1088 với dự án xây nhà thờ mới, còn hội Beauvais viết "around 1088" về công trường. Chưa có nguồn nào cho niên đại của chính các vòm nhọn, nên phim nói "whose construction began around 1088" và timeline ghi "Cluny III: construction begins". Việc Cluny III có vòm nhọn hiện dựa vào hội Beauvais; BnF chỉ nói Romanesque thỉnh thoảng dùng vòm nhọn.
 
 ## Giới hạn
 
 - Các claim về lực là định tính, phim không có con số về lực, ứng suất hay hệ số an toàn.
-- Vài chi tiết chỉ có một nguồn thứ cấp: ví von "như cánh cung", Cluny khoảng 1088, ba gian thành sáu, tháp 150 m. Chủ kênh nên xem kỹ các claim `confidence: medium` khi duyệt.
+- Vài chi tiết chỉ có một nguồn thứ cấp: ví von "như cánh cung", vòm nhọn ở Cluny, ba gian thành sáu, tháp 150 m. Chủ kênh nên xem kỹ các claim `confidence: medium` khi duyệt.
 - Câu "chuỗi vẫn còn chạy qua tòa nhà" dựa vào thì hiện tại trên trang Columbia (bản quyền 2017), chưa kiểm tra tại chỗ.
-- `CLM_105` (Gothic xuất hiện ở Pháp những năm 1140) và `CLM_133` (câu của Columbia về đường dây xích) có trong sổ nhưng lời dẫn không dùng.
+- `CLM_105` (Gothic xuất hiện ở Pháp những năm 1140), `CLM_133` (câu của Columbia về đường dây xích) và `CLM_144` (ý của Stalley về gân vòm) có trong sổ nhưng lời dẫn không dùng.
 - Câu "A taller arch can push less" dựa trên nhiều nguồn định tính và một ví dụ vòm trên gối dịch chuyển, nên phim nói "can". Tôi chưa đọc toàn văn nghiên cứu của Romano và Ochsendorf, chỉ đọc trang tóm tắt; bản đầy đủ sẽ cho biết điều kiện cụ thể hơn.
 
 ## Thay đổi sau lần duyệt đầu của chủ kênh (g-r2)
 
 Sổ claim được viết lại ở những chỗ phép khái quát vượt quá nguồn. Mỗi thay đổi ghi trong `assumptions` của claim và `revision.edits` của `script/narration.template.json`. Lời nhận xét của chủ kênh được ghi lại như một yêu cầu sửa, không phải một lần duyệt: chưa claim nào được duyệt.
+
+## Thay đổi sau lần nhận xét thứ hai (g-r3)
+
+**Hình B40 là tính toán lại, không phải chép hình.** Một đường vẽ không vừa không chứng minh được rằng không có đường nào vừa, nên B40 nay dựng theo ví dụ vòm trên gối dịch chuyển trong Block, DeJong và Ochsendorf 2006, Hình 5. Tôi tính lại bằng cùng phương pháp (`script/arch_statics.py`, chỉ trọng lượng bản thân, khớp xoay ở 54,4° như in trên hình) và đối chiếu với các số in trong bài:
+
+| Đại lượng | Trong bài | Tính lại |
+|---|---|---|
+| Hình 4(a), vòm bán nguyệt t/R 18%: lực đẩy tối thiểu và tối đa, % trọng lượng | 16 và 25 | 16,2 và 24,4 |
+| Hình 5, t/R 15,24%, 160°: lực đẩy tối thiểu, % trọng lượng | 19,80 | 19,66 (dùng 54,4°: 19,59) |
+| Hình 5(b), nhịp tăng 5,09%: lực đẩy tăng, % | 24,59 | 28 |
+| Hình 5(c), giới hạn sập: nhịp tăng, % | 11,49 | 10,6 |
+| Hình 5(c), giới hạn sập: lực đẩy tăng, % | 85,10 | 86 |
+
+Các số gần nhau nhưng không trùng, và bài không nêu cách chia khối của nó. Các số trong Hình 5 được đọc từ nhãn trên hình, không có trong phần chữ. Phim và card không nêu số nào trong bảng này. Test `GothicThrustLineTest` giữ các so sánh trên.
+
+Sổ claim cũng được thu hẹp để người duyệt không phải chấp thuận phát biểu rộng hơn lời dẫn: `CLM_123` theo yêu cầu của chủ kênh, và `CLM_143`, `CLM_156`, `CLM_157`, `CLM_161`, `CLM_185`, `CLM_190`, `CLM_191` do tôi rà thêm.

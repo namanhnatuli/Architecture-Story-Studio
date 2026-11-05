@@ -69,6 +69,17 @@
       "license": "Quoted for research/citation only."
     },
     {
+      "id": "SRC_CMN_CLUNY",
+      "title": "History of the Abbey of Cluny",
+      "publisher": "Abbaye de Cluny, Centre des monuments nationaux (cluny-abbaye.fr)",
+      "kind": "the monument's official website",
+      "edition": "web page",
+      "url": "https://www.cluny-abbaye.fr/en/discover/history-of-the-abbey-of-cluny",
+      "accessed": "2026-11-05",
+      "verification": "HTML downloaded 2026-11-05; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim. Named by the owner in the second script review of 2026-11-05.",
+      "license": "Quoted for research/citation only."
+    },
+    {
       "id": "SRC_ISSMGE_BEAUVAIS_1",
       "title": "Cathédrale de Beauvais : les accidents structurels des XIIIe et XVIe siècles eurent-ils une origine géotechnique ? Partie 1 : contexte historique et naturel (J.-D. Vernhes, P. Renault, Y. Zotna)",
       "publisher": "Proceedings of the XVIII European Conference on Soil Mechanics and Geotechnical Engineering (ECSMGE 2024, Lisbon); ISSMGE Online Library",
@@ -742,6 +753,73 @@
       "caveat": "Not editorially approved."
     },
     {
+      "id": "CLM_117",
+      "text": "A masonry element that can stand has not one but many valid thrust lines within its section, all lying between a minimum and a maximum thrust; finding one that fits is enough to show the structure can stand for that load, within the assumptions.",
+      "source_ids": [
+        "SRC_MIT_BLOCK_2006"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_MIT_BLOCK_2006",
+          "locator": "Semi-circular versus pointed arch, p. 13",
+          "excerpt": "For every masonry structural element, there is an infinite amount of valid thrust lines that fit within its section, all lying between a maximum and minimum value"
+        },
+        {
+          "source_id": "SRC_MIT_BLOCK_2006",
+          "locator": "Robert Hooke's hanging chain, p. 10",
+          "excerpt": "If a line of force can be found that lies everywhere within the masonry, then the structure can be shown to be safe for that set of loads"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "B40: several valid lines inside one arch at rest",
+      "scope": "qualitative; illustrative models; no forces, stresses, loads or safety factors beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_118",
+      "text": "In the published example of an arch on spreading supports, with thickness 15% of the radius and a total angle of embrace of 160 degrees, the arch deforms as its supports move apart; collapse comes when a thrust line can no longer fit, with the line touching the boundaries in more than three places.",
+      "source_ids": [
+        "SRC_MIT_BLOCK_2006"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_MIT_BLOCK_2006",
+          "locator": "Fig. 5, p. 15",
+          "excerpt": "This shows an arch on spreading supports with a t/R = 15% and a total angle of embrace of 160°"
+        },
+        {
+          "source_id": "SRC_MIT_BLOCK_2006",
+          "locator": "Arch on spreading supports, p. 16",
+          "excerpt": "The limit of displacement at which collapse occurs can be explored by applying displacements until it is no longer possible to fit a thrust line in the deformed structure. Failure occurs when there are more than three hinges, i.e. when the thrust line touches the boundaries of the structure in more than three places"
+        },
+        {
+          "source_id": "SRC_MIT_BLOCK_2006",
+          "locator": "Arch on spreading supports, p. 14",
+          "excerpt": "Masonry arches commonly collapse due to instability caused by large displacements (ground settlements, leaning buttresses etc.)."
+        }
+      ],
+      "assumptions": "The card's geometry is the agent's recalculation of this example with the paper's method (script/arch_statics.py, self-weight only, hinge at 54.4 degrees as printed in Fig. 5), not a tracing of the figure. Against the values printed on the figure: minimum thrust 19.6% of total weight (paper 19.80%); at span +5.09%, thrust +28% (paper +24.59%); limit at span +10.6% and thrust +86% (paper +11.49% and +85.10%). Close, not identical, and the paper does not state its block layout. The card and the narration give none of these numbers. The narration says 'this idealized arch', not any building.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "B40: the same arch with its supports moved apart, up to the limit; the fall itself is not shown",
+      "scope": "qualitative; illustrative models; no forces, stresses, loads or safety factors beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
       "id": "CLM_120",
       "text": "A vault does not only press down: it also pushes outward, like a bow being bent; this outward push is called thrust.",
       "source_ids": [
@@ -843,7 +921,7 @@
     },
     {
       "id": "CLM_123",
-      "text": "Gothic builders stopped fighting the thrust of vaults with wall thickness and learned to channel it, through the pointed arch, the ribbed vault and the flying buttress.",
+      "text": "Gothic builders rearranged the support of the vault: instead of spreading its thrust along a thick wall, they directed it toward particular points and carried it to supports outside, using the pointed arch, the ribbed vault and the flying buttress.",
       "source_ids": [
         "SRC_ABC_THRUST",
         "SRC_CU_AMIENS_ETEXT_18"
@@ -862,7 +940,7 @@
           "excerpt": "This revolution is made possible through the use of pointed arches and lightweight rib vaults, but above all by the creation of rigid peripheral supports ( culées) from which flying buttresses can be launched to support the high vaults."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "The association's wording ('stopped fighting ... with sheer wall thickness') is broader than this claim, which follows B07 (owner's script review, 2026-11-05). Columbia's 'rigid peripheral supports' backs the narrower wording; mass and buttressing still mattered.",
       "applies_to": [
         "gothic"
       ],
@@ -951,22 +1029,24 @@
           "excerpt": "However, the pointed arch thrusts about 15% less than the circular arch."
         }
       ],
-      "assumptions": "The paper's text says 'about 15% less', while its own rounded figures give about 12.5% (minimum) and 8% (maximum). The film narrates no percentage and the card shows only the ranges.",
+      "assumptions": "The paper's text says 'about 15% less', while its own rounded figures give about 12.5% (minimum) and 8% (maximum). The film narrates no percentage and shows none (owner's second review, 2026-11-05): the arches on the card are not those of the study, and the ranges would need the study's geometry and an explanation of minimum and maximum thrust.",
       "applies_to": [
         "gothic"
       ],
       "components": [
         "pointed_arch"
       ],
-      "intended_visual": "Caption on the arch card: the paper's ranges, credited",
+      "intended_visual": "Caption on the arch card: credited, says these are not the study's arches, no figures",
       "scope": "qualitative; illustrative models; no forces, stresses, loads or safety factors beyond quoted facts",
       "caveat": "Not editorially approved."
     },
     {
       "id": "CLM_131",
-      "text": "The pointed arch was not born with Gothic: examples appear in Burgundian Romanesque architecture, at the rebuilding of the abbey of Cluny around 1088, and Columbia's Amiens project says it was appropriated from Islamic sources; at Saint-Denis it was used systematically with the other Gothic innovations.",
+      "text": "The pointed arch was not born with Gothic: examples appear in Burgundian Romanesque architecture, including the great abbey church of Cluny (Cluny III), whose construction began around 1088, and Columbia's Amiens project says it was appropriated from Islamic sources; at Saint-Denis it was used systematically with the other Gothic innovations.",
       "source_ids": [
         "SRC_ABC_THRUST",
+        "SRC_BNF_ARC_BRISE",
+        "SRC_CMN_CLUNY",
         "SRC_CU_AMIENS_REVOLUTION"
       ],
       "review_status": "SOURCE_VERIFIED",
@@ -981,16 +1061,26 @@
           "source_id": "SRC_CU_AMIENS_REVOLUTION",
           "locator": "Synthesis (Gothic)",
           "excerpt": "The pointed arch. Appropriated from Islamic sources"
+        },
+        {
+          "source_id": "SRC_CMN_CLUNY",
+          "locator": "Maior ecclesia",
+          "excerpt": "In 1088 , he planned the construction of a new and ever larger abbey church"
+        },
+        {
+          "source_id": "SRC_BNF_ARC_BRISE",
+          "locator": "Arc brisé et voûte sur croisée d’ogive",
+          "excerpt": "L’art roman privilégie l’arc en plein cintre (qui dessine un demi-cercle parfait), même s’il utilise à l’occasion l’arc brisé."
         }
       ],
-      "assumptions": "None beyond the quoted wording.",
+      "assumptions": "1088 dates the building project (the monument's own page), not the pointed arches themselves, so the film gives no year for the arches (owner's script review, 2026-11-05). That Cluny III had pointed arches rests here on the association; BnF says only that Romanesque used them occasionally.",
       "applies_to": [
         "gothic"
       ],
       "components": [
         "pointed_arch"
       ],
-      "intended_visual": "Timeline note",
+      "intended_visual": "Timeline: 'Cluny III: construction begins'",
       "scope": "qualitative; illustrative models; no forces, stresses, loads or safety factors beyond quoted facts",
       "caveat": "Not editorially approved."
     },
@@ -1146,7 +1236,7 @@
     },
     {
       "id": "CLM_142",
-      "text": "Durham Cathedral in England was rebuilt between 1093 and 1133 and, when completed, was completely covered by ribbed vaults; its vaults fall into at least three technical phases over some forty years; Roger Stalley argues that the ribs there may owe more to aesthetic and iconographic considerations than to structure. Columbia's Amiens project gives ribs Islamic, Roman and Byzantine sources.",
+      "text": "Durham Cathedral in England was rebuilt between 1093 and 1133 and, when completed, was completely covered by ribbed vaults; its vaults fall into at least three technical phases over some forty years. Columbia's Amiens project gives ribs Islamic, Roman and Byzantine sources.",
       "source_ids": [
         "SRC_CU_AMIENS_REVOLUTION",
         "SRC_CU_STALLEY_STRUCTURE",
@@ -1164,11 +1254,6 @@
           "source_id": "SRC_CU_STALLEY_STRUCTURE",
           "locator": "Development of the Vaulted Ceiling",
           "excerpt": "there is no question that the Durham masons learnt to handle ribbed vaulting with increasing assurance over the course of forty years. The structure of the vaults falls into at least three technical phases"
-        },
-        {
-          "source_id": "SRC_CU_STALLEY_STRUCTURE",
-          "locator": "Development of the Vaulted Ceiling",
-          "excerpt": "The introduction of ribs at Durham, therefore, may owe more to aesthetic and even 'iconographic' considerations, than to structural concerns."
         },
         {
           "source_id": "SRC_DURHAM_CATHEDRAL",
@@ -1193,8 +1278,39 @@
       "caveat": "Not editorially approved."
     },
     {
+      "id": "CLM_144",
+      "text": "Roger Stalley argues that the introduction of ribs at Durham may owe more to aesthetic and iconographic considerations than to structural concerns.",
+      "source_ids": [
+        "SRC_CU_STALLEY_STRUCTURE"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_CU_STALLEY_STRUCTURE",
+          "locator": "Development of the Vaulted Ceiling",
+          "excerpt": "Ribs have frequently been regarded as a means of reinforcing the cells of a groin vault, as well as serving as a temporary skeleton during construction. It is unlikely, however, that this is why they were introduced at Durham."
+        },
+        {
+          "source_id": "SRC_CU_STALLEY_STRUCTURE",
+          "locator": "Development of the Vaulted Ceiling",
+          "excerpt": "The introduction of ribs at Durham, therefore, may owe more to aesthetic and even 'iconographic' considerations, than to structural concerns."
+        }
+      ],
+      "assumptions": "NOT NARRATED (owner's second review, 2026-11-05): a matter of pacing, since it moves the viewer from how the vault works to why ribs were first used. Kept here for the record and for the description.",
+      "applies_to": [
+        "gothic"
+      ],
+      "components": [
+        "rib"
+      ],
+      "intended_visual": "None",
+      "scope": "qualitative; illustrative models; no forces, stresses, loads or safety factors beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
       "id": "CLM_143",
-      "text": "With the vault's load directed toward the piers, the wall between them is no longer the vault's main support, so it can be thinned and opened with wide windows. It is the combination of the three devices that answers thrust.",
+      "text": "With the vault's load directed toward the piers, the wall between them is no longer the vault's main support, so it can be thinned and opened with wide windows.",
       "source_ids": [
         "SRC_ABC_THRUST",
         "SRC_BNF_ARC_BRISE"
@@ -1211,11 +1327,6 @@
           "source_id": "SRC_BNF_ARC_BRISE",
           "locator": "La voûte sur croisée d’ogive",
           "excerpt": "Les murs perdent ainsi leur rôle de soutien, et peuvent être percés de larges ouvertures."
-        },
-        {
-          "source_id": "SRC_ABC_THRUST",
-          "locator": "From load-bearing wall to stone skeleton",
-          "excerpt": "Taken separately, the pointed arch, the ribbed vault and the flying buttress are each only a partial answer to the problem of thrust. Combined, they form a complete system"
         }
       ],
       "assumptions": "The sources are absolute ('no longer carry any load', 'perdent ainsi leur rôle de soutien'). The film says 'main support': a wall still carries at least its own weight, and how vaults stand is debated (CLM_141).",
@@ -1420,7 +1531,7 @@
     },
     {
       "id": "CLM_156",
-      "text": "Flying buttresses allowed builders to create tall, slender, light-filled structures; the first had been used about eighty years before Amiens' upper nave (1230s), and builders learned to exploit them to build ever taller cathedrals.",
+      "text": "Flying buttresses allowed builders to create tall, slender, light-filled structures, and builders learned to exploit them to build ever taller cathedrals.",
       "source_ids": [
         "SRC_CU_AMIENS_UPPER_NAVE"
       ],
@@ -1452,29 +1563,22 @@
     },
     {
       "id": "CLM_157",
-      "text": "Flying buttresses also carry away rainwater from the roof; at Beauvais the flyers are double, the upper arch channelling rainwater.",
+      "text": "Flying buttresses also help carry rainwater off the roof.",
       "source_ids": [
-        "SRC_ABC_FRENCH_ART",
         "SRC_BNF_ARCS_BOUTANTS"
       ],
       "review_status": "SOURCE_VERIFIED",
-      "confidence": "medium",
+      "confidence": "high",
       "evidence": [
         {
           "source_id": "SRC_BNF_ARCS_BOUTANTS",
           "locator": "Les arcs-boutants",
           "excerpt": "Les arcs-boutants servent aussi à l’évacuation de l’eau de pluie tombée sur le toit."
-        },
-        {
-          "source_id": "SRC_ABC_FRENCH_ART",
-          "locator": "The double flying buttresses",
-          "excerpt": "In Beauvais, unlike in Amiens, the system is double: the lower arch absorbs the vault’s thrust, while the upper arch channels rainwater down to the base of the roof."
         }
       ],
       "assumptions": "None beyond the quoted wording.",
       "applies_to": [
-        "gothic",
-        "beauvais"
+        "gothic"
       ],
       "components": [
         "flying_buttress"
@@ -1514,7 +1618,7 @@
     },
     {
       "id": "CLM_161",
-      "text": "Columbia's teaching map calls Suger's choir at Saint-Denis, dedicated in 1144, the first fully Gothic structure; for Suger, light was a sign or bridge to the divine.",
+      "text": "Columbia's teaching map says that Suger's choir at Saint-Denis was dedicated in 1144, and that for Suger, light was a sign or bridge to the divine.",
       "source_ids": [
         "SRC_CU_SAINT_DENIS"
       ],
@@ -1524,7 +1628,7 @@
         {
           "source_id": "SRC_CU_SAINT_DENIS",
           "locator": "Significance and Basic Concepts",
-          "excerpt": "The choir of Abbot Suger was the first fully gothic structure. For Suger light functioned as a sign or bridge to the divine."
+          "excerpt": "For Suger light functioned as a sign or bridge to the divine."
         },
         {
           "source_id": "SRC_CU_SAINT_DENIS",
@@ -1936,7 +2040,7 @@
     },
     {
       "id": "CLM_185",
-      "text": "After 1284 the Beauvais choir was rebuilt with new intermediate piers that divided its three straight bays into six, and its vaults became six-part (sexpartite).",
+      "text": "After 1284 the Beauvais choir was rebuilt with new intermediate piers that divided its three straight bays into six.",
       "source_ids": [
         "SRC_ABC_DESCRIPTION",
         "SRC_ABC_HISTORY"
@@ -1952,7 +2056,7 @@
         {
           "source_id": "SRC_ABC_DESCRIPTION",
           "locator": "The choir",
-          "excerpt": "After the partial collapse of 1284, the choir was rebuilt in the 14th century with additional piers, and the vaults became six-part, as they remain today."
+          "excerpt": "After the partial collapse of 1284, the choir was rebuilt in the 14th century with additional piers"
         }
       ],
       "assumptions": "None beyond the quoted wording.",
@@ -2044,7 +2148,7 @@
     },
     {
       "id": "CLM_190",
-      "text": "At Amiens the enlarged central bays began to fail: the crossing piers, burdened by a great central steeple, buckled, and an iron chain was installed between 1497 and 1500 to arrest the deformation; the chain still runs through the triforium and ties the crossing piers.",
+      "text": "At Amiens the crossing piers were threatening collapse, and an iron chain was installed between 1497 and 1500 to arrest the deformation; the chain still runs through the building.",
       "source_ids": [
         "SRC_CU_AMIENS_ETEXT_1",
         "SRC_CU_AMIENS_TRIFORIUM_CHAIN"
@@ -2074,18 +2178,13 @@
     },
     {
       "id": "CLM_191",
-      "text": "Stephen Murray writes that in the vaulted masonry of Amiens forces were at work that could push verticals out of plumb; within two centuries the crossing piers were threatening collapse.",
+      "text": "Stephen Murray writes that at Amiens, within two centuries, the crossing piers were threatening collapse.",
       "source_ids": [
         "SRC_CU_AMIENS_ETEXT_17"
       ],
       "review_status": "SOURCE_VERIFIED",
       "confidence": "high",
       "evidence": [
-        {
-          "source_id": "SRC_CU_AMIENS_ETEXT_17",
-          "locator": "E-Text 17",
-          "excerpt": "Within the arched masonry forces were at play that were capable of destroying the rectitude of the edifice, pushing verticals out of plumb and threatening disaster."
-        },
         {
           "source_id": "SRC_CU_AMIENS_ETEXT_17",
           "locator": "E-Text 17",

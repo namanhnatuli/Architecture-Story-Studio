@@ -2,7 +2,7 @@
   "schema_version": 1,
   "language": "en",
   "title": "How Gothic Cathedrals Reached Impossible Heights",
-  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision g-r2)",
+  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision g-r3)",
   "voice": {
     "provider": "kokoro",
     "id": "kokoro_am_michael",
@@ -80,8 +80,7 @@
         "voussoirs",
         "transept",
         "pinnacle",
-        "centering",
-        "Roger Stalley"
+        "centering"
       ],
       "note": "French names are spoken by an American English voice. Six speech-only overrides in script/pronunciation.json (Beauvais, Amiens, Suger, Cluny, Notre-Dame, Viollet-le-Duc), all PENDING_LISTENING_REVIEW. Not reviewed yet.",
       "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance"
@@ -93,10 +92,10 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "g-r2",
+    "version": "g-r3",
     "date": "2026-11-05",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
-    "scope": "after the owner's first script review of 2026-11-05 (six points and four remarks on narration and visuals); structure, opening and call to action kept; no internal review render yet",
+    "scope": "after the owner's second script review of 2026-11-05 (B40, B08, B10, the claim record, B14); structure, opening and call to action kept; no internal review render yet",
     "review_package": "review/SCRIPT_REVIEW.md",
     "edits": [
       {
@@ -181,6 +180,26 @@
         "sentence": "B04.s2, B05.s2, B10.s1",
         "owner_review": "agent's sweep after the review",
         "why": "Same kind of over-generalization: 'has to stand by' became 'stands largely by', since the film itself shows ties; 'medieval builders' became builders at Amiens, as the source says; B10 names the Columbia project now that B09 no longer does."
+      },
+      {
+        "sentence": "B40",
+        "owner_review": "second review, 1",
+        "why": "One line that does not fit does not show that no line fits. The card now shows several valid lines in one arch, then the same arch with its supports moved apart up to the limit, after Block et al. 2006, Fig. 5, recalculated (script/arch_statics.py). The narration names the change of the supports."
+      },
+      {
+        "sentence": "B08 (card, s3)",
+        "owner_review": "second review, 2",
+        "why": "The percentages left the card: the arches drawn are not those of the study. The narration says 'of two other arches'."
+      },
+      {
+        "sentence": "B10.s1 (and the timelines of B10, B14)",
+        "owner_review": "second review, 3",
+        "why": "1088 is when construction began at Cluny, not a date for the pointed arches."
+      },
+      {
+        "sentence": "B14.s2, B15.s0",
+        "owner_review": "second review, editorial",
+        "why": "The sentence naming Roger Stalley is gone, for pacing; his remark stays in the sources (CLM_144). B15 no longer needs 'Whatever first inspired them'."
       }
     ]
   },
@@ -288,7 +307,7 @@
         "A pointed arch is two arcs of a circle that meet at a point.",
         "Over the same span, it can rise higher than a round arch, and a taller arch can push less to the sides.",
         "How much less depends on its exact shape, its thickness and the weight it carries.",
-        "In one comparison by MIT engineers, a pointed arch did push less than a round one, but that result belongs to those two arches, not to every arch."
+        "One comparison by MIT engineers, of two other arches, did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch."
       ]
     },
     {
@@ -314,7 +333,7 @@
       ],
       "sentences": [
         "The pointed arch was not a Gothic invention.",
-        "It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
+        "It already appears in Burgundy, at the great abbey church of Cluny, whose construction began around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
         "At the abbey of Saint-Denis, it was used systematically, together with the other new ideas."
       ]
     },
@@ -363,7 +382,7 @@
       "sentences": [
         "Ribs were not new either.",
         "Durham Cathedral in England, begun in 1093, was completely covered by ribbed vaults by the time it was finished in 1133.",
-        "Its masons refined them in phases over some forty years, and the historian Roger Stalley argues that the ribs there may owe more to appearance and meaning than to structure.",
+        "Its masons refined them in phases over some forty years.",
         "Columbia's project traces ribs to Islamic, Roman and Byzantine sources."
       ]
     },
@@ -374,7 +393,7 @@
         "CLM_143"
       ],
       "sentences": [
-        "Whatever first inspired them, this kind of vault changes the job of the wall.",
+        "This kind of vault changes the job of the wall.",
         "With the vault's load directed toward the piers, the wall between them was no longer its main support.",
         "It could be thinned, and opened up with wide windows."
       ]
@@ -680,13 +699,16 @@
       "kind": "fact",
       "claim_ids": [
         "CLM_113",
-        "CLM_111"
+        "CLM_111",
+        "CLM_117",
+        "CLM_118"
       ],
       "sentences": [
         "Picture one idealized arch, and the path of the force through its stones, which engineers call the line of thrust.",
         "This analysis assumes that the stones resist no pulling, never slide and never crush.",
-        "Under those assumptions and a given load, the arch can stand if that line can stay inside the masonry.",
-        "If no such line fits, this idealized arch collapses."
+        "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
+        "Now move its supports apart, and the arch deforms.",
+        "Past a certain point, no line can fit inside it, and this idealized arch collapses."
       ]
     },
     {

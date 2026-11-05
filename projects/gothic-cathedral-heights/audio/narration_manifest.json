@@ -24617,6 +24617,1045 @@
           }
         ]
       }
+    },
+    "2498c576eafb14c62b447313697f715fef9968f7b2442c9d627cc83d303dd637": {
+      "role": "sentence",
+      "beat_id": "B08",
+      "sentence_index": 3,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "One comparison by MIT engineers, of two other arches, did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch.",
+      "spoken_text": "One comparison by MIT engineers, of two other arches, did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/2498c576eafb14c62b44.wav",
+      "duration": 12.6,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.6,
+      "peak_db": -6.4,
+      "words_per_second": 2.302,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 5.344,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "wˈʌn kəmpˈɛɹəsᵊn bI ˌɛmˌItˈi ˌɛnʤənˈɪɹz, ʌv tˈu ˈʌðəɹ ˈɑɹʧᵻz, dˈɪd fˈInd ðæt ðə pˈYntᵻd wˈʌn pˈʊʃt lˈɛs, bˌʌt ðˈæt ɹəzˈʌlt bəlˈɔŋz tə ðOz tˈu ˈɑɹʧᵻz, nˌɑt tʊ ˈɛvəɹi ˈɑɹʧ.",
+      "lang_code": "a",
+      "cache_key": "2498c576eafb14c62b447313697f715fef9968f7b2442c9d627cc83d303dd637",
+      "sha256": "c8e8cd94770cc8cc7e8ecdd65ca5f15cb95f84691fea86546005ed51b35e1cee",
+      "stored_utc": "2026-11-05T12:15:46.990219+00:00",
+      "asr": {
+        "text": "One comparison by MIT engineers of two other arches did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "c8e8cd94770cc8cc7e8ecdd65ca5f15cb95f84691fea86546005ed51b35e1cee",
+        "reference": "One comparison by MIT engineers, of two other arches, did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "c8e8cd94770cc8cc7e8ecdd65ca5f15cb95f84691fea86546005ed51b35e1cee",
+        "heard": "One comparison by MIT engineers of two other arches did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch.",
+        "words": [
+          {
+            "text": "One",
+            "start": 0.0,
+            "end": 0.66
+          },
+          {
+            "text": "comparison",
+            "start": 0.66,
+            "end": 1.26
+          },
+          {
+            "text": "by",
+            "start": 1.26,
+            "end": 1.58
+          },
+          {
+            "text": "MIT",
+            "start": 1.58,
+            "end": 2.22
+          },
+          {
+            "text": "engineers",
+            "start": 2.22,
+            "end": 2.82
+          },
+          {
+            "text": "of",
+            "start": 2.82,
+            "end": 3.3
+          },
+          {
+            "text": "two",
+            "start": 3.3,
+            "end": 3.52
+          },
+          {
+            "text": "other",
+            "start": 3.52,
+            "end": 3.8
+          },
+          {
+            "text": "arches",
+            "start": 3.8,
+            "end": 4.36
+          },
+          {
+            "text": "did",
+            "start": 4.36,
+            "end": 5.06
+          },
+          {
+            "text": "find",
+            "start": 5.06,
+            "end": 5.44
+          },
+          {
+            "text": "that",
+            "start": 5.44,
+            "end": 5.66
+          },
+          {
+            "text": "the",
+            "start": 5.66,
+            "end": 5.82
+          },
+          {
+            "text": "pointed",
+            "start": 5.82,
+            "end": 6.18
+          },
+          {
+            "text": "one",
+            "start": 6.18,
+            "end": 6.46
+          },
+          {
+            "text": "pushed",
+            "start": 6.46,
+            "end": 6.82
+          },
+          {
+            "text": "less,",
+            "start": 6.82,
+            "end": 7.48
+          },
+          {
+            "text": "but",
+            "start": 7.48,
+            "end": 7.9
+          },
+          {
+            "text": "that",
+            "start": 7.9,
+            "end": 8.12
+          },
+          {
+            "text": "result",
+            "start": 8.12,
+            "end": 8.46
+          },
+          {
+            "text": "belongs",
+            "start": 8.46,
+            "end": 9.06
+          },
+          {
+            "text": "to",
+            "start": 9.06,
+            "end": 9.28
+          },
+          {
+            "text": "those",
+            "start": 9.28,
+            "end": 9.52
+          },
+          {
+            "text": "two",
+            "start": 9.52,
+            "end": 9.78
+          },
+          {
+            "text": "arches,",
+            "start": 9.78,
+            "end": 10.66
+          },
+          {
+            "text": "not",
+            "start": 10.66,
+            "end": 11.02
+          },
+          {
+            "text": "to",
+            "start": 11.02,
+            "end": 11.18
+          },
+          {
+            "text": "every",
+            "start": 11.18,
+            "end": 11.48
+          },
+          {
+            "text": "arch.",
+            "start": 11.48,
+            "end": 12.12
+          }
+        ]
+      }
+    },
+    "66e173c02f29d6047b97b4126de3aea43fb1e21946b918d13ea26f0cef983c6e": {
+      "role": "sentence",
+      "beat_id": "B10",
+      "sentence_index": 1,
+      "pronunciation": [
+        "PRON_AMIENS",
+        "PRON_CLUNY"
+      ],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "It already appears in Burgundy, at the great abbey church of Cluny, whose construction began around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
+      "spoken_text": "It already appears in Burgundy, at the great abbey church of [Cluny](/klˈuni/), whose construction began around 1088, and Columbia University's [Amiens](/æmjˈæn/) project traces it to Islamic sources.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/66e173c02f29d6047b97.wav",
+      "duration": 13.45,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.5,
+      "peak_db": -6.9,
+      "words_per_second": 2.305,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.995,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˌɪt ˌɔlɹˈɛdi əpˈɪɹz ɪn bˈɜɹɡəndi, æt ðə ɡɹˈAt ˈæbi ʧˈɜɹʧ ʌv klˈuni, hˌuz kənstɹˈʌkʃən bəɡˈæn əɹˈWnd tˈɛn ˈATi ˈAt, ænd kəlˈʌmbiə jˌunəvˈɜɹsəTiz æmjˈæn pɹˈɑʤˌɛkt tɹˈAsᵻz ɪt tʊ ɪslˈɑmɪk sˈɔɹsᵻz.",
+      "lang_code": "a",
+      "cache_key": "66e173c02f29d6047b97b4126de3aea43fb1e21946b918d13ea26f0cef983c6e",
+      "sha256": "fdca440174a307879a7eca9310b1e09c7c26d0698a3907b2771bd3cd28207db7",
+      "stored_utc": "2026-11-05T12:15:48.053163+00:00",
+      "asr": {
+        "text": "It already appears in Burgundy, at the Great Abbey Church of Cluny, whose construction began around 1088, and Columbia University's Amyan project traces it to Islamic sources.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "fdca440174a307879a7eca9310b1e09c7c26d0698a3907b2771bd3cd28207db7",
+        "reference": "It already appears in Burgundy, at the great abbey church of Cluny, whose construction began around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
+        "pronunciation_aliases_applied": true,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "fdca440174a307879a7eca9310b1e09c7c26d0698a3907b2771bd3cd28207db7",
+        "heard": "It already appears in Burgundy, at the Great Abbey Church of Cluny, whose construction began around 1088, and Columbia University's Amyan Project traces it to Islamic sources.",
+        "words": [
+          {
+            "text": "It",
+            "start": 0.0,
+            "end": 0.5
+          },
+          {
+            "text": "already",
+            "start": 0.5,
+            "end": 0.86
+          },
+          {
+            "text": "appears",
+            "start": 0.86,
+            "end": 1.36
+          },
+          {
+            "text": "in",
+            "start": 1.36,
+            "end": 1.58
+          },
+          {
+            "text": "Burgundy,",
+            "start": 1.58,
+            "end": 2.26
+          },
+          {
+            "text": "at",
+            "start": 2.26,
+            "end": 2.72
+          },
+          {
+            "text": "the",
+            "start": 2.72,
+            "end": 2.84
+          },
+          {
+            "text": "Great",
+            "start": 2.84,
+            "end": 3.12
+          },
+          {
+            "text": "Abbey",
+            "start": 3.12,
+            "end": 3.56
+          },
+          {
+            "text": "Church",
+            "start": 3.56,
+            "end": 3.82
+          },
+          {
+            "text": "of",
+            "start": 3.82,
+            "end": 4.04
+          },
+          {
+            "text": "Cluny,",
+            "start": 4.04,
+            "end": 4.72
+          },
+          {
+            "text": "whose",
+            "start": 4.72,
+            "end": 5.16
+          },
+          {
+            "text": "construction",
+            "start": 5.16,
+            "end": 5.68
+          },
+          {
+            "text": "began",
+            "start": 5.68,
+            "end": 6.14
+          },
+          {
+            "text": "around",
+            "start": 6.14,
+            "end": 6.64
+          },
+          {
+            "text": "1088,",
+            "start": 6.64,
+            "end": 7.72
+          },
+          {
+            "text": "and",
+            "start": 7.72,
+            "end": 8.24
+          },
+          {
+            "text": "Columbia",
+            "start": 8.24,
+            "end": 8.7
+          },
+          {
+            "text": "University's",
+            "start": 8.7,
+            "end": 9.64
+          },
+          {
+            "text": "Amyan",
+            "start": 9.64,
+            "end": 10.12
+          },
+          {
+            "text": "Project",
+            "start": 10.12,
+            "end": 10.58
+          },
+          {
+            "text": "traces",
+            "start": 10.58,
+            "end": 11.14
+          },
+          {
+            "text": "it",
+            "start": 11.14,
+            "end": 11.38
+          },
+          {
+            "text": "to",
+            "start": 11.38,
+            "end": 11.56
+          },
+          {
+            "text": "Islamic",
+            "start": 11.56,
+            "end": 12.04
+          },
+          {
+            "text": "sources.",
+            "start": 12.04,
+            "end": 12.92
+          }
+        ]
+      }
+    },
+    "b9a3b2a3988bc9c8b181465d1b5cf4b60a4de632bb8167923167ab741681416c": {
+      "role": "sentence",
+      "beat_id": "B14",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Its masons refined them in phases over some forty years.",
+      "spoken_text": "Its masons refined them in phases over some forty years.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/b9a3b2a3988bc9c8b181.wav",
+      "duration": 4.75,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -28.3,
+      "peak_db": -5.4,
+      "words_per_second": 2.105,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.407,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˌɪts mˈAsᵊnz ɹəfˈInd ðˌɛm ɪn fˈAzᵻz ˈOvəɹ sˌʌm fˈɔɹTi jˈɪɹz.",
+      "lang_code": "a",
+      "cache_key": "b9a3b2a3988bc9c8b181465d1b5cf4b60a4de632bb8167923167ab741681416c",
+      "sha256": "2353299c0832d5daa42cd548b160c12ba09cb984d77af1192666300c3752645a",
+      "stored_utc": "2026-11-05T12:15:48.590301+00:00",
+      "asr": {
+        "text": "Its masons refined them in phases over some 40 years.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "2353299c0832d5daa42cd548b160c12ba09cb984d77af1192666300c3752645a",
+        "reference": "Its masons refined them in phases over some forty years.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "2353299c0832d5daa42cd548b160c12ba09cb984d77af1192666300c3752645a",
+        "heard": "Its masons refined them in phases over some 40 years.",
+        "words": [
+          {
+            "text": "Its",
+            "start": 0.0,
+            "end": 0.58
+          },
+          {
+            "text": "masons",
+            "start": 0.58,
+            "end": 1.08
+          },
+          {
+            "text": "refined",
+            "start": 1.08,
+            "end": 1.68
+          },
+          {
+            "text": "them",
+            "start": 1.68,
+            "end": 1.88
+          },
+          {
+            "text": "in",
+            "start": 1.88,
+            "end": 2.12
+          },
+          {
+            "text": "phases",
+            "start": 2.12,
+            "end": 2.58
+          },
+          {
+            "text": "over",
+            "start": 2.58,
+            "end": 2.94
+          },
+          {
+            "text": "some",
+            "start": 2.94,
+            "end": 3.22
+          },
+          {
+            "text": "40",
+            "start": 3.22,
+            "end": 3.6
+          },
+          {
+            "text": "years.",
+            "start": 3.6,
+            "end": 4.2
+          }
+        ]
+      }
+    },
+    "f71a48faa2a372b79e6b8eb39175c6425bc30c170e91e89e23ef202ee8dd2a5b": {
+      "role": "sentence",
+      "beat_id": "B15",
+      "sentence_index": 0,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "This kind of vault changes the job of the wall.",
+      "spoken_text": "This kind of vault changes the job of the wall.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/f71a48faa2a372b79e6b.wav",
+      "duration": 3.65,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.7,
+      "peak_db": -8.5,
+      "words_per_second": 2.74,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.32,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ðˌɪs kˈInd ʌv vˈɔlt ʧˈAnʤᵻz ðə ʤˈɑb ʌv ðə wˈɔl.",
+      "lang_code": "a",
+      "cache_key": "f71a48faa2a372b79e6b8eb39175c6425bc30c170e91e89e23ef202ee8dd2a5b",
+      "sha256": "49aee952ad33d1ef015eccbbd3b2b1472cc672a1cd04c77fbe61bbcaae7b43b2",
+      "stored_utc": "2026-11-05T12:15:48.944379+00:00",
+      "asr": {
+        "text": "This kind of vault changes the job of the wall.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "49aee952ad33d1ef015eccbbd3b2b1472cc672a1cd04c77fbe61bbcaae7b43b2",
+        "reference": "This kind of vault changes the job of the wall.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "49aee952ad33d1ef015eccbbd3b2b1472cc672a1cd04c77fbe61bbcaae7b43b2",
+        "heard": "This kind of vault changes the job of the wall.",
+        "words": [
+          {
+            "text": "This",
+            "start": 0.0,
+            "end": 0.56
+          },
+          {
+            "text": "kind",
+            "start": 0.56,
+            "end": 0.78
+          },
+          {
+            "text": "of",
+            "start": 0.78,
+            "end": 0.9
+          },
+          {
+            "text": "vault",
+            "start": 0.9,
+            "end": 1.18
+          },
+          {
+            "text": "changes",
+            "start": 1.18,
+            "end": 1.76
+          },
+          {
+            "text": "the",
+            "start": 1.76,
+            "end": 2.04
+          },
+          {
+            "text": "job",
+            "start": 2.04,
+            "end": 2.3
+          },
+          {
+            "text": "of",
+            "start": 2.3,
+            "end": 2.54
+          },
+          {
+            "text": "the",
+            "start": 2.54,
+            "end": 2.64
+          },
+          {
+            "text": "wall.",
+            "start": 2.64,
+            "end": 3.04
+          }
+        ]
+      }
+    },
+    "e2be9ca0809148f8026a5646a4ddfc6ab8c89c4ce34a15247c1d15ac0e7d2c0b": {
+      "role": "sentence",
+      "beat_id": "B40",
+      "sentence_index": 2,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
+      "spoken_text": "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/e2be9ca0809148f8026a.wav",
+      "duration": 9.875,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.7,
+      "peak_db": -4.9,
+      "words_per_second": 2.633,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.732,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "ˈʌndəɹ ðOz əsˈʌmpʃənz ænd ɐ ɡˈɪvən lˈOd, mˈɛni sˈʌʧ lˈInz kæn fˈɪt ɪnsˈId ðə mˈAsᵊnɹi, ænd fˈIndɪŋ wˈʌn ɪz ɪnˈʌf tə ʃˈO ði ˈɑɹʧ kæn stˈænd.",
+      "lang_code": "a",
+      "cache_key": "e2be9ca0809148f8026a5646a4ddfc6ab8c89c4ce34a15247c1d15ac0e7d2c0b",
+      "sha256": "5767ab178650a7b1a1f921af609a76d3762658f822867e08d7cebd61ec0806fc",
+      "stored_utc": "2026-11-05T12:15:50.465304+00:00",
+      "asr": {
+        "text": "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "5767ab178650a7b1a1f921af609a76d3762658f822867e08d7cebd61ec0806fc",
+        "reference": "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "5767ab178650a7b1a1f921af609a76d3762658f822867e08d7cebd61ec0806fc",
+        "heard": "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
+        "words": [
+          {
+            "text": "Under",
+            "start": 0.0,
+            "end": 0.6
+          },
+          {
+            "text": "those",
+            "start": 0.6,
+            "end": 0.88
+          },
+          {
+            "text": "assumptions",
+            "start": 0.88,
+            "end": 1.44
+          },
+          {
+            "text": "and",
+            "start": 1.44,
+            "end": 1.74
+          },
+          {
+            "text": "a",
+            "start": 1.74,
+            "end": 1.84
+          },
+          {
+            "text": "given",
+            "start": 1.84,
+            "end": 2.04
+          },
+          {
+            "text": "load,",
+            "start": 2.04,
+            "end": 2.86
+          },
+          {
+            "text": "many",
+            "start": 2.86,
+            "end": 3.26
+          },
+          {
+            "text": "such",
+            "start": 3.26,
+            "end": 3.56
+          },
+          {
+            "text": "lines",
+            "start": 3.56,
+            "end": 4.0
+          },
+          {
+            "text": "can",
+            "start": 4.0,
+            "end": 4.28
+          },
+          {
+            "text": "fit",
+            "start": 4.28,
+            "end": 4.58
+          },
+          {
+            "text": "inside",
+            "start": 4.58,
+            "end": 4.96
+          },
+          {
+            "text": "the",
+            "start": 4.96,
+            "end": 5.24
+          },
+          {
+            "text": "masonry,",
+            "start": 5.24,
+            "end": 5.8
+          },
+          {
+            "text": "and",
+            "start": 6.24,
+            "end": 6.38
+          },
+          {
+            "text": "finding",
+            "start": 6.38,
+            "end": 6.8
+          },
+          {
+            "text": "one",
+            "start": 6.8,
+            "end": 7.08
+          },
+          {
+            "text": "is",
+            "start": 7.08,
+            "end": 7.3
+          },
+          {
+            "text": "enough",
+            "start": 7.3,
+            "end": 7.56
+          },
+          {
+            "text": "to",
+            "start": 7.56,
+            "end": 7.72
+          },
+          {
+            "text": "show",
+            "start": 7.72,
+            "end": 7.96
+          },
+          {
+            "text": "the",
+            "start": 7.96,
+            "end": 8.18
+          },
+          {
+            "text": "arch",
+            "start": 8.18,
+            "end": 8.48
+          },
+          {
+            "text": "can",
+            "start": 8.48,
+            "end": 8.72
+          },
+          {
+            "text": "stand.",
+            "start": 8.72,
+            "end": 9.28
+          }
+        ]
+      }
+    },
+    "e4f3b85ca32635220bb08f4455e9906c48013b8cf1e0a66191a08ffb4fd0c4c8": {
+      "role": "sentence",
+      "beat_id": "B40",
+      "sentence_index": 3,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Now move its supports apart, and the arch deforms.",
+      "spoken_text": "Now move its supports apart, and the arch deforms.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/e4f3b85ca32635220bb0.wav",
+      "duration": 3.925,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.6,
+      "peak_db": -7.0,
+      "words_per_second": 2.293,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.343,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "nˈW mˈuv ɪts səpˈɔɹts əpˈɑɹt, ænd ði ˈɑɹʧ dəfˈɔɹmz.",
+      "lang_code": "a",
+      "cache_key": "e4f3b85ca32635220bb08f4455e9906c48013b8cf1e0a66191a08ffb4fd0c4c8",
+      "sha256": "32b8776c01ba357dfb5884dc26a882714cbcea9ed205ac5675246a9e7a845901",
+      "stored_utc": "2026-11-05T12:15:50.812897+00:00",
+      "asr": {
+        "text": "Now move its supports apart and the arch deforms.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "32b8776c01ba357dfb5884dc26a882714cbcea9ed205ac5675246a9e7a845901",
+        "reference": "Now move its supports apart, and the arch deforms.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "32b8776c01ba357dfb5884dc26a882714cbcea9ed205ac5675246a9e7a845901",
+        "heard": "Now move its supports apart and the arch deforms.",
+        "words": [
+          {
+            "text": "Now",
+            "start": 0.0,
+            "end": 0.58
+          },
+          {
+            "text": "move",
+            "start": 0.58,
+            "end": 0.84
+          },
+          {
+            "text": "its",
+            "start": 0.84,
+            "end": 0.98
+          },
+          {
+            "text": "supports",
+            "start": 0.98,
+            "end": 1.34
+          },
+          {
+            "text": "apart",
+            "start": 1.34,
+            "end": 1.76
+          },
+          {
+            "text": "and",
+            "start": 1.76,
+            "end": 2.22
+          },
+          {
+            "text": "the",
+            "start": 2.22,
+            "end": 2.34
+          },
+          {
+            "text": "arch",
+            "start": 2.34,
+            "end": 2.62
+          },
+          {
+            "text": "deforms.",
+            "start": 2.62,
+            "end": 3.4
+          }
+        ]
+      }
+    },
+    "49797fd1ae885dc4600a0cff1ac6e40ef6408235a549f7235ac0af84a852e866": {
+      "role": "sentence",
+      "beat_id": "B40",
+      "sentence_index": 4,
+      "pronunciation": [],
+      "license_status": "LICENSE_REVIEW_REQUIRED",
+      "text": "Past a certain point, no line can fit inside it, and this idealized arch collapses.",
+      "spoken_text": "Past a certain point, no line can fit inside it, and this idealized arch collapses.",
+      "voice_id": "kokoro_am_michael",
+      "rights_class": "PUBLICATION_CLEARED",
+      "file": "audio/segments/49797fd1ae885dc4600a.wav",
+      "duration": 6.525,
+      "sample_rate": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "mean_db": -27.9,
+      "peak_db": -9.4,
+      "words_per_second": 2.299,
+      "params": {
+        "speed": 1.0,
+        "seed": 0,
+        "lang_code": "a"
+      },
+      "endpoint": "local:tools/kokoro_tts.py",
+      "elapsed_seconds": 0.489,
+      "takes": 1,
+      "provider": "kokoro",
+      "adapter_version": "1.0",
+      "model": "hexgrad/Kokoro-82M",
+      "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "model_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "voice": "am_michael",
+      "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+      "phonemes": "pˈæst ɐ sˈɜɹtn pˈYnt, nˈO lˈIn kæn fˈɪt ɪnsˈId ɪt, ænd ðɪs IdˈiəlˌIzd ˈɑɹʧ kəlˈæpsᵻz.",
+      "lang_code": "a",
+      "cache_key": "49797fd1ae885dc4600a0cff1ac6e40ef6408235a549f7235ac0af84a852e866",
+      "sha256": "33f43307e951cb082bc99d30e158ebf6165b6c6f03378b23c29c1fa0b1d7b95a",
+      "stored_utc": "2026-11-05T12:15:51.306147+00:00",
+      "asr": {
+        "text": "Past a certain point, no line can fit inside it and this idealized arch collapses.",
+        "language": "english",
+        "wer": 0.0,
+        "pass": true,
+        "model": "openai/whisper-large-v3-turbo",
+        "segment_sha256": "33f43307e951cb082bc99d30e158ebf6165b6c6f03378b23c29c1fa0b1d7b95a",
+        "reference": "Past a certain point, no line can fit inside it, and this idealized arch collapses.",
+        "pronunciation_aliases_applied": false,
+        "note": "intelligibility only; pronunciation is confirmed by a human listener"
+      },
+      "alignment": {
+        "model": "openai/whisper-large-v3-turbo",
+        "method": "whisper word timestamps (cross-attention DTW)",
+        "segment_sha256": "33f43307e951cb082bc99d30e158ebf6165b6c6f03378b23c29c1fa0b1d7b95a",
+        "heard": "Past a certain point, no line can fit inside it and this idealized arch collapses.",
+        "words": [
+          {
+            "text": "Past",
+            "start": 0.0,
+            "end": 0.62
+          },
+          {
+            "text": "a",
+            "start": 0.62,
+            "end": 0.8
+          },
+          {
+            "text": "certain",
+            "start": 0.8,
+            "end": 1.04
+          },
+          {
+            "text": "point,",
+            "start": 1.04,
+            "end": 1.7
+          },
+          {
+            "text": "no",
+            "start": 1.7,
+            "end": 2.1
+          },
+          {
+            "text": "line",
+            "start": 2.1,
+            "end": 2.42
+          },
+          {
+            "text": "can",
+            "start": 2.42,
+            "end": 2.62
+          },
+          {
+            "text": "fit",
+            "start": 2.62,
+            "end": 2.86
+          },
+          {
+            "text": "inside",
+            "start": 2.86,
+            "end": 3.18
+          },
+          {
+            "text": "it",
+            "start": 3.18,
+            "end": 3.5
+          },
+          {
+            "text": "and",
+            "start": 3.5,
+            "end": 3.88
+          },
+          {
+            "text": "this",
+            "start": 3.88,
+            "end": 4.06
+          },
+          {
+            "text": "idealized",
+            "start": 4.06,
+            "end": 4.88
+          },
+          {
+            "text": "arch",
+            "start": 4.88,
+            "end": 5.2
+          },
+          {
+            "text": "collapses.",
+            "start": 5.2,
+            "end": 6.02
+          }
+        ]
+      }
     }
   },
   "beats": {
@@ -24838,8 +25877,8 @@
     },
     "B08": {
       "file": "audio/beats/B08.wav",
-      "duration": 29.975,
-      "sha256": "210e95dd5cac8629022cd37606dc0dd74d771de1f14609bd15a68164e34a7622",
+      "duration": 31.05,
+      "sha256": "15cb874aaff251dd5871d1e2c60f9d3050ce70278c015bc1bae2d37a2ee94c88",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
@@ -24868,10 +25907,10 @@
         },
         {
           "index": 3,
-          "text": "In one comparison by MIT engineers, a pointed arch did push less than a round one, but that result belongs to those two arches, not to every arch.",
+          "text": "One comparison by MIT engineers, of two other arches, did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch.",
           "start": 18.45,
-          "end": 29.975,
-          "cache_key": "523dec1fddba2837fec67f32069c5cb38a2bc843182fb8dbf8b9dbf780b3b197",
+          "end": 31.05,
+          "cache_key": "2498c576eafb14c62b447313697f715fef9968f7b2442c9d627cc83d303dd637",
           "rights_class": "PUBLICATION_CLEARED"
         }
       ]
@@ -24926,8 +25965,8 @@
     },
     "B10": {
       "file": "audio/beats/B10.wav",
-      "duration": 22.775,
-      "sha256": "8e286bcee52e66d54d791163537af1ca0452f02a86e69e8785600bec20c91149",
+      "duration": 24.4,
+      "sha256": "25dfe28174e242bb15c0293048c877dad5e9c97c461c11b5cb8b220baab09769",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
@@ -24940,17 +25979,17 @@
         },
         {
           "index": 1,
-          "text": "It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
+          "text": "It already appears in Burgundy, at the great abbey church of Cluny, whose construction began around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
           "start": 4.0,
-          "end": 15.825,
-          "cache_key": "0de631480f22f4474920a3ff2b184f696c68191d2872084cc7a21839c7569a18",
+          "end": 17.45,
+          "cache_key": "66e173c02f29d6047b97b4126de3aea43fb1e21946b918d13ea26f0cef983c6e",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 2,
           "text": "At the abbey of Saint-Denis, it was used systematically, together with the other new ideas.",
-          "start": 16.225,
-          "end": 22.775,
+          "start": 17.85,
+          "end": 24.4,
           "cache_key": "f9006eb95109af0c4c5e3caf2ef0f224a6fcccd4fb828a122037b15dda119ffb",
           "rights_class": "PUBLICATION_CLEARED"
         }
@@ -25054,8 +26093,8 @@
     },
     "B14": {
       "file": "audio/beats/B14.wav",
-      "duration": 31.325,
-      "sha256": "a20a16ef20294c19a1588a2aa5082b0de39e0302a676db9c023b43de90077ae0",
+      "duration": 24.325,
+      "sha256": "876cfeddcb69dbb9591a845b0471672633a44b84c997eaf5ccbfefcc8b682d30",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
@@ -25076,17 +26115,17 @@
         },
         {
           "index": 2,
-          "text": "Its masons refined them in phases over some forty years, and the historian Roger Stalley argues that the ribs there may owe more to appearance and meaning than to structure.",
+          "text": "Its masons refined them in phases over some forty years.",
           "start": 13.275,
-          "end": 25.025,
-          "cache_key": "3319c498f9204ccc4bc12a28dde91b1793f2e345210a42506d6d533723567083",
+          "end": 18.025,
+          "cache_key": "b9a3b2a3988bc9c8b181465d1b5cf4b60a4de632bb8167923167ab741681416c",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 3,
           "text": "Columbia's project traces ribs to Islamic, Roman and Byzantine sources.",
-          "start": 25.425,
-          "end": 31.325,
+          "start": 18.425,
+          "end": 24.325,
           "cache_key": "d82fe675f860910ec86a1a2a7afc22f292e1c48ecc466a262e241f76f0ee19b4",
           "rights_class": "PUBLICATION_CLEARED"
         }
@@ -25094,31 +26133,31 @@
     },
     "B15": {
       "file": "audio/beats/B15.wav",
-      "duration": 17.65,
-      "sha256": "413c8dd05cae7644aab86e0e0bee1de49621d51fec32c9a9de939abfcf572cf9",
+      "duration": 15.575,
+      "sha256": "763240c5d41e993a46902cb93f22f664643c2cff7f52405a6c93f96d00b51178",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
           "index": 0,
-          "text": "Whatever first inspired them, this kind of vault changes the job of the wall.",
+          "text": "This kind of vault changes the job of the wall.",
           "start": 0.0,
-          "end": 5.725,
-          "cache_key": "574fe9f385ed02012e29214cb739ae251e9150c41eebaaec4ae4a15957610639",
+          "end": 3.65,
+          "cache_key": "f71a48faa2a372b79e6b8eb39175c6425bc30c170e91e89e23ef202ee8dd2a5b",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 1,
           "text": "With the vault's load directed toward the piers, the wall between them was no longer its main support.",
-          "start": 6.125,
-          "end": 13.225,
+          "start": 4.05,
+          "end": 11.15,
           "cache_key": "7c30ba0a93aa22a3856ff79a596ad6f0b3252637a4d5b660150c839d7909b852",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 2,
           "text": "It could be thinned, and opened up with wide windows.",
-          "start": 13.625,
-          "end": 17.65,
+          "start": 11.55,
+          "end": 15.575,
           "cache_key": "8a2ff669d3bab4ff509fca93f24057dfe9543e8928d213e44862791b6778f46e",
           "rights_class": "PUBLICATION_CLEARED"
         }
@@ -25854,8 +26893,8 @@
     },
     "B40": {
       "file": "audio/beats/B40.wav",
-      "duration": 28.05,
-      "sha256": "ff0c9c78bbca10d2c1384985f31c0ceb257979f926c8b692cfe7cb11db061791",
+      "duration": 36.8,
+      "sha256": "1524f13f915ca443d999f5004aa798bec46506e18756bbdf0d8d843fb43eada7",
       "sentence_pause_seconds": 0.4,
       "sentences": [
         {
@@ -25876,18 +26915,26 @@
         },
         {
           "index": 2,
-          "text": "Under those assumptions and a given load, the arch can stand if that line can stay inside the masonry.",
+          "text": "Under those assumptions and a given load, many such lines can fit inside the masonry, and finding one is enough to show the arch can stand.",
           "start": 15.675,
-          "end": 23.05,
-          "cache_key": "0a4a24f22089ce1eddef8317ac33e83b5e1c16d3c3db49dcaaaaf3f459be3da6",
+          "end": 25.55,
+          "cache_key": "e2be9ca0809148f8026a5646a4ddfc6ab8c89c4ce34a15247c1d15ac0e7d2c0b",
           "rights_class": "PUBLICATION_CLEARED"
         },
         {
           "index": 3,
-          "text": "If no such line fits, this idealized arch collapses.",
-          "start": 23.45,
-          "end": 28.05,
-          "cache_key": "c570d07bab7eb2d40b39a54db02db224027d7ec6d75d70bad4c9a13c71db3f48",
+          "text": "Now move its supports apart, and the arch deforms.",
+          "start": 25.95,
+          "end": 29.875,
+          "cache_key": "e4f3b85ca32635220bb08f4455e9906c48013b8cf1e0a66191a08ffb4fd0c4c8",
+          "rights_class": "PUBLICATION_CLEARED"
+        },
+        {
+          "index": 4,
+          "text": "Past a certain point, no line can fit inside it, and this idealized arch collapses.",
+          "start": 30.275,
+          "end": 36.8,
+          "cache_key": "49797fd1ae885dc4600a0cff1ac6e40ef6408235a549f7235ac0af84a852e866",
           "rights_class": "PUBLICATION_CLEARED"
         }
       ]
@@ -26075,5 +27122,5 @@
     "purpose": "publication",
     "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md"
   },
-  "narration_sha256": "23ba8aa79d93dac794c77c2d0d9487c81b3cce80f2ca1583672be108be3c34df"
+  "narration_sha256": "70d882d6d3ea1409f9857b27901e41e1b1af031b0aea4e907806093708435f30"
 }
