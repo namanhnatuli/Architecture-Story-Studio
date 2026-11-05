@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.9.6 — 2026-11-05 — Phim mới "How Gothic Cathedrals Reached Impossible Heights": kịch bản để chủ kênh đọc (chưa render)
+- **Dự án `gothic-cathedral-heights`, revision g-r1** (nhánh `episode-gothic-cathedral-heights`): 10 chương, 46 beat, 129 câu, 1.782 từ, khoảng 14,1 phút. Chưa render video nào, chưa có gì được duyệt, theo yêu cầu của chủ kênh.
+- **Nghiên cứu:** 24 trang/tài liệu nguồn (MIT, Columbia, BnF, France Mémoire, ECSMGE 2024, Association Beauvais Cathédrale); 49 claim khớp nguyên văn với bản tải về. Britannica, UNESCO, Smarthistory, The Met chặn tải tự động nên không dùng (`research/source_snapshots.json` → `not_used`). Những chỗ nguồn lệch nhau nằm trong `research/RESEARCH_REPORT.md`.
+- **Lời dẫn:** `am_michael`, ASR 129/129, đã khóa timing. Bảy mục ghi đè phát âm cho tên Pháp, tất cả `PENDING_LISTENING_REVIEW`. Audio nháp chưa vào git (`.gitignore`) để không làm nặng `.git` trước khi kịch bản được duyệt.
+- **Hình:** kế hoạch chưa thực thi được: 30 card 2D có kế hoạch, 16 beat 3D `NEW_ASSET_REQUIRED`. Concept Gothic được thêm vào `config/visual_vocabulary.json` với `supported: false`.
+- **Quy trình, lời kêu gọi cuối phim** (yêu cầu của chủ kênh): `production_defaults.json` → `closing_call_to_action`; `episode.py` chặn bước SCRIPT khi thiếu (chỉ với dự án có quy định này); playbook, prompt autopilot, checklist duyệt, AGENTS và CLAUDE đã cập nhật.
+- **Công cụ mới:** `tools/script_review.py` sinh `review/SCRIPT_REVIEW.md` và bản nghe thử.
+- **Sửa `episode.py`:**
+  - bước INTERNAL_REVIEW nhận báo cáo ghép sạch khi video review đã bị dọn. Lỗi có sẵn từ lần dọn dẹp của 0.9.5, làm phim cầu báo sai OWNER_APPROVAL và làm một test thất bại;
+  - AUDIO_LOCK báo đúng số giây (trước đó luôn là 0,0 s);
+  - VISUAL_PLAN báo BLOCKED khi kế hoạch không thực thi được.
+
 ## 0.9.5 — 2026-11-05 — M8.2: duyệt m8-r4 và bản cuối 4K
 - **Bản cuối 4K của m8-r4:** `output/why_bridges_look_different_FINAL_4K_2160p.mp4` (+ `.en.srt`, `audio_master_final_4k.wav`, `.sha256`; `shasum -a 256 -c` đạt cả bốn file). 3840×2160, H.264 BT.709, 24 fps, 28 687 khung (19:55), −16,4 LUFS, đỉnh thật −1,3 dBTP, 271 cue phụ đề. MP4 sha256 `47bd654f…`. Mọi gate `--preset final_4k` đạt: **PUBLICATION_READY**. Chưa đăng, chưa merge, chưa push; đăng là quyết định của chủ kênh.
 - **Duyệt (2026-11-04, `APP-M8.4-CLAIMS-AND-PRONUNCIATION`):** 76 claim được lời dẫn dùng EDITORIALLY_APPROVED (6 claim không được nói giữ SOURCE_VERIFIED); danh sách 29 thuật ngữ ACCEPTED_BY_OWNER cho audio m8-r4; Corinne và Cincinnati CONFIRMED theo lời chủ kênh. **Agent không chứng kiến và không ghi một buổi nghe nào**; hồ sơ ghi rõ điều đó (`confirmation_basis`). Duyệt giọng `am_michael` theo dự án giữ nguyên.

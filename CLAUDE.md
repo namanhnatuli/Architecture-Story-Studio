@@ -10,5 +10,6 @@ First reply when entering this repo: summarize detected Mac/Blender/FFmpeg envir
 - Chỉ cần chủ đề. Dán `prompts/NEW_DOCUMENTARY_AUTOPILOT.md` (thay `{{TOPIC}}`), rồi làm theo `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`. Mặc định nằm ở `config/production_defaults.json`; không hỏi lại ngôn ngữ, khung hình, độ dài, giọng hay preset.
 - `python3 tools/episode.py new --topic "<chủ đề>"` tạo dự án. `python3 tools/episode.py status|next --project <slug>` suy ra giai đoạn từ chính các file; một phiên mới luôn bắt đầu bằng `status` và làm tiếp từ `NEXT:`.
 - Dừng ở giai đoạn OWNER_APPROVAL: giao bản review nội bộ và gói duyệt, rồi chờ. Agent không bao giờ tự duyệt claim, giọng, phát âm hay xuất bản, và không ghi một buổi nghe chưa diễn ra.
+- Mỗi phim mới kết bằng lời kêu gọi gợi ý chủ đề, like, subscribe (beat `framing` trong chương cuối; `closing_call_to_action`). Chủ kênh muốn đọc kịch bản trước: `tools/script_review.py`, không render.
 - `projects/` chỉ chứa dự án đang làm. Phim tham chiếu: `projects/why-bridges-look-different/`. Các pilot cũ là fixture test ở `tests/fixtures/legacy_projects/` (chỉ đọc). Bản lưu trữ nằm ngoài repo (xem `docs/production/CLEANUP_REPORT.md`).
 - Bản cuối 4K chỉ render sau khi chủ kênh duyệt, theo chương: `chapter --preset final_4k --release-frames`, rồi `final-assemble`, rồi `gates --preset final_4k`. Mỗi lúc một Blender.

@@ -1,0 +1,271 @@
+{
+  "note": "Source downloads used to verify research/sources.json. The files are not committed (third-party copyright); re-download from the URLs into research/snapshots/ (git-ignored), compare the SHA256, re-extract the text as described, then run research/build_sources.py. Web pages can change: a different SHA256 means the excerpts must be re-checked.",
+  "not_used": [
+    {
+      "url": "https://smarthistory.org/gothic-architecture-an-introduction/",
+      "reason": "HTTP 403 to automated access on 2026-11-05; not read"
+    },
+    {
+      "url": "https://www.metmuseum.org/toah/hd/sden/hd_sden.htm",
+      "reason": "HTTP 429 on 2026-11-05; not read"
+    },
+    {
+      "url": "https://www.britannica.com/ (Amiens, Beauvais, Notre-Dame, Chartres, Reims, flying buttress, rib vault, pointed arch)",
+      "reason": "HTTP 403 on 2026-11-05; not read, and no archived copy was used"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/ (81, 162, 600, 601, 635)",
+      "reason": "HTTP 403 on 2026-11-05; not read"
+    },
+    {
+      "url": "https://inventaire-qualif.hautsdefrance.fr/ (Beauvais inventory dossier)",
+      "reason": "HTTP 403 on 2026-11-05; not read"
+    },
+    {
+      "url": "https://visit-amiens.com/cathedral",
+      "reason": "connection failed on 2026-11-05; not read"
+    }
+  ],
+  "snapshots": [
+    {
+      "source_id": "SRC_MIT_BLOCK_2005",
+      "file": "pdf/block_SMArchS_2005.pdf",
+      "url": "http://web.mit.edu/masonry/papers/block_SMArchS_2005.pdf",
+      "bytes": 1237285,
+      "sha256": "0c3200cd000ca02702f1e05d6057db5133495300c2d190f868c2a76ea4438eda",
+      "downloaded": "2026-11-05",
+      "text": "pdf/block_SMArchS_2005.txt",
+      "extraction": "pdftotext (reading order, no -layout)"
+    },
+    {
+      "source_id": "SRC_ISSMGE_BEAUVAIS_1",
+      "file": "pdf/beauvais_issmge_part1.pdf",
+      "url": "https://www.issmge.org/uploads/publications/51/126/1039_C_cathdrale_de_beauvais_les_accidents_structurels_de.pdf",
+      "bytes": 965163,
+      "sha256": "02ca41768b95d7727c675fbfeccb9b6fefa1b85a4af900f6f3efd5720f68b059",
+      "downloaded": "2026-11-05",
+      "text": "pdf/beauvais_issmge_part1.txt",
+      "extraction": "pdftotext (reading order, no -layout)"
+    },
+    {
+      "source_id": "SRC_ISSMGE_BEAUVAIS_2",
+      "file": "pdf/beauvais_issmge_part2.pdf",
+      "url": "https://www.issmge.org/uploads/publications/51/126/1040_C_cathdrale_de_beauvais_les_accidents_structurels_de.pdf",
+      "bytes": 817527,
+      "sha256": "19077f1e5282845830a214908275d6de1c12ce442eccf3988fffbf70f66a67f8",
+      "downloaded": "2026-11-05",
+      "text": "pdf/beauvais_issmge_part2.txt",
+      "extraction": "pdftotext (reading order, no -layout)"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_REVOLUTION",
+      "file": "web/amiens/p_gothic-structural-revolution.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/gothic-structural-revolution.html",
+      "bytes": 18633,
+      "sha256": "8cbbdd566a93591867db0e60c8f1c1c92f6549c56729cb02cedf0ba1c7a83403",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/p_gothic-structural-revolution.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_POINTED_ARCH",
+      "file": "web/amiens/p_pointed-arch.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/pointed-arch.html",
+      "bytes": 14276,
+      "sha256": "c012a1c22a642a62a3eaf8fc5e2611a02ba87125b5b094326d4073c53ef8468a",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/p_pointed-arch.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_GEOMETRY",
+      "file": "web/amiens/p_dynamic-geometry.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/dynamic-geometry.html",
+      "bytes": 12549,
+      "sha256": "c09494e48d96e7ffd82e12502408a13eef79b09652f85bd06ace4853c4696b38",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/p_dynamic-geometry.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_CARPENTERS",
+      "file": "web/amiens/detail_work-carpenters.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/detail/work-carpenters.html",
+      "bytes": 10718,
+      "sha256": "a30e1c0feb83e4b191a2e229e52ce70167823f78a935906e57ed52e503001c35",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/detail_work-carpenters.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_MASONS",
+      "file": "web/amiens/p_detail_work-masons.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/detail/work-masons.html",
+      "bytes": 14587,
+      "sha256": "4abe79b8da6addc58d368b9074e52a43e73d961648fca50a8dc501774d4cc03f",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/p_detail_work-masons.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_UPPER_NAVE",
+      "file": "web/amiens/detail_amiens-cathedral-0.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/detail/amiens-cathedral-0.html",
+      "bytes": 12280,
+      "sha256": "6d8729a60596c37c105a287d3556ec5f85255107ba7f129692647524d5ba7c94",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/detail_amiens-cathedral-0.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_TRIFORIUM_CHAIN",
+      "file": "web/amiens/p_node_3012.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/node/3012.html",
+      "bytes": 13361,
+      "sha256": "52750b6afb3fcaf8092b249f3541defb5fa235b35c7e502622c60fecaabda830",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/p_node_3012.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_ETEXT_1",
+      "file": "web/amiens/node_3418.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/node/3418.html",
+      "bytes": 12571,
+      "sha256": "99b6536712602e1bbfea16cf18a038da3fc9511683584a5369e2b6cc13b7cca9",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/node_3418.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_ETEXT_17",
+      "file": "web/amiens/etext_17.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/e-text-17.html",
+      "bytes": 10848,
+      "sha256": "517f56b25ee919f922f87fe26796c3b61acb96cfaa4742e221e54d6a718197aa",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/etext_17.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_ETEXT_18",
+      "file": "web/amiens/etext_18.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/e-text-18.html",
+      "bytes": 9712,
+      "sha256": "8f070b4af62c6b053659506f0d2866ca2d4ead930d763717270716e565666ba7",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/etext_18.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_SAINT_DENIS",
+      "file": "web/columbia_stdenis.html",
+      "url": "https://ccnmtl.columbia.edu/projects/paris_map/buildings/stdenis/1300.html",
+      "bytes": 27073,
+      "sha256": "7b17806643a0e53964a44884d99ad2c04321b5b666d4e212e6ab3b5d65925b67",
+      "downloaded": "2026-11-05",
+      "text": "web/columbia_stdenis.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_BNF_ARC_BRISE",
+      "file": "web/bnf/arc_brise.html",
+      "url": "https://passerelles.essentiels.bnf.fr/fr/article/8fc27d60-6dd7-4cbd-88c3-8d8a50988db4-arc-brise-et-voute-sur-croisee-ogive",
+      "bytes": 33004,
+      "sha256": "05bd2616819848d8762f671357cfdc0f0300c31e2af48685315ca9bfdc76e8e2",
+      "downloaded": "2026-11-05",
+      "text": "web/bnf/arc_brise.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_BNF_ARCS_BOUTANTS",
+      "file": "web/bnf/arcs_boutants.html",
+      "url": "https://passerelles.essentiels.bnf.fr/fr/article/6e7cfc7d-da13-4d81-bb7c-c85c1698aa76-arcs-boutants",
+      "bytes": 33713,
+      "sha256": "7fbc72b582b530fc2aebaeda6492a0aba90e458d9117e23bb40d108713df3319",
+      "downloaded": "2026-11-05",
+      "text": "web/bnf/arcs_boutants.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_BNF_SAINT_DENIS",
+      "file": "web/bnf/saint_denis.html",
+      "url": "https://passerelles.essentiels.bnf.fr/fr/chronologie/construction/55e1a07f-e1e6-47e3-a690-ef8c003c9159-basilique-saint-denis/article/3038d0ed-badc-47e6-a520-5c8b6caeeca8-naissance-style-gothique-saint-denis",
+      "bytes": 108080,
+      "sha256": "874f1f6c68c6eb37a80291fffb39c260c1e5f8aaf664a1951d32e2d8af561cae",
+      "downloaded": "2026-11-05",
+      "text": "web/bnf/saint_denis.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_FM_TIMBERT_SAINT_DENIS",
+      "file": "web/bnf/france_memoire_stdenis.html",
+      "url": "https://www.france-memoire.fr/labbatiale-de-saint-denis-et-les-debuts-de-larchitecture-gothique/",
+      "bytes": 163854,
+      "sha256": "96a5dd2e79c077d210d05714c3cc49a24bf179ef7fb91ae0f1e080ceb03e4048",
+      "downloaded": "2026-11-05",
+      "text": "web/bnf/france_memoire_stdenis.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_ABC_HISTORY",
+      "file": "web/beauvais/history_en.html",
+      "url": "https://cathedrale-beauvais.fr/en/history-of-beauvais-cathedral/",
+      "bytes": 133782,
+      "sha256": "ca8b87485cf23fa89fe595573ec251bf01a94b6ddee40607b71fbe2ea23e1b80",
+      "downloaded": "2026-11-05",
+      "text": "web/beauvais/history_en.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_ABC_THRUST",
+      "file": "web/beauvais/from-romanesque-to-gothic-art-the-thrust-revolution.html",
+      "url": "https://cathedrale-beauvais.fr/en/from-romanesque-to-gothic-art-the-thrust-revolution/",
+      "bytes": 144304,
+      "sha256": "1cae07eed0f4ea76c2012544b4af4ca8a4c542406552d185e4fabd5fd2f5dfa8",
+      "downloaded": "2026-11-05",
+      "text": "web/beauvais/from-romanesque-to-gothic-art-the-thrust-revolution.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_ABC_FRENCH_ART",
+      "file": "web/beauvais/french-art-known-as-gothic.html",
+      "url": "https://cathedrale-beauvais.fr/en/french-art-known-as-gothic/",
+      "bytes": 152519,
+      "sha256": "57efb49d616a4eb54debae47bc26207d56ba1efac43310660e9c54e748228d46",
+      "downloaded": "2026-11-05",
+      "text": "web/beauvais/french-art-known-as-gothic.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_ABC_DESCRIPTION",
+      "file": "web/beauvais/description-of-the-cathedral.html",
+      "url": "https://cathedrale-beauvais.fr/en/description-of-the-cathedral/",
+      "bytes": 135513,
+      "sha256": "634efd29f57af67dae4db5b94ed5aa9ac9bb878ee7a14970e31a2cc8dbbbad10",
+      "downloaded": "2026-11-05",
+      "text": "web/beauvais/description-of-the-cathedral.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_ETEXT_4",
+      "file": "web/amiens/etext_4.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/e-text-4.html",
+      "bytes": 16485,
+      "sha256": "d29124c23f2c0e8e4da0178937d7378f8a8e86f89962c5971e14f52e4d8f3b0c",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/etext_4.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_AMIENS_ETEXT_11",
+      "file": "web/amiens/etext_11.html",
+      "url": "https://projects.mcah.columbia.edu/amiens-arthum/e-text-11.html",
+      "bytes": 17140,
+      "sha256": "66824a15af3d34f0b4d49a646e20b63cd7f00694b34e56a587992b6744dafbaa",
+      "downloaded": "2026-11-05",
+      "text": "web/amiens/etext_11.txt",
+      "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    }
+  ]
+}

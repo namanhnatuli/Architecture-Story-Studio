@@ -1,0 +1,1299 @@
+{
+  "project_id": "gothic-cathedral-heights",
+  "executable": false,
+  "visibility_summary": {
+    "shots_assessed": 0,
+    "target_rows": 0,
+    "rows_passing": 0,
+    "uncertain_rows": 0,
+    "issues_detected": 0,
+    "auto_repaired": 0,
+    "manual_review": 0,
+    "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
+  },
+  "beats": [
+    {
+      "beat_id": "B01",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 21.075,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B02",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 14.625,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B03",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 14.125,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "planned_seconds": 14.125,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B04",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 13.35,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_002"
+      ],
+      "planned_seconds": 13.375,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B05",
+      "visual_intent": "EXPLAIN_CAUSE_EFFECT",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 17.85,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "romanesque_church_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B06",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 19.425,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "romanesque_church_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B07",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 16.0,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_003"
+      ],
+      "planned_seconds": 16.0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B08",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 12.4,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_004"
+      ],
+      "planned_seconds": 12.417,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B09",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 30.9,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_005"
+      ],
+      "planned_seconds": 30.917,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B10",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 22.85,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_006"
+      ],
+      "planned_seconds": 22.875,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B11",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 18.8,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_007"
+      ],
+      "planned_seconds": 18.833,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B12",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 16.45,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_008"
+      ],
+      "planned_seconds": 16.458,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B13",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 16.6,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B14",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 15.175,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_009"
+      ],
+      "planned_seconds": 15.208,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B15",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 15.55,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B16",
+      "visual_intent": "EXPLAIN_CAUSE_EFFECT",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 14.925,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B17",
+      "visual_intent": "EXPLAIN_LOAD_PATH",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 21.475,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B18",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 21.875,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/romanesque_section (1-3 days for a simplified illustrative archetype)",
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "romanesque_church_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted"
+        },
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B19",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 31.5,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B20",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 12.35,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B21",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 23.425,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_010"
+      ],
+      "planned_seconds": 23.458,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B22",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 12.55,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_011"
+      ],
+      "planned_seconds": 12.583,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B23",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 8.825,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_012"
+      ],
+      "planned_seconds": 8.833,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B24",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 33.175,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared COMPARE_VARIANTS, narration cues suggest ['SHOW_EVOLUTION']"
+      ],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_013"
+      ],
+      "planned_seconds": 33.208,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B25",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 18.125,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_EVOLUTION']"
+      ],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_014"
+      ],
+      "planned_seconds": 18.125,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B26",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 16.2,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_CONTEXT']"
+      ],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_015"
+      ],
+      "planned_seconds": 16.208,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B27",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 23.85,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_016"
+      ],
+      "planned_seconds": 23.875,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B28",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 14.05,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_EVOLUTION']"
+      ],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_017"
+      ],
+      "planned_seconds": 14.083,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B29",
+      "visual_intent": "SHOW_COMPONENT",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 11.525,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B30",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 13.3,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_018"
+      ],
+      "planned_seconds": 13.333,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B31",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 15.225,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_019"
+      ],
+      "planned_seconds": 15.25,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B32",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 21.425,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_020"
+      ],
+      "planned_seconds": 21.458,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B33",
+      "visual_intent": "COMPARE_VARIANTS",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 10.85,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_021"
+      ],
+      "planned_seconds": 10.875,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B34",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 16.675,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION']",
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B35",
+      "visual_intent": "EXPLAIN_CAUSE_EFFECT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 31.5,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_022"
+      ],
+      "planned_seconds": 31.5,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B36",
+      "visual_intent": "EXPLAIN_DESIGN_CHANGE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 19.525,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_023"
+      ],
+      "planned_seconds": 19.542,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B37",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 37.325,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE', 'SHOW_EVOLUTION']"
+      ],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_024"
+      ],
+      "planned_seconds": 37.333,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B38",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 21.925,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['SHOW_EVOLUTION']"
+      ],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_025"
+      ],
+      "planned_seconds": 21.958,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B39",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 21.15,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B40",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 18.275,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_026"
+      ],
+      "planned_seconds": 18.292,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B41",
+      "visual_intent": "EXPLAIN_STRUCTURE",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 24.25,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_027"
+      ],
+      "planned_seconds": 24.25,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B42",
+      "visual_intent": "SUMMARIZE_DIFFERENCES",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 17.375,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B43",
+      "visual_intent": "SUMMARIZE_DIFFERENCES",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "INTERNAL_PREVIEW",
+      "expected_seconds": 21.05,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_EVOLUTION']"
+      ],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_028"
+      ],
+      "planned_seconds": 21.083,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B44",
+      "visual_intent": "INTRODUCE_ARCHITECTURE",
+      "strategy": null,
+      "status": "MISSING_ASSET",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 9.55,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [
+        "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
+        "generation task: NEW_FAMILY_GENERATOR for cathedral/gothic_section (1-3 days for a simplified illustrative archetype)"
+      ],
+      "explanation": [],
+      "assets": [
+        {
+          "concept": "gothic_cathedral_section",
+          "status": "NEW_ASSET_REQUIRED",
+          "asset_id": null,
+          "explanation": "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted"
+        }
+      ],
+      "semantic_targets": [],
+      "templates": [],
+      "shot_ids": [],
+      "planned_seconds": 0,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B45",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 12.65,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_029"
+      ],
+      "planned_seconds": 12.667,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    },
+    {
+      "beat_id": "B46",
+      "visual_intent": "SHOW_CONTEXT",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "FRAMING",
+      "expected_seconds": 7.4,
+      "timing_source": "AUDIO_LOCKED",
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
+      ],
+      "assets": [],
+      "semantic_targets": [],
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_030"
+      ],
+      "planned_seconds": 7.417,
+      "readable": {},
+      "visual_repairs": [],
+      "composition": [],
+      "visibility": []
+    }
+  ]
+}

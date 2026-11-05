@@ -26,6 +26,7 @@ Repeat: `python3 tools/episode.py next --project <slug>`, then do that stage as 
 
 ## Fixed rules
 - Research first. Every factual sentence cites a SOURCE_VERIFIED claim, with a verbatim excerpt and a locator.
+- End the film with a short call to action in the last chapter, after the conclusion and before the credits: invite viewers to suggest topics in the comments, to like and to subscribe (`config/production_defaults.json` → `closing_call_to_action`). No claims, no promises the Studio cannot keep, no platform logos.
 - Do not invent loads, stresses, capacities, safety factors, deflections or rankings. Do not tell a linear-progress story or call one form best. Label illustrative models ("Illustrative model, not the …").
 - Use the existing asset library first (`python3 tools/cli.py asset-catalog`). Create a reference-based asset only when a diagram or a rights-cleared photograph cannot do the job.
 - External images need a complete rights record. Never assume an image is free because a search found it, never rely on fair use, never use watermarked images.

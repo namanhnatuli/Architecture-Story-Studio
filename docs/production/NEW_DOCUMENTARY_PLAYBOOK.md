@@ -44,6 +44,18 @@ AGENT viết câu hỏi trung tâm và câu hỏi nghiên cứu vào `research/R
   - nhận định có năm của nguồn (ví dụ sổ tay 2012) được nói kèm năm, không chuyển sang thì hiện tại; giữ đủ điều kiện của nguồn (nơi, cỡ nhịp, dạng kết cấu) (M8.2);
   - trích đúng nguồn chưa đủ: một câu nguồn có phản chứng đã biết thì không dùng, và ghi lý do vào `assumptions` của claim (M8.2, "133 years");
   - không đặt các con số khác nghĩa trên cùng một thang mà không phân biệt, ví dụ dải kinh tế và nhịp đã xây (M8.2).
+- **Lời kêu gọi cuối phim** (yêu cầu của chủ kênh, 2026-11-05; `production_defaults.json` → `closing_call_to_action`):
+  - một beat `framing` trong chương cuối, sau kết luận và trước card ghi công;
+  - mời người xem gợi ý chủ đề trong phần bình luận, like và subscribe; tối đa 60 từ;
+  - không trích claim, không hứa điều Studio không kiểm được (lịch đăng, trả lời mọi bình luận, tên video sau), không thúc ép;
+  - trên hình chỉ là chữ theo phong cách Studio, không logo, nút bấm hay nhãn hiệu của nền tảng;
+  - `episode.py status` chặn bước SCRIPT khi thiếu (chỉ với dự án tạo sau quy định này).
+
+### Khi chủ kênh muốn đọc kịch bản trước (2026-11-05)
+Nếu chủ kênh yêu cầu xem kịch bản trước khi có video:
+- làm tới `lock-audio` và `plan-visuals`, rồi dừng; không render, không dựng asset mới (kịch bản có thể đổi);
+- `python3 tools/script_review.py --project <slug> --audio` sinh `review/SCRIPT_REVIEW.md` (đúng câu đã đọc, mốc thời gian, loại hình, claim, phát âm) và một bản nghe thử trong `output/`; phần quyết định do AGENT viết ở `review/SCRIPT_REVIEW_NOTES.md`;
+- audio nháp không vào git cho tới khi kịch bản được duyệt.
 
 ## 7–8. Tính khả thi về hình và beat (AGENT, kiểm bằng CLI)
 - Mỗi beat có ý đồ, claim, mục tiêu hình, concept bộ phận, chiến lược và phương án dự phòng.
@@ -69,7 +81,8 @@ python3 projects/<slug>/script/story.py
 python3 tools/cli.py narrate $P --purpose publication     # chỉ sinh câu mới; giọng phải đã audit
 python3 tools/cli.py asr-check $P && python3 tools/cli.py align $P && python3 tools/cli.py lock-audio $P
 ```
-- Câu không qua ASR hoặc kiểm tra tốc độ: sửa câu trong `story.py`, ghi lý do vào `revision.edits`. Không nới ngưỡng.
+- Câu không qua ASR hoặc kiểm tra tốc độ: sửa câu trong `story.py`, ghi lý do vào `revision.edits`. Không nới ngưỡng. Câu rất ngắn dễ rớt ngưỡng 1,5 từ/giây (3–5 từ, nhất là có năm).
+- Tên riêng tiếng nước ngoài: đọc cột phiên âm trong manifest ngay sau `narrate`. Kokoro đọc theo quy tắc tiếng Anh Mỹ (Beauvais thành "BOH-vize"), nên ghi đè trong `script/pronunciation.json` kèm nguồn cách đọc, để `PENDING_LISTENING_REVIEW`. Chỉ chủ kênh xác nhận.
 - Thử giọng: `python3 tools/voice_audition.py --project <slug> --voices us --passage B02:0,B10:1`.
 - Phát âm: `python3 tools/longform_reports.py $P` sinh `review/PRONUNCIATION_REVIEW.md` (mốc thời gian, âm vị, những gì ASR nghe được).
 

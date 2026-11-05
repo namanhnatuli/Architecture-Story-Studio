@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "note": "Speech-only overrides (pipeline/pronunciation.py). The written word stays unchanged in narration, subtitles, citations and metadata. All PENDING_LISTENING_REVIEW: only the owner can confirm them, and an ASR pass proves nothing about pronunciation.",
+  "entries": [
+    {
+      "id": "PRON_BEAUVAIS",
+      "written": "Beauvais",
+      "ipa": "boʊˈveɪ",
+      "respelling": "boh-VAY",
+      "source": "English Wikipedia lead of the article, opened 2026-11-05: 'US: /boʊˈveɪ/ boh-VAY'",
+      "speech": {
+        "kokoro": "[Beauvais](/bOvˈA/)"
+      },
+      "asr_aliases": [
+        "bovis",
+        "bovay",
+        "beauvay",
+        "beauvet"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "review/PRONUNCIATION_REVIEW.md",
+      "without_override": "bˈOvIz ('BOH-vize'; Whisper heard 'Bovis')"
+    },
+    {
+      "id": "PRON_AMIENS",
+      "written": "Amiens",
+      "ipa": "æˈmjæ̃",
+      "respelling": "am-YAN (no nasal vowel in the voice)",
+      "source": "English Wikipedia lead of the article, opened 2026-11-05: '/æˈmjæ̃/ or /ˈæmiənz/ AM-ee-ənz'; the French-style form is chosen for a film about the French city",
+      "speech": {
+        "kokoro": "[Amiens](/æmjˈæn/)"
+      },
+      "asr_aliases": [
+        "amyan",
+        "amian",
+        "amiens'"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "review/PRONUNCIATION_REVIEW.md",
+      "without_override": "ˈɑmiən ('AH-mee-en')"
+    },
+    {
+      "id": "PRON_SUGER",
+      "written": "Suger",
+      "ipa": "suːˈʒɛər",
+      "respelling": "soo-ZHAIR",
+      "source": "English Wikipedia lead of the article, opened 2026-11-05: 'Suger (/suːˈʒɛər/; French: [syʒɛʁ])'",
+      "speech": {
+        "kokoro": "[Suger](/suʒˈɛɹ/)"
+      },
+      "asr_aliases": [
+        "sugar",
+        "sujair",
+        "suzhair",
+        "sugere"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "review/PRONUNCIATION_REVIEW.md",
+      "without_override": "sˈuɡəɹ ('SOO-gur')"
+    },
+    {
+      "id": "PRON_CLUNY",
+      "written": "Cluny",
+      "ipa": "klyni (French)",
+      "respelling": "KLOO-nee",
+      "source": "English Wikipedia lead of the article, opened 2026-11-05, Cluny Abbey: 'French: [klyni]'; the voice has no /y/, so /u/ is used",
+      "speech": {
+        "kokoro": "[Cluny](/klˈuni/)"
+      },
+      "asr_aliases": [
+        "clooney",
+        "cloony"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "review/PRONUNCIATION_REVIEW.md",
+      "without_override": "klˈʌni ('KLUH-nee')"
+    },
+    {
+      "id": "PRON_NOTRE_DAME",
+      "written": "Notre-Dame",
+      "ipa": "nɔtʁ(ə) dam (French)",
+      "respelling": "NOH-truh DAHM",
+      "source": "English Wikipedia lead of the article, opened 2026-11-05, Notre-Dame de Paris: 'French: [nɔtʁ(ə) dam də paʁi]'",
+      "speech": {
+        "kokoro": "[Notre-Dame](/nˌOtɹədˈɑm/)"
+      },
+      "asr_aliases": [
+        "notre",
+        "dame",
+        "notredame"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "review/PRONUNCIATION_REVIEW.md",
+      "without_override": "nˈɑTəɹdˈAm (the American 'Noter Dame')"
+    },
+    {
+      "id": "PRON_VIOLLET",
+      "written": "Viollet-le-Duc",
+      "ipa": "vjɔlɛ lə dyk (French)",
+      "respelling": "vyoh-LAY luh DOOK",
+      "source": "English Wikipedia lead of the article, opened 2026-11-05, Eugène Viollet-le-Duc: 'French: [øʒɛn vjɔlɛ lə dyk]'; the voice has no /y/, so /u/ is used",
+      "speech": {
+        "kokoro": "[Viollet-le-Duc](/vjOlˌAlədˈuk/)"
+      },
+      "asr_aliases": [
+        "violet",
+        "viole",
+        "leduc",
+        "leduck",
+        "luh",
+        "duke"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "review/PRONUNCIATION_REVIEW.md",
+      "without_override": "vˈIəlɪtlədˈʌk ('VY-ə-lit luh DUCK')"
+    },
+    {
+      "id": "PRON_TIMBERT",
+      "written": "Arnaud Timbert",
+      "ipa": "aʁno tɛ̃bɛʁ (French, inferred)",
+      "respelling": "ar-NOH tam-BEHR",
+      "source": "French spelling rules only: no published recording or dictionary entry was found. Weakest item of the list",
+      "speech": {
+        "kokoro": "[Arnaud Timbert](/ɑɹnˈO tæmbˈɛɹ/)"
+      },
+      "asr_aliases": [
+        "arnaud",
+        "arno",
+        "tambert",
+        "tambere",
+        "timbert"
+      ],
+      "status": "PENDING_LISTENING_REVIEW",
+      "evidence": "review/PRONUNCIATION_REVIEW.md",
+      "without_override": "ɑɹnˈɔd tˈɪmbəɹt ('ar-NAWD TIM-burt')"
+    }
+  ]
+}

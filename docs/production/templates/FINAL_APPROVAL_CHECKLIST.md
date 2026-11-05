@@ -9,6 +9,7 @@ conditions and what invalidates it.
 - [ ] **Pronunciation**: accept the reviewed audio for the listed terms (review/PRONUNCIATION_REVIEW.md); the acceptance is bound to the audio revision.
 - [ ] **Images and attribution**: confirm the archival images and the credits (review/RIGHTS_PROVENANCE.md).
 - [ ] **Disclosure**: AI-generated narration stated in the description (review/YOUTUBE_DESCRIPTION.md).
+- [ ] **Closing call to action**: the wording that invites viewers to suggest topics, like and subscribe.
 - [ ] **Unused claims**: research-only claims stay in the archive; nothing used by the film may remain unapproved.
 - [ ] **Publication**: request the publication evaluation (profile PUBLICATION_CANDIDATE) and the final render.
 

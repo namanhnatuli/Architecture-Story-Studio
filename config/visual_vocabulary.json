@@ -63,6 +63,20 @@
     "rafters":         {"kind": "component", "roles": ["rafters"], "label": "rafters"},
     "ridge_beam":      {"kind": "component", "roles": ["ridge_beam"], "label": "ridge beam"},
     "gable_wall":      {"kind": "component", "roles": ["gable_wall"], "label": "gable walls"},
-    "roof_structure":  {"kind": "component", "roles": ["gable_wall", "rafters", "ridge_beam"], "label": "roof structure"}
+    "roof_structure":  {"kind": "component", "roles": ["gable_wall", "rafters", "ridge_beam"], "label": "roof structure"},
+
+    "gothic_cathedral_section":  {"kind": "architecture", "family": "cathedral", "variant": "gothic_section", "supported": false, "label": "Gothic cathedral (section through one bay)"},
+    "romanesque_church_section": {"kind": "architecture", "family": "cathedral", "variant": "romanesque_section", "supported": false, "label": "Romanesque church (section through one bay)"},
+    "rib":               {"kind": "component", "roles": ["rib"], "label": "ribs"},
+    "vault_web":         {"kind": "component", "roles": ["vault_web"], "label": "vault web"},
+    "barrel_vault":      {"kind": "component", "roles": ["barrel_vault"], "label": "barrel vault"},
+    "nave_pier":         {"kind": "component", "roles": ["nave_pier"], "label": "piers"},
+    "thick_wall":        {"kind": "component", "roles": ["thick_wall"], "label": "thick outer wall"},
+    "shallow_buttress":  {"kind": "component", "roles": ["shallow_buttress"], "label": "shallow buttresses"},
+    "clerestory_window": {"kind": "component", "roles": ["clerestory_window"], "label": "upper windows"},
+    "flying_buttress":   {"kind": "component", "roles": ["flying_buttress"], "label": "flying buttress"},
+    "pier_buttress":     {"kind": "component", "roles": ["pier_buttress"], "label": "pier buttress"},
+    "pinnacle":          {"kind": "component", "roles": ["pinnacle"], "label": "pinnacle"},
+    "aisle_roof":        {"kind": "component", "roles": ["aisle_roof"], "label": "aisle roof"}
   }
 }

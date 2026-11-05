@@ -35,7 +35,7 @@ REVIEW_FILES = ("review/EDITORIAL_APPROVAL_PACKAGE.md", "review/PRONUNCIATION_RE
 STAGES = [
     ("TOPIC", "CLI", "episode.py new"),
     ("RESEARCH", "AGENT", "sources + verbatim-checked claims in research/sources.json (+ RESEARCH_REPORT.md)"),
-    ("SCRIPT", "AGENT", "script/story.py -> narration.json, visual_beats.json, chapters.json"),
+    ("SCRIPT", "AGENT", "script/story.py -> narration.json, visual_beats.json, chapters.json; closing call to action"),
     ("CLAIM_SOURCE_VERIFICATION", "CLI", "every narrated claim SOURCE_VERIFIED; validate"),
     ("TTS", "CLI", "narrate --purpose publication; asr-check; align"),
     ("AUDIO_LOCK", "CLI", "lock-audio"),
@@ -115,6 +115,37 @@ def _all_claims_ok(p, statuses=("SOURCE_VERIFIED", "EDITORIALLY_APPROVED")):
     return bool(used) and all(claims.get(c) in statuses for c in used), sorted(c for c in used if claims.get(c) not in statuses)
 
 
+def call_to_action_problems(p, narration, chapters):
+    """Problems with the closing call to action the project's intake defaults ask for (episode.json ->
+    defaults.closing_call_to_action, added 2026-11-05; projects created without it are not checked).
+    One framing beat of the last chapter, citing no claims, after the last fact or interpretation beat,
+    must ask every item of `asks` (regexes) within `max_words`."""
+    cta = ((read(Path(p) / "episode.json") or {}).get("defaults") or {}).get("closing_call_to_action") or {}
+    if not cta.get("required") or not narration or not chapters:
+        return []
+    last = set(chapters[-1].get("beat_ids", []))
+    beats = narration.get("beats", [])
+
+    def asks_all(b):
+        text = " ".join(b.get("sentences", [])).lower()
+        return all(re.search(rx, text) for rx in cta.get("asks", {}).values())
+
+    hits = [i for i, b in enumerate(beats) if b.get("id") in last and asks_all(b)]
+    if not hits:
+        return [f"closing call to action missing: one beat of {chapters[-1].get('id')} must ask "
+                + ", ".join(cta.get("asks", {}))]
+    i, b = hits[0], beats[hits[0]]
+    problems = []
+    if b.get("kind") != "framing" or b.get("claim_ids"):
+        problems.append(f"call to action {b.get('id')}: must be a framing beat without claims")
+    if any(x.get("kind") in ("fact", "interpretation") for x in beats[i + 1:]):
+        problems.append(f"call to action {b.get('id')}: comes before the end of the argument")
+    words = sum(len(s.split()) for s in b.get("sentences", []))
+    if words > cta.get("max_words", 60):
+        problems.append(f"call to action {b.get('id')}: {words} words (max {cta.get('max_words', 60)})")
+    return problems
+
+
 def stage_status(p):
     """[(stage, status, detail)] with status DONE / TODO / BLOCKED / WAITING_FOR_OWNER, derived from files only."""
     p = Path(p)
@@ -137,7 +168,9 @@ def stage_status(p):
     verified = [c for c in src.get("claims", []) if c.get("review_status") in ("SOURCE_VERIFIED", "EDITORIALLY_APPROVED")]
     add("RESEARCH", bool(src.get("sources")) and bool(verified), f"{len(src.get('sources', []))} sources, {len(verified)} verified claims")
     script_ok = all((p / f).is_file() for f in ("script/narration.json", "script/visual_beats.json", "script/chapters.json"))
-    add("SCRIPT", script_ok, f"{len(chapters)} chapters" if script_ok else "")
+    cta = call_to_action_problems(p, narration, chapters) if script_ok else []
+    add("SCRIPT", script_ok and not cta, f"{len(chapters)} chapters" if script_ok else "",
+        blocked="; ".join(cta) or None)
     ok, bad = _all_claims_ok(p) if narration else (False, [])
     add("CLAIM_SOURCE_VERIFICATION", ok, blocked=(f"claims not source-verified: {', '.join(bad[:6])}" if narration and bad else None))
     beats = {b["id"] for b in (narration or {}).get("beats", [])}
@@ -145,9 +178,15 @@ def stage_status(p):
     asr_ok = tts_ok and all((manifest["segments"].get(s["cache_key"], {}).get("asr") or {}).get("pass")
                             for b in beats for s in manifest["beats"][b]["sentences"])
     add("TTS", asr_ok, "narration generated and ASR-verified" if asr_ok else ("generated, ASR pending" if tts_ok else ""))
-    add("AUDIO_LOCK", bool(timing.get("locked")), f"{timing.get('total_seconds', 0):.1f} s" if timing.get("locked") else "")
+    pace = timing.get("pacing", {})
+    locked_s = sum(b.get("duration", 0) + pace.get("beat_lead_in_seconds", 0) + pace.get("beat_tail_seconds", 0)
+                   for b in timing.get("beats", []))
+    add("AUDIO_LOCK", bool(timing.get("locked")), f"{locked_s:.1f} s" if timing.get("locked") else "")
+    missing = [c.get("beat_id") for c in plan.get("coverage", []) if c.get("status") not in ("COVERED", "PARTIALLY_COVERED")]
     add("VISUAL_PLAN", bool(plan.get("executable")) and (p / "storyboard/storyboard.json").is_file(),
-        f"{len(plan.get('shots', []))} shots" if plan else "")
+        f"{len(plan.get('shots', []))} shots" if plan else "",
+        blocked=(f"plan not executable: {len(missing)} beats not covered, see qa/VISUAL_COVERAGE.md"
+                 if plan and not plan.get("executable") else None))
     done_chapters = [c["id"] for c in chapters
                      if any(not (read(f) or {"problems": [1]}).get("problems") for f in p.glob(f"qa/chapter_{c['id']}_*.json"))]
     add("CHAPTER_PRODUCTION", bool(chapters) and bool(done_chapters), f"{len(done_chapters)}/{len(chapters)} chapters produced")
@@ -155,8 +194,11 @@ def stage_status(p):
     add("ROUGH_CUT", bool(rough), ", ".join(sorted(rough)))
     qa_ok = bool(longform) and not longform.get("failed") and (p / "qa/EDITORIAL_REVIEW_TIMECODED.md").is_file()
     add("EDITORIAL_QA", qa_ok)
-    review_ok = all((p / f).is_file() for f in REVIEW_FILES) and any(
-        "INTERNAL_REVIEW" in f.name or "documentary" in f.name for f in p.glob("output/*.mp4"))
+    # the review video itself, or (after a cleanup deleted the media) the clean assembly report that made it
+    review_video = any("INTERNAL_REVIEW" in f.name or "documentary" in f.name for f in p.glob("output/*.mp4")) or any(
+        "INTERNAL_REVIEW" in (r := read(f) or {}).get("output", "") and not r.get("problems")
+        for f in p.glob("qa/assembly_report_internal_*.json"))
+    review_ok = all((p / f).is_file() for f in REVIEW_FILES) and review_video
     add("INTERNAL_REVIEW", review_ok, "review package + internal review video" if review_ok else "")
     from pipeline import gates
     g = gates.evaluate(p) if review_ok else None

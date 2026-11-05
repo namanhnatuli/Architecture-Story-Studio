@@ -17,5 +17,18 @@
   },
   "presets": {"rough_cut": "preview", "review": "review", "internal_review_1080p": "internal_1080p", "final": "final_4k"},
   "render": {"blender_processes": 1, "static_frame_reuse": true, "final_chapters_streamed": true, "never_4k_png_for_whole_film": true},
+  "closing_call_to_action": {
+    "required": true,
+    "added": "2026-11-05 (owner request: end every film by inviting viewers to suggest topics, like and subscribe)",
+    "where": "one framing beat in the last chapter, after the conclusion and before the credits",
+    "asks": {"suggest a topic": "\\bsuggest", "in the comments": "\\bcomments?\\b", "like": "\\blike\\b", "subscribe": "\\bsubscrib"},
+    "max_words": 60,
+    "rules": [
+      "framing beat: no claim ids, no facts",
+      "no promises the Studio cannot keep (upload schedule, replies to every comment, 'next video' titles)",
+      "no false urgency or pressure; plain words, the narrator's usual tone",
+      "on screen: plain text in the Studio style, no platform logos, buttons or trademarks"
+    ]
+  },
   "workflow": "research first; internal review video + approval package before any publication step; the owner approves claims, the voice for the project, pronunciation and publication; the Studio never uploads, merges or pushes"
 }

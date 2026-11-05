@@ -30,7 +30,7 @@ Codex hoặc Claude Code làm developer; Blender Python (`bpy`) làm 3D engine; 
 4. Mở rộng được thư viện state/template mà không sửa toàn bộ engine.
 
 ## Sản xuất hiện tại (2026-10-30)
-- **Phim tham chiếu:** `projects/why-bridges-look-different` ("Why Bridges Don't All Look the Same", 10,7 phút, 8 chương). Đây là dự án duy nhất trong `projects/`.
+- **Phim tham chiếu:** `projects/why-bridges-look-different` ("Why Bridges Don't All Look the Same", 10,7 phút, 8 chương). Phim đang làm: `projects/gothic-cathedral-heights` (chờ chủ kênh duyệt kịch bản, 2026-11-05).
 - **Mỗi phim mới** bắt đầu từ một chủ đề, theo `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`, với mặc định trong `config/production_defaults.json`:
   - tiếng Anh, 16:9, 24 fps, 10–12 phút (chấp nhận 8–15);
   - giọng Kokoro `am_michael`;

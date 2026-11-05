@@ -1,5 +1,19 @@
 # Current project status
 
+## Phim đang làm: `gothic-cathedral-heights` (2026-11-05, nhánh `episode-gothic-cathedral-heights`)
+
+- **Trạng thái: chờ chủ kênh đọc kịch bản.** Chưa render video nào, chưa có gì được duyệt.
+- Revision g-r1: 10 chương, 46 beat, 129 câu, 1.782 từ, khoảng 14,1 phút (thời lượng 10–18 phút theo quyết định của chủ kênh, `project.json` → `runtime_decision`).
+- Nghiên cứu: 24 trang/tài liệu nguồn, 49 claim `SOURCE_VERIFIED`, phim dùng 48; 12 claim được dùng ở mức `medium`.
+- Lời dẫn: `am_michael`, ASR đạt 129/129, đã khóa timing. 7 mục ghi đè phát âm đang `PENDING_LISTENING_REVIEW`. Giọng chưa được duyệt cho dự án này.
+- Hình: `plan-visuals` không thực thi được (đúng thiết kế): 30 beat card 2D có kế hoạch, 16 beat 3D `NEW_ASSET_REQUIRED` vì thư viện chưa có họ nhà thờ. Card 2D chiếm 67% thời lượng, cần giảm khi có mô hình và ảnh.
+- **Việc của chủ kênh:** đọc `projects/gothic-cathedral-heights/review/SCRIPT_REVIEW.md`, nghe `output/gothic-cathedral-heights_narration_preview_g-r1.m4a`, trả lời các mục "Cần bạn quyết định".
+- **Làm tiếp:** `python3 tools/episode.py status --project gothic-cathedral-heights`.
+
+---
+
+## Phim tham chiếu `why-bridges-look-different`
+
 - Phase: **M8.2: chủ kênh đã duyệt claim và phát âm của m8-r4 (2026-11-04); bản cuối 4K đã render và đạt mọi gate (2026-11-05): PUBLICATION_READY.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
 - **Phim `why-bridges-look-different`, revision m8-r4:**
   - 12 chương; 19,92 phút (1.195,3 s, 28 687 khung); 169 câu; 75 shot;
