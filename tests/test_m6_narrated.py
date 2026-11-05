@@ -14,9 +14,11 @@ from planner import annotations as AN, consistency, planner as pl, timing as T, 
 from tools.cli import ROOT
 from tools import validator
 
-PILOT = ROOT / "projects" / "bridge-load-explained"
-BRIDGE = ROOT / "projects" / "bridge-story-m5"
-ROOFS = ROOT / "projects" / "roof-plan-m5"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+PILOT = LEGACY / "bridge-load-explained"
+BRIDGE = LEGACY / "bridge-story-m5"
+ROOFS = LEGACY / "roof-plan-m5"
 FIXTURE = ROOT / "tests" / "fixtures" / "m6_cross_family"
 STYLE = AL.load_style()
 VOCAB = V.Vocabulary()

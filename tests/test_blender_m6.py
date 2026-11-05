@@ -10,7 +10,9 @@ from pathlib import Path
 from planner import compiler, planner as pl
 from tools.cli import ROOT, blender_bin
 
-PILOT = ROOT / "projects" / "bridge-load-explained"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+PILOT = LEGACY / "bridge-load-explained"
 FIXTURE = ROOT / "tests" / "fixtures" / "m6_cross_family"
 
 

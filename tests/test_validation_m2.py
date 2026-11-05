@@ -9,7 +9,9 @@ from pathlib import Path
 from tools.cli import ROOT
 from tools.validator import validate_project
 
-SOURCE = ROOT / "projects" / "roof-evolution"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+SOURCE = LEGACY / "roof-evolution"
 
 
 class ValidatorM2Test(unittest.TestCase):

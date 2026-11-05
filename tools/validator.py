@@ -6,7 +6,9 @@ from engine import motion, spec, templates  # pure-Python modules, no bpy
 
 APPROVED_CLAIM = {"EDITORIALLY_APPROVED", "verified"}   # "verified": v0.1 ledger vocabulary
 SOURCE_CHECKED_CLAIM = {"SOURCE_VERIFIED", "EDITORIALLY_APPROVED", "verified"}
-GRAPHIC_KINDS = ("text", "arrow")
+GRAPHIC_KINDS = ("text", "arrow", "rect", "line", "circle", "polygon", "image")   # M7: shapes + archival images
+EXTERNAL_LICENSE_FIELDS = ("source_url", "creator", "license", "attribution", "usage_restrictions", "acquired",
+                           "local_path", "intended_use", "modifications", "status")
 
 
 class ValidationError(Exception):
@@ -42,8 +44,18 @@ def validate_project(project_dir, final=False):
 
     if project.get("slug") != base.name:
         errors.append("project.slug must match project folder name")
-    if project.get("mode") not in ("prototype", "production"):
+    if project.get("mode") not in ("prototype", "production", "documentary"):
         errors.append("project.mode invalid")
+    if project.get("mode") == "documentary" or project.get("chapters"):   # M7 long-form: chapters are required
+        from pipeline import chapters as CH
+        narration_path = base / "script/narration.json"
+        if not project.get("chapters"):
+            errors.append("documentary mode needs project.chapters (script/chapters.json)")
+        elif narration_path.is_file():
+            beats_path = base / "script/visual_beats.json"
+            errors += [f"chapters: {e}" for e in CH.validate(
+                CH.load(base), json.loads(narration_path.read_text(encoding="utf-8")),
+                json.loads(beats_path.read_text(encoding="utf-8")) if beats_path.is_file() else None)]
     profile = project.get("production_profile")
     if profile is not None:   # M5.5: explicit, validated production profiles (pipeline/gates.py)
         from pipeline.gates import PROFILES
@@ -100,7 +112,7 @@ def validate_project(project_dir, final=False):
             elif claim_map[ref].get("review_status") == "REJECTED":
                 errors.append(f"{sid}: uses REJECTED claim {ref}")
         if shot.get("visual_type", "BLENDER_3D") == "MOTION_GRAPHICS":
-            errors.extend(f"{sid}: {e}" for e in validate_graphic(shot.get("graphic"), b))
+            errors.extend(f"{sid}: {e}" for e in validate_graphic(shot.get("graphic"), b, base, assets))
         for field in ("from_state", "to_state"):
             v = shot.get(field)
             if v is not None and v not in variant_ids:
@@ -199,7 +211,7 @@ def validate_project(project_dir, final=False):
         registry = providers.load_registry()
         errors.extend(f"tts_providers: {e}" for e in providers.validate_registry(registry))
         lexicon = pron.load(base)
-        errors.extend(f"narration: {e}" for e in nar.validate(narration, sources, registry, lexicon))
+        errors.extend(f"narration: {e}" for e in nar.validate(narration, sources, registry, lexicon, base.name))
         order = [b.get("id") for b in narration.get("beats", [])]
         covered = []
         for s in shots:   # M5/M6 planned projects: one beat may span several consecutive shots
@@ -219,12 +231,25 @@ def validate_project(project_dir, final=False):
             warnings.append(f"Asset {asset.get('id')} rights pending")
         if asset.get("origin") != "procedural" and not asset.get("source_url"):
             errors.append(f"External asset {asset.get('id')} missing source_url")
+        if asset.get("origin") == "external":   # M7: archival imagery needs the full rights record
+            missing = [k for k in EXTERNAL_LICENSE_FIELDS if not asset.get(k)]
+            if missing:
+                errors.append(f"External asset {asset.get('id')} rights record lacks {', '.join(missing)}")
+            elif not (base / asset["local_path"]).is_file():
+                errors.append(f"External asset {asset.get('id')}: {asset['local_path']} not found")
 
     if final:
         if not project.get("audio_timing_locked"):
             errors.append("FINAL gate: audio timing not locked")
-        if any(c.get("review_status") not in APPROVED_CLAIM | {"REJECTED"} for c in sources.get("claims", [])):
-            errors.append("FINAL gate: unverified claims (claims must be EDITORIALLY_APPROVED)")
+        used = used_claim_ids(base, narration, story)   # M7: what the film actually says or shows
+        checked = [c for c in sources.get("claims", []) if not used or c.get("id") in used]
+        unapproved = sorted(c.get("id") for c in checked if c.get("review_status") not in APPROVED_CLAIM | {"REJECTED"})
+        if unapproved:
+            errors.append("FINAL gate: unverified claims used in the film (claims must be EDITORIALLY_APPROVED): "
+                          + ", ".join(unapproved[:8]))
+        missing = sorted(used - {c.get("id") for c in sources.get("claims", [])})
+        if missing:
+            errors.append("FINAL gate: the film uses claims missing from the registry: " + ", ".join(missing))
         if narration is not None:
             status = ((narration.get("voice") or {}).get("license") or {}).get("status")
             if status != "APPROVED":
@@ -235,6 +260,21 @@ def validate_project(project_dir, final=False):
         if project.get("factual_review") != "verified":
             errors.append("FINAL gate: factual_review is not verified")
     return errors, warnings
+
+
+def used_claim_ids(base, narration, story):
+    """Claims the publication artifact uses: narration beats, visual beats (beat claims and annotation
+    claims) and storyboard shots. Empty when the project records none (then every claim is checked)."""
+    used = {c for b in (narration or {}).get("beats", []) for c in b.get("claim_ids", [])}
+    beats_path = Path(base) / "script/visual_beats.json"
+    if beats_path.is_file():
+        vb = read_json(beats_path)
+        for b in vb.get("beats", []):
+            used |= set(b.get("claim_ids", []))
+            used |= {a["claim_id"] for a in b.get("annotations", []) or [] if a.get("claim_id")}
+    for s in (story or {}).get("shots", []):
+        used |= set(s.get("claim_ids", []) or [])
+    return used
 
 
 def publication_audio_errors(base, narration, registry, lexicon):
@@ -269,30 +309,70 @@ def publication_audio_errors(base, narration, registry, lexicon):
     return errors
 
 
-def validate_graphic(graphic, duration):
-    """2D card spec (MOTION_GRAPHICS shots): element ids, kinds, positions, timing."""
+def _point(pt):
+    return isinstance(pt, list) and len(pt) == 2 and all(isinstance(v, (int, float)) and 0 <= v <= 1 for v in pt)
+
+
+def validate_graphic(graphic, duration, base=None, assets=None):
+    """2D card spec (MOTION_GRAPHICS shots): element ids, kinds, positions, timing and, for
+    archival images (M7), the file and a complete rights record in assets/manifest.json."""
     errors = []
     if not isinstance(graphic, dict) or not graphic.get("elements"):
         return ["MOTION_GRAPHICS shot needs graphic.elements"]
+    manifest = {a.get("id"): a for a in (assets or {}).get("assets", [])}
     ids = set()
     for e in graphic["elements"]:
         eid = e.get("id")
         if not eid or eid in ids:
             errors.append(f"graphic element id missing or duplicated: {eid!r}")
         ids.add(eid)
-        if e.get("kind") not in GRAPHIC_KINDS:
+        kind = e.get("kind")
+        if kind not in GRAPHIC_KINDS:
             errors.append(f"graphic {eid}: kind must be one of {GRAPHIC_KINDS}")
-        points = [e.get("position")] if e.get("kind") == "text" else [e.get("start"), e.get("end")]
+            continue
+        if kind == "text":
+            points = [e.get("position")]
+        elif kind == "arrow":
+            points = [e.get("start"), e.get("end")]
+        elif kind in ("rect", "image"):
+            box = e.get("box")
+            points = [box[:2], box[2:]] if isinstance(box, list) and len(box) == 4 else [None]
+            if points[0] and points[1] and (box[0] >= box[2] or box[1] >= box[3]):
+                errors.append(f"graphic {eid}: box must be [x0, y0, x1, y1] with x0 < x1, y0 < y1")
+        elif kind == "circle":
+            points = [e.get("center")]
+        else:
+            points = e.get("points") if isinstance(e.get("points"), list) and len(e.get("points")) >= 2 else [None]
         for pt in points:
-            if not (isinstance(pt, list) and len(pt) == 2 and all(isinstance(v, (int, float)) and 0 <= v <= 1 for v in pt)):
+            if not _point(pt):
                 errors.append(f"graphic {eid}: positions are [x, y] in 0..1 card units")
-        if e.get("kind") == "text" and not e.get("text"):
+                break
+        if kind == "text" and not e.get("text"):
             errors.append(f"graphic {eid}: empty text")
+        if kind == "image":
+            asset = manifest.get(e.get("asset"))
+            if asset is None:
+                errors.append(f"graphic {eid}: image asset {e.get('asset')!r} is not in assets/manifest.json "
+                              "(no external image without a rights record)")
+            else:
+                missing = [k for k in EXTERNAL_LICENSE_FIELDS if not asset.get(k)]
+                if missing:
+                    errors.append(f"graphic {eid}: asset {asset['id']} rights record lacks {', '.join(missing)}")
+                if asset.get("local_path") != e.get("path"):
+                    errors.append(f"graphic {eid}: path {e.get('path')!r} differs from the asset's local_path")
+            if base is not None and not (Path(base) / str(e.get("path"))).is_file():
+                errors.append(f"graphic {eid}: image file {e.get('path')!r} not found")
+            crop = e.get("crop", [0, 0, 1, 1])
+            if not (isinstance(crop, list) and len(crop) == 4 and 0 <= crop[0] < crop[2] <= 1 and 0 <= crop[1] < crop[3] <= 1):
+                errors.append(f"graphic {eid}: crop must be [u0, v0, u1, v1] inside 0..1")
         appear = e.get("appear", 0.0)
-        if isinstance(appear, str):
-            errors.append(f"graphic {eid}: unresolved anchor {appear!r} (run `schedule`)")
+        if isinstance(appear, str) or "sentence" in e:
+            errors.append(f"graphic {eid}: unresolved timing {e.get('sentence', appear)!r} (run plan-visuals / `schedule`)")
         elif isinstance(duration, (int, float)) and not 0 <= appear < duration:
             errors.append(f"graphic {eid}: appears at {appear}s, outside the shot")
+        dis = e.get("disappear")
+        if dis is not None and not (isinstance(dis, (int, float)) and appear < dis <= (duration or dis) + 1e-6):
+            errors.append(f"graphic {eid}: disappear {dis!r} must be after appear and inside the shot")
     return errors
 
 

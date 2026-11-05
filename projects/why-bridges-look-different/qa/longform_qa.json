@@ -1,0 +1,93 @@
+{
+  "utc": "2026-11-04T21:08:41.385841+00:00",
+  "preset": "final_4k",
+  "timing_sha256": "e57329b765708268f28e507df3befeb5b1597c8e4af1c8b2678b5e5989b07dbb",
+  "results": [
+    {
+      "check": "chapters_structure",
+      "status": "PASS",
+      "detail": "12 chapters cover every beat contiguously, in order"
+    },
+    {
+      "check": "chapter_durations",
+      "status": "PASS",
+      "detail": "C1 52s, C2 49s, C3 70s, C4 82s, C5 84s, C6 88s, C7 59s, C8 78s, C9 172s, C10 129s, C11 226s, C12 105s"
+    },
+    {
+      "check": "runtime",
+      "status": "PASS",
+      "detail": "19.92 min (28687 frames); acceptable 8-30 min (owner decision, Tran Nam Anh (channel owner), 2026-11-03)"
+    },
+    {
+      "check": "no_duplicate_shots",
+      "status": "PASS",
+      "detail": "75 unique shots"
+    },
+    {
+      "check": "no_repeated_sentences",
+      "status": "WARN",
+      "detail": "so why don't bridges all look the same?"
+    },
+    {
+      "check": "narration_sentences_complete",
+      "status": "PASS",
+      "detail": "169 sentences scheduled, same text and order as narration.json"
+    },
+    {
+      "check": "audio_no_overlap",
+      "status": "PASS",
+      "detail": "no two beats' speech overlaps"
+    },
+    {
+      "check": "narration_silences",
+      "status": "PASS",
+      "detail": "longest gap 1.23s (limit 4.0s), after the last line 0.80s"
+    },
+    {
+      "check": "no_static_stretches",
+      "status": "PASS",
+      "detail": "longest stretch without a visual change 13.5s at 629.8s (limit 14.0s)"
+    },
+    {
+      "check": "visual_variety",
+      "status": "PASS",
+      "detail": "longest run of one visual kind: 3 x 3D_HOLD (limit 4); 3D_EXPLODED_VIEW 6, 3D_HOLD 33, 3D_PUSH_IN 7, 3D_REPLACE_PARTS 3, 3D_SIDE_BY_SIDE 3, DIAGRAM 12, PHOTO 8, TITLE 3"
+    },
+    {
+      "check": "no_repeated_visuals",
+      "status": "PASS",
+      "detail": "no two consecutive shots show the same picture"
+    },
+    {
+      "check": "chapter_openings",
+      "status": "PASS",
+      "detail": "chapters 2-12 open with a numbered title on their first shot"
+    },
+    {
+      "check": "annotations_consistent",
+      "status": "PASS",
+      "detail": "narration/visual consistency: no contradiction; 2 UNCERTAIN for the reviewer (B33.s4 SIDE, B34.s2 ARROWS); every annotation placed"
+    },
+    {
+      "check": "render_cache_current",
+      "status": "PASS",
+      "detail": "all 75 shots rendered at final_4k with current cache keys"
+    },
+    {
+      "check": "chapter_variety",
+      "status": "WARN",
+      "detail": "C2"
+    },
+    {
+      "check": "image_licences",
+      "status": "PASS",
+      "detail": "7 external images, all approved with matching files"
+    },
+    {
+      "check": "image_attribution",
+      "status": "PASS",
+      "detail": "every external image is credited (credit card or description)"
+    }
+  ],
+  "failed": 0
+}

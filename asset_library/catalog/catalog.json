@@ -1,8 +1,307 @@
 {
   "schema": "asset_catalog/1",
-  "generated_utc": "2026-10-27T16:50:56.702343+00:00",
+  "generated_utc": "2026-10-31T16:11:29.108325+00:00",
   "generator_version": "1.0.0",
   "assets": [
+    {
+      "asset_id": "bridge_cable_stayed_01",
+      "title": "Cable-stayed bridge: two H-pylons, stays to the edge girders",
+      "family": "bridge",
+      "variant": "cable_stayed",
+      "generator": {
+        "name": "bridge.cable_stayed",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_cable_stayed_01.json",
+        "sha256": "e2cae87f54bd5009736975507fe4f7e1c5127bc92fa25d69941ad83239e6928e"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation, not a reconstruction of a specific bridge and not an engineering design: two concrete H-pylons with a strut below the stay anchorages, straight stays in a vertical plane above each edge girder, a segmental deck; no anchorages. Proportions chosen for legibility on the 72 m site (flattest stay about 29 degrees).",
+        "references": [
+          {
+            "title": "Steel Bridge Design Handbook: Selecting the Right Bridge Type (FHWA-IF-12-052, vol. 5), 2.5 and 4.4",
+            "url": "https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+            "accessed": "2026-10-31",
+            "used_for": "arrangement of the parts only",
+            "excerpt": "The stay cables are inclined from the supporting towers to edge girders at or below the deck elevation."
+          }
+        ]
+      },
+      "geometry": {
+        "components": 47,
+        "unique_meshes": 25,
+        "by_type": {
+          "DECK": 23,
+          "PIER": 2,
+          "PYLON": 2,
+          "STAY_CABLE": 20
+        },
+        "verts": 952,
+        "faces": 714,
+        "bbox": [
+          [
+            -35.99,
+            -5.05,
+            -0.38
+          ],
+          [
+            35.99,
+            5.05,
+            17.0
+          ]
+        ],
+        "dimensions_m": [
+          71.98,
+          10.1,
+          17.38
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 72.0,
+        "deck_width_m": 6.0,
+        "deck_level_m": 6.0,
+        "main_span_m": 40.0,
+        "pylon_height_m": 11.0,
+        "stays_per_side": 5,
+        "girder_depth_m": 0.8,
+        "pylon_size_m": 0.9,
+        "stay_size_m": 0.14
+      },
+      "materials": {
+        "keys": [
+          "cable",
+          "concrete",
+          "concrete_deck"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/top.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "08df6ee56e61b2ed2c4dce5b19a7c10418b5989ff2e28b0cff7cd5ccf395baa4",
+            "stats": {
+              "build_seconds": 0.032,
+              "objects": 50,
+              "asset_objects": 47,
+              "mesh_datablocks": 28,
+              "asset_mesh_datablocks": 25,
+              "evaluated_verts": 4864
+            },
+            "process": {
+              "wall_seconds": 2.9,
+              "peak_rss_mb": 509.2,
+              "peak_memory_footprint_mb": 1925.3,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.748
+              },
+              "elevation": {
+                "render_seconds": 0.318
+              },
+              "top": {
+                "render_seconds": 0.333
+              },
+              "exploded": {
+                "render_seconds": 0.649
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "bridge_cantilever_truss_01",
+      "title": "Steel cantilever through truss with a suspended span",
+      "family": "bridge",
+      "variant": "cantilever",
+      "generator": {
+        "name": "bridge.cantilever",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_cantilever_truss_01.json",
+        "sha256": "c98c087d9c42ff0da4cfef0dd5fbcd045e49ce98cf725dd342ba2d8c6301ba97"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation, not a reconstruction of a specific bridge and not an engineering design: anchor arms on the abutments and main piers, cantilever arms projecting from the piers, a suspended span between the arm tips; deepest over the piers. Proportions chosen for legibility on the 72 m site.",
+        "references": [
+          {
+            "title": "A Context for Common Historic Bridge Types (NCHRP 25-25, Task 15), 3.1 and 3.7",
+            "url": "https://onlinepubs.trb.org/onlinepubs/archive/notesdocs/25-25(15)_FR.pdf",
+            "accessed": "2026-10-31",
+            "used_for": "arrangement of the parts only",
+            "excerpt": "A cantilevered truss bridge consists of anchor arms supported by piers, and a suspended span that is supported by the anchor arms."
+          }
+        ]
+      },
+      "geometry": {
+        "components": 29,
+        "unique_meshes": 28,
+        "by_type": {
+          "ABUTMENT": 2,
+          "ANCHOR_ARM": 4,
+          "BEARING": 1,
+          "BRACING": 4,
+          "CANTILEVER_ARM": 4,
+          "DECK": 5,
+          "FLOOR_BEAM": 5,
+          "PIER": 2,
+          "SUSPENDED_SPAN": 2
+        },
+        "verts": 2080,
+        "faces": 1560,
+        "bbox": [
+          [
+            -36.0,
+            -4.05,
+            -0.38
+          ],
+          [
+            36.0,
+            4.05,
+            14.768
+          ]
+        ],
+        "dimensions_m": [
+          72.0,
+          8.1,
+          15.148
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 72.0,
+        "deck_width_m": 6.0,
+        "deck_level_m": 6.0,
+        "anchor_arm_m": 14.0,
+        "cantilever_arm_m": 11.0,
+        "depth_over_piers_m": 9.0,
+        "depth_end_m": 3.5,
+        "depth_tip_m": 4.0,
+        "panels_anchor": 6,
+        "panels_cantilever": 4,
+        "panels_suspended": 6,
+        "pier_width_m": 2.4,
+        "chord_size_m": 0.32,
+        "web_size_m": 0.2
+      },
+      "materials": {
+        "keys": [
+          "concrete",
+          "concrete_deck",
+          "steel",
+          "steel_dark"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_cantilever_truss_01/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_cantilever_truss_01/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_cantilever_truss_01/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_cantilever_truss_01/review/top.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "4357449bea77002563e4426a18e0fa57be0c2d6fdf31f82e8a3674baa3f189ee",
+            "stats": {
+              "build_seconds": 0.038,
+              "objects": 32,
+              "asset_objects": 29,
+              "mesh_datablocks": 31,
+              "asset_mesh_datablocks": 28,
+              "evaluated_verts": 14680
+            },
+            "process": {
+              "wall_seconds": 3.4,
+              "peak_rss_mb": 530.9,
+              "peak_memory_footprint_mb": 1948.1,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 1.046
+              },
+              "elevation": {
+                "render_seconds": 0.326
+              },
+              "top": {
+                "render_seconds": 0.352
+              },
+              "exploded": {
+                "render_seconds": 0.711
+              }
+            }
+          }
+        }
+      }
+    },
     {
       "asset_id": "bridge_steel_truss_pratt_01",
       "title": "Steel pony truss bridge, Pratt web, 2 spans",
@@ -86,7 +385,7 @@
           "steel_dark"
         ],
         "library": "asset_library/materials/stylized_materials.json",
-        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
         "external_textures": []
       },
       "animation_support": [
@@ -273,7 +572,7 @@
           "steel_dark"
         ],
         "library": "asset_library/materials/stylized_materials.json",
-        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
         "external_textures": []
       },
       "animation_support": [
@@ -418,7 +717,7 @@
           "stone_light"
         ],
         "library": "asset_library/materials/stylized_materials.json",
-        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
         "external_textures": []
       },
       "animation_support": [
@@ -597,7 +896,7 @@
           "stone_light"
         ],
         "library": "asset_library/materials/stylized_materials.json",
-        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
         "external_textures": []
       },
       "animation_support": [
@@ -660,6 +959,158 @@
               },
               "exploded": {
                 "render_seconds": 0.528
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "bridge_suspension_01",
+      "title": "Suspension bridge: two towers, main cables, hangers, stiffening trusses",
+      "family": "bridge",
+      "variant": "suspension",
+      "generator": {
+        "name": "bridge.suspension",
+        "version": "1.0.0",
+        "module": "engine/arch/families/bridge.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/bridges/bridge_suspension_01.json",
+        "sha256": "27429c928cadb230c2ed8265fab10ac0aa9dc268ec26ce2f96a2121207e361b1"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for visual explanation, not a reconstruction of a specific bridge and not an engineering design: main cables at the outer edges draped over two towers and anchored in blocks on the banks, vertical hangers to the ends of transverse floor beams, a stiffening truss under each deck edge. Proportions chosen for legibility on the 72 m site.",
+        "references": [
+          {
+            "title": "Steel Bridge Design Handbook: Selecting the Right Bridge Type (FHWA-IF-12-052, vol. 5), 2.6",
+            "url": "https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+            "accessed": "2026-10-31",
+            "used_for": "arrangement of the parts only",
+            "excerpt": "The main cables typically are located at the outside edges of the bridge and are draped over the towers where they rest in saddles."
+          }
+        ]
+      },
+      "geometry": {
+        "components": 14,
+        "unique_meshes": 10,
+        "by_type": {
+          "ANCHORAGE": 2,
+          "DECK": 1,
+          "FLOOR_BEAM": 1,
+          "HANGER": 2,
+          "MAIN_CABLE": 2,
+          "PIER": 2,
+          "STIFFENING_TRUSS": 2,
+          "TOWER": 2
+        },
+        "verts": 3448,
+        "faces": 2586,
+        "bbox": [
+          [
+            -40.6,
+            -5.15,
+            -0.38
+          ],
+          [
+            40.6,
+            5.15,
+            13.3
+          ]
+        ],
+        "dimensions_m": [
+          81.2,
+          10.3,
+          13.68
+        ]
+      },
+      "resolved_parameters": {
+        "total_length_m": 72.0,
+        "deck_width_m": 6.0,
+        "deck_level_m": 6.0,
+        "main_span_m": 44.0,
+        "tower_height_m": 7.0,
+        "sag_ratio": 0.11,
+        "hanger_spacing_m": 2.0,
+        "stiffening_depth_m": 1.3,
+        "anchorage_offset_m": 3.2,
+        "cable_size_m": 0.3,
+        "tower_size_m": 0.8
+      },
+      "materials": {
+        "keys": [
+          "cable",
+          "concrete",
+          "concrete_deck",
+          "steel",
+          "steel_dark"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "EXPLODED_VIEW",
+        "SIDE_BY_SIDE"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/bridges/previews/bridge_suspension_01/review/elevation.jpg",
+          "asset_library/architecture/bridges/previews/bridge_suspension_01/review/exploded.jpg",
+          "asset_library/architecture/bridges/previews/bridge_suspension_01/review/three_quarter.jpg",
+          "asset_library/architecture/bridges/previews/bridge_suspension_01/review/top.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "dimensions": "PASS",
+          "rests_on_ground": "PASS",
+          "proportions": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "12b65d334d372d8061170019fd390b8c992f15bcac5a96cbfc6afdc7fc8c6942",
+            "stats": {
+              "build_seconds": 0.042,
+              "objects": 17,
+              "asset_objects": 14,
+              "mesh_datablocks": 13,
+              "asset_mesh_datablocks": 10,
+              "evaluated_verts": 9280
+            },
+            "process": {
+              "wall_seconds": 3.0,
+              "peak_rss_mb": 512.6,
+              "peak_memory_footprint_mb": 1928.6,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.796
+              },
+              "elevation": {
+                "render_seconds": 0.312
+              },
+              "top": {
+                "render_seconds": 0.335
+              },
+              "exploded": {
+                "render_seconds": 0.691
               }
             }
           }
@@ -733,7 +1184,7 @@
           "timber_light"
         ],
         "library": "asset_library/materials/stylized_materials.json",
-        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
         "external_textures": []
       },
       "animation_support": [
@@ -896,7 +1347,84 @@
           "water"
         ],
         "library": "asset_library/materials/stylized_materials.json",
-        "library_sha256": "96d78c7cf1ebd19baf079f251c0de10c90033ba9f30e8aac8c2c0c5181e7dd3e",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD"
+      ],
+      "previews": {},
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {}
+      }
+    },
+    {
+      "asset_id": "site_river_crossing_72",
+      "title": "River crossing site, 72 m gap (long-span bridges)",
+      "family": "site",
+      "variant": "river_crossing",
+      "generator": {
+        "name": "site.river_crossing",
+        "version": "1.0.0",
+        "module": "engine/arch/families/site.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/sites/site_river_crossing_72.json",
+        "sha256": "63c5e883c7227981609af35ac48d8df753e0d4373b0e42c783497ef1cc80a7f8"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Neutral context shared by the long-span archetypes (M8): a gap three times the 24 m site, with banks long enough for suspension anchorages."
+      },
+      "geometry": {
+        "components": 3,
+        "unique_meshes": 3,
+        "by_type": {
+          "GROUND": 2,
+          "WATER": 1
+        },
+        "verts": 24,
+        "faces": 18,
+        "bbox": [
+          [
+            -44.0,
+            -8.0,
+            -0.38
+          ],
+          [
+            44.0,
+            8.0,
+            6.0
+          ]
+        ],
+        "dimensions_m": [
+          88.0,
+          16.0,
+          6.38
+        ]
+      },
+      "resolved_parameters": {
+        "gap_m": 72.0,
+        "deck_level_m": 6.0,
+        "site_width_m": 16.0,
+        "bank_length_m": 8.0,
+        "water_level_m": 0.3
+      },
+      "materials": {
+        "keys": [
+          "earth_bank",
+          "water"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "860851ebdeabb7e400f2f976878c8f24c73a328da01b181b1a3397bf99c16dc5",
         "external_textures": []
       },
       "animation_support": [

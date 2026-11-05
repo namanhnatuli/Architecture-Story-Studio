@@ -12,7 +12,9 @@ from pathlib import Path
 
 from tools.cli import ROOT, blender_bin, blender_command
 
-PROJECT = ROOT / "projects" / "roof-evolution"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+PROJECT = LEGACY / "roof-evolution"
 
 
 @unittest.skipUnless(blender_bin(), "Blender not installed")

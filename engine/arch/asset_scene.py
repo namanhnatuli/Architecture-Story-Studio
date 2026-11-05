@@ -29,6 +29,13 @@ ALLOWED_INTERSECT = {frozenset(p) for p in (
     ("TRUSS_CHORD", "BRACING"), ("END_POST", "FLOOR_BEAM"), ("JOINT", "TRUSS_CHORD"), ("JOINT", "END_POST"),
     ("JOINT", "TRUSS_VERTICAL"), ("JOINT", "TRUSS_DIAGONAL"), ("TRUSS_VERTICAL", "FLOOR_BEAM"),
     ("TRUSS_DIAGONAL", "FLOOR_BEAM"), ("DECK", "FLOOR_BEAM"),
+    # M8 long-span families: the same framing for the cantilever truss parts, cables anchored into
+    # their blocks, saddles and girders, hangers clipped to the cables and floor beams
+    ("ANCHOR_ARM", "CANTILEVER_ARM"), ("CANTILEVER_ARM", "SUSPENDED_SPAN"), ("ANCHOR_ARM", "BRACING"),
+    ("CANTILEVER_ARM", "BRACING"), ("SUSPENDED_SPAN", "BRACING"), ("ANCHOR_ARM", "FLOOR_BEAM"),
+    ("CANTILEVER_ARM", "FLOOR_BEAM"), ("SUSPENDED_SPAN", "FLOOR_BEAM"), ("ANCHORAGE", "MAIN_CABLE"),
+    ("TOWER", "MAIN_CABLE"), ("HANGER", "MAIN_CABLE"), ("HANGER", "FLOOR_BEAM"), ("STIFFENING_TRUSS", "FLOOR_BEAM"),
+    ("STIFFENING_TRUSS", "DECK"), ("STAY_CABLE", "DECK"), ("STAY_CABLE", "PYLON"),
 )} | {frozenset(("WATER", t)) for t in semantic.SEMANTIC_TYPES}
 CROPPED_VIEWS = ("elevation", "top")
 TOUCH = 0.03
@@ -47,8 +54,9 @@ def _penetration(tree, verts):
     return deepest
 
 
-def build(asset_path, style, preset, site_path=DEFAULT_SITE, exploded=False):
+def build(asset_path, style, preset, site_path=None, exploded=False):
     """Clean scene with the site + asset. Returns (scene, objects, components, stats)."""
+    site_path = site_path or assets.site_for(asset_path) or DEFAULT_SITE
     t0 = time.perf_counter()
     shot_builder.purge_data()
     geometry.reset_mesh_cache()

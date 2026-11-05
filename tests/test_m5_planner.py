@@ -13,8 +13,10 @@ from planner import compiler
 from tools import render_cache
 from tools.cli import ROOT
 
-BRIDGE = ROOT / "projects" / "bridge-story-m5"
-ROOF = ROOT / "projects" / "roof-plan-m5"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+BRIDGE = LEGACY / "bridge-story-m5"
+ROOF = LEGACY / "roof-plan-m5"
 VOCAB = V.Vocabulary()
 INDEX = catalog.index()
 
@@ -126,7 +128,7 @@ class ResolverTest(unittest.TestCase):
         self.assertEqual(g["status"], "GENERATE_FROM_SUPPORTED_FAMILY")
         self.assertEqual(g["generated_spec"]["parameters"]["arch_count"], 4)
         self.assertEqual(g["generated_spec"]["accuracy"], "ILLUSTRATIVE")
-        n = resolver.resolve("suspension_bridge", VOCAB, INDEX)
+        n = resolver.resolve("bascule_bridge", VOCAB, INDEX)   # movable bridges: no generator (M8: suspension has one)
         self.assertEqual(n["status"], "NEW_ASSET_REQUIRED")
         self.assertEqual(n["task"]["kind"], "NEW_FAMILY_GENERATOR")
         self.assertEqual(resolver.resolve("covered_bridge", VOCAB, INDEX)["status"], "UNKNOWN_CONCEPT")
@@ -307,7 +309,7 @@ class NegativePlanningTest(unittest.TestCase):
         return next(c for c in plan["coverage"] if c["beat_id"] == bid)
 
     def test_nonexistent_asset(self):
-        plan = self.plan_with(lambda d: beat(d, "B5")["required_concepts"].__setitem__(0, "suspension_bridge"))
+        plan = self.plan_with(lambda d: beat(d, "B5")["required_concepts"].__setitem__(0, "bascule_bridge"))
         c = self.cov(plan, "B5")
         self.assertEqual(c["status"], "MISSING_ASSET")
         self.assertFalse(plan["executable"])

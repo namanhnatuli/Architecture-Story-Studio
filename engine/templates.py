@@ -154,6 +154,8 @@ def object_name(slot_id, component_id):
 
 def placeholder_slots(shot, states):
     """Slots with zero geometry: enough for ownership and timing checks offline."""
+    if shot.get("visual_type") == "MOTION_GRAPHICS":
+        return {}
     states = spec.shot_states(states, shot)
     layers = {}
     for variant in states.get("variants", []):
@@ -194,11 +196,38 @@ def placeholder_camera():
     return {"name": CAMERA_NAME, "start": rest, "end": rest}
 
 
+CARD_MIN_SECONDS = 1.5   # M7: a 2D card is never a flash frame
+
+
+def plan_card(shot, fps):
+    """Offline timing of a 2D card (MOTION_GRAPHICS): every element must finish fading in before
+    the last frame and fade out after it is fully shown. Blender keys come from engine/diagram.py."""
+    sid = shot.get("id", "(missing)")
+    frames = frame_count(shot, fps)
+    if frames < CARD_MIN_SECONDS * fps:
+        raise motion.PlanError(f"{sid}: TOO_SHORT card ({frames} frames < {CARD_MIN_SECONDS} s)")
+    graphic = shot.get("graphic") or {}
+    fade = float(graphic.get("fade_seconds", 0.4))
+    end = frames / fps
+    for e in graphic.get("elements", []):
+        appear = float(e.get("appear", 0.0))
+        if appear + fade > end + 1e-6:
+            raise motion.PlanError(f"{sid}: card element {e.get('id')} appears at {appear:.2f}s and must finish "
+                                   f"before the last frame ({end:.2f}s)")
+        if e.get("disappear") is not None and float(e["disappear"]) < appear + 2 * fade:
+            raise motion.PlanError(f"{sid}: card element {e.get('id')} disappears before it is fully shown")
+    plan = motion.Plan(fps, frames)
+    plan.markers["middle"] = (frames + 1) // 2
+    return plan
+
+
 def plan_shot(shot, states, fps, slots, camera=None):
     """Plan keyframes for one shot. slots: {slot_id: {component_id: motion.Component}}.
 
     camera: {"name", "start": {location, ortho_scale}, "end": {...}}, needed only by a
     SIDE_BY_SIDE intro; the validator passes a placeholder."""
+    if shot.get("visual_type") == "MOTION_GRAPHICS":
+        return plan_card(shot, fps)
     states = spec.shot_states(states, shot)
     sid = shot.get("id", "(missing)")
     cfg = animation_config(shot)
@@ -243,6 +272,8 @@ def plan_shot(shot, states, fps, slots, camera=None):
             def names_for(selector):
                 return [c.name for c in _select(selector, "STATE", own, slot, sid, "highlight.components", allowed)]
             motion.plan_highlight_only(plan, cfg, motion.HOLD_DEFAULTS, names_for, "HOLD")
+            if cfg.get("camera_move"):   # M7: slow push-in from the locked framing
+                motion.plan_camera_move(plan, cfg["camera_move"], camera or placeholder_camera())
             label = cfg.get("label")
             if label is not None:   # M5.5: caption of a single model (sequential comparisons)
                 if not isinstance(label, str) or not label.strip() or len(label) > 40:

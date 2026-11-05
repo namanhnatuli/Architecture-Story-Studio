@@ -7,7 +7,7 @@ from pathlib import Path
 
 from engine import spec, templates
 from planner import beats as B, camera as CAM, compiler, visibility as VIS, vocabulary as V
-from planner.planner import REPLACE_SHARED_BASE_FAMILIES, SITE_STATE
+from planner.planner import REPLACE_SHARED_BASE_FAMILIES, is_site_state
 
 ROOT = Path(__file__).resolve().parent.parent
 COVERAGE_STATUSES = ("COVERED", "PARTIALLY_COVERED", "MISSING_ASSET", "MISSING_TEMPLATE", "TIMING_CONFLICT",
@@ -120,7 +120,7 @@ def validate_plan(plan, project_dir, root=ROOT, engine_check=True):
                 data, _ = A.load(v["asset"])
                 needed = "HIGHLIGHT" if template == "HOLD" and (shot.get("animation") or {}).get("highlight") else template
                 if needed not in data["animation_support"] + ["HOLD"] and not (template == "REPLACE_PARTS" and
-                                                                               ps["states"][0] == SITE_STATE):
+                                                                               is_site_state(ps["states"][0])):
                     errors.append(f"{where}: asset {data['asset_id']} does not support {needed}")
         try:
             sv = spec.shot_states(states, shot)   # M6: the shot's scene context
@@ -237,8 +237,8 @@ def visibility_errors(plan, root=ROOT):
         comp = ps.get("composition") or {}
         if ps["template"] == "SIDE_BY_SIDE" and comp:
             anim = ps["shot"]["animation"]
-            shot = composition.comparison_shot(ps["states"], anim["layout"], anim["gap_ratio"], anim["label_band"],
-                                               ps["shot"]["camera"])
+            shot = composition.in_context(composition.comparison_shot(ps["states"], anim["layout"], anim["gap_ratio"],
+                                                                      anim["label_band"], ps["shot"]["camera"]), states)
             m = composition.measure_layout(VIS.build_scene(shot, states, fps, presets), ccfg)
             ok, problems = composition.readable(m, composition.purpose_cfg(ccfg, comp.get("purpose", "detail")))
             if not ok:

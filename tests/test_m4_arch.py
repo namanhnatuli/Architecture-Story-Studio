@@ -15,10 +15,13 @@ from tools import render_cache
 from tools.cli import ROOT
 from tools.validator import validate_project
 
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
 LIB = ROOT / "asset_library" / "architecture"
 BRIDGES = {p.stem: p for p in (LIB / "bridges").glob("*.json")}
+SITE_GAPS = {json.loads(p.read_text())["parameters"]["gap_m"] for p in (LIB / "sites").glob("*.json")}
 SITE = LIB / "sites" / "site_river_crossing_24.json"
-PILOT = ROOT / "projects" / "bridge-structure-evolution"
+PILOT = LEGACY / "bridge-structure-evolution"
 
 
 def spec_of(name):
@@ -44,7 +47,7 @@ class SpecificationTest(unittest.TestCase):
         base = spec_of("bridge_stone_arch_03")
         cases = [
             ({"family": "aqueduct"}, "unknown family 'aqueduct'"),
-            ({"variant": "suspension"}, "unknown bridge variant 'suspension'"),
+            ({"variant": "bascule"}, "unknown bridge variant 'bascule'"),   # movable bridges: no generator
             ({"units": "IMPERIAL"}, "units must be METRIC"),
             ({"parameters": dict(base["parameters"], voussoirs_per_arch=12)}, "must be odd"),
             ({"parameters": dict(base["parameters"], arch_count=40)}, "outside 1..9"),
@@ -110,7 +113,13 @@ class SemanticComponentTest(unittest.TestCase):
             self.assertEqual(failed, [], name)
             lo, hi = semantic.union_bbox(comps)
             self.assertAlmostEqual(lo[2], GROUND_Z, places=6)
-            self.assertAlmostEqual(hi[0] - lo[0], 24.0, delta=0.25)
+            # every bridge spans a library site exactly (M8: the long-span families use the 72 m site);
+            # a suspension bridge's anchorages and cable ends lie on the banks, beyond the gap
+            self.assertIn(params["total_length_m"], SITE_GAPS, name)
+            lo, hi = semantic.union_bbox([c for c in comps if c.type not in ("ANCHORAGE", "MAIN_CABLE")])
+            self.assertAlmostEqual(hi[0] - lo[0], params["total_length_m"], delta=0.25)
+            if data["variant"] in ("timber_beam", "stone_arch", "steel_truss"):
+                self.assertEqual(params["total_length_m"], 24.0, name)
 
     def test_floating_and_overlap_detection(self):
         comps = assets.plan(spec_of("bridge_stone_arch_03"))
@@ -190,9 +199,13 @@ class GeometryLibraryTest(unittest.TestCase):
 class FamilyAndMaterialTest(unittest.TestCase):
     def test_family_registry_selects_generators(self):
         self.assertIs(assets.FAMILIES["bridge"]["stone_arch"]["generator"], bridge.stone_arch)
-        self.assertEqual(set(assets.FAMILIES["bridge"]), {"timber_beam", "stone_arch", "steel_truss"})
+        self.assertIs(assets.FAMILIES["bridge"]["suspension"]["generator"], bridge.suspension)
+        self.assertIs(assets.FAMILIES["bridge"]["cable_stayed"]["generator"], bridge.cable_stayed)
+        self.assertIs(assets.FAMILIES["bridge"]["cantilever"]["generator"], bridge.cantilever)
+        families = {"timber_beam", "stone_arch", "steel_truss", "cantilever", "suspension", "cable_stayed"}
+        self.assertEqual(set(assets.FAMILIES["bridge"]), families)
         kinds = {spec_of(n)["variant"] for n in BRIDGES}
-        self.assertEqual(kinds, {"timber_beam", "stone_arch", "steel_truss"})
+        self.assertEqual(kinds, families)
 
     def test_materials_exist_in_the_shared_library(self):
         lib = json.loads((ROOT / "asset_library/materials/stylized_materials.json").read_text())

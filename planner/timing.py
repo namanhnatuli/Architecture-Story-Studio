@@ -2,6 +2,7 @@
 minimum template durations computed by the real motion planner (never guessed)."""
 import json
 import math
+import re
 from pathlib import Path
 
 from engine import motion, templates
@@ -65,6 +66,37 @@ def sentence_offsets(doc, project_dir, cfg):
             spans.append((round(t, 6), round(t + d, 6)))
             t += d
         out[b["beat_id"]] = spans
+    return out
+
+
+def norm_word(text):
+    return re.sub(r"[^a-z0-9']", "", text.lower().replace("’", "'"))
+
+
+def word_offsets(doc, project_dir):
+    """M7: {beat_id: [[(word, start, end), ...] per sentence]}: Whisper word timestamps of the
+    current narration (audio/narration_manifest.json alignment), in seconds from the start of the
+    beat window like sentence_offsets. AUDIO_LOCKED only; empty when nothing is aligned."""
+    if doc["timing_mode"] != "AUDIO_LOCKED":
+        return {}
+    p = Path(project_dir)
+    mpath = p / "audio" / "narration_manifest.json"
+    if not mpath.is_file():
+        return {}
+    timing = json.loads((p / "script" / "timing.json").read_text())
+    manifest = json.loads(mpath.read_text())
+    lead = (timing.get("pacing") or {}).get("beat_lead_in_seconds", 0.0)
+    out = {}
+    for b in timing.get("beats", []):
+        current = (manifest.get("beats", {}).get(b["id"]) or {}).get("sentences", [])
+        rows = []
+        for s, cur in zip(b.get("sentences", []), current):
+            seg = manifest.get("segments", {}).get(cur.get("cache_key")) or {}
+            align = seg.get("alignment") or {}
+            base = lead + s.get("rel_start", s["start"])
+            rows.append([(norm_word(w["text"]), round(base + w["start"], 6), round(base + w["end"], 6))
+                         for w in align.get("words", [])] if align.get("segment_sha256") == seg.get("sha256") else [])
+        out[b["id"]] = rows
     return out
 
 

@@ -57,6 +57,8 @@ def _blender_value(obj, channel):
         return tuple(obj.location)
     if channel == motion.ROT:
         return tuple(obj.rotation_euler)
+    if channel == motion.SCALE:
+        return tuple(obj.scale)
     if channel == motion.HIDE:
         return (1.0 if obj.hide_render else 0.0,)
     if channel == motion.ORTHO:
@@ -221,14 +223,19 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
     report.add(sid, "unanimated_parts_static", not moved,
                ", ".join(moved[:5]) or f"{len(static)} objects ({len(shared_static)} shared) unchanged on {len(frames)} frames")
 
-    # 4. No template ever scales a component (v0.1 shrank parts to 1%).
+    # 4. No template ever scales a component (v0.1 shrank parts to 1%). The M7 annotation rig of a
+    # push-in shot is the one exception: it scales the screen-fixed overlays with the ortho scale
+    # (verified separately by overlays_screen_fixed); model parts and the camera are still checked.
+    rig = ctx.render_objects.get("ANN_RIG")
+    riding = {n for n, o in ctx.render_objects.items() if rig is not None and (o is rig or o.parent is rig)}
     scaled = []
     for f in frames:
         ctx.scene.frame_set(f)
         for n, obj in ctx.render_objects.items():
-            if not _close(tuple(obj.matrix_world.to_scale()), (1.0, 1.0, 1.0), TRANSFORM_TOL):
+            if n not in riding and not _close(tuple(obj.matrix_world.to_scale()), (1.0, 1.0, 1.0), TRANSFORM_TOL):
                 scaled.append(f"{n}@{f}")
-    report.add(sid, "no_scale_change", not scaled, ", ".join(scaled[:5]) or "all world scales are 1.0")
+    report.add(sid, "no_scale_change", not scaled, ", ".join(scaled[:5]) or
+               "all world scales are 1.0" + (f" ({len(riding)} push-in overlay objects excepted)" if riding else ""))
 
     # 4b. Structural members at rest bear on the shared structure, never pass through it
     #     (e.g. rafters sinking into the wall tops, visible whenever the covering is off).
@@ -367,10 +374,11 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
     # 7. Framing: opaque geometry inside the frame (and above the label band) on every sampled frame.
     worst_margin, worst_at, bottom_min = 1.0, None, 1.0
     settle = plan.markers.get("intro_end", 1)
+    pushing = "camera_move_end" in plan.markers   # M7 push-in: full framing is the first frame
     ctx.scene.frame_set(settle)
     cam_matrix, cam_ortho = ctx.camera.matrix_world.copy(), ctx.camera.data.ortho_scale
     cam_moves = []
-    for f in frames:
+    for f in ([1] if pushing else frames):
         ctx.scene.frame_set(f)
         dg = bpy.context.evaluated_depsgraph_get()
         if f >= settle and (ctx.camera.matrix_world != cam_matrix or ctx.camera.data.ortho_scale != cam_ortho):
@@ -392,9 +400,33 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
     report.add(sid, "camera_framing", ok,
                f"min margin {worst_margin:.3f} at {worst_at}; lowest point y={bottom_min:.3f} "
                f"(label band {ctx.bottom_band:.2f}); ortho_scale {ctx.camera.data.ortho_scale:.3f}")
-    report.add(sid, "camera_locked", not cam_moves,
-               (f"camera moves only during the intro (frames 1-{settle}), locked afterwards" if settle > 1
-                else "camera never moves") if not cam_moves else f"camera moved after frame {settle}: {cam_moves[:5]}")
+    if pushing:   # the move itself is verified key by key (plan_matches_evaluated_keys)
+        ctx.scene.frame_set(ctx.frame_count)
+        end_ortho = ctx.camera.data.ortho_scale
+        ctx.scene.frame_set(1)
+        ok_move = end_ortho < ctx.camera.data.ortho_scale and ctx.camera.matrix_world == cam_matrix
+        report.add(sid, "camera_locked", ok_move,
+                   f"push-in by design: starts on the locked framing, ortho {ctx.camera.data.ortho_scale:.3f} -> "
+                   f"{end_ortho:.3f}" if ok_move else "push-in does not start on the locked framing")
+        overlays = [o for objs in (ctx.annotations or {}).values() for o in objs]
+        if overlays:   # M7: screen-fixed annotations must not drift or grow while the camera pushes in
+            def frame_box(f):
+                ctx.scene.frame_set(f)
+                out = []
+                for o in overlays:
+                    pts = [world_to_camera_view(ctx.scene, ctx.camera, o.matrix_world @ Vector(c)) for c in o.bound_box]
+                    out.append((min(p.x for p in pts), min(p.y for p in pts), max(p.x for p in pts), max(p.y for p in pts)))
+                return out
+            first, mid, last = frame_box(1), frame_box((ctx.frame_count + 1) // 2), frame_box(ctx.frame_count)
+            drift = max(abs(a - b) for boxes in (mid, last) for p, q in zip(first, boxes) for a, b in zip(p, q))
+            ctx.scene.frame_set(1)
+            report.add(sid, "overlays_screen_fixed", drift < 1e-3,
+                       f"{len(overlays)} annotation objects keep their frame position during the push-in "
+                       f"(max drift {drift:.1e})" if drift < 1e-3 else f"annotations drift {drift:.4f} of the frame")
+    else:
+        report.add(sid, "camera_locked", not cam_moves,
+                   (f"camera moves only during the intro (frames 1-{settle}), locked afterwards" if settle > 1
+                    else "camera never moves") if not cam_moves else f"camera moved after frame {settle}: {cam_moves[:5]}")
 
     # 7b. Fade twins (blended transparency) render only mid-fade, never together with
     #     their opaque original, and never on the first/last frame (shot cuts).
@@ -524,9 +556,12 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
 
 
 def check_card(ctx, report):
-    """2D card shot: every element built, fades match the plan, camera static."""
+    """2D card shot: every element built, fades/drifts match the plan, camera static, elements
+    visible at the end unless they disappear on purpose, and (M7) the layout: text inside the
+    title-safe area and, on narrated (audio-locked) cards, above the subtitle zone."""
     sid = ctx.shot["id"]
-    expected = {e["id"] for e in ctx.shot["graphic"]["elements"]}
+    elements = {e["id"]: e for e in ctx.shot["graphic"]["elements"]}
+    expected = set(elements)
     built = set(ctx.objects)
     report.add(sid, "card_elements_built", expected == built,
                f"missing {sorted(expected - built)}" if expected != built else f"{len(built)} elements")
@@ -538,19 +573,80 @@ def check_card(ctx, report):
         ctx.scene.frame_set(f)
         moved |= ctx.camera.matrix_world != cam
         for name in ctx.plan.tracks:
-            want = ctx.plan.sample(name, motion.TRANSPARENCY, f)[0]
-            got = float(ctx.objects[name]["ass_transparency"])
-            worst = max(worst, abs(want - got))
-            if abs(want - got) > TOL and len(bad) < 5:
-                bad.append(f"{name}@{f}: plan {want} vs {got}")
+            obj = ctx.render_objects[name]
+            for channel in ctx.plan.channels(name):
+                want, got = ctx.plan.sample(name, channel, f), _blender_value(obj, channel)
+                err = max(abs(a - b) for a, b in zip(want, got))
+                worst = max(worst, err)
+                if err > TOL and len(bad) < 5:
+                    bad.append(f"{name}{channel}@{f}: plan {want} vs {got}")
     report.add(sid, "plan_matches_evaluated_keys", not bad,
-               "; ".join(bad) or f"{len(ctx.plan.tracks)} elements x {len(frames)} frames, max error {worst:.2e}")
+               "; ".join(bad) or f"{len(ctx.plan.tracks)} objects x {len(frames)} frames, max error {worst:.2e}")
     report.add(sid, "camera_locked", not moved, "card camera never moves" if not moved else "card camera moved")
     ctx.scene.frame_set(ctx.frame_count)
-    hidden = [n for n, o in ctx.objects.items() if float(o["ass_transparency"]) > 1e-6]
-    report.add(sid, "final_visibility", not hidden, f"still transparent at the end: {hidden}" if hidden
-               else "every element visible on the last frame")
+    duration = ctx.frame_count / ctx.fps
+    hidden = [n for n, o in ctx.objects.items() if float(o["ass_transparency"]) > 1e-6
+              and not (elements[n].get("disappear") is not None and float(elements[n]["disappear"]) < duration)]
+    lingering = [n for n, o in ctx.objects.items() if elements[n].get("disappear") is not None
+                 and float(elements[n]["disappear"]) < duration and float(o["ass_transparency"]) < 1 - 1e-6]
+    report.add(sid, "final_visibility", not hidden and not lingering,
+               (f"still transparent at the end: {hidden}" if hidden else "") +
+               (f" visible after disappearing: {lingering}" if lingering else "") or
+               "every lasting element visible on the last frame; disappearing elements gone")
+    from engine import annotation_layout
+    style = annotation_layout.load_style()
+    safe = style["safe_area"]
+    narrated = (ctx.shot.get("editorial") or {}).get("timing_mode") == "AUDIO_LOCKED"
+    dg = bpy.context.evaluated_depsgraph_get()
+    issues = []
+
+    def card_box(obj):
+        pts = [obj.matrix_world @ Vector(c) for c in obj.evaluated_get(dg).bound_box]
+        xs = [p.x / (ctx.aspect * diagram_height()) + 0.5 for p in pts]
+        ys = [p.y / diagram_height() + 0.5 for p in pts]
+        return min(xs), min(ys), max(xs), max(ys)
+    text_boxes = {}
+    for f in sorted({1, ctx.frame_count}):
+        ctx.scene.frame_set(f)
+        for name, obj in ctx.objects.items():
+            e = elements[name]
+            x0, y0, x1, y1 = card_box(obj)
+            if e["kind"] == "text":
+                boxes = [(x0, y0, x1, y1)] + [card_box(h) for h in (ctx.helpers or {}).get(name, [])]
+                bx0, by0 = min(b[0] for b in boxes), min(b[1] for b in boxes)
+                bx1, by1 = max(b[2] for b in boxes), max(b[3] for b in boxes)
+                text_boxes.setdefault(name, []).append((bx0, by0, bx1, by1))
+                if bx0 < safe["left"] - 1e-3 or bx1 > safe["right"] + 1e-3 or by1 > safe["top"] + 1e-3 or \
+                        by0 < safe["bottom"] - 1e-3:
+                    issues.append(f"{name}@{f}: text box x {bx0:.3f}-{bx1:.3f} y {by0:.3f}-{by1:.3f} outside the safe area")
+                if narrated and by0 < style["subtitle_zone"] - 1e-3:
+                    issues.append(f"{name}@{f}: text bottom {by0:.3f} in the subtitle zone ({style['subtitle_zone']})")
+            elif e["kind"] == "image" and (x0 < -1e-3 or x1 > 1 + 1e-3 or y0 < -1e-3 or y1 > 1 + 1e-3):
+                issues.append(f"{name}@{f}: image outside the frame ({x0:.3f}, {y0:.3f}, {x1:.3f}, {y1:.3f})")
+    # M7: two texts shown at the same time never overlap (plates included)
+    def window(e):
+        return float(e.get("appear", 0.0)), float(e["disappear"]) if e.get("disappear") is not None else duration
+    names = sorted(text_boxes)
+    for i, n1 in enumerate(names):
+        for n2 in names[i + 1:]:
+            (a0, a1), (b0, b1) = window(elements[n1]), window(elements[n2])
+            if min(a1, b1) <= max(a0, b0):
+                continue
+            for p, q in zip(text_boxes[n1], text_boxes[n2]):
+                w = min(p[2], q[2]) - max(p[0], q[0])
+                h = min(p[3], q[3]) - max(p[1], q[1])
+                if w > 2e-3 and h > 2e-3:
+                    issues.append(f"texts {n1} and {n2} overlap ({w:.3f} x {h:.3f})")
+                    break
+    report.add(sid, "card_layout", not issues, "; ".join(issues[:5]) or
+               f"{sum(1 for e in elements.values() if e['kind'] == 'text')} texts inside the safe area"
+               + (" and above the subtitle zone" if narrated else "") + ", none overlapping; images inside the frame")
     return frames
+
+
+def diagram_height():
+    from engine import diagram
+    return diagram.CARD_HEIGHT
 
 
 def run_all(project_dir, preset="preview"):
@@ -566,6 +662,7 @@ def run_all(project_dir, preset="preview"):
             signatures[sid] = (signatures[sid][0], signature(ctx, signatures[sid][0]))
             continue
         frames = check_shot(ctx, spec.shot_states(states, shot), report, data["project"], preset)
+        ctx.scene.frame_set(1)   # the locked framing (a push-in starts on it)
         if ctx.cfg["template"] != "SIDE_BY_SIDE":
             group = (shot.get("scene_context"), tuple(templates.layout_slots(shot, states)[0][1]), shot.get("camera"),
                      tuple(shot.get("camera_focus") or ()), float(shot.get("camera_safe_band", 0.0)))

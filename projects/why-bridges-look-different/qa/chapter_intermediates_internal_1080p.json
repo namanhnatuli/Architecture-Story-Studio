@@ -1,0 +1,941 @@
+{
+  "preset": "internal_1080p",
+  "chapters": {
+    "C1": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C1_silent.mp4",
+      "sha256": "bc15f1e135f7a2c0778e06ebcaf957cd95139734fe5f123dd8c175503c39a142",
+      "frames": 1256,
+      "shot_keys": {
+        "SC_001": "bd8bd2f67270118bbaa4b3edb8aa8ae6a68d4b2995f62269a6107c6e3df2fa9a",
+        "SC_002": "0eab992a7b7bc89d5e7278a9f91d8da97b201e52419331a5437ec9b2b5933a0d",
+        "SC_003": "53f9d89cd8d7f3f3ad04f115e8ac488468f4b9bc64504fd58c5d2ee9b3276710",
+        "SC_004": "2bda81e3cf0c20fc656ce1d478f14fd4d799dc33dd45ceb757c884b902b01ee8",
+        "SC_005": "e2cc371bc3f8d4c34ed2bd434de18291ff335a8e6fd84bf80335558de082b6e0",
+        "SC_006": "681ef2b88bdda953902d8892cd03056920642e754cc7b4c131a28b84df1e432b",
+        "SC_007": "e41ecb1f4f634b62c312861ba42b4f8972b838602103d09c286baad22d677457",
+        "SC_008": "bb3ce5a39553b2313946f77d9c18dca36e19d14ccd4ddfe9cab441eef6328a37"
+      },
+      "media": {
+        "chapter": "C1",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C1_silent.mp4",
+        "shots": [
+          "SC_001",
+          "SC_002",
+          "SC_003",
+          "SC_004",
+          "SC_005",
+          "SC_006",
+          "SC_007",
+          "SC_008"
+        ],
+        "expected_frames": 1256,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1256,
+          "duration": 52.333333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_001->SC_002",
+            "mode": "hard",
+            "ssim": 0.85052,
+            "ok": true
+          },
+          {
+            "cut": "SC_002->SC_003",
+            "mode": "hard",
+            "ssim": 0.85188,
+            "ok": true
+          },
+          {
+            "cut": "SC_003->SC_004",
+            "mode": "hard",
+            "ssim": 0.80621,
+            "ok": true
+          },
+          {
+            "cut": "SC_004->SC_005",
+            "mode": "hard",
+            "ssim": 0.8376,
+            "ok": true
+          },
+          {
+            "cut": "SC_005->SC_006",
+            "mode": "hard",
+            "ssim": 0.8644,
+            "ok": true
+          },
+          {
+            "cut": "SC_006->SC_007",
+            "mode": "hard",
+            "ssim": 0.86227,
+            "ok": true
+          },
+          {
+            "cut": "SC_007->SC_008",
+            "mode": "hard",
+            "ssim": 0.89081,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T16:45:26.583202+00:00",
+      "free_gb_after_encode": 86.7
+    },
+    "C2": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C2_silent.mp4",
+      "sha256": "0edc5b7cb1bcc4f875046d9234c5addad17eff122e04c27ef1cafb6b49011f9e",
+      "frames": 1166,
+      "shot_keys": {
+        "SC_009": "b02a308038e270b70b454e11c02f7fcbbb8b4cc68de7601f48031556f431b94b",
+        "SC_010": "2ea73d9ffd5a9ae279011609d602e55799dba8e9134e90e2b39279e01dbae69c",
+        "SC_011": "f202078df6f3ca0c9c00269d740c528d69c7a42d14b191948016c9208576198a"
+      },
+      "media": {
+        "chapter": "C2",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C2_silent.mp4",
+        "shots": [
+          "SC_009",
+          "SC_010",
+          "SC_011"
+        ],
+        "expected_frames": 1166,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1166,
+          "duration": 48.583333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_009->SC_010",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_010->SC_011",
+            "mode": "hard",
+            "ssim": 0.83262,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T16:47:46.883247+00:00",
+      "free_gb_after_encode": 86.7
+    },
+    "C3": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C3_silent.mp4",
+      "sha256": "e591868657335b55141291797fa88abe0a277c6b21366c9c113a87287c181849",
+      "frames": 1600,
+      "shot_keys": {
+        "SC_012": "be91af0c541096681faaed94d44458a87872de0a41df65f975147728b9244533",
+        "SC_013": "0d4014a8142d8e2ec3ef9f4a3a83a85829c7da5d728cec840928bc66626085ec",
+        "SC_014": "b16378aebbdfbf55de28653180ff0810350dc52c71d4d468e6c676cf873bf481",
+        "SC_015": "c2444f37505019a981f0dac59848fd29ab67b8b3668cd99614b2ac57ff894c9a",
+        "SC_016": "9ef0524ad27b5875fec21f7b48a76d1529419a404457439a4699dbf999fff81f",
+        "SC_017": "a6ec1930e5e7867fefe5d2a500d311d560116abbe618b0a147efff4e3461eade"
+      },
+      "media": {
+        "chapter": "C3",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C3_silent.mp4",
+        "shots": [
+          "SC_012",
+          "SC_013",
+          "SC_014",
+          "SC_015",
+          "SC_016",
+          "SC_017"
+        ],
+        "expected_frames": 1600,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1600,
+          "duration": 66.666667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_012->SC_013",
+            "mode": "match",
+            "ssim": 0.99617,
+            "ok": true
+          },
+          {
+            "cut": "SC_013->SC_014",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_014->SC_015",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_015->SC_016",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_016->SC_017",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T17:09:56.517998+00:00",
+      "free_gb_after_encode": 86.7
+    },
+    "C4": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C4_silent.mp4",
+      "sha256": "b434aab071bea06e32285d7d610ab6c49eb7e8d64e8ebb549d157c7d113c235d",
+      "frames": 1969,
+      "shot_keys": {
+        "SC_018": "fdcf17a37fe82e8fe6e5eaa77d633923b61946617b2dd081a335be3bf23bb9c0",
+        "SC_019": "4a8589ef45c79f92d31c3cb7ad19c2eaf7c46474d9663b179d03e2eeed84d872",
+        "SC_020": "74437068e3726538880a296f2095c1461199c63203a0c25b3148a103fe2a615a",
+        "SC_021": "7b0ed6b19919dc23b165f97deeb88eede95ae43c908eaf2dea5a1093062e79f8",
+        "SC_022": "dea59f9c6929633d50501009281c9958ebfc2b164d6ecb17d136e83ed04b1700",
+        "SC_023": "1fac00f6dd4f5d4073f2b0e867644b51f4945f4c188a6b5d62390b1342afcf21"
+      },
+      "media": {
+        "chapter": "C4",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C4_silent.mp4",
+        "shots": [
+          "SC_018",
+          "SC_019",
+          "SC_020",
+          "SC_021",
+          "SC_022",
+          "SC_023"
+        ],
+        "expected_frames": 1969,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1969,
+          "duration": 82.041667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_018->SC_019",
+            "mode": "hard",
+            "ssim": 0.80243,
+            "ok": true
+          },
+          {
+            "cut": "SC_019->SC_020",
+            "mode": "hard",
+            "ssim": 0.80571,
+            "ok": true
+          },
+          {
+            "cut": "SC_020->SC_021",
+            "mode": "hard",
+            "ssim": 0.82957,
+            "ok": true
+          },
+          {
+            "cut": "SC_021->SC_022",
+            "mode": "hard",
+            "ssim": 0.8828,
+            "ok": true
+          },
+          {
+            "cut": "SC_022->SC_023",
+            "mode": "hard",
+            "ssim": 0.92017,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T17:14:49.372572+00:00",
+      "free_gb_after_encode": 86.6
+    },
+    "C5": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C5_silent.mp4",
+      "sha256": "d092ea515a76d11e19fb48a427fdbf44419215b77dbd5b2b8447c1ed4eb59b36",
+      "frames": 2024,
+      "shot_keys": {
+        "SC_024": "3c6ad857ab16be68a7c5ce92d872ce6b8ef61903644f09280cfc6fa498ad4910",
+        "SC_025": "77e94ed21da9c42e8d0e0058398b36891751b4bb3ee17cc3adb14d9868afa71f",
+        "SC_026": "b9afd1e3f5ef567aa0b788ac98f14cc5dc7e0ca5854dca999eb9232e8a38d0b4",
+        "SC_027": "e34bb5f40b60f8d0e2a64038368d22cdd4cbf106eea3864bc529cdc2ea333aa1",
+        "SC_028": "e6ea4efcac6bcb0bc09810aa6dffffebeb680f92f8a1be3af00812449178c93a",
+        "SC_029": "69d71c74ee31cd6241aca3ec9a9bf74c04156604f78e88620b600424c0c6263c"
+      },
+      "media": {
+        "chapter": "C5",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C5_silent.mp4",
+        "shots": [
+          "SC_024",
+          "SC_025",
+          "SC_026",
+          "SC_027",
+          "SC_028",
+          "SC_029"
+        ],
+        "expected_frames": 2024,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2024,
+          "duration": 84.333333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_024->SC_025",
+            "mode": "hard",
+            "ssim": 0.77661,
+            "ok": true
+          },
+          {
+            "cut": "SC_025->SC_026",
+            "mode": "hard",
+            "ssim": 0.76605,
+            "ok": true
+          },
+          {
+            "cut": "SC_026->SC_027",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_027->SC_028",
+            "mode": "match",
+            "ssim": 0.99186,
+            "ok": true
+          },
+          {
+            "cut": "SC_028->SC_029",
+            "mode": "hard",
+            "ssim": 0.94295,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T17:22:58.009675+00:00",
+      "free_gb_after_encode": 86.6
+    },
+    "C6": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C6_silent.mp4",
+      "sha256": "c22a234f81603a54e766fae7b5b1508127d754f970df4a41212e3ca476551d70",
+      "frames": 1890,
+      "shot_keys": {
+        "SC_030": "12bd3768444ca78a646219364e268f52b63f0858a795df779bf7f5b4ce4dfa27",
+        "SC_031": "a602af671f8d45333788f028acee8e828c60dc79c69b6697e12d3cac0a375f07",
+        "SC_032": "6767c7854af2ded923b3ee333ad4825818d7992089c96be4078a247432dcedb1",
+        "SC_033": "e5adb65824d6c38ca968e4edf917aaf7f22929f722a9f6327fc7d5a6ea78534c",
+        "SC_034": "dd5b3b8d510015378ddb1797921fa791628fd683b98f20b699e69c81f8929d46"
+      },
+      "media": {
+        "chapter": "C6",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C6_silent.mp4",
+        "shots": [
+          "SC_030",
+          "SC_031",
+          "SC_032",
+          "SC_033",
+          "SC_034"
+        ],
+        "expected_frames": 1890,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1890,
+          "duration": 78.75,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_030->SC_031",
+            "mode": "match",
+            "ssim": 0.99999,
+            "ok": true
+          },
+          {
+            "cut": "SC_031->SC_032",
+            "mode": "hard",
+            "ssim": 0.81925,
+            "ok": true
+          },
+          {
+            "cut": "SC_032->SC_033",
+            "mode": "hard",
+            "ssim": 0.81514,
+            "ok": true
+          },
+          {
+            "cut": "SC_033->SC_034",
+            "mode": "hard",
+            "ssim": 0.85718,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T17:32:24.497834+00:00",
+      "free_gb_after_encode": 86.7
+    },
+    "C7": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C7_silent.mp4",
+      "sha256": "768034e0610a6d088cea9de1341c4702660fa29f3b2f380a9874da355a920822",
+      "frames": 1495,
+      "shot_keys": {
+        "SC_035": "70c7393c43ca3ea36435d6799d588a3ed14450647d79c45f0beb5072d41671ea",
+        "SC_036": "214d0f4e7b44c7df74ab05c77bb9cc3c7a8e2a297170d2df94aa579785eaaddf",
+        "SC_037": "30e8cd9c6dde87a22fe043bb8306e38166bc13eacbc30fb0387465d367a4a2c9",
+        "SC_038": "c0657a9faf980839ea203ad72eaacef4cf5bed062f94ab5745c54afe5a18c29a",
+        "SC_039": "c9d60c03a0173687b4656705c36b8a3852b64cf7b830f7cd498c12a5804b59ac"
+      },
+      "media": {
+        "chapter": "C7",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C7_silent.mp4",
+        "shots": [
+          "SC_035",
+          "SC_036",
+          "SC_037",
+          "SC_038",
+          "SC_039"
+        ],
+        "expected_frames": 1495,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1495,
+          "duration": 62.291667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_035->SC_036",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_036->SC_037",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_037->SC_038",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_038->SC_039",
+            "mode": "hard",
+            "ssim": 0.8827,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T17:41:17.729750+00:00",
+      "free_gb_after_encode": 86.6
+    },
+    "C8": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C8_silent.mp4",
+      "sha256": "a402218a6ae3c9729ac90fab182e5ad437eff4343c72521705f469138fbbeb08",
+      "frames": 1781,
+      "shot_keys": {
+        "SC_040": "cba3bbfb744660cd18442acbf401f6797590fe6655d0e6194c95612b07044224",
+        "SC_041": "d966b71db343f212d2d4e0cdf6325a3e358c4abbb3e9725cc36dc9c8c7ac625f",
+        "SC_042": "56db79044e191f1cabee033066a6f402af340446a6be41c14395685b892b93e3",
+        "SC_043": "bf98aa88ff00cde5cbccd973eb562e85cffe54659f97f8d4464d9ea176de1e48"
+      },
+      "media": {
+        "chapter": "C8",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C8_silent.mp4",
+        "shots": [
+          "SC_040",
+          "SC_041",
+          "SC_042",
+          "SC_043"
+        ],
+        "expected_frames": 1781,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1781,
+          "duration": 74.208333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_040->SC_041",
+            "mode": "hard",
+            "ssim": 0.87034,
+            "ok": true
+          },
+          {
+            "cut": "SC_041->SC_042",
+            "mode": "hard",
+            "ssim": 0.79866,
+            "ok": true
+          },
+          {
+            "cut": "SC_042->SC_043",
+            "mode": "hard",
+            "ssim": 0.89081,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T17:47:15.534257+00:00",
+      "free_gb_after_encode": 86.6
+    },
+    "C9": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C9_silent.mp4",
+      "sha256": "b176c860dc48ffcfac3e449f48052101a56e42dfce40a8dd23706b98ea024101",
+      "frames": 4010,
+      "shot_keys": {
+        "SC_044": "a4be0243dd809c2403a7ee2d4d6c938699364f48448ec2446e0dee79a421b498",
+        "SC_045": "e75f6866b580d280486febb33d24770327a6240f8fae2eb978aaf861b1a07fd7",
+        "SC_046": "62271979308e0cd3e82d05548205ba8a58906d6daf442c962988fc8da00d153e",
+        "SC_047": "71a39441e4ab4c06c0c5452b6d196cef6de58a3826b61f13a5123aa9e53f6fe9",
+        "SC_048": "38d0b376911af205b6fed791fb268e0b6f56df3c878c89835f736d85ac1e34bf",
+        "SC_049": "6fdd4374b16c0128c4528a959f60991b8affbae1d673637483abcce6a2cc9775",
+        "SC_050": "91ff4bf322c476719cf33ea3e84152cc52c6d8909a8ed29be2ca357572fe68ac",
+        "SC_051": "e736c7970b94fa0ca502c54c8863abdf217f63bf93bdd23fcbb0df6dde312592",
+        "SC_052": "a3d7202a03af42c5c2cc1884aeeefba4612cc4dfe6af0ff694041aa7641524e9",
+        "SC_053": "3463edc646a3ec085c58d79949d7f49802486f5159f0ac24365c9d007c33c2ce"
+      },
+      "media": {
+        "chapter": "C9",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C9_silent.mp4",
+        "shots": [
+          "SC_044",
+          "SC_045",
+          "SC_046",
+          "SC_047",
+          "SC_048",
+          "SC_049",
+          "SC_050",
+          "SC_051",
+          "SC_052",
+          "SC_053"
+        ],
+        "expected_frames": 4010,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 4010,
+          "duration": 167.083333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_044->SC_045",
+            "mode": "hard",
+            "ssim": 0.86096,
+            "ok": true
+          },
+          {
+            "cut": "SC_045->SC_046",
+            "mode": "hard",
+            "ssim": 0.82175,
+            "ok": true
+          },
+          {
+            "cut": "SC_046->SC_047",
+            "mode": "hard",
+            "ssim": 0.7908,
+            "ok": true
+          },
+          {
+            "cut": "SC_047->SC_048",
+            "mode": "hard",
+            "ssim": 0.82536,
+            "ok": true
+          },
+          {
+            "cut": "SC_048->SC_049",
+            "mode": "hard",
+            "ssim": 0.65074,
+            "ok": true
+          },
+          {
+            "cut": "SC_049->SC_050",
+            "mode": "hard",
+            "ssim": 0.87649,
+            "ok": true
+          },
+          {
+            "cut": "SC_050->SC_051",
+            "mode": "hard",
+            "ssim": 0.93731,
+            "ok": true
+          },
+          {
+            "cut": "SC_051->SC_052",
+            "mode": "hard",
+            "ssim": 0.77941,
+            "ok": true
+          },
+          {
+            "cut": "SC_052->SC_053",
+            "mode": "hard",
+            "ssim": 0.84978,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T19:55:55.470216+00:00",
+      "free_gb_after_encode": 82.1
+    },
+    "C10": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C10_silent.mp4",
+      "sha256": "dcf85d3f1d5d6c6868a9c12d4f35c9a43b45c861f9080b1ca9ef7c724fc46b3b",
+      "frames": 2778,
+      "shot_keys": {
+        "SC_054": "0f49ca6c149527f99ed6999cd4720c705cb2f814d4845e1ec3f9435b779284ef",
+        "SC_055": "331712068e627a1a0c5b8649c87890fc829ddf91100baaef6bd8f3ca4713ff85",
+        "SC_056": "d776b75db59c9bc59f566ab3959180f2b5a0dd0c5a773df4122a733a89755b4f",
+        "SC_057": "ffcfc7ab9e79e9d76c34cd17e8a6272a36543f4241f5f0819e741adef227408d",
+        "SC_058": "b3a631480a69d274c8165c307c3f2d64f666c23d759d203b463eac2f7ed88ab8"
+      },
+      "media": {
+        "chapter": "C10",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C10_silent.mp4",
+        "shots": [
+          "SC_054",
+          "SC_055",
+          "SC_056",
+          "SC_057",
+          "SC_058"
+        ],
+        "expected_frames": 2778,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2778,
+          "duration": 115.75,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_054->SC_055",
+            "mode": "hard",
+            "ssim": 0.82218,
+            "ok": true
+          },
+          {
+            "cut": "SC_055->SC_056",
+            "mode": "hard",
+            "ssim": 0.84051,
+            "ok": true
+          },
+          {
+            "cut": "SC_056->SC_057",
+            "mode": "hard",
+            "ssim": 0.86448,
+            "ok": true
+          },
+          {
+            "cut": "SC_057->SC_058",
+            "mode": "hard",
+            "ssim": 0.93045,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T19:56:19.412705+00:00",
+      "free_gb_after_encode": 82.1
+    },
+    "C11": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C11_silent.mp4",
+      "sha256": "532d1c40f492218ce040119b6780c8e0d77390264bd55d68b0f800a1da97489d",
+      "frames": 5482,
+      "shot_keys": {
+        "SC_059": "8c664d6551e44cc62acdab65a63d7260b5e6e5f7b5fafa7c4a0725e7047146b6",
+        "SC_060": "b9f51474dcf8e612a66105943982aa9bbf513aca566cc1db688c4281c9c9abe7",
+        "SC_061": "29ac1e6414f8d3be8adde6c5fc8a6fd92399cf8344b1045544bd140e69d5ced7",
+        "SC_062": "c79def34e22143d45c9ae4d9e6eb0e00fed61a10743242e782b4c05d56f3c5ca",
+        "SC_063": "bb0d653cd5aba19c0fbfb5fdd9e1d73e6be254179a7f00784cb5e7644d16dcc1",
+        "SC_064": "92a0845209be7cd625a8de0431abb86d924e8dd2f76a9557bb99bd5959f381c9",
+        "SC_065": "db60ffb37f554d0b2ca2ee1f352815ddc187974ca8f600e434aa09e57d7d3e19",
+        "SC_066": "e2ef26d6480989c03c1c04c82b503bf32fb21d47f2fd9b2f9b4e331a86489c7d",
+        "SC_067": "2c8f0f8dc1fbb766c916fe091c4772e55fd0cfa1325ff7a034fcb3e1842ab3bb",
+        "SC_068": "35d35229b5fe06077af1d2c029b1df6df22b7deee7757db81defbf7e8c18c1e1",
+        "SC_069": "f226f3f968fc9a5e947b9909b26c0d877168255949492cea844d01ef7e8ce79b"
+      },
+      "media": {
+        "chapter": "C11",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C11_silent.mp4",
+        "shots": [
+          "SC_059",
+          "SC_060",
+          "SC_061",
+          "SC_062",
+          "SC_063",
+          "SC_064",
+          "SC_065",
+          "SC_066",
+          "SC_067",
+          "SC_068",
+          "SC_069"
+        ],
+        "expected_frames": 5482,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 5482,
+          "duration": 228.416667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_059->SC_060",
+            "mode": "hard",
+            "ssim": 0.94891,
+            "ok": true
+          },
+          {
+            "cut": "SC_060->SC_061",
+            "mode": "hard",
+            "ssim": 0.75038,
+            "ok": true
+          },
+          {
+            "cut": "SC_061->SC_062",
+            "mode": "hard",
+            "ssim": 0.85689,
+            "ok": true
+          },
+          {
+            "cut": "SC_062->SC_063",
+            "mode": "hard",
+            "ssim": 0.77877,
+            "ok": true
+          },
+          {
+            "cut": "SC_063->SC_064",
+            "mode": "hard",
+            "ssim": 0.80201,
+            "ok": true
+          },
+          {
+            "cut": "SC_064->SC_065",
+            "mode": "hard",
+            "ssim": 0.76244,
+            "ok": true
+          },
+          {
+            "cut": "SC_065->SC_066",
+            "mode": "hard",
+            "ssim": 0.74396,
+            "ok": true
+          },
+          {
+            "cut": "SC_066->SC_067",
+            "mode": "hard",
+            "ssim": 0.80227,
+            "ok": true
+          },
+          {
+            "cut": "SC_067->SC_068",
+            "mode": "hard",
+            "ssim": 0.84681,
+            "ok": true
+          },
+          {
+            "cut": "SC_068->SC_069",
+            "mode": "hard",
+            "ssim": 0.70867,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T20:23:41.809466+00:00",
+      "free_gb_after_encode": 82.0
+    },
+    "C12": {
+      "file": "output/chapters_internal_1080p/why_bridges_look_different_C12_silent.mp4",
+      "sha256": "5ab72fb2e8f19fd04bb92c1b0e0a61662f6d04c8b36452446361320f94998176",
+      "frames": 2377,
+      "shot_keys": {
+        "SC_070": "40aba8ea0a470e0d178858142687bf2a7db3d6415a048f1bfbfd40a7d8c4b1df",
+        "SC_071": "20dbe9699caf9caa52a2cf2d14fee38f7adf292be716260a8600f0767d2c84c0",
+        "SC_072": "edbcf7f9328c65388936db1eaab6edbeb009ff05b12c7c72a346ad87dee2dfb5",
+        "SC_073": "88ad0463ac94c1ed49f83a9f0c39912f5ef38003f3b8d25501f802470ea12c21",
+        "SC_074": "01b0285f7bbf17687c06ca49a3dda4c68196560f8cf5c7681477730e6abef5f3",
+        "SC_075": "37426d65683a89e43bd50774db146d649a501823643066caac1af30d1a6ee880"
+      },
+      "media": {
+        "chapter": "C12",
+        "video": "output/chapters_internal_1080p/why_bridges_look_different_C12_silent.mp4",
+        "shots": [
+          "SC_070",
+          "SC_071",
+          "SC_072",
+          "SC_073",
+          "SC_074",
+          "SC_075"
+        ],
+        "expected_frames": 2377,
+        "probe": {
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2377,
+          "duration": 99.041667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_070->SC_071",
+            "mode": "hard",
+            "ssim": 0.84937,
+            "ok": true
+          },
+          {
+            "cut": "SC_071->SC_072",
+            "mode": "hard",
+            "ssim": 0.90041,
+            "ok": true
+          },
+          {
+            "cut": "SC_072->SC_073",
+            "mode": "hard",
+            "ssim": 0.97478,
+            "ok": true
+          },
+          {
+            "cut": "SC_073->SC_074",
+            "mode": "hard",
+            "ssim": 0.81461,
+            "ok": true
+          },
+          {
+            "cut": "SC_074->SC_075",
+            "mode": "hard",
+            "ssim": 0.85943,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-03T19:40:15.153423+00:00",
+      "free_gb_after_encode": 82.3
+    }
+  }
+}

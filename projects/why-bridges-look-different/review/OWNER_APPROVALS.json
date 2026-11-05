@@ -1,0 +1,152 @@
+{
+  "schema": "owner_approvals/1",
+  "project": "why-bridges-look-different",
+  "owner": "Tran Nam Anh (channel owner)",
+  "recorded_by": "agent (records the owner's explicit decisions; approves nothing itself)",
+  "decisions": [
+    {
+      "id": "APP-CLAIMS",
+      "subject": "41 claims used by the narration",
+      "scope": "why-bridges-look-different",
+      "source_revision": {
+        "narration_revision": "m7-r1",
+        "narration_sha256": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8",
+        "record": "research/editorial_approval.json (claims_text_sha256)"
+      },
+      "decision": "EDITORIALLY_APPROVED",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.1 (preserving the approval of 2026-10-30)",
+      "applicable_publication": "public YouTube release",
+      "conditions": "claim texts and narration unchanged",
+      "invalidation": "changed claim text or narration revision"
+    },
+    {
+      "id": "APP-VOICE",
+      "subject": "Kokoro-82M @ f3ff3571, voice am_michael",
+      "scope": "why-bridges-look-different",
+      "source_revision": {
+        "voice_sha256": "9a443b79...",
+        "model_sha256": "496dba11..."
+      },
+      "decision": "APPROVED for public YouTube release incl. potential monetization",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.2",
+      "applicable_publication": "public YouTube release",
+      "conditions": "disclose AI-generated narration; third-party licences unchanged (Apache-2.0; GPL fallback local only)",
+      "invalidation": "different voice hash, model revision or project",
+      "records": [
+        "config/tts_providers.json providers.kokoro.clearance.voice_approvals",
+        "script/narration.json voice.license (APPROVED, owner_confirmation_for_this_film CONFIRMED)"
+      ]
+    },
+    {
+      "id": "APP-PRONUNCIATION",
+      "subject": "16 items in review/PRONUNCIATION_REVIEW.md",
+      "scope": "current audio revision",
+      "source_revision": {
+        "narration_sha256": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8"
+      },
+      "decision": "ACCEPTED_BY_OWNER (acceptance of the reviewed audio delivery; no per-item listening or phonetic verification is claimed)",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.3",
+      "applicable_publication": "public YouTube release",
+      "conditions": "audio unchanged",
+      "invalidation": "any narration audio change (narration hash)",
+      "records": [
+        "script/narration.json voice.pronunciation_review"
+      ]
+    },
+    {
+      "id": "DISP-CLM_747",
+      "subject": "CLM_747 (stone availability; Kansas and Michigan)",
+      "scope": "research archive",
+      "decision": "NOT USED in the publication artifact (verified against narration, visual beats, annotations, plan, storyboard, chapter manifest, description, subtitles and MP4 metadata); stays SOURCE_VERIFIED in research/sources.json; no approval invented",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §3.4",
+      "consequence": "the final gate checks the claims the film uses (tools/validator.used_claim_ids)"
+    },
+    {
+      "id": "APP-B35",
+      "subject": "card B35 credits",
+      "decision": "narration credit line removed (2026-10-30 owner request); AI-narration disclosure kept in the description",
+      "date": "2026-10-30",
+      "evidence": "owner instruction of 2026-10-30"
+    },
+    {
+      "id": "REQ-PUBLICATION-EVALUATION",
+      "subject": "publication readiness",
+      "decision": "owner asked for the real final publication gates and a native 4K final; production_profile set to PUBLICATION_CANDIDATE with publication_metadata. This is not an upload: the Studio never publishes.",
+      "date": "2026-10-30",
+      "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request (2026-10-30) §4, §7"
+    },
+    {
+      "id": "REQ-M8-ALL-FAMILIES",
+      "subject": "revision m8-r1 of why-bridges-look-different",
+      "scope": "why-bridges-look-different",
+      "decision": "owner asked to remake the film, combined with the existing content, with every bridge type and full models (in-session request of 2026-10-31: 'kết hợp với nội dung đã có để làm lại project why-bridge-look-different với đầy đủ các loại cầu, đầy đủ các mô hình')",
+      "date": "2026-10-31",
+      "evidence": "owner instruction in session, 2026-10-31",
+      "consequence": {
+        "APP-CLAIMS": "covers narration m7-r1 only; not applied to m8-r1 (research/build_sources.py checks narration_revision)",
+        "APP-PRONUNCIATION": "covers audio ab0484de... (m7-r1) only; m8-r1 pronunciation_review is PENDING",
+        "APP-VOICE": "project-scoped (why-bridges-look-different, voice sha 9a443b79...); its invalidation conditions are not met by a new revision, so it is kept; the owner may confirm or withdraw it for m8-r1",
+        "REQ-PUBLICATION-EVALUATION": "concerned the m7-r1 4K final (tag m7-final-4k, output/baseline_m7_final_4k/); m8-r1 is back to NARRATED_INTERNAL_REVIEW"
+      },
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "DEC-M8.1-CONTENT-AND-RUNTIME",
+      "subject": "content of chapters 9-11 and the runtime limit of why-bridges-look-different",
+      "scope": "why-bridges-look-different",
+      "decision": "owner asked that the chapters after the bridge types also cover the cantilever, suspension and cable-stayed bridges (researched, engaging), and that the runtime not be held strictly ('không cần quá khắt khe về mặt thời gian, thứ tôi muốn là truyền tải đầy đủ nội dung của video')",
+      "date": "2026-11-03",
+      "evidence": "owner instruction in session, 2026-11-03",
+      "consequence": "narration revision m8-r2; project.json runtime_decision (acceptable 8-20 min; the 20 min bound is the agent's guardrail, not the owner's number)",
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "REV-M8.2-EDITORIAL-REVIEW",
+      "subject": "the owner's editorial review of the 75 claims and the 32 pronunciation items of m8-r2",
+      "scope": "why-bridges-look-different, narration m8-r2",
+      "decision": "CHANGES_REQUESTED, not an approval. Priority items: (1) CLM_789 '133 years before the next railway suspension bridge' contradicted by the Williamsburg Bridge (1903, rail on the deck, NYC DOT); (2) CLM_757 '200 to 300 ft' limit for beam/arch bridges told too broadly (Eads Bridge 1874, 520 ft; C10's 1,800 ft arches); (3) the B23C span card mixes practical/economic ranges with spans built; (4) 2005/2012 statements narrated in the present tense (CLM_774, CLM_777, CLM_788, CLM_721); (5) the cantilever's settlement advantage lost its condition (hinged, statically determinate); (6) the B22B card said the anchorage blocks are 'set into rock' where the narration says 'or'; (7) the cantilever model with a suspended span shown before the Queensboro photograph (Queensboro has none). Minor: B03 'on either side', B51 tower heights need a comparable span, B24B 'longest bridge' vs longest span, B48 'define' vs 'commonly', B31B 'first used by the railroads' needs the modern-cantilever context.",
+      "pronunciation_notes": "text review of the phoneme strings, not a listening session: Corinne first (Kokoro 'kuh-REEN' vs Cambridge /kəˈrɪn/), Bollman, Tacoma Narrows (final s), Cincinnati (intrusive t); voussoirs and Gwynns Falls are ASR spelling differences; Promontory, Covington and Finley are not spoken",
+      "owner_note": "the owner does not regard the review as an independent certification of all 75 claims",
+      "date": "2026-11-04",
+      "evidence": "owner message in session, 2026-11-04 ('đọc nhận xét sau và sửa nội dung trước, chưa cần tạo video internal review')",
+      "consequence": "narration revision m8-r3 (script/narration.template.json revision.edits); claims re-scoped in research/build_sources.py (CLM_721, 757, 764, 766, 774, 777, 782, 788, 789, 790; new CLM_794; new source SRC_EWV_WHEELING); speech-only overrides PRON_CORINNE and PRON_CINCINNATI (PENDING_LISTENING_REVIEW); no review video rendered, at the owner's instruction",
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "DEC-M8.2-CEILING-AND-720P",
+      "subject": "runtime ceiling and the format of the final internal review",
+      "scope": "why-bridges-look-different",
+      "decision": "owner: the runtime ceiling may be raised, and the last internal review is rendered at 720p ('có thể tăng trần thời gian lên, render lại internal review video ở chất lượng 720p cho lần review cuối')",
+      "date": "2026-11-04",
+      "evidence": "owner instruction in session, 2026-11-04",
+      "consequence": "project.json runtime_decision 8-30 min (the number is the agent's); new preset internal_720p; review video m8-r3 at 1280x720",
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "REV-M8.2-SECOND-TEXT-REVIEW",
+      "subject": "the owner's second text review of m8-r3 (review package and cards)",
+      "scope": "why-bridges-look-different, narration m8-r3",
+      "decision": "CHANGES_REQUESTED, not an approval. (1) The package's 'points to note' still described m8-r2 ('200 to 300 feet' as a number in use, a defence of '133 years', a suggested Queensboro NOTE already added, B31D 'Today…', the whole span card called economic ranges); (2) the B24B card '1980–2012: U.S. spans over 1,000 ft cable-stayed' dropped 'almost all', 'main span' and 'built in that period'; (3) B33 'long after timber trusses' dropped 'stopped being competitive', which B09 keeps.",
+      "date": "2026-11-04",
+      "evidence": "owner message in session, 2026-11-04 ('sửa lại một vài ý nữa cho tôi, chưa cần render gì cả')",
+      "consequence": "narration revision m8-r4 (B33.s1); B24B and B33 cards re-worded; review/EDITORIAL_NOTES.md rewritten to the current film and the package regenerated; nothing rendered, at the owner's instruction",
+      "recorded_by": "agent (records the owner's request; approves nothing itself)"
+    },
+    {
+      "id": "APP-M8.4-CLAIMS-AND-PRONUNCIATION",
+      "subject": "editorial approval of narration m8-r4: the 76 claims the film uses, and its pronunciations",
+      "scope": "why-bridges-look-different, narration m8-r4 (audio hash a5705d71…)",
+      "decision": "APPROVED by the owner: the 76 narrated claims (EDITORIALLY_APPROVED), the pronunciation review list of 29 terms (ACCEPTED_BY_OWNER for this audio) and the two speech-only overrides PRON_CORINNE and PRON_CINCINNATI (CONFIRMED). Native 4K final to be rendered.",
+      "date": "2026-11-04",
+      "evidence": "owner message in session, 2026-11-04 ('tôi duyệt các claim và phát âm, hãy render bản final 4k')",
+      "limits": "The agent records the owner's words only. It did not witness, and records no, per-item listening session. The existing project-scoped approval of voice am_michael is unchanged; no publication or upload is authorised by this record.",
+      "consequence": "research/editorial_approval.json (m8-r4); narration.voice.pronunciation_review ACCEPTED_BY_OWNER; script/pronunciation.json CONFIRMED; project.json factual_review verified, production_profile PUBLICATION_CANDIDATE",
+      "invalidation": "a change to any claim text or to the narration revision (claims), or to the narrated audio (pronunciation)",
+      "recorded_by": "agent (records the owner's decision; approves nothing itself)"
+    }
+  ]
+}

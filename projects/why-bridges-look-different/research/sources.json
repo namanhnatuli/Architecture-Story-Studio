@@ -1,0 +1,3000 @@
+{
+  "note": "Evidence registry for 'Why Bridges Don't All Look the Same'. CLM_701-714 restate the M6 claims (verified 2026-10-28) under new ids; CLM_720-747 were added in M7, CLM_750-777 (long-span families) in M8, CLM_780-793 in M8.1, CLM_794 in M8.2 (owner's editorial review of 2026-11-04). Every excerpt was matched verbatim against the downloaded source text (research/build_sources.py). 76 narrated claims editorially approved by Tran Nam Anh (channel owner) on 2026-11-04 (research/editorial_approval.json).",
+  "sources": [
+    {
+      "id": "SRC_ODOT_MBI",
+      "title": "Manual of Bridge Inspection (Part 2 Ratings; Glossary)",
+      "publisher": "Ohio Department of Transportation (working group incl. FHWA)",
+      "kind": "transport agency manual",
+      "edition": "Published 1973, revised 2010",
+      "url": "https://www.dot.state.oh.us/Divisions/Engineering/Structures/News%20Document/Manual%20of%20Bridge%20Inspection_2010.pdf",
+      "accessed": "2026-10-28",
+      "verification": "PDF downloaded 2026-10-28, text extracted with pdftotext; every excerpt matched verbatim; page = PDF page.",
+      "license": "Public agency document; quoted for research/citation only."
+    },
+    {
+      "id": "SRC_FHWA_CBM",
+      "title": "Covered Bridge Manual (FHWA-HRT-04-098), Chapter 2. Covered Bridges: Form, Use, and Terminology",
+      "publisher": "Federal Highway Administration",
+      "kind": "transport agency manual",
+      "edition": "April 2005",
+      "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/structures/04098/02.cfm",
+      "accessed": "2026-10-28",
+      "verification": "Page HTML fetched 2026-10-28; excerpts matched verbatim in the page text.",
+      "license": "US government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_FHWA_PBES_GLOSSARY",
+      "title": "Connection Details for Prefabricated Bridge Elements and Systems (FHWA-IF-09-010), Appendix E: Glossary",
+      "publisher": "Federal Highway Administration",
+      "kind": "transport agency manual",
+      "url": "https://www.fhwa.dot.gov/bridge/prefab/if09010/appe.cfm",
+      "accessed": "2026-10-28",
+      "verification": "Page HTML fetched 2026-10-28; excerpts matched verbatim.",
+      "license": "US government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_FHWA_PBES_CH2",
+      "title": "Connection Details for Prefabricated Bridge Elements and Systems (FHWA-IF-09-010), Chapter 2: Superstructure Connections",
+      "publisher": "Federal Highway Administration",
+      "kind": "transport agency manual",
+      "url": "https://www.fhwa.dot.gov/bridge/prefab/if09010/02.cfm",
+      "accessed": "2026-10-28",
+      "verification": "Read with a web-fetch tool 2026-10-28 (introduction, AASHTO definition quoted).",
+      "license": "US government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_SCI_TRUSSES",
+      "title": "Trusses: types, design and applications in buildings",
+      "publisher": "steelconstruction.info (Steel Construction Institute resource)",
+      "kind": "professional engineering reference",
+      "url": "https://www.steelconstruction.info/Trusses",
+      "accessed": "2026-10-28",
+      "verification": "Page HTML fetched 2026-10-28; excerpts matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_YALE_PHYSICS",
+      "title": "The Physics of Bridges (curriculum unit 01.05.08), Theresa Matthews",
+      "publisher": "Yale-New Haven Teachers Institute (Yale University)",
+      "kind": "university-published teaching unit (secondary; supporting only)",
+      "edition": "2001, Volume V",
+      "url": "https://teachersinstitute.yale.edu/curriculum/units/2001/5/01.05.08/6",
+      "accessed": "2026-10-28",
+      "verification": "Pages re-fetched 2026-10-29 (units/2001/5/01.05.08/6); excerpts matched verbatim.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_NCHRP_CONTEXT",
+      "title": "A Context for Common Historic Bridge Types (NCHRP Project 25-25, Task 15)",
+      "publisher": "Transportation Research Board / National Cooperative Highway Research Program; prepared by Parsons Brinckerhoff and Engineering and Industrial Heritage",
+      "kind": "national research report (historic context study, AASHTO/FHWA-sponsored)",
+      "edition": "October 2005",
+      "url": "https://onlinepubs.trb.org/onlinepubs/archive/notesdocs/25-25(15)_FR.pdf",
+      "accessed": "2026-10-29",
+      "verification": "PDF downloaded 2026-10-29 (11.1 MB), text extracted with pdftotext -layout; every excerpt matched verbatim (whitespace-normalised); page = printed report page.",
+      "notes": "The cover carries the standard NCHRP 'privileged document' legend; the final report is publicly posted by TRB. Quoted for research and citation only.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_ASCE_BOLLMAN",
+      "title": "Bollman Truss Bridge (Historic Civil Engineering Landmark)",
+      "publisher": "American Society of Civil Engineers",
+      "kind": "professional engineering society landmark page",
+      "edition": "web page, accessed 2026-10-29",
+      "url": "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/bollman-truss-bridge",
+      "accessed": "2026-10-29",
+      "verification": "HTML downloaded 2026-10-29; excerpts matched verbatim. Note: the page gives 1852 for the present bridge (moved 1882); other records give c. 1869, so the film does not state the construction year.",
+      "license": "Quoted for research/citation only."
+    },
+    {
+      "id": "SRC_HAER_CARROLLTON",
+      "title": "Baltimore & Ohio Railroad, Carrollton Viaduct, Spanning Gwynn's Falls near Carroll Park, Baltimore (HAER MD-9)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress Prints & Photographs (item md0908)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photographs 1970-1971 (William E. Barrett)",
+      "url": "https://www.loc.gov/item/md0908/",
+      "accessed": "2026-10-29",
+      "verification": "loc.gov blocks automated access (HTTP 403); the photograph and its LOC source link (hhh.md0908/photos.086090p) were taken from the Wikimedia Commons file page, licence template PD-USGov-NPS.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_PROMONTORY",
+      "title": "Promontory Route Railroad Trestles, Trestle 790B, Corinne vicinity, Box Elder County, Utah (HAER UT-64)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ut0393)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "documentation compiled after 1968",
+      "url": "https://www.loc.gov/pictures/item/ut0393.photos.367543p",
+      "accessed": "2026-10-29",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (PD-USGov-NPS); loc.gov itself returned HTTP 403 to automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_BOLLMAN",
+      "title": "Baltimore & Ohio Railroad, Bollman Truss Bridge, Spanning Little Patuxent River, Savage, Howard County, MD (HAER MD-1)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item md0583)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photograph 1970 (William E. Barrett)",
+      "url": "https://www.loc.gov/pictures/item/md0583.photos.082178p",
+      "accessed": "2026-10-29",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (PD-USGov-NPS); loc.gov returned HTTP 403 to automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_FHWA_BRIDGE_TYPES",
+      "title": "Steel Bridge Design Handbook: Selecting the Right Bridge Type (Publication No. FHWA-IF-12-052, Vol. 5)",
+      "publisher": "U.S. Department of Transportation, Federal Highway Administration",
+      "kind": "federal engineering handbook",
+      "edition": "November 2012",
+      "url": "https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+      "archived_url": "https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+      "accessed": "2026-10-31",
+      "verification": "The FHWA URL no longer serves the file (HTTP 404) and the ROSAP copy refuses automated access (HTTP 403); the PDF was downloaded on 2026-10-31 from the Internet Archive capture of the FHWA URL (5.8 MB), text extracted with pdftotext -layout, the archive watermark fragments removed; every excerpt matched verbatim (whitespace-normalised). Superseded by FHWA-HIF-16-002 (2015) and AISC (2022); quoted as a 2012 FHWA statement.",
+      "license": "U.S. federal government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_FHWA_PENOBSCOT",
+      "title": "Dynamic Properties of Stay Cables on the Penobscot Narrows Bridge (FHWA-HRT-14-067), Chapter 3: Experimental Procedures",
+      "publisher": "U.S. Department of Transportation, Federal Highway Administration (Turner-Fairbank Highway Research Center)",
+      "kind": "federal research report",
+      "edition": "September 2014",
+      "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/structures/bridge/14067/003.cfm",
+      "accessed": "2026-11-03",
+      "verification": "HTML downloaded 2026-11-03; text extracted (tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "U.S. federal government work; quoted for research/citation."
+    },
+    {
+      "id": "SRC_EWV_WHEELING",
+      "title": "Wheeling Suspension Bridge (e-WV: The West Virginia Encyclopedia), by Emory L. Kemp",
+      "publisher": "West Virginia Humanities Council",
+      "kind": "state encyclopedia article by a historian of engineering (Kemp is also cited by the NCHRP report)",
+      "edition": "last revised 24 April 2026",
+      "url": "https://www.wvencyclopedia.org/entries/1183",
+      "accessed": "2026-11-04",
+      "verification": "HTML downloaded 2026-11-04; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim.",
+      "license": "Quoted for research/citation."
+    },
+    {
+      "id": "SRC_HAER_GOLDENGATE",
+      "title": "Golden Gate Bridge, Spanning mouth of San Francisco Bay, San Francisco, CA (HAER CA-31)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ca1355)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "colour photograph 1984 (Jet Lowe)",
+      "url": "https://www.loc.gov/pictures/item/ca1355.color.570641c",
+      "accessed": "2026-11-03",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_BROOKLYN",
+      "title": "Brooklyn Bridge, Spanning East River between Park Row, Manhattan and Sands Street, Brooklyn, New York, NY (HAER NY-18)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ny1234)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "colour transparency before November 1982 (unknown photographer; scanned by Jet Lowe)",
+      "url": "https://www.loc.gov/pictures/item/ny1234.color.570577c",
+      "accessed": "2026-10-31",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_QUEENSBORO",
+      "title": "Queensboro Bridge, Spanning East River and Blackwell's Island, New York, NY (HAER NY-19)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item ny0326)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photograph 1991 (Jet Lowe)",
+      "url": "https://www.loc.gov/pictures/item/ny0326.photos.348966p",
+      "accessed": "2026-10-31",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (licence templates PD-USGov-NPS, HABS-source); loc.gov blocks automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    },
+    {
+      "id": "SRC_HAER_HUMPBACK",
+      "title": "Humpback Covered Bridge, spanning Dunlap Creek, Covington, VA (HAER VA, Survey va0239)",
+      "publisher": "Historic American Engineering Record, National Park Service; Library of Congress (item va0239)",
+      "kind": "federal documentation record (photographs)",
+      "edition": "photograph 1971 (Jack E. Boucher)",
+      "url": "https://www.loc.gov/pictures/item/va0239.photos.161261p",
+      "accessed": "2026-10-29",
+      "verification": "Photograph and LOC source link from the Wikimedia Commons file page (PD-USGov-NPS); loc.gov returned HTTP 403 to automated access.",
+      "license": "Public domain (work of the U.S. National Park Service / HAER)."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM_701",
+      "text": "Loads on a bridge include live loads such as traffic and the dead load of the structure's own weight.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.365 'live load'",
+          "excerpt": "live load - a temporary dynamic load such as vehicular traffic that is applied to a structure"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.350 'dead load'",
+          "excerpt": "dead load - a static load due to the weight of the structure itself"
+        }
+      ],
+      "assumptions": "Generic definition of load types; no magnitudes.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "deck_planks",
+        "deck"
+      ],
+      "intended_visual": "LOAD_ARROW on the deck labelled 'Load' (qualitative, not to scale)",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_702",
+      "text": "The deck directly supports traffic and is itself supported by the superstructure.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.350 'deck'",
+          "excerpt": "deck - that portion of a bridge which provides direct support for vehicular and pedestrian traffic, supported by a superstructure"
+        }
+      ],
+      "assumptions": "Definition.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "deck_planks",
+        "deck"
+      ],
+      "intended_visual": "COMPONENT_LABEL 'Deck'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_703",
+      "text": "The superstructure is the part of a bridge that provides the horizontal span; it typically includes beams, girders, trusses and the deck.",
+      "source_ids": [
+        "SRC_FHWA_PBES_CH2",
+        "SRC_FHWA_PBES_GLOSSARY"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_PBES_CH2",
+          "locator": "Chapter 2 introduction (AASHTO definition)",
+          "excerpt": "Structural parts of the bridge that provide the horizontal span."
+        },
+        {
+          "source_id": "SRC_FHWA_PBES_GLOSSARY",
+          "locator": "Appendix E 'superstructure'",
+          "excerpt": "It typically includes beams, girders, trusses, and the bridge deck."
+        }
+      ],
+      "assumptions": "Definition; the cap beams of a timber bent belong to the substructure (pier cap).",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "superstructure"
+      ],
+      "intended_visual": "HIGHLIGHT + COMPONENT_LABEL 'Superstructure'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_704",
+      "text": "The substructure - abutments at the ends and piers in between - supports the superstructure, and abutments transfer loads from the superstructure to the foundation.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.383 'substructure'",
+          "excerpt": "substructure - the abutments and piers built to support the span of a bridge superstructure"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.338 'abutment'",
+          "excerpt": "abutment - part of bridge substructure at either end of bridge which transfers loads from superstructure to foundation"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.370 'pier'",
+          "excerpt": "pier - a substructure unit that supports the spans of a multi-span superstructure at an intermediate location between its abutments"
+        }
+      ],
+      "assumptions": "Definitions; in the timber model the trestle bents play the role of piers and the banks of the site the role of abutments (illustrative).",
+      "applies_to": [
+        "all"
+      ],
+      "components": [
+        "substructure",
+        "ground"
+      ],
+      "intended_visual": "CONCEPTUAL_LOAD_PATH from deck through supports to the ground",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_705",
+      "text": "A beam spans from one support to another and supports vertical loads.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.341 'beam'",
+          "excerpt": "beam - a linear structural member designed to span from one support to another and support vertical loads"
+        }
+      ],
+      "assumptions": "Definition.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "HIGHLIGHT stringers (ghosted planks) + COMPONENT_LABEL 'Beams'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_706",
+      "text": "A beam carries load through its resistance to bending.",
+      "source_ids": [
+        "SRC_FHWA_CBM",
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "As a beam has strength from its bending resistance"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.358 'girder'",
+          "excerpt": "girder - a horizontal flexural member that is the main or primary support for a structure"
+        }
+      ],
+      "assumptions": "Qualitative; no stresses, deflections or capacities. The procedural model has not been analysed.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "CALLOUT 'Beams resist bending' on a stringer",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_707",
+      "text": "A cap at the top of a bent distributes the loads onto its columns, and columns are vertical members resisting compression.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.344 'cap'",
+          "excerpt": "cap - the topmost portion of a pier or a pile bent serving to distribute the loads upon the columns or piles"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.341 'bent'",
+          "excerpt": "bent - a substructure unit made up of two or more column or column-like members connected at their top-most ends by a cap"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.346 'column'",
+          "excerpt": "column - a general term applying to a vertical member resisting compressive stresses"
+        }
+      ],
+      "assumptions": "Definitions; the posts of the illustrative trestle bents are treated as columns.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "cap_beam",
+        "trestle_bent"
+      ],
+      "intended_visual": "CONCEPTUAL_LOAD_PATH stringer -> cap beam -> posts -> ground; REACTION_ARROW at the ground",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_708",
+      "text": "A stone arch ring is made of wedge-shaped stones called voussoirs; the keystone is the wedge-like stone at the crown.",
+      "source_ids": [
+        "SRC_ODOT_MBI"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.388 'voussoir'",
+          "excerpt": "Voussoir - one of the truncated wedge-shaped stones composing a ring course in a stone arch"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.363 'keystone'",
+          "excerpt": "keystone - the symmetrically shaped, wedge-like stone located in a head ring course at the crown of an arch"
+        }
+      ],
+      "assumptions": "Definitions.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "voussoir",
+        "keystone"
+      ],
+      "intended_visual": "Frontal exploded close-up of one arch ring; COMPONENT_LABEL 'Voussoirs', 'Keystone'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_709",
+      "text": "The curve of an arch converts vertical loads into horizontal and vertical thrusts at its ends, so the forces within the arch are generally compression.",
+      "source_ids": [
+        "SRC_ODOT_MBI",
+        "SRC_YALE_PHYSICS"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Part 2 Ratings, Item 25 Arch, p.144 (manual p.2-56)",
+          "excerpt": "The curve converts vertical (gravity) loads within the span to horizontal and vertical thrusts at the spring lines. As a result, the forces within the arch are generally compression"
+        },
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.339 'arch'",
+          "excerpt": "arch - a curved structure element primarily in compression that transfers vertical loads through inclined reactions to its end supports"
+        },
+        {
+          "source_id": "SRC_YALE_PHYSICS",
+          "locator": "'Arch Bridges' section",
+          "excerpt": "Arch bridges rely primarily on compression"
+        }
+      ],
+      "assumptions": "General principle for masonry arches under gravity load; no thrust line, magnitudes or stability assessment of the illustrative model.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "CONCEPTUAL_LOAD_PATH along the arch ring from the crown to both springings, styled 'compression'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_710",
+      "text": "An arch transfers vertical loads through inclined reactions to its end supports, and the abutments push inward on the arch.",
+      "source_ids": [
+        "SRC_ODOT_MBI",
+        "SRC_YALE_PHYSICS"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.339 'arch'",
+          "excerpt": "transfers vertical loads through inclined reactions to its end supports"
+        },
+        {
+          "source_id": "SRC_YALE_PHYSICS",
+          "locator": "'Arch Bridges' section",
+          "excerpt": "creating two equal and opposite horizontal forces that push inward on the arch"
+        }
+      ],
+      "assumptions": "Direction only (inclined, upward and inward on the arch); no magnitudes; the arrow is a support REACTION, distinct from the applied load.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "abutment",
+        "pier"
+      ],
+      "intended_visual": "REACTION_ARROW at each springing, pointing up and inward",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_711",
+      "text": "A truss is a jointed structure of members arranged in triangles, primarily carrying axial loads.",
+      "source_ids": [
+        "SRC_ODOT_MBI",
+        "SRC_SCI_TRUSSES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ODOT_MBI",
+          "locator": "Glossary p.386 'truss'",
+          "excerpt": "truss - a jointed structure made up of individual members primarily carrying axial loads arranged and connected in triangular panels"
+        },
+        {
+          "source_id": "SRC_SCI_TRUSSES",
+          "locator": "Introduction",
+          "excerpt": "A truss is essentially a triangulated system of (usually) straight interconnected structural elements"
+        }
+      ],
+      "assumptions": "Definition.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members",
+        "truss_joint"
+      ],
+      "intended_visual": "HIGHLIGHT truss members; COMPONENT_LABEL 'Joints'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_712",
+      "text": "The principal force in each truss member is axial tension or compression.",
+      "source_ids": [
+        "SRC_FHWA_CBM",
+        "SRC_SCI_TRUSSES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_SCI_TRUSSES",
+          "locator": "Introduction",
+          "excerpt": "The principal force in each element in a truss is axial tension or compression."
+        },
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "These axial forces are either compression or tension."
+        }
+      ],
+      "assumptions": "Idealisation (pinned joints); the source notes real joints are not perfectly pinned. No member-by-member forces are shown.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "TENSION_COMPRESSION_LEGEND (conceptual)",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_713",
+      "text": "In a simple-span truss under downward loads, the top chord is in compression and the bottom chord is in tension.",
+      "source_ids": [
+        "SRC_FHWA_CBM",
+        "SRC_SCI_TRUSSES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "The upper, or top, chords are in compression. The bottom, or lower, chords are in tension."
+        },
+        {
+          "source_id": "SRC_SCI_TRUSSES",
+          "locator": "'Types of trusses'",
+          "excerpt": "Under gravity loads, the top and bottom chords of the truss provide the compression and tension resistance to overall bending"
+        }
+      ],
+      "assumptions": "ASSUMPTION: each truss span of the illustrative model is treated as a simple span (separate truss on its own bearings) carrying a downward load. The FHWA source calls this a simplified characterization for the common single-span bridge; continuous spans behave differently. Qualitative only.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_chord"
+      ],
+      "intended_visual": "CALLOUT on the top chord 'compression (pushed)' and on the bottom chord 'tension (pulled)'",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_714",
+      "text": "In a truss, some web members are in compression and others in tension.",
+      "source_ids": [
+        "SRC_FHWA_CBM"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_CBM",
+          "locator": "Chapter 2, 'Component Terminology'",
+          "excerpt": "Some of these web members will usually be in compression; others will consistently be in tension."
+        }
+      ],
+      "assumptions": "General statement; which web member carries which force is NOT shown (no load case analysed).",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_web"
+      ],
+      "intended_visual": "HIGHLIGHT web members without a tension/compression colour",
+      "scope": "conceptual; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_720",
+      "text": "Timber stringer (beam) bridges are a very old type that dates back to the origins of bridge building.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.3.1 Timber Stringer, p. 3-80",
+          "excerpt": "Wood stringer (or beam) bridges are a very old type of design that dates back to the origins of bridge building."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "Timber beam model; no historical reconstruction",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_721",
+      "text": "Because of their simplicity and readily available wood, timber beam bridges were still built long after wood trusses stopped being competitive; in 2005 a national report said they were being built on low-traffic rural roads, private roads, forests and parks.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.3.1 Timber Stringer, p. 3-80",
+          "excerpt": "Long after wood truss bridges had ceased to be competitive with metal truss bridges for use in short spans in the nineteenth century, timber beam bridges were still being built. Because of the structure’s simplicity and readily available material (wood), the timber beam has endured to the present day"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.3.1 Timber Stringer, p. 3-80",
+          "excerpt": "Today, these structures are built on low-trafficked, rural backcountry roads, private roads, or in national forests and parks."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "stringer"
+      ],
+      "intended_visual": "Timber beam model; caption 'Illustrative model'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_722",
+      "text": "Many early timber bridges had relatively short spans.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2 (North Dakota, quoted), p. 2-9",
+          "excerpt": "Most were built of timber with relatively short spans."
+        }
+      ],
+      "assumptions": "The quoted passage describes early bridges west of the Mississippi (North Dakota); used only as 'many early timber bridges had relatively short spans'.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "trestle_bent"
+      ],
+      "intended_visual": "Timber model: several short spans on bents",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_723",
+      "text": "Falsework (temporary supports, built by carpenters) is erected to support a stone arch during construction, and the masonry is laid by skilled masons.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-48",
+          "excerpt": "the skills necessary for erection of falsework to support arch construction (carpentry) and for the laying of stones (masonry) were commonly found within the local labor pool"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "2D diagram: arch ring on temporary falsework (conceptual)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_724",
+      "text": "Stone arch bridges were generally more expensive to build than timber bridges, but were favoured for heavily travelled routes or important locations; elsewhere the lower cost of timber offset its lack of permanence.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "Stone arch bridges were generally more expensive to build than were timber bridges, but their use for roads and highways was favored for heavily traveled routes or locations of high visibility and importance; otherwise, the cost savings of timber bridges tended to offset their relative lack of permanence."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch",
+        "beam"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "2D comparison panel: cost vs permanence (qualitative, no numbers)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_725",
+      "text": "Where durability and permanence were required, stone was the preferred bridge material over wood.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-48",
+          "excerpt": "Stone and wood were often the most readily available building materials for bridges long before fabricated metal was introduced towards the middle of the nineteenth century, and of the two, stone was by far the preferred choice where durability and permanence were required."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Comparison panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_726",
+      "text": "Arch bridges need materials that are strong under compression, such as stone, concrete or steel.",
+      "source_ids": [
+        "SRC_YALE_PHYSICS"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_id": "SRC_YALE_PHYSICS",
+          "locator": "unit 01.05.08, section 6",
+          "excerpt": "When selecting a building material for an arch bridge, engineers must consider only materials that are strong under compression. These materials include stone, concrete, or steel."
+        }
+      ],
+      "assumptions": "Educational secondary source (teacher curriculum unit); used for the general principle only.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Materials panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_727",
+      "text": "The Pratt truss was patented in 1844; its original form combined vertical timber members in compression with diagonal iron rods in tension, a principle used well into the twentieth century in all-steel trusses.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-7",
+          "excerpt": "In 1844, Thomas and Caleb Pratt patented the Pratt Truss, which reversed the Howe system and incorporated vertical timber members in compression and diagonal iron rods in tension, a “combination” structure. The structural principle in this design was used well into the twentieth century when all parts were made in steel."
+        }
+      ],
+      "assumptions": "Historical design description of the 1844 patent; the film does not mark the model's members as in tension or compression.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_web"
+      ],
+      "intended_visual": "Pratt pattern highlighted (no member colouring)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_728",
+      "text": "The Warren truss was patented in 1848 by James Warren and Willoughby Monzani, with alternating diagonals.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-7",
+          "excerpt": "the Warren truss was patented by two British engineers, James Warren and Willoughby Monzani. This truss design had alternating diagonals in either tension or compression"
+        }
+      ],
+      "assumptions": "The model's Warren variant has no verticals; the film says only that the diagonals alternate.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_web"
+      ],
+      "intended_visual": "Warren pattern on the shared chords (illustrative variant without verticals)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_729",
+      "text": "From mid-century, fabricating shops formed, drilled and test-assembled truss members and shipped them to the bridge site; by 1860 railroads relied almost exclusively on such prefabricated parts.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2 'Foundries and Fabricators', p. 2-11",
+          "excerpt": "These shops formed bridge members, drilled the members and assembled and connected the truss members, before packaging and shipping them to the bridge site. By 1860, the railroads were almost exclusively relying on these private concerns to fill their bridge needs with pre-fabricated parts."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Exploded truss (members as separate prefabricated pieces)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_730",
+      "text": "Through trusses carry heavier loads than pony trusses and are longer in span, some approaching 400 feet.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1 Trusses, p. 3-4",
+          "excerpt": "Through trusses are designed to carry heavier traffic loads than the pony truss and are longer in span, some approaching 400 feet."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Span scale panel (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_731",
+      "text": "Simple king post trusses spanned only very short distances, up to about 30 feet.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1.1 King Post, p. 3-7",
+          "excerpt": "Simple king post trusses were used only to span very short distances up to about 30 feet"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Span scale panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_732",
+      "text": "The 220-foot span Cabin John Aqueduct Bridge (1864) was the longest arch bridge in the world until 1905.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-48",
+          "excerpt": "America’s greatest stone arch is the 220-foot span Cabin John Aqueduct Bridge (1864) over Cabin John Creek in suburban Maryland outside Washington, DC. It was the longest arch bridge in the world until 1905."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Span scale panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_733",
+      "text": "Many timber truss bridges were covered by a roof and siding to protect them from the weather.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1.1 King Post, p. 3-7",
+          "excerpt": "the most common extant king post truss bridges are covered by a roof and siding to protect them from the weather"
+        }
+      ],
+      "assumptions": "Stated for king post trusses; the film says 'many timber truss bridges'.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "HAER photograph of the Humpback Covered Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_734",
+      "text": "Wooden bridges were vulnerable to decay.",
+      "source_ids": [
+        "SRC_ASCE_BOLLMAN"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "Replacing wooden bridges, which were cumbersome to build and vulnerable to decay"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam",
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "Materials panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_735",
+      "text": "Wrought iron was valued as a material strong equally in tension and in compression (Plowden, quoted in NCHRP).",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-8",
+          "excerpt": "realized that a great advantage would be gained by the substitution of wrought iron [for cast iron], a material strong equally in tension and in compression"
+        }
+      ],
+      "assumptions": "A historian's characterisation (David Plowden) quoted in the report.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [
+        "truss_members"
+      ],
+      "intended_visual": "Materials panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_736",
+      "text": "Viaducts and trestles were the engineering solution for keeping a railway line nearly straight and level where a valley was too deep and wide for embankments, because engines have limited traction.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "both have design attributes that were generated by the need of railroad engineers to maintain easy gradients, especially when crossing deep ravines or depressions, to compensate for the limited traction of railroad engines."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "“Viaducts and trestles were the engineering solution for maintaining a nearly straight and horizontal line where the depth and width of the valley or gorge rendered embankments impracticable.”"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "all"
+      ],
+      "components": [],
+      "intended_visual": "2D diagram: valley profile with a level line on piers (schematic)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_737",
+      "text": "A trestle is a succession of towers of steel, timber or reinforced concrete supporting short spans.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "a trestle consists of a succession of towers of steel, timber, or reinforced concrete, supporting short spans"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [
+        "trestle_bent"
+      ],
+      "intended_visual": "Timber model bents highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_738",
+      "text": "Stone arch construction declined with the spread of metal truss bridges, fewer skilled masons and reinforced concrete, then briefly revived in the Great Depression.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "Increased use of metal truss bridges on highways from the late 1800s into the early twentieth century, coupled with a decrease in the number of skilled masons, and advancements in reinforced concrete construction technology in the early decades of the twentieth century, led to a decline in stone arch bridge construction. A brief resurgence in construction of this type occurred during the Great Depression"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "Timeline card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_739",
+      "text": "The Carrollton Viaduct, completed in 1829 across Gwynn's Falls west of Baltimore, was built of about 12,000 granite blocks; the 312-foot bridge has an 80-foot arch over the waterway.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "The first major engineered railroad bridge was the Carrollton Viaduct, completed in 1829 across Gwynn’s Falls, west of Baltimore City. Constructed of approximately 12,000 granite blocks, the 312-foot long bridge featured an 80-foot arch over the waterway."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [
+        "arch_ring"
+      ],
+      "intended_visual": "HAER photograph of the Carrollton Viaduct",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_740",
+      "text": "The Carrollton Viaduct is the earliest stone arch railroad bridge built in the United States and, as of 2005, the world's oldest stone railroad span still in service; it is a National Historic Landmark.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.6 Trestles and Viaducts, p. 3-137",
+          "excerpt": "The earliest stone arch railroad bridge built in the United States, and the world’s oldest stone railroad span still in service, is the Carrollton Viaduct over Gwynn’s Falls on the old B & O Railroad line near Baltimore, Maryland. Completed in 1829, this National Historic Landmark"
+        }
+      ],
+      "assumptions": "'Still in service' is as of the 2005 report; the film attributes it to the report.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_741",
+      "text": "Railroads needed more sophisticated designs and durable materials for the heavy loads of railcars; in the East they built massive stone viaducts.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "The railroad companies revolutionized bridge design, as they required more sophisticated designs and durable materials for carrying the heavy loads of the railcars."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "In the east, the railroads built massive high and/or long stone viaducts along the Baltimore and Ohio (B&O) Railroad."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [],
+      "intended_visual": "Arch model with 'Illustrative model' note",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_742",
+      "text": "Western bridge builders generally used timber because of the pressure to open new railroads quickly and economically, and because timber was abundant and cheap.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-6",
+          "excerpt": "While stone was often used in the East, timber was generally used by the western bridge builders because of the pressure to quickly and economically get new railroads on line, and timber was generally abundant and cheap."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Promontory trestle; schematic map",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_743",
+      "text": "Promontory Route Railroad Trestle 790B (1872), near Corinne in Box Elder County, Utah, was built by the Central Pacific Railroad Company.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "List of figures, 3-106",
+          "excerpt": "Promontory Route Railroad Trestles 790B (1872), Corinne vicinity, Box Elder County, Utah. This nineteenth century structure was built by the Central Pacific Railroad Company."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_744",
+      "text": "The Bollman truss design, patented in 1852, was one of the first to use iron exclusively in all essential structural elements and could be built relatively quickly and inexpensively while providing the long-lasting qualities of metal.",
+      "source_ids": [
+        "SRC_ASCE_BOLLMAN"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "patented in 1852 and one of the first to use iron exclusively in all essential structural elements"
+        },
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "the Bollman Truss Bridge could be built relatively quickly and inexpensively, while providing the long-lasting qualities associated with metal."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Bollman truss at Savage",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_745",
+      "text": "The Bollman Truss Bridge at Savage, Maryland, is the only remaining example of a patented design used extensively on the Baltimore & Ohio and other railroads.",
+      "source_ids": [
+        "SRC_ASCE_BOLLMAN"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ASCE_BOLLMAN",
+          "locator": "main text",
+          "excerpt": "The Bollman Truss Bridge is the only remaining example of a patented design that was used extensively on the Baltimore & Ohio and other railroads."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_746",
+      "text": "The Humpback Covered Bridge (1857), spanning Dunlap Creek, is an example of a multiple king post truss used for a covered bridge.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "List of figures, 3-5",
+          "excerpt": "Humpback Covered Bridge (1857), Humpback Bridge spanning Dunlap"
+        }
+      ],
+      "assumptions": "Only the name, date and crossing are narrated.",
+      "applies_to": [
+        "truss"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_750",
+      "text": "A cantilever is like an arm held straight out from the shoulder, or a diving board: a beam supported at one end and unsupported at the other; cantilever bridges are a modified form of beam bridge.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "If you hold your arm straight out from your shoulder, it is acting as a cantilever."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "Cantilever bridges are a modified form of beam bridge. A cantilever is essentially a beam that is unsupported at one end but supported at the other, like diving boards."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "cantilever_arm"
+      ],
+      "intended_visual": "Cantilever model assembling on the wide site",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_751",
+      "text": "A cantilevered truss bridge consists of anchor arms supported by piers and a suspended span supported by the arms.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.1 Trusses, p. 3-4",
+          "excerpt": "A cantilevered truss bridge consists of anchor arms supported by piers, and a suspended span that is supported by the anchor arms."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "the counterbalanced cantilever with the arms supporting a simple suspended span"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "anchor_arm",
+        "cantilever_arm",
+        "suspended_span"
+      ],
+      "intended_visual": "Cantilever model: anchor arms, cantilever arms, suspended span labelled",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_752",
+      "text": "The cantilever was developed to make bridges longer, to cross wide rivers like the Ohio and the Mississippi and deep gorges like the Niagara Gorge; it made longer spans and wider clearance beneath possible.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "The cantilever was developed to solve the problem of increasing the length of the bridge to enable crossing wide bodies of water like the Ohio and Mississippi rivers, or wide and deep gorges like the Niagara Gorge"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "This configuration made longer spans possible and wider clearance beneath."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "The wide crossing (illustrative)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_753",
+      "text": "A cantilever can be built outward from its towers without falsework blocking the channel below; the suspended span is then lifted into place.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "One great advantage of a cantilever is that it can be built outwards from the towers without falsework to block the channel below. Then the suspended span can be lifted into place."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "suspended_span"
+      ],
+      "intended_visual": "Exploded cantilever: the suspended span lifts out and returns",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_754",
+      "text": "In the United States, cantilever bridges date from the 1880s to the 1960s and were one of the standard types for intermediate to longer spans.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "The cantilever bridge in the U.S. dates from the 1880s to the 1960s and is one of the standard bridge types for intermediate to longer spans"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "Timeline band",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_755",
+      "text": "In the two decades before 2005, cable-stayed bridges began to supplant cantilevers because they are visually appealing and sometimes more economical.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "In the last twenty years, however, cable-stayed suspension bridges have begun to supplant cantilevers because they are visually appealing and sometimes more economical."
+        }
+      ],
+      "assumptions": "'The last twenty years' is read from the report's 2005 date (about 1985-2005); the report calls them 'cable-stayed suspension bridges'.",
+      "applies_to": [
+        "cantilever",
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Timeline / economics card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_756",
+      "text": "The Queensboro Bridge over the East River in New York City was the longest cantilever in the United States when completed in 1909.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "The Queensboro Bridge over the East River in New York City was the longest cantilever in the United States when completed in 1909."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Queensboro Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_757",
+      "text": "The cantilever eliminated the high cost of the anchorages that suspension bridges require, saving money and materials.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "The cantilever also eliminated the high cost of building anchorages required by the other long span bridge type, suspension bridges, thus saving money and materials."
+        }
+      ],
+      "assumptions": "M8.2: the report's preceding sentence (beam and arch bridges of steel or reinforced concrete 'had limited spans not exceeding 200 to 300 feet') is not used. It gives no period or conditions, and far longer arches were built (FHWA 2012: about 200 to 1,800 ft; the Eads Bridge, 1874, has a 520 ft arch span).",
+      "applies_to": [
+        "cantilever",
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Suspension model, anchorages labelled",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_760",
+      "text": "The deck of a suspension bridge hangs from vertical suspenders attached to cables in tension, which pass over towers in compression.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "The deck of a suspension bridge is hung from vertical suspenders that are affixed to ropes, chains, eyebars or cables that are in tension, passing over towers that are in compression."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable",
+        "hanger",
+        "tower"
+      ],
+      "intended_visual": "Suspension model: hangers, cables (tension) and towers (compression) marked",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_761",
+      "text": "The ends of a suspension bridge's main cables are anchored in large masses of stone or concrete, or directly into bedrock.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES",
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Usually the ends of the cables are anchored in large masses of stone or concrete"
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The ends of the main suspension cables are anchored either into large counterweights or directly into bedrock at the ends of the structure."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "anchorage"
+      ],
+      "intended_visual": "Anchorages on the banks",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_762",
+      "text": "The main cables run along the outer edges of the bridge, draped over the towers where they rest in saddles, and vertical cables connect them to the ends of transverse floor beams.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The main cables typically are located at the outside edges of the bridge and are draped over the towers where they rest in saddles."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The superstructure is generally supported at relatively short intervals by vertical cables that connect at the ends of transverse floorbeams."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable",
+        "hanger"
+      ],
+      "intended_visual": "Suspension model geometry",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_763",
+      "text": "Suspension bridges are particularly suited to spanning great distances; their towers are much shorter than a cable-stayed bridge's, and they become economical for very long spans.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES",
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Suspension bridges are particularly suited for spanning great distances"
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "Suspension bridges, whose towers are significantly shorter than those required for cable-stayed bridges, become economical for very long spans."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension",
+        "cable_stayed"
+      ],
+      "components": [
+        "tower",
+        "pylon"
+      ],
+      "intended_visual": "Suspension vs cable-stayed side by side (tower heights)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_764",
+      "text": "The Brooklyn Bridge plan involved two towers, cables and suspenders, anchorages and a stiffening truss, which the report calls the character-defining features of a suspension bridge.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Few suspension bridges in the world built since the time of the Roeblings can claim to stand entirely clear of the shadow cast by the Brooklyn Bridge. The plan involved two towers, cables and suspenders, anchorages and a stiffening truss - the character-defining features of a suspension bridge."
+        }
+      ],
+      "assumptions": "M8.2: 'The plan' is the Brooklyn Bridge plan (the preceding sentence). The film lists these parts for that bridge, not as a definition every suspension bridge meets: FHWA 2012 (CLM_765) calls a stiffening truss 'common'.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "tower",
+        "main_cable",
+        "hanger",
+        "anchorage",
+        "stiffening_truss"
+      ],
+      "intended_visual": "Brooklyn Bridge photograph",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_765",
+      "text": "A suspension deck is very light for its span and can be very flexible, so a stiffening truss is commonly provided under the deck against wind and earthquake loading.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "Suspension bridge superstructures are generally very light relative to the span length which leads to structures that may be very flexible."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "it is common to provide a lateral stiffening truss under the deck to avoid excessive excitement of the superstructure under wind or seismic loadings."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "stiffening_truss"
+      ],
+      "intended_visual": "Stiffening truss highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_766",
+      "text": "Ellet's Wheeling bridge, completed in 1849, spanned 1,010 feet, the longest clear span in the world when it opened; Roebling's Cincinnati-Covington bridge (1867) had a 1,057-foot main span, the longest clear span in the world when completed.",
+      "source_ids": [
+        "SRC_EWV_WHEELING",
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "He quickly turned his full attention to the Wheeling Bridge, which was completed in 1849. Spanning 1,010 feet, this was the longest bridge in the world for many years after its completion"
+        },
+        {
+          "source_id": "SRC_EWV_WHEELING",
+          "locator": "Wheeling Suspension Bridge, first paragraph",
+          "excerpt": "The wire suspension bridge over the Ohio River at Wheeling was opened for traffic in October 1849 amid great public acclaim. It was the longest (1,010 feet) clear span in the world."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Officially opened on January 1, 1867, this bridge has a main span of 1,057 feet. It had the longest clear span of any bridge in the world when completed"
+        }
+      ],
+      "assumptions": "M8.2: NCHRP says 'longest bridge in the world for many years'; the film says only 'the longest span in the world when it opened' (e-WV: 'the longest (1,010 feet) clear span in the world'), because 'bridge' could be read as total length and the duration is not corroborated.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Long-span timeline (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_767",
+      "text": "At one time a great number of suspension bridges of very modest span were built across the United States, because of the type's basic simplicity and ease of erection.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "At one time, however, a great number of suspension bridges of very modest span length were built across the country due to the type’s basic simplicity and ease of erection."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Not a story of progress (timeline / conclusion)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_768",
+      "text": "The Brooklyn Bridge was completed in 1883; few suspension bridges built since the Roeblings' time can claim to stand entirely clear of its shadow.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "Washington Roebling for the Brooklyn Bridge (1883)"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "Few suspension bridges in the world built since the time of the Roeblings can claim to stand entirely clear of the shadow cast by the Brooklyn Bridge."
+        }
+      ],
+      "assumptions": "'Few ... stand entirely clear of the shadow' is the report's assessment; the narration attributes it ('one report').",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Brooklyn Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_770",
+      "text": "Cable-stayed bridges rely on high-strength steel cables; the stay cables are inclined from the towers to edge girders at or below the deck.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "Cable-Stayed bridges rely on high strength steel cables as major structural elements. The stay cables are inclined from the supporting towers to edge girders at or below the deck elevation."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "stay_cable",
+        "pylon"
+      ],
+      "intended_visual": "Cable-stayed model: stays and towers labelled",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_771",
+      "text": "Cable-stayed bridge towers are generally very tall, their height set by the span; the flattest stays should not be less than about 22 degrees from the horizontal.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "Generally the towers are very tall with the height determined as a function of the span length."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "The flattest cable angle should not be less than about 22 degrees with the horizontal."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "pylon",
+        "stay_cable"
+      ],
+      "intended_visual": "Tall pylons; the model's flattest stay is about 29 degrees",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_772",
+      "text": "Once the towers are complete, a cable-stayed deck can be built without falsework towers, by a balanced cantilever method proceeding away from the towers until the spans close.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.4 Cable-Stayed Bridges",
+          "excerpt": "Once the towers are completed, the cable-stayed superstructures can be constructed without falsework towers, which can provide significant benefits over navigable waterways. The construction uses a balanced cantilever method proceeding away from the towers until the spans can be closed."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "deck_segment",
+        "stay_cable"
+      ],
+      "intended_visual": "Exploded cable-stayed model: the deck segments return outward from the towers",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_773",
+      "text": "The stay cables also compress the edge girders along their length; the compression adds up toward the towers.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "The compressive forces are additive from the end of the longest cables toward the towers. In most cases the edge girder design is not controlled by bending but by the compressive forces imparted by the stay cables"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [
+        "deck_segment"
+      ],
+      "intended_visual": "Conceptual compression arrows along the deck toward a tower (no magnitudes)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_774",
+      "text": "A 2012 federal handbook: in the United States, cable-stayed bridges become very cost competitive for main spans over 750 feet, and almost all bridges with main spans over 1,000 feet built in the U.S. since 1980 had been cable-stayed.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "In the U.S., cable-stayed bridges become very cost competitive for main span lengths over 750 feet. Almost all bridges with main span lengths in excess of 1000 feet built in the U.S. since 1980 have been cable-stayed structures."
+        }
+      ],
+      "assumptions": "M8.2: a 2012 statement about bridges built 1980-2012; narrated with its date and its conditions (built in the U.S., main span over 1,000 ft), not as the present.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Long-span economics card (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_775",
+      "text": "Before 1970, suspension bridges were considered the most economical solution for spans over about 1,200 feet; with cable-stayed technology, suspension bridges do not become economical until main spans approach 3,000 feet.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Prior to 1970, it was generally considered that suspension bridges provided the most economical solution for span lengths in excess of about 1200 feet. With the development of cable-stayed bridge technology, suspension bridges do not become economical until the main span length approaches 3000 feet."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension",
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Long-span economics card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_776",
+      "text": "Cable-stayed bridges are more versatile than suspension bridges: they offer more possible configurations, and their towers do not need good rock near the surface.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "They are more versatile than suspension bridges in that they offer more possible configurations and towers can be constructed in less than optimal foundation conditions because having good rock near the surface is not a requirement."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed",
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Comparison",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_777",
+      "text": "In 2012, a federal handbook called welded plate girders, a form of beam, the most common type of steel bridge.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Welded plate girders are currently the most common type of steel bridge."
+        }
+      ],
+      "assumptions": "A 2012 FHWA statement about steel bridges; M8.2: narrated with its date ('in 2012'), not as the present.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "Conclusion: not a story of progress",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_780",
+      "text": "America's first metal suspension bridges hung from iron chains; chain bridges tended to fail after only a few years, critics felt the design was only as good as its weakest link, and metal cables answered that fear.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "In 1801, James Finley (1756-1828), a justice of the peace and judge in Fayette County, Pennsylvania, constructed the first metal suspension bridge in the United States"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "Although forty or more chain bridges were built according to Finley’s 1808 patent, they tended to fail after only a few years of use. Some critics felt that the Finley design was only as good as the weakest link in one of the chains. This fear was addressed by the introduction of metal cables."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable"
+      ],
+      "intended_visual": "Main cables highlighted; NOTE on chains and cables",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_781",
+      "text": "Cable-stayed and suspension bridges both rely on high-strength steel cables as major structural elements.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.5 Cable-Stayed",
+          "excerpt": "Cable-Stayed bridges rely on high strength steel cables as major structural elements."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "suspension bridges rely on high-strength cables as major structural elements."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension",
+        "cable_stayed"
+      ],
+      "components": [
+        "main_cable",
+        "stay_cable"
+      ],
+      "intended_visual": "Main cables highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_782",
+      "text": "A cantilever is a continuous girder with hinges at the points of zero moment; the form is statically determinate and easy to calculate, and its superstructure can adjust if a pier or abutment sinks, where a continuous beam may develop hidden stresses and fail; with unstable soil a common problem, this was a significant breakthrough.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "a cantilever is a continuous girder with hinges at the points of zero moments"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "The form was statically determinant, which meant that it was easy to calculate and"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "the members did not have the inherent deficiency of the continuous beam or girder developing indiscernible internal stresses and possibly failing should one of the piers or abutments subside. Unstable soil conditions plagued foundation, pier, and abutment design, so the ability of a bridge’s superstructure to adjust should one of the piers or abutments sink, was a significant design breakthrough."
+        }
+      ],
+      "assumptions": "M8.2: the advantage belongs to the hinged, statically determinate form and to the superstructure; the film does not suggest a cantilever cures bad foundations.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "pier"
+      ],
+      "intended_visual": "Cantilever model, main piers labelled",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_783",
+      "text": "In 1940 the four-month-old Tacoma Narrows suspension bridge collapsed in only moderately high winds; the event led to intense research on wind, and later suspension bridges followed new standards for truss-stiffened spans.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES",
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-28",
+          "excerpt": "In 1940, the four-month old Tacoma Narrows Bridge over Puget Sound collapsed due to the forces of the wind on the suspension structure. The event led to intense research on the dynamics of the effects of wind in large structures."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-28",
+          "excerpt": "were based on substantial research that produced new formulae and standards"
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "2.6 Suspension Bridges",
+          "excerpt": "The structure collapsed due to the harmonic frequency set up during a period of only moderately high winds."
+        }
+      ],
+      "assumptions": "Narrated as a historical event; the film shows no collapse or destruction.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "stiffening_truss"
+      ],
+      "intended_visual": "Stiffening truss highlighted; no collapse is shown",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_784",
+      "text": "For steel bridges, welded plate girders are applicable from about 90 feet to over 500 feet.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Applicable in span lengths from approximately 90 feet to over 500 feet they provide a versatile choice for the designer."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "beam"
+      ],
+      "components": [],
+      "intended_visual": "Span-range card (sourced values only)",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_785",
+      "text": "Steel trusses are generally not cost-effective below about 450 feet, and the practical upper limit for simple-span trusses is about 750 feet; continuous or cantilever trusses span considerably farther.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Trusses are generally not cost-effective for span lengths under 450 feet."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "The practical upper limit for simple span trusses is approximately 750 feet while continuous trusses begin to be cost-effective when the span length exceeds 550 feet. Continuous or cantilever trusses can span considerably longer distances than simple span trusses."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "truss",
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "Span-range card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_786",
+      "text": "Arches have been used for spans from about 200 to 1,800 feet worldwide, and cable-stayed bridges built with main spans from under 200 feet to nearly 3,000 feet.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Arches have been used for span lengths from approximately 200 feet up to 1800 feet worldwide."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "3.0 Economics",
+          "excerpt": "Cable-stayed bridges have been constructed with main span lengths less than 200 feet and extending up to nearly 3000 feet."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch",
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Span-range card",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_787",
+      "text": "Erecting a suspension bridge is specialised: installing the main cables needs expertise very few contractors have, and construction often takes a long time.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.5 Suspension Bridges",
+          "excerpt": "Erection of suspension bridges is relatively specialized. The installation of the main suspender cables requires expertise that very few contractors possess."
+        },
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.5 Suspension Bridges",
+          "excerpt": "The time to construct a suspension bridge is often relatively long as well."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [
+        "main_cable",
+        "anchorage"
+      ],
+      "intended_visual": "Suspension model, anchorages and cables highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_788",
+      "text": "By 2012, cable-stayed bridges were becoming more common worldwide, one significant reason being that their erection methods had become better understood over the previous 25 years.",
+      "source_ids": [
+        "SRC_FHWA_BRIDGE_TYPES"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_BRIDGE_TYPES",
+          "locator": "4.4 Cable-Stayed Bridges",
+          "excerpt": "Cable-stayed bridges are becoming more common worldwide. One significant reason for this is that the erection methods required for cable-stayed bridges have become better understood over the past 25 years."
+        }
+      ],
+      "assumptions": "M8.2: a 2012 statement; narrated with 'by 2012', not as the present.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Cable-stayed model",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_789",
+      "text": "Roebling's 1855 suspension bridge across the Niagara Gorge carried railway traffic, but railroad executives doubted suspension bridges could bear heavy trains; the bridge needed substantial repairs in 1877 and 1880 and was declared inadequate in 1890.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-132",
+          "excerpt": "who won the contract to build the second suspension bridge, and the first railroad bridge, across the Niagara Gorge. Completed in 1855"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.5 Suspension, p. 3-133",
+          "excerpt": "railroad company executives were not convinced that suspension bridges were capable of bearing the live loads imposed on them by heavy rail traffic. Their skepticism was not unjustified because the Niagara Bridge needed substantial repair in 1877 and 1880, and was declared inadequate in 1890."
+        }
+      ],
+      "assumptions": "M8.2: the report's next sentence ('It would be 133 years before the next suspension bridge designed for railway traffic was built') is not used. The Williamsburg Bridge, a suspension bridge opened in 1903, carried rail and trolley traffic on stiffening trusses 'designed ... to support rail traffic on the deck' (NYC DOT, https://www.nyc.gov/html/dot/html/infrastructure/williamsburg-bridge.shtml); the statement would need a restriction the source does not give.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "Suspension model with 'Illustrative model, not the Niagara bridge'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_790",
+      "text": "In the United States, modern cantilevers were first used by the railroads and then as highway bridges; a cantilever is inherently rigid, so heavy locomotives pulling trains are no threat to a properly designed one.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-142",
+          "excerpt": "Cantilevers first were used by the railroads (Poughkeepsie, Memphis, High Bridge) and then as highway bridges"
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "Another is that it is inherently rigid so that heavy locomotives pulling trains of cars are no threat to the structure if properly designed."
+        }
+      ],
+      "assumptions": "M8.2: the passage follows Gerber's Hassfurt Bridge (1867), 'the first modern cantilever', and the type's use in the U.S.; the report also describes far older cantilevers (Nikko, fourth century; Wandipore, about 1643), so the film says 'in America, modern cantilevers'.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "cantilever_truss"
+      ],
+      "intended_visual": "Cantilever model highlighted",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_791",
+      "text": "In 1877 the world's longest cantilever was built for the Cincinnati Southern Railroad over the 275-foot-deep Kentucky River gorge at Dixville.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "In 1877, American engineer C. Shaler Smith, Baltimore Bridge Company, and Louis Frederic Gustav Bouscaren, chief railroad engineer, built the world’s longest cantilever for the Cincinnati Southern Railroad over the 275-foot deep Kentucky River gorge at Dixville."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [],
+      "intended_visual": "Cantilever model with 'Illustrative model, not the Kentucky River bridge'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_792",
+      "text": "The Golden Gate Bridge opened in San Francisco in May 1937 and stood as the world's longest span for twenty-seven years.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "2.2, p. 2-28",
+          "excerpt": "In May 1937, the Golden Gate Bridge opened in San Francisco. For twenty-seven years, the bridge stood as the world’s longest span"
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "suspension"
+      ],
+      "components": [],
+      "intended_visual": "HAER photograph of the Golden Gate Bridge",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_793",
+      "text": "The Penobscot Narrows Bridge in Maine is a cable-stayed bridge with a 1,161-foot main span, supported by two 430-foot concrete pylons with 40 stay cables each; it was opened in December 2006, 42 months from conception, and its west pylon has a public observatory at the top.",
+      "source_ids": [
+        "SRC_FHWA_PENOBSCOT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "The Penobscot Narrows Bridge is a 2,120 ft (646 m) long cable-stayed bridge that carries U.S. Route 1 over the Penobscot River connecting Verona Island to Prospect in Maine."
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "has a main span of 1,161 ft (354 m)"
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "The bridge spans are supported by two 430-ft (131.1-m) tall concrete pylons, each containing 40 stay cables."
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "spanned a mere 42 months from conception to completion; construction was started in 2004 and the bridge was opened to traffic on December 30, 2006."
+        },
+        {
+          "source_id": "SRC_FHWA_PENOBSCOT",
+          "locator": "Chapter 3, The test bridge",
+          "excerpt": "A unique feature of the west pylon, Pier 1, is the public observatory, accessible by elevator, located at its top."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cable_stayed"
+      ],
+      "components": [],
+      "intended_visual": "Cable-stayed model with 'Illustrative model, not the Penobscot Narrows Bridge'",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_794",
+      "text": "The Queensboro Bridge had no central suspended span, which the report calls unique among cantilevers of its size; it was designed with a single hinge to prevent the reversal of stresses.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "EDITORIALLY_APPROVED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.7 Cantilevers, p. 3-143",
+          "excerpt": "It had no central suspended span which was unique among cantilevers of its size designed with a single hinge to prevent the reversal of stresses."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "cantilever"
+      ],
+      "components": [
+        "suspended_span"
+      ],
+      "intended_visual": "Queensboro photograph; the narration contrasts it with the model's suspended span",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Editorially approved 2026-11-04 for narration m8-r4; illustrative models, conceptual forces only.",
+      "editorial_approval": {
+        "approved_by": "Tran Nam Anh (channel owner)",
+        "approved_on": "2026-11-04",
+        "narration_revision": "m8-r4",
+        "basis": "in-session instruction 'tôi duyệt các claim và phát âm, hãy render bản final 4k' (2026-11-04), after review/EDITORIAL_APPROVAL_PACKAGE.md of m8-r4 and the two text reviews of the same day (REV-M8.2-EDITORIAL-REVIEW, REV-M8.2-SECOND-TEXT-REVIEW)"
+      }
+    },
+    {
+      "id": "CLM_747",
+      "text": "Stone arch bridges were popular where good stone was available locally, yet some states with abundant stone built few of them.",
+      "source_ids": [
+        "SRC_NCHRP_CONTEXT"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "stone arch bridges were popular in Kansas for many reasons, a major one being that the stone was often available locally."
+        },
+        {
+          "source_id": "SRC_NCHRP_CONTEXT",
+          "locator": "3.2.1 Stone Arch, p. 3-49",
+          "excerpt": "despite an abundance of stone in various forms through the state and an indigenous tradition of masonry construction, stone bridges were never built in abundance in Michigan."
+        }
+      ],
+      "assumptions": "None beyond the quoted wording.",
+      "applies_to": [
+        "arch"
+      ],
+      "components": [],
+      "intended_visual": "Materials/site panel",
+      "scope": "qualitative; illustrative models; no member forces, capacities, stresses, safety factors or quantitative comparisons beyond quoted facts",
+      "caveat": "Not editorially approved."
+    }
+  ]
+}

@@ -1,5 +1,87 @@
 # Current project status
 
+- Phase: **M8.2: chủ kênh đã duyệt claim và phát âm của m8-r4 (2026-11-04); bản cuối 4K đã render và đạt mọi gate (2026-11-05): PUBLICATION_READY.** Nhánh `m8-all-bridge-families` (tách từ `c7ef80b`), chưa merge, chưa push, chưa upload.
+- **Phim `why-bridges-look-different`, revision m8-r4:**
+  - 12 chương; 19,92 phút (1.195,3 s, 28 687 khung); 169 câu; 75 shot;
+  - thời lượng theo quyết định của chủ kênh (`project.json` → `runtime_decision`, chấp nhận 8–30 phút; trần 30 do agent chọn);
+  - giọng `am_michael` (duyệt theo dự án); Corinne và Cincinnati CONFIRMED theo lời chủ kênh, không có buổi nghe nào được ghi;
+  - 82 claim: 76 EDITORIALLY_APPROVED (được lời dẫn dùng), 6 SOURCE_VERIFIED (không được nói); 18 nguồn; 7 ảnh HAER phạm vi công cộng.
+- **Trạng thái:** `PUBLICATION_CANDIDATE`, `gates --preset final_4k` → **PUBLICATION_READY**.
+  - Bản cuối: `output/why_bridges_look_different_FINAL_4K_2160p.mp4` (3840×2160, −16,4 LUFS) + `.en.srt` + WAV master + `.sha256`.
+  - Hồ sơ duyệt: `review/OWNER_APPROVALS.json` (`APP-M8.4-CLAIMS-AND-PRONUNCIATION`), `research/editorial_approval.json` (gắn với narration m8-r4 và hash từng claim).
+  - Bản 4K đã duyệt của m7-r1: tag `m7-final-4k`, `output/baseline_m7_final_4k/`.
+- Tài liệu: `docs/m8/M8_REPORT.md`.
+
+## Việc của chủ kênh
+1. Xem bản 4K, rồi quyết định đăng. Studio không bao giờ upload.
+2. Nếu muốn nghe lại Corinne và Cincinnati cho chắc: audio cũ để so nằm ở `audio/segments/`; một thay đổi lời dẫn hay audio sẽ làm hồ sơ duyệt hết hiệu lực.
+
+---
+
+## M7 finalization (2026-10-31, revision m7-r1, trạng thái lúc đó)
+
+- Phase: **M7 finalization và hệ thống sản xuất V1: xong (2026-10-31).** Nhánh `m7-finalization-4k-production` (tách từ `24d13c1`), chưa merge, chưa push, chưa upload.
+- **Phim `why-bridges-look-different`** "Why Bridges Don't All Look the Same":
+  - bản cuối **native 4K** `output/why_bridges_look_different_FINAL_4K_2160p.mp4`:
+    - 3840×2160, 24 fps, H.264 BT.709, AAC, phụ đề SRT + mov_text;
+    - 10,69 phút, 15.395 frame;
+    - kèm WAV master và `.sha256`;
+  - cổng `gates --preset final_4k`: **G0–G6 + GL + GV PASS → `PUBLICATION_READY`**, profile `PUBLICATION_CANDIDATE`.
+- **Hồ sơ duyệt của chủ kênh** (`review/OWNER_APPROVALS.json`), mỗi quyết định gắn với revision:
+  - 41 claim được phim dùng;
+  - giọng `am_michael` cho dự án này (đăng YouTube công khai, kể cả kiếm tiền);
+  - chấp nhận audio hiện tại cho 16 mục phát âm, không ghi là đã nghe từng mục;
+  - CLM_747 không dùng trong phim và không được duyệt hộ.
+- **Render 4K:**
+  - theo chương, dùng lại frame tĩnh: 5.218/15.395 frame được render;
+  - 3 giờ 59 phút, không lần nào máy ngủ;
+  - PNG chiếm tối đa 14,3 GB, Blender RSS tối đa 3,9 GB.
+- **Kiểm chứng:** MP4 cuối so với render trực tiếp đạt PSNR 49–57 dB (1080p phóng to: 35–38 dB). Audio và phụ đề giống từng byte với bản review.
+- **Dọn dẹp:** `projects/` chỉ còn phim này. Các pilot M2–M6 ở `tests/fixtures/legacy_projects/`; bản lưu trữ ngoài repo có checksum và `git bundle`.
+- **Phim mới:** `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`, `prompts/NEW_DOCUMENTARY_AUTOPILOT.md`, `tools/episode.py` (`new-episode` / `episode-status` trong CLI). Mới kiểm chứng phần nhận chủ đề và theo dõi giai đoạn, chưa làm thử một phim mới trọn vẹn.
+- **Test:** offline 303 OK; Blender 21 OK; `evaluate-planning` 29/29.
+- Tài liệu: `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`, `docs/production/CLEANUP_REPORT.md`.
+
+### Việc của chủ kênh lúc đó
+1. Xem bản 4K trước khi đăng.
+2. Nếu đăng: tự upload MP4 + `.en.srt` + `review/YOUTUBE_DESCRIPTION.md` và chọn các thiết lập YouTube. Studio không upload.
+3. Merge hay push nhánh cần một lệnh riêng.
+4. Phim tiếp theo: đưa một chủ đề, theo `prompts/NEW_DOCUMENTARY_AUTOPILOT.md`.
+
+---
+
+## M7 bản review nội bộ cuối (2026-10-30, trạng thái lúc đó)
+
+- Phase: **M7: phim tài liệu dài đầu tiên. Bản review nội bộ cuối 1080p xong (2026-10-30), chưa sẵn sàng xuất bản.** Nhánh `m7-final-internal-review` (tách từ `m7-first-full-documentary`), chưa merge, chưa push. Bản `bm_george` trước đó: tag `m7-review-bm_george`.
+- **Phim `why-bridges-look-different`** "Why Bridges Don't All Look the Same":
+  - **10,69 phút** (641,46 s, 15.395 frame); 8 chương, 39 beat, 103 câu, 47 shot;
+  - lời dẫn **`am_michael`** (Kokoro-82M @ `f3ff3571`, G2P Anh–Mỹ);
+  - **41/41 claim được lời dẫn dùng đã được chủ kênh duyệt** (2026-10-30); `factual_review: verified`;
+  - card B35 không còn dòng ghi giọng đọc;
+  - QA Blender 577/577; media QA PASS; −16,4 LUFS; 145 câu phụ đề; QA phim dài PASS.
+- **Trạng thái:** `TECHNICALLY_VALIDATED` · `EDITORIAL_REVIEW_PENDING` (phát âm) · `TTS_RIGHTS_PENDING` (`am_michael` chưa được cấp quyền xuất bản). G6 BLOCKED.
+- **Đầu ra** (không commit; `projects/why-bridges-look-different/output/`):
+  - `why_bridges_look_different_M7_FINAL_INTERNAL_REVIEW_1080p.mp4` + `.en.srt`;
+  - 8 chương 1080p (`chapters_internal_1080p/`);
+  - master audio;
+  - bản `bm_george` cũ (`baseline_bm_george_m7r1/`).
+- **Render 1080p:** dùng lại frame tĩnh, chỉ render 5.206/15.395 frame; khoảng 1,26 giờ render khi máy thức; 82 phút wall cho C2–C8 + ghép.
+- Tài liệu: `docs/m7/` (đặc biệt `FINAL_INTERNAL_REVIEW.md`).
+
+### Việc cần quyết định lúc đó (đã giải quyết ở M7 finalization)
+1. ~~Duyệt 41 claim~~ (đã xong, 2026-10-30). Còn CLM_747 (không dùng trong phim): duyệt, hoặc loại khỏi registry. Cổng cuối đòi mọi claim trong registry phải được duyệt.
+2. Cấp quyền xuất bản cho `am_michael` (thêm vào `voices_cleared`) và xác nhận cho phim (`owner_confirmation_for_this_film`).
+3. Nghe phát âm 16 thuật ngữ với `am_michael` (`review/PRONUNCIATION_REVIEW.md`). ASR nghe sai tên riêng (Bollman, Corinne, Gwynns Falls).
+4. Sau đó: profile `PUBLICATION_CANDIDATE` + `publication_metadata`, rồi render bằng preset `final`.
+5. Có sửa ghi chú chân trang của `suffolk-roofs` SC_004 hay không (lỗi bố cục có từ M3).
+
+### Lệnh tái tạo M7
+Xem `docs/m7/REPRODUCIBILITY.md` (lệnh đầy đủ + kế hoạch kiểm tra build sạch).
+
+---
+
+## M6 (đã xong, 2026-10-29)
+
 - Phase: **M6: phim tài liệu có lời dẫn. Xong (2026-10-29).** Nhánh `m6-narrated-documentary` đã merge fast-forward vào `master` theo yêu cầu của chủ kênh (repo không có remote, không push).
 - **Quyết định của chủ kênh (Tran Nam Anh), 2026-10-29:** cấp quyền xuất bản cho Kokoro; duyệt 14 claim (narration `m6-r2`); chấp nhận phát âm; giọng `bm_george`. Mọi gate G0–G6 + GV PASS. Profile vẫn `NARRATED_INTERNAL_REVIEW`: cần chuyển sang `PUBLICATION_CANDIDATE` + `publication_metadata` để đánh giá PUBLICATION_READY.
 - **Pilot `bridge-load-explained`** "How Does a Bridge Carry Its Load?":

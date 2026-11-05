@@ -46,3 +46,12 @@ asset_library/catalog/qa/*.log
 # the .m4a listening copies, metrics.json and AUDITION.md are tracked) ---
 projects/*/review/voice_audition/*.wav
 projects/*/review/voice_audition/parts/
+# M7: voice auditions keep the listening copies (m4a) + AUDITION.md/metrics.json; WAV parts are regenerable
+projects/*/review/voice_audition*/**/*.wav
+projects/*/review/voice_sample*/**/*.wav
+
+# M8: review-cut contact sheets and frames are working material (regenerable from the review MP4)
+projects/*/qa/review_cut*/
+
+# research source snapshots: third-party copyright, never committed (see research/source_snapshots.json)
+projects/*/research/snapshots/

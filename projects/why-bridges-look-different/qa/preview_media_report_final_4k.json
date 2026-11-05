@@ -1,0 +1,116 @@
+{
+  "preset": "final_4k",
+  "file": "output/why_bridges_look_different_FINAL_4K_2160p.mp4",
+  "codec": "h264",
+  "width": 3840,
+  "height": 2160,
+  "pix_fmt": "yuv420p",
+  "fps": "24/1",
+  "frames": 28687,
+  "duration": 1195.291667,
+  "color": {
+    "profile": "High",
+    "level": 51,
+    "color_range": "tv",
+    "color_space": "bt709",
+    "color_transfer": "bt709",
+    "color_primaries": "bt709"
+  },
+  "decode_errors": 0,
+  "black_segments": 0,
+  "chapter_intermediates": [
+    "output/chapters_final_4k/why_bridges_look_different_C1_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C2_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C3_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C4_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C5_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C6_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C7_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C8_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C9_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C10_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C11_silent.mp4",
+    "output/chapters_final_4k/why_bridges_look_different_C12_silent.mp4"
+  ],
+  "chapter_boundaries": [
+    {
+      "cut": "C1->C2",
+      "frame": 1256,
+      "mode": "hard",
+      "ssim": 0.85532,
+      "ok": true
+    },
+    {
+      "cut": "C2->C3",
+      "frame": 2424,
+      "mode": "match",
+      "ssim": 0.99694,
+      "ok": true
+    },
+    {
+      "cut": "C3->C4",
+      "frame": 4099,
+      "mode": "hard",
+      "ssim": 0.84025,
+      "ok": true
+    },
+    {
+      "cut": "C4->C5",
+      "frame": 6068,
+      "mode": "hard",
+      "ssim": 0.84699,
+      "ok": true
+    },
+    {
+      "cut": "C5->C6",
+      "frame": 8092,
+      "mode": "hard",
+      "ssim": 0.89203,
+      "ok": true
+    },
+    {
+      "cut": "C6->C7",
+      "frame": 10215,
+      "mode": "hard",
+      "ssim": 0.72061,
+      "ok": true
+    },
+    {
+      "cut": "C7->C8",
+      "frame": 11629,
+      "mode": "hard",
+      "ssim": 0.79178,
+      "ok": true
+    },
+    {
+      "cut": "C8->C9",
+      "frame": 13502,
+      "mode": "hard",
+      "ssim": 0.9431,
+      "ok": true
+    },
+    {
+      "cut": "C9->C10",
+      "frame": 17641,
+      "mode": "hard",
+      "ssim": 0.90158,
+      "ok": true
+    },
+    {
+      "cut": "C10->C11",
+      "frame": 20727,
+      "mode": "hard",
+      "ssim": 0.9392,
+      "ok": true
+    },
+    {
+      "cut": "C11->C12",
+      "frame": 26162,
+      "mode": "hard",
+      "ssim": 0.86035,
+      "ok": true
+    }
+  ],
+  "expected_total_frames": 28687,
+  "problems": []
+}

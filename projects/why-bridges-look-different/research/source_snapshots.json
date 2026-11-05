@@ -1,0 +1,60 @@
+{
+  "note": "Source downloads used to verify research/sources.json. The files themselves are not committed (size / third-party copyright); re-download from the URLs into research/snapshots/ (git-ignored; the default of build_sources.py) and compare the SHA256, then run research/build_sources.py.",
+  "snapshots": [
+    {
+      "file": "nchrp/nchrp_25-25-15.pdf",
+      "url": "https://onlinepubs.trb.org/onlinepubs/archive/notesdocs/25-25(15)_FR.pdf",
+      "bytes": 11101464,
+      "sha256": "c7b437b67745ce7325e265e719feae798a5432b23cbd9fe65259d10dc2073eaa",
+      "downloaded": "2026-10-29",
+      "text": "nchrp/nchrp.txt",
+      "extraction": "pdftotext -layout"
+    },
+    {
+      "file": "web/asce_bollman.html",
+      "url": "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/bollman-truss-bridge",
+      "bytes": 131589,
+      "sha256": "7e5eef68ede193e8519a47b60052bb0a2cf0a811ae83dbcf0b65f022d0fbdad7",
+      "downloaded": "2026-10-29",
+      "text": "web/asce_bollman.txt",
+      "extraction": "HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "file": "web/yale_6.html",
+      "url": "https://teachersinstitute.yale.edu/curriculum/units/2001/5/01.05.08/6",
+      "bytes": 45422,
+      "sha256": "6ea10c5f54156a7e73899885389d7e2180a73d6abfcae809e3c96ac77ad174b0",
+      "downloaded": "2026-10-29",
+      "text": "web/yale_6.txt",
+      "extraction": "HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "file": "fhwa/fhwa_if_12_052_vol05.pdf",
+      "url": "https://web.archive.org/web/2017id_/https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf",
+      "original_url": "https://www.fhwa.dot.gov/bridge/steel/pubs/if12052/volume05.pdf (HTTP 404 on 2026-10-31)",
+      "bytes": 5814086,
+      "sha256": "f8b60eba4b20780814bcd563513fde56230e1da85758a8cca23844a987f82ed7",
+      "downloaded": "2026-10-31",
+      "text": "fhwa/fhwa.txt",
+      "extraction": "pdftotext -layout, then lines consisting only of the 'Archived' watermark fragments (Ar, ch, i, ve, d) removed"
+    },
+    {
+      "file": "web/fhwa_14067_003.html",
+      "url": "https://www.fhwa.dot.gov/publications/research/infrastructure/structures/bridge/14067/003.cfm",
+      "bytes": 55476,
+      "sha256": "b5d825ccdb047136a97ad4ae8b11a4c6e7e489fdcd188c1704de7cee2f5d4c9c",
+      "downloaded": "2026-11-03",
+      "text": "web/fhwa_14067_003.txt",
+      "extraction": "HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "file": "web/ewv_1183.html",
+      "url": "https://www.wvencyclopedia.org/entries/1183",
+      "bytes": 22195,
+      "sha256": "43575c69e4f1fcc6abf9cf8a0b7209201e0932e900c3dc993720509801e57414",
+      "downloaded": "2026-11-04",
+      "text": "web/ewv_1183.txt",
+      "extraction": "script/style blocks and HTML tags stripped, entities unescaped, whitespace collapsed"
+    }
+  ]
+}

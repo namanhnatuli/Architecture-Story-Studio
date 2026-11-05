@@ -101,3 +101,56 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **Nhiều họ kiến trúc:** mỗi họ một scene context (`states.json` schema 3, `scene_context` trên shot). Dự án một họ phải giữ schema 2 giống hệt. Không đặt hai ngữ cảnh chung một khung hay một camera khóa.
 - **Quyết định của người** (agent không làm): duyệt giọng kênh, cấp quyền xuất bản Kokoro, duyệt claim, xác nhận phát âm, chuyển profile sang PUBLICATION_CANDIDATE.
 - Tài liệu: `docs/m6/M6_ARCHITECTURE.md`, `ANNOTATION_STYLE_GUIDE.md`, `M6_QA_REPORT.md`, `PERFORMANCE.md`.
+
+## Bổ sung M7 (2026-10-30): phim tài liệu dài (8–15 phút)
+- **Kịch bản một nguồn:** sửa `projects/<slug>/script/story.py`, rồi chạy nó để sinh lại `narration.json`, `visual_beats.json`, `chapters.json`. Không sửa tay ba file này. Mỗi sửa câu được ghi vào `narration.template.json` → `revision.edits`.
+- **Chương:** mode `documentary` bắt buộc có `project.chapters`. Mỗi chương là các beat liên tiếp, đúng thứ tự lời dẫn. Dùng `chapters` (manifest + QA phim dài, không cần Blender) và `chapter --chapter Cn` (render + ghép + QA một chương) trước khi render cả phim.
+- **Ảnh ngoài:** chỉ dùng khi có hồ sơ `origin: external` đầy đủ `EXTERNAL_LICENSE_FIELDS`, `credit_keys`, SHA256 và bằng chứng giấy phép kiểm được (không suy từ kết quả tìm kiếm, không fair use, không ảnh có watermark). Ghi công phải xuất hiện trên card hoặc trong mô tả.
+- **Mô hình cạnh cầu thật** phải mang NOTE "Illustrative model, not the …". Không bịa số (tải, ứng suất, nội lực, độ võng, hệ số an toàn, xếp hạng độ bền). Không kể chuyện tiến bộ tuyến tính, không nói một kiểu luôn tốt hơn.
+- **QA phim dài** (`qa/longform_qa.json`, cổng GL): sửa đoạn tĩnh và sự đơn điệu bằng nội dung (tách câu, NOTE theo câu, phần tử theo từ, push-in có lý do). Không nới ngưỡng. Không thêm người, máy móc hay cảnh phá hủy cho "sinh động".
+- **Render dài:** mỗi lúc một Blender. `render_progress.json` cho phép làm tiếp sau khi bị ngắt nếu khóa cache không đổi. Không render 4K trước khi chủ kênh duyệt; 4K chỉ qua `--preset final_4k` theo chương (xem bổ sung M7 finalization). 1080p chỉ dùng cho still chọn lọc hoặc đoạn ngắn, khi đã có ước lượng dung lượng.
+- **Quyết định của người** (agent không làm): duyệt claim M7, xác nhận áp dụng quyền giọng cho phim, xác nhận phát âm tên mới, chuyển profile, đăng.
+- Tài liệu: `docs/m7/M7_ARCHITECTURE.md`, `M7_QA_REPORT.md`, `PERFORMANCE.md`, `M7_HANDOFF.md`.
+- **Bổ sung (bản review nội bộ cuối M7):**
+  - Render dùng lại frame tĩnh theo mặc định (`render_strategy.json` trong mỗi thư mục frame). `--no-reuse` buộc render đủ mọi frame. `verify-reuse --shot` so frame dùng lại với bản render trực tiếp. `--mode reuse-report` ước lượng trước số frame cần render.
+  - Video 1080p trước khi được duyệt dùng `--preset internal_1080p`; tên file luôn có `INTERNAL_REVIEW`.
+  - Không tự đưa giọng mới vào `voices_cleared`.
+  - Không ghi đè báo cáo QA của dự án khác khi chạy hồi quy; lưu kết quả vào `qa/regression/` của milestone đang làm.
+
+## Bổ sung M7 finalization (2026-10-30): hồ sơ duyệt, 4K, quy trình phim mới
+- **Hồ sơ duyệt của chủ kênh** gắn với đúng revision và tự mất hiệu lực khi revision đổi:
+  - claim: `research/editorial_approval.json` (`claims_text_sha256`, `narration_sha256`);
+  - giọng: `config/tts_providers.json` → `clearance.voice_approvals`, theo dự án, kèm SHA256 của giọng. `voices_cleared` vẫn chỉ gồm các giọng đã được cấp chung;
+  - phát âm: `ACCEPTED_BY_OWNER` gắn với `audio_revision` (hash lời dẫn). Đây là chấp nhận audio hiện tại, không phải xác nhận đã nghe từng mục;
+  - tổng hợp: `review/OWNER_APPROVALS.json` (phạm vi, đối tượng, revision, quyết định, ngày, bằng chứng, điều kiện, điều kiện mất hiệu lực).
+  - Agent chỉ ghi lại đúng lời chủ kênh. Không bịa tên, chữ ký hay một buổi nghe.
+- **Cổng cuối** chỉ đòi duyệt các claim mà phim dùng (lời dẫn, beat hình, chú thích, shot). Claim không dùng vẫn ở trong sổ nhưng không được duyệt hộ.
+- **4K:** `chapter --preset final_4k --release-frames` cho từng chương, rồi `final-assemble`, rồi `gates --preset final_4k`.
+  - PNG của một chương chỉ được xóa sau khi bản trung gian đã kiểm chứng và đăng ký ở `qa/chapter_intermediates_final_4k.json`.
+  - Lệnh tự dừng khi đĩa trống dưới 8 GB.
+  - Không phóng to bản 1080p, không dùng frame 1080p làm frame 4K.
+  - Không ghi đè bản review 1080p.
+- **Dự án đang làm:** `projects/` chỉ chứa phim đang sản xuất. Pilot cũ là fixture ở `tests/fixtures/legacy_projects/`; states mái cũ ở `asset_library/legacy_states/` (giữ nguyên asset id). Lưu trữ bằng `tools/archive_projects.py` (ra ngoài repo, có checksum). Không xóa code dùng chung chỉ vì nó ra đời cho một pilot cũ.
+- **Phim mới:** `prompts/NEW_DOCUMENTARY_AUTOPILOT.md` + `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` + `tools/episode.py` (`new`, `status`, `next`). Agent dừng ở OWNER_APPROVAL. Scaffold chạy được không có nghĩa là quy trình tự động đã được kiểm chứng trọn vẹn.
+- Tài liệu: `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`, `docs/production/CLEANUP_REPORT.md`.
+
+## Bổ sung M8 (2026-10-31): đủ sáu họ cầu, ngữ cảnh cảnh theo concept
+- **Họ cầu nhịp lớn:** `bridge.cantilever`, `bridge.suspension`, `bridge.cable_stayed` (`engine/arch/families/bridge.py`). Asset nằm ở `asset_library/architecture/bridges/` và đặt trên site 72 m (`sites/site_river_crossing_72.json`).
+  - Cầu treo: khối neo và đầu cáp nằm trên bờ, ngoài khoảng hở. Kiểm tra kích thước không tính chúng.
+  - Cầu dây văng: dây văng dốc tối thiểu khoảng 22° (FHWA). Validator từ chối dây dốc hơn ngưỡng đó.
+  - Mỗi tham số hình học đều có kiểm tra chéo (`assets.compatibility_errors`). Sửa bằng tham số, không nới kiểm tra.
+- **Ngữ cảnh cảnh theo concept:** một concept kiến trúc có thể khai báo `scene_context` và `site` (`config/visual_vocabulary.json`).
+  - Planner tạo một ngữ cảnh cho mỗi site, mỗi ngữ cảnh có trạng thái site trống riêng (`site`, `site_<context>`).
+  - Shot ứng viên của bộ bố cục mang `scene_context` (`planner/composition.in_context`).
+  - Ngưỡng đọc được 2,5 px ở 640×360 vẫn giữ. Mô hình 72 m không đọc được khi đặt cạnh nhau thì dùng sơ đồ hoặc mỗi shot một mô hình.
+- **Revision lời dẫn:** duyệt claim và chấp nhận phát âm gắn với một revision.
+  - `research/build_sources.py` không áp duyệt của revision khác. Ví dụ: duyệt m7-r1 không áp sang m8-r1.
+  - Duyệt giọng theo dự án giữ nguyên, trừ khi điều kiện mất hiệu lực của chính nó xảy ra.
+  - Khi làm lại phim: cất bản đã duyệt vào `output/baseline_*`, gắn tag git, và đưa profile về `NARRATED_INTERNAL_REVIEW`.
+- **Cầu di động** (cầu cất, cầu quay) là loại theo chức năng, chưa có bộ sinh (`bascule_bridge` có `supported: false`). Planner báo NEW_ASSET_REQUIRED, không thay bằng thứ khác.
+- Tài liệu: `docs/m8/M8_REPORT.md`.
+- **Bổ sung M8.1 (2026-11-03): quyết định thời lượng của chủ kênh.**
+  - Khoảng 8–15 phút của QA phim dài chỉ được đổi cho một dự án khi chủ kênh đã quyết định. Bản ghi ở `project.json` → `runtime_decision` phải có đủ `acceptable_minutes`, `decided_by`, `decided_on` và `basis` (trích lời chủ kênh). Thiếu trường nào thì QA dùng mặc định.
+  - Agent không tự nới thời lượng.
+- **Snapshot nguồn:** để ở `projects/<slug>/research/snapshots/` (git bỏ qua), không để trong scratchpad vì hệ thống có thể xóa.
+

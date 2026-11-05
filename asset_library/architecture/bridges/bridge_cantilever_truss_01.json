@@ -1,0 +1,46 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "bridge_cantilever_truss_01",
+  "title": "Steel cantilever through truss with a suspended span",
+  "family": "bridge",
+  "variant": "cantilever",
+  "units": "METRIC",
+  "generator": {
+    "name": "bridge.cantilever",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "total_length_m": 72.0,
+    "deck_width_m": 6.0,
+    "deck_level_m": 6.0,
+    "anchor_arm_m": 14.0,
+    "cantilever_arm_m": 11.0,
+    "depth_over_piers_m": 9.0,
+    "depth_end_m": 3.5,
+    "depth_tip_m": 4.0,
+    "panels_anchor": 6,
+    "panels_cantilever": 4,
+    "panels_suspended": 6,
+    "pier_width_m": 2.4
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for visual explanation, not a reconstruction of a specific bridge and not an engineering design: anchor arms on the abutments and main piers, cantilever arms projecting from the piers, a suspended span between the arm tips; deepest over the piers. Proportions chosen for legibility on the 72 m site.",
+    "references": [
+      {
+        "title": "A Context for Common Historic Bridge Types (NCHRP 25-25, Task 15), 3.1 and 3.7",
+        "url": "https://onlinepubs.trb.org/onlinepubs/archive/notesdocs/25-25(15)_FR.pdf",
+        "accessed": "2026-10-31",
+        "used_for": "arrangement of the parts only",
+        "excerpt": "A cantilevered truss bridge consists of anchor arms supported by piers, and a suspended span that is supported by the anchor arms."
+      }
+    ]
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "EXPLODED_VIEW",
+    "SIDE_BY_SIDE"
+  ]
+}

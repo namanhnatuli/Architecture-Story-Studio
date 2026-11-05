@@ -1,0 +1,27 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "site_river_crossing_72",
+  "title": "River crossing site, 72 m gap (long-span bridges)",
+  "family": "site",
+  "variant": "river_crossing",
+  "units": "METRIC",
+  "generator": {
+    "name": "site.river_crossing",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "gap_m": 72.0,
+    "deck_level_m": 6.0,
+    "site_width_m": 16.0,
+    "bank_length_m": 8.0,
+    "water_level_m": 0.3
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Neutral context shared by the long-span archetypes (M8): a gap three times the 24 m site, with banks long enough for suspension anchorages."
+  },
+  "animation_support": [
+    "HOLD"
+  ]
+}

@@ -90,14 +90,24 @@ def check_project(project_dir, log=print):
     records = [r for r in manifest.data["segments"].values() if r.get("role") == "sentence"]
     current = {s["cache_key"] for b in manifest.data.get("beats", {}).values() for s in b["sentences"]}
     records = [r for r in records if r["cache_key"] in current]
-    results = transcribe([project_dir / r["file"] for r in records])
+    model = os.environ.get("ASR_MODEL", "openai/whisper-large-v3-turbo")
+    # M7: an unchanged segment (same audio bytes, text and ASR model) keeps its earlier transcript;
+    # pass/fail is still re-scored below with the current WER rule and pronunciation aliases.
+    reuse = {r["cache_key"]: r["asr"] for r in records if (r.get("asr") or {}).get("model") == model
+             and r["asr"].get("segment_sha256") == r.get("sha256") and r["asr"].get("reference") == r["text"]}
+    fresh = [r for r in records if r["cache_key"] not in reuse]
+    heard = dict(zip([r["cache_key"] for r in fresh], transcribe([project_dir / r["file"] for r in fresh]) if fresh else []))
+    results = [heard.get(r["cache_key"]) or {"text": reuse[r["cache_key"]]["text"],
+                                              "language": reuse[r["cache_key"]]["language"]} for r in records]
+    if reuse:
+        log(f"ASR: {len(reuse)} unchanged segment(s) re-scored from their stored transcript, {len(fresh)} transcribed")
     failures = []
     for rec, res in zip(records, results):
         used = aliases if rec.get("pronunciation") else None
         score = round(wer(rec["text"], res["text"], used), 4)
         ok = score <= MAX_WER and (res.get("language") or "").lower() in ("english", "en")
         rec["asr"] = {"text": res["text"], "language": res.get("language"), "wer": score, "pass": ok,
-                      "model": os.environ.get("ASR_MODEL", "openai/whisper-large-v3-turbo"),
+                      "model": model, "segment_sha256": rec.get("sha256"), "reference": rec["text"],
                       "pronunciation_aliases_applied": bool(used),
                       "note": "intelligibility only; pronunciation is confirmed by a human listener"}
         log(f"{'PASS' if ok else 'FAIL'} {rec['beat_id']}.s{rec['sentence_index']} WER {score:.3f} "

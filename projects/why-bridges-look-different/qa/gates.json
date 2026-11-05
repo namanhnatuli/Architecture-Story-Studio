@@ -1,0 +1,65 @@
+{
+  "verdict": "PUBLICATION_READY",
+  "statuses": [
+    "PUBLICATION_READY"
+  ],
+  "gates": {
+    "G0 project & schema validation": {
+      "status": "PASS",
+      "notes": [
+        "validate passes"
+      ]
+    },
+    "G1 evidence, script & pronunciation review": {
+      "status": "PASS",
+      "notes": [
+        "76 claims editorially approved; factual_review verified; pronunciation: current audio accepted by the owner (no per-item listening recorded)"
+      ]
+    },
+    "G2 narration audio & TTS rights": {
+      "status": "PASS",
+      "notes": [
+        "168 sentences generated + ASR-verified",
+        "provider kokoro: rights class PUBLICATION_CLEARED; voice licence APPROVED"
+      ]
+    },
+    "G3 narration timing lock": {
+      "status": "PASS",
+      "notes": [
+        "28687 frames, locked=True"
+      ]
+    },
+    "G4 Blender visual preview": {
+      "status": "PASS",
+      "notes": [
+        "Blender QA 944/944",
+        "media QA PASS"
+      ]
+    },
+    "G5 media assembly & subtitles": {
+      "status": "PASS",
+      "notes": [
+        "28687 frames, -16.4 LUFS, 271 subtitle cues"
+      ]
+    },
+    "GL long-form chapters & rights": {
+      "status": "PASS",
+      "notes": [
+        "17 checks pass, 2 warnings"
+      ]
+    },
+    "G6 final publication readiness": {
+      "status": "PASS",
+      "notes": [
+        "all gates pass"
+      ]
+    },
+    "GV visual plan & coverage": {
+      "status": "PASS",
+      "notes": [
+        "visual plan valid: 75 shots, coverage COVERED 66"
+      ]
+    }
+  },
+  "profile": "PUBLICATION_CANDIDATE"
+}

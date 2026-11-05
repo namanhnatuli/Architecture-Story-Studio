@@ -13,9 +13,11 @@ from planner import camera as CAM, composition, evaluate, planner as pl, repair,
 from tools import render_cache
 from tools.cli import ROOT
 
-BRIDGE = ROOT / "projects" / "bridge-story-m5"
-ROOF = ROOT / "projects" / "roof-plan-m5"
-SUFFOLK = ROOT / "projects" / "suffolk-roofs"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+BRIDGE = LEGACY / "bridge-story-m5"
+ROOF = LEGACY / "roof-plan-m5"
+SUFFOLK = LEGACY / "suffolk-roofs"
 CFG = json.loads((ROOT / "config/visual_planning.json").read_text())
 VCFG, CCFG = CFG["visibility"], CFG["composition"]
 PRESETS = CAM.style_presets()

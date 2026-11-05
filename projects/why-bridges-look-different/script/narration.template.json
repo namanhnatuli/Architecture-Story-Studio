@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "title": "Why Bridges Don't All Look the Same",
+  "status": "INTERNAL_REVIEW_DRAFT - claims source-verified, not editorially approved (revision m8-r3)",
+  "voice": {
+    "provider": "kokoro",
+    "id": "kokoro_am_michael",
+    "mode": "preset",
+    "voice": "am_michael",
+    "selection": {
+      "voice": "am_michael",
+      "selected_by": "Tran Nam Anh (channel owner, in-session instruction)",
+      "selected_on": "2026-10-30",
+      "basis": "chose am_michael after the American voice audition (review/voice_audition_us/AUDITION.md)",
+      "scope": "narrator of the M7 final internal review; replaces bm_george for this film only",
+      "previous": {
+        "voice": "bm_george",
+        "baseline": "git tag m7-review-bm_george"
+      }
+    },
+    "language": "en-US",
+    "params": {
+      "speed": 1.0,
+      "seed": 0,
+      "lang_code": "a"
+    },
+    "license": {
+      "status": "APPROVED",
+      "rights_class": "PUBLICATION_CLEARED",
+      "permitted_use": "Public YouTube release of why-bridges-look-different (monetization included), under the owner's am_michael voice approval in config/tts_providers.json; disclose AI-generated narration.",
+      "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
+      "reviewed_on": "2026-10-30",
+      "reviewed_by": "agent technical audit of am_michael (hash, licence files; not legal advice)",
+      "components": [
+        {
+          "name": "Kokoro-82M weights (hexgrad/Kokoro-82M @ f3ff3571)",
+          "license": "Apache-2.0",
+          "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
+        },
+        {
+          "name": "Voice am_michael (voices/am_michael.pt)",
+          "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
+          "evidence": "VOICES.md SHA256 prefix 9a443b79 matches the local file (tools/kokoro_fetch_voices.py)"
+        },
+        {
+          "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
+          "license": "Apache-2.0",
+          "evidence": "installed package metadata"
+        },
+        {
+          "name": "espeak-ng 1.52.0 via espeakng-loader; phonemizer-fork 3.3.2 (OOD-word fallback)",
+          "license": "GPL-3.0-or-later",
+          "evidence": "local use only, never redistributed (audit section 3)"
+        },
+        {
+          "name": "Training data",
+          "license": "stated permissive / non-copyrighted, including synthetic audio from closed TTS providers",
+          "evidence": "model card; unresolved, audit section 5"
+        }
+      ],
+      "decision": "APPROVED by the channel owner on 2026-10-30 for this documentary (voice am_michael, Kokoro-82M @ f3ff3571). Third-party terms rechecked by the agent: Apache-2.0 weights, code and voice file (no attribution term for American voices); GPL G2P fallback local only; training-data open points (audit §5) accepted by the owner on 2026-10-29. No external restriction found.",
+      "basis": "config/tts_providers.json providers.kokoro.clearance.voice_approvals (am_michael)",
+      "owner_confirmation_for_this_film": "CONFIRMED",
+      "approved_by": "Tran Nam Anh (channel owner)",
+      "approved_on": "2026-10-30",
+      "owner_confirmation": {
+        "by": "Tran Nam Anh (channel owner)",
+        "on": "2026-10-30",
+        "evidence": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.2"
+      }
+    },
+    "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
+    "pronunciation_review": {
+      "status": "ACCEPTED_BY_OWNER",
+      "terms": [
+        "voussoirs",
+        "falsework",
+        "superstructure",
+        "substructure",
+        "abutments",
+        "Pratt",
+        "Warren",
+        "Bollman",
+        "Carrollton",
+        "Gwynns Falls",
+        "Corinne",
+        "Dunlap Creek",
+        "Humpback",
+        "trestle",
+        "viaduct",
+        "cantilever",
+        "Queensboro",
+        "Brooklyn",
+        "Roebling",
+        "Wheeling",
+        "Cincinnati",
+        "cable-stayed",
+        "suspenders",
+        "anchorages",
+        "Tacoma Narrows",
+        "Niagara",
+        "Penobscot",
+        "Kentucky",
+        "Golden Gate"
+      ],
+      "note": "m8-r3 regenerates the changed sentences: the owner's acceptance of the m7-r1 audio (previous_acceptance) does not cover it. Promontory, Covington and Finley were removed from the list (2026-11-04): they are not spoken in the narration (on-screen text only, or not at all). Accepted by the owner on 2026-11-04 for the m8-r4 audio (audio_revision below); the m7-r1 acceptance in previous_acceptance is superseded for this narration.",
+      "previous_acceptance": {
+        "status": "ACCEPTED_BY_OWNER",
+        "accepted_by": "Tran Nam Anh (channel owner)",
+        "accepted_on": "2026-10-30",
+        "basis": "owner instruction in the 'M7 FINALIZATION & PRODUCTION SYSTEM V1' request, section 3 (2026-10-30) §3.3: the owner accepts the existing reviewed audio delivery for the 16 items in review/PRONUNCIATION_REVIEW.md. No per-item listening session or phonetic verification is recorded here.",
+        "audio_revision": "ab0484de3257b5d4bf1631fc63e3d77e924035224c247a26f23950cbff92e5d8"
+      },
+      "asr_uncertainties": [
+        "Bollman heard as 'Bauman'/'Bowman'",
+        "Corinne heard as 'Kareen'",
+        "Gwynns Falls heard as \"Gwyn's Falls\"",
+        "'site' heard as 'sight', 'chord' as 'cord' (homophones)",
+        "'support it' heard as 'supported' (B06.s1)"
+      ],
+      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids this acceptance",
+      "owner_text_review": {
+        "date": "2026-11-04",
+        "by": "Tran Nam Anh (channel owner)",
+        "kind": "text review of the phoneme strings and ASR results; not a listening session",
+        "notes": [
+          "Corinne: Kokoro gave kuh-REEN; Cambridge /kəˈrɪn/ - re-listen first",
+          "Bollman: ASR 'Bauman'; listen for the l and the first vowel",
+          "Tacoma Narrows: ASR dropped the final s; the phonemes end in /z/ - listen",
+          "Cincinnati: phonemes start sɪnts...; reference /ˌsɪn.sɪˈnæt̬.i/ - listen for an intrusive t",
+          "voussoirs, Gwynns Falls: ASR spelling differences, not evidence of mispronunciation"
+        ],
+        "status_effect": "none: pronunciation_review stays PENDING"
+      },
+      "accepted_by": "Tran Nam Anh (channel owner)",
+      "accepted_on": "2026-11-04",
+      "basis": "owner instruction in session, 2026-11-04 ('tôi duyệt các claim và phát âm, hãy render bản final 4k') for the 29 terms of this review list. The agent records the owner's acceptance of the m8-r4 audio; no per-item listening session or phonetic verification is recorded here (same form as the 2026-10-30 acceptance).",
+      "audio_revision": "a5705d7177f23beaf233262d991b21490d376a912a48553961dffb9fc863fb7e"
+    }
+  },
+  "pacing": {
+    "sentence_pause_seconds": 0.4,
+    "beat_lead_in_seconds": 0.4,
+    "beat_tail_seconds": 0.8
+  },
+  "revision": {
+    "version": "m8-r4",
+    "date": "2026-11-04",
+    "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+    "previous": {
+      "version": "m7-r1",
+      "date": "2026-10-30",
+      "status": "EDITORIALLY_APPROVED (41 claims, 2026-10-30)",
+      "note": "m7-r1 is the approved film (git tag m7-final-4k); its approvals do not carry over to m8-r1"
+    },
+    "scope": "M8: the film covers all six structural bridge families (beam, arch, truss, cantilever, suspension, cable-stayed) at the owner's request of 2026-10-31; m8-r2 (owner request of 2026-11-03): chapters 9-12 also cover the long-span families; m8-r3 (owner's editorial review of 2026-11-04): wording corrected where a claim was broader, more present-tense or less conditional than its evidence; m8-r4 (owner's second text review of 2026-11-04): B33 keeps the condition 'stopped being competitive', the B24B card keeps 'almost all', 'main spans' and 'built since 1980', and the review package's notes describe the current film",
+    "review_package": "review/EDITORIAL_APPROVAL_PACKAGE.md",
+    "edits": [
+      {
+        "sentence": "B18.s2",
+        "draft": "By 1860, railroads relied almost entirely on these prefabricated parts.",
+        "m7-r1": "And by 1860, the railroads relied almost entirely on these prefabricated parts.",
+        "why": "bm_george spoke it at 1.47 written words/s (below the 1.5 truncation guard; ASR text was exact)"
+      },
+      {
+        "sentence": "B20.s0",
+        "draft": "Start with materials.",
+        "m7-r1": "Start with the materials themselves.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B22.s0",
+        "draft": "The site matters too.",
+        "m7-r1": "The site of a bridge matters too.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B35.s0",
+        "draft": "Thanks for watching.",
+        "m7-r1": "Thank you very much for watching.",
+        "why": "very short sentence: trailing silence put it under the 1.5 words/s guard"
+      },
+      {
+        "sentence": "B15.s0",
+        "draft": "The truss takes yet another approach.",
+        "m7-r1": "A third approach is the truss.",
+        "why": "ASR heard 'The Trust takes' (WER 0.17)"
+      },
+      {
+        "sentence": "B23.s2",
+        "draft": "spans two hundred and twenty feet, and some through trusses approach four hundred.",
+        "m7-r1": "spans 220 feet, and some through trusses approach 400.",
+        "why": "numbers written as digits so the subtitles read '220' and ASR text matches (WER 0.23 from spelled-out numbers)"
+      },
+      {
+        "sentence": "B20B.s0-s1",
+        "draft": "A truss needs members that can work in tension as well as compression, and wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
+        "m7-r1": "A truss needs members that can work in tension as well as compression. Wrought iron was valued for exactly that: one historian calls it a material strong equally in tension and in compression.",
+        "why": "split in two so the picture can change with the second idea (15 s single-sentence hold)"
+      },
+      {
+        "sentence": "B35.s1",
+        "draft": "(none)",
+        "m7-r1": "The sources and photo credits are listed in the description.",
+        "why": "rough-cut review: the 6-line credits card was on screen for 4 s only"
+      },
+      {
+        "sentence": "B01C.s0",
+        "draft": "Another hangs from great draped cables.",
+        "m8-r1": "Another hangs from huge draped cables.",
+        "why": "ASR heard 'grate' (homophone; WER 0.17)"
+      },
+      {
+        "sentence": "B51.s0",
+        "draft": "Side by side, the difference is clear.",
+        "m8-r1": "Seen in outline, the difference is clear.",
+        "why": "planner/consistency.py: 'side by side' promised two models on screen together, but the comparison is a diagram (two 72 m models do not read side by side at 640x360)"
+      },
+      {
+        "sentence": "B31A.s2",
+        "draft": "Their doubts were not unjustified: the bridge needed major repairs, was declared inadequate in 1890, and it would be 133 years before another suspension bridge was built for railway traffic.",
+        "m8-r3": "Their doubts were not unjustified: the bridge needed substantial repairs in 1877 and 1880, and it was declared inadequate in 1890.",
+        "why": "owner's editorial review of 2026-11-04, item 1: the Williamsburg Bridge (1903) carried rail on its suspension deck (NYC DOT), so the report's '133 years' needs a restriction the source does not give; NOTE '133 years later' removed"
+      },
+      {
+        "sentence": "B40.s1",
+        "draft": "Beam and arch bridges of steel or reinforced concrete were limited to spans of about 200 to 300 feet.",
+        "m8-r3": "Wide rivers like the Ohio and the Mississippi, and deep gorges like the one at Niagara, needed bridges that could reach farther.",
+        "why": "owner's editorial review of 2026-11-04, item 2: the 200-300 ft limit had no period or conditions and contradicts the 1,800 ft arches of C10 (and the Eads Bridge, 1874, 520 ft); replaced by the source's own examples (CLM_752)"
+      },
+      {
+        "sentence": "B23C.s1-s3",
+        "draft": "In steel, a federal handbook puts plate girders at about 90 to over 500 feet, simple trusses at up to about 750, and cantilever trusses considerably farther. / Arches have spanned from about 200 to 1,800 feet, and cable-stayed bridges from under 200 to nearly 3,000.",
+        "m8-r3": "A 2012 federal handbook for steel bridges gives two kinds of numbers. / Some are practical ranges: ... / Others are spans that have actually been built: ...",
+        "why": "owner's editorial review of 2026-11-04, item 3: the card mixed practical/economic ranges with spans built and called all of them 'economic ranges'; the narration and the card now keep the two kinds apart (outlined vs solid bars)"
+      },
+      {
+        "sentence": "B24B.s2",
+        "draft": "... and since 1980 almost every American bridge with a main span over 1,000 feet has been cable-stayed.",
+        "m8-r3": "... and a 2012 federal handbook found that almost every American bridge built since 1980 with a main span over 1,000 feet was cable-stayed.",
+        "why": "owner's editorial review of 2026-11-04, item 4: a 2012 statistic, now dated"
+      },
+      {
+        "sentence": "B31D.s0",
+        "draft": "Today, the long-span answer in America is usually cable-stayed.",
+        "m8-r3": "In Maine, a modern cable-stayed bridge went up remarkably fast.",
+        "why": "owner's editorial review of 2026-11-04, item 4: the present-tense claim dropped the conditions of CLM_774 (built in the U.S., main span over 1,000 ft, as of 2012)"
+      },
+      {
+        "sentence": "B33.s1-s2",
+        "draft": "Timber beam bridges are still built today, ... / And the most common steel bridge today is still a kind of beam: the welded plate girder.",
+        "m8-r3": "Timber beam bridges were still being built long after timber trusses, ... / And in 2012, a federal handbook still named a kind of beam, the welded plate girder, as the most common steel bridge.",
+        "why": "owner's editorial review of 2026-11-04, item 4: 2005 and 2012 statements, now dated (card text too)"
+      },
+      {
+        "sentence": "B23E.s0",
+        "draft": "Cable-stayed bridges are becoming more common worldwide, and one significant reason is that the methods for erecting them are now better understood.",
+        "m8-r3": "By 2012, cable-stayed bridges were becoming more common worldwide, and one significant reason was that the methods for erecting them had become better understood.",
+        "why": "owner's editorial review of 2026-11-04, item 4: a 2012 statement, now dated"
+      },
+      {
+        "sentence": "B09.s1",
+        "draft": "... long after timber trusses fell out of use, and why they are still built on quiet rural roads and in parks today.",
+        "m8-r3": "... long after timber trusses stopped being competitive, and in 2005 a national report found them still being built on quiet rural roads and in parks.",
+        "why": "owner's editorial review of 2026-11-04, item 4: a 2005 statement, now dated; 'fell out of use' was stronger than the source ('ceased to be competitive')"
+      },
+      {
+        "sentence": "B20E.s2",
+        "draft": "... suspension and cable-stayed bridges now rely on high-strength steel cables.",
+        "m8-r3": "... suspension and cable-stayed bridges came to rely on high-strength steel cables.",
+        "why": "same review, item 4 (present tense)"
+      },
+      {
+        "sentence": "B22C.s0-s1",
+        "draft": "Cantilevers had an advantage on uncertain ground. / Unstable soil troubled many foundations, and if a pier sank, a cantilever could adjust, where a continuous beam might fail.",
+        "m8-r3": "A cantilever like this one is a continuous girder with hinges built in, which made its forces easy to calculate. / So on unstable soil, if a pier sank, its superstructure could adjust, where a continuous beam might build up hidden stresses and fail.",
+        "why": "owner's editorial review of 2026-11-04, item 5: the source attributes the advantage to the hinged, statically determinate form and to the superstructure"
+      },
+      {
+        "sentence": "B22B (card)",
+        "draft": "Suspension: cables anchored in massive blocks, set into rock",
+        "m8-r3": "Suspension: cables anchored in massive blocks or in bedrock (one bank each); cable-stayed foundations drawn in the earth, rock deep",
+        "why": "owner's editorial review of 2026-11-04, item 6: the card said 'and' where the narration and CLM_761 say 'or'"
+      },
+      {
+        "sentence": "B44.s2",
+        "draft": "(none)",
+        "m8-r3": "Unlike our model, it has no suspended span in the middle, something one report calls unique among cantilevers of its size.",
+        "why": "owner's editorial review of 2026-11-04, item 7: the illustrative model (with a suspended span) is shown just before the Queensboro photograph (CLM_794)"
+      },
+      {
+        "sentence": "B03.s2",
+        "draft": "And it has to pass all of that down into the ground on either side.",
+        "m8-r3": "And it has to pass all of that down through its supports into the ground.",
+        "why": "same review (minor): the load also reaches the ground through the piers"
+      },
+      {
+        "sentence": "B51.s0-s2",
+        "draft": "Seen in outline, the difference is clear. / The suspension bridge has shorter towers ... / The cable-stayed bridge needs much taller towers ...",
+        "m8-r3": "Drawn in outline at the same span, the two types differ. / ... much shorter towers ... / ... taller towers, because their height depends on the span ...",
+        "why": "same review (minor): the tower comparison holds at a comparable span (CLM_763, CLM_771); not an identification rule"
+      },
+      {
+        "sentence": "B24B.s1",
+        "draft": "... the longest bridge in the world for many years.",
+        "m8-r3": "... the longest span in the world when it opened.",
+        "why": "same review (minor): span, not total length; 'for many years' not corroborated (e-WV, Emory L. Kemp: 'the longest (1,010 feet) clear span in the world')"
+      },
+      {
+        "sentence": "B48.s0-s1",
+        "draft": "Towers, cables and suspenders, anchorages and a stiffening truss: these are the features that define a suspension bridge. / The Brooklyn Bridge ... has them all, and one report says ...",
+        "m8-r3": "The Brooklyn Bridge in New York, completed in 1883, was planned with two towers, cables and suspenders, anchorages and a stiffening truss. / One report says few suspension bridges built since ...",
+        "why": "same review (minor): the source lists these parts for the Brooklyn Bridge plan; B47 (FHWA) calls a stiffening truss only 'common'"
+      },
+      {
+        "sentence": "B31B.s0",
+        "draft": "Cantilevers, by contrast, were first used by the railroads.",
+        "m8-r3": "In America, modern cantilevers were first used by the railroads, and only later for highways.",
+        "why": "same review (minor): the source speaks of the modern cantilever in the U.S. ('and then as highway bridges') and also describes ancient cantilevers"
+      },
+      {
+        "sentence": "B33.s1",
+        "draft": "Timber beam bridges were still being built long after timber trusses, and stone arches briefly returned during the Great Depression.",
+        "m8-r4": "Timber beam bridges were still being built long after timber trusses stopped being competitive, and stone arches briefly returned during the Great Depression.",
+        "why": "owner's second text review (2026-11-04): without 'stopped being competitive' the sentence can be read as timber trusses no longer being built at all; same wording as B09 and as NCHRP §3.3.1 ('ceased to be competitive with metal truss bridges')"
+      }
+    ],
+    "voice_change": {
+      "date": "2026-10-30",
+      "from": {
+        "id": "kokoro_bm_george",
+        "voice": "bm_george",
+        "language": "en-GB",
+        "params": {
+          "speed": 1.0,
+          "seed": 0,
+          "lang_code": "b"
+        }
+      },
+      "to": {
+        "id": "kokoro_am_michael",
+        "voice": "am_michael",
+        "language": "en-US",
+        "params": {
+          "speed": 1.0,
+          "seed": 0,
+          "lang_code": "a"
+        }
+      },
+      "text_changed": false
+    },
+    "previous_m8": {
+      "version": "m8-r1",
+      "date": "2026-10-31",
+      "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+      "note": "m8-r1 was the first all-families review cut (commit 0cd48f0); never approved"
+    },
+    "previous_m8_r2": {
+      "version": "m8-r2",
+      "date": "2026-11-03",
+      "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+      "note": "m8-r2 added the long-span families to chapters 9-12 (commit eabe12c); the owner's editorial review of 2026-11-04 requested changes; never approved"
+    },
+    "previous_m8_r3": {
+      "version": "m8-r3",
+      "date": "2026-11-04",
+      "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+      "note": "m8-r3 corrected the wording after the owner's editorial review (commit 55f937a; 720p review cut 32795d4); the owner's second text review of 2026-11-04 requested three more changes; never approved"
+    }
+  },
+  "beats": []
+}

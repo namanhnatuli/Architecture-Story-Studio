@@ -28,6 +28,36 @@
     "engine": "EEVEE",
     "format": "PNG"
   },
+  "final_4k": {
+    "width": 3840,
+    "height": 2160,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG",
+    "crf": 16,
+    "x264_preset": "slow",
+    "color": "bt709",
+    "audio_bitrate": "256k",
+    "stream_chapters": true,
+    "est_png_mb": 6.0,
+    "note": "Native UHD final. Requires the FINAL gate (claims, voice licence, pronunciation, factual review, assets) like `final`; rendered chapter by chapter, PNGs released after a verified chapter intermediate. Colour: sRGB 8-bit PNG -> H.264 BT.709 (matrix, primaries, transfer tags), limited range."
+  },
+  "internal_1080p": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG",
+    "note": "M7 internal-review video at delivery resolution. Always named and tagged INTERNAL REVIEW; never a publication render (`final` stays behind the G6 gate)."
+  },
+  "internal_720p": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "engine": "EEVEE",
+    "format": "PNG",
+    "note": "M8.2 final internal review at 720p (owner request, 2026-11-04). Always named and tagged INTERNAL REVIEW; never a publication render (`final` stays behind the G6 gate)."
+  },
   "output_codec": "libx264",
   "output_crf": 18,
   "recommended_minimum_free_disk_gb": 10

@@ -18,7 +18,7 @@ Kênh YouTube **tiếng Anh** (mục tiêu 8–15 phút/video) giải thích nh�
 Codex hoặc Claude Code làm developer; Blender Python (`bpy`) làm 3D engine; Geometry Nodes/instancing khi phù hợp; Blender MCP để QA/tinh chỉnh scene tùy chọn; FFmpeg cho kết xuất; TTS và nguồn lưu trữ bên ngoài tùy chọn.
 
 ### Chất lượng và giới hạn
-- Máy khởi điểm: Mac Apple Silicon M4 / 16 GB, preview 640x360 hoặc 960x540, 24 fps, Eevee. Final 1080p sau khi preview đạt.
+- Máy khởi điểm: Mac Apple Silicon M4 / 16 GB, preview 640x360 hoặc 960x540, 24 fps, Eevee. Bản review nội bộ 1080p sau khi preview đạt; bản cuối 4K (3840×2160) chỉ sau khi chủ kênh duyệt, render theo chương (`final_4k`).
 - Không bịa dẫn chứng, kiểu nhà, niên đại, thông số chịu lực. Các cảnh demo luôn ghi là mô hình minh họa.
 - Không tải/sử dụng tài sản chưa rõ license; không chuyển bản vẽ nghệ thuật thành chứng cứ.
 - Không gửi tác vụ render final dài nếu chưa qua quality gates. Không cho MCP/code AI quyền xóa/sửa file ngoài project.
@@ -28,3 +28,11 @@ Codex hoặc Claude Code làm developer; Blender Python (`bpy`) làm 3D engine; 
 2. JSON validate → dựng greybox → render still → render preview 6s → tạo MP4.
 3. Hai state A/B cùng dùng bộ tường/móng; mái A tách ra và mái B lắp vào, camera không đổi.
 4. Mở rộng được thư viện state/template mà không sửa toàn bộ engine.
+
+## Sản xuất hiện tại (2026-10-30)
+- **Phim tham chiếu:** `projects/why-bridges-look-different` ("Why Bridges Don't All Look the Same", 10,7 phút, 8 chương). Đây là dự án duy nhất trong `projects/`.
+- **Mỗi phim mới** bắt đầu từ một chủ đề, theo `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`, với mặc định trong `config/production_defaults.json`:
+  - tiếng Anh, 16:9, 24 fps, 10–12 phút (chấp nhận 8–15);
+  - giọng Kokoro `am_michael`;
+  - review 1080p, bản cuối 4K.
+- **Agent làm tới bản review nội bộ và gói duyệt, rồi dừng.** Chủ kênh duyệt claim, giọng cho dự án, phát âm, ảnh và việc xuất bản. Studio không bao giờ tự upload.

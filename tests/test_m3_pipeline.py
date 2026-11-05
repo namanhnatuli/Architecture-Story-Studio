@@ -15,7 +15,9 @@ from tests.fake_omnivoice import FakeOmniVoice
 from tools.cli import ROOT
 from tools.validator import validate_project
 
-PILOT = ROOT / "projects" / "suffolk-roofs"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+PILOT = LEGACY / "suffolk-roofs"
 HAS_FFMPEG = bool(shutil.which("ffmpeg") and shutil.which("ffprobe"))
 
 

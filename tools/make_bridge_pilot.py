@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Regenerate projects/bridge-structure-evolution/{storyboard/states.json, storyboard/storyboard.json,
+"""Archived M4 pilot (M7: kept as a regression fixture). Regenerate
+tests/fixtures/legacy_projects/bridge-structure-evolution/{storyboard/states.json, storyboard/storyboard.json,
 project.json} from the library asset specs and the generators' exploded-view presets, so component
 ids and explode distances can never drift from engine/arch.
 
@@ -14,7 +15,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from engine.arch import assets  # noqa: E402
 
-P = ROOT / "projects" / "bridge-structure-evolution"
+P = ROOT / "tests" / "fixtures" / "legacy_projects" / "bridge-structure-evolution"   # archived pilot (M7)
 B = "asset_library/architecture/bridges/"
 SITE = "asset_library/architecture/sites/site_river_crossing_24.json"
 VARIANTS = {"timber_beam": B + "bridge_timber_beam_01.json", "stone_arch": B + "bridge_stone_arch_03.json",

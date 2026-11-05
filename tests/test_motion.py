@@ -6,7 +6,9 @@ import unittest
 from engine import motion, spec, templates
 from tools.cli import ROOT
 
-PROJECT = ROOT / "projects" / "roof-evolution"
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
+PROJECT = LEGACY / "roof-evolution"
 
 
 def load(name):

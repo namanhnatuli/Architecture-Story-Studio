@@ -14,12 +14,14 @@ shot can say which category changed:
   engine           engine/**/*.py that run during a render (qa_checks.py and the deprecated
                    transform.py are excluded); recursive since M4 (engine/arch/)
   assets           M4: contents of the architecture asset specs referenced by states.json
-                   (base + variants) and, when any is referenced, the shared material library
+                   (base + variants) and, when any is referenced, the shared material library;
+                   M7: the bytes of every external image a card shows (not its rights record)
 
 Not render dependencies (never invalidate frames): narration text, audio and its
 rights class, pronunciation, subtitles, timeline position (start_seconds),
 cut_from_previous, beat/claim ids, visual_purpose, source ledger and review
-statuses, project title/duration/factual_review/audio_timing_locked.
+statuses, project title/duration/factual_review/audio_timing_locked, M7 chapter
+grouping and the licence/attribution metadata of external images.
 Unknown shot/state/project fields are treated as visual (fail-safe: re-render).
 """
 import hashlib
@@ -34,7 +36,8 @@ SHOT_NON_VISUAL = ("beat_ids", "visual_purpose", "narration", "claim_ids", "star
 STATE_NON_VISUAL = ("name", "claim_ids", "note", "notes", "description")
 STATES_TOP_NON_VISUAL = ("note", "transitions", "schema_version")
 PROJECT_NON_VISUAL = ("slug", "title", "mode", "language", "duration_seconds", "render_preset", "factual_review",
-                      "audio_timing_locked", "notes", "production_profile", "publication_metadata")
+                      "audio_timing_locked", "notes", "production_profile", "publication_metadata", "chapters",
+                      "review_label", "factual_review_basis")
 ENGINE_EXCLUDED = ("qa_checks.py", "qa_visibility.py", "qa_annotations.py", "transform.py")
 CATEGORIES = ("shot_visual", "states_geometry", "project_render", "style", "preset", "engine", "assets")
 MATERIAL_LIBRARY = "asset_library/materials/stylized_materials.json"
@@ -103,8 +106,18 @@ def components(p, shot, preset, root=ROOT):
         "preset": digest({"name": preset, **presets[preset]}),
         "engine": digest(engine_file_hashes(root)),
         "assets": digest({rel: digest((root / rel).read_bytes()) if (root / rel).is_file() else "missing"
-                          for rel in asset_files(states, root, built)}),
+                          for rel in asset_files(states, root, built)}) if not image_files(shot) else
+        digest({"specs": {rel: digest((root / rel).read_bytes()) if (root / rel).is_file() else "missing"
+                          for rel in asset_files(states, root, built)},
+                "images": {rel: digest((p / rel).read_bytes()) if (p / rel).is_file() else "missing"
+                           for rel in image_files(shot)}}),
     }
+
+
+def image_files(shot):
+    """M7: project-relative image files a card shot draws (their bytes are render inputs)."""
+    return sorted({e["path"] for e in (shot.get("graphic") or {}).get("elements", [])
+                   if e.get("kind") == "image" and e.get("path")})
 
 
 def uses_annotation_style(shot):

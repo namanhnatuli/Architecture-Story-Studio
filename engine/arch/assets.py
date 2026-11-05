@@ -55,6 +55,32 @@ FAMILIES = {
                            pier_width_m=num(0.8, 4.0, 1.6), chord_size_m=num(0.15, 0.6, 0.3),
                            web_size_m=num(0.1, 0.4, 0.2)),
         },
+        # M8 long-span families: span a wider site (asset_library/architecture/sites/site_river_crossing_72.json)
+        "cantilever": {
+            "generator": bridge.cantilever, "materials": ("steel", "steel_dark", "concrete", "concrete_deck"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SIDE_BY_SIDE"),
+            "params": dict(COMMON, anchor_arm_m=num(4, 30, 14.0), cantilever_arm_m=num(3, 25, 11.0),
+                           depth_over_piers_m=num(3, 20, 9.0), depth_end_m=num(1.5, 8, 3.5), depth_tip_m=num(1.5, 8, 4.0),
+                           panels_anchor=num(2, 16, 6, integer=True, even=True),
+                           panels_cantilever=num(2, 12, 4, integer=True, even=True),
+                           panels_suspended=num(2, 16, 6, integer=True, even=True), pier_width_m=num(1.0, 6.0, 2.4),
+                           chord_size_m=num(0.15, 0.6, 0.32), web_size_m=num(0.1, 0.4, 0.2)),
+        },
+        "suspension": {
+            "generator": bridge.suspension, "materials": ("steel", "steel_dark", "cable", "concrete", "concrete_deck"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SIDE_BY_SIDE"),
+            "params": dict(COMMON, main_span_m=num(10, 70, 44.0), tower_height_m=num(3, 25, 7.0),
+                           sag_ratio=num(0.06, 0.16, 0.11), hanger_spacing_m=num(1.0, 6.0, 2.0),
+                           stiffening_depth_m=num(0.5, 3.0, 1.3), anchorage_offset_m=num(1.5, 10, 3.2),
+                           cable_size_m=num(0.15, 0.6, 0.3), tower_size_m=num(0.4, 2.0, 0.8)),
+        },
+        "cable_stayed": {
+            "generator": bridge.cable_stayed, "materials": ("cable", "concrete", "concrete_deck"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SIDE_BY_SIDE"),
+            "params": dict(COMMON, main_span_m=num(10, 70, 40.0), pylon_height_m=num(4, 30, 11.0),
+                           stays_per_side=num(2, 10, 5, integer=True), girder_depth_m=num(0.4, 2.0, 0.8),
+                           pylon_size_m=num(0.5, 2.0, 0.9), stay_size_m=num(0.06, 0.3, 0.14)),
+        },
     },
     "site": {
         "river_crossing": {
@@ -135,6 +161,31 @@ def compatibility_errors(family, variant, p):
         if not 0.5 <= ratio <= 3.0:
             errors.append(f"steel_truss: truss height / panel length = {ratio:.2f} (diagonals too flat or steep); "
                           "keep it between 0.5 and 3.0")
+    if variant == "suspension":
+        lay = bridge.suspension_layout(p)
+        if lay["side"] < 4.0:
+            errors.append(f"suspension: side spans of {lay['side']:.1f} m; main_span_m leaves too little room for the towers")
+        if lay["clearance"] < 0.8:
+            errors.append(f"suspension: the cable dips to {lay['clearance']:.2f} m above the deck at mid-span (needs >= 0.8 m "
+                          "for the hangers): raise tower_height_m or lower sag_ratio")
+        if p["tower_height_m"] < bridge.THROUGH_CLEARANCE_M + 1.0:
+            errors.append("suspension: tower_height_m must leave road clearance under the top strut "
+                          f"(>= {bridge.THROUGH_CLEARANCE_M + 1.0} m)")
+    if variant == "cable_stayed":
+        lay = bridge.cable_stayed_layout(p)
+        if lay["side"] < 4.0:
+            errors.append(f"cable_stayed: side spans of {lay['side']:.1f} m are too short for the stays")
+        if lay["flattest_deg"] < 22.0:   # FHWA-IF-12-052 vol. 5, 2.5: not less than about 22 degrees
+            errors.append(f"cable_stayed: the flattest stay is at {lay['flattest_deg']:.1f} deg; stays flatter than about "
+                          "22 deg carry the vertical load inefficiently (raise pylon_height_m or shorten main_span_m)")
+        if p["pylon_height_m"] - 0.55 * p["stays_per_side"] - 0.6 < bridge.THROUGH_CLEARANCE_M:
+            errors.append("cable_stayed: the pylon strut below the stay anchorages would block the road; raise pylon_height_m")
+    if variant == "cantilever":
+        lay = bridge.cantilever_layout(p)
+        if lay["suspended_m"] < 4.0:
+            errors.append(f"cantilever: the suspended span is {lay['suspended_m']:.1f} m; shorten the arms")
+        if not p["depth_over_piers_m"] > max(p["depth_end_m"], p["depth_tip_m"]):
+            errors.append("cantilever: the truss must be deepest over the main piers")
     return errors
 
 
@@ -224,6 +275,21 @@ def plan_cached(path, owner="shared"):
     return _CACHE[key]
 
 
+def site_for(path):
+    """The library site whose gap and deck level a bridge spans (M8: the long-span bridges have their
+    own wider site), as a repository-relative path; None when no site matches."""
+    data, _ = load(path)
+    if data.get("family") != "bridge":
+        return None
+    p = resolve_params(data["family"], data["variant"], data["parameters"])[0]
+    for site in sorted((ROOT / "asset_library/architecture/sites").glob("*.json")):
+        s, _ = load(site)
+        sp = resolve_params(s["family"], s["variant"], s["parameters"])[0]
+        if abs(sp["gap_m"] - p["total_length_m"]) < 1e-6 and abs(sp["deck_level_m"] - p["deck_level_m"]) < 1e-6:
+            return str(site.relative_to(ROOT))
+    return None
+
+
 def resolved_params_file(path):
     data, _ = load(path)
     return data, resolve_params(data["family"], data["variant"], data["parameters"])[0]
@@ -248,7 +314,8 @@ def describe(spec_data):
 
 
 EXPLODE_PRESETS = {("bridge", "timber_beam"): "timber_beam", ("bridge", "stone_arch"): "stone_arch",
-                   ("bridge", "steel_truss"): "steel_truss"}
+                   ("bridge", "steel_truss"): "steel_truss", ("bridge", "cantilever"): "cantilever",
+                   ("bridge", "suspension"): "suspension", ("bridge", "cable_stayed"): "cable_stayed"}
 
 
 def explode_offsets(spec_data, comps):

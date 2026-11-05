@@ -39,8 +39,49 @@ VOICE_SHA256 = {   # VOICES.md prefixes verified on 2026-10-28
     "bm_fable": "d44935f3135257a9064df99f007fc1342ff1aa767552b4a4fa4c3b2e6e59079c",
     "bm_george": "f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b",
     "bm_daniel": "fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d",
+    # M7 (2026-10-30): American narrator chosen by the channel owner for the M7 final internal review;
+    # SHA256 checked against the VOICES.md prefix 9a443b79 (docs/licensing/KOKORO_LICENSE_AUDIT.md §8).
+    # Audited for narration does not mean cleared for publication: that remains the owner's decision.
+    "am_michael": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+}
+# M7 listening test only: American English voices (lang_code "a"), SHA256 checked against the
+# VOICES.md prefixes of the pinned revision on 2026-10-30 (tools/kokoro_fetch_voices.py). They are
+# NOT audited narration voices: narration (verify_release) refuses them, and the publication
+# clearance of 2026-10-29 does not cover them until the owner chooses one and the audit is updated.
+AUDITION_VOICE_SHA256 = {
+    "af_heart": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+    "af_alloy": "6d877149dd8b348fbad12e5845b7e43d975390e9f3b68a811d1d86168bef5aa3",
+    "af_aoede": "c03bd1a4c3716c2d8eaa3d50022f62d5c31cfbd6e15933a00b17fefe13841cc4",
+    "af_bella": "8cb64e02fcc8de0327a8e13817e49c76c945ecf0052ceac97d3081480e8e48d6",
+    "af_jessica": "cdfdccb8cc975aa34ee6b89642963b0064237675de0e41a30ae64cc958dd4e87",
+    "af_kore": "8bfbc512321c3db49dff984ac675fa5ac7eaed5a96cc31104d3a9080e179d69d",
+    "af_nicole": "c5561808bcf5250fe8c5f5de32caf2d94f27e57e95befdb098c5c85991d4c5da",
+    "af_nova": "e0233676ddc21908c37a1f102f6b88a59e4e5c1bd764983616eb9eda629dbcd2",
+    "af_river": "e149459bd9c084416b74756b9bd3418256a8b839088abb07d463730c369dab8f",
+    "af_sarah": "49bd364ea3be9eb3e9685e8f9a15448c4883112a7c0ff7ab139fa4088b08cef9",
+    "af_sky": "c799548aed06e0cb0d655a85a01b48e7f10484d71663f9a3045a5b9362e8512c",
+    "am_adam": "ced7e284aba12472891be1da3ab34db84cc05cc02b5889535796dbf2d8b0cb34",
+    "am_echo": "8bcfdc852bc985fb45c396c561e571ffb9183930071f962f1b50df5c97b161e8",
+    "am_eric": "ada66f0eefff34ec921b1d7474d7ac8bec00cd863c170f1c534916e9b8212aae",
+    "am_fenrir": "98e507eca1db08230ae3b6232d59c10aec9630022d19accac4f5d12fcec3c37a",
+    "am_liam": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518",
+    "am_michael": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37",
+    "am_onyx": "e8452be16cd0f6da7b4579eaf7b1e4506e92524882053d86d72b96b9a7fed584",
+    "am_puck": "dd1d8973f4ce4b7d8ae407c77a435f485dabc052081b80ea75c4f30b84f36223",
+    "am_santa": "7f2f7582fa2b1f160e90aafe6d0b442a685e773608b6667e545d743b073e97a7",
 }
 DEFAULT_PARAMS = {"speed": 1.0, "seed": 0, "lang_code": "b"}
+
+
+def verify_audition_voice(voice_id):
+    """Errors unless voice_id is an audited or audition voice whose file matches its recorded hash."""
+    want = VOICE_SHA256.get(voice_id) or AUDITION_VOICE_SHA256.get(voice_id)
+    path = snapshot_dir() / "voices" / f"{voice_id}.pt"
+    if want is None:
+        return [f"voice {voice_id!r} is neither audited nor in the audition list"]
+    if not path.is_file():
+        return [f"{path} missing (tools/kokoro_fetch_voices.py)"]
+    return [] if sha256(path) == want else [f"voices/{voice_id}.pt: SHA256 {sha256(path)[:12]}… differs from {want[:12]}…"]
 
 
 class KokoroError(RuntimeError):

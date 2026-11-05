@@ -1,0 +1,103 @@
+{
+  "schema_version": 3,
+  "generated_by": "planner",
+  "planner_version": "1.0.0",
+  "building_type": "mixed",
+  "contexts": {
+    "bridge": {
+      "building_type": "bridge",
+      "base": {
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/sites/site_river_crossing_24.json"
+      },
+      "shared_components": [
+        "banks",
+        "water"
+      ]
+    },
+    "long_span": {
+      "building_type": "bridge",
+      "base": {
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/sites/site_river_crossing_72.json"
+      },
+      "shared_components": [
+        "banks",
+        "water"
+      ]
+    }
+  },
+  "base": {
+    "builder": "architecture_asset",
+    "asset": "asset_library/architecture/sites/site_river_crossing_24.json"
+  },
+  "shared_components": [
+    "banks",
+    "water"
+  ],
+  "variants": [
+    {
+      "id": "site",
+      "name": "Empty site (no structure)",
+      "builder": "none",
+      "context": "bridge"
+    },
+    {
+      "id": "site_long_span",
+      "name": "Empty site (no structure)",
+      "builder": "none",
+      "context": "long_span"
+    },
+    {
+      "id": "timber_beam_bridge",
+      "name": "Timber beam bridge",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/bridges/bridge_timber_beam_01.json",
+      "context": "bridge"
+    },
+    {
+      "id": "stone_arch_bridge",
+      "name": "Stone arch bridge",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/bridges/bridge_stone_arch_03.json",
+      "context": "bridge"
+    },
+    {
+      "id": "steel_truss_bridge",
+      "name": "Steel truss bridge",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/bridges/bridge_steel_truss_pratt_01.json",
+      "context": "bridge"
+    },
+    {
+      "id": "cantilever_bridge",
+      "name": "Cantilever bridge",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/bridges/bridge_cantilever_truss_01.json",
+      "context": "long_span"
+    },
+    {
+      "id": "suspension_bridge",
+      "name": "Suspension bridge",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/bridges/bridge_suspension_01.json",
+      "context": "long_span"
+    },
+    {
+      "id": "cable_stayed_bridge",
+      "name": "Cable-stayed bridge",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/bridges/bridge_cable_stayed_01.json",
+      "context": "long_span"
+    },
+    {
+      "id": "warren_truss",
+      "name": "Warren truss",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/bridges/bridge_steel_truss_warren_01.json",
+      "structure_from": "steel_truss_bridge",
+      "context": "bridge"
+    }
+  ],
+  "transitions": []
+}

@@ -5,7 +5,7 @@ the frame that represents each shot as a key still."""
 import json
 from pathlib import Path
 
-from planner.planner import SITE_STATE
+from planner.planner import is_site_state
 
 SHOT_KEYS = ("id", "duration_seconds", "visual_type", "transition", "camera", "from_state", "to_state",
              "animation", "graphic", "camera_focus", "camera_safe_band", "build_variants", "annotations",
@@ -40,7 +40,7 @@ def storyboard(plan):
             shot["editorial"]["repairs"] = ps["repairs"]
         shots.append(shot)
         marker = {"EXPLODED_VIEW": "exploded_hold", "REPLACE_PARTS": "middle"}.get(ps["template"])
-        if ps["template"] == "REPLACE_PARTS" and ps["states"][0] == SITE_STATE:
+        if ps["template"] == "REPLACE_PARTS" and is_site_state(ps["states"][0]):
             marker = "incoming_end"      # assembly into the empty site: "middle" would still be empty
         still = {"id": f"{ps['shot_id']}_{ps['beat_id']}_{ps['template'].lower()}", "shot": ps["shot_id"]}
         if marker:

@@ -1,0 +1,69 @@
+{
+  "asset_id": "bridge_cable_stayed_01",
+  "signature": "08df6ee56e61b2ed2c4dce5b19a7c10418b5989ff2e28b0cff7cd5ccf395baa4",
+  "stats": {
+    "build_seconds": 0.032,
+    "objects": 50,
+    "asset_objects": 47,
+    "mesh_datablocks": 28,
+    "asset_mesh_datablocks": 25,
+    "evaluated_verts": 4864
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.032,
+    "objects": 50,
+    "asset_objects": 47,
+    "mesh_datablocks": 28,
+    "asset_mesh_datablocks": 25
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "50 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (73 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 08df6ee56e61b2ed twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "47 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/three_quarter.png",
+      "render_seconds": 0.823,
+      "build_seconds": 0.032
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/elevation.png",
+      "render_seconds": 0.26,
+      "build_seconds": 0.032
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/top.png",
+      "render_seconds": 0.342,
+      "build_seconds": 0.032
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/bridges/previews/bridge_cable_stayed_01/review/exploded.png",
+      "render_seconds": 0.804,
+      "build_seconds": 0.033
+    }
+  },
+  "process": {
+    "wall_seconds": 3.1,
+    "peak_rss_mb": 514.1,
+    "peak_memory_footprint_mb": 1928.8,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

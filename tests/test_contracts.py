@@ -5,10 +5,12 @@ from pathlib import Path
 from tools.validator import validate_project
 from tools.cli import ROOT, project_path
 
+LEGACY = ROOT / "tests" / "fixtures" / "legacy_projects"   # archived pilots kept as regression fixtures (M7)
+
 
 class ProjectContractsTest(unittest.TestCase):
     def setUp(self):
-        self.project = ROOT / "projects" / "roof-evolution"
+        self.project = LEGACY / "roof-evolution"
 
     def test_demo_validates(self):
         errors, warnings = validate_project(self.project)

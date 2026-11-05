@@ -28,17 +28,22 @@ class Engine:
         self.snap = Path(snapshot)
         torch.set_num_threads(int(threads))
         t0 = time.time()
-        model = KModel(repo_id="hexgrad/Kokoro-82M", config=str(self.snap / "config.json"),
-                       model=str(self.snap / "kokoro-v1_0.pth")).to("cpu").eval()
-        self.pipe = KPipeline(lang_code=lang_code, repo_id="hexgrad/Kokoro-82M", model=model)
+        self.model = KModel(repo_id="hexgrad/Kokoro-82M", config=str(self.snap / "config.json"),
+                            model=str(self.snap / "kokoro-v1_0.pth")).to("cpu").eval()
+        self.lang_code = lang_code
+        self.pipes = {}   # one G2P pipeline per lang_code ("a" American, "b" British), sharing the model
+        self.pipe_for(lang_code)
         self.load_seconds = round(time.time() - t0, 2)
         self.voices = {}
 
-    def run(self, items):
-        return [self.one(item) for item in items]
+    def pipe_for(self, lang_code):
+        if lang_code not in self.pipes:
+            self.pipes[lang_code] = KPipeline(lang_code=lang_code, repo_id="hexgrad/Kokoro-82M", model=self.model)
+        return self.pipes[lang_code]
 
-    def one(self, item):
-        return _synthesize(self.pipe, self.voices, self.snap, item)
+    def run(self, items, lang_code=None):
+        pipe = self.pipe_for(lang_code or self.lang_code)
+        return [_synthesize(pipe, self.voices, self.snap, item) for item in items]
 
 
 def main():
@@ -50,7 +55,7 @@ def main():
                 if engine is None:
                     engine = Engine(req["snapshot"], req.get("lang_code", "b"), req.get("threads", 4))
                 out = {"ok": True, "load_seconds": engine.load_seconds, "torch": torch.__version__,
-                       "results": engine.run(req["items"])}
+                       "results": engine.run(req["items"], req.get("lang_code", "b"))}
             except Exception as e:  # noqa: BLE001 - reported to the adapter, which raises
                 out = {"ok": False, "error": f"{type(e).__name__}: {e}"}
             sys.stdout.write("KOKORO_JSON " + json.dumps(out) + "\n")

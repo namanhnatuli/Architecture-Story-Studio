@@ -1,0 +1,21 @@
+{
+  "schema": "production_defaults/1",
+  "language": "en",
+  "aspect": "16:9",
+  "fps": 24,
+  "duration_minutes": {"target": [10, 12], "acceptable": [8, 15]},
+  "visual_style": "Premium Clean Stylized Architectural 3D Visualization (config/visual_style.json + config/annotation_style.json); procedural assets from asset_library/; illustrative, never replicas",
+  "narration": {
+    "provider": "kokoro",
+    "model": "hexgrad/Kokoro-82M",
+    "model_revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+    "voice": "am_michael",
+    "lang_code": "a",
+    "speed": 1.0,
+    "seed": 0,
+    "publication_note": "am_michael is the owner's narrator choice (2026-10-30). Its publication approval is per project (config/tts_providers.json clearance.voice_approvals) and is on the final-approval checklist; bm_george is cleared channel-wide (voices_cleared)."
+  },
+  "presets": {"rough_cut": "preview", "review": "review", "internal_review_1080p": "internal_1080p", "final": "final_4k"},
+  "render": {"blender_processes": 1, "static_frame_reuse": true, "final_chapters_streamed": true, "never_4k_png_for_whole_film": true},
+  "workflow": "research first; internal review video + approval package before any publication step; the owner approves claims, the voice for the project, pronunciation and publication; the Studio never uploads, merges or pushes"
+}

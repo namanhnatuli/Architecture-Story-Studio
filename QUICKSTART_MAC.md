@@ -26,25 +26,21 @@ python3 -m unittest discover -s tests -v
 export BLENDER_BIN="/Applications/Blender.app/Contents/MacOS/Blender"
 ```
 
-## 2. Render ảnh đầu tiên (mặc định preview)
+## 2. Xem trạng thái phim đang làm và render ảnh đầu tiên
+
+`projects/` chỉ chứa phim đang làm: `why-bridges-look-different`. Khi chỉ có một dự án, CLI tự chọn nó; khi có nhiều hơn, thêm `--project <slug>`.
 
 ```bash
-python3 tools/cli.py still
+python3 tools/episode.py status --project why-bridges-look-different
+python3 tools/cli.py shot --shot SC_001            # một shot preview 640×360
+python3 tools/cli.py still                         # ảnh tĩnh của 47 shot, preview 640×360
 ```
 
-Đợi Blender thoát (khoảng vài giây), sau đó xem 5 ảnh trong `projects/roof-evolution/output/stills/` (ảnh đầu tiên được chép thêm thành `output/roof_evolution_still.png`).
+Ảnh nằm trong `projects/why-bridges-look-different/output/stills/`, video shot nằm trong `output/shots/`.
 
-Nếu ảnh đúng, chạy kiểm tra tự động rồi render video:
+CLI chạy Blender dưới `caffeinate`, nên máy không tự ngủ giữa chừng. Shot nào không đổi sẽ được bỏ qua ở lần chạy sau (`CACHED`). Muốn render lại thì dùng `--force`. Mỗi lúc chỉ chạy một Blender.
 
-```bash
-python3 tools/cli.py check-blender
-python3 tools/cli.py preview
-```
-
-Kết quả:
-`projects/roof-evolution/output/roof_evolution_preview.mp4` (20 giây, 24 FPS, 640×360), và mỗi shot một file riêng trong `output/shots/`.
-
-480 frame mất khoảng 4–5 phút ở 640×360 và khoảng 7–10 phút ở 960×540 (`--preset review`, output riêng `*_review`) trên M4 Pro. CLI chạy Blender dưới `caffeinate -i` để máy không tự ngủ giữa chừng. Shot nào không đổi sẽ được bỏ qua ở lần chạy sau (`CACHED`). Muốn render lại toàn bộ thì dùng `--force`; chỉ một shot thì dùng `python3 tools/cli.py shot --shot SC_003`.
+Pilot mái A/B đầu tiên (M2, `roof-evolution`) giờ là fixture test ở `tests/fixtures/legacy_projects/roof-evolution/`. Muốn chạy lại nó như một dự án, xem `docs/production/CLEANUP_REPORT.md` (mục Khôi phục).
 
 ## 3. File mà AI cần đọc
 
@@ -57,12 +53,12 @@ Kết quả:
 - `bpy` missing trong terminal Python: bình thường. Chỉ gọi Python script Blender bằng Blender CLI.
 - Blender 4.5/5.x engine errors: `engine/scene.py` chọn Eevee theo phiên bản (`BLENDER_EEVEE_NEXT` / `BLENDER_EEVEE`).
 - Renders lỗi do thiếu quyền: giữ project trong Documents/Home, tránh iCloud hay thư mục bảo vệ khó ghi.
-- Máy nóng hoặc hết RAM: giảm `preview.width/height` trong `config/render_presets.json`, đóng ứng dụng nặng; không bật Cycles/4K.
-- Lỗi nào khác: gửi nguyên dòng lệnh và đoạn cuối của log trong `projects/roof-evolution/qa/`.
+- Máy nóng hoặc hết RAM: giảm `preview.width/height` trong `config/render_presets.json`, đóng ứng dụng nặng; không bật Cycles. 4K chỉ dùng cho bản cuối đã được chủ kênh duyệt (`--preset final_4k`, theo chương).
+- Lỗi nào khác: gửi nguyên dòng lệnh và đoạn cuối của log trong `projects/<slug>/qa/`.
 
 ## 5. Quy trình làm tiếp
 
-Không chuyển thẳng từ pilot sang video 15 phút. Bước kế tiếp là kiểm tra 10s animation biến đổi cấu kiện, sau đó thử một scene theo luận điểm thực tế (có nguồn), rồi xây thư viện `REPLACE_PARTS`, `CUTAWAY`, `SIDE_BY_SIDE`.
+Một phim mới bắt đầu từ một chủ đề: dán `prompts/NEW_DOCUMENTARY_AUTOPILOT.md` cho Claude Code và làm theo `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`. Agent làm tới bản review nội bộ rồi dừng chờ chủ kênh duyệt.
 
 ## 6. MCP (tùy chọn)
 

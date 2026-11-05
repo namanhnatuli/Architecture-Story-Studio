@@ -1,5 +1,165 @@
 # Changelog
 
+## 0.9.5 — 2026-11-05 — M8.2: duyệt m8-r4 và bản cuối 4K
+- **Bản cuối 4K của m8-r4:** `output/why_bridges_look_different_FINAL_4K_2160p.mp4` (+ `.en.srt`, `audio_master_final_4k.wav`, `.sha256`; `shasum -a 256 -c` đạt cả bốn file). 3840×2160, H.264 BT.709, 24 fps, 28 687 khung (19:55), −16,4 LUFS, đỉnh thật −1,3 dBTP, 271 cue phụ đề. MP4 sha256 `47bd654f…`. Mọi gate `--preset final_4k` đạt: **PUBLICATION_READY**. Chưa đăng, chưa merge, chưa push; đăng là quyết định của chủ kênh.
+- **Duyệt (2026-11-04, `APP-M8.4-CLAIMS-AND-PRONUNCIATION`):** 76 claim được lời dẫn dùng EDITORIALLY_APPROVED (6 claim không được nói giữ SOURCE_VERIFIED); danh sách 29 thuật ngữ ACCEPTED_BY_OWNER cho audio m8-r4; Corinne và Cincinnati CONFIRMED theo lời chủ kênh. **Agent không chứng kiến và không ghi một buổi nghe nào**; hồ sơ ghi rõ điều đó (`confirmation_basis`). Duyệt giọng `am_michael` theo dự án giữ nguyên.
+- **Render:** 12 chương theo thứ tự, mỗi lần một Blender, `--release-frames`. Từ 19:27 đến 04:08 (8 giờ 41 phút; thời gian render thực 8,2 giờ, không có khoảng nghỉ do máy ngủ). Khoảng 3,1 giây mỗi khung ở shot 3D 4K, khoảng 0,6 giây ở shot 2D. Chương nặng nhất: C11 (khoảng 4,4 giờ).
+- **Dọn dẹp trước render:** xóa PNG và video review cũ (m8-r2 1080p, m8-r3 720p, `renders/review`, `renders/preview`), giải phóng khoảng 31 GB. Giữ `renders/final_4k`, `output/chapters_final_4k` (bản trung gian 4K) và hai thư mục `baseline_*` của M7. Các file này nằm ngoài git (`.gitignore`).
+- **Kiểm tra:** test offline 322/322, test Blender 21/21 (repo không đổi), đánh giá lập kế hoạch 29/29, Blender QA 944/944, manifest khớp.
+- **Đã sửa khi ghép:** kế hoạch hình báo cũ vì `sources.json` đổi khi ghi duyệt; chạy lại `plan-visuals`, `validate-plan`, `build-shots`. Chỉ hai hash của kế hoạch đổi; shot, khung và timing giữ nguyên.
+
+## 0.9.4 — 2026-11-04 — M8.2: m8-r4 theo lần nhận xét thứ hai của chủ kênh (chưa render)
+- **Nhận xét** (`REV-M8.2-SECOND-TEXT-REVIEW`): yêu cầu sửa, không phải duyệt. Chưa render gì, theo yêu cầu.
+- **Gói duyệt:** phần "Các điểm cần lưu ý" (từ `review/EDITORIAL_NOTES.md`) viết lại theo phim hiện tại. Các câu đã bỏ ("200 to 300 feet", "133 years", "Today…") chỉ còn ở mục "Đã bỏ" kèm lý do. Card B23C được mô tả là hai loại số, không phải toàn dải kinh tế. Thời lượng và trần ghi đúng 19,9 phút / 30 phút.
+- **Card B24B:** "1980–2012: almost all new U.S. bridges with / main spans over 1,000 ft were cable-stayed" (trước: "U.S. spans over 1,000 ft cable-stayed").
+- **B33:** lời dẫn và card giữ "long after timber trusses stopped being competitive", như B09 và NCHRP §3.3.1. Nhãn "Stone arches return briefly" hạ xuống để có chỗ cho dòng thứ ba.
+- **Revision m8-r4:** 169 câu, 19,92 phút (28 687 khung); B33.s1 đọc lại, ASR WER 0. QA dài PASS; 2 shot cần render (SC_058, SC_073).
+- **Kiểm tra:** test offline 321/322; test còn lại so bản ghép 720p (m8-r3) với timing m8-r4 và sẽ đạt sau lần render tới. Gates G4/G5 FAIL vì media cũ. Không chạy Blender.
+
+## 0.9.3 — 2026-11-04 — M8.2: bản review nội bộ cuối 720p
+- **Bản review nội bộ cuối 720p (m8-r3):** `output/why_bridges_look_different_M8_INTERNAL_REVIEW_720p.mp4` + `.en.srt`; 1280×720, 28 651 khung (19:54), −16,4 LUFS, 271 cue phụ đề. Render 75 shot + 12 chương + ghép mất 2 giờ 10 phút (07:28–09:38, 2026-11-04). Cổng G0–G5, GL, GV đạt; G1 và G6 vẫn chờ chủ kênh (claim, phát âm, giọng nghe thực).
+- **Trần thời lượng:** `runtime_decision` 8–30 phút (30 do agent chọn khi chủ kênh bảo nâng trần; `DEC-M8.2-CEILING-AND-720P`).
+- **Preset mới:** `internal_720p` (1280×720). Test offline 321/321.
+
+## 0.9.2 — 2026-11-04 — M8.2: sửa nội dung theo nhận xét biên tập của chủ kênh (nhánh `m8-all-bridge-families`)
+- **Nhận xét của chủ kênh** (`REV-M8.2-EDITORIAL-REVIEW`): là yêu cầu sửa, không phải duyệt. Chưa render video, theo yêu cầu.
+- **Revision m8-r3:** 169 câu, 19,90 phút; 82 claim, 18 nguồn.
+  - Bỏ câu "133 years" (phản chứng: cầu Williamsburg 1903) và giới hạn "200 to 300 feet".
+  - Card dải nhịp tách dải thực dụng/kinh tế khỏi nhịp đã xây.
+  - Các nhận định 2005/2012 được nói kèm năm.
+  - Công-xôn: nói rõ dạng có khớp. Card nền đất: "blocks or bedrock". Queensboro: "Unlike our model, it has no suspended span".
+  - Năm sửa nhỏ về câu chữ.
+  - Mỗi claim thu hẹp có `assumptions` ghi phần không dùng và lý do.
+- **Nguồn mới:** e-WV "Wheeling Suspension Bridge" (Emory L. Kemp): nhịp, không phải chiều dài cầu. **Claim mới:** CLM_794.
+- **Ghi đè phát âm đầu tiên của phim** (`script/pronunciation.json`): Corinne, Cincinnati, đều chờ chủ kênh nghe. Promontory, Covington, Finley bỏ khỏi danh sách vì không được đọc.
+- **Test:**
+  - class `OwnerEditorialReviewTest` mới;
+  - bản sao "chủ kênh đã duyệt" giả lập trong test nay đánh dấu cả mục ghi đè phát âm;
+  - kiểm tra khóa timing truyền lexicon;
+  - cổng cuối của phim thật phải báo PRON_CORINNE chưa nghe.
+
+## 0.9.1 — 2026-11-03 — M8.1: ba họ nhịp lớn trong các chương yếu tố, quyết định và kết luận (nhánh `m8-all-bridge-families`)
+- **Yêu cầu của chủ kênh:** các chương sau phần giới thiệu các loại cầu cũng phải nói về công-xôn, cầu treo và dây văng (có nghiên cứu, lôi cuốn), và không giữ khắt khe giới hạn thời lượng.
+- **Revision m8-r2:** 12 chương (thêm C10 "Span, cost and time"), 66 beat, 167 câu, 19,3 phút. 14 claim mới (tổng 81).
+  - Câu chuyện mới: xích sắt và "weakest link"; nền đất và khối neo; công-xôn khi trụ lún; gió và Tacoma Narrows (chỉ kể bằng lời); dải nhịp của sáu họ cho cầu thép; chi phí và tay nghề; dòng thời gian nhịp lớn; cầu đường sắt Niagara và "133 years"; hẻm Kentucky 1877; Golden Gate; Penobscot Narrows; các cầu treo nhỏ.
+  - Nguồn mới: FHWA-HRT-14-067. Ảnh mới: HAER CA-31 cầu Golden Gate.
+- **Thời lượng:** `project.json` → `runtime_decision` (quyết định của chủ kênh, 8–20 phút; trần 20 do agent đặt).
+  - `pipeline/chapters.runtime_range` chỉ dùng bản ghi khi có đủ người quyết định, ngày và cơ sở. Test kiểm cả trường hợp bản ghi thiếu.
+- **Phần tử dòng thời gian hiện theo từ được đọc** (sửa một đoạn tĩnh 15,2 s).
+- **Card dải nhịp chỉ vẽ con số có nguồn:** giàn đơn 450–750 ft; công-xôn chỉ có mũi tên.
+- **Snapshot nguồn** chuyển vào `research/snapshots/` (git bỏ qua); `source_snapshots.json` nay có cả FHWA (vốn bị bỏ sót ở 0.9.0) và Penobscot.
+- **Bản review nội bộ 1080p của m8-r2:** 27.828 frame, 19:19,5, −16,4 LUFS, 264 cue phụ đề.
+  - Gates: `TECHNICALLY_VALIDATED`; G1 PENDING_EDITORIAL (0/75 claim, 32 thuật ngữ); G6 BLOCKED.
+  - Agent xem lại trên video và sửa 3 chỗ: nhãn "Stiffening truss" ở cảnh Tacoma; NOTE "Niagara Gorge, 1855"; tiêu đề card dòng thời gian nhịp lớn.
+- **Đã biết, chưa sửa:** `runtime_decision` không nằm trong `PROJECT_NON_VISUAL` (`tools/render_cache.py`), nên ghi trường này làm mọi shot mất cache; 48 shot render lại chỉ vì lý do này. Đề xuất sửa cùng lần thay đổi kế tiếp mà dù sao cũng phải render lại.
+
+## 0.9.0 — 2026-10-31 — M8: phim làm lại với đủ sáu họ cầu (nhánh `m8-all-bridge-families`)
+- **Yêu cầu của chủ kênh:** làm lại `why-bridges-look-different`, kết hợp nội dung đã có, với đủ các loại cầu và đủ mô hình. Bản 4K đã duyệt của m7-r1 được giữ (tag `m7-final-4k`, `output/baseline_m7_final_4k/`).
+- **Mô hình mới:**
+  - cầu công-xôn (tay neo, tay hẫng, nhịp treo);
+  - cầu treo (tháp, cáp chính qua yên cáp, dây treo, dầm ngang, giàn tăng cứng, khối neo);
+  - cầu dây văng (tháp chữ H bê tông, dây văng xuống dầm biên, mặt cầu chia đốt).
+  - Đặt trên site mới 72 m, kèm tham số, kiểm tra chéo hình học, số bộ phận kỳ vọng và cấu hình nổ tách.
+  - Offline 8/8 và Blender 4/4 cho mỗi asset.
+- **Planner:**
+  - concept khai báo được `scene_context` và `site`; mỗi ngữ cảnh có site và trạng thái site trống riêng;
+  - shot ứng viên của bộ bố cục mang `scene_context` (sửa một lỗi có từ M6);
+  - mặt đất nới lên 1 km.
+- **Nghiên cứu:**
+  - thêm FHWA-IF-12-052 vol. 5 (2012, bản lưu Internet Archive của URL FHWA) và các mục NCHRP §3.1, §3.5, §3.7;
+  - 25 claim mới khớp nguyên văn, tổng 67;
+  - hai ảnh HAER phạm vi công cộng: Queensboro (NY-19), Brooklyn (NY-18).
+- **Kịch bản m8-r1:** 11 chương, 54 beat, 133 câu, 14,46 phút.
+  - Bỏ B23, B23B, B24B và một câu của B53 để giữ thời lượng ≤ 15 phút.
+  - Sửa câu chữ, không nới luật: một chỗ ASR nghe nhầm đồng âm; một mâu thuẫn lời–hình ("side by side" khi hình là sơ đồ).
+- **Duyệt:**
+  - duyệt claim và phát âm của m7-r1 không áp sang m8-r1 (`build_sources.py` nay kiểm `narration_revision`);
+  - duyệt giọng theo dự án vẫn giữ;
+  - profile trở về `NARRATED_INTERNAL_REVIEW`;
+  - `review/OWNER_APPROVALS.json` ghi REQ-M8-ALL-FAMILIES.
+- **Sửa lỗi:** `research/build_sources.py` còn trỏ tới đường dẫn cũ của sổ claim M6, bị bỏ sót khi dọn dẹp ở 0.8.0. Nay trỏ sang fixture; bản build lại trùng từng byte.
+- **Test:**
+  - `tests/test_m8_long_span.py` (mới);
+  - các test M7 kiểm logic duyệt trên một bản sao mô phỏng duyệt; phim thật được khẳng định đang chờ duyệt;
+  - ca "họ chưa có bộ sinh" chuyển từ cầu treo sang cầu cất (bascule).
+- Tài liệu: `docs/m8/M8_REPORT.md`; bổ sung AGENTS.md, playbook, báo cáo dọn dẹp.
+
+## 0.8.0 — 2026-10-31 — M7 finalization: hồ sơ duyệt, cổng xuất bản, bản cuối 4K, hệ thống sản xuất V1 (nhánh `m7-finalization-4k-production`)
+- **Hồ sơ duyệt của chủ kênh** (`review/OWNER_APPROVALS.json`), mỗi quyết định gắn với revision và tự mất hiệu lực khi revision đổi:
+  - 41 claim (`claims_text_sha256` + `narration_sha256`);
+  - giọng `am_michael` cho riêng dự án này (`clearance.voice_approvals`, kèm SHA256 giọng). `voices_cleared` không đổi;
+  - phát âm `ACCEPTED_BY_OWNER`, gắn với hash audio, không ghi là đã nghe từng mục;
+  - CLM_747: không dùng trong phim, không duyệt hộ.
+- **Cổng:**
+  - cổng cuối chỉ đòi duyệt các claim mà phim dùng (`validator.used_claim_ids`);
+  - validator từ chối licence APPROVED cho giọng không có trong `voices_cleared` cũng không có duyệt cho dự án;
+  - G1 báo đúng cơ sở phát âm ("accepted by the owner, no per-item listening recorded").
+  - `gates --preset final_4k`: **PUBLICATION_READY**. Lần chạy đầu GL FAIL vì báo cáo phim dài đã cũ; kiểm tra được chạy lại trên timing hiện tại, không nới luật nào.
+- **Preset `final_4k`** (3840×2160, CRF 16, x264 `slow`, BT.709, AAC 256k):
+  - `chapter --release-frames`: render → bản trung gian H.264 (ghi nguyên tử) → kiểm chứng (SHA256, khóa cache từng shot, số frame, giải mã) → registry `qa/chapter_intermediates_final_4k.json` → mới xóa PNG;
+  - dừng khi đĩa còn dưới 8 GB;
+  - `final-assemble`: ghép stream copy, thêm lời dẫn và phụ đề, QA media (thẻ màu, giải mã, đoạn đen, SSIM ranh giới chương), WAV master, `.sha256`.
+- **Sửa lỗi:** PNG sRGB làm luồng H.264 bị gắn transfer `iec61966-2-1`. Bộ lọc giờ ghi rõ BT.709 (`setparams`).
+- **Bản cuối 4K** `why_bridges_look_different_FINAL_4K_2160p.mp4`:
+  - 5.218/15.395 frame được render, 3 giờ 59 phút;
+  - so với render trực tiếp: PSNR 49–57 dB;
+  - audio và phụ đề giống từng byte với bản review.
+  - Bản review 1080p giữ nguyên. Ảnh HAER được thay bằng rendition 3840 px (có `previous_rendition`).
+- **Dọn dẹp:**
+  - `projects/` chỉ còn phim đang làm. 6 pilot cũ được `git mv` sang `tests/fixtures/legacy_projects/`; 13 module test đọc fixture, assertion giữ nguyên;
+  - file sinh ra (3,36 GB) chuyển ra ngoài repo bằng `tools/archive_projects.py` (checksum trước và sau), kèm `git bundle --all`;
+  - states mái cũ ở `asset_library/legacy_states/`, catalog giữ asset id.
+- **Sản xuất V1:**
+  - `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md`, `prompts/NEW_DOCUMENTARY_AUTOPILOT.md`, `config/production_defaults.json`, `docs/production/templates/`;
+  - `tools/episode.py` (`new`, `status`, `next`; giai đoạn suy từ file) và alias CLI `new-episode`, `episode-status`;
+  - `--project` mặc định là dự án duy nhất trong `projects/`; `evaluate-planning` không cần dự án; `pronunciation_test.py` bắt buộc `--project`.
+- **Tài liệu:** `docs/m7/M7_FINALIZATION_REPORT.md`, `docs/m7/PERFORMANCE_4K.md`, `docs/production/CLEANUP_REPORT.md`; cập nhật `AGENTS.md`, `CLAUDE.md`, `PROJECT_BRIEF.md`, `README.md`, `QUICKSTART_MAC.md`.
+
+## 0.7.1 — 2026-10-30 — M7: bản review nội bộ cuối (giọng `am_michael`, 1080p, nhánh `m7-final-internal-review`)
+- **Quyết định của chủ kênh:**
+  - Duyệt 41 claim được lời dẫn dùng (`research/editorial_approval.json`, được `build_sources.py` áp vào; `factual_review: verified`).
+  - Đổi giọng đọc sang `am_michael`.
+  - Bỏ dòng ghi giọng đọc khỏi card B35.
+- **Lời dẫn:** sinh lại toàn bộ bằng `am_michael` (G2P Anh–Mỹ): 103 câu, ASR 102/102 đạt, căn từ lại, timing khóa lại. Phim dài **641,46 s**.
+- **Quyền giọng:** `am_michael` đã audit (hash khớp VOICES.md) nhưng **chưa được cấp quyền xuất bản**.
+  - Clearance của Kokoro giờ ghi rõ `voices_cleared` và `voices_pending`.
+  - Validator từ chối licence APPROVED cho giọng chưa được cấp quyền.
+  - Tên file chỉ "sạch" khi đủ cả claim, licence, xác nhận cho phim và phát âm.
+- **Tối ưu render:** dùng lại frame tĩnh dựa trên motion plan.
+  - Phân loại STATIC/ANIMATED 2D/3D, HYBRID, FALLBACK_FULL_BLENDER; frame lặp là hardlink.
+  - Thêm `--no-reuse`, `verify-reuse` (so với mức nhiễu nền của EEVEE) và `--mode reuse-report`.
+  - Ở 1080p chỉ render 5.206/15.395 frame.
+- **Preset `internal_1080p`:** 1920×1080 cho review nội bộ; tên `…_M7_FINAL_INTERNAL_REVIEW_1080p.mp4`; `final` vẫn sau G6.
+- **Worker và gói tạo giọng:** worker Kokoro giữ G2P riêng cho mỗi `lang_code`. Thêm `tools/kokoro_fetch_voices.py`; `voice_audition.py` hỗ trợ `--voices us`, `--passage` và ghi nhận clip không qua kiểm tra mà không dừng.
+- **Sửa lỗi:** commit `b7e5b0a` đã ghi đè báo cáo QA chính thức của `suffolk-roofs` bằng kết quả hồi quy 71/72, làm `test_suffolk_statuses_are_unchanged` thất bại. Báo cáo của `suffolk-roofs` được khôi phục; kết quả hồi quy được giữ ở `qa/regression/` của M7.
+- Tài liệu: `docs/m7/FINAL_INTERNAL_REVIEW.md`; bổ sung audit Kokoro §8.
+
+## 0.7.0 — 2026-10-30 — M7: phim tài liệu dài đầu tiên, "Why Bridges Don't All Look the Same" (nhánh `m7-first-full-documentary`)
+- **Phim** `projects/why-bridges-look-different`: 10,77 phút, 8 chương, 39 beat, 103 câu, 47 shot.
+  - Hình trộn: 3D, sơ đồ, bản đồ sơ lược, dòng thời gian, 4 ảnh HAER phạm vi công cộng.
+  - Bản review 960×540, MP4 cho từng chương, rough cut 640×360, 47 still 1080p.
+  - Trạng thái INTERNAL REVIEW (`TECHNICALLY_VALIDATED`, `EDITORIAL_REVIEW_PENDING`, `TTS_RIGHTS_PENDING`).
+- **Nghiên cứu:** `research/build_sources.py` → 12 nguồn, 42 claim khớp nguyên văn (NCHRP 25-25(15), ASCE, Yale, FHWA, ODOT, SCI, HAER), kèm báo cáo nghiên cứu, ma trận bằng chứng và gói duyệt biên tập. Chưa claim nào được duyệt.
+- **Kịch bản một nguồn:** `script/story.py` sinh `narration.json`, `visual_beats.json` và `chapters.json`.
+- **Chương** (`pipeline/chapters.py`):
+  - validate (fail closed), dải shot/frame của từng chương, manifest kèm bằng chứng theo chương;
+  - QA phim dài với 17 kiểm tra; cổng GL;
+  - CLI `chapters` và `chapter --chapter Cn` (render + mã hóa + ghép + QA một chương, có WAV);
+  - mode `documentary`.
+- **Card 2D** (`engine/diagram.py`): phần tử rect/line/circle/polygon/image (vùng cắt, trôi chậm), `disappear`, tấm nền chữ. Planner lập kế hoạch thời lượng card (`templates.plan_card`). Phần tử card và chú thích hiện theo **từ được đọc** (word timestamp Whisper). QA `card_layout`: vùng an toàn, vùng phụ đề, chữ không chồng nhau.
+- **Ảnh ngoài:** hồ sơ quyền đầy đủ (`EXTERNAL_LICENSE_FIELDS` + `credit_keys` + SHA256). Validator từ chối ảnh thiếu hồ sơ, sai đường dẫn hoặc thiếu file. QA kiểm giấy phép và ghi công. Byte ảnh là đầu vào render.
+- **Camera và chú thích:**
+  - HOLD `camera_move` PUSH_IN; shot kế tiếp luôn cắt cứng;
+  - chú thích NOTE cố định trên màn hình;
+  - rig chú thích đi theo camera trong push-in (kênh `scale`, QA `overlays_screen_fixed`).
+- **Render:** khôi phục render bị ngắt cùng khóa cache (`render_progress.json`, kiểm PNG hoàn chỉnh, `--resume`). Mã hóa cả phim từ một chuỗi frame liên kết. Contact sheet giới hạn số ô. Hồ sơ quyền, chương và trạng thái claim không làm cũ frame.
+- **Âm thanh:** ASR dùng lại bản chép cho audio giống hệt. `narrate` không còn bị chặn khi beat của dự án audio-first đổi. Worker Kokoro giữ G2P riêng cho mỗi `lang_code`. Xuất master lời dẫn và audio từng chương. Tên file có `_INTERNAL_REVIEW` và metadata ghi rõ khi còn thiếu duyệt.
+- **Cổng:** G2 tôn trọng `owner_confirmation_for_this_film: PENDING`; G1 tôn trọng `pronunciation_review.status: PENDING`; GL bắt buộc cho dự án có chương.
+- **Thử giọng Anh–Mỹ:** `tools/kokoro_fetch_voices.py` + `tools/voice_audition.py --voices us`. 20 giọng đã kiểm hash, chỉ dùng để nghe.
+- **Công cụ:** `tools/longform_reports.py` (ma trận bằng chứng, gói duyệt, mô tả YouTube bản nháp, kiểm tra đa dạng hình, gói nghe phát âm), `tools/frame_times.py` (tốc độ render không tính lúc máy ngủ).
+- **Test:** 310 test đạt (290 offline + 20 Blender), gồm 60 test M7 mới có ca âm. Đánh giá planner 29/29.
+- **Phát hiện:** kiểm tra `card_layout` mới chỉ ra ghi chú chân trang của card `suffolk-roofs` SC_004 nằm dưới vùng an toàn từ M3. Chưa sửa vì dự án M3 giữ nguyên trạng thái.
+
 ## 0.6.1 — 2026-10-29 — M6: quyết định của chủ kênh
 - Giọng kênh `bm_george` (do người dùng chọn). Lời dẫn được sinh lại, 143.4 wpm. B1.s1 viết lại vì ASR nghe nhầm. Pilot dài 151.33 s.
 - Chủ kênh cấp quyền xuất bản cho Kokoro (`clearance` trong registry, `PUBLICATION_CLEARED`); license giọng APPROVED; 14 claim EDITORIALLY_APPROVED (narration `m6-r2`); phát âm được chấp nhận; `factual_review: verified`.
