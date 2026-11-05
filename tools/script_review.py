@@ -50,6 +50,23 @@ def visual_kind(visual, status):
     return "3D, cần bộ sinh mới" if status == "MISSING_ASSET" else "3D"
 
 
+def text_only_runs(order, visuals, windows):
+    """Consecutive cards made only of words (and thin rules), longest first: [(beat ids, seconds)]. The share of 2D
+    says little by itself; a long run of cards with nothing to look at is what tires a viewer."""
+    def words_only(v):
+        kinds = (v.get("graphic") or {}).get("elements", [])
+        return v.get("strategy") == "CARD" and all(
+            e["kind"] == "text" or (e["kind"] == "line" and len(e.get("points", [])) == 2) for e in kinds)
+    runs, run = [], []
+    for bid in order + [None]:
+        if bid is not None and words_only(visuals.get(bid, {})):
+            run.append(bid)
+        elif run:
+            runs.append((run, sum(windows[k][1] - windows[k][0] for k in run)))
+            run = []
+    return sorted(runs, key=lambda r: -r[1])
+
+
 def pronunciation_rows(p, timing, windows):
     """One row per speech-only override: where it is first spoken, in the preview track's time."""
     lexicon = read(p / "script/pronunciation.json")
@@ -83,12 +100,14 @@ def build(p):
     sentences = sum(len(b["sentences"]) for b in rows)
     used = sorted({c for b in rows for c in b.get("claim_ids", [])})
     span = sum(w[1] - w[0] for k, w in windows.items() if visuals.get(k, {}).get("strategy") == "CARD")
+    runs = text_only_runs([b["id"] for b in rows if b["id"] in windows], visuals, windows)
 
     out = [f"# Duyệt kịch bản: {project.get('title', p.name)}", "",
            f"- Revision lời dẫn: `{narration.get('revision', {}).get('version', narration.get('revision'))}`; "
            f"{len(chapters.get('chapters', []))} chương, {len(rows)} beat, {sentences} câu, {words} từ.",
            f"- Thời lượng đo từ audio đã khóa: khoảng **{total / 60:.1f} phút** ({clock(total)}).",
            f"- Hình: {clock(span)} là card 2D ({100 * span / total:.0f}%) nếu giữ nguyên kế hoạch hiện tại." if total else "",
+           f"- Card chỉ có chữ: dài nhất {'–'.join((runs[0][0][0], runs[0][0][-1]))}, {runs[0][1]:.0f} giây liền." if runs else "",
            f"- Claim: {len(used)} claim được dùng, tất cả `SOURCE_VERIFIED`, **chưa claim nào được duyệt biên tập**.", ""]
     notes = p / "review/SCRIPT_REVIEW_NOTES.md"
     if notes.is_file():

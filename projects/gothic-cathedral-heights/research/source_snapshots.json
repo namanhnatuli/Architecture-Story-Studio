@@ -266,6 +266,56 @@
       "downloaded": "2026-11-05",
       "text": "web/amiens/etext_11.txt",
       "extraction": "scripts/styles/noscript removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_MIT_BLOCK_2006",
+      "file": "pdf/block_dejong_ochsendorf_2006.pdf",
+      "url": "https://web.mit.edu/masonry/papers/block_dejong_ochs_NNJ.pdf",
+      "bytes": 325355,
+      "sha256": "f70fd36ce2433cba112bc3f059559ef5fe9660532674cf86d196e8d94c4490bb",
+      "downloaded": "2026-11-05",
+      "text": "pdf/block_dejong_ochsendorf_2006.txt",
+      "extraction": "pdftotext (reading order, no -layout)"
+    },
+    {
+      "source_id": "SRC_MIT_ROMANO",
+      "file": "web/mit/mit_romano_project.html",
+      "url": "https://web.mit.edu/masonry/projects/projects_romano.html",
+      "bytes": 5013,
+      "sha256": "04c7b18a1e1843a092e97d975a558aac05b82fdb142292434fcd3bafdc38645e",
+      "downloaded": "2026-11-05",
+      "text": "web/mit/mit_romano_project.txt",
+      "extraction": "scripts/styles removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_STALLEY_STRUCTURE",
+      "file": "web/durham/stalley_structure.html",
+      "url": "https://projects.mcah.columbia.edu/medieval-architecture/htm/sr/ma_sr_discuss_dc_structure.htm",
+      "bytes": 22510,
+      "sha256": "0d1c546d450defa87291cc4fd480f001944a0c2b0781dff4f94979f47b562f68",
+      "downloaded": "2026-11-05",
+      "text": "web/durham/stalley_structure.txt",
+      "extraction": "scripts/styles removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_CU_STALLEY_DESCRIBE",
+      "file": "web/durham/stalley_describe.html",
+      "url": "https://projects.mcah.columbia.edu/medieval-architecture/htm/sr/ma_sr_discuss_dc_describe.htm",
+      "bytes": 31052,
+      "sha256": "50004eb567cc4b9df75a9f28baeea423f07f60a311c3964ff68f271f8d9cd698",
+      "downloaded": "2026-11-05",
+      "text": "web/durham/stalley_describe.txt",
+      "extraction": "scripts/styles removed, HTML tags stripped, entities unescaped, whitespace collapsed"
+    },
+    {
+      "source_id": "SRC_DURHAM_CATHEDRAL",
+      "file": "web/durham/durham_central_tower.html",
+      "url": "https://www.durhamcathedral.co.uk/explore/caring-conservation/central-tower-restoration",
+      "bytes": 52113,
+      "sha256": "604496b3cd1981bc715fd592acd2c6070d7614a1a5e6d957a273ad3b5e82c8a2",
+      "downloaded": "2026-11-05",
+      "text": "web/durham/durham_central_tower.txt",
+      "extraction": "scripts/styles removed, HTML tags stripped, entities unescaped, whitespace collapsed"
     }
   ]
 }

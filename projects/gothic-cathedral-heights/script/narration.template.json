@@ -2,7 +2,7 @@
   "schema_version": 1,
   "language": "en",
   "title": "How Gothic Cathedrals Reached Impossible Heights",
-  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision g-r1)",
+  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision g-r2)",
   "voice": {
     "provider": "kokoro",
     "id": "kokoro_am_michael",
@@ -74,16 +74,16 @@
         "Durham",
         "Notre-Dame",
         "Viollet-le-Duc",
-        "Arnaud Timbert",
         "Jacques Heyman",
         "Robert Hooke",
         "Stephen Murray",
         "voussoirs",
         "transept",
         "pinnacle",
-        "centering"
+        "centering",
+        "Roger Stalley"
       ],
-      "note": "French names are spoken by an American English voice. Seven speech-only overrides in script/pronunciation.json (Beauvais, Amiens, Suger, Cluny, Notre-Dame, Viollet-le-Duc, Arnaud Timbert), all PENDING_LISTENING_REVIEW. Not reviewed yet.",
+      "note": "French names are spoken by an American English voice. Six speech-only overrides in script/pronunciation.json (Beauvais, Amiens, Suger, Cluny, Notre-Dame, Viollet-le-Duc), all PENDING_LISTENING_REVIEW. Not reviewed yet.",
       "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance"
     }
   },
@@ -93,10 +93,10 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "g-r1",
+    "version": "g-r2",
     "date": "2026-11-05",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
-    "scope": "first script for the owner's script review (owner request of 2026-11-05: 10-18 minutes, closing call to action; no internal review render yet)",
+    "scope": "after the owner's first script review of 2026-11-05 (six points and four remarks on narration and visuals); structure, opening and call to action kept; no internal review render yet",
     "review_package": "review/SCRIPT_REVIEW.md",
     "edits": [
       {
@@ -126,6 +126,61 @@
       {
         "sentence": "B01.s2, B06.s0, B11.s1, B12.s2, B15.s0, B19.s1, B20, B25.s0, B37.s0, B38.s1, B41.s0, B41.s1",
         "why": "Agent's read-through before the first owner review: terms explained where they first matter (choir, bay, pier, transept, crossing), B15 and B25 connect to what precedes them, B19.s1 keeps the attribution explicit, B20 ends on the main point, B41 keeps 'stability' as the source says."
+      },
+      {
+        "sentence": "B08, B09, B42",
+        "owner_review": 1,
+        "why": "The pointed arch no longer always pushes less: it can rise higher over the same span, and that can reduce thrust depending on shape, thickness and load. One MIT comparison is given as a result for those two arches. Hooke's chain now depends on its loads. CLM_133 (a garbled source sentence) is no longer narrated."
+      },
+      {
+        "sentence": "B39, B40, B41",
+        "owner_review": 2,
+        "why": "The line of thrust is limited to one idealized arch, with its assumptions spoken. A scaled model shows the role of proportion and does not prove a real building safe. 'What matters most' is gone."
+      },
+      {
+        "sentence": "B03.s0, B25.s0",
+        "owner_review": 3,
+        "why": "'No knowledge of material properties' replaced with 'without modern structural calculations, relying on geometry, craft knowledge and experience'."
+      },
+      {
+        "sentence": "B12, B13, B15",
+        "owner_review": 4,
+        "why": "Limited to the four-part vault shown, in a simplified picture; the stone web carries load too; the wall is no longer the vault's main support, rather than carrying nothing. 'Two pointed arches' became 'two ribs', since Stalley describes Durham's diagonal ribs as segments of a circle."
+      },
+      {
+        "sentence": "B01.s1, B33.s0",
+        "owner_review": 5,
+        "why": "'Nearly 47 meters' replaced with 'more than 45 meters', which all sources support; the card lists every published figure, including above 48 m."
+      },
+      {
+        "sentence": "B14",
+        "owner_review": 6,
+        "why": "Durham is 'begun in 1093' and 'finished in 1133', with the vaults in phases over some forty years, on a band instead of one date. Stalley's reading of why ribs were used there is added, attributed."
+      },
+      {
+        "sentence": "B06, B07",
+        "owner_review": "remark on narration",
+        "why": "Limited to the barrel-vaulted type shown; 'dark' removed; the emphasis is on rearranging the supports, not on Gothic being cleverer."
+      },
+      {
+        "sentence": "B24",
+        "owner_review": "remark on narration",
+        "why": "Shortened; the names of Viollet-le-Duc and Arnaud Timbert are no longer spoken here, and stay in small type on the card. The Timbert pronunciation override is removed."
+      },
+      {
+        "sentence": "B35 (card only)",
+        "owner_review": "remark on visuals",
+        "why": "Every explanation is labelled 'Hypothesis'; the 2024 argument carries its authors on the card. Narration unchanged."
+      },
+      {
+        "sentence": "B22 (claim link)",
+        "owner_review": "evidence gap",
+        "why": "New CLM_164 links the sentence attributed to France's national library to that source."
+      },
+      {
+        "sentence": "B04.s2, B05.s2, B10.s1",
+        "owner_review": "agent's sweep after the review",
+        "why": "Same kind of over-generalization: 'has to stand by' became 'stands largely by', since the film itself shows ties; 'medieval builders' became builders at Amiens, as the source says; B10 names the Columbia project now that B09 no longer does."
       }
     ]
   },

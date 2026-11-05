@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.9.7 — 2026-11-05 — Phim Gothic: g-r2 theo nhận xét đầu tiên của chủ kênh (chưa render)
+- **Nhận xét của chủ kênh về g-r1:** yêu cầu sửa, không phải duyệt. Giữ cấu trúc, cách mở và lời kêu gọi. Chưa render, chưa dựng mô hình, chưa có gì được duyệt.
+- **Lời dẫn:**
+  - vòm nhọn có thể cao hơn trên cùng nhịp, và mức giảm lực đẩy tùy hình dạng, độ dày và tải (B08, B09, B42);
+  - đường lực đẩy chỉ nói cho một vòm lý tưởng hóa, đọc rõ giả định, và mô hình không chứng minh công trình thật an toàn (B39–B41);
+  - thay "no knowledge of material properties" bằng "without modern structural calculations" (B03, B25);
+  - vòm gân nói rõ là kiểu bốn phần, hình đơn giản hóa, phần đá giữa các gân cũng chịu tải (B12, B13, B15);
+  - Beauvais "more than 45 meters", hình liệt kê đủ các số (B01, B33);
+  - Durham "begun in 1093", xong 1133, vòm làm theo giai đoạn (B14);
+  - bớt đối lập Romanesque và Gothic (B06, B07), rút ngắn tranh luận sử gia và bỏ tên đọc (B24);
+  - card B35 gắn nhãn "Hypothesis" và tên tác giả.
+- **Nguồn mới:** Block, DeJong và Ochsendorf 2006; trang dự án Romano và Ochsendorf; Roger Stalley (hai trang Columbia); trang của nhà thờ Durham. Sổ claim: 29 nguồn, 53 claim, phim dùng 51. `CLM_133` không còn được đọc, `CLM_164` bổ sung bằng chứng cho B22. Bài 2006 viết "about 15% less" nhưng các số của chính bài cho 12,5% và 8%, nên phim không đọc phần trăm.
+- **Tự rà thêm cùng loại lỗi:** B05 chỉ nói về thợ ở Amiens, B04 "stands largely by", B12 "two ribs" thay cho "two pointed arches".
+- **Lời dẫn và timing:** 135 câu, 1.963 từ, 15:20; ASR đạt toàn bộ. Bỏ mục phát âm Timbert, còn 6 mục chờ chủ kênh nghe.
+- **Công cụ và test:** `script_review.py` đo chuỗi card chỉ có chữ (`text_only_runs`). Test mới: các điểm chủ kênh đã sửa không bị đảo lại, và câu có nêu tên nguồn phải được beat đó dẫn đúng nguồn.
+
 ## 0.9.6 — 2026-11-05 — Phim mới "How Gothic Cathedrals Reached Impossible Heights": kịch bản để chủ kênh đọc (chưa render)
 - **Dự án `gothic-cathedral-heights`, revision g-r1** (nhánh `episode-gothic-cathedral-heights`): 10 chương, 46 beat, 129 câu, 1.782 từ, khoảng 14,1 phút. Chưa render video nào, chưa có gì được duyệt, theo yêu cầu của chủ kênh.
 - **Nghiên cứu:** 24 trang/tài liệu nguồn (MIT, Columbia, BnF, France Mémoire, ECSMGE 2024, Association Beauvais Cathédrale); 49 claim khớp nguyên văn với bản tải về. Britannica, UNESCO, Smarthistory, The Met chặn tải tự động nên không dùng (`research/source_snapshots.json` → `not_used`). Những chỗ nguồn lệch nhau nằm trong `research/RESEARCH_REPORT.md`.

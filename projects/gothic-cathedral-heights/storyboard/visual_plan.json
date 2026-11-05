@@ -7,20 +7,20 @@
   "timing_mode": "AUDIO_LOCKED",
   "publication": {
     "restriction": "INTERNAL_ONLY",
-    "reason": "Revision g-r1: script for the owner's review; claims source-verified, not editorially approved."
+    "reason": "Revision g-r2: script after the owner's first review; claims source-verified, not editorially approved."
   },
   "fps": 24,
-  "total_frames": 13573,
-  "duration_seconds": 565.541667,
+  "total_frames": 14845,
+  "duration_seconds": 618.541667,
   "executable": false,
   "inputs": {
-    "beats_sha256": "e40cd025e90499227a4a7620994b8d52ca6356fa64bb1a4b663c12e63a2b3126",
-    "sources_sha256": "d124bf51aae403b311e389cd23aa25bda2d88a3e67f86433df9f73d2dd0a9253",
+    "beats_sha256": "6b9b542b46b7eee857da16a73cb59c830d1f49d8dd2ada7c1b2989a44f563379",
+    "sources_sha256": "68496c19e1da1e7e1f03b6c81d5a41babea88fcecd55cc7edc9f9392a5eb9dd6",
     "vocabulary_sha256": "54fbc49e456965a3c968bd4e0e6273685bc77facced4858772f522b8dbd80284",
     "planning_config_sha256": "f2d5a77d7092e865b348f5f044488d6165d3503195a16df36287c55d14e32262",
     "assets": {},
     "annotation_style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
-    "timing_sha256": "b4a4cf8b9d23cb467d315d382efc6e872eeb4e4f3b8a8df44fc256ac3b6dd5c5"
+    "timing_sha256": "f78c6c6948785e1034fabc210c1c00bb31d8c08d5adac4f4f46aa59e04bfc907"
   },
   "family": "cathedral",
   "states": {
@@ -51,7 +51,7 @@
     {
       "shot": {
         "id": "SC_001",
-        "duration_seconds": 14.125,
+        "duration_seconds": 16.5,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -116,7 +116,7 @@
               "align": "CENTER",
               "color": "#55524A",
               "plate": false,
-              "appear": 7.175
+              "appear": 9.525
             },
             {
               "id": "B03_04",
@@ -130,7 +130,7 @@
               "align": "CENTER",
               "color": "#55524A",
               "plate": false,
-              "appear": 10.35
+              "appear": 12.7
             }
           ]
         },
@@ -142,7 +142,7 @@
         "claim_ids": [
           "CLM_110"
         ],
-        "narration": "The people who built them had no knowledge of material properties or allowable stresses. So how did they raise stone that high? And why, sometimes, did it come down?",
+        "narration": "The people who built them worked without modern structural calculations, relying on geometry, craft knowledge and experience. So how did they raise stone that high? And why, sometimes, did it come down?",
         "visual_purpose": "Title card: the central question [CARD 1/1: 2D card supplied by the beat (5 elements)]"
       },
       "beat_id": "B03",
@@ -164,9 +164,9 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 339,
-        "duration_seconds": 14.125,
-        "min_seconds": 10.7083,
+        "frames": 396,
+        "duration_seconds": 16.5,
+        "min_seconds": 13.0833,
         "beat_offset_seconds": 0.0,
         "start_seconds": 0.0
       },
@@ -659,7 +659,7 @@
         "claim_ids": [
           "CLM_111"
         ],
-        "narration": "Start with the stone itself. Stone has little or no strength when it is pulled apart. So a stone building has to stand by keeping its stones pressed together.",
+        "narration": "Start with the stone itself. Stone has little or no strength when it is pulled apart. So a stone building stands largely by keeping its stones pressed together.",
         "visual_purpose": "An arch of wedge-shaped stones: pressed together, not pulled apart [CARD 1/1: 2D card supplied by the beat (20 elements)]"
       },
       "beat_id": "B04",
@@ -685,7 +685,7 @@
         "duration_seconds": 13.375,
         "min_seconds": 7.625,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 14.125
+        "start_seconds": 16.5
       },
       "explanation": "2D card supplied by the beat (20 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -699,7 +699,7 @@
     {
       "shot": {
         "id": "SC_003",
-        "duration_seconds": 16.0,
+        "duration_seconds": 20.833333333333332,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -723,16 +723,16 @@
             {
               "id": "B07_01",
               "kind": "text",
-              "text": "Stop fighting thrust. Channel it.",
+              "text": "The same push, with its supports rearranged",
               "position": [
                 0.5,
                 0.82
               ],
-              "size": 0.046,
+              "size": 0.04,
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 3.7
+              "appear": 4.775
             },
             {
               "id": "B07_02",
@@ -746,7 +746,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 11.525
+              "appear": 16.35
             },
             {
               "id": "B07_03",
@@ -760,7 +760,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 12.645
+              "appear": 17.47
             },
             {
               "id": "B07_04",
@@ -774,7 +774,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 13.525
+              "appear": 18.35
             },
             {
               "id": "B07_05",
@@ -916,7 +916,7 @@
               "color": "#B9A887",
               "width": 0.012,
               "layer": 0,
-              "appear": 11.525
+              "appear": 16.35
             },
             {
               "id": "B07_06",
@@ -934,7 +934,7 @@
               "color": "#B9A887",
               "width": 0.012,
               "layer": 0,
-              "appear": 12.645
+              "appear": 17.47
             },
             {
               "id": "B07_07",
@@ -952,7 +952,7 @@
               "color": "#B9A887",
               "width": 0.012,
               "layer": 0,
-              "appear": 12.645
+              "appear": 17.47
             },
             {
               "id": "B07_08",
@@ -966,7 +966,7 @@
               "layer": 0,
               "border": "#8A867C",
               "border_width": 0.003,
-              "appear": 12.645
+              "appear": 17.47
             },
             {
               "id": "B07_09",
@@ -1044,7 +1044,7 @@
               "color": "#B9A887",
               "width": 0.012,
               "layer": 0,
-              "appear": 13.525
+              "appear": 18.35
             },
             {
               "id": "B07_10",
@@ -1057,7 +1057,7 @@
               ],
               "layer": 0,
               "color": "#B9A887",
-              "appear": 13.525
+              "appear": 18.35
             }
           ]
         },
@@ -1067,9 +1067,10 @@
           "B07"
         ],
         "claim_ids": [
-          "CLM_123"
+          "CLM_123",
+          "CLM_153"
         ],
-        "narration": "Gothic builders took a different approach. They stopped fighting thrust with sheer thickness, and learned to channel it. Three tools made that possible: the pointed arch, the rib vault, and the flying buttress.",
+        "narration": "Gothic builders rearranged that system of support. Instead of spreading the push along a thick wall, they directed it toward particular points, and carried it to supports outside. Three tools made that possible: the pointed arch, the rib vault, and the flying buttress.",
         "visual_purpose": "The three tools named as they are spoken [CARD 1/1: 2D card supplied by the beat (11 elements)]"
       },
       "beat_id": "B07",
@@ -1091,11 +1092,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 384,
-        "duration_seconds": 16.0,
-        "min_seconds": 13.875,
+        "frames": 500,
+        "duration_seconds": 20.833333,
+        "min_seconds": 18.7083,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 27.5
+        "start_seconds": 29.875
       },
       "explanation": "2D card supplied by the beat (11 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -1109,7 +1110,7 @@
     {
       "shot": {
         "id": "SC_004",
-        "duration_seconds": 12.416666666666666,
+        "duration_seconds": 31.208333333333332,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -1136,135 +1137,135 @@
               "points": [
                 [
                   0.1987,
-                  0.32
+                  0.4
                 ],
                 [
                   0.1992,
-                  0.3376
+                  0.4176
                 ],
                 [
                   0.2007,
-                  0.3551
+                  0.4351
                 ],
                 [
                   0.2031,
-                  0.3723
+                  0.4523
                 ],
                 [
                   0.2065,
-                  0.3889
+                  0.4689
                 ],
                 [
                   0.2107,
-                  0.4049
+                  0.4849
                 ],
                 [
                   0.2158,
-                  0.42
-                ],
-                [
-                  0.2217,
-                  0.4342
-                ],
-                [
-                  0.2284,
-                  0.4473
-                ],
-                [
-                  0.2358,
-                  0.4591
-                ],
-                [
-                  0.2437,
-                  0.4697
-                ],
-                [
-                  0.2523,
-                  0.4787
-                ],
-                [
-                  0.2613,
-                  0.4863
-                ],
-                [
-                  0.2706,
-                  0.4922
-                ],
-                [
-                  0.2802,
-                  0.4965
-                ],
-                [
-                  0.2901,
-                  0.4991
-                ],
-                [
-                  0.3,
                   0.5
                 ],
                 [
+                  0.2217,
+                  0.5142
+                ],
+                [
+                  0.2284,
+                  0.5273
+                ],
+                [
+                  0.2358,
+                  0.5391
+                ],
+                [
+                  0.2437,
+                  0.5497
+                ],
+                [
+                  0.2523,
+                  0.5587
+                ],
+                [
+                  0.2613,
+                  0.5663
+                ],
+                [
+                  0.2706,
+                  0.5722
+                ],
+                [
+                  0.2802,
+                  0.5765
+                ],
+                [
+                  0.2901,
+                  0.5791
+                ],
+                [
+                  0.3,
+                  0.58
+                ],
+                [
                   0.3099,
-                  0.4991
+                  0.5791
                 ],
                 [
                   0.3198,
-                  0.4965
+                  0.5765
                 ],
                 [
                   0.3294,
-                  0.4922
+                  0.5722
                 ],
                 [
                   0.3387,
-                  0.4863
+                  0.5663
                 ],
                 [
                   0.3477,
-                  0.4787
+                  0.5587
                 ],
                 [
                   0.3563,
-                  0.4697
+                  0.5497
                 ],
                 [
                   0.3642,
-                  0.4591
+                  0.5391
                 ],
                 [
                   0.3716,
-                  0.4473
+                  0.5273
                 ],
                 [
                   0.3783,
-                  0.4342
+                  0.5142
                 ],
                 [
                   0.3842,
-                  0.42
+                  0.5
                 ],
                 [
                   0.3893,
-                  0.4049
+                  0.4849
                 ],
                 [
                   0.3935,
-                  0.3889
+                  0.4689
                 ],
                 [
                   0.3969,
-                  0.3723
+                  0.4523
                 ],
                 [
                   0.3993,
-                  0.3551
+                  0.4351
                 ],
                 [
                   0.4008,
-                  0.3376
+                  0.4176
                 ],
                 [
                   0.4012,
-                  0.32
+                  0.4
                 ]
               ],
               "color": "#B9A887",
@@ -1278,135 +1279,135 @@
               "points": [
                 [
                   0.5987,
-                  0.32
+                  0.4
                 ],
                 [
                   0.5992,
-                  0.3493
+                  0.4293
                 ],
                 [
                   0.6004,
-                  0.3786
+                  0.4586
                 ],
                 [
                   0.6025,
-                  0.4077
+                  0.4877
                 ],
                 [
                   0.6054,
-                  0.4366
+                  0.5166
                 ],
                 [
                   0.6091,
-                  0.4652
+                  0.5452
                 ],
                 [
                   0.6137,
-                  0.4934
+                  0.5734
                 ],
                 [
                   0.619,
-                  0.5212
+                  0.6012
                 ],
                 [
                   0.6251,
-                  0.5485
+                  0.6285
                 ],
                 [
                   0.632,
-                  0.5752
+                  0.6552
                 ],
                 [
                   0.6397,
-                  0.6012
+                  0.6812
                 ],
                 [
                   0.648,
-                  0.6265
+                  0.7065
                 ],
                 [
                   0.6571,
-                  0.651
+                  0.731
                 ],
                 [
                   0.6669,
-                  0.6747
+                  0.7547
                 ],
                 [
                   0.6773,
-                  0.6974
+                  0.7774
                 ],
                 [
                   0.6883,
-                  0.7192
+                  0.7992
                 ],
                 [
                   0.7,
-                  0.74
+                  0.82
                 ],
                 [
                   0.7117,
-                  0.7192
+                  0.7992
                 ],
                 [
                   0.7227,
-                  0.6974
+                  0.7774
                 ],
                 [
                   0.7331,
-                  0.6747
+                  0.7547
                 ],
                 [
                   0.7429,
-                  0.651
+                  0.731
                 ],
                 [
                   0.752,
-                  0.6265
+                  0.7065
                 ],
                 [
                   0.7603,
-                  0.6012
+                  0.6812
                 ],
                 [
                   0.768,
-                  0.5752
+                  0.6552
                 ],
                 [
                   0.7749,
-                  0.5485
+                  0.6285
                 ],
                 [
                   0.781,
-                  0.5212
+                  0.6012
                 ],
                 [
                   0.7863,
-                  0.4934
+                  0.5734
                 ],
                 [
                   0.7909,
-                  0.4652
+                  0.5452
                 ],
                 [
                   0.7946,
-                  0.4366
+                  0.5166
                 ],
                 [
                   0.7975,
-                  0.4077
+                  0.4877
                 ],
                 [
                   0.7996,
-                  0.3786
+                  0.4586
                 ],
                 [
                   0.8008,
-                  0.3493
+                  0.4293
                 ],
                 [
                   0.8013,
-                  0.32
+                  0.4
                 ]
               ],
               "color": "#1E5C96",
@@ -1420,7 +1421,7 @@
               "text": "Round arch",
               "position": [
                 0.3,
-                0.8
+                0.87
               ],
               "size": 0.034,
               "align": "CENTER",
@@ -1434,7 +1435,7 @@
               "text": "Pointed arch",
               "position": [
                 0.7,
-                0.8
+                0.87
               ],
               "size": 0.034,
               "align": "CENTER",
@@ -1444,44 +1445,42 @@
             },
             {
               "id": "B08_05",
-              "kind": "arrow",
-              "start": [
-                0.1987,
-                0.32
+              "kind": "text",
+              "text": "Rise: half the span",
+              "position": [
+                0.3,
+                0.47
               ],
-              "end": [
-                0.1287,
-                0.29
-              ],
-              "color": "#C25110",
-              "width": 0.008,
+              "size": 0.024,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
               "appear": 5.025
             },
             {
               "id": "B08_06",
-              "kind": "arrow",
-              "start": [
-                0.4012,
-                0.32
+              "kind": "text",
+              "text": "Same span, higher rise",
+              "position": [
+                0.7,
+                0.47
               ],
-              "end": [
-                0.4713,
-                0.29
-              ],
-              "color": "#C25110",
-              "width": 0.008,
+              "size": 0.024,
+              "align": "CENTER",
+              "color": "#1E5C96",
+              "plate": false,
               "appear": 5.025
             },
             {
               "id": "B08_07",
               "kind": "arrow",
               "start": [
-                0.5987,
-                0.32
+                0.1987,
+                0.4
               ],
               "end": [
-                0.5737,
-                0.25
+                0.1287,
+                0.37
               ],
               "color": "#C25110",
               "width": 0.008,
@@ -1491,12 +1490,12 @@
               "id": "B08_08",
               "kind": "arrow",
               "start": [
-                0.8013,
-                0.32
+                0.4012,
+                0.4
               ],
               "end": [
-                0.8263,
-                0.25
+                0.4713,
+                0.37
               ],
               "color": "#C25110",
               "width": 0.008,
@@ -1504,17 +1503,75 @@
             },
             {
               "id": "B08_09",
+              "kind": "arrow",
+              "start": [
+                0.5987,
+                0.4
+              ],
+              "end": [
+                0.5737,
+                0.33
+              ],
+              "color": "#C25110",
+              "width": 0.008,
+              "appear": 5.025
+            },
+            {
+              "id": "B08_10",
+              "kind": "arrow",
+              "start": [
+                0.8013,
+                0.4
+              ],
+              "end": [
+                0.8263,
+                0.33
+              ],
+              "color": "#C25110",
+              "width": 0.008,
+              "appear": 5.025
+            },
+            {
+              "id": "B08_11",
               "kind": "text",
               "text": "Conceptual arrows: direction only, not calculated",
               "position": [
                 0.5,
-                0.22
+                0.3
               ],
               "size": 0.021,
               "align": "CENTER",
               "color": "#55524A",
               "plate": false,
               "appear": 5.025
+            },
+            {
+              "id": "B08_12",
+              "kind": "text",
+              "text": "Two arches, same thickness-to-radius ratio: thrust 16–25% of weight (round), 14–23% (pointed)",
+              "position": [
+                0.5,
+                0.262
+              ],
+              "size": 0.022,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": false,
+              "appear": 18.75
+            },
+            {
+              "id": "B08_13",
+              "kind": "text",
+              "text": "Block, DeJong and Ochsendorf, 2006. A result for those two arches, not a rule",
+              "position": [
+                0.5,
+                0.225
+              ],
+              "size": 0.021,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
+              "appear": 18.75
             }
           ]
         },
@@ -1524,10 +1581,11 @@
           "B08"
         ],
         "claim_ids": [
-          "CLM_130"
+          "CLM_130",
+          "CLM_134"
         ],
-        "narration": "A pointed arch is two arcs of a circle that meet at a point. Compared with a round arch, it pushes less to the sides, and that lets it rise much higher.",
-        "visual_purpose": "Round and pointed arch on the same span; the push turns downward [CARD 1/1: 2D card supplied by the beat (10 elements)]"
+        "narration": "A pointed arch is two arcs of a circle that meet at a point. Over the same span, it can rise higher than a round arch, and a taller arch can push less to the sides. How much less depends on its exact shape, its thickness and the weight it carries. In one comparison by MIT engineers, a pointed arch did push less than a round one, but that result belongs to those two arches, not to every arch.",
+        "visual_purpose": "Round and pointed arch on the same span; the higher rise, then one credited comparison [CARD 1/1: 2D card supplied by the beat (14 elements)]"
       },
       "beat_id": "B08",
       "visual_intent": "COMPARE_VARIANTS",
@@ -1548,13 +1606,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 298,
-        "duration_seconds": 12.416667,
-        "min_seconds": 5.375,
+        "frames": 749,
+        "duration_seconds": 31.208333,
+        "min_seconds": 19.125,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 43.5
+        "start_seconds": 50.708333
       },
-      "explanation": "2D card supplied by the beat (10 elements)",
+      "explanation": "2D card supplied by the beat (14 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -1566,7 +1624,7 @@
     {
       "shot": {
         "id": "SC_005",
-        "duration_seconds": 30.916666666666668,
+        "duration_seconds": 29.75,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -1731,7 +1789,7 @@
               "color": "#24231F",
               "width": 0.008,
               "layer": 0,
-              "appear": 13.675
+              "appear": 13.775
             },
             {
               "id": "B09_02",
@@ -1742,7 +1800,7 @@
               ],
               "radius": 0.011,
               "color": "#24231F",
-              "appear": 13.675
+              "appear": 13.775
             },
             {
               "id": "B09_03",
@@ -1753,12 +1811,89 @@
               ],
               "radius": 0.011,
               "color": "#24231F",
-              "appear": 13.675
+              "appear": 13.775
             },
             {
               "id": "B09_04",
+              "kind": "circle",
+              "center": [
+                0.173,
+                0.5446
+              ],
+              "radius": 0.009,
+              "color": "#55524A",
+              "appear": 13.775
+            },
+            {
+              "id": "B09_05",
+              "kind": "circle",
+              "center": [
+                0.2053,
+                0.4455
+              ],
+              "radius": 0.009,
+              "color": "#55524A",
+              "appear": 13.775
+            },
+            {
+              "id": "B09_06",
+              "kind": "circle",
+              "center": [
+                0.2377,
+                0.3953
+              ],
+              "radius": 0.009,
+              "color": "#55524A",
+              "appear": 13.775
+            },
+            {
+              "id": "B09_07",
+              "kind": "circle",
+              "center": [
+                0.27,
+                0.38
+              ],
+              "radius": 0.009,
+              "color": "#55524A",
+              "appear": 13.775
+            },
+            {
+              "id": "B09_08",
+              "kind": "circle",
+              "center": [
+                0.3023,
+                0.3953
+              ],
+              "radius": 0.009,
+              "color": "#55524A",
+              "appear": 13.775
+            },
+            {
+              "id": "B09_09",
+              "kind": "circle",
+              "center": [
+                0.3347,
+                0.4455
+              ],
+              "radius": 0.009,
+              "color": "#55524A",
+              "appear": 13.775
+            },
+            {
+              "id": "B09_10",
+              "kind": "circle",
+              "center": [
+                0.367,
+                0.5446
+              ],
+              "radius": 0.009,
+              "color": "#55524A",
+              "appear": 13.775
+            },
+            {
+              "id": "B09_11",
               "kind": "text",
-              "text": "A hanging chain",
+              "text": "A chain with its weights",
               "position": [
                 0.27,
                 0.3
@@ -1767,10 +1902,10 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 13.675
+              "appear": 13.775
             },
             {
-              "id": "B09_05",
+              "id": "B09_12",
               "kind": "line",
               "points": [
                 [
@@ -1910,12 +2045,12 @@
               "width": 0.008,
               "layer": 0,
               "dash": true,
-              "appear": 13.675
+              "appear": 18.075
             },
             {
-              "id": "B09_06",
+              "id": "B09_13",
               "kind": "text",
-              "text": "Turned upside down",
+              "text": "Turned upside down: a path for the force",
               "position": [
                 0.73,
                 0.3
@@ -1924,10 +2059,152 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 13.675
+              "appear": 18.075
             },
             {
-              "id": "B09_07",
+              "id": "B09_14",
+              "kind": "line",
+              "points": [
+                [
+                  0.1406,
+                  0.72
+                ],
+                [
+                  0.1487,
+                  0.6929
+                ],
+                [
+                  0.1568,
+                  0.6666
+                ],
+                [
+                  0.1649,
+                  0.641
+                ],
+                [
+                  0.173,
+                  0.6162
+                ],
+                [
+                  0.1811,
+                  0.5923
+                ],
+                [
+                  0.1891,
+                  0.5691
+                ],
+                [
+                  0.1972,
+                  0.5466
+                ],
+                [
+                  0.2053,
+                  0.525
+                ],
+                [
+                  0.2134,
+                  0.5041
+                ],
+                [
+                  0.2215,
+                  0.4841
+                ],
+                [
+                  0.2296,
+                  0.4648
+                ],
+                [
+                  0.2377,
+                  0.4462
+                ],
+                [
+                  0.2457,
+                  0.4285
+                ],
+                [
+                  0.2538,
+                  0.4116
+                ],
+                [
+                  0.2619,
+                  0.3954
+                ],
+                [
+                  0.27,
+                  0.38
+                ],
+                [
+                  0.2781,
+                  0.3954
+                ],
+                [
+                  0.2862,
+                  0.4116
+                ],
+                [
+                  0.2943,
+                  0.4285
+                ],
+                [
+                  0.3023,
+                  0.4462
+                ],
+                [
+                  0.3104,
+                  0.4648
+                ],
+                [
+                  0.3185,
+                  0.4841
+                ],
+                [
+                  0.3266,
+                  0.5041
+                ],
+                [
+                  0.3347,
+                  0.525
+                ],
+                [
+                  0.3428,
+                  0.5466
+                ],
+                [
+                  0.3509,
+                  0.5691
+                ],
+                [
+                  0.3589,
+                  0.5923
+                ],
+                [
+                  0.367,
+                  0.6162
+                ],
+                [
+                  0.3751,
+                  0.641
+                ],
+                [
+                  0.3832,
+                  0.6666
+                ],
+                [
+                  0.3913,
+                  0.6929
+                ],
+                [
+                  0.3994,
+                  0.72
+                ]
+              ],
+              "color": "#1E5C96",
+              "width": 0.006,
+              "layer": 0,
+              "appear": 25.725
+            },
+            {
+              "id": "B09_15",
               "kind": "line",
               "points": [
                 [
@@ -1935,128 +2212,128 @@
                   0.38
                 ],
                 [
-                  0.6012,
-                  0.4072
+                  0.6087,
+                  0.4071
                 ],
                 [
-                  0.6029,
-                  0.4343
+                  0.6168,
+                  0.4334
                 ],
                 [
-                  0.6057,
-                  0.461
+                  0.6249,
+                  0.459
                 ],
                 [
-                  0.6097,
-                  0.4873
+                  0.633,
+                  0.4838
                 ],
                 [
-                  0.6147,
-                  0.5131
+                  0.6411,
+                  0.5077
                 ],
                 [
-                  0.6208,
-                  0.538
+                  0.6491,
+                  0.5309
                 ],
                 [
-                  0.6279,
-                  0.5621
+                  0.6572,
+                  0.5534
                 ],
                 [
-                  0.636,
-                  0.5852
+                  0.6653,
+                  0.575
                 ],
                 [
-                  0.6451,
-                  0.6072
+                  0.6734,
+                  0.5959
                 ],
                 [
-                  0.655,
-                  0.6279
-                ],
-                [
-                  0.6658,
-                  0.6473
-                ],
-                [
-                  0.6773,
-                  0.6651
+                  0.6815,
+                  0.6159
                 ],
                 [
                   0.6896,
-                  0.6814
+                  0.6352
                 ],
                 [
-                  0.7025,
-                  0.6961
+                  0.6977,
+                  0.6538
                 ],
                 [
-                  0.716,
-                  0.7089
+                  0.7057,
+                  0.6715
+                ],
+                [
+                  0.7138,
+                  0.6884
+                ],
+                [
+                  0.7219,
+                  0.7046
                 ],
                 [
                   0.73,
                   0.72
                 ],
                 [
-                  0.744,
-                  0.7089
+                  0.7381,
+                  0.7046
                 ],
                 [
-                  0.7575,
-                  0.6961
+                  0.7462,
+                  0.6884
+                ],
+                [
+                  0.7543,
+                  0.6715
+                ],
+                [
+                  0.7623,
+                  0.6538
                 ],
                 [
                   0.7704,
-                  0.6814
+                  0.6352
                 ],
                 [
-                  0.7827,
-                  0.6651
+                  0.7785,
+                  0.6159
                 ],
                 [
-                  0.7942,
-                  0.6473
+                  0.7866,
+                  0.5959
                 ],
                 [
-                  0.805,
-                  0.6279
+                  0.7947,
+                  0.575
                 ],
                 [
-                  0.8149,
-                  0.6072
+                  0.8028,
+                  0.5534
                 ],
                 [
-                  0.824,
-                  0.5852
+                  0.8109,
+                  0.5309
                 ],
                 [
-                  0.8321,
-                  0.5621
+                  0.8189,
+                  0.5077
                 ],
                 [
-                  0.8392,
-                  0.538
+                  0.827,
+                  0.4838
                 ],
                 [
-                  0.8453,
-                  0.5131
+                  0.8351,
+                  0.459
                 ],
                 [
-                  0.8503,
-                  0.4873
+                  0.8432,
+                  0.4334
                 ],
                 [
-                  0.8543,
-                  0.461
-                ],
-                [
-                  0.8571,
-                  0.4343
-                ],
-                [
-                  0.8588,
-                  0.4072
+                  0.8513,
+                  0.4071
                 ],
                 [
                   0.8594,
@@ -2064,26 +2341,27 @@
                 ]
               ],
               "color": "#1E5C96",
-              "width": 0.008,
+              "width": 0.006,
               "layer": 0,
-              "appear": 20.9
+              "dash": true,
+              "appear": 25.725
             },
             {
-              "id": "B09_08",
+              "id": "B09_16",
               "kind": "text",
-              "text": "Pointed arch",
+              "text": "Different weights, different curve",
               "position": [
-                0.73,
-                0.79
+                0.5,
+                0.77
               ],
-              "size": 0.03,
+              "size": 0.028,
               "align": "CENTER",
               "color": "#1E5C96",
               "plate": true,
-              "appear": 20.9
+              "appear": 25.725
             },
             {
-              "id": "B09_09",
+              "id": "B09_17",
               "kind": "text",
               "text": "“As hangs the flexible line, so but inverted",
               "position": [
@@ -2094,10 +2372,10 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 7.725
+              "appear": 7.825
             },
             {
-              "id": "B09_10",
+              "id": "B09_18",
               "kind": "text",
               "text": "will stand the rigid arch.”  Robert Hooke, 1675",
               "position": [
@@ -2108,11 +2386,10 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 7.725,
-              "disappear": 13.675
+              "appear": 7.825
             },
             {
-              "id": "B09_11",
+              "id": "B09_19",
               "kind": "text",
               "text": "Conceptual diagram",
               "position": [
@@ -2123,7 +2400,7 @@
               "align": "CENTER",
               "color": "#55524A",
               "plate": false,
-              "appear": 13.675
+              "appear": 13.775
             }
           ]
         },
@@ -2134,10 +2411,10 @@
         ],
         "claim_ids": [
           "CLM_114",
-          "CLM_133"
+          "CLM_115"
         ],
-        "narration": "In 1675, the scientist Robert Hooke summed up the shape of a good arch in one line. As hangs the flexible line, so but inverted will stand the rigid arch. In other words, the force in an arch follows a curve like a hanging chain, turned upside down. A Columbia University project says the pointed arch comes closer to that curve than the round arch, and so is more efficient.",
-        "visual_purpose": "Hanging chain, inverted, beside a pointed arch [CARD 1/1: 2D card supplied by the beat (12 elements)]"
+        "narration": "In 1675, the scientist Robert Hooke summed up an idea about arches in one line. As hangs the flexible line, so but inverted will stand the rigid arch. Hang a chain with a set of weights, and it takes a shape. Turn that shape upside down, and it shows a path the force can follow through an arch carrying the same weights. Change the weights, and the shape changes too.",
+        "visual_purpose": "Hanging chain with weights, inverted; different weights give a different curve [CARD 1/1: 2D card supplied by the beat (20 elements)]"
       },
       "beat_id": "B09",
       "visual_intent": "EXPLAIN_STRUCTURE",
@@ -2158,13 +2435,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 742,
-        "duration_seconds": 30.916667,
-        "min_seconds": 21.25,
+        "frames": 714,
+        "duration_seconds": 29.75,
+        "min_seconds": 26.0833,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 55.916667
+        "start_seconds": 81.916667
       },
-      "explanation": "2D card supplied by the beat (12 elements)",
+      "explanation": "2D card supplied by the beat (20 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -2176,7 +2453,7 @@
     {
       "shot": {
         "id": "SC_006",
-        "duration_seconds": 22.875,
+        "duration_seconds": 24.0,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -2447,7 +2724,7 @@
               ],
               "layer": 0,
               "color": "#5E86A6",
-              "appear": 15.4
+              "appear": 16.525
             },
             {
               "id": "B10_17",
@@ -2461,7 +2738,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 15.4
+              "appear": 16.525
             }
           ]
         },
@@ -2473,7 +2750,7 @@
         "claim_ids": [
           "CLM_131"
         ],
-        "narration": "The pointed arch was not a Gothic invention. It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and the same Columbia project traces it to Islamic sources. At the abbey of Saint-Denis, it was used systematically, together with the other new ideas.",
+        "narration": "The pointed arch was not a Gothic invention. It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and Columbia University's Amiens project traces it to Islamic sources. At the abbey of Saint-Denis, it was used systematically, together with the other new ideas.",
         "visual_purpose": "Short timeline: pointed arches before Gothic [CARD 1/1: 2D card supplied by the beat (18 elements)]"
       },
       "beat_id": "B10",
@@ -2495,11 +2772,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 549,
-        "duration_seconds": 22.875,
-        "min_seconds": 15.75,
+        "frames": 576,
+        "duration_seconds": 24.0,
+        "min_seconds": 16.875,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 86.833333
+        "start_seconds": 111.666667
       },
       "explanation": "2D card supplied by the beat (18 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -3232,7 +3509,7 @@
         "duration_seconds": 18.833333,
         "min_seconds": 3.8333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 109.708333
+        "start_seconds": 135.666667
       },
       "explanation": "2D card supplied by the beat (11 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -3246,7 +3523,7 @@
     {
       "shot": {
         "id": "SC_008",
-        "duration_seconds": 16.458333333333332,
+        "duration_seconds": 19.625,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -3277,27 +3554,22 @@
                 0.8
               ],
               "layer": 0,
-              "border": "#8A867C",
-              "border_width": 0.004,
-              "appear": 0.3
+              "color": "#E8DFCB",
+              "appear": 3.575
             },
             {
               "id": "B12_02",
-              "kind": "line",
-              "points": [
-                [
-                  0.32,
-                  0.28
-                ],
-                [
-                  0.68,
-                  0.8
-                ]
+              "kind": "rect",
+              "box": [
+                0.32,
+                0.28,
+                0.68,
+                0.8
               ],
-              "color": "#1E5C96",
-              "width": 0.009,
               "layer": 0,
-              "appear": 3.575
+              "border": "#8A867C",
+              "border_width": 0.004,
+              "appear": 0.3
             },
             {
               "id": "B12_03",
@@ -3305,11 +3577,11 @@
               "points": [
                 [
                   0.32,
-                  0.8
+                  0.28
                 ],
                 [
                   0.68,
-                  0.28
+                  0.8
                 ]
               ],
               "color": "#1E5C96",
@@ -3319,28 +3591,46 @@
             },
             {
               "id": "B12_04",
-              "kind": "circle",
-              "center": [
-                0.32,
-                0.28
+              "kind": "line",
+              "points": [
+                [
+                  0.32,
+                  0.8
+                ],
+                [
+                  0.68,
+                  0.28
+                ]
               ],
-              "radius": 0.02,
-              "color": "#24231F",
-              "appear": 9.075
+              "color": "#1E5C96",
+              "width": 0.009,
+              "layer": 0,
+              "appear": 3.575
             },
             {
               "id": "B12_05",
               "kind": "circle",
               "center": [
+                0.32,
+                0.28
+              ],
+              "radius": 0.02,
+              "color": "#24231F",
+              "appear": 10.325
+            },
+            {
+              "id": "B12_06",
+              "kind": "circle",
+              "center": [
                 0.68,
                 0.28
               ],
               "radius": 0.02,
               "color": "#24231F",
-              "appear": 9.075
+              "appear": 10.325
             },
             {
-              "id": "B12_06",
+              "id": "B12_07",
               "kind": "circle",
               "center": [
                 0.32,
@@ -3348,10 +3638,10 @@
               ],
               "radius": 0.02,
               "color": "#24231F",
-              "appear": 9.075
+              "appear": 10.325
             },
             {
-              "id": "B12_07",
+              "id": "B12_08",
               "kind": "circle",
               "center": [
                 0.68,
@@ -3359,10 +3649,10 @@
               ],
               "radius": 0.02,
               "color": "#24231F",
-              "appear": 9.075
+              "appear": 10.325
             },
             {
-              "id": "B12_08",
+              "id": "B12_09",
               "kind": "text",
               "text": "Diagonal ribs",
               "position": [
@@ -3376,7 +3666,21 @@
               "appear": 3.575
             },
             {
-              "id": "B12_09",
+              "id": "B12_10",
+              "kind": "text",
+              "text": "Stone web between the ribs",
+              "position": [
+                0.82,
+                0.5
+              ],
+              "size": 0.026,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 3.575
+            },
+            {
+              "id": "B12_11",
               "kind": "text",
               "text": "Four piers",
               "position": [
@@ -3387,12 +3691,26 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 9.075
+              "appear": 10.325
             },
             {
-              "id": "B12_10",
+              "id": "B12_12",
               "kind": "text",
-              "text": "One bay, seen from above",
+              "text": "One type: a four-part vault",
+              "position": [
+                0.5,
+                0.86
+              ],
+              "size": 0.03,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 3.575
+            },
+            {
+              "id": "B12_13",
+              "kind": "text",
+              "text": "One bay from above. Simplified: how vaults stand is debated",
               "position": [
                 0.5,
                 0.235
@@ -3401,7 +3719,7 @@
               "align": "CENTER",
               "color": "#55524A",
               "plate": false,
-              "appear": 0.3
+              "appear": 10.325
             }
           ]
         },
@@ -3413,8 +3731,8 @@
         "claim_ids": [
           "CLM_140"
         ],
-        "narration": "The second tool is the rib vault. Two pointed arches cross diagonally over each bay of the building. They gather the vault's load onto four points: the piers, or stone pillars, at its corners.",
-        "visual_purpose": "Plan of one bay: ribs to four piers [CARD 1/1: 2D card supplied by the beat (11 elements)]"
+        "narration": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners.",
+        "visual_purpose": "Plan of one bay of a four-part vault: ribs to four piers, the stone web visible between them [CARD 1/1: 2D card supplied by the beat (14 elements)]"
       },
       "beat_id": "B12",
       "visual_intent": "EXPLAIN_STRUCTURE",
@@ -3435,13 +3753,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 395,
-        "duration_seconds": 16.458333,
-        "min_seconds": 9.4583,
+        "frames": 471,
+        "duration_seconds": 19.625,
+        "min_seconds": 10.7083,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 128.541667
+        "start_seconds": 154.5
       },
-      "explanation": "2D card supplied by the beat (11 elements)",
+      "explanation": "2D card supplied by the beat (14 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -3453,7 +3771,7 @@
     {
       "shot": {
         "id": "SC_009",
-        "duration_seconds": 15.208333333333334,
+        "duration_seconds": 32.541666666666664,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -3715,49 +4033,33 @@
             },
             {
               "id": "B14_16",
-              "kind": "line",
-              "points": [
-                [
-                  0.3572,
-                  0.5
-                ],
-                [
-                  0.3572,
-                  0.39
-                ]
+              "kind": "rect",
+              "box": [
+                0.3572,
+                0.53,
+                0.6932,
+                0.56
               ],
-              "color": "#8A867C",
-              "width": 0.003,
               "layer": 0,
-              "appear": 4.105
+              "color": "#B9A887",
+              "appear": 3.025
             },
             {
               "id": "B14_17",
-              "kind": "circle",
-              "center": [
-                0.3572,
-                0.5
-              ],
-              "radius": 0.009,
-              "color": "#24231F",
-              "appear": 4.105
-            },
-            {
-              "id": "B14_18",
               "kind": "text",
-              "text": "1093  Durham, England: ribbed vaults",
+              "text": "Durham, begun 1093, finished 1133: ribbed vaults, in phases",
               "position": [
-                0.3572,
-                0.36
+                0.5252,
+                0.72
               ],
-              "size": 0.025,
+              "size": 0.024,
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 4.105
+              "appear": 3.025
             },
             {
-              "id": "B14_19",
+              "id": "B14_18",
               "kind": "rect",
               "box": [
                 0.752,
@@ -3770,7 +4072,7 @@
               "appear": 0.3
             },
             {
-              "id": "B14_20",
+              "id": "B14_19",
               "kind": "text",
               "text": "Saint-Denis choir",
               "position": [
@@ -3793,8 +4095,8 @@
         "claim_ids": [
           "CLM_142"
         ],
-        "narration": "Ribs were not new either. They appear at Durham Cathedral, in England, as early as 1093, and Columbia's project traces them to Islamic, Roman and Byzantine sources.",
-        "visual_purpose": "The same timeline, with ribbed vaults added [CARD 1/1: 2D card supplied by the beat (21 elements)]"
+        "narration": "Ribs were not new either. Durham Cathedral in England, begun in 1093, was completely covered by ribbed vaults by the time it was finished in 1133. Its masons refined them in phases over some forty years, and the historian Roger Stalley argues that the ribs there may owe more to appearance and meaning than to structure. Columbia's project traces ribs to Islamic, Roman and Byzantine sources.",
+        "visual_purpose": "The same timeline, with Durham's building years as a band, not one date [CARD 1/1: 2D card supplied by the beat (20 elements)]"
       },
       "beat_id": "B14",
       "visual_intent": "SHOW_CONTEXT",
@@ -3815,13 +4117,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 365,
-        "duration_seconds": 15.208333,
-        "min_seconds": 4.4583,
+        "frames": 781,
+        "duration_seconds": 32.541667,
+        "min_seconds": 3.375,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 145.0
+        "start_seconds": 174.125
       },
-      "explanation": "2D card supplied by the beat (21 elements)",
+      "explanation": "2D card supplied by the beat (20 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -4222,7 +4524,7 @@
         "duration_seconds": 23.458333,
         "min_seconds": 19.8333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 160.208333
+        "start_seconds": 206.666667
       },
       "explanation": "2D card supplied by the beat (23 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -4284,6 +4586,20 @@
               "color": "#24231F",
               "plate": true,
               "appear": 4.95
+            },
+            {
+              "id": "B22_03",
+              "kind": "text",
+              "text": "Bibliothèque nationale de France",
+              "position": [
+                0.5,
+                0.33
+              ],
+              "size": 0.022,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
+              "appear": 4.95
             }
           ]
         },
@@ -4293,10 +4609,11 @@
           "B22"
         ],
         "claim_ids": [
-          "CLM_161"
+          "CLM_161",
+          "CLM_164"
         ],
         "narration": "For Suger, light was a sign, a bridge to the divine. France's national library says the new style had to let in as much light as possible.",
-        "visual_purpose": "Why light mattered [CARD 1/1: 2D card supplied by the beat (3 elements)]"
+        "visual_purpose": "Why light mattered [CARD 1/1: 2D card supplied by the beat (4 elements)]"
       },
       "beat_id": "B22",
       "visual_intent": "SHOW_CONTEXT",
@@ -4321,9 +4638,9 @@
         "duration_seconds": 12.583333,
         "min_seconds": 5.3333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 183.666667
+        "start_seconds": 230.125
       },
-      "explanation": "2D card supplied by the beat (3 elements)",
+      "explanation": "2D card supplied by the beat (4 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -4406,7 +4723,7 @@
         "duration_seconds": 8.833333,
         "min_seconds": 1.5,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 196.25
+        "start_seconds": 242.708333
       },
       "explanation": "2D card supplied by the beat (2 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -4420,7 +4737,7 @@
     {
       "shot": {
         "id": "SC_013",
-        "duration_seconds": 33.208333333333336,
+        "duration_seconds": 18.875,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -4457,7 +4774,7 @@
               "color": "#8A867C",
               "width": 0.003,
               "layer": 0,
-              "appear": 7.175
+              "appear": 3.05
             },
             {
               "id": "B24_02",
@@ -4471,7 +4788,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 7.175
+              "appear": 5.45
             },
             {
               "id": "B24_03",
@@ -4485,7 +4802,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 7.175
+              "appear": 5.45
             },
             {
               "id": "B24_04",
@@ -4499,7 +4816,7 @@
               "align": "CENTER",
               "color": "#55524A",
               "plate": false,
-              "appear": 7.175
+              "appear": 5.45
             },
             {
               "id": "B24_05",
@@ -4513,7 +4830,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 15.8
+              "appear": 7.83
             },
             {
               "id": "B24_06",
@@ -4527,7 +4844,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 15.8
+              "appear": 7.83
             },
             {
               "id": "B24_07",
@@ -4541,7 +4858,7 @@
               "align": "CENTER",
               "color": "#55524A",
               "plate": false,
-              "appear": 15.8
+              "appear": 7.83
             },
             {
               "id": "B24_08",
@@ -4555,7 +4872,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 26.3
+              "appear": 11.975
             }
           ]
         },
@@ -4567,8 +4884,8 @@
         "claim_ids": [
           "CLM_163"
         ],
-        "narration": "How new was all of this? On that question, historians still disagree. Following the 19th-century architect Viollet-le-Duc, some call Gothic an entire revolution in the art of building. The art historian Arnaud Timbert argues there was no revolution and no Gothic break, but a creative proposal rooted in continuity. Suger's own crypt still relies almost entirely on round arches and groin vaults.",
-        "visual_purpose": "Two readings, side by side [CARD 1/1: 2D card supplied by the beat (9 elements)]"
+        "narration": "How new was all of this? Some historians call Gothic a revolution in the art of building, while others see a creative step rooted in continuity. Suger's own crypt still relies almost entirely on round arches and groin vaults.",
+        "visual_purpose": "Two readings, side by side; the names stay in small type on the card and are not spoken [CARD 1/1: 2D card supplied by the beat (9 elements)]"
       },
       "beat_id": "B24",
       "visual_intent": "COMPARE_VARIANTS",
@@ -4589,11 +4906,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 797,
-        "duration_seconds": 33.208333,
-        "min_seconds": 26.6667,
+        "frames": 453,
+        "duration_seconds": 18.875,
+        "min_seconds": 12.3333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 205.083333
+        "start_seconds": 251.541667
       },
       "explanation": "2D card supplied by the beat (9 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -4607,7 +4924,7 @@
     {
       "shot": {
         "id": "SC_014",
-        "duration_seconds": 18.125,
+        "duration_seconds": 18.208333333333332,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -4768,7 +5085,7 @@
               "color": "#B9A887",
               "width": 0.01,
               "layer": 0,
-              "appear": 12.675
+              "appear": 12.725
             },
             {
               "id": "B25_02",
@@ -4910,7 +5227,7 @@
               "color": "#B9A887",
               "width": 0.012,
               "layer": 0,
-              "appear": 12.675
+              "appear": 12.725
             },
             {
               "id": "B25_03",
@@ -5052,7 +5369,7 @@
               "color": "#B9A887",
               "width": 0.016,
               "layer": 0,
-              "appear": 12.675
+              "appear": 12.725
             },
             {
               "id": "B25_04",
@@ -5066,7 +5383,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 5.825
+              "appear": 5.875
             },
             {
               "id": "B25_05",
@@ -5080,7 +5397,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 12.675
+              "appear": 12.725
             }
           ]
         },
@@ -5092,7 +5409,7 @@
         "claim_ids": [
           "CLM_110"
         ],
-        "narration": "So how did they do all this, with no knowledge of material properties? Master builders used geometrical rules, developed through centuries of trial and error. They scaled up the same proportions for new, larger elements.",
+        "narration": "So how did they do all this, without modern structural calculations? Master builders used geometrical rules, developed through centuries of trial and error. They scaled up the same proportions for new, larger elements.",
         "visual_purpose": "One proportion at three sizes [CARD 1/1: 2D card supplied by the beat (6 elements)]"
       },
       "beat_id": "B25",
@@ -5114,11 +5431,11 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 435,
-        "duration_seconds": 18.125,
-        "min_seconds": 13.0417,
+        "frames": 437,
+        "duration_seconds": 18.208333,
+        "min_seconds": 13.0833,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 238.291667
+        "start_seconds": 270.416667
       },
       "explanation": "2D card supplied by the beat (6 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -5335,7 +5652,7 @@
         "duration_seconds": 16.208333,
         "min_seconds": 10.0417,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 256.416667
+        "start_seconds": 288.625
       },
       "explanation": "2D card supplied by the beat (10 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6143,7 +6460,7 @@
         "duration_seconds": 23.875,
         "min_seconds": 16.5,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 272.625
+        "start_seconds": 304.833333
       },
       "explanation": "2D card supplied by the beat (29 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6284,7 +6601,7 @@
         "duration_seconds": 14.083333,
         "min_seconds": 11.9583,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 296.5
+        "start_seconds": 328.708333
       },
       "explanation": "2D card supplied by the beat (6 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6600,7 +6917,7 @@
         "duration_seconds": 13.333333,
         "min_seconds": 9.0,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 310.583333
+        "start_seconds": 342.791667
       },
       "explanation": "2D card supplied by the beat (17 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6713,7 +7030,7 @@
         "duration_seconds": 15.25,
         "min_seconds": 9.25,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 323.916667
+        "start_seconds": 356.125
       },
       "explanation": "2D card supplied by the beat (4 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6942,7 +7259,7 @@
         "duration_seconds": 21.458333,
         "min_seconds": 16.3333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 339.166667
+        "start_seconds": 371.375
       },
       "explanation": "2D card supplied by the beat (12 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -6956,7 +7273,7 @@
     {
       "shot": {
         "id": "SC_021",
-        "duration_seconds": 10.875,
+        "duration_seconds": 10.833333333333334,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -7011,7 +7328,7 @@
                 0.57,
                 0.24,
                 0.71,
-                0.804
+                0.792
               ],
               "layer": 0,
               "color": "#1E5C96",
@@ -7034,10 +7351,10 @@
             {
               "id": "B33_05",
               "kind": "text",
-              "text": "nearly 47 m",
+              "text": "more than 45 m",
               "position": [
                 0.64,
-                0.844
+                0.832
               ],
               "size": 0.03,
               "align": "CENTER",
@@ -7057,12 +7374,12 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": false,
-              "appear": 6.275
+              "appear": 6.225
             },
             {
               "id": "B33_07",
               "kind": "text",
-              "text": "Published heights differ:",
+              "text": "Published for Beauvais:",
               "position": [
                 0.86,
                 0.5
@@ -7076,10 +7393,38 @@
             {
               "id": "B33_08",
               "kind": "text",
-              "text": "about 46 to 48 m at Beauvais",
+              "text": "46 m, 46.7 m, nearly 47 m,",
               "position": [
                 0.86,
                 0.46
+              ],
+              "size": 0.021,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
+              "appear": 0.3
+            },
+            {
+              "id": "B33_09",
+              "kind": "text",
+              "text": "above 48 m",
+              "position": [
+                0.86,
+                0.42
+              ],
+              "size": 0.021,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
+              "appear": 0.3
+            },
+            {
+              "id": "B33_10",
+              "kind": "text",
+              "text": "Bars are schematic",
+              "position": [
+                0.86,
+                0.36
               ],
               "size": 0.021,
               "align": "CENTER",
@@ -7099,8 +7444,8 @@
           "CLM_103",
           "CLM_104"
         ],
-        "narration": "Its vault rose nearly 47 meters, a few meters above Amiens. These were the highest vaults built in the Middle Ages.",
-        "visual_purpose": "Two heights side by side, with the caveat on screen [CARD 1/1: 2D card supplied by the beat (9 elements)]"
+        "narration": "Its vault rose more than 45 meters, a few meters above Amiens. These were the highest vaults built in the Middle Ages.",
+        "visual_purpose": "Two heights side by side, with the caveat on screen [CARD 1/1: 2D card supplied by the beat (11 elements)]"
       },
       "beat_id": "B33",
       "visual_intent": "COMPARE_VARIANTS",
@@ -7121,13 +7466,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 261,
-        "duration_seconds": 10.875,
-        "min_seconds": 6.625,
+        "frames": 260,
+        "duration_seconds": 10.833333,
+        "min_seconds": 6.5833,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 360.625
+        "start_seconds": 392.833333
       },
-      "explanation": "2D card supplied by the beat (9 elements)",
+      "explanation": "2D card supplied by the beat (11 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -7163,10 +7508,10 @@
             {
               "id": "B35_01",
               "kind": "text",
-              "text": "Settling masonry broke the flying buttresses",
+              "text": "Hypothesis: settling masonry broke the flying buttresses",
               "position": [
                 0.5,
-                0.72
+                0.75
               ],
               "size": 0.03,
               "align": "CENTER",
@@ -7177,10 +7522,10 @@
             {
               "id": "B35_02",
               "kind": "text",
-              "text": "Gusts of wind set the buttress system resonating",
+              "text": "Hypothesis: gusts of wind set the buttress system resonating",
               "position": [
                 0.5,
-                0.63
+                0.67
               ],
               "size": 0.03,
               "align": "CENTER",
@@ -7191,10 +7536,10 @@
             {
               "id": "B35_03",
               "kind": "text",
-              "text": "Slow settlement of the foundations",
+              "text": "Hypothesis: slow settlement of the foundations",
               "position": [
                 0.5,
-                0.54
+                0.59
               ],
               "size": 0.03,
               "align": "CENTER",
@@ -7208,11 +7553,11 @@
               "points": [
                 [
                   0.2,
-                  0.47
+                  0.53
                 ],
                 [
                   0.8,
-                  0.47
+                  0.53
                 ]
               ],
               "color": "#8A867C",
@@ -7223,12 +7568,12 @@
             {
               "id": "B35_05",
               "kind": "text",
-              "text": "2024 study: nothing justifies a foundation cause",
+              "text": "Vernhes, Renault and Zotna, 2024:",
               "position": [
                 0.5,
-                0.4
+                0.47
               ],
-              "size": 0.03,
+              "size": 0.028,
               "align": "CENTER",
               "color": "#1E5C96",
               "plate": false,
@@ -7237,10 +7582,24 @@
             {
               "id": "B35_06",
               "kind": "text",
-              "text": "Vaults raised against proven proportions: upper parts too flexible",
+              "text": "“nothing appears to justify a geotechnical origin”",
               "position": [
                 0.5,
-                0.32
+                0.41
+              ],
+              "size": 0.03,
+              "align": "CENTER",
+              "color": "#1E5C96",
+              "plate": false,
+              "appear": 16.825
+            },
+            {
+              "id": "B35_07",
+              "kind": "text",
+              "text": "Their hypothesis: vaults raised against proven proportions,",
+              "position": [
+                0.5,
+                0.33
               ],
               "size": 0.028,
               "align": "CENTER",
@@ -7249,12 +7608,26 @@
               "appear": 22.9
             },
             {
-              "id": "B35_07",
+              "id": "B35_08",
               "kind": "text",
-              "text": "Vernhes, Renault and Zotna, ECSMGE 2024",
+              "text": "upper parts too flexible",
               "position": [
                 0.5,
-                0.245
+                0.28
+              ],
+              "size": 0.028,
+              "align": "CENTER",
+              "color": "#1E5C96",
+              "plate": false,
+              "appear": 22.9
+            },
+            {
+              "id": "B35_09",
+              "kind": "text",
+              "text": "ECSMGE 2024, an argument, not a settled result",
+              "position": [
+                0.5,
+                0.235
               ],
               "size": 0.021,
               "align": "CENTER",
@@ -7274,7 +7647,7 @@
           "CLM_184"
         ],
         "narration": "Why it happened is still debated. Some blame settling masonry that broke the flying buttresses. Others point to gusts of wind setting the buttress system resonating, or to slow settlement of the foundations. A 2024 study found nothing to justify a foundation cause. Its authors argue that raising the vaults, against proven proportions, left the upper parts too flexible.",
-        "visual_purpose": "The explanations, one by one [CARD 1/1: 2D card supplied by the beat (8 elements)]"
+        "visual_purpose": "The explanations, one by one [CARD 1/1: 2D card supplied by the beat (10 elements)]"
       },
       "beat_id": "B35",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
@@ -7299,9 +7672,9 @@
         "duration_seconds": 31.5,
         "min_seconds": 23.25,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 371.5
+        "start_seconds": 403.666667
       },
-      "explanation": "2D card supplied by the beat (8 elements)",
+      "explanation": "2D card supplied by the beat (10 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -7581,7 +7954,7 @@
         "duration_seconds": 19.541667,
         "min_seconds": 15.9583,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 403.0
+        "start_seconds": 435.166667
       },
       "explanation": "2D card supplied by the beat (19 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -7943,7 +8316,7 @@
         "duration_seconds": 37.333333,
         "min_seconds": 33.5833,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 422.541667
+        "start_seconds": 454.708333
       },
       "explanation": "2D card supplied by the beat (20 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -8103,7 +8476,7 @@
         "duration_seconds": 21.958333,
         "min_seconds": 15.7917,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 459.875
+        "start_seconds": 492.041667
       },
       "explanation": "2D card supplied by the beat (7 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -8117,7 +8490,7 @@
     {
       "shot": {
         "id": "SC_026",
-        "duration_seconds": 18.291666666666668,
+        "duration_seconds": 29.25,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -8648,19 +9021,33 @@
             {
               "id": "B40_15",
               "kind": "text",
-              "text": "Line of thrust inside the stone",
+              "text": "Assumed: stones resist no pulling, never slide, never crush",
+              "position": [
+                0.5,
+                0.9
+              ],
+              "size": 0.028,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 8.975
+            },
+            {
+              "id": "B40_16",
+              "kind": "text",
+              "text": "A line fits inside: it can stand",
               "position": [
                 0.3,
-                0.84
+                0.82
               ],
               "size": 0.028,
               "align": "CENTER",
               "color": "#1E5C96",
               "plate": true,
-              "appear": 6.85
+              "appear": 15.975
             },
             {
-              "id": "B40_16",
+              "id": "B40_17",
               "kind": "polygon",
               "points": [
                 [
@@ -8684,10 +9071,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_17",
+              "id": "B40_18",
               "kind": "polygon",
               "points": [
                 [
@@ -8711,10 +9098,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_18",
+              "id": "B40_19",
               "kind": "polygon",
               "points": [
                 [
@@ -8738,10 +9125,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_19",
+              "id": "B40_20",
               "kind": "polygon",
               "points": [
                 [
@@ -8765,10 +9152,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_20",
+              "id": "B40_21",
               "kind": "polygon",
               "points": [
                 [
@@ -8792,10 +9179,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_21",
+              "id": "B40_22",
               "kind": "polygon",
               "points": [
                 [
@@ -8819,10 +9206,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_22",
+              "id": "B40_23",
               "kind": "polygon",
               "points": [
                 [
@@ -8846,10 +9233,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_23",
+              "id": "B40_24",
               "kind": "polygon",
               "points": [
                 [
@@ -8873,10 +9260,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_24",
+              "id": "B40_25",
               "kind": "polygon",
               "points": [
                 [
@@ -8900,10 +9287,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_25",
+              "id": "B40_26",
               "kind": "polygon",
               "points": [
                 [
@@ -8927,10 +9314,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_26",
+              "id": "B40_27",
               "kind": "polygon",
               "points": [
                 [
@@ -8954,10 +9341,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_27",
+              "id": "B40_28",
               "kind": "polygon",
               "points": [
                 [
@@ -8981,10 +9368,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_28",
+              "id": "B40_29",
               "kind": "polygon",
               "points": [
                 [
@@ -9008,10 +9395,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_29",
+              "id": "B40_30",
               "kind": "polygon",
               "points": [
                 [
@@ -9035,10 +9422,10 @@
               "layer": 1,
               "border": "#7A6E58",
               "border_width": 0.0025,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_30",
+              "id": "B40_31",
               "kind": "line",
               "points": [
                 [
@@ -9178,26 +9565,26 @@
               "width": 0.006,
               "layer": 0,
               "dash": true,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_31",
+              "id": "B40_32",
               "kind": "text",
-              "text": "No line fits: it collapses",
+              "text": "No line fits: this model collapses",
               "position": [
                 0.7,
-                0.84
+                0.82
               ],
               "size": 0.028,
               "align": "CENTER",
               "color": "#C25110",
               "plate": true,
-              "appear": 13.825
+              "appear": 23.75
             },
             {
-              "id": "B40_32",
+              "id": "B40_33",
               "kind": "text",
-              "text": "Conceptual lines, not calculated",
+              "text": "One idealized arch under one load. Conceptual lines, not calculated",
               "position": [
                 0.5,
                 0.235
@@ -9219,8 +9606,8 @@
           "CLM_113",
           "CLM_111"
         ],
-        "narration": "Picture the path of the force through the stone, which engineers call the line of thrust. As long as that line can stay inside the masonry, the structure can stand in compression. If no such line can be found, it collapses.",
-        "visual_purpose": "The line of thrust inside an arch; a line that no longer fits [CARD 1/1: 2D card supplied by the beat (33 elements)]"
+        "narration": "Picture one idealized arch, and the path of the force through its stones, which engineers call the line of thrust. This analysis assumes that the stones resist no pulling, never slide and never crush. Under those assumptions and a given load, the arch can stand if that line can stay inside the masonry. If no such line fits, this idealized arch collapses.",
+        "visual_purpose": "The line of thrust inside one idealized arch; a line that no longer fits; the assumptions on screen [CARD 1/1: 2D card supplied by the beat (34 elements)]"
       },
       "beat_id": "B40",
       "visual_intent": "EXPLAIN_STRUCTURE",
@@ -9241,13 +9628,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 439,
-        "duration_seconds": 18.291667,
-        "min_seconds": 14.2083,
+        "frames": 702,
+        "duration_seconds": 29.25,
+        "min_seconds": 24.125,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 481.833333
+        "start_seconds": 514.0
       },
-      "explanation": "2D card supplied by the beat (33 elements)",
+      "explanation": "2D card supplied by the beat (34 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -9259,7 +9646,7 @@
     {
       "shot": {
         "id": "SC_027",
-        "duration_seconds": 24.25,
+        "duration_seconds": 34.125,
         "visual_type": "MOTION_GRAPHICS",
         "transition": "CARD",
         "camera": "CARD",
@@ -9406,7 +9793,7 @@
               "color": "#1E5C96",
               "width": 0.008,
               "layer": 0,
-              "appear": 4.65
+              "appear": 4.7
             },
             {
               "id": "B41_01",
@@ -9548,7 +9935,7 @@
               "color": "#1E5C96",
               "width": 0.016,
               "layer": 0,
-              "appear": 4.65
+              "appear": 4.7
             },
             {
               "id": "B41_02",
@@ -9562,7 +9949,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 4.65
+              "appear": 4.7
             },
             {
               "id": "B41_03",
@@ -9576,7 +9963,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 4.65
+              "appear": 4.7
             },
             {
               "id": "B41_04",
@@ -9590,10 +9977,38 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 11.05
+              "appear": 11.42
             },
             {
               "id": "B41_05",
+              "kind": "text",
+              "text": "Shows the role of proportion",
+              "position": [
+                0.2,
+                0.62
+              ],
+              "size": 0.026,
+              "align": "CENTER",
+              "color": "#1E5C96",
+              "plate": false,
+              "appear": 12.6
+            },
+            {
+              "id": "B41_06",
+              "kind": "text",
+              "text": "Does not prove a real building safe",
+              "position": [
+                0.2,
+                0.55
+              ],
+              "size": 0.026,
+              "align": "CENTER",
+              "color": "#C25110",
+              "plate": false,
+              "appear": 15.2
+            },
+            {
+              "id": "B41_07",
               "kind": "text",
               "text": "Rules of geometry, learned by trial and error",
               "position": [
@@ -9604,7 +10019,7 @@
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 18.08
+              "appear": 27.93
             }
           ]
         },
@@ -9615,10 +10030,11 @@
         ],
         "claim_ids": [
           "CLM_112",
+          "CLM_116",
           "CLM_110"
         ],
-        "narration": "What matters most, then, is shape and proportion. Stability, unlike some other engineering problems, can be scaled: a model with the same proportions is a good guide to the stability of the real building. That helps explain how rules of geometry, learned by trial and error, could carry builders so far.",
-        "visual_purpose": "One shape at two sizes [CARD 1/1: 2D card supplied by the beat (6 elements)]"
+        "narration": "That puts shape and proportion at the center of the question. Unlike some other engineering problems, stability can be scaled, so a small model with the same proportions helps show what proportion does. On its own, that does not show a whole real building is safe: this kind of analysis can miss effects such as local crushing, cracking and sliding. But it helps explain how rules of geometry, learned by trial and error, could carry builders so far.",
+        "visual_purpose": "One shape at two sizes; what the model shows and what it does not [CARD 1/1: 2D card supplied by the beat (8 elements)]"
       },
       "beat_id": "B41",
       "visual_intent": "EXPLAIN_STRUCTURE",
@@ -9639,13 +10055,13 @@
       "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
-        "frames": 582,
-        "duration_seconds": 24.25,
-        "min_seconds": 18.4583,
+        "frames": 819,
+        "duration_seconds": 34.125,
+        "min_seconds": 28.2917,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 500.125
+        "start_seconds": 543.25
       },
-      "explanation": "2D card supplied by the beat (6 elements)",
+      "explanation": "2D card supplied by the beat (8 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -9773,7 +10189,7 @@
         "duration_seconds": 21.083333,
         "min_seconds": 13.4583,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 524.375
+        "start_seconds": 577.375
       },
       "explanation": "2D card supplied by the beat (5 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -9884,7 +10300,7 @@
         "duration_seconds": 12.666667,
         "min_seconds": 10.8333,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 545.458333
+        "start_seconds": 598.458333
       },
       "explanation": "2D card supplied by the beat (4 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
@@ -9922,10 +10338,10 @@
             {
               "id": "B46_01",
               "kind": "text",
-              "text": "Sources: Columbia University (Life of a Cathedral; Stephen Murray); MIT (P. Block, 2005);",
+              "text": "Sources: Columbia University (Life of a Cathedral; S. Murray; R. Stalley);",
               "position": [
                 0.5,
-                0.66
+                0.68
               ],
               "size": 0.026,
               "align": "CENTER",
@@ -9936,10 +10352,10 @@
             {
               "id": "B46_02",
               "kind": "text",
-              "text": "Bibliothèque nationale de France; France Mémoire (A. Timbert);",
+              "text": "MIT (P. Block, 2005; Block, DeJong and Ochsendorf, 2006; Romano and Ochsendorf);",
               "position": [
                 0.5,
-                0.61
+                0.63
               ],
               "size": 0.026,
               "align": "CENTER",
@@ -9950,10 +10366,10 @@
             {
               "id": "B46_03",
               "kind": "text",
-              "text": "ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale",
+              "text": "Bibliothèque nationale de France; France Mémoire (A. Timbert); Durham Cathedral;",
               "position": [
                 0.5,
-                0.56
+                0.58
               ],
               "size": 0.026,
               "align": "CENTER",
@@ -9964,10 +10380,10 @@
             {
               "id": "B46_04",
               "kind": "text",
-              "text": "3D models and diagrams are illustrative, not structural analyses",
+              "text": "ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale",
               "position": [
                 0.5,
-                0.46
+                0.53
               ],
               "size": 0.026,
               "align": "CENTER",
@@ -9977,6 +10393,20 @@
             },
             {
               "id": "B46_05",
+              "kind": "text",
+              "text": "3D models and diagrams are illustrative, not structural analyses",
+              "position": [
+                0.5,
+                0.44
+              ],
+              "size": 0.026,
+              "align": "CENTER",
+              "color": "#55524A",
+              "plate": false,
+              "appear": 0.3
+            },
+            {
+              "id": "B46_06",
               "kind": "text",
               "text": "Architecture Story Studio",
               "position": [
@@ -9998,7 +10428,7 @@
         ],
         "claim_ids": [],
         "narration": "Thank you very much for watching. The sources are listed in the description.",
-        "visual_purpose": "Credits [CARD 1/1: 2D card supplied by the beat (6 elements)]"
+        "visual_purpose": "Credits [CARD 1/1: 2D card supplied by the beat (7 elements)]"
       },
       "beat_id": "B46",
       "visual_intent": "SHOW_CONTEXT",
@@ -10023,9 +10453,9 @@
         "duration_seconds": 7.416667,
         "min_seconds": 1.5,
         "beat_offset_seconds": 0.0,
-        "start_seconds": 558.125
+        "start_seconds": 611.125
       },
-      "explanation": "2D card supplied by the beat (6 elements)",
+      "explanation": "2D card supplied by the beat (7 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -10039,7 +10469,7 @@
     {
       "beat_id": "B01",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "narration": "In November 1284, in the French city of Beauvais, part of the highest stone vaults of the Middle Ages came down. They stood nearly 47 meters above the floor. The choir beneath them, the eastern arm of the cathedral, had been in use for just twelve years.",
+      "narration": "In November 1284, in the French city of Beauvais, part of the highest stone vaults of the Middle Ages came down. They stood more than 45 meters above the floor. The choir beneath them, the eastern arm of the cathedral, had been in use for just twelve years.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -10053,7 +10483,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 21.075,
+      "expected_seconds": 20.975,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
@@ -10091,7 +10521,7 @@
     {
       "beat_id": "B03",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "The people who built them had no knowledge of material properties or allowable stresses. So how did they raise stone that high? And why, sometimes, did it come down?",
+      "narration": "The people who built them worked without modern structural calculations, relying on geometry, craft knowledge and experience. So how did they raise stone that high? And why, sometimes, did it come down?",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10102,7 +10532,7 @@
       "shot_ids": [
         "SC_001"
       ],
-      "expected_seconds": 14.125,
+      "expected_seconds": 16.475,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10113,7 +10543,7 @@
     {
       "beat_id": "B04",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "Start with the stone itself. Stone has little or no strength when it is pulled apart. So a stone building has to stand by keeping its stones pressed together.",
+      "narration": "Start with the stone itself. Stone has little or no strength when it is pulled apart. So a stone building stands largely by keeping its stones pressed together.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10124,7 +10554,7 @@
       "shot_ids": [
         "SC_002"
       ],
-      "expected_seconds": 13.35,
+      "expected_seconds": 13.375,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10135,7 +10565,7 @@
     {
       "beat_id": "B05",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "narration": "Now put a heavy stone vault on top of two walls. A vault does not simply press down: it also pushes outward, like a bow being bent. That outward push is called thrust, and medieval builders were well aware of it.",
+      "narration": "Now put a heavy stone vault on top of two walls. A vault does not simply press down: it also pushes outward, like a bow being bent. That outward push is called thrust, and a document from Amiens shows that builders there were well aware of it.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -10149,7 +10579,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 17.85,
+      "expected_seconds": 19.525,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
@@ -10161,7 +10591,7 @@
     {
       "beat_id": "B06",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "Before Gothic, Romanesque builders answered it with mass. Their heavy vaults pushed outward along the whole length of the wall, so walls and supports had to be thick, stiffened by buttresses. Windows stayed small, and the interiors were dark.",
+      "narration": "Romanesque builders had several ways of covering a great church. In the barrel-vaulted type shown here, the heavy vault pushes outward along the whole length of the wall, so walls and supports are thick, stiffened by buttresses. Large openings would weaken the wall that holds the vault, so windows tend to stay small.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -10175,7 +10605,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 19.425,
+      "expected_seconds": 24.125,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'romanesque_church_section' (cathedral/romanesque_section) has no generator yet; nothing was substituted",
@@ -10187,7 +10617,7 @@
     {
       "beat_id": "B07",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "Gothic builders took a different approach. They stopped fighting thrust with sheer thickness, and learned to channel it. Three tools made that possible: the pointed arch, the rib vault, and the flying buttress.",
+      "narration": "Gothic builders rearranged that system of support. Instead of spreading the push along a thick wall, they directed it toward particular points, and carried it to supports outside. Three tools made that possible: the pointed arch, the rib vault, and the flying buttress.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10198,9 +10628,11 @@
       "shot_ids": [
         "SC_003"
       ],
-      "expected_seconds": 16.0,
+      "expected_seconds": 20.825,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [],
+      "issues": [
+        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']"
+      ],
       "explanation": [
         "CARD: 2D card (text/arrows) supplied by the beat"
       ],
@@ -10209,7 +10641,7 @@
     {
       "beat_id": "B08",
       "visual_intent": "COMPARE_VARIANTS",
-      "narration": "A pointed arch is two arcs of a circle that meet at a point. Compared with a round arch, it pushes less to the sides, and that lets it rise much higher.",
+      "narration": "A pointed arch is two arcs of a circle that meet at a point. Over the same span, it can rise higher than a round arch, and a taller arch can push less to the sides. How much less depends on its exact shape, its thickness and the weight it carries. In one comparison by MIT engineers, a pointed arch did push less than a round one, but that result belongs to those two arches, not to every arch.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10220,7 +10652,7 @@
       "shot_ids": [
         "SC_004"
       ],
-      "expected_seconds": 12.4,
+      "expected_seconds": 31.175,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10231,7 +10663,7 @@
     {
       "beat_id": "B09",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "In 1675, the scientist Robert Hooke summed up the shape of a good arch in one line. As hangs the flexible line, so but inverted will stand the rigid arch. In other words, the force in an arch follows a curve like a hanging chain, turned upside down. A Columbia University project says the pointed arch comes closer to that curve than the round arch, and so is more efficient.",
+      "narration": "In 1675, the scientist Robert Hooke summed up an idea about arches in one line. As hangs the flexible line, so but inverted will stand the rigid arch. Hang a chain with a set of weights, and it takes a shape. Turn that shape upside down, and it shows a path the force can follow through an arch carrying the same weights. Change the weights, and the shape changes too.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10242,9 +10674,11 @@
       "shot_ids": [
         "SC_005"
       ],
-      "expected_seconds": 30.9,
+      "expected_seconds": 29.725,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [],
+      "issues": [
+        "intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']"
+      ],
       "explanation": [
         "CARD: 2D card (text/arrows) supplied by the beat"
       ],
@@ -10253,7 +10687,7 @@
     {
       "beat_id": "B10",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "The pointed arch was not a Gothic invention. It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and the same Columbia project traces it to Islamic sources. At the abbey of Saint-Denis, it was used systematically, together with the other new ideas.",
+      "narration": "The pointed arch was not a Gothic invention. It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and Columbia University's Amiens project traces it to Islamic sources. At the abbey of Saint-Denis, it was used systematically, together with the other new ideas.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10264,7 +10698,7 @@
       "shot_ids": [
         "SC_006"
       ],
-      "expected_seconds": 22.85,
+      "expected_seconds": 23.975,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10297,7 +10731,7 @@
     {
       "beat_id": "B12",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "The second tool is the rib vault. Two pointed arches cross diagonally over each bay of the building. They gather the vault's load onto four points: the piers, or stone pillars, at its corners.",
+      "narration": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10308,7 +10742,7 @@
       "shot_ids": [
         "SC_008"
       ],
-      "expected_seconds": 16.45,
+      "expected_seconds": 19.625,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10319,7 +10753,7 @@
     {
       "beat_id": "B13",
       "visual_intent": "SHOW_COMPONENT",
-      "narration": "How exactly these vaults stand has been debated for centuries. Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches.",
+      "narration": "How exactly these vaults stand has been debated for centuries. Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches. So even in that reading, the stone between the ribs carries load.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -10333,7 +10767,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 16.6,
+      "expected_seconds": 21.8,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
@@ -10345,7 +10779,7 @@
     {
       "beat_id": "B14",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "Ribs were not new either. They appear at Durham Cathedral, in England, as early as 1093, and Columbia's project traces them to Islamic, Roman and Byzantine sources.",
+      "narration": "Ribs were not new either. Durham Cathedral in England, begun in 1093, was completely covered by ribbed vaults by the time it was finished in 1133. Its masons refined them in phases over some forty years, and the historian Roger Stalley argues that the ribs there may owe more to appearance and meaning than to structure. Columbia's project traces ribs to Islamic, Roman and Byzantine sources.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10356,7 +10790,7 @@
       "shot_ids": [
         "SC_009"
       ],
-      "expected_seconds": 15.175,
+      "expected_seconds": 32.525,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10367,7 +10801,7 @@
     {
       "beat_id": "B15",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "narration": "That changes the job of the wall. With the load gathered onto piers, the walls between them no longer had to hold up the vault. They could be thinned, and opened up with wide windows.",
+      "narration": "Whatever first inspired them, this kind of vault changes the job of the wall. With the vault's load directed toward the piers, the wall between them was no longer its main support. It could be thinned, and opened up with wide windows.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -10381,7 +10815,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 15.55,
+      "expected_seconds": 18.85,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
@@ -10597,7 +11031,7 @@
     {
       "beat_id": "B24",
       "visual_intent": "COMPARE_VARIANTS",
-      "narration": "How new was all of this? On that question, historians still disagree. Following the 19th-century architect Viollet-le-Duc, some call Gothic an entire revolution in the art of building. The art historian Arnaud Timbert argues there was no revolution and no Gothic break, but a creative proposal rooted in continuity. Suger's own crypt still relies almost entirely on round arches and groin vaults.",
+      "narration": "How new was all of this? Some historians call Gothic a revolution in the art of building, while others see a creative step rooted in continuity. Suger's own crypt still relies almost entirely on round arches and groin vaults.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10608,11 +11042,9 @@
       "shot_ids": [
         "SC_013"
       ],
-      "expected_seconds": 33.175,
+      "expected_seconds": 18.85,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "intent cross-check: declared COMPARE_VARIANTS, narration cues suggest ['SHOW_EVOLUTION']"
-      ],
+      "issues": [],
       "explanation": [
         "CARD: 2D card (text/arrows) supplied by the beat"
       ],
@@ -10621,7 +11053,7 @@
     {
       "beat_id": "B25",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "So how did they do all this, with no knowledge of material properties? Master builders used geometrical rules, developed through centuries of trial and error. They scaled up the same proportions for new, larger elements.",
+      "narration": "So how did they do all this, without modern structural calculations? Master builders used geometrical rules, developed through centuries of trial and error. They scaled up the same proportions for new, larger elements.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10632,7 +11064,7 @@
       "shot_ids": [
         "SC_014"
       ],
-      "expected_seconds": 18.125,
+      "expected_seconds": 18.175,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_EVOLUTION']"
@@ -10807,7 +11239,7 @@
     {
       "beat_id": "B33",
       "visual_intent": "COMPARE_VARIANTS",
-      "narration": "Its vault rose nearly 47 meters, a few meters above Amiens. These were the highest vaults built in the Middle Ages.",
+      "narration": "Its vault rose more than 45 meters, a few meters above Amiens. These were the highest vaults built in the Middle Ages.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10818,7 +11250,7 @@
       "shot_ids": [
         "SC_021"
       ],
-      "expected_seconds": 10.85,
+      "expected_seconds": 10.8,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10948,7 +11380,7 @@
     {
       "beat_id": "B39",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "So why do these buildings stand at all? The answer from modern engineers is that strength is rarely the problem. Stresses in masonry are typically only a fraction of what the stone can bear, and in most cases structures fail through instability, not a lack of strength.",
+      "narration": "So why do these buildings stand at all? One answer from modern engineers is that the stone's strength is rarely the limit. Stresses in masonry are typically only a fraction of what the stone can bear, and in most cases structures fail through instability, not a lack of strength.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -10962,7 +11394,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 21.15,
+      "expected_seconds": 21.75,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
@@ -10974,7 +11406,7 @@
     {
       "beat_id": "B40",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "Picture the path of the force through the stone, which engineers call the line of thrust. As long as that line can stay inside the masonry, the structure can stand in compression. If no such line can be found, it collapses.",
+      "narration": "Picture one idealized arch, and the path of the force through its stones, which engineers call the line of thrust. This analysis assumes that the stones resist no pulling, never slide and never crush. Under those assumptions and a given load, the arch can stand if that line can stay inside the masonry. If no such line fits, this idealized arch collapses.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -10985,7 +11417,7 @@
       "shot_ids": [
         "SC_026"
       ],
-      "expected_seconds": 18.275,
+      "expected_seconds": 29.25,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -10996,7 +11428,7 @@
     {
       "beat_id": "B41",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "narration": "What matters most, then, is shape and proportion. Stability, unlike some other engineering problems, can be scaled: a model with the same proportions is a good guide to the stability of the real building. That helps explain how rules of geometry, learned by trial and error, could carry builders so far.",
+      "narration": "That puts shape and proportion at the center of the question. Unlike some other engineering problems, stability can be scaled, so a small model with the same proportions helps show what proportion does. On its own, that does not show a whole real building is safe: this kind of analysis can miss effects such as local crushing, cracking and sliding. But it helps explain how rules of geometry, learned by trial and error, could carry builders so far.",
       "status": "COVERED",
       "strategy": "CARD",
       "assets": [],
@@ -11007,7 +11439,7 @@
       "shot_ids": [
         "SC_027"
       ],
-      "expected_seconds": 24.25,
+      "expected_seconds": 34.125,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
@@ -11018,7 +11450,7 @@
     {
       "beat_id": "B42",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "narration": "So the heights were never impossible. Pointed arches reduced the push, rib vaults gathered it onto piers, and flying buttresses carried it outside and down to the ground. The walls in between could become glass.",
+      "narration": "So the heights were never impossible. Pointed arches gave builders taller, more adaptable shapes, ribs helped direct the load toward the piers, and flying buttresses carried the thrust outside and down to the ground. The walls in between could open up to glass.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -11032,7 +11464,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 17.375,
+      "expected_seconds": 20.725,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'gothic_cathedral_section' (cathedral/gothic_section) has no generator yet; nothing was substituted",
@@ -11137,7 +11569,8 @@
     }
   ],
   "warnings": [
-    "B24: declared COMPARE_VARIANTS, narration cues suggest ['SHOW_EVOLUTION']",
+    "B07: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']",
+    "B09: declared EXPLAIN_STRUCTURE, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']",
     "B25: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_EVOLUTION']",
     "B26: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_CONTEXT']",
     "B28: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_EVOLUTION']",

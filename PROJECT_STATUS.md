@@ -2,12 +2,12 @@
 
 ## Phim đang làm: `gothic-cathedral-heights` (2026-11-05, nhánh `episode-gothic-cathedral-heights`)
 
-- **Trạng thái: chờ chủ kênh đọc kịch bản.** Chưa render video nào, chưa có gì được duyệt.
-- Revision g-r1: 10 chương, 46 beat, 129 câu, 1.782 từ, khoảng 14,1 phút (thời lượng 10–18 phút theo quyết định của chủ kênh, `project.json` → `runtime_decision`).
-- Nghiên cứu: 24 trang/tài liệu nguồn, 49 claim `SOURCE_VERIFIED`, phim dùng 48; 12 claim được dùng ở mức `medium`.
-- Lời dẫn: `am_michael`, ASR đạt 129/129, đã khóa timing. 7 mục ghi đè phát âm đang `PENDING_LISTENING_REVIEW`. Giọng chưa được duyệt cho dự án này.
-- Hình: `plan-visuals` không thực thi được (đúng thiết kế): 30 beat card 2D có kế hoạch, 16 beat 3D `NEW_ASSET_REQUIRED` vì thư viện chưa có họ nhà thờ. Card 2D chiếm 67% thời lượng, cần giảm khi có mô hình và ảnh.
-- **Việc của chủ kênh:** đọc `projects/gothic-cathedral-heights/review/SCRIPT_REVIEW.md`, nghe `output/gothic-cathedral-heights_narration_preview_g-r1.m4a`, trả lời các mục "Cần bạn quyết định".
+- **Trạng thái: chờ chủ kênh đọc lại kịch bản g-r2.** Chủ kênh đã nhận xét g-r1 (sáu điểm và các nhận xét về cách kể, hình); đó là yêu cầu sửa, không phải duyệt. Chưa render video nào, chưa có gì được duyệt.
+- Revision g-r2: 10 chương, 46 beat, 135 câu, 1.963 từ, khoảng 15,3 phút (thời lượng 10–18 phút theo quyết định của chủ kênh, `project.json` → `runtime_decision`).
+- Nghiên cứu: 29 trang/tài liệu nguồn, 53 claim `SOURCE_VERIFIED`, phim dùng 51; 12 claim được dùng ở mức `medium`.
+- Lời dẫn: `am_michael`, ASR đạt toàn bộ 135 câu, đã khóa timing. 6 mục ghi đè phát âm đang `PENDING_LISTENING_REVIEW`. Giọng chưa được duyệt cho dự án này.
+- Hình: `plan-visuals` không thực thi được (đúng thiết kế): 30 beat card 2D có kế hoạch, 16 beat 3D `NEW_ASSET_REQUIRED` vì thư viện chưa có họ nhà thờ. `validate-plan` cũng chưa đạt vì lý do này. Theo chủ kênh, tỉ lệ 2D (67%) tự nó không phải vấn đề: cần tránh chuỗi card chỉ có chữ (dài nhất hiện là B22–B24, 40 giây), và không đổi sang 3D chỉ để giảm tỉ lệ.
+- **Việc của chủ kênh:** đọc `projects/gothic-cathedral-heights/review/SCRIPT_REVIEW.md`, nghe `output/gothic-cathedral-heights_narration_preview_g-r2.m4a`, trả lời các mục "Cần bạn quyết định".
 - **Làm tiếp:** `python3 tools/episode.py status --project gothic-cathedral-heights`.
 
 ---

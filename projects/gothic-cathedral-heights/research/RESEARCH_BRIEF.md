@@ -4,7 +4,7 @@
 - Format: 10–18 min (owner's decision of 2026-11-05, `project.json` → `runtime_decision`), 16:9, 24 fps, Studio visual style, illustrative models.
 
 ## Central question
-How did medieval builders, with no knowledge of material properties or allowable stresses, raise stone vaults more than 40 meters high, and why did some of them come down?
+How did medieval builders, working without modern structural calculations, raise stone vaults more than 40 meters high, and why did some of them come down?
 
 ## Research questions
 1. What problem does a stone vault create (thrust), and how did Romanesque builders answer it?

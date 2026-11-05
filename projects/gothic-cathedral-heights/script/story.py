@@ -98,6 +98,15 @@ def catenary(span, rise, n=32):
     return [(u, rise - a * (math.cosh(u / a) - 1)) for u in (-span / 2 + span * k / n for k in range(n + 1))]
 
 
+def funicular(span, rise, center_share, n=32):
+    """Shape of a string under a uniform load plus a load at mid-span (center_share = point load / uniform total):
+    proportional to the bending moment of a simple beam with the same loads, scaled to the given rise."""
+    def moment(x):
+        return x * (span - x) / 2 + center_share * span * min(x, span - x) / 2
+    peak = moment(span / 2)
+    return [(-span / 2 + span * k / n, rise * moment(span * k / n) / peak) for k in range(n + 1)]
+
+
 def place(curve, cx, y0, flip=False):
     """Curve in height units -> card coordinates (x scaled by the aspect); flip hangs it from y0."""
     return [[cx + u / ASPECT, y0 - v if flip else y0 + v] for u, v in curve]
@@ -153,14 +162,14 @@ def timeline(name, events, bands, start, end, ticks, extra=None):
 # ---------------------------------------------------------------- the film
 CHAPTERS = [
     ("C1", "Hook", "The highest vaults of the Middle Ages came down; others still stand. Pose the central question."),
-    ("C2", "Stone and its outward push", "Stone cannot be pulled apart; a vault pushes outward; the Romanesque answer was mass."),
-    ("C3", "The pointed arch", "Less sideways thrust, the hanging chain, not a Gothic invention, level crowns over different widths."),
-    ("C4", "The rib vault", "Ribs gather the load onto four piers; how vaults stand is debated; the walls are freed."),
+    ("C2", "Stone and its outward push", "Stone cannot be pulled apart; a vault pushes outward; one Romanesque answer, the barrel-vaulted church; Gothic rearranges the supports."),
+    ("C3", "The pointed arch", "Taller over the same span, thrust depends on geometry and loads, the hanging chain, not a Gothic invention, level crowns over different widths."),
+    ("C4", "The rib vault", "In the four-part vault shown, ribs direct the load toward four piers; how vaults stand is debated; the web works too; the wall is no longer the main support."),
     ("C5", "The flying buttress", "The thrust is carried outside, over the aisle roof, down to a massive buttress."),
     ("C6", "Walls of light", "Why they did it: Saint-Denis, Chartres; was it a revolution or continuity?"),
     ("C7", "Building by geometry", "Rules from trial and error, ropes and squares, templates, centering, carpenters, little room for error."),
     ("C8", "The limit: Beauvais", "Raised beyond its proportions, the vaults fell in 1284; the repair, the tower of 1573; Amiens' iron chain."),
-    ("C9", "Why they stand", "Stability rather than strength: the line of thrust, and why proportion scales."),
+    ("C9", "Why they stand", "Stability rather than strength: the line of thrust under its assumptions, what a scaled model does and does not show."),
     ("C10", "Never impossible", "Answer the question; not a simple story of progress; call to action; credits."),
 ]
 
@@ -184,13 +193,13 @@ GOTHIC, ROMANESQUE = "gothic_cathedral_section", "romanesque_church_section"
 # C1 -------------------------------------------------------------------------------------------
 beat("C1", "B01", "fact", "INTRODUCE_ARCHITECTURE", [
     "In November 1284, in the French city of Beauvais, part of the highest stone vaults of the Middle Ages came down.",
-    "They stood nearly 47 meters above the floor.",
+    "They stood more than 45 meters above the floor.",
     "The choir beneath them, the eastern arm of the cathedral, had been in use for just twelve years."],
     ["CLM_103", "CLM_104", "CLM_106", "CLM_181", "CLM_182"], strategy="HOLD", camera_move={"type": "PUSH_IN", "amount": 0.1},
     visual_goal="A Gothic section through one bay, seen from low down; the collapse is told, never shown",
     required_concepts=[GOTHIC],
     annotations=[note("B01_note", "Illustrative model, not Beauvais Cathedral", 0, position="BOTTOM_RIGHT"),
-                 {**note("B01_h", "Published heights differ: about 46 to 48 m", 1), "claim_id": "CLM_104"}])
+                 {**note("B01_h", "Published heights differ: 46 m to above 48 m", 1), "claim_id": "CLM_104"}])
 beat("C1", "B02", "fact", "INTRODUCE_ARCHITECTURE", [
     "And yet many buildings like it are still standing.",
     "At Amiens, begun in 1220, the vault rises more than 42 meters, in a building that is tall, slender and filled with light."],
@@ -205,7 +214,7 @@ c.line([[0.28, 0.56], [0.72, 0.56]], FAINT, 0.003, 0)
 c.text("How did they raise stone that high?", 0.5, 0.47, 0.036, 1, color=MUTED)
 c.text("And why, sometimes, did it come down?", 0.5, 0.39, 0.036, 2, color=MUTED)
 beat("C1", "B03", "fact", "SHOW_CONTEXT", [
-    "The people who built them had no knowledge of material properties or allowable stresses.",
+    "The people who built them worked without modern structural calculations, relying on geometry, craft knowledge and experience.",
     "So how did they raise stone that high?",
     "And why, sometimes, did it come down?"],
     ["CLM_110"], strategy="CARD", graphic=c.spec(), visual_goal="Title card: the central question", required_concepts=[])
@@ -222,26 +231,27 @@ c.text("Conceptual diagram, not to scale", 0.82, 0.25, 0.02, 0, color=MUTED)
 beat("C2", "B04", "fact", "EXPLAIN_STRUCTURE", [
     "Start with the stone itself.",
     "Stone has little or no strength when it is pulled apart.",
-    "So a stone building has to stand by keeping its stones pressed together."],
+    "So a stone building stands largely by keeping its stones pressed together."],
     ["CLM_111"], strategy="CARD", graphic=c.spec(), visual_goal="An arch of wedge-shaped stones: pressed together, not pulled apart",
     required_concepts=[])
 beat("C2", "B05", "fact", "EXPLAIN_CAUSE_EFFECT", [
     "Now put a heavy stone vault on top of two walls.",
     "A vault does not simply press down: it also pushes outward, like a bow being bent.",
-    "That outward push is called thrust, and medieval builders were well aware of it."],
+    "That outward push is called thrust, and a document from Amiens shows that builders there were well aware of it."],
     ["CLM_120", "CLM_121"], strategy="HOLD", visual_goal="Romanesque section: a barrel vault on two walls; conceptual outward arrows at the top of the walls (no magnitudes)",
     required_concepts=[ROMANESQUE, "barrel_vault"],
     annotations=[note("B05_note", "Illustrative model, arrows are conceptual", 1, position="BOTTOM_RIGHT")])
 beat("C2", "B06", "fact", "EXPLAIN_STRUCTURE", [
-    "Before Gothic, Romanesque builders answered it with mass.",
-    "Their heavy vaults pushed outward along the whole length of the wall, so walls and supports had to be thick, stiffened by buttresses.",
-    "Windows stayed small, and the interiors were dark."],
-    ["CLM_122"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="Thick walls and shallow buttresses highlighted; small windows",
-    required_concepts=[ROMANESQUE, "thick_wall", "shallow_buttress"])
+    "Romanesque builders had several ways of covering a great church.",
+    "In the barrel-vaulted type shown here, the heavy vault pushes outward along the whole length of the wall, so walls and supports are thick, stiffened by buttresses.",
+    "Large openings would weaken the wall that holds the vault, so windows tend to stay small."],
+    ["CLM_122"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="One barrel-vaulted example: thick walls and shallow buttresses highlighted; small windows. Not lit or framed as gloomy",
+    required_concepts=[ROMANESQUE, "thick_wall", "shallow_buttress"],
+    annotations=[note("B06_note", "One Romanesque type, illustrative model", 1, position="BOTTOM_RIGHT")])
 
 c = Card("B07")
 c.tag("Three tools")
-c.text("Stop fighting thrust. Channel it.", 0.5, 0.82, 0.046, 1)
+c.text("The same push, with its supports rearranged", 0.5, 0.82, 0.04, 1)
 for x, w, word in ((0.22, "Pointed arch", "pointed"), (0.5, "Rib vault", "rib"), (0.78, "Flying buttress", "flying")):
     c.text(w, x, 0.34, 0.036, 2, plate=True, word=word)
 c.line(place(pointed_arch(0.28, 0.26), 0.22, 0.42), STONE, 0.012, 2)
@@ -256,55 +266,68 @@ c.elements[-1]["word"] = "flying"
 c.rect([0.71, 0.42, 0.74, 0.7], STONE, sentence=2)
 c.elements[-1]["word"] = "flying"
 beat("C2", "B07", "fact", "SHOW_CONTEXT", [
-    "Gothic builders took a different approach.",
-    "They stopped fighting thrust with sheer thickness, and learned to channel it.",
+    "Gothic builders rearranged that system of support.",
+    "Instead of spreading the push along a thick wall, they directed it toward particular points, and carried it to supports outside.",
     "Three tools made that possible: the pointed arch, the rib vault, and the flying buttress."],
-    ["CLM_123"], strategy="CARD", graphic=c.spec(), visual_goal="The three tools named as they are spoken", required_concepts=[])
+    ["CLM_123", "CLM_153"], strategy="CARD", graphic=c.spec(), visual_goal="The three tools named as they are spoken", required_concepts=[])
 
 # C3 -------------------------------------------------------------------------------------------
 c = Card("B08")
 c.tag("3 · The pointed arch")
-c.line(place(round_arch(0.36), 0.3, 0.32), STONE, 0.014, 0)
-c.line(place(pointed_arch(0.36, 0.42), 0.7, 0.32), ACCENT, 0.014, 0)
-c.text("Round arch", 0.3, 0.8, 0.034, 1, plate=True)
-c.text("Pointed arch", 0.7, 0.8, 0.034, 0, plate=True)
-c.arrow([0.3 - 0.18 / ASPECT, 0.32], [0.3 - 0.18 / ASPECT - 0.07, 0.29], THRUST, 0.008, 1)
-c.arrow([0.3 + 0.18 / ASPECT, 0.32], [0.3 + 0.18 / ASPECT + 0.07, 0.29], THRUST, 0.008, 1)
-c.arrow([0.7 - 0.18 / ASPECT, 0.32], [0.7 - 0.18 / ASPECT - 0.025, 0.25], THRUST, 0.008, 1)
-c.arrow([0.7 + 0.18 / ASPECT, 0.32], [0.7 + 0.18 / ASPECT + 0.025, 0.25], THRUST, 0.008, 1)
-c.text("Conceptual arrows: direction only, not calculated", 0.5, 0.22, 0.021, 1, color=MUTED)
+Y8 = 0.4
+c.line(place(round_arch(0.36), 0.3, Y8), STONE, 0.014, 0)
+c.line(place(pointed_arch(0.36, 0.42), 0.7, Y8), ACCENT, 0.014, 0)
+c.text("Round arch", 0.3, 0.87, 0.034, 1, plate=True)
+c.text("Pointed arch", 0.7, 0.87, 0.034, 0, plate=True)
+c.text("Rise: half the span", 0.3, Y8 + 0.07, 0.024, 1, color=MUTED)
+c.text("Same span, higher rise", 0.7, Y8 + 0.07, 0.024, 1, color=ACCENT)
+c.arrow([0.3 - 0.18 / ASPECT, Y8], [0.3 - 0.18 / ASPECT - 0.07, Y8 - 0.03], THRUST, 0.008, 1)
+c.arrow([0.3 + 0.18 / ASPECT, Y8], [0.3 + 0.18 / ASPECT + 0.07, Y8 - 0.03], THRUST, 0.008, 1)
+c.arrow([0.7 - 0.18 / ASPECT, Y8], [0.7 - 0.18 / ASPECT - 0.025, Y8 - 0.07], THRUST, 0.008, 1)
+c.arrow([0.7 + 0.18 / ASPECT, Y8], [0.7 + 0.18 / ASPECT + 0.025, Y8 - 0.07], THRUST, 0.008, 1)
+c.text("Conceptual arrows: direction only, not calculated", 0.5, 0.3, 0.021, 1, color=MUTED)
+c.text("Two arches, same thickness-to-radius ratio: thrust 16–25% of weight (round), 14–23% (pointed)", 0.5, 0.262, 0.022, 3)
+c.text("Block, DeJong and Ochsendorf, 2006. A result for those two arches, not a rule", 0.5, 0.225, 0.021, 3, color=MUTED)
 beat("C3", "B08", "fact", "COMPARE_VARIANTS", [
     "A pointed arch is two arcs of a circle that meet at a point.",
-    "Compared with a round arch, it pushes less to the sides, and that lets it rise much higher."],
-    ["CLM_130"], strategy="CARD", graphic=c.spec(), visual_goal="Round and pointed arch on the same span; the push turns downward",
+    "Over the same span, it can rise higher than a round arch, and a taller arch can push less to the sides.",
+    "How much less depends on its exact shape, its thickness and the weight it carries.",
+    "In one comparison by MIT engineers, a pointed arch did push less than a round one, but that result belongs to those two arches, not to every arch."],
+    ["CLM_130", "CLM_134"], strategy="CARD", graphic=c.spec(), visual_goal="Round and pointed arch on the same span; the higher rise, then one credited comparison",
     required_concepts=[])
 
 c = Card("B09")
-c.line([[0.1, 0.72], [0.44, 0.72]], FAINT, 0.004, 0)
-c.line(place(catenary(0.46, 0.34), 0.27, 0.72, flip=True), INK, 0.008, 2)
-c.circle([0.27 - 0.23 / ASPECT, 0.72], 0.011, INK, 2)
-c.circle([0.27 + 0.23 / ASPECT, 0.72], 0.011, INK, 2)
-c.text("A hanging chain", 0.27, 0.3, 0.03, 2, plate=True)
-c.line(place(catenary(0.46, 0.34), 0.73, 0.38), INK, 0.008, 2, dash=True)
-c.text("Turned upside down", 0.73, 0.3, 0.03, 2, plate=True)
-c.line(place(pointed_arch(0.46, 0.34), 0.73, 0.38), ACCENT, 0.008, 3)
-c.text("Pointed arch", 0.73, 0.79, 0.03, 3, plate=True, color=ACCENT)
+AY, CY = 0.72, 0.38    # the chain's anchors; the feet of the inverted curve
+c.line([[0.1, AY], [0.44, AY]], FAINT, 0.004, 0)
+chain = place(catenary(0.46, 0.34), 0.27, AY, flip=True)
+c.line(chain, INK, 0.008, 2)
+c.circle([0.27 - 0.23 / ASPECT, AY], 0.011, INK, 2)
+c.circle([0.27 + 0.23 / ASPECT, AY], 0.011, INK, 2)
+for k in range(4, len(chain) - 1, 4):
+    c.circle(chain[k], 0.009, MUTED, 2)
+c.text("A chain with its weights", 0.27, 0.3, 0.03, 2, plate=True)
+c.line(place(catenary(0.46, 0.34), 0.73, CY), INK, 0.008, 3, dash=True)
+c.text("Turned upside down: a path for the force", 0.73, 0.3, 0.03, 3, plate=True)
+c.line(place(funicular(0.46, 0.34, 1.2), 0.27, AY, flip=True), ACCENT, 0.006, 4)
+c.line(place(funicular(0.46, 0.34, 1.2), 0.73, CY), ACCENT, 0.006, 4, dash=True)
+c.text("Different weights, different curve", 0.5, 0.77, 0.028, 4, plate=True, color=ACCENT)
 c.text("“As hangs the flexible line, so but inverted", 0.5, 0.88, 0.032, 1)
-c.text("will stand the rigid arch.”  Robert Hooke, 1675", 0.5, 0.83, 0.032, 1, until=2)
+c.text("will stand the rigid arch.”  Robert Hooke, 1675", 0.5, 0.83, 0.032, 1)
 c.text("Conceptual diagram", 0.5, 0.235, 0.021, 2, color=MUTED)
 beat("C3", "B09", "fact", "EXPLAIN_STRUCTURE", [
-    "In 1675, the scientist Robert Hooke summed up the shape of a good arch in one line.",
+    "In 1675, the scientist Robert Hooke summed up an idea about arches in one line.",
     "As hangs the flexible line, so but inverted will stand the rigid arch.",
-    "In other words, the force in an arch follows a curve like a hanging chain, turned upside down.",
-    "A Columbia University project says the pointed arch comes closer to that curve than the round arch, and so is more efficient."],
-    ["CLM_114", "CLM_133"], strategy="CARD", graphic=c.spec(), visual_goal="Hanging chain, inverted, beside a pointed arch", required_concepts=[])
+    "Hang a chain with a set of weights, and it takes a shape.",
+    "Turn that shape upside down, and it shows a path the force can follow through an arch carrying the same weights.",
+    "Change the weights, and the shape changes too."],
+    ["CLM_114", "CLM_115"], strategy="CARD", graphic=c.spec(), visual_goal="Hanging chain with weights, inverted; different weights give a different curve", required_concepts=[])
 
 EARLY = dict(start=1060, end=1160, ticks=(1060, 1080, 1100, 1120, 1140, 1160))
 c = timeline("B10", [(1088, "Cluny, Burgundy: pointed arches", 1, "cluny")],
              [(1130, 1144, "Saint-Denis: used systematically", "#5E86A6", 2, 0.64)], **EARLY)
 beat("C3", "B10", "fact", "SHOW_CONTEXT", [
     "The pointed arch was not a Gothic invention.",
-    "It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and the same Columbia project traces it to Islamic sources.",
+    "It already appears in Burgundy, at the rebuilding of the abbey of Cluny around 1088, and Columbia University's Amiens project traces it to Islamic sources.",
     "At the abbey of Saint-Denis, it was used systematically, together with the other new ideas."],
     ["CLM_131"], strategy="CARD", graphic=c.spec(), visual_goal="Short timeline: pointed arches before Gothic", required_concepts=[])
 
@@ -330,35 +353,42 @@ beat("C3", "B11", "fact", "COMPARE_VARIANTS", [
 c = Card("B12")
 c.tag("4 · The rib vault")
 bx0, by0, bx1, by1 = 0.32, 0.28, 0.68, 0.8
+c.rect([bx0, by0, bx1, by1], "#E8DFCB", sentence=1)
 c.rect([bx0, by0, bx1, by1], border=FAINT, sentence=0, border_width=0.004)
 c.line([[bx0, by0], [bx1, by1]], ACCENT, 0.009, 1)
 c.line([[bx0, by1], [bx1, by0]], ACCENT, 0.009, 1)
 for x, y in ((bx0, by0), (bx1, by0), (bx0, by1), (bx1, by1)):
     c.circle([x, y], 0.02, INK, 2)
 c.text("Diagonal ribs", 0.82, 0.62, 0.03, 1, plate=True, color=ACCENT)
+c.text("Stone web between the ribs", 0.82, 0.5, 0.026, 1, plate=True)
 c.text("Four piers", 0.18, 0.62, 0.03, 2, plate=True)
-c.text("One bay, seen from above", 0.5, 0.235, 0.022, 0, color=MUTED)
+c.text("One type: a four-part vault", 0.5, 0.86, 0.03, 1, plate=True)
+c.text("One bay from above. Simplified: how vaults stand is debated", 0.5, 0.235, 0.022, 2, color=MUTED)
 beat("C4", "B12", "fact", "EXPLAIN_STRUCTURE", [
     "The second tool is the rib vault.",
-    "Two pointed arches cross diagonally over each bay of the building.",
-    "They gather the vault's load onto four points: the piers, or stone pillars, at its corners."],
-    ["CLM_140"], strategy="CARD", graphic=c.spec(), visual_goal="Plan of one bay: ribs to four piers", required_concepts=[])
+    "In the four-part vault shown here, two ribs cross diagonally over each bay of the building.",
+    "In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners."],
+    ["CLM_140"], strategy="CARD", graphic=c.spec(), visual_goal="Plan of one bay of a four-part vault: ribs to four piers, the stone web visible between them", required_concepts=[])
 beat("C4", "B13", "fact", "SHOW_COMPONENT", [
     "How exactly these vaults stand has been debated for centuries.",
-    "Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches."],
-    ["CLM_141"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="Ribs highlighted, then the web between them",
+    "Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches.",
+    "So even in that reading, the stone between the ribs carries load."],
+    ["CLM_141"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="Ribs highlighted, then the web between them: it must read as working stone, never as empty infill",
     required_concepts=[GOTHIC, "rib", "vault_web"],
-    annotations=[note("B13_note", "Illustrative model", 0, position="BOTTOM_RIGHT")])
-c = timeline("B14", [(1088, "Cluny: pointed arches", 0), (1093, "Durham, England: ribbed vaults", 1, "durham")],
-             [(1140, 1144, "Saint-Denis choir", "#5E86A6", 0, 0.64)], **EARLY)
+    annotations=[note("B13_note", "Illustrative model of one analysis, still debated", 0, position="BOTTOM_RIGHT")])
+c = timeline("B14", [(1088, "Cluny: pointed arches", 0)],
+             [(1093, 1133, "Durham, begun 1093, finished 1133: ribbed vaults, in phases", STONE, 1, 0.72, "durham"),
+              (1140, 1144, "Saint-Denis choir", "#5E86A6", 0, 0.64)], **EARLY)
 beat("C4", "B14", "fact", "SHOW_CONTEXT", [
     "Ribs were not new either.",
-    "They appear at Durham Cathedral, in England, as early as 1093, and Columbia's project traces them to Islamic, Roman and Byzantine sources."],
-    ["CLM_142"], strategy="CARD", graphic=c.spec(), visual_goal="The same timeline, with ribbed vaults added", required_concepts=[])
+    "Durham Cathedral in England, begun in 1093, was completely covered by ribbed vaults by the time it was finished in 1133.",
+    "Its masons refined them in phases over some forty years, and the historian Roger Stalley argues that the ribs there may owe more to appearance and meaning than to structure.",
+    "Columbia's project traces ribs to Islamic, Roman and Byzantine sources."],
+    ["CLM_142"], strategy="CARD", graphic=c.spec(), visual_goal="The same timeline, with Durham's building years as a band, not one date", required_concepts=[])
 beat("C4", "B15", "fact", "EXPLAIN_DESIGN_CHANGE", [
-    "That changes the job of the wall.",
-    "With the load gathered onto piers, the walls between them no longer had to hold up the vault.",
-    "They could be thinned, and opened up with wide windows."],
+    "Whatever first inspired them, this kind of vault changes the job of the wall.",
+    "With the vault's load directed toward the piers, the wall between them was no longer its main support.",
+    "It could be thinned, and opened up with wide windows."],
     ["CLM_143"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=2, visual_goal="The wall between two piers opens into a tall window",
     required_concepts=[GOTHIC, "nave_pier", "clerestory_window"])
 
@@ -420,10 +450,11 @@ c = Card("B22")
 c.text("“A sign or bridge to the divine”", 0.5, 0.62, 0.05, 0)
 c.text("Light, for Abbot Suger", 0.5, 0.53, 0.03, 0, color=MUTED)
 c.text("The new style had to let in as much light as possible", 0.5, 0.4, 0.032, 1, plate=True)
+c.text("Bibliothèque nationale de France", 0.5, 0.33, 0.022, 1, color=MUTED)
 beat("C6", "B22", "fact", "SHOW_CONTEXT", [
     "For Suger, light was a sign, a bridge to the divine.",
     "France's national library says the new style had to let in as much light as possible."],
-    ["CLM_161"], strategy="CARD", graphic=c.spec(), visual_goal="Why light mattered", required_concepts=[])
+    ["CLM_161", "CLM_164"], strategy="CARD", graphic=c.spec(), visual_goal="Why light mattered", required_concepts=[])
 
 c = Card("B23")
 c.text("2,500 m²", 0.5, 0.62, 0.11, 0, color=GLASS)
@@ -435,21 +466,19 @@ beat("C6", "B23", "fact", "SHOW_CONTEXT", [
 
 c = Card("B24")
 c.text("How new was Gothic?", 0.5, 0.84, 0.046, 0)
-c.line([[0.5, 0.3], [0.5, 0.76]], FAINT, 0.003, 2)
-c.text("“An entire revolution", 0.27, 0.66, 0.036, 2)
-c.text("in the art of building”", 0.27, 0.6, 0.036, 2)
-c.text("After Viollet-le-Duc, 19th century", 0.27, 0.52, 0.025, 2, color=MUTED)
-c.text("No Gothic break: a creative", 0.73, 0.66, 0.036, 3)
-c.text("proposal rooted in continuity", 0.73, 0.6, 0.036, 3)
-c.text("Arnaud Timbert, art historian", 0.73, 0.52, 0.025, 3, color=MUTED)
-c.text("Suger's crypt: round arches, groin vaults", 0.73, 0.38, 0.026, 4, plate=True)
+c.line([[0.5, 0.3], [0.5, 0.76]], FAINT, 0.003, 1)
+c.text("“An entire revolution", 0.27, 0.66, 0.036, 1, word="revolution")
+c.text("in the art of building”", 0.27, 0.6, 0.036, 1, word="revolution")
+c.text("After Viollet-le-Duc, 19th century", 0.27, 0.52, 0.025, 1, color=MUTED, word="revolution")
+c.text("No Gothic break: a creative", 0.73, 0.66, 0.036, 1, word="others")
+c.text("proposal rooted in continuity", 0.73, 0.6, 0.036, 1, word="others")
+c.text("Arnaud Timbert, art historian", 0.73, 0.52, 0.025, 1, color=MUTED, word="others")
+c.text("Suger's crypt: round arches, groin vaults", 0.73, 0.38, 0.026, 2, plate=True)
 beat("C6", "B24", "fact", "COMPARE_VARIANTS", [
     "How new was all of this?",
-    "On that question, historians still disagree.",
-    "Following the 19th-century architect Viollet-le-Duc, some call Gothic an entire revolution in the art of building.",
-    "The art historian Arnaud Timbert argues there was no revolution and no Gothic break, but a creative proposal rooted in continuity.",
+    "Some historians call Gothic a revolution in the art of building, while others see a creative step rooted in continuity.",
     "Suger's own crypt still relies almost entirely on round arches and groin vaults."],
-    ["CLM_163"], strategy="CARD", graphic=c.spec(), visual_goal="Two readings, side by side", required_concepts=[])
+    ["CLM_163"], strategy="CARD", graphic=c.spec(), visual_goal="Two readings, side by side; the names stay in small type on the card and are not spoken", required_concepts=[])
 
 # C7 -------------------------------------------------------------------------------------------
 c = Card("B25")
@@ -460,7 +489,7 @@ c.line(place(pointed_arch(0.42, 0.42), 0.7, 0.32), STONE, 0.016, 2)
 c.text("Trial and error, over centuries", 0.5, 0.86, 0.036, 1, plate=True)
 c.text("The same proportions, scaled up", 0.5, 0.25, 0.03, 2, plate=True)
 beat("C7", "B25", "fact", "EXPLAIN_STRUCTURE", [
-    "So how did they do all this, with no knowledge of material properties?",
+    "So how did they do all this, without modern structural calculations?",
     "Master builders used geometrical rules, developed through centuries of trial and error.",
     "They scaled up the same proportions for new, larger elements."],
     ["CLM_110"], strategy="CARD", graphic=c.spec(), visual_goal="One proportion at three sizes", required_concepts=[])
@@ -551,16 +580,18 @@ beat("C8", "B32", "fact", "EXPLAIN_DESIGN_CHANGE", [
     ["CLM_181"], strategy="CARD", graphic=c.spec(), visual_goal="Three levels; the top one grows", required_concepts=[])
 
 c = Card("B33")
-for x, h, name, label, s in ((0.36, 42.5, "Amiens", "more than 42 m", 0), (0.64, 47.0, "Beauvais", "nearly 47 m", 0)):
+for x, h, name, label, s in ((0.36, 42.5, "Amiens", "more than 42 m", 0), (0.64, 46.0, "Beauvais", "more than 45 m", 0)):
     top = 0.24 + h * 0.012
     c.rect([x - 0.07, 0.24, x + 0.07, top], STONE if name == "Amiens" else ACCENT, sentence=s)
     c.text(name, x, 0.3, 0.034, s, plate=True)
     c.text(label, x, top + 0.04, 0.03, s)
 c.text("The highest vaults of the Middle Ages", 0.5, 0.88, 0.034, 1)
-c.text("Published heights differ:", 0.86, 0.5, 0.021, 0, color=MUTED)
-c.text("about 46 to 48 m at Beauvais", 0.86, 0.46, 0.021, 0, color=MUTED)
+c.text("Published for Beauvais:", 0.86, 0.5, 0.021, 0, color=MUTED)
+c.text("46 m, 46.7 m, nearly 47 m,", 0.86, 0.46, 0.021, 0, color=MUTED)
+c.text("above 48 m", 0.86, 0.42, 0.021, 0, color=MUTED)
+c.text("Bars are schematic", 0.86, 0.36, 0.021, 0, color=MUTED)
 beat("C8", "B33", "fact", "COMPARE_VARIANTS", [
-    "Its vault rose nearly 47 meters, a few meters above Amiens.",
+    "Its vault rose more than 45 meters, a few meters above Amiens.",
     "These were the highest vaults built in the Middle Ages."],
     ["CLM_102", "CLM_103", "CLM_104"], strategy="CARD", graphic=c.spec(), visual_goal="Two heights side by side, with the caveat on screen",
     required_concepts=[])
@@ -573,14 +604,16 @@ beat("C8", "B34", "fact", "SHOW_CONTEXT", [
 
 c = Card("B35")
 c.text("Why did the vaults fall? Still debated.", 0.5, 0.86, 0.04, 0)
-for y, t, s, word in ((0.72, "Settling masonry broke the flying buttresses", 1, None),
-                      (0.63, "Gusts of wind set the buttress system resonating", 2, "gusts"),
-                      (0.54, "Slow settlement of the foundations", 2, "settlement")):
-    c.text(t, 0.5, y, 0.03, s, plate=True, word=word)
-c.line([[0.2, 0.47], [0.8, 0.47]], FAINT, 0.003, 3)
-c.text("2024 study: nothing justifies a foundation cause", 0.5, 0.4, 0.03, 3, color=ACCENT)
-c.text("Vaults raised against proven proportions: upper parts too flexible", 0.5, 0.32, 0.028, 4, color=ACCENT)
-c.text("Vernhes, Renault and Zotna, ECSMGE 2024", 0.5, 0.245, 0.021, 3, color=MUTED)
+for y, t, s_, word in ((0.75, "Hypothesis: settling masonry broke the flying buttresses", 1, None),
+                       (0.67, "Hypothesis: gusts of wind set the buttress system resonating", 2, "gusts"),
+                       (0.59, "Hypothesis: slow settlement of the foundations", 2, "settlement")):
+    c.text(t, 0.5, y, 0.03, s_, plate=True, word=word)
+c.line([[0.2, 0.53], [0.8, 0.53]], FAINT, 0.003, 3)
+c.text("Vernhes, Renault and Zotna, 2024:", 0.5, 0.47, 0.028, 3, color=ACCENT)
+c.text("“nothing appears to justify a geotechnical origin”", 0.5, 0.41, 0.03, 3, color=ACCENT)
+c.text("Their hypothesis: vaults raised against proven proportions,", 0.5, 0.33, 0.028, 4, color=ACCENT)
+c.text("upper parts too flexible", 0.5, 0.28, 0.028, 4, color=ACCENT)
+c.text("ECSMGE 2024, an argument, not a settled result", 0.5, 0.235, 0.021, 3, color=MUTED)
 beat("C8", "B35", "fact", "EXPLAIN_CAUSE_EFFECT", [
     "Why it happened is still debated.",
     "Some blame settling masonry that broke the flying buttresses.",
@@ -638,7 +671,7 @@ beat("C8", "B38", "fact", "SHOW_CONTEXT", [
 # C9 -------------------------------------------------------------------------------------------
 beat("C9", "B39", "fact", "EXPLAIN_STRUCTURE", [
     "So why do these buildings stand at all?",
-    "The answer from modern engineers is that strength is rarely the problem.",
+    "One answer from modern engineers is that the stone's strength is rarely the limit.",
     "Stresses in masonry are typically only a fraction of what the stone can bear, and in most cases structures fail through instability, not a lack of strength."],
     ["CLM_112"], strategy="HOLD", camera_move={"type": "PUSH_IN", "amount": 0.1}, visual_goal="The full section at rest",
     required_concepts=[GOTHIC],
@@ -647,16 +680,18 @@ beat("C9", "B39", "fact", "EXPLAIN_STRUCTURE", [
 c = Card("B40")
 voussoirs(c, 0.3, 0.3, 0.34, 0.36, 0.07, 7, 0)
 c.line(place(pointed_arch(0.41, 0.42), 0.3, 0.3), ACCENT, 0.006, 0, dash=True)
-c.text("Line of thrust inside the stone", 0.3, 0.84, 0.028, 1, plate=True, color=ACCENT)
-voussoirs(c, 0.7, 0.3, 0.34, 0.36, 0.07, 7, 2)
-c.line(place(catenary(0.41, 0.3), 0.7, 0.3), THRUST, 0.006, 2, dash=True)
-c.text("No line fits: it collapses", 0.7, 0.84, 0.028, 2, plate=True, color=THRUST)
-c.text("Conceptual lines, not calculated", 0.5, 0.235, 0.021, 0, color=MUTED)
+c.text("Assumed: stones resist no pulling, never slide, never crush", 0.5, 0.9, 0.028, 1, plate=True)
+c.text("A line fits inside: it can stand", 0.3, 0.82, 0.028, 2, plate=True, color=ACCENT)
+voussoirs(c, 0.7, 0.3, 0.34, 0.36, 0.07, 7, 3)
+c.line(place(catenary(0.41, 0.3), 0.7, 0.3), THRUST, 0.006, 3, dash=True)
+c.text("No line fits: this model collapses", 0.7, 0.82, 0.028, 3, plate=True, color=THRUST)
+c.text("One idealized arch under one load. Conceptual lines, not calculated", 0.5, 0.235, 0.021, 0, color=MUTED)
 beat("C9", "B40", "fact", "EXPLAIN_STRUCTURE", [
-    "Picture the path of the force through the stone, which engineers call the line of thrust.",
-    "As long as that line can stay inside the masonry, the structure can stand in compression.",
-    "If no such line can be found, it collapses."],
-    ["CLM_113", "CLM_111"], strategy="CARD", graphic=c.spec(), visual_goal="The line of thrust inside an arch; a line that no longer fits",
+    "Picture one idealized arch, and the path of the force through its stones, which engineers call the line of thrust.",
+    "This analysis assumes that the stones resist no pulling, never slide and never crush.",
+    "Under those assumptions and a given load, the arch can stand if that line can stay inside the masonry.",
+    "If no such line fits, this idealized arch collapses."],
+    ["CLM_113", "CLM_111"], strategy="CARD", graphic=c.spec(), visual_goal="The line of thrust inside one idealized arch; a line that no longer fits; the assumptions on screen",
     required_concepts=[])
 
 c = Card("B41")
@@ -665,19 +700,22 @@ c.line(place(pointed_arch(0.5, 0.58), 0.62, 0.26), ACCENT, 0.016, 1)
 c.text("Small model", 0.22, 0.24, 0.028, 1, plate=True)
 c.text("Real building", 0.62, 0.22, 0.028, 1, plate=True)
 c.text("Same proportions", 0.32, 0.72, 0.034, 1, plate=True, word="proportions")
-c.text("Rules of geometry, learned by trial and error", 0.5, 0.88, 0.03, 2, plate=True, word="geometry")
+c.text("Shows the role of proportion", 0.2, 0.62, 0.026, 1, color=ACCENT, word="show")
+c.text("Does not prove a real building safe", 0.2, 0.55, 0.026, 2, color=THRUST)
+c.text("Rules of geometry, learned by trial and error", 0.5, 0.88, 0.03, 3, plate=True, word="geometry")
 beat("C9", "B41", "fact", "EXPLAIN_STRUCTURE", [
-    "What matters most, then, is shape and proportion.",
-    "Stability, unlike some other engineering problems, can be scaled: a model with the same proportions is a good guide to the stability of the real building.",
-    "That helps explain how rules of geometry, learned by trial and error, could carry builders so far."],
-    ["CLM_112", "CLM_110"], strategy="CARD", graphic=c.spec(), visual_goal="One shape at two sizes", required_concepts=[])
+    "That puts shape and proportion at the center of the question.",
+    "Unlike some other engineering problems, stability can be scaled, so a small model with the same proportions helps show what proportion does.",
+    "On its own, that does not show a whole real building is safe: this kind of analysis can miss effects such as local crushing, cracking and sliding.",
+    "But it helps explain how rules of geometry, learned by trial and error, could carry builders so far."],
+    ["CLM_112", "CLM_116", "CLM_110"], strategy="CARD", graphic=c.spec(), visual_goal="One shape at two sizes; what the model shows and what it does not", required_concepts=[])
 
 # C10 ------------------------------------------------------------------------------------------
 beat("C10", "B42", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "So the heights were never impossible.",
-    "Pointed arches reduced the push, rib vaults gathered it onto piers, and flying buttresses carried it outside and down to the ground.",
-    "The walls in between could become glass."],
-    ["CLM_130", "CLM_140", "CLM_152", "CLM_143"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, camera_move={"type": "PUSH_IN", "amount": 0.08},
+    "Pointed arches gave builders taller, more adaptable shapes, ribs helped direct the load toward the piers, and flying buttresses carried the thrust outside and down to the ground.",
+    "The walls in between could open up to glass."],
+    ["CLM_130", "CLM_132", "CLM_140", "CLM_152", "CLM_143"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, camera_move={"type": "PUSH_IN", "amount": 0.08},
     visual_goal="The section once more: ribs, flyer, buttress and windows lit in turn",
     required_concepts=[GOTHIC, "rib", "flying_buttress", "clerestory_window"],
     annotations=[note("B42_ch", "10 · Never impossible", 0, 2)])
@@ -711,10 +749,11 @@ beat("C10", "B45", "framing", "SHOW_CONTEXT", [
 
 c = Card("B46")
 c.text("How Gothic Cathedrals Reached Impossible Heights", 0.5, 0.8, 0.044, 0)
-for y, line in ((0.66, "Sources: Columbia University (Life of a Cathedral; Stephen Murray); MIT (P. Block, 2005);"),
-                (0.61, "Bibliothèque nationale de France; France Mémoire (A. Timbert);"),
-                (0.56, "ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale"),
-                (0.46, "3D models and diagrams are illustrative, not structural analyses")):
+for y, line in ((0.68, "Sources: Columbia University (Life of a Cathedral; S. Murray; R. Stalley);"),
+                (0.63, "MIT (P. Block, 2005; Block, DeJong and Ochsendorf, 2006; Romano and Ochsendorf);"),
+                (0.58, "Bibliothèque nationale de France; France Mémoire (A. Timbert); Durham Cathedral;"),
+                (0.53, "ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale"),
+                (0.44, "3D models and diagrams are illustrative, not structural analyses")):
     c.text(line, 0.5, y, 0.026, 0, color=MUTED)
 c.text("Architecture Story Studio", 0.5, 0.34, 0.032, 0)
 beat("C10", "B46", "framing", "SHOW_CONTEXT", [
@@ -732,7 +771,7 @@ def main():
     doc = {"schema": "narrative_beats/1", "project_id": "gothic-cathedral-heights",
            "title": "How Gothic Cathedrals Reached Impossible Heights", "status": "INTERNAL_REVIEW_DRAFT", "timing_mode": "AUDIO_LOCKED",
            "publication": {"restriction": "INTERNAL_ONLY",
-                           "reason": "Revision g-r1: script for the owner's review; claims source-verified, not editorially approved."},
+                           "reason": "Revision g-r2: script after the owner's first review; claims source-verified, not editorially approved."},
            "beats": []}
     for b in BEATS:
         v = dict(b["visual"])

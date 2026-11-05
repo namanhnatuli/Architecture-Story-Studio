@@ -165,6 +165,14 @@ class ScriptReviewTest(unittest.TestCase):
             self.assertIn(want, doc)
         self.assertLess(doc.index("## Decide this"), doc.index("## Toàn bộ kịch bản"))
 
+    def test_runs_of_cards_with_only_words_are_measured(self):
+        from tools.script_review import text_only_runs
+        words = {"strategy": "CARD", "graphic": {"elements": [{"kind": "text"}, {"kind": "line", "points": [[0, 0], [1, 0]]}]}}
+        drawing = {"strategy": "CARD", "graphic": {"elements": [{"kind": "text"}, {"kind": "arrow"}]}}
+        visuals = {"A": words, "B": words, "C": drawing, "D": {"strategy": "HOLD"}, "E": words}
+        windows = {k: (i * 10.0, i * 10.0 + 10.0) for i, k in enumerate("ABCDE")}
+        self.assertEqual(text_only_runs(list("ABCDE"), visuals, windows), [(["A", "B"], 20.0), (["E"], 10.0)])
+
 
 class GothicFilmTest(unittest.TestCase):
     """The film stops at the owner's script review: nothing may look approved or rendered."""
@@ -197,15 +205,74 @@ class GothicFilmTest(unittest.TestCase):
 
     def test_published_heights_are_given_with_their_disagreement(self):
         text = " ".join(s for b in read(self.P / "script/narration.json")["beats"] for s in b["sentences"])
-        self.assertIn("nearly 47 meters", text)
+        self.assertIn("more than 45 meters", text)   # the wording that every published figure supports
+        self.assertNotIn("nearly 47", text)
         self.assertIn("more than 42 meters", text)
         self.assertNotIn("48.5", text)
         cards = (self.P / "script/visual_beats.json").read_text()
-        self.assertIn("about 46 to 48 m", cards)
+        self.assertIn("46 m to above 48 m", cards)
+        self.assertIn("46 m, 46.7 m, nearly 47 m,", cards)
+        self.assertIn("above 48 m", cards)
         # sources disagree on who was "first": the film does not say so for Chartres or Durham
         self.assertIn("part of the original plans", text)
         self.assertNotIn("first time", text)
         self.assertNotIn("very first", text)
+
+    def test_the_owners_script_review_stays_applied(self):
+        # The owner's review of g-r1 (2026-11-05): statements must keep their conditions.
+        beats = {b["id"]: b for b in read(self.P / "script/narration.json")["beats"]}
+        said = {k: " ".join(b["sentences"]) for k, b in beats.items()}
+        text = " ".join(said.values())
+        # 1: the pointed arch is no general rule; the garbled Columbia sentence carries nothing
+        self.assertIn("can rise higher", said["B08"])
+        self.assertIn("not to every arch", said["B08"])
+        self.assertIn("same weights", said["B09"])
+        self.assertNotIn("more efficient", text)
+        self.assertNotIn("CLM_133", {c for b in beats.values() for c in b["claim_ids"]})
+        # 2: thrust line and models under their assumptions, no general safety standard
+        self.assertIn("idealized arch", said["B40"])
+        for assumption in ("no pulling", "never slide", "never crush"):
+            self.assertIn(assumption, said["B40"])
+        self.assertIn("does not show a whole real building is safe", said["B41"])
+        self.assertNotIn("What matters most", text)
+        # 3: the builders are not described as ignorant
+        self.assertNotIn("no knowledge", text)
+        for b in ("B03", "B25"):
+            self.assertIn("without modern structural calculations", said[b])
+        # 4: one kind of vault, and the stone between the ribs works too
+        self.assertIn("four-part vault shown here", said["B12"])
+        self.assertIn("simplified picture", said["B12"])
+        self.assertIn("carries load", said["B13"])
+        self.assertIn("main support", said["B15"])
+        # 6: Durham's dates belong to the building, not to the vaults
+        self.assertIn("begun in 1093", said["B14"])
+        self.assertNotIn("as early as 1093", text)
+        # remarks: no dark Romanesque, no long debate of names
+        self.assertNotIn("dark", said["B06"])
+        self.assertIn("type shown here", said["B06"])
+        self.assertNotIn("Timbert", text)
+        self.assertNotIn("PRON_TIMBERT", {e["id"] for e in read(self.P / "script/pronunciation.json")["entries"]})
+        # B35: each cause is a labelled hypothesis, and the 2024 argument carries its authors
+        card = next(b for b in read(self.P / "script/visual_beats.json")["beats"] if b["beat_id"] == "B35")
+        words = [e["text"] for e in card["graphic"]["elements"] if e["kind"] == "text"]
+        self.assertEqual(sum(w.startswith("Hypothesis:") for w in words), 3)
+        self.assertTrue(any(w.startswith("Their hypothesis:") for w in words))
+        self.assertTrue(any("Vernhes, Renault and Zotna" in w for w in words))
+
+    def test_a_sentence_that_names_a_source_cites_that_source(self):
+        # Verbatim excerpts do not catch a sentence attributed to a source its beat never cites (B22 in g-r1).
+        marks = {"Columbia": "SRC_CU_", "national library": "SRC_BNF_", "MIT": "SRC_MIT_", "Heyman": "SRC_MIT_BLOCK",
+                 "Stalley": "SRC_CU_STALLEY", "Murray": "SRC_ISSMGE", "2024 study": "SRC_ISSMGE", "Viollet-le-Duc": "SRC_ISSMGE"}
+        claims = {c["id"]: c for c in read(self.P / "research/sources.json")["claims"]}
+        seen = set()
+        for b in read(self.P / "script/narration.json")["beats"]:
+            sources = {s for c in b["claim_ids"] for s in claims[c]["source_ids"]}
+            for sentence in b["sentences"]:
+                for name, prefix in marks.items():
+                    if name in sentence:
+                        seen.add(name)
+                        self.assertTrue(any(s.startswith(prefix) for s in sources), (b["id"], name))
+        self.assertEqual(seen, set(marks))
 
 
 class OwnerStopTest(unittest.TestCase):
