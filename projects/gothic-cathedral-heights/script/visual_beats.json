@@ -20139,7 +20139,7 @@
         "CLM_161"
       ],
       "narration": "Why go to all this trouble? Part of the answer is light. At the abbey church of Saint-Denis, Abbot Suger built a new choir between 1140 and 1144. Pointed arches run throughout, every vault is ribbed, and monumental stained glass seems to dissolve the whole structure.",
-      "visual_goal": "Saint-Denis, dates and three features (a rights-cleared photograph may replace the card)",
+      "visual_goal": "Saint-Denis today, filling the frame with its light; then its apse windows, the pointed arches, the ribbed vault and the stained glass pointed out as each is named",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
       "strategy": "CARD",
@@ -20148,778 +20148,58 @@
         "elements": [
           {
             "id": "B21_00",
-            "kind": "line",
+            "kind": "image",
             "sentence": 0,
-            "points": [
-              [
-                0.08,
-                0.5
-              ],
-              [
-                0.92,
-                0.5
-              ]
+            "asset": "IMG_SAINT_DENIS_ROSE",
+            "path": "assets/external/saint_denis_rose_vellut_2560.jpg",
+            "box": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
             ],
-            "color": "#24231F",
-            "width": 0.006,
-            "layer": 0,
-            "from_start": true
+            "crop": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "drift": [
+              0.0,
+              0.0
+            ],
+            "from_start": true,
+            "until": 3,
+            "stage": true,
+            "until_word": "arches"
           },
           {
             "id": "B21_01",
-            "kind": "line",
-            "sentence": 0,
-            "points": [
-              [
-                0.08,
-                0.485
-              ],
-              [
-                0.08,
-                0.515
-              ]
+            "kind": "image",
+            "sentence": 3,
+            "asset": "IMG_SAINT_DENIS_APSE",
+            "path": "assets/external/saint_denis_apse_ninaras_2560.jpg",
+            "box": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
             ],
-            "color": "#24231F",
-            "width": 0.004,
-            "layer": 0,
-            "from_start": true
+            "crop": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "drift": [
+              0.0,
+              0.0
+            ],
+            "stage": true,
+            "layer": 1
           },
           {
             "id": "B21_02",
-            "kind": "text",
-            "sentence": 0,
-            "text": "1120",
-            "position": [
-              0.08,
-              0.455
-            ],
-            "size": 0.022,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false,
-            "from_start": true
-          },
-          {
-            "id": "B21_03",
-            "kind": "line",
-            "sentence": 0,
-            "points": [
-              [
-                0.29,
-                0.485
-              ],
-              [
-                0.29,
-                0.515
-              ]
-            ],
-            "color": "#24231F",
-            "width": 0.004,
-            "layer": 0,
-            "from_start": true
-          },
-          {
-            "id": "B21_04",
-            "kind": "text",
-            "sentence": 0,
-            "text": "1130",
-            "position": [
-              0.29,
-              0.455
-            ],
-            "size": 0.022,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false,
-            "from_start": true
-          },
-          {
-            "id": "B21_05",
-            "kind": "line",
-            "sentence": 0,
-            "points": [
-              [
-                0.5,
-                0.485
-              ],
-              [
-                0.5,
-                0.515
-              ]
-            ],
-            "color": "#24231F",
-            "width": 0.004,
-            "layer": 0,
-            "from_start": true
-          },
-          {
-            "id": "B21_06",
-            "kind": "text",
-            "sentence": 0,
-            "text": "1140",
-            "position": [
-              0.5,
-              0.455
-            ],
-            "size": 0.022,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false,
-            "from_start": true
-          },
-          {
-            "id": "B21_07",
-            "kind": "line",
-            "sentence": 0,
-            "points": [
-              [
-                0.71,
-                0.485
-              ],
-              [
-                0.71,
-                0.515
-              ]
-            ],
-            "color": "#24231F",
-            "width": 0.004,
-            "layer": 0,
-            "from_start": true
-          },
-          {
-            "id": "B21_08",
-            "kind": "text",
-            "sentence": 0,
-            "text": "1150",
-            "position": [
-              0.71,
-              0.455
-            ],
-            "size": 0.022,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false,
-            "from_start": true
-          },
-          {
-            "id": "B21_09",
-            "kind": "line",
-            "sentence": 0,
-            "points": [
-              [
-                0.92,
-                0.485
-              ],
-              [
-                0.92,
-                0.515
-              ]
-            ],
-            "color": "#24231F",
-            "width": 0.004,
-            "layer": 0,
-            "from_start": true
-          },
-          {
-            "id": "B21_10",
-            "kind": "text",
-            "sentence": 0,
-            "text": "1160",
-            "position": [
-              0.92,
-              0.455
-            ],
-            "size": 0.022,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false,
-            "from_start": true
-          },
-          {
-            "id": "B21_11",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.08,
-                0.5
-              ],
-              [
-                0.101,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.0,
-            "word": "choir"
-          },
-          {
-            "id": "B21_12",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.101,
-                0.5
-              ],
-              [
-                0.122,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.037,
-            "word": "choir"
-          },
-          {
-            "id": "B21_13",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.122,
-                0.5
-              ],
-              [
-                0.143,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.075,
-            "word": "choir"
-          },
-          {
-            "id": "B21_14",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.143,
-                0.5
-              ],
-              [
-                0.164,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.113,
-            "word": "choir"
-          },
-          {
-            "id": "B21_15",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.164,
-                0.5
-              ],
-              [
-                0.185,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.15,
-            "word": "choir"
-          },
-          {
-            "id": "B21_16",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.185,
-                0.5
-              ],
-              [
-                0.206,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.188,
-            "word": "choir"
-          },
-          {
-            "id": "B21_17",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.206,
-                0.5
-              ],
-              [
-                0.227,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.225,
-            "word": "choir"
-          },
-          {
-            "id": "B21_18",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.227,
-                0.5
-              ],
-              [
-                0.248,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.263,
-            "word": "choir"
-          },
-          {
-            "id": "B21_19",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.248,
-                0.5
-              ],
-              [
-                0.269,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.3,
-            "word": "choir"
-          },
-          {
-            "id": "B21_20",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.269,
-                0.5
-              ],
-              [
-                0.29,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.337,
-            "word": "choir"
-          },
-          {
-            "id": "B21_21",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.29,
-                0.5
-              ],
-              [
-                0.311,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.375,
-            "word": "choir"
-          },
-          {
-            "id": "B21_22",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.311,
-                0.5
-              ],
-              [
-                0.332,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.413,
-            "word": "choir"
-          },
-          {
-            "id": "B21_23",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.332,
-                0.5
-              ],
-              [
-                0.353,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.45,
-            "word": "choir"
-          },
-          {
-            "id": "B21_24",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.353,
-                0.5
-              ],
-              [
-                0.374,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.488,
-            "word": "choir"
-          },
-          {
-            "id": "B21_25",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.374,
-                0.5
-              ],
-              [
-                0.395,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.525,
-            "word": "choir"
-          },
-          {
-            "id": "B21_26",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.395,
-                0.5
-              ],
-              [
-                0.416,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.562,
-            "word": "choir"
-          },
-          {
-            "id": "B21_27",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.416,
-                0.5
-              ],
-              [
-                0.437,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.6,
-            "word": "choir"
-          },
-          {
-            "id": "B21_28",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.437,
-                0.5
-              ],
-              [
-                0.458,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.638,
-            "word": "choir"
-          },
-          {
-            "id": "B21_29",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.458,
-                0.5
-              ],
-              [
-                0.479,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.675,
-            "word": "choir"
-          },
-          {
-            "id": "B21_30",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.479,
-                0.5
-              ],
-              [
-                0.5,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.713,
-            "word": "choir"
-          },
-          {
-            "id": "B21_31",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.5,
-                0.5
-              ],
-              [
-                0.521,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.75,
-            "word": "choir"
-          },
-          {
-            "id": "B21_32",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.521,
-                0.5
-              ],
-              [
-                0.542,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.788,
-            "word": "choir"
-          },
-          {
-            "id": "B21_33",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.542,
-                0.5
-              ],
-              [
-                0.563,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.825,
-            "word": "choir"
-          },
-          {
-            "id": "B21_34",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.563,
-                0.5
-              ],
-              [
-                0.584,
-                0.5
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.009,
-            "layer": 1,
-            "delay": 0.862,
-            "word": "choir"
-          },
-          {
-            "id": "B21_35",
-            "kind": "line",
-            "sentence": 2,
-            "points": [
-              [
-                0.584,
-                0.5
-              ],
-              [
-                0.584,
-                0.61
-              ]
-            ],
-            "color": "#8A867C",
-            "width": 0.003,
-            "layer": 0,
-            "word": "choir",
-            "delay": 0.9
-          },
-          {
-            "id": "B21_36",
-            "kind": "circle",
-            "sentence": 2,
-            "center": [
-              0.584,
-              0.5
-            ],
-            "radius": 0.009,
-            "color": "#24231F",
-            "word": "choir",
-            "delay": 0.9
-          },
-          {
-            "id": "B21_37",
-            "kind": "text",
-            "sentence": 2,
-            "text": "1144  Choir dedicated",
-            "position": [
-              0.584,
-              0.64
-            ],
-            "size": 0.025,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": true,
-            "word": "choir",
-            "delay": 0.9
-          },
-          {
-            "id": "B21_38",
-            "kind": "rect",
-            "sentence": 2,
-            "box": [
-              0.29,
-              0.53,
-              0.5,
-              0.56
-            ],
-            "layer": 0,
-            "color": "#B9A887"
-          },
-          {
-            "id": "B21_39",
-            "kind": "text",
-            "sentence": 2,
-            "text": "West front",
-            "position": [
-              0.395,
-              0.36
-            ],
-            "size": 0.024,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": true
-          },
-          {
-            "id": "B21_40",
-            "kind": "rect",
-            "sentence": 2,
-            "box": [
-              0.5,
-              0.53,
-              0.584,
-              0.56
-            ],
-            "layer": 0,
-            "color": "#5E86A6"
-          },
-          {
-            "id": "B21_41",
-            "kind": "text",
-            "sentence": 2,
-            "text": "New choir",
-            "position": [
-              0.542,
-              0.28
-            ],
-            "size": 0.024,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": true
-          },
-          {
-            "id": "B21_42",
             "kind": "text",
             "sentence": 0,
             "text": "6 · Walls of light",
@@ -20934,80 +20214,260 @@
             "from_start": true
           },
           {
-            "id": "B21_43",
+            "id": "B21_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: Guilhem Vellut, CC BY 2.0, Wikimedia Commons",
+            "position": [
+              0.95,
+              0.925
+            ],
+            "size": 0.016,
+            "align": "RIGHT",
+            "color": "#24231F",
+            "plate": true,
+            "until": 3,
+            "until_word": "arches",
+            "from_start": true
+          },
+          {
+            "id": "B21_04",
+            "kind": "text",
+            "sentence": 3,
+            "text": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons",
+            "position": [
+              0.95,
+              0.925
+            ],
+            "size": 0.016,
+            "align": "RIGHT",
+            "color": "#24231F",
+            "plate": true,
+            "word": "arches"
+          },
+          {
+            "id": "B21_05",
             "kind": "text",
             "sentence": 1,
             "text": "Part of the answer: light",
             "position": [
               0.5,
-              0.74
+              0.3
             ],
             "size": 0.05,
             "align": "CENTER",
             "color": "#24231F",
-            "plate": false,
+            "plate": true,
+            "word": "light",
             "until": 2
           },
           {
-            "id": "B21_44",
+            "id": "B21_06",
             "kind": "text",
             "sentence": 2,
-            "text": "Saint-Denis",
+            "text": "Saint-Denis today",
             "position": [
-              0.5,
-              0.86
+              0.06,
+              0.3
             ],
-            "size": 0.05,
-            "align": "CENTER",
+            "size": 0.028,
+            "align": "LEFT",
             "color": "#24231F",
-            "plate": false
+            "plate": true,
+            "word": "denis",
+            "until": 3
           },
           {
-            "id": "B21_45",
+            "id": "B21_07",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Abbot Suger's new choir: 1140–1144",
+            "position": [
+              0.06,
+              0.2422
+            ],
+            "size": 0.028,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": true,
+            "word": "denis",
+            "until": 3
+          },
+          {
+            "id": "B21_08",
+            "kind": "circle",
+            "sentence": 3,
+            "center": [
+              0.4735,
+              0.4692
+            ],
+            "radius": 0.007,
+            "color": "#FFFFFF",
+            "word": "pointed",
+            "layer": 3
+          },
+          {
+            "id": "B21_09",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.4735,
+                0.4692
+              ],
+              [
+                0.2,
+                0.62
+              ]
+            ],
+            "color": "#FFFFFF",
+            "width": 0.003,
+            "layer": 3,
+            "word": "pointed"
+          },
+          {
+            "id": "B21_10",
             "kind": "text",
             "sentence": 3,
-            "text": "Pointed arches throughout",
+            "text": "Pointed arches",
             "position": [
-              0.24,
-              0.76
+              0.2,
+              0.62
             ],
-            "size": 0.027,
+            "size": 0.026,
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
             "word": "pointed"
           },
           {
-            "id": "B21_46",
+            "id": "B21_11",
+            "kind": "circle",
+            "sentence": 3,
+            "center": [
+              0.5,
+              0.8943
+            ],
+            "radius": 0.007,
+            "color": "#FFFFFF",
+            "word": "ribbed",
+            "layer": 3
+          },
+          {
+            "id": "B21_12",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.5,
+                0.8943
+              ],
+              [
+                0.78,
+                0.84
+              ]
+            ],
+            "color": "#FFFFFF",
+            "width": 0.003,
+            "layer": 3,
+            "word": "ribbed"
+          },
+          {
+            "id": "B21_13",
             "kind": "text",
             "sentence": 3,
             "text": "Every vault ribbed",
             "position": [
-              0.5,
-              0.76
+              0.78,
+              0.84
             ],
-            "size": 0.027,
+            "size": 0.026,
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
             "word": "ribbed"
           },
           {
-            "id": "B21_47",
+            "id": "B21_14",
+            "kind": "circle",
+            "sentence": 3,
+            "center": [
+              0.5,
+              0.2172
+            ],
+            "radius": 0.007,
+            "color": "#FFFFFF",
+            "word": "glass",
+            "layer": 3
+          },
+          {
+            "id": "B21_15",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.5,
+                0.2172
+              ],
+              [
+                0.8,
+                0.36
+              ]
+            ],
+            "color": "#FFFFFF",
+            "width": 0.003,
+            "layer": 3,
+            "word": "glass"
+          },
+          {
+            "id": "B21_16",
             "kind": "text",
             "sentence": 3,
-            "text": "Monumental stained glass",
+            "text": "Stained glass",
             "position": [
-              0.76,
-              0.76
+              0.8,
+              0.36
             ],
-            "size": 0.027,
+            "size": 0.026,
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
             "word": "glass"
           }
-        ]
+        ],
+        "stage": {
+          "views": [
+            {
+              "rect": [
+                0.078,
+                0.078,
+                0.922,
+                0.922
+              ]
+            },
+            {
+              "rect": [
+                0.1371,
+                0.1971,
+                0.8629,
+                0.9229
+              ],
+              "sentence": 0,
+              "move_seconds": 9.0,
+              "word": "why"
+            },
+            {
+              "rect": [
+                0.078,
+                0.128,
+                0.922,
+                0.972
+              ],
+              "sentence": 3,
+              "move_seconds": 1.2
+            }
+          ]
+        }
       }
     },
     {
@@ -21020,7 +20480,7 @@
         "CLM_164"
       ],
       "narration": "For Suger, light was a sign, a bridge to the divine. France's national library says the new style had to let in as much light as possible.",
-      "visual_goal": "Why light mattered",
+      "visual_goal": "The camera moves into the coloured light of one window while Suger's idea and the library's words are given",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
       "strategy": "CARD",
@@ -21029,63 +20489,128 @@
         "elements": [
           {
             "id": "B22_00",
-            "kind": "text",
+            "kind": "image",
             "sentence": 0,
-            "text": "“A sign or bridge to the divine”",
-            "position": [
-              0.5,
-              0.62
+            "asset": "IMG_SAINT_DENIS_APSE",
+            "path": "assets/external/saint_denis_apse_ninaras_2560.jpg",
+            "box": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
             ],
-            "size": 0.05,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": false,
-            "from_start": true
+            "crop": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "drift": [
+              0.0,
+              0.0
+            ],
+            "from_start": true,
+            "stage": true
           },
           {
             "id": "B22_01",
             "kind": "text",
             "sentence": 0,
-            "text": "Light, for Abbot Suger",
+            "text": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons",
             "position": [
-              0.5,
-              0.53
+              0.95,
+              0.925
             ],
-            "size": 0.03,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false,
+            "size": 0.016,
+            "align": "RIGHT",
+            "color": "#24231F",
+            "plate": true,
             "from_start": true
           },
           {
             "id": "B22_02",
             "kind": "text",
+            "sentence": 0,
+            "text": "“A sign, a bridge to the divine”",
+            "position": [
+              0.5,
+              0.62
+            ],
+            "size": 0.044,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "sign"
+          },
+          {
+            "id": "B22_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Light, for Abbot Suger",
+            "position": [
+              0.5,
+              0.54
+            ],
+            "size": 0.026,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "sign"
+          },
+          {
+            "id": "B22_04",
+            "kind": "text",
             "sentence": 1,
             "text": "The new style had to let in as much light as possible",
             "position": [
               0.5,
-              0.4
+              0.36
             ],
-            "size": 0.032,
+            "size": 0.03,
             "align": "CENTER",
             "color": "#24231F",
-            "plate": true
+            "plate": true,
+            "word": "library"
           },
           {
-            "id": "B22_03",
+            "id": "B22_05",
             "kind": "text",
             "sentence": 1,
             "text": "Bibliothèque nationale de France",
             "position": [
               0.5,
-              0.33
+              0.3
             ],
             "size": 0.022,
             "align": "CENTER",
-            "color": "#55524A",
-            "plate": false
+            "color": "#24231F",
+            "plate": true,
+            "word": "library"
           }
-        ]
+        ],
+        "stage": {
+          "views": [
+            {
+              "rect": [
+                0.078,
+                0.128,
+                0.922,
+                0.972
+              ]
+            },
+            {
+              "rect": [
+                0.2509,
+                0.1208,
+                0.7491,
+                0.619
+              ],
+              "sentence": 0,
+              "move_seconds": 6.0,
+              "word": "light"
+            }
+          ]
+        }
       }
     },
     {
@@ -21097,29 +20622,123 @@
         "CLM_162"
       ],
       "narration": "At Chartres, some 2,500 square meters of stained glass survive, most of it original.",
-      "visual_goal": "The tall windows on the model, lit; the number on screen (a rights-cleared photograph of the glass may replace the model)",
-      "required_concepts": [
-        "gothic_cathedral_section",
-        "clerestory_window"
-      ],
+      "visual_goal": "Chartres by its own photograph: the camera moves into the north rose while the figure is given",
+      "required_concepts": [],
       "expected_complexity": "MEDIUM",
-      "strategy": "HOLD_HIGHLIGHT",
-      "annotations": [
-        {
-          "id": "B23_n",
-          "type": "NOTE",
-          "text": "Chartres: about 2,500 m² of stained glass",
-          "sentence": 0,
-          "position": "TOP_LEFT"
-        },
-        {
-          "id": "B23_note",
-          "type": "NOTE",
-          "text": "Illustrative model, not Chartres Cathedral",
-          "sentence": 0,
-          "position": "BOTTOM_RIGHT"
+      "strategy": "CARD",
+      "graphic": {
+        "fade_seconds": 0.35,
+        "elements": [
+          {
+            "id": "B23_00",
+            "kind": "image",
+            "sentence": 0,
+            "asset": "IMG_CHARTRES_ROSE",
+            "path": "assets/external/chartres_north_rose_2560.jpg",
+            "box": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "crop": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "drift": [
+              0.0,
+              0.0
+            ],
+            "from_start": true,
+            "stage": true
+          },
+          {
+            "id": "B23_01",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Photo: Eusebius, public domain, Wikimedia Commons",
+            "position": [
+              0.95,
+              0.925
+            ],
+            "size": 0.016,
+            "align": "RIGHT",
+            "color": "#24231F",
+            "plate": true,
+            "from_start": true
+          },
+          {
+            "id": "B23_02",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Chartres today: the north rose",
+            "position": [
+              0.06,
+              0.42
+            ],
+            "size": 0.026,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": true,
+            "from_start": true
+          },
+          {
+            "id": "B23_03",
+            "kind": "text",
+            "sentence": 0,
+            "text": "About 2,500 m² of stained glass survive,",
+            "position": [
+              0.06,
+              0.32
+            ],
+            "size": 0.03,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": true,
+            "word": "square"
+          },
+          {
+            "id": "B23_04",
+            "kind": "text",
+            "sentence": 0,
+            "text": "most of it original",
+            "position": [
+              0.06,
+              0.2585
+            ],
+            "size": 0.03,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": true,
+            "word": "square"
+          }
+        ],
+        "stage": {
+          "views": [
+            {
+              "rect": [
+                0.2968,
+                0.4168,
+                0.7032,
+                0.8232
+              ]
+            },
+            {
+              "rect": [
+                0.3242,
+                0.5703,
+                0.6758,
+                0.9219
+              ],
+              "sentence": 0,
+              "move_seconds": 3.5,
+              "word": "stained"
+            }
+          ]
         }
-      ]
+      }
     },
     {
       "beat_id": "B24",

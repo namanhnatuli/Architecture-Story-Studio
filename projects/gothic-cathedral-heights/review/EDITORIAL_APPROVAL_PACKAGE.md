@@ -7,7 +7,7 @@
 1. Lời dẫn: mỗi câu đúng với claim nó trích (xem cột trích dẫn nguồn).
 2. Chữ trên card: tiêu đề, nhãn, chú thích ảnh, thang nhịp và dòng thời gian.
 3. Ảnh lưu trữ: chọn ảnh, cách cắt viền phim, dòng ghi công (xem `review/RIGHTS_PROVENANCE.md`).
-4. Nhãn 'Illustrative model' trên các mô hình 3D (B05, B07, B12, B13, B16, B17, B23).
+4. Nhãn 'Illustrative model' trên các mô hình 3D (B05, B07, B12, B13, B16, B17).
 5. Phát âm các tên mới (narration.voice.pronunciation_review.terms).
 6. Giọng: quyền dùng `am_michael` cho phim này (licence LICENSE_REVIEW_REQUIRED, owner_confirmation_for_this_film = PENDING).
 
@@ -423,8 +423,9 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - **SC_018** (B18): The picture from Columbia's Amiens project | Plan, seen from above (schematic) | Inside the building | A thick outer wall | Each segment turned 90° | Rigid supports, standing out from the building | Exposed arches: flying buttresses
 - **SC_019** (B19): A church section (schematic) | Added outside to consolidate (BnF) | Timber props, while building | made permanent in stone (BnF) | Photo: Florestan, CC BY 3.0, Wikimedia Commons | Photo: Jebulon, CC0, Wikimedia Commons | Chartres today: flying buttresses of the nave | part of the original plans | Notre-Dame de Paris: the east end (photograph 2011)
 - **SC_020** (B20): Half a section (schematic) | Rainwater led off the roof | (schematic) | Ever taller
-- **SC_021** (B21): 1120 | 1130 | 1140 | 1150 | 1160 | 1144  Choir dedicated | West front | New choir | 6 · Walls of light | Part of the answer: light | Saint-Denis | Pointed arches throughout | Every vault ribbed | Monumental stained glass
-- **SC_022** (B22): “A sign or bridge to the divine” | Light, for Abbot Suger | The new style had to let in as much light as possible | Bibliothèque nationale de France
+- **SC_021** (B21): 6 · Walls of light | Photo: Guilhem Vellut, CC BY 2.0, Wikimedia Commons | Photo: Ninaras, CC BY 4.0, Wikimedia Commons | Part of the answer: light | Saint-Denis today | Abbot Suger's new choir: 1140–1144 | Pointed arches | Every vault ribbed | Stained glass
+- **SC_022** (B22): Photo: Ninaras, CC BY 4.0, Wikimedia Commons | “A sign, a bridge to the divine” | Light, for Abbot Suger | The new style had to let in as much light as possible | Bibliothèque nationale de France
+- **SC_023** (B23): Photo: Eusebius, public domain, Wikimedia Commons | Chartres today: the north rose | About 2,500 m² of stained glass survive, | most of it original
 - **SC_024** (B24): How new was Gothic? | “An entire revolution | in the art of building” | After Viollet-le-Duc, 19th century | No Gothic break: a creative | proposal rooted in continuity | Arnaud Timbert, art historian | Suger's crypt: round arches, groin vaults
 - **SC_025** (B25): 7 · Building by geometry | Without modern structural calculations | A geometrical rule: compass and line | The same proportions, scaled up
 - **SC_026** (B26): Ropes pegged to the ground | Squares with right angles | Templates: straight edge and compass | Schematic, not the Amiens plan
@@ -475,8 +476,6 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - B17 `B17_pier` COMPONENT_LABEL: "Pier buttress"
 - B17 `B17_weight` LOAD_ARROW: "Weight" (CLM_152)
 - B17 `B17_pinnacle` COMPONENT_LABEL: "Pinnacle"
-- B23 `B23_n` NOTE: "Chartres: about 2,500 m² of stained glass"
-- B23 `B23_note` NOTE: "Illustrative model, not Chartres Cathedral"
 - B39 `B39_ch` NOTE: "9 · Why they stand"
 - B42 `B42_ch` NOTE: "10 · Never impossible"
 - B44 `B44_note` NOTE: "Models are illustrations, not structural analyses"

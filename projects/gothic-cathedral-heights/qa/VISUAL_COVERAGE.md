@@ -1,9 +1,9 @@
 # Visual coverage: How Gothic Cathedrals Reached Impossible Heights
 
 - Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 46 shots, 923.42 s.
-- Executable: **True** · COVERED 44, PARTIALLY_COVERED 2
+- Executable: **True** · COVERED 45, PARTIALLY_COVERED 1
 - Publication: INTERNAL_ONLY — Revision g-r3: script after the owner's second review; claims source-verified, not editorially approved.
-- Visibility (offline Level 1 estimate): 3 shots, 6/6 target rows read, issues 0, auto-repaired 0, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
+- Visibility (offline Level 1 estimate): 2 shots, 5/5 target rows read, issues 0, auto-repaired 0, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
 
 | Beat | Intent | Strategy | Assets | Semantic targets | Templates (shots) | Expected / planned s | Evidence | Readable | Coverage | Issues |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -29,7 +29,7 @@
 | B20 | INTRODUCE_ARCHITECTURE | CARD | — | — | MOTION_GRAPHICS (SC_020) | 12.35 / 12.38 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B21 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_021) | 23.43 / 23.46 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B22 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_022) | 12.55 / 12.58 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B23 | SHOW_COMPONENT | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | clerestory_window | HOLD (SC_023) | 8.82 / 8.83 | INTERNAL_PREVIEW | clerestory_window: reads | **PARTIALLY_COVERED** | — |
+| B23 | SHOW_COMPONENT | CARD | — | — | MOTION_GRAPHICS (SC_023) | 8.82 / 8.83 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B24 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_024) | 18.85 / 18.88 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B25 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_025) | 18.18 / 18.21 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_EVOLUTION'] |
 | B26 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_026) | 16.20 / 16.21 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['SHOW_CONTEXT'] |
@@ -78,7 +78,7 @@
 - **B20**: CARD: 2D card (text/arrows) supplied by the beat
 - **B21**: CARD: 2D card (text/arrows) supplied by the beat
 - **B22**: CARD: 2D card (text/arrows) supplied by the beat
-- **B23**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B23**: CARD: 2D card (text/arrows) supplied by the beat
 - **B24**: CARD: 2D card (text/arrows) supplied by the beat
 - **B25**: CARD: 2D card (text/arrows) supplied by the beat
 - **B26**: CARD: 2D card (text/arrows) supplied by the beat

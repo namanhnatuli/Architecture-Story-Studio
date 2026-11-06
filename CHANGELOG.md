@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.10.5 — 2026-11-07 — Phim Gothic g-r8: C4, C5, C2, C3, C7 theo bảng việc của chủ kênh
+## 0.10.5 — 2026-11-07 — Phim Gothic g-r8: C4, C5, C2, C3, C7, C6 theo bảng việc của chủ kênh
 - **Chủ kênh giao bảng việc từng chương**, thứ tự C4 → C5 → C2 → C3 → C7 → C6. Chưa có gì được duyệt.
 - **C4:**
   - B14: ảnh nội thất Durham (Cornell University Library, không có hạn chế bản quyền đã biết), camera lên vòm gân; timeline tiến tới dải 1093–1133.
@@ -23,6 +23,10 @@
   - B26: cọc, dây, hình vuông, thước và compa.
   - B27: trình tự theo nguồn: vẽ đủ cỡ, khung đỡ, đặt đá từ hai chân lên đá khoá, tháo khung.
   - B28: giàn giáo, ván khuôn, cần trục, thanh giằng gỗ rồi sắt.
+- **C6:**
+  - B21: ảnh thật Saint-Denis (CC BY 2.0, CC BY 4.0); nhãn có đường dẫn chỉ vòm nhọn, gân vòm, kính màu.
+  - B22: camera vào ánh sáng của cửa sổ.
+  - B23: cửa sổ hoa hồng bắc Chartres (public domain).
 - **Card:**
   - `spin`: phần tử xoay quanh một tâm, theo câu hoặc từ.
   - Mọi phần tử của câu đầu không gắn với từ có mặt từ khung đầu, nên không card nào mở bằng khung trống.

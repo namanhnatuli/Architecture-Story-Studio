@@ -2,9 +2,9 @@
   "project_id": "gothic-cathedral-heights",
   "executable": true,
   "visibility_summary": {
-    "shots_assessed": 3,
-    "target_rows": 6,
-    "rows_passing": 6,
+    "shots_assessed": 2,
+    "target_rows": 5,
+    "rows_passing": 5,
     "uncertain_rows": 0,
     "issues_detected": 0,
     "auto_repaired": 0,
@@ -638,52 +638,28 @@
     {
       "beat_id": "B23",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "HOLD_HIGHLIGHT",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "CARD",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 8.825,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "clerestory_window"
-      ],
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
         "SC_023"
       ],
       "planned_seconds": 8.833,
-      "readable": {
-        "clerestory_window": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_023",
-          "concept": "clerestory_window",
-          "label": "highlight_peak",
-          "frame": 111,
-          "visible_share": 0.5038,
-          "core_area": 0.00087,
-          "visible_area": 0.00632,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B24",

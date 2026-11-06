@@ -14,7 +14,7 @@
   "duration_seconds": 923.416667,
   "executable": true,
   "inputs": {
-    "beats_sha256": "25248572755e9e856ae1ae035fd536255562789ea21f1f49f4c915073f968101",
+    "beats_sha256": "572ef02fdbe57d05c4906f13a7a5ebe2e21c36edabccb9e0fa34aa9ce7ff2cda",
     "sources_sha256": "fcff5bb2e68095d9108dfdf8a35f5a90b7ae695a133209a0b1b505cb535f465b",
     "vocabulary_sha256": "241a3f86bf04a696ffadee2abfb31c5a379729ea8249c72eead3ce5fd10682e1",
     "planning_config_sha256": "ea13b5a8b921f9ad936b3ba8c2f3f2eb408d4b1ce1ef822b5e8833177475a3b2",
@@ -25569,716 +25569,95 @@
         "camera": "CARD",
         "graphic": {
           "fade_seconds": 0.35,
+          "stage": {
+            "views": [
+              {
+                "rect": [
+                  0.078,
+                  0.078,
+                  0.922,
+                  0.922
+                ],
+                "at": 0.0,
+                "move_seconds": 0.0
+              },
+              {
+                "rect": [
+                  0.1371,
+                  0.1971,
+                  0.8629,
+                  0.9229
+                ],
+                "at": 0.4,
+                "move_seconds": 9.0,
+                "easing": "SMOOTH"
+              },
+              {
+                "rect": [
+                  0.078,
+                  0.128,
+                  0.922,
+                  0.972
+                ],
+                "at": 14.225,
+                "move_seconds": 1.2,
+                "easing": "SMOOTH"
+              }
+            ]
+          },
           "elements": [
             {
               "id": "B21_00",
-              "kind": "line",
-              "points": [
-                [
-                  0.08,
-                  0.5
-                ],
-                [
-                  0.92,
-                  0.5
-                ]
+              "kind": "image",
+              "asset": "IMG_SAINT_DENIS_ROSE",
+              "path": "assets/external/saint_denis_rose_vellut_2560.jpg",
+              "box": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
               ],
-              "color": "#24231F",
-              "width": 0.006,
-              "layer": 0,
-              "appear": 0.0
+              "crop": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "drift": [
+                0.0,
+                0.0
+              ],
+              "stage": true,
+              "appear": 0.0,
+              "disappear": 14.885
             },
             {
               "id": "B21_01",
-              "kind": "line",
-              "points": [
-                [
-                  0.08,
-                  0.485
-                ],
-                [
-                  0.08,
-                  0.515
-                ]
+              "kind": "image",
+              "asset": "IMG_SAINT_DENIS_APSE",
+              "path": "assets/external/saint_denis_apse_ninaras_2560.jpg",
+              "box": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
               ],
-              "color": "#24231F",
-              "width": 0.004,
-              "layer": 0,
-              "appear": 0.0
+              "crop": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "drift": [
+                0.0,
+                0.0
+              ],
+              "stage": true,
+              "layer": 1,
+              "appear": 14.125
             },
             {
               "id": "B21_02",
-              "kind": "text",
-              "text": "1120",
-              "position": [
-                0.08,
-                0.455
-              ],
-              "size": 0.022,
-              "align": "CENTER",
-              "color": "#55524A",
-              "plate": false,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_03",
-              "kind": "line",
-              "points": [
-                [
-                  0.29,
-                  0.485
-                ],
-                [
-                  0.29,
-                  0.515
-                ]
-              ],
-              "color": "#24231F",
-              "width": 0.004,
-              "layer": 0,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_04",
-              "kind": "text",
-              "text": "1130",
-              "position": [
-                0.29,
-                0.455
-              ],
-              "size": 0.022,
-              "align": "CENTER",
-              "color": "#55524A",
-              "plate": false,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_05",
-              "kind": "line",
-              "points": [
-                [
-                  0.5,
-                  0.485
-                ],
-                [
-                  0.5,
-                  0.515
-                ]
-              ],
-              "color": "#24231F",
-              "width": 0.004,
-              "layer": 0,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_06",
-              "kind": "text",
-              "text": "1140",
-              "position": [
-                0.5,
-                0.455
-              ],
-              "size": 0.022,
-              "align": "CENTER",
-              "color": "#55524A",
-              "plate": false,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_07",
-              "kind": "line",
-              "points": [
-                [
-                  0.71,
-                  0.485
-                ],
-                [
-                  0.71,
-                  0.515
-                ]
-              ],
-              "color": "#24231F",
-              "width": 0.004,
-              "layer": 0,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_08",
-              "kind": "text",
-              "text": "1150",
-              "position": [
-                0.71,
-                0.455
-              ],
-              "size": 0.022,
-              "align": "CENTER",
-              "color": "#55524A",
-              "plate": false,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_09",
-              "kind": "line",
-              "points": [
-                [
-                  0.92,
-                  0.485
-                ],
-                [
-                  0.92,
-                  0.515
-                ]
-              ],
-              "color": "#24231F",
-              "width": 0.004,
-              "layer": 0,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_10",
-              "kind": "text",
-              "text": "1160",
-              "position": [
-                0.92,
-                0.455
-              ],
-              "size": 0.022,
-              "align": "CENTER",
-              "color": "#55524A",
-              "plate": false,
-              "appear": 0.0
-            },
-            {
-              "id": "B21_11",
-              "kind": "line",
-              "points": [
-                [
-                  0.08,
-                  0.5
-                ],
-                [
-                  0.101,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 9.775
-            },
-            {
-              "id": "B21_12",
-              "kind": "line",
-              "points": [
-                [
-                  0.101,
-                  0.5
-                ],
-                [
-                  0.122,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 9.812
-            },
-            {
-              "id": "B21_13",
-              "kind": "line",
-              "points": [
-                [
-                  0.122,
-                  0.5
-                ],
-                [
-                  0.143,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 9.85
-            },
-            {
-              "id": "B21_14",
-              "kind": "line",
-              "points": [
-                [
-                  0.143,
-                  0.5
-                ],
-                [
-                  0.164,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 9.888
-            },
-            {
-              "id": "B21_15",
-              "kind": "line",
-              "points": [
-                [
-                  0.164,
-                  0.5
-                ],
-                [
-                  0.185,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 9.925
-            },
-            {
-              "id": "B21_16",
-              "kind": "line",
-              "points": [
-                [
-                  0.185,
-                  0.5
-                ],
-                [
-                  0.206,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 9.963
-            },
-            {
-              "id": "B21_17",
-              "kind": "line",
-              "points": [
-                [
-                  0.206,
-                  0.5
-                ],
-                [
-                  0.227,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.0
-            },
-            {
-              "id": "B21_18",
-              "kind": "line",
-              "points": [
-                [
-                  0.227,
-                  0.5
-                ],
-                [
-                  0.248,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.038
-            },
-            {
-              "id": "B21_19",
-              "kind": "line",
-              "points": [
-                [
-                  0.248,
-                  0.5
-                ],
-                [
-                  0.269,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.075
-            },
-            {
-              "id": "B21_20",
-              "kind": "line",
-              "points": [
-                [
-                  0.269,
-                  0.5
-                ],
-                [
-                  0.29,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.112
-            },
-            {
-              "id": "B21_21",
-              "kind": "line",
-              "points": [
-                [
-                  0.29,
-                  0.5
-                ],
-                [
-                  0.311,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.15
-            },
-            {
-              "id": "B21_22",
-              "kind": "line",
-              "points": [
-                [
-                  0.311,
-                  0.5
-                ],
-                [
-                  0.332,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.188
-            },
-            {
-              "id": "B21_23",
-              "kind": "line",
-              "points": [
-                [
-                  0.332,
-                  0.5
-                ],
-                [
-                  0.353,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.225
-            },
-            {
-              "id": "B21_24",
-              "kind": "line",
-              "points": [
-                [
-                  0.353,
-                  0.5
-                ],
-                [
-                  0.374,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.263
-            },
-            {
-              "id": "B21_25",
-              "kind": "line",
-              "points": [
-                [
-                  0.374,
-                  0.5
-                ],
-                [
-                  0.395,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.3
-            },
-            {
-              "id": "B21_26",
-              "kind": "line",
-              "points": [
-                [
-                  0.395,
-                  0.5
-                ],
-                [
-                  0.416,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.337
-            },
-            {
-              "id": "B21_27",
-              "kind": "line",
-              "points": [
-                [
-                  0.416,
-                  0.5
-                ],
-                [
-                  0.437,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.375
-            },
-            {
-              "id": "B21_28",
-              "kind": "line",
-              "points": [
-                [
-                  0.437,
-                  0.5
-                ],
-                [
-                  0.458,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.413
-            },
-            {
-              "id": "B21_29",
-              "kind": "line",
-              "points": [
-                [
-                  0.458,
-                  0.5
-                ],
-                [
-                  0.479,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.45
-            },
-            {
-              "id": "B21_30",
-              "kind": "line",
-              "points": [
-                [
-                  0.479,
-                  0.5
-                ],
-                [
-                  0.5,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.488
-            },
-            {
-              "id": "B21_31",
-              "kind": "line",
-              "points": [
-                [
-                  0.5,
-                  0.5
-                ],
-                [
-                  0.521,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.525
-            },
-            {
-              "id": "B21_32",
-              "kind": "line",
-              "points": [
-                [
-                  0.521,
-                  0.5
-                ],
-                [
-                  0.542,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.563
-            },
-            {
-              "id": "B21_33",
-              "kind": "line",
-              "points": [
-                [
-                  0.542,
-                  0.5
-                ],
-                [
-                  0.563,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.6
-            },
-            {
-              "id": "B21_34",
-              "kind": "line",
-              "points": [
-                [
-                  0.563,
-                  0.5
-                ],
-                [
-                  0.584,
-                  0.5
-                ]
-              ],
-              "color": "#1E5C96",
-              "width": 0.009,
-              "layer": 1,
-              "appear": 10.637
-            },
-            {
-              "id": "B21_35",
-              "kind": "line",
-              "points": [
-                [
-                  0.584,
-                  0.5
-                ],
-                [
-                  0.584,
-                  0.61
-                ]
-              ],
-              "color": "#8A867C",
-              "width": 0.003,
-              "layer": 0,
-              "appear": 10.675
-            },
-            {
-              "id": "B21_36",
-              "kind": "circle",
-              "center": [
-                0.584,
-                0.5
-              ],
-              "radius": 0.009,
-              "color": "#24231F",
-              "appear": 10.675
-            },
-            {
-              "id": "B21_37",
-              "kind": "text",
-              "text": "1144  Choir dedicated",
-              "position": [
-                0.584,
-                0.64
-              ],
-              "size": 0.025,
-              "align": "CENTER",
-              "color": "#24231F",
-              "plate": true,
-              "appear": 10.675
-            },
-            {
-              "id": "B21_38",
-              "kind": "rect",
-              "box": [
-                0.29,
-                0.53,
-                0.5,
-                0.56
-              ],
-              "layer": 0,
-              "color": "#B9A887",
-              "appear": 5.775
-            },
-            {
-              "id": "B21_39",
-              "kind": "text",
-              "text": "West front",
-              "position": [
-                0.395,
-                0.36
-              ],
-              "size": 0.024,
-              "align": "CENTER",
-              "color": "#24231F",
-              "plate": true,
-              "appear": 5.775
-            },
-            {
-              "id": "B21_40",
-              "kind": "rect",
-              "box": [
-                0.5,
-                0.53,
-                0.584,
-                0.56
-              ],
-              "layer": 0,
-              "color": "#5E86A6",
-              "appear": 5.775
-            },
-            {
-              "id": "B21_41",
-              "kind": "text",
-              "text": "New choir",
-              "position": [
-                0.542,
-                0.28
-              ],
-              "size": 0.024,
-              "align": "CENTER",
-              "color": "#24231F",
-              "plate": true,
-              "appear": 5.775
-            },
-            {
-              "id": "B21_42",
               "kind": "text",
               "text": "6 · Walls of light",
               "position": [
@@ -26292,71 +25671,206 @@
               "appear": 0.0
             },
             {
-              "id": "B21_43",
+              "id": "B21_03",
+              "kind": "text",
+              "text": "Photo: Guilhem Vellut, CC BY 2.0, Wikimedia Commons",
+              "position": [
+                0.95,
+                0.925
+              ],
+              "size": 0.016,
+              "align": "RIGHT",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 0.0,
+              "disappear": 14.885
+            },
+            {
+              "id": "B21_04",
+              "kind": "text",
+              "text": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons",
+              "position": [
+                0.95,
+                0.925
+              ],
+              "size": 0.016,
+              "align": "RIGHT",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 14.885
+            },
+            {
+              "id": "B21_05",
               "kind": "text",
               "text": "Part of the answer: light",
               "position": [
                 0.5,
-                0.74
+                0.3
               ],
               "size": 0.05,
               "align": "CENTER",
               "color": "#24231F",
-              "plate": false,
-              "appear": 3.025,
+              "plate": true,
+              "appear": 4.425,
               "disappear": 5.775
             },
             {
-              "id": "B21_44",
+              "id": "B21_06",
               "kind": "text",
-              "text": "Saint-Denis",
+              "text": "Saint-Denis today",
               "position": [
-                0.5,
-                0.86
+                0.06,
+                0.3
               ],
-              "size": 0.05,
-              "align": "CENTER",
+              "size": 0.028,
+              "align": "LEFT",
               "color": "#24231F",
-              "plate": false,
-              "appear": 5.775
+              "plate": true,
+              "appear": 7.455,
+              "disappear": 14.125
             },
             {
-              "id": "B21_45",
+              "id": "B21_07",
               "kind": "text",
-              "text": "Pointed arches throughout",
+              "text": "Abbot Suger's new choir: 1140–1144",
               "position": [
-                0.24,
-                0.76
+                0.06,
+                0.2422
               ],
-              "size": 0.027,
+              "size": 0.028,
+              "align": "LEFT",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 7.455,
+              "disappear": 14.125
+            },
+            {
+              "id": "B21_08",
+              "kind": "circle",
+              "center": [
+                0.4735,
+                0.4692
+              ],
+              "radius": 0.007,
+              "color": "#FFFFFF",
+              "layer": 3,
+              "appear": 14.125
+            },
+            {
+              "id": "B21_09",
+              "kind": "line",
+              "points": [
+                [
+                  0.4735,
+                  0.4692
+                ],
+                [
+                  0.2,
+                  0.62
+                ]
+              ],
+              "color": "#FFFFFF",
+              "width": 0.003,
+              "layer": 3,
+              "appear": 14.125
+            },
+            {
+              "id": "B21_10",
+              "kind": "text",
+              "text": "Pointed arches",
+              "position": [
+                0.2,
+                0.62
+              ],
+              "size": 0.026,
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
               "appear": 14.125
             },
             {
-              "id": "B21_46",
+              "id": "B21_11",
+              "kind": "circle",
+              "center": [
+                0.5,
+                0.8943
+              ],
+              "radius": 0.007,
+              "color": "#FFFFFF",
+              "layer": 3,
+              "appear": 17.405
+            },
+            {
+              "id": "B21_12",
+              "kind": "line",
+              "points": [
+                [
+                  0.5,
+                  0.8943
+                ],
+                [
+                  0.78,
+                  0.84
+                ]
+              ],
+              "color": "#FFFFFF",
+              "width": 0.003,
+              "layer": 3,
+              "appear": 17.405
+            },
+            {
+              "id": "B21_13",
               "kind": "text",
               "text": "Every vault ribbed",
               "position": [
-                0.5,
-                0.76
+                0.78,
+                0.84
               ],
-              "size": 0.027,
+              "size": 0.026,
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
               "appear": 17.405
             },
             {
-              "id": "B21_47",
-              "kind": "text",
-              "text": "Monumental stained glass",
-              "position": [
-                0.76,
-                0.76
+              "id": "B21_14",
+              "kind": "circle",
+              "center": [
+                0.5,
+                0.2172
               ],
-              "size": 0.027,
+              "radius": 0.007,
+              "color": "#FFFFFF",
+              "layer": 3,
+              "appear": 19.445
+            },
+            {
+              "id": "B21_15",
+              "kind": "line",
+              "points": [
+                [
+                  0.5,
+                  0.2172
+                ],
+                [
+                  0.8,
+                  0.36
+                ]
+              ],
+              "color": "#FFFFFF",
+              "width": 0.003,
+              "layer": 3,
+              "appear": 19.445
+            },
+            {
+              "id": "B21_16",
+              "kind": "text",
+              "text": "Stained glass",
+              "position": [
+                0.8,
+                0.36
+              ],
+              "size": 0.026,
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
@@ -26374,7 +25888,7 @@
           "CLM_161"
         ],
         "narration": "Why go to all this trouble? Part of the answer is light. At the abbey church of Saint-Denis, Abbot Suger built a new choir between 1140 and 1144. Pointed arches run throughout, every vault is ribbed, and monumental stained glass seems to dissolve the whole structure.",
-        "visual_purpose": "Saint-Denis, dates and three features (a rights-cleared photograph may replace the card) [CARD 1/1: 2D card supplied by the beat (48 elements)]"
+        "visual_purpose": "Saint-Denis today, filling the frame with its light; then its apse windows, the pointed arches, the ribbed vault and the stained glass pointed out as each is named [CARD 1/1: 2D card supplied by the beat (17 elements)]"
       },
       "beat_id": "B21",
       "visual_intent": "SHOW_CONTEXT",
@@ -26401,7 +25915,7 @@
         "beat_offset_seconds": 0.0,
         "start_seconds": 422.458333
       },
-      "explanation": "2D card supplied by the beat (48 elements)",
+      "explanation": "2D card supplied by the beat (17 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -26419,62 +25933,125 @@
         "camera": "CARD",
         "graphic": {
           "fade_seconds": 0.35,
+          "stage": {
+            "views": [
+              {
+                "rect": [
+                  0.078,
+                  0.128,
+                  0.922,
+                  0.972
+                ],
+                "at": 0.0,
+                "move_seconds": 0.0
+              },
+              {
+                "rect": [
+                  0.2509,
+                  0.1208,
+                  0.7491,
+                  0.619
+                ],
+                "at": 1.5,
+                "move_seconds": 6.0,
+                "easing": "SMOOTH"
+              }
+            ]
+          },
           "elements": [
             {
               "id": "B22_00",
-              "kind": "text",
-              "text": "“A sign or bridge to the divine”",
-              "position": [
-                0.5,
-                0.62
+              "kind": "image",
+              "asset": "IMG_SAINT_DENIS_APSE",
+              "path": "assets/external/saint_denis_apse_ninaras_2560.jpg",
+              "box": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
               ],
-              "size": 0.05,
-              "align": "CENTER",
-              "color": "#24231F",
-              "plate": false,
+              "crop": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "drift": [
+                0.0,
+                0.0
+              ],
+              "stage": true,
               "appear": 0.0
             },
             {
               "id": "B22_01",
               "kind": "text",
-              "text": "Light, for Abbot Suger",
+              "text": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons",
               "position": [
-                0.5,
-                0.53
+                0.95,
+                0.925
               ],
-              "size": 0.03,
-              "align": "CENTER",
-              "color": "#55524A",
-              "plate": false,
+              "size": 0.016,
+              "align": "RIGHT",
+              "color": "#24231F",
+              "plate": true,
               "appear": 0.0
             },
             {
               "id": "B22_02",
               "kind": "text",
-              "text": "The new style had to let in as much light as possible",
+              "text": "“A sign, a bridge to the divine”",
               "position": [
                 0.5,
-                0.4
+                0.62
               ],
-              "size": 0.032,
+              "size": 0.044,
               "align": "CENTER",
               "color": "#24231F",
               "plate": true,
-              "appear": 4.95
+              "appear": 1.92
             },
             {
               "id": "B22_03",
               "kind": "text",
+              "text": "Light, for Abbot Suger",
+              "position": [
+                0.5,
+                0.54
+              ],
+              "size": 0.026,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 1.92
+            },
+            {
+              "id": "B22_04",
+              "kind": "text",
+              "text": "The new style had to let in as much light as possible",
+              "position": [
+                0.5,
+                0.36
+              ],
+              "size": 0.03,
+              "align": "CENTER",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 6.27
+            },
+            {
+              "id": "B22_05",
+              "kind": "text",
               "text": "Bibliothèque nationale de France",
               "position": [
                 0.5,
-                0.33
+                0.3
               ],
               "size": 0.022,
               "align": "CENTER",
-              "color": "#55524A",
-              "plate": false,
-              "appear": 4.95
+              "color": "#24231F",
+              "plate": true,
+              "appear": 6.27
             }
           ]
         },
@@ -26488,7 +26065,7 @@
           "CLM_164"
         ],
         "narration": "For Suger, light was a sign, a bridge to the divine. France's national library says the new style had to let in as much light as possible.",
-        "visual_purpose": "Why light mattered [CARD 1/1: 2D card supplied by the beat (4 elements)]"
+        "visual_purpose": "The camera moves into the coloured light of one window while Suger's idea and the library's words are given [CARD 1/1: 2D card supplied by the beat (6 elements)]"
       },
       "beat_id": "B22",
       "visual_intent": "SHOW_CONTEXT",
@@ -26511,11 +26088,11 @@
         "mode": "AUDIO_LOCKED",
         "frames": 302,
         "duration_seconds": 12.583333,
-        "min_seconds": 5.3333,
+        "min_seconds": 6.625,
         "beat_offset_seconds": 0.0,
         "start_seconds": 445.916667
       },
-      "explanation": "2D card supplied by the beat (4 elements)",
+      "explanation": "2D card supplied by the beat (6 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -26528,31 +26105,121 @@
       "shot": {
         "id": "SC_023",
         "duration_seconds": 8.833333333333334,
-        "visual_type": "BLENDER_3D",
-        "transition": "HOLD",
-        "camera": "CATHEDRAL_SECTION",
-        "animation": {
-          "template": "HOLD",
-          "state": "gothic_cathedral_section",
-          "highlight": {
-            "components": [
-              "gothic_cathedral_section_clerestory_window_b1_east",
-              "gothic_cathedral_section_clerestory_window_b1_west",
-              "gothic_cathedral_section_clerestory_window_b2_east",
-              "gothic_cathedral_section_clerestory_window_b2_west",
-              "gothic_cathedral_section_clerestory_window_b3_east",
-              "gothic_cathedral_section_clerestory_window_b3_west"
-            ],
-            "start_seconds": 0.6,
-            "rise_seconds": 0.4,
-            "hold_seconds": 7.1333,
-            "fall_seconds": 0.4,
-            "strength": 0.45
-          }
+        "visual_type": "MOTION_GRAPHICS",
+        "transition": "CARD",
+        "camera": "CARD",
+        "graphic": {
+          "fade_seconds": 0.35,
+          "stage": {
+            "views": [
+              {
+                "rect": [
+                  0.2968,
+                  0.4168,
+                  0.7032,
+                  0.8232
+                ],
+                "at": 0.0,
+                "move_seconds": 0.0
+              },
+              {
+                "rect": [
+                  0.3242,
+                  0.5703,
+                  0.6758,
+                  0.9219
+                ],
+                "at": 4.3,
+                "move_seconds": 3.5,
+                "easing": "SMOOTH"
+              }
+            ]
+          },
+          "elements": [
+            {
+              "id": "B23_00",
+              "kind": "image",
+              "asset": "IMG_CHARTRES_ROSE",
+              "path": "assets/external/chartres_north_rose_2560.jpg",
+              "box": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "crop": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "drift": [
+                0.0,
+                0.0
+              ],
+              "stage": true,
+              "appear": 0.0
+            },
+            {
+              "id": "B23_01",
+              "kind": "text",
+              "text": "Photo: Eusebius, public domain, Wikimedia Commons",
+              "position": [
+                0.95,
+                0.925
+              ],
+              "size": 0.016,
+              "align": "RIGHT",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 0.0
+            },
+            {
+              "id": "B23_02",
+              "kind": "text",
+              "text": "Chartres today: the north rose",
+              "position": [
+                0.06,
+                0.42
+              ],
+              "size": 0.026,
+              "align": "LEFT",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 0.0
+            },
+            {
+              "id": "B23_03",
+              "kind": "text",
+              "text": "About 2,500 m² of stained glass survive,",
+              "position": [
+                0.06,
+                0.32
+              ],
+              "size": 0.03,
+              "align": "LEFT",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 3.04
+            },
+            {
+              "id": "B23_04",
+              "kind": "text",
+              "text": "most of it original",
+              "position": [
+                0.06,
+                0.2585
+              ],
+              "size": 0.03,
+              "align": "LEFT",
+              "color": "#24231F",
+              "plate": true,
+              "appear": 3.04
+            }
+          ]
         },
-        "from_state": "gothic_cathedral_section",
-        "to_state": "gothic_cathedral_section",
-        "camera_safe_band": 0.1,
+        "from_state": null,
+        "to_state": null,
         "beat_ids": [
           "B23"
         ],
@@ -26560,367 +26227,41 @@
           "CLM_162"
         ],
         "narration": "At Chartres, some 2,500 square meters of stained glass survive, most of it original.",
-        "visual_purpose": "The tall windows on the model, lit; the number on screen (a rights-cleared photograph of the glass may replace the model) [HOLD_HIGHLIGHT 1/1: hold gothic_cathedral_section, glowing clerestory_window]",
-        "build_variants": [
-          "gothic_cathedral_section"
-        ],
-        "annotations": {
-          "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
-          "items": [
-            {
-              "id": "B23_n",
-              "type": "NOTE",
-              "appear": 0.2917,
-              "disappear": 8.8333,
-              "claim_id": null,
-              "text": "Chartres: about 2,500 m² of stained glass",
-              "style": null,
-              "force": null,
-              "direction": null,
-              "anchors": [],
-              "elements": [
-                {
-                  "kind": "plate",
-                  "box": [
-                    0.045,
-                    0.8993,
-                    0.365989,
-                    0.95
-                  ],
-                  "fill": "#FBF9F4",
-                  "border": "#77736A",
-                  "border_width": 0.0025
-                },
-                {
-                  "kind": "text",
-                  "text": "Chartres: about 2,500 m² of stained glass",
-                  "size": 0.03,
-                  "color": "#4C4A44",
-                  "center": [
-                    0.205495,
-                    0.92465
-                  ],
-                  "box": [
-                    0.045,
-                    0.8993,
-                    0.365989,
-                    0.95
-                  ]
-                }
-              ],
-              "boxes": [
-                [
-                  0.045,
-                  0.8993,
-                  0.365989,
-                  0.95
-                ]
-              ],
-              "segments": []
-            },
-            {
-              "id": "B23_note",
-              "type": "NOTE",
-              "appear": 0.2917,
-              "disappear": 8.8333,
-              "claim_id": null,
-              "text": "Illustrative model, not Chartres Cathedral",
-              "style": null,
-              "force": null,
-              "direction": null,
-              "anchors": [],
-              "elements": [
-                {
-                  "kind": "plate",
-                  "box": [
-                    0.645128,
-                    0.18,
-                    0.955,
-                    0.2307
-                  ],
-                  "fill": "#FBF9F4",
-                  "border": "#77736A",
-                  "border_width": 0.0025
-                },
-                {
-                  "kind": "text",
-                  "text": "Illustrative model, not Chartres Cathedral",
-                  "size": 0.03,
-                  "color": "#4C4A44",
-                  "center": [
-                    0.800064,
-                    0.20535
-                  ],
-                  "box": [
-                    0.645128,
-                    0.18,
-                    0.955,
-                    0.2307
-                  ]
-                }
-              ],
-              "boxes": [
-                [
-                  0.645128,
-                  0.18,
-                  0.955,
-                  0.2307
-                ]
-              ],
-              "segments": []
-            }
-          ],
-          "reserved": []
-        }
+        "visual_purpose": "Chartres by its own photograph: the camera moves into the north rose while the figure is given [CARD 1/1: 2D card supplied by the beat (5 elements)]"
       },
       "beat_id": "B23",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "HOLD_HIGHLIGHT",
+      "strategy": "CARD",
       "part": [
         1,
         1
       ],
-      "template": "HOLD",
-      "states": [
-        "gothic_cathedral_section"
-      ],
+      "template": "MOTION_GRAPHICS",
+      "states": [],
       "camera": {
-        "mode": "FULL_OBJECT",
-        "preset": "CATHEDRAL_SECTION",
+        "mode": "CARD",
+        "preset": "CARD",
         "focus": null,
-        "safe_band": 0.1,
-        "group": 20,
-        "build_variants": [
-          "gothic_cathedral_section"
-        ]
+        "safe_band": 0.0,
+        "group": 20
       },
-      "semantic_targets": [
-        {
-          "concept": "clerestory_window",
-          "roles": [
-            "clerestory_window"
-          ],
-          "group": null,
-          "component_ids": [
-            "gothic_cathedral_section_clerestory_window_b1_west",
-            "gothic_cathedral_section_clerestory_window_b1_east",
-            "gothic_cathedral_section_clerestory_window_b2_west",
-            "gothic_cathedral_section_clerestory_window_b2_east",
-            "gothic_cathedral_section_clerestory_window_b3_west",
-            "gothic_cathedral_section_clerestory_window_b3_east"
-          ]
-        }
-      ],
+      "semantic_targets": [],
       "timing": {
         "mode": "AUDIO_LOCKED",
         "frames": 212,
         "duration_seconds": 8.833333,
-        "min_seconds": 2.0417,
+        "min_seconds": 3.4167,
         "beat_offset_seconds": 0.0,
         "start_seconds": 458.5
       },
-      "explanation": "hold gothic_cathedral_section, glowing clerestory_window",
+      "explanation": "2D card supplied by the beat (5 elements)",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
-      "asset_ids": [
-        "cathedral_gothic_section_01"
-      ],
+      "asset_ids": [],
       "cut_from_previous": "hard",
       "shot_id": "SC_023",
-      "visibility": {
-        "frames": {
-          "start": 1,
-          "q25": 53,
-          "mid": 106,
-          "q75": 159,
-          "end": 212,
-          "highlight_end": 206,
-          "highlight_peak": 111,
-          "highlight_start": 15,
-          "middle": 106
-        },
-        "explanatory": [
-          "highlight_peak"
-        ],
-        "targets": [
-          {
-            "concept": "clerestory_window",
-            "shown": true,
-            "samples": 260,
-            "projected_area": 0.01254,
-            "visible_area": 0.00632,
-            "visible_share": 0.5038,
-            "core_area": 0.00087,
-            "safe_band_share": 0.0,
-            "outside_share": 0.0,
-            "occluders": [
-              {
-                "id": "gothic_cathedral_section_pier_buttress_east0",
-                "share": 0.155
-              },
-              {
-                "id": "gothic_cathedral_section_pinnacle_east0",
-                "share": 0.132
-              },
-              {
-                "id": "gothic_cathedral_section_flying_buttress_east0",
-                "share": 0.101
-              },
-              {
-                "id": "gothic_cathedral_section_nave_pier_east0",
-                "share": 0.078
-              }
-            ],
-            "components": {
-              "gothic_cathedral_section_clerestory_window_b1_east": {
-                "samples": 43,
-                "visible_share": 0.5814,
-                "core_area": 0.0
-              },
-              "gothic_cathedral_section_clerestory_window_b1_west": {
-                "samples": 44,
-                "visible_share": 0.6364,
-                "core_area": 0.00029
-              },
-              "gothic_cathedral_section_clerestory_window_b2_east": {
-                "samples": 43,
-                "visible_share": 0.4651,
-                "core_area": 0.0
-              },
-              "gothic_cathedral_section_clerestory_window_b2_west": {
-                "samples": 43,
-                "visible_share": 0.6512,
-                "core_area": 0.00029
-              },
-              "gothic_cathedral_section_clerestory_window_b3_east": {
-                "samples": 43,
-                "visible_share": 0.0,
-                "core_area": 0.0
-              },
-              "gothic_cathedral_section_clerestory_window_b3_west": {
-                "samples": 44,
-                "visible_share": 0.6818,
-                "core_area": 0.00029
-              }
-            },
-            "geometry": "MESH",
-            "frame": 111,
-            "label": "highlight_peak",
-            "ok": true,
-            "verification": "ESTIMATED",
-            "problems": []
-          }
-        ]
-      },
-      "annotations": {
-        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
-        "items": [
-          {
-            "id": "B23_n",
-            "type": "NOTE",
-            "appear": 0.2917,
-            "disappear": 8.8333,
-            "claim_id": null,
-            "text": "Chartres: about 2,500 m² of stained glass",
-            "style": null,
-            "force": null,
-            "direction": null,
-            "anchors": [],
-            "elements": [
-              {
-                "kind": "plate",
-                "box": [
-                  0.045,
-                  0.8993,
-                  0.365989,
-                  0.95
-                ],
-                "fill": "#FBF9F4",
-                "border": "#77736A",
-                "border_width": 0.0025
-              },
-              {
-                "kind": "text",
-                "text": "Chartres: about 2,500 m² of stained glass",
-                "size": 0.03,
-                "color": "#4C4A44",
-                "center": [
-                  0.205495,
-                  0.92465
-                ],
-                "box": [
-                  0.045,
-                  0.8993,
-                  0.365989,
-                  0.95
-                ]
-              }
-            ],
-            "boxes": [
-              [
-                0.045,
-                0.8993,
-                0.365989,
-                0.95
-              ]
-            ],
-            "segments": []
-          },
-          {
-            "id": "B23_note",
-            "type": "NOTE",
-            "appear": 0.2917,
-            "disappear": 8.8333,
-            "claim_id": null,
-            "text": "Illustrative model, not Chartres Cathedral",
-            "style": null,
-            "force": null,
-            "direction": null,
-            "anchors": [],
-            "elements": [
-              {
-                "kind": "plate",
-                "box": [
-                  0.645128,
-                  0.18,
-                  0.955,
-                  0.2307
-                ],
-                "fill": "#FBF9F4",
-                "border": "#77736A",
-                "border_width": 0.0025
-              },
-              {
-                "kind": "text",
-                "text": "Illustrative model, not Chartres Cathedral",
-                "size": 0.03,
-                "color": "#4C4A44",
-                "center": [
-                  0.800064,
-                  0.20535
-                ],
-                "box": [
-                  0.645128,
-                  0.18,
-                  0.955,
-                  0.2307
-                ]
-              }
-            ],
-            "boxes": [
-              [
-                0.645128,
-                0.18,
-                0.955,
-                0.2307
-              ]
-            ],
-            "segments": []
-          }
-        ],
-        "reserved": []
-      }
+      "visibility": null
     },
     {
       "shot": {
@@ -51505,21 +50846,12 @@
       "beat_id": "B23",
       "visual_intent": "SHOW_COMPONENT",
       "narration": "At Chartres, some 2,500 square meters of stained glass survive, most of it original.",
-      "status": "PARTIALLY_COVERED",
-      "strategy": "HOLD_HIGHLIGHT",
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "clerestory_window"
-      ],
+      "status": "COVERED",
+      "strategy": "CARD",
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
         "SC_023"
@@ -51528,44 +50860,9 @@
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "evidence_status": "INTERNAL_PREVIEW",
-      "annotations": [
-        {
-          "id": "B23_n",
-          "type": "NOTE",
-          "claim_id": null,
-          "sentence": 0,
-          "until": null,
-          "window": [
-            0.3,
-            8.833
-          ],
-          "shots": [
-            "SC_023"
-          ],
-          "status": "PLACED",
-          "issues": []
-        },
-        {
-          "id": "B23_note",
-          "type": "NOTE",
-          "claim_id": null,
-          "sentence": 0,
-          "until": null,
-          "window": [
-            0.3,
-            8.833
-          ],
-          "shots": [
-            "SC_023"
-          ],
-          "status": "PLACED",
-          "issues": []
-        }
-      ],
-      "annotation_failures": 0
+      "evidence_status": "INTERNAL_PREVIEW"
     },
     {
       "beat_id": "B24",
@@ -52188,9 +51485,9 @@
     "B43: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_EVOLUTION']"
   ],
   "visibility_summary": {
-    "shots_assessed": 3,
-    "target_rows": 6,
-    "rows_passing": 6,
+    "shots_assessed": 2,
+    "target_rows": 5,
+    "rows_passing": 5,
     "uncertain_rows": 0,
     "issues_detected": 0,
     "auto_repaired": 0,

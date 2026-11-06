@@ -303,22 +303,22 @@
     },
     "C6": {
       "file": "output/chapters_internal_720p/gothic_cathedral_heights_C6_silent.mp4",
-      "sha256": "b9f63e50ade4c6993c4cd73fea3f1922fe93b5ac0821d1bbc99ad13c63d5786b",
+      "sha256": "cfb6db60cbe41b64bb3b48a9f7a2363016f4510962b4e01662ec9a385540dcb0",
       "frames": 1530,
       "shot_keys": {
-        "SC_022": "582021c22051b003113a1085fdb954326202c515c5174fa97f460e26adc8f676",
-        "SC_023": "a727203674a1c5022783a29d5ab197e899f37c373f0dcd179e560c8df0ffde0e",
-        "SC_024": "225685a479b7f66a52c2a45739d0c4ccfdbdc5c804bd32f622661bf0566c583b",
-        "SC_025": "2a19775116d187d2ad96db2b67b9c01b87d64a640d9513fb3841d38ac18deb88"
+        "SC_021": "d2900047b7ff117b4be464a90ac31755efcb54a2d48b6c60052445f46e74dd22",
+        "SC_022": "9c475549c531bd98b535961636072c1925d05eff03c05b422b2640cc9f2f5fae",
+        "SC_023": "a2c3120b30b4a986a9906bf82d0d215589dcc249d555c16e6f6406e554b537bd",
+        "SC_024": "c415b8a7eba4d263dd07168218b8f2bde102d34ce0919db0dd97f874b3327ac0"
       },
       "media": {
         "chapter": "C6",
         "video": "output/chapters_internal_720p/gothic_cathedral_heights_C6_silent.mp4",
         "shots": [
+          "SC_021",
           "SC_022",
           "SC_023",
-          "SC_024",
-          "SC_025"
+          "SC_024"
         ],
         "expected_frames": 1530,
         "probe": {
@@ -338,28 +338,28 @@
         },
         "cuts": [
           {
+            "cut": "SC_021->SC_022",
+            "mode": "hard",
+            "ssim": 0.96742,
+            "ok": true
+          },
+          {
             "cut": "SC_022->SC_023",
             "mode": "hard",
-            "ssim": 0.9247,
+            "ssim": 0.01418,
             "ok": true
           },
           {
             "cut": "SC_023->SC_024",
             "mode": "hard",
-            "ssim": 0.8685,
-            "ok": true
-          },
-          {
-            "cut": "SC_024->SC_025",
-            "mode": "hard",
-            "ssim": 0.86055,
+            "ssim": 0.01512,
             "ok": true
           }
         ],
         "problems": []
       },
-      "encoded_utc": "2026-11-05T18:08:58.467076+00:00",
-      "free_gb_after_encode": 87.9
+      "encoded_utc": "2026-11-06T23:48:06.683563+00:00",
+      "free_gb_after_encode": 92.8
     },
     "C7": {
       "file": "output/chapters_internal_720p/gothic_cathedral_heights_C7_silent.mp4",

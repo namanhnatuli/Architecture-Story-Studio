@@ -36,6 +36,12 @@ PHOTOS = {
                             "credit": "Photo: Florestan, CC BY 3.0, Wikimedia Commons"},
     "IMG_NOTRE_DAME_CHEVET": {"path": "assets/external/notre_dame_chevet_2560.jpg", "size": (1600, 2560),
                               "credit": "Photo: Jebulon, CC0, Wikimedia Commons"},
+    "IMG_SAINT_DENIS_ROSE": {"path": "assets/external/saint_denis_rose_vellut_2560.jpg", "size": (2560, 1706),
+                             "credit": "Photo: Guilhem Vellut, CC BY 2.0, Wikimedia Commons"},
+    "IMG_SAINT_DENIS_APSE": {"path": "assets/external/saint_denis_apse_ninaras_2560.jpg", "size": (2560, 1706),
+                             "credit": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons"},
+    "IMG_CHARTRES_ROSE": {"path": "assets/external/chartres_north_rose_2560.jpg", "size": (1850, 2560),
+                          "credit": "Photo: Eusebius, public domain, Wikimedia Commons"},
     "IMG_DURHAM_INTERIOR": {"path": "assets/external/durham_interior_cornell_1273.jpg", "size": (1273, 1536),
                             "credit": "Photo: A. D. White Architectural Photographs, Cornell University Library"},
     "IMG_AMIENS_NAVE": {"path": "assets/external/amiens_nave_from_triforium_2560.jpg", "size": (1892, 2560),
@@ -1056,39 +1062,83 @@ beat("C5", "B20", "fact", "INTRODUCE_ARCHITECTURE", [
     required_concepts=[])
 
 # C6 -------------------------------------------------------------------------------------------
-c = timeline("B21", [(1144, "Choir dedicated", 2, "choir")],
-             [(1130, 1140, "West front", STONE, 2, 0.36), (1140, 1144, "New choir", "#5E86A6", 2, 0.28)],
-             start=1120, end=1160, ticks=(1120, 1130, 1140, 1150, 1160), extra=lambda c: (
-                 c.tag("6 · Walls of light"),
-                 c.text("Part of the answer: light", 0.5, 0.74, 0.05, 1, until=2),
-                 c.text("Saint-Denis", 0.5, 0.86, 0.05, 2),
-                 c.text("Pointed arches throughout", 0.24, 0.76, 0.027, 3, plate=True, word="pointed"),
-                 c.text("Every vault ribbed", 0.5, 0.76, 0.027, 3, plate=True, word="ribbed"),
-                 c.text("Monumental stained glass", 0.76, 0.76, 0.027, 3, plate=True, word="glass")))
+# g-r8 (owner: real photographs of Saint-Denis, Chartres, stained glass and interiors; fewer word cards). The
+# photographs show the buildings today, and say so: the glass seen is not claimed to be Suger's.
+def pointer(c, view, at, px, py, text, x, y, sentence, word, size=0.026):
+    """A label with a leader to a point of a photograph, placed while the camera holds `view`."""
+    sx, sy = on_screen(view, at(px, py))
+    c.circle([sx, sy], 0.007, "#FFFFFF", sentence)
+    c.elements[-1].update(word=word, layer=3)
+    c.line([[sx, sy], [x, y]], "#FFFFFF", 0.003, sentence, layer=3)
+    c.elements[-1]["word"] = word
+    c.text(text, x, y, size, sentence, plate=True, word=word)
+
+
+c = Card("B21")
+_, at_rose = fitted("IMG_SAINT_DENIS_ROSE", FULL)
+_, at_apse = fitted("IMG_SAINT_DENIS_APSE", FULL)
+c.stage()
+c.image("IMG_SAINT_DENIS_ROSE", FULL, sentence=0, until=3)
+c.elements[-1]["until_word"] = "arches"
+c.image("IMG_SAINT_DENIS_APSE", FULL, sentence=3)
+c.elements[-1]["layer"] = 1
+c.stage(False)
+wr = at_rose(2560, 0)[0] - at_rose(0, 0)[0]
+c.view(square(0.5, 0.5, wr))
+c.view(square(0.5, 0.56, wr * 0.86), 0, "why", move=9.0)                    # a slow push into the light
+apse = c.view(square(0.5, 0.55, wr), 3, move=1.2)
+c.tag("6 · Walls of light")
+credit_line(c, PHOTOS["IMG_SAINT_DENIS_ROSE"]["credit"]).gone(3, "arches")
+credit_line(c, PHOTOS["IMG_SAINT_DENIS_APSE"]["credit"], 3, "arches")
+c.text("Part of the answer: light", 0.5, 0.3, 0.05, 1, plate=True, word="light").gone(2)
+lower_left(c, ["Saint-Denis today", "Abbot Suger's new choir: 1140–1144"], 2, "denis", size=0.028, until=3)
+pointer(c, apse, at_apse, 1212, 812, "Pointed arches", 0.2, 0.62, 3, "pointed")
+pointer(c, apse, at_apse, 1280, 200, "Every vault ribbed", 0.78, 0.84, 3, "ribbed")
+pointer(c, apse, at_apse, 1280, 1175, "Stained glass", 0.8, 0.36, 3, "glass")
 beat("C6", "B21", "fact", "SHOW_CONTEXT", [
     "Why go to all this trouble?",
     "Part of the answer is light.",
     "At the abbey church of Saint-Denis, Abbot Suger built a new choir between 1140 and 1144.",
     "Pointed arches run throughout, every vault is ribbed, and monumental stained glass seems to dissolve the whole structure."],
-    ["CLM_160", "CLM_161"], strategy="CARD", graphic=c.spec(), visual_goal="Saint-Denis, dates and three features (a rights-cleared photograph may replace the card)",
+    ["CLM_160", "CLM_161"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Saint-Denis today, filling the frame with its light; then its apse windows, the pointed arches, the "
+                "ribbed vault and the stained glass pointed out as each is named",
     required_concepts=[])
 
 c = Card("B22")
-c.text("“A sign or bridge to the divine”", 0.5, 0.62, 0.05, 0)
-c.text("Light, for Abbot Suger", 0.5, 0.53, 0.03, 0, color=MUTED)
-c.text("The new style had to let in as much light as possible", 0.5, 0.4, 0.032, 1, plate=True)
-c.text("Bibliothèque nationale de France", 0.5, 0.33, 0.022, 1, color=MUTED)
+c.stage()
+c.image("IMG_SAINT_DENIS_APSE", FULL, sentence=0)
+c.stage(False)
+c.view(square(0.5, 0.55, wr))
+c.view(around(at_apse, 1080, 650, 1480, 1500, pad=1.0), 0, "light", move=6.0)   # into the central window
+credit_line(c, PHOTOS["IMG_SAINT_DENIS_APSE"]["credit"])
+c.text("“A sign, a bridge to the divine”", 0.5, 0.62, 0.044, 0, plate=True, word="sign")
+c.text("Light, for Abbot Suger", 0.5, 0.54, 0.026, 0, plate=True, word="sign")
+c.text("The new style had to let in as much light as possible", 0.5, 0.36, 0.03, 1, plate=True, word="library")
+c.text("Bibliothèque nationale de France", 0.5, 0.3, 0.022, 1, plate=True, word="library")
 beat("C6", "B22", "fact", "SHOW_CONTEXT", [
     "For Suger, light was a sign, a bridge to the divine.",
     "France's national library says the new style had to let in as much light as possible."],
-    ["CLM_161", "CLM_164"], strategy="CARD", graphic=c.spec(), visual_goal="Why light mattered", required_concepts=[])
+    ["CLM_161", "CLM_164"], strategy="CARD", graphic=c.spec(),
+    visual_goal="The camera moves into the coloured light of one window while Suger's idea and the library's words are given",
+    required_concepts=[])
 
+c = Card("B23")
+_, at = fitted("IMG_CHARTRES_ROSE", FULL)
+c.stage()
+c.image("IMG_CHARTRES_ROSE", FULL, sentence=0)
+c.stage(False)
+wc = at(1850, 0)[0] - at(0, 0)[0]
+c.view(square(0.5, 0.62, wc))
+c.view(around(at, 250, 200, 1600, 1100, pad=1.0), 0, "stained", move=3.5)      # into the rose (900 px high: no edge)
+credit_line(c, PHOTOS["IMG_CHARTRES_ROSE"]["credit"])
+lower_left(c, ["Chartres today: the north rose"], 0, y=0.42, size=0.026)
+lower_left(c, ["About 2,500 m² of stained glass survive,", "most of it original"], 0, "square", y=0.32, size=0.03)
 beat("C6", "B23", "fact", "SHOW_COMPONENT", [
     "At Chartres, some 2,500 square meters of stained glass survive, most of it original."],
-    ["CLM_162"], strategy="HOLD_HIGHLIGHT", visual_goal="The tall windows on the model, lit; the number on screen (a rights-cleared photograph of the glass may replace the model)",
-    required_concepts=[GOTHIC, "clerestory_window"],
-    annotations=[note("B23_n", "Chartres: about 2,500 m² of stained glass", 0),
-                 note("B23_note", "Illustrative model, not Chartres Cathedral", 0, position="BOTTOM_RIGHT")])
+    ["CLM_162"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Chartres by its own photograph: the camera moves into the north rose while the figure is given",
+    required_concepts=[])
 
 c = Card("B24")
 c.text("How new was Gothic?", 0.5, 0.84, 0.046, 0)

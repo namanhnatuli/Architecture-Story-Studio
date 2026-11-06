@@ -5,12 +5,12 @@
     "PUBLICATION_CLEARED"
   ],
   "publication_audio": true,
-  "narration_track": "audio/narration_mix_SC_022-SC_025.wav",
+  "narration_track": "audio/narration_mix_SC_021-SC_024.wav",
   "shots": [
+    "SC_021",
     "SC_022",
     "SC_023",
-    "SC_024",
-    "SC_025"
+    "SC_024"
   ],
   "frames": 1530,
   "seconds": 63.75,
@@ -270,10 +270,10 @@
     "chapter": "C6",
     "video": "output/chapters_internal_720p/gothic_cathedral_heights_C6_silent.mp4",
     "shots": [
+      "SC_021",
       "SC_022",
       "SC_023",
-      "SC_024",
-      "SC_025"
+      "SC_024"
     ],
     "expected_frames": 1530,
     "probe": {
@@ -293,31 +293,31 @@
     },
     "cuts": [
       {
+        "cut": "SC_021->SC_022",
+        "mode": "hard",
+        "ssim": 0.96742,
+        "ok": true
+      },
+      {
         "cut": "SC_022->SC_023",
         "mode": "hard",
-        "ssim": 0.9247,
+        "ssim": 0.01418,
         "ok": true
       },
       {
         "cut": "SC_023->SC_024",
         "mode": "hard",
-        "ssim": 0.8685,
-        "ok": true
-      },
-      {
-        "cut": "SC_024->SC_025",
-        "mode": "hard",
-        "ssim": 0.86055,
+        "ssim": 0.01512,
         "ok": true
       }
     ],
     "problems": []
   },
   "render_results": {
-    "SC_022": "cached",
-    "SC_023": "cached",
-    "SC_024": "cached",
-    "SC_025": "cached"
+    "SC_021": "rendered",
+    "SC_022": "rendered",
+    "SC_023": "rendered",
+    "SC_024": "rendered"
   },
   "chapter_audio": "output/chapters_internal_720p/gothic_cathedral_heights_C6_narration.wav"
 }
