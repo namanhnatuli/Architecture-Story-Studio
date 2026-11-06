@@ -438,7 +438,7 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - **SC_041** (B40): The line of thrust | Assumed: stones resist no pulling, never slide, never crush | Many lines can fit. One is enough | Supports moved apart: the arch deforms | At the limit, the line touches the stone at five points | Any further, and no line can fit | After Block, DeJong and Ochsendorf, 2006, Fig. 5, recalculated by Ochsendorf's 2002 method. One idealized arch, self-weight only
 - **SC_042** (B41): Small model | Real building | Same proportions | Shows the role of proportion | Does not prove a real building safe | Rules of geometry, learned by trial and error
 - **SC_044** (B43): Not a simple story of progress | Beauvais: new piers | Amiens: an iron chain | Saint-Denis: a bright choir over a crypt of older forms | Centuries of trial and error
-- **SC_046** (B45): What should we explain next? | Suggest a topic in the comments | Like | Subscribe
+- **SC_046** (B45): What should we explain next? | Suggest a topic in the comments | SUBSCRIBE | SUBSCRIBED
 - **SC_047** (B46): How Gothic Cathedrals Reached Impossible Heights | Sources: Columbia University (Life of a Cathedral; S. Murray; R. Stalley); Harvard (Loeb Library); New Catholic Encyclopedia; | MIT (P. Block, 2005; Block, DeJong and Ochsendorf, 2006; Romano and Ochsendorf); Cambridge (J. Ochsendorf, 2002); | Bibliothèque nationale de France; France Mémoire (A. Timbert); Durham Cathedral; Abbaye de Cluny (CMN); | ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale | 3D models and diagrams are illustrative, not structural analyses | Architecture Story Studio
 
 ## Chú thích trên cảnh 3D

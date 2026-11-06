@@ -34,19 +34,21 @@ PHOTOS = {
                               "credit": "Photo: Chris06, CC0, Wikimedia Commons"},
     "IMG_AMIENS_NAVE": {"path": "assets/external/amiens_nave_from_triforium_2560.jpg", "size": (1892, 2560),
                         "credit": "Photo: Eusebius, CC BY 3.0, Wikimedia Commons"},
-    "DRW_VLD_BEAUVAIS_BUTTRESS": {"path": "assets/external/vld_beauvais_flying_buttress.png", "size": (630, 1021),
-                                  "credit": "Drawing: Viollet-le-Duc, 1856 (public domain)"},
-    "DRW_VLD_BEAUVAIS_PLAN": {"path": "assets/external/vld_beauvais_plan.png", "size": (609, 915),
-                              "credit": "Plan: Viollet-le-Duc, 1856 (public domain)"},
-    "DRW_VLD_AMIENS_PLAN": {"path": "assets/external/vld_amiens_plan.png", "size": (515, 1008),
-                            "credit": "Plan: Viollet-le-Duc, 1854 (public domain)"},
+    # g-r7 (owner: the drawings were soft when enlarged): the pages of the book's large scan, framed exactly as the
+    # earlier 600-px figure files; marks keep that figure's pixel units ("coords")
+    "DRW_VLD_BEAUVAIS_BUTTRESS": {"path": "assets/external/vld_beauvais_flying_buttress_t1p96.jpg", "size": (1504, 2438),
+                                  "coords": (630, 1021), "credit": "Drawing: Viollet-le-Duc, 1856 (public domain)"},
+    "DRW_VLD_BEAUVAIS_PLAN": {"path": "assets/external/vld_beauvais_plan_t2p342.jpg", "size": (1410, 2120),
+                              "coords": (609, 915), "credit": "Plan: Viollet-le-Duc, 1856 (public domain)"},
+    "DRW_VLD_AMIENS_PLAN": {"path": "assets/external/vld_amiens_plan_t2p335.jpg", "size": (1242, 2430),
+                            "coords": (515, 1008), "credit": "Plan: Viollet-le-Duc, 1854 (public domain)"},
 }
 
 
 def fitted(asset, box, crop=(0.0, 0.0, 1.0, 1.0)):
     """The image's box on the card (as engine/diagram.image_box) and a map from its pixels (x right, y down) to card
     coordinates, so marks land on the drawing."""
-    w, h = PHOTOS[asset]["size"]
+    w, h = PHOTOS[asset].get("coords", PHOTOS[asset]["size"])
     u0, v0, u1, v1 = crop
     img = (w * (u1 - u0)) / (h * (v1 - v0))
     x0, y0, x1, y1 = box
@@ -347,12 +349,17 @@ GOTHIC, ROMANESQUE = "gothic_cathedral_section", "romanesque_church_section"
 # g-r6 (owner, g-r5 review: still slides): each picture fills the frame and the camera moves with a purpose (up the
 # choir to the vault, out to the building); few words per scene; "today" on photographs while 1284 is told.
 FULL = [0.0, 0.0, 1.0, 1.0]
+FIG61 = (0.0, 0.022, 1.0, 0.985)   # the figure without the lines of the page's text above and below it
 CREDIT_TOP = 0.925   # credits sit at the top right, clear of the subtitles
 
 
 def credit_top(c, asset, sentence=0, word=None):
-    c.text(PHOTOS[asset]["credit"], 0.95, CREDIT_TOP, 0.016, sentence, align="RIGHT", color=MUTED, word=word)
-    return c
+    return credit_line(c, PHOTOS[asset]["credit"], sentence, word)
+
+
+def credit_line(c, text, sentence=0, word=None, x=0.95, y=CREDIT_TOP, align="RIGHT"):
+    """g-r7 (owner): a credit sits on its own small plate, readable on any picture."""
+    return c.text(text, x, y, 0.016, sentence, align=align, color=INK, plate=True, word=word)
 
 
 def lower_left(c, lines, sentence, word=None, y=0.3, size=0.03, color=INK, until=None, until_word=None):
@@ -374,7 +381,7 @@ c.image("IMG_BEAUVAIS_CHEVET", FULL, sentence=2)
 c.elements[-1]["layer"] = 1
 c.stage(False)
 w = at(1126, 0)[0] - at(0, 0)[0]                      # the photograph's width on the card
-low = c.view(square(0.5, w / 2, w))                   # the lowest arcades
+low = c.view(square(0.5, at(0, 1750)[1], w))          # the arcade tops and triforium: light enough to read
 top = c.view(square(0.5, 1 - w / 2, w), 0, "november", move=5.2)   # a slow tilt up to the vault
 c.view(around(at2, 0, 250, 1706, 1210, pad=1.0), 2, move=1.6)   # out to the choir from outside
 c.view(around(at2, 150, 350, 1550, 1200, pad=1.0), 2, "eastern", move=3.0)
@@ -414,9 +421,9 @@ beat("C1", "B02", "fact", "INTRODUCE_ARCHITECTURE", [
 
 # the title holds a few seconds only; the two questions are asked over Beauvais's own section (owner)
 c = Card("B03")
-_, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", FULL)
+_, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, FIG61)
 c.stage()
-c.image("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, sentence=0)
+c.image("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, FIG61, sentence=0)
 c.stage(False)
 c.view(FULL)
 c.view(around(at, 0, 0, 630, 640, pad=1.0), 0, "relying", move=3.0)       # the section: geometry at work
@@ -426,7 +433,7 @@ c.text("How Gothic Cathedrals Reached", 0.5, 0.63, 0.058, 0, plate=True).gone(0,
 c.text("Impossible Heights", 0.5, 0.52, 0.058, 0, plate=True).gone(0, "relying")
 c.text("How did they raise stone that high?", 0.5, 0.26, 0.04, 1, plate=True, word="how").gone(2)
 c.text("And why, sometimes, did it come down?", 0.5, 0.26, 0.04, 2, plate=True, word="why")
-c.text("Section of Beauvais: Viollet-le-Duc, 1856", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
+credit_line(c, "Section of Beauvais: Viollet-le-Duc, 1856", 0, y=CREDIT_TOP)
 beat("C1", "B03", "fact", "SHOW_CONTEXT", [
     "The people who built them worked without modern structural calculations, relying on geometry, craft knowledge and experience.",
     "So how did they raise stone that high?",
@@ -999,8 +1006,8 @@ c.text("Amiens: more than 42 m", 0.25, 0.9, 0.032, 0, plate=True, word="above")
 c.text("Beauvais: more than 45 m", 0.75, 0.9, 0.032, 0, plate=True, word="45")
 c.text("The highest vaults built in the Middle Ages", 0.5, 0.28, 0.032, 1, plate=True, word="highest")
 c.text("Published for Beauvais: 46 m, 46.7 m, nearly 47 m, above 48 m", 0.5, 0.215, 0.018, 0, color=MUTED, plate=True, word="45")
-c.text(PHOTOS["IMG_AMIENS_NAVE"]["credit"], 0.25, 0.83, 0.015, 0, color=MUTED, word="above")
-c.text(PHOTOS["IMG_BEAUVAIS_CHOIR"]["credit"], 0.75, 0.83, 0.015, 0, color=MUTED)
+credit_line(c, PHOTOS["IMG_AMIENS_NAVE"]["credit"], 0, "above", x=0.25, y=0.83, align="CENTER")
+credit_line(c, PHOTOS["IMG_BEAUVAIS_CHOIR"]["credit"], 0, None, x=0.75, y=0.83, align="CENTER")
 beat("C8", "B33", "fact", "COMPARE_VARIANTS", [
     "Its vault rose more than 45 meters, a few meters above Amiens.",
     "These were the highest vaults built in the Middle Ages."],
@@ -1020,7 +1027,7 @@ for k in range(5):   # a light hatch: the area, not a picture of a collapse
 c.stage(False)
 c.view(CHOIR_VIEW)
 c.view(STRAIGHT, 0, "part", move=1.4)
-c.text("Plan of Beauvais: Viollet-le-Duc, 1856", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
+credit_line(c, "Plan of Beauvais: Viollet-le-Duc, 1856", 0, y=CREDIT_TOP)
 top_left(c, ["29 November 1284"], 0, "november", size=0.034)
 lower_left(c, ["Vault cells over the choir's straight bays fell"], 0, "part", size=0.028).later(end, "part")
 lower_left(c, ["“The last limit”: Viollet-le-Duc, who drew this plan"], 1, "called", y=0.24, size=0.026)
@@ -1032,9 +1039,9 @@ beat("C8", "B34", "fact", "SHOW_COMPONENT", [
     required_concepts=[])
 
 c = Card("B35")
-_, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", FULL)
+_, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, FIG61)
 c.stage()
-c.image("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, sentence=0)
+c.image("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, FIG61, sentence=0)
 mark_box(c, at, 165, 130, 385, 370, 1, "blame", delay=1.2, until=2)               # 1: the flying buttresses
 for k, py in enumerate((150, 260, 370)):                                           # 2: wind on the upper parts
     y = at(0, py)[1]
@@ -1048,14 +1055,14 @@ for k, px_ in enumerate((110, 235, 360)):                                       
     c.drawn_arrow([[xa, ya], [xa, yb]], ACCENT, 0.005, 2, "settlement", seconds=0.4, until=3, delay=0.1 * k)
     c.line([[xa, ya], [xa, yb + 0.012]], FAINT, 0.004, 3, layer=2)                # the study: the arrows grey out
     c.elements[-1]["until"] = 4
-mark_box(c, at, 60, 15, 600, 565, 4, "raising", color=THRUST)                      # their hypothesis: the upper parts
+mark_box(c, at, 60, 30, 600, 565, 4, "raising", color=THRUST)                      # their hypothesis: the upper parts
 c.stage(False)
 c.view(FULL)
-c.view(around(at, 150, 120, 400, 380, pad=1.25), 1, "blame", move=1.2)
-c.view(around(at, 0, 0, 630, 600, pad=1.1), 2, "others", move=1.2)
-low = c.view(square(0.5, 0.128, at(630, 0)[0] - at(0, 0)[0]), 2, "or", move=1.0)
-c.view(around(at, 0, 0, 630, 600, pad=1.1), 4, "authors", move=1.2)
-c.text("Section of Beauvais: Viollet-le-Duc, 1856; marks schematic", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
+upper = around(at, 0, 0, 630, 600, pad=1.1)   # the flyers and the upper parts: hypotheses 1 and 2 in one view
+c.view(upper, 1, "some", move=1.6)
+low = c.view(square(0.5, 0.128, at(630, 0)[0] - at(0, 0)[0]), 2, "or", move=1.4)
+c.view(upper, 4, "its", move=1.6)
+credit_line(c, "Section of Beauvais: Viollet-le-Duc, 1856; marks schematic", 0, y=CREDIT_TOP)
 top_left(c, ["Why did the vaults fall? Still debated."], 0, size=0.034, until=1)
 top_left(c, ["Hypothesis: settling masonry broke", "the flying buttresses"], 1, "blame", until=2)
 top_left(c, ["Hypothesis: gusts of wind set the", "buttress system resonating"], 2, "gusts", until=2, until_word="or")
@@ -1098,7 +1105,7 @@ for k, py in enumerate((195, 248.75, 298.75)):   # three bays, numbered while th
 for k, (a, b) in enumerate(zip(sorted(OLD_ROWS + NEW_ROWS), sorted(OLD_ROWS + NEW_ROWS)[1:])):
     x, y = on_screen(STRAIGHT, AT_PLAN(306, (a + b) / 2))
     c.text(str(k + 1), x, y, 0.026, 1, color=THRUST, plate=True, word="six").later(0.6, "six").gone(2, "finished")
-c.text("Plan of Beauvais: Viollet-le-Duc, 1856", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
+credit_line(c, "Plan of Beauvais: Viollet-le-Duc, 1856", 0, y=CREDIT_TOP)
 top_left(c, ["The repair"], 0, size=0.034)
 lower_left(c, ["New piers between the old ones (positions schematic)"], 1, "piers", size=0.026, until=2).later(1.0, "piers")
 lower_left(c, ["Finished in 1340", "“Longer to repair the choir than to build it”: Stephen Murray"], 2, "finished", size=0.026)
@@ -1145,8 +1152,7 @@ for year, label, s_, word, y in ((1500, "1500  Transept begun", 0, "transept", 0
     reach = X(year)
     c.circle([X(year), 0.85], 0.007, INK, s_).later(wait, word)
     c.text(label, min(max(X(year), 0.2), 0.8), y, 0.02, s_, plate=True).later(wait, word)
-c.text(PHOTOS["IMG_BEAUVAIS_TRANSEPT"]["credit"] + "; plan: Viollet-le-Duc, 1856", 0.95, 0.205, 0.015, 0, align="RIGHT",
-       color=MUTED)
+credit_line(c, PHOTOS["IMG_BEAUVAIS_TRANSEPT"]["credit"] + "; plan: Viollet-le-Duc, 1856", 0, y=0.205)
 lower_left(c, ["Beauvais Cathedral today: transept and choir"], 0, "transept", size=0.026, until=1)
 x, y = on_screen(nave, AT_PLAN(305, 690))
 c.text("No nave: no support to the west", x, y, 0.026, 2, plate=True, word="west").later(1.0, "west").gone(4)
@@ -1183,7 +1189,7 @@ nave_view = c.view(around(at_plan, 60, 400, 460, 900, pad=1.05), 1, move=1.5)
 crossing = c.view(around(at_plan, 170, 400, 350, 590, pad=1.5), 1, "crossing", move=1.2)
 c.view(nave_view, 2, "between", move=1.5)
 credit_top(c, "IMG_AMIENS_NAVE").gone(1)
-c.text("Plan of Amiens: Viollet-le-Duc, 1854", 0.95, CREDIT_TOP, 0.016, 1, align="RIGHT", color=MUTED)
+credit_line(c, "Plan of Amiens: Viollet-le-Duc, 1854", 1, y=CREDIT_TOP)
 lower_left(c, ["Amiens Cathedral today"], 0, size=0.028, until=1)
 lower_left(c, ["Crossing piers: threatening collapse within two centuries"], 1, "crossing", size=0.026, until=2).later(1.2, "crossing")
 x, y = on_screen(nave_view, [xa, (ya + yb) / 2])
@@ -1342,16 +1348,67 @@ beat("C10", "B44", "framing", "INTRODUCE_ARCHITECTURE", [
     strategy="HOLD", visual_goal="A last look at the section", required_concepts=[GOTHIC],
     annotations=[note("B44_note", "Models are illustrations, not structural analyses", 0, position="BOTTOM_RIGHT")])
 
+# g-r7 (owner: icons instead of plain words for the closing call to action): self-drawn, generic symbols in the
+# Studio style (a speech bubble, a thumbs-up, a subscribe button and a bell), no platform logo or trademark
+def icon(points, cx, cy, size):
+    """A shape drawn in a unit box (u right, v up, 0..1), centred at (cx, cy), `size` tall in card height units."""
+    return [[cx + (u - 0.5) * size / ASPECT, cy + (v - 0.5) * size] for u, v in points]
+
+
+THUMB = [(0.30, 0.0), (0.84, 0.0), (0.93, 0.07), (0.99, 0.50), (0.93, 0.58), (0.64, 0.58), (0.68, 0.82), (0.64, 0.97),
+         (0.56, 1.0), (0.49, 0.95), (0.45, 0.78), (0.30, 0.57)]
+CUFF = [(0.0, 0.0), (0.24, 0.0), (0.24, 0.58), (0.0, 0.58)]
+BUBBLE = [(0.0, 0.32), (0.0, 1.0), (1.0, 1.0), (1.0, 0.32), (0.42, 0.32), (0.16, 0.04), (0.22, 0.32)]
+BELL = [(0.5, 0.94), (0.30, 0.84), (0.22, 0.62), (0.20, 0.36), (0.08, 0.22), (0.92, 0.22), (0.80, 0.36), (0.78, 0.62),
+        (0.70, 0.84)]
+
+
+def pill(cx, cy, w, h, n=10):
+    """A rounded button, w wide (card x units) and h tall."""
+    r = h / 2
+    pts = [[cx + w / 2 - r / ASPECT + r / ASPECT * math.cos(math.pi * (k / n - 0.5)), cy + r * math.sin(math.pi * (k / n - 0.5))]
+           for k in range(n + 1)]
+    pts += [[cx - w / 2 + r / ASPECT - r / ASPECT * math.cos(math.pi * (k / n - 0.5)), cy - r * math.sin(math.pi * (k / n - 0.5))]
+            for k in range(n + 1)]
+    return pts
+
+
+BG, RED, GREY = "#EDEBE5", "#C4302B", "#8A867C"
 c = Card("B45")
-c.text("What should we explain next?", 0.5, 0.68, 0.056, 0)
-c.text("Suggest a topic in the comments", 0.5, 0.54, 0.038, 1, color=ACCENT)
-c.text("Like", 0.42, 0.4, 0.038, 2, plate=True, word="like")
-c.text("Subscribe", 0.58, 0.4, 0.038, 2, plate=True, word="subscribe")
+c.text("What should we explain next?", 0.5, 0.74, 0.056, 0)
+c.polygon(icon(BUBBLE, 0.31, 0.585, 0.075), BG, border=ACCENT, sentence=1, layer=1)
+c.elements[-1].update(word="suggest", border_width=0.004)
+for k in range(3):   # the three dots of a comment being written
+    c.circle([0.31 + (k - 1) * 0.012, 0.6], 0.0045, ACCENT, 1)
+    c.elements[-1].update(word="suggest", delay=round(0.25 + 0.15 * k, 2), layer=2)
+c.text("Suggest a topic in the comments", 0.535, 0.585, 0.036, 1, color=ACCENT, word="suggest")
+# like: the outline, then filled, as if pressed
+c.polygon(icon(CUFF, 0.37, 0.38, 0.09), BG, border=INK, sentence=2, layer=1)
+c.elements[-1].update(word="like", border_width=0.004)   # the filled one covers it when pressed
+c.polygon(icon(THUMB, 0.37, 0.38, 0.09), BG, border=INK, sentence=2, layer=1)
+c.elements[-1].update(word="like", border_width=0.004)   # the filled one covers it when pressed
+c.polygon(icon(CUFF, 0.37, 0.38, 0.09), INK, sentence=2, layer=2)
+c.elements[-1].update(word="it")
+c.polygon(icon(THUMB, 0.37, 0.38, 0.09), INK, sentence=2, layer=2)
+c.elements[-1].update(word="it")
+# subscribe: the button, then pressed (subscribed), and the bell
+c.polygon(pill(0.53, 0.38, 0.17, 0.07), RED, sentence=2, layer=1)
+c.elements[-1].update(word="subscribe")
+c.text("SUBSCRIBE", 0.53, 0.38, 0.03, 2, color="#FFFFFF", word="subscribe").gone(2, "subscribe")
+c.elements[-1]["until_delay"] = 0.8   # pressed: the grey button and its word take over
+c.polygon(pill(0.53, 0.38, 0.17, 0.07), GREY, sentence=2, layer=3)
+c.elements[-1].update(word="subscribe", delay=0.8)
+c.text("SUBSCRIBED", 0.53, 0.38, 0.03, 2, color="#FFFFFF", word="subscribe").later(0.8, "subscribe")
+c.polygon(icon(BELL, 0.66, 0.385, 0.07), INK, sentence=2, layer=1)
+c.elements[-1].update(word="subscribe", delay=1.1)
+c.circle([0.66, 0.385 - 0.035 + 0.006], 0.008, INK, 2)
+c.elements[-1].update(word="subscribe", delay=1.1)
 beat("C10", "B45", "framing", "SHOW_CONTEXT", [
     "Which building or structure should we explain next?",
     "Suggest a topic in the comments.",
     "And if you enjoyed this film, please like it and subscribe."],
-    strategy="CARD", graphic=c.spec(), visual_goal="Closing call to action: plain text, no platform logos or buttons", required_concepts=[])
+    strategy="CARD", graphic=c.spec(), visual_goal="Closing call to action with self-drawn icons (comment, like, subscribe, bell) "
+                                                    "as each is asked; no platform logo or trademark", required_concepts=[])
 
 c = Card("B46")
 c.text("How Gothic Cathedrals Reached Impossible Heights", 0.5, 0.8, 0.044, 0)

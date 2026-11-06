@@ -443,6 +443,9 @@ def build_strategy(name, ctx):
             word = e.pop("word", None)
             until_word = e.pop("until_word", None)   # g-r5: leave when that word of the `until` sentence is spoken
             from_start = e.pop("from_start", False)  # g-r6: on screen from the first frame (a picture card never opens empty)
+            until_delay = e.pop("until_delay", 0.0)   # g-r7: leave this long after the `until` moment (a button pressed)
+            if isinstance(until_delay, bool) or not isinstance(until_delay, (int, float)) or not 0 <= until_delay <= 10:
+                raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: until_delay must be 0..10 s")
             delay = e.pop("delay", 0.0)   # g-r5: seconds after its moment (a line drawn in pieces, a timeline advancing)
             if isinstance(delay, bool) or not isinstance(delay, (int, float)) or not 0 <= delay <= 10:
                 raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: delay {delay!r} must be 0..10 s")
@@ -457,7 +460,7 @@ def build_strategy(name, ctx):
                         t = word_time(k, word, f"card element {e.get('id')}")
                     if key == "until" and until_word:
                         t = word_time(k, until_word, f"card element {e.get('id')}")
-                    e[field] = round(max(0.0, t - lead + (delay if key == "sentence" else 0.0)), 4)
+                    e[field] = round(max(0.0, t - lead + (delay if key == "sentence" else until_delay)), 4)
             if from_start:
                 e["appear"] = 0.0
             graphic["elements"].append(e)

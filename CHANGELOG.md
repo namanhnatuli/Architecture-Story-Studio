@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.10.4 — 2026-11-07 — Phim Gothic g-r7: bản quét lớn, ghi công dễ đọc, nhịp B35, icon kêu gọi
+- **Chủ kênh nhận xét g-r6:**
+  - Giữ cấu trúc hình của đoạn thử, C1 và C8.
+  - Bản vẽ mềm khi phóng lớn; dòng ghi công chìm vào ảnh; đoạn giả thuyết đổi điểm nhìn hơi nhiều; hai giây đầu C1 tối.
+  - Đề nghị icon thay chữ ở đoạn kêu gọi like và subscribe.
+  - Chưa có gì được duyệt.
+- **Bản quét lớn:**
+  - Ba hình của Viollet-le-Duc lấy từ bản quét DjVu public domain của *Dictionnaire raisonné* trên Commons: tập 1 trang 96 (hình 61), tập 2 trang 342 (hình 22) và 335 (hình 19). Mỗi trang dựng ở 1920 px.
+  - Khớp tự động với các file 600 px cũ (tỉ lệ 2,32–2,41), nên khung giữ nguyên và dấu vẽ không phải đặt lại. Chi tiết gấp khoảng 2,4 lần.
+  - Chữ của trang sách quanh hình 61 được cắt khỏi khung.
+  - Bỏ bốn file PNG cũ, trong đó một file không được dùng và không có hồ sơ quyền.
+- **Ghi công:** mọi dòng ghi công trên ảnh nằm trên một nền chữ nhỏ (`credit_line`).
+- **B35:** giả thuyết 1 và 2 dùng chung một khung (trụ chống bay và phần trên), bớt một lần phóng–thu; các lần chuyển chậm hơn (1,4–1,6 giây).
+- **B01:** camera bắt đầu ở đỉnh hàng vòm cuốn và triforium (có kính sáng), không còn ở vùng tối dưới cùng.
+- **B45, kêu gọi cuối phim:** icon tự vẽ.
+  - Bóng thoại khi đọc "comments"; ngón tay cái hiện viền rồi tô kín khi đọc "like".
+  - Nút "SUBSCRIBE" đỏ đổi sang "SUBSCRIBED" xám, rồi chuông hiện.
+  - Không dùng logo hay nhãn hiệu nền tảng. `config/production_defaults.json` và AGENTS.md ghi lại quyết định này.
+- **Card:** `until_delay`, để phần tử rời đi một khoảng sau mốc `until` (nút được bấm).
+- Bản review: C1, C8, C10 (720p, ngoài git). Blender QA 73/73; test 395/395.
+
 ## 0.10.3 — 2026-11-06 — Phim Gothic g-r6: chương 1 và 8 bớt dạng slide, chuyển góc B12, bỏ dấu X
 - **Chủ kênh nhận xét g-r5:**
   - Hình rõ hơn, công trình được nhận diện; đoạn thử 3D gần đạt mức làm mẫu.

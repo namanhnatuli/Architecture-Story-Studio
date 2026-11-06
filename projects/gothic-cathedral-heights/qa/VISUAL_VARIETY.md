@@ -6,12 +6,12 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 
 | Loại hình | Số shot | Thời lượng | Tỉ lệ |
 |---|---|---|---|
-| DIAGRAM | 14 | 331.5 s | 36% |
+| DIAGRAM | 15 | 344.1 s | 37% |
 | PHOTO | 11 | 226.7 s | 25% |
 | 3D_HOLD | 8 | 117.2 s | 13% |
 | 3D_PUSH_IN | 5 | 102.3 s | 11% |
 | 3D_SEQUENCE | 4 | 77.9 s | 8% |
-| TITLE | 5 | 67.8 s | 7% |
+| TITLE | 4 | 55.2 s | 6% |
 
 - Đoạn 2D liên tục dài nhất: 9 shot, 187.9 s (kết thúc ở SC_039).
 
@@ -28,7 +28,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 | C7 Building by geometry | 8:06 | 97 s | 6 | 3D_PUSH_IN ×1, DIAGRAM ×4, TITLE ×1 |
 | C8 The limit: Beauvais | 9:43 | 175 s | 8 | PHOTO ×8 |
 | C9 Why they stand | 12:38 | 94 s | 3 | 3D_PUSH_IN ×1, DIAGRAM ×2 |
-| C10 Never impossible | 14:11 | 72 s | 5 | 3D_HOLD ×1, 3D_PUSH_IN ×1, TITLE ×3 |
+| C10 Never impossible | 14:11 | 72 s | 5 | 3D_HOLD ×1, 3D_PUSH_IN ×1, DIAGRAM ×1, TITLE ×2 |
 
 ## Từng shot
 
@@ -79,7 +79,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 | SC_043 | B42 | 3D_PUSH_IN | 20.8 s | hard |
 | SC_044 | B43 | TITLE | 21.1 s | hard |
 | SC_045 | B44 | 3D_HOLD | 9.6 s | hard |
-| SC_046 | B45 | TITLE | 12.7 s | hard |
+| SC_046 | B45 | DIAGRAM | 12.7 s | hard |
 | SC_047 | B46 | TITLE | 7.4 s | hard |
 
 ## Lặp lại, mật độ và kích thước mục tiêu
@@ -101,11 +101,11 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 - PASS `audio_no_overlap`: no two beats' speech overlaps
 - PASS `narration_silences`: longest gap 1.23s (limit 4.0s), after the last line 0.82s
 - PASS `no_static_stretches`: longest stretch without a visual change 13.7s at 135.0s (limit 14.0s)
-- FAIL `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4); 3D_HOLD 8, 3D_PUSH_IN 5, 3D_SEQUENCE 4, DIAGRAM 14, PHOTO 11, TITLE 5
+- FAIL `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4); 3D_HOLD 8, 3D_PUSH_IN 5, 3D_SEQUENCE 4, DIAGRAM 15, PHOTO 11, TITLE 4
 - PASS `no_repeated_visuals`: no two consecutive shots show the same picture
 - PASS `chapter_openings`: chapters 2-10 open with a numbered title on their first shot
 - PASS `annotations_consistent`: narration/visual consistency: no contradiction; 3 UNCERTAIN for the reviewer (B26.s1 SIDE, B35.s4 SIDE, B44.s0 ARROWS); every annotation placed
-- WARN `render_cache_current`: 32/47 shots not rendered or stale at internal_720p: SC_004, SC_005, SC_006, SC_007, SC_008, SC_009
+- WARN `render_cache_current`: 27/47 shots not rendered or stale at internal_720p: SC_004, SC_005, SC_006, SC_007, SC_008, SC_009
 - WARN `chapter_variety`: C1, C3, C8
 - PASS `image_licences`: 7 external images, all approved with matching files
 - PASS `image_attribution`: every external image is credited (credit card or description)
