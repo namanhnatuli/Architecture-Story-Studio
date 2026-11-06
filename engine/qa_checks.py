@@ -670,7 +670,7 @@ def check_card(ctx, report):
                     issues.append(f"{name}@{f}: text box x {bx0:.3f}-{bx1:.3f} y {by0:.3f}-{by1:.3f} outside the safe area")
                 if narrated and by0 < style["subtitle_zone"] - 1e-3:
                     issues.append(f"{name}@{f}: text bottom {by0:.3f} in the subtitle zone ({style['subtitle_zone']})")
-            elif e["kind"] == "image" and (x0 < -1e-3 or x1 > 1 + 1e-3 or y0 < -1e-3 or y1 > 1 + 1e-3):
+            elif e["kind"] == "image" and not e.get("stage") and (x0 < -1e-3 or x1 > 1 + 1e-3 or y0 < -1e-3 or y1 > 1 + 1e-3):
                 issues.append(f"{name}@{f}: image outside the frame ({x0:.3f}, {y0:.3f}, {x1:.3f}, {y1:.3f})")
     # M7: two texts shown at the same time never overlap (plates included)
     def window(e):

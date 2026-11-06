@@ -110,6 +110,15 @@ Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều
   - Bỏ ảnh có tác giả hoặc năm không chắc chắn.
 - Trong `story.py`: `PHOTOS` (đường dẫn, kích thước, dòng ghi công), `Card.image(...)`, `Card.credit(...)`. `fitted(asset, box, crop)` trả về hàm đổi pixel của ảnh sang tọa độ card, để dấu vẽ rơi đúng chỗ trên bản vẽ.
 - Các helper vẽ dần: `Card.drawn(...)` vẽ đường theo thứ tự trong `seconds`; `Card.drawn_arrow(...)` vẽ mũi tên, đầu đến cuối cùng; `.later(s)` cho nhãn chờ nét vẽ xong. Phần tử card có `delay` (giây sau câu hoặc từ của nó).
+- **Không dựng như slide** (góp ý g-r5): tránh kiểu ảnh nhỏ bên trái, chữ bên phải.
+  - Ảnh chiếm phần lớn khung. Camera 2D (`Card.stage()` và `Card.view(rect, sentence, word, move)`) đi tới đúng vùng đang được kể: lia lên vòm, cận vùng đánh dấu, rồi lùi ra để so trước–sau.
+  - Ảnh và dấu vẽ nằm trên stage; chữ đứng yên trên màn hình. `on_screen(view, point)` cho biết một điểm của ảnh hiện ở đâu trong view đó, để đặt nhãn cạnh nó.
+  - Mỗi cảnh ít chữ: tên, con số, trích dẫn ngắn, giới hạn của minh họa. Không chép lại lời dẫn.
+  - Tiêu đề chỉ giữ vài giây (`gone(sentence, word)`); các câu hỏi tiếp theo hiện trên hình.
+  - Khi kể một sự kiện cũ trên ảnh chụp hôm nay, ghi "today".
+  - Card ảnh không bao giờ mở bằng khung trống: ảnh đầu tiên có `from_start` (`Card.image` tự gán).
+  - Đổi ảnh bằng chuyển hoà: ảnh sau ở `layer` cao hơn và vào trước; ảnh trước rời đi bằng `until_word` vài từ sau.
+- **Kết quả của một nghiên cứu không phải phán quyết:** không gạch chéo một giả thuyết. Làm mờ nó và ghi "Not supported by this study", kèm tên nghiên cứu.
 - Mọi dấu vẽ lên ảnh hay bản vẽ đều ghi "schematic". Không đánh dấu vị trí mà nguồn không nói, ví dụ tuyến dây xích Amiens: chỉ vẽ "dọc lòng chính, giằng trụ giao cánh" như Columbia viết.
 - Mỗi ảnh có hồ sơ đầy đủ trong `assets/manifest.json` và dòng ghi công trên hình. `tools/longform_reports.py` đưa ảnh vào mô tả YouTube (mục "Photographs and drawings").
 - Ảnh khổ 2560 px ở cạnh dài để không làm nặng git. Bản vẽ Viollet-le-Duc chỉ khoảng 600 px, nên ở 4K sẽ hơi mềm; cần chốt trước bản cuối.

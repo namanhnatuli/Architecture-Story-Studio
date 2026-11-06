@@ -410,9 +410,39 @@ def build_strategy(name, ctx):
         graphic = {k: v for k, v in g.items() if k != "elements"}
         graphic["elements"] = []
         words = ctx.get("word_offsets") or []
+        def word_time(k, word, where):
+            hits = [x for x in (words[k] if k < len(words) else []) if x[0] == T.norm_word(word)]
+            if not hits:
+                raise StrategyRejected("INVALID_REQUEST", f"{where}: word {word!r} has no aligned timestamp in "
+                                       f"sentence {k} (run align)")
+            return hits[0][1]
+
+        if g.get("stage"):   # g-r5: the 2D camera's views, timed like the elements (sentence, word, delay)
+            views = []
+            for k, v in enumerate(g["stage"].get("views") or []):
+                v = dict(v)
+                rect = v.get("rect")
+                if not (isinstance(rect, list) and len(rect) == 4 and rect[0] < rect[2] and rect[1] < rect[3]):
+                    raise StrategyRejected("INVALID_REQUEST", f"card stage view {k}: rect must be [x0, y0, x1, y1]")
+                if k == 0:
+                    views.append({"rect": rect, "at": 0.0, "move_seconds": 0.0})
+                    continue
+                sk = v.get("sentence", 0)
+                if not isinstance(sk, int) or not 0 <= sk < len(spans):
+                    raise StrategyRejected("INVALID_REQUEST", f"card stage view {k}: sentence {sk!r} is not a sentence "
+                                           f"of the beat (0..{len(spans) - 1})")
+                t = word_time(sk, v["word"], f"card stage view {k}") if v.get("word") else spans[sk][0]
+                views.append({"rect": rect, "at": round(max(0.0, t + float(v.get("delay", 0.0))), 4),
+                              "move_seconds": float(v.get("move_seconds", 1.5)), "easing": v.get("easing", "SMOOTH")})
+            for a, b in zip(views[1:], views[2:]):
+                if b["at"] < a["at"] + a["move_seconds"] - 1e-6:
+                    raise StrategyRejected("INVALID_REQUEST", "card stage: a view starts before the previous move ends")
+            graphic["stage"] = {"views": views}
         for e in g["elements"]:   # M7: element timing by sentence (measured when AUDIO_LOCKED), or by word
             e = dict(e)
             word = e.pop("word", None)
+            until_word = e.pop("until_word", None)   # g-r5: leave when that word of the `until` sentence is spoken
+            from_start = e.pop("from_start", False)  # g-r6: on screen from the first frame (a picture card never opens empty)
             delay = e.pop("delay", 0.0)   # g-r5: seconds after its moment (a line drawn in pieces, a timeline advancing)
             if isinstance(delay, bool) or not isinstance(delay, (int, float)) or not 0 <= delay <= 10:
                 raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: delay {delay!r} must be 0..10 s")
@@ -424,12 +454,12 @@ def build_strategy(name, ctx):
                                                f"sentence of the beat (0..{len(spans) - 1})")
                     t = spans[k][0]
                     if key == "sentence" and word:   # the aligned moment the word is spoken
-                        hits = [x for x in (words[k] if k < len(words) else []) if x[0] == T.norm_word(word)]
-                        if not hits:
-                            raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: word {word!r} "
-                                                   f"has no aligned timestamp in sentence {k} (run align)")
-                        t = hits[0][1]
+                        t = word_time(k, word, f"card element {e.get('id')}")
+                    if key == "until" and until_word:
+                        t = word_time(k, until_word, f"card element {e.get('id')}")
                     e[field] = round(max(0.0, t - lead + (delay if key == "sentence" else 0.0)), 4)
+            if from_start:
+                e["appear"] = 0.0
             graphic["elements"].append(e)
 
         def make(n):

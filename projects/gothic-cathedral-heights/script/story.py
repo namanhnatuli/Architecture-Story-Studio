@@ -65,12 +65,36 @@ DASH = [0.012, 0.008]   # dash and gap of a dashed card line, in units of the ca
 class Card:
     def __init__(self, name):
         self.name, self.elements = name, []
+        self.views, self.staging = [], False   # g-r5: the 2D camera on the picture (stage) and its views
 
     def add(self, kind, sentence=0, until=None, **kw):
         e = {"id": f"{self.name}_{len(self.elements):02d}", "kind": kind, "sentence": sentence, **kw}
         if until is not None:
             e["until"] = until
+        if self.staging:
+            e["stage"] = True
         self.elements.append(e)
+        return self
+
+    def stage(self, on=True):
+        """Elements added while on move with the stage (pictures and the marks drawn on them); texts stay put."""
+        self.staging = on
+        return self
+
+    def view(self, rect, sentence=0, word=None, move=1.5, delay=0.0):
+        """The stage rectangle [x0, y0, x1, y1] (card units; equal sides fill the frame) the camera moves to at a
+        moment of the narration; the first view holds from the start."""
+        v = {"rect": [round(x, 4) for x in rect]}
+        if self.views:
+            v.update(sentence=sentence, move_seconds=move, **({"word": word} if word else {}), **({"delay": delay} if delay else {}))
+        self.views.append(v)
+        return rect
+
+    def gone(self, sentence, word=None):
+        """The last element leaves at that sentence (or at that word of it)."""
+        self.elements[-1]["until"] = sentence
+        if word:
+            self.elements[-1]["until_word"] = word
         return self
 
     def text(self, text, x, y, size=0.034, sentence=0, align="CENTER", color=INK, plate=False, until=None, word=None):
@@ -111,9 +135,12 @@ class Card:
         return self.text(text, 0.055, 0.915, 0.024, sentence, align="LEFT", color=MUTED, plate=True)
 
     def image(self, asset, box, crop=(0.0, 0.0, 1.0, 1.0), sentence=0, drift=(0.0, 0.0), until=None, word=None):
-        """g-r5: a photograph or historic drawing with its rights record in assets/manifest.json (PHOTOS)."""
+        """g-r5: a photograph or historic drawing with its rights record in assets/manifest.json (PHOTOS). The first
+        picture of a card is on screen from its first frame (g-r6: a card never opens on an empty frame)."""
+        first = sentence == 0 and not word and not any(e["kind"] == "image" for e in self.elements)
         return self.add("image", sentence, until, asset=asset, path=PHOTOS[asset]["path"], box=[round(v, 4) for v in box],
-                        crop=[round(v, 4) for v in crop], drift=list(drift), **({"word": word} if word else {}))
+                        crop=[round(v, 4) for v in crop], drift=list(drift), **({"word": word} if word else {}),
+                        **({"from_start": True} if first else {}))
 
     def credit(self, asset, x=0.5, y=0.075, align="CENTER", sentence=0):
         """The on-screen credit of a photograph (CC BY: name, licence; the full record is in the description)."""
@@ -166,7 +193,24 @@ class Card:
         return self
 
     def spec(self):
-        return {"fade_seconds": 0.35, "elements": self.elements}
+        return {"fade_seconds": 0.35, "elements": self.elements, **({"stage": {"views": self.views}} if self.views else {})}
+
+
+def square(cx, cy, side):
+    return [cx - side / 2, cy - side / 2, cx + side / 2, cy + side / 2]
+
+
+def around(at, px0, py0, px1, py1, pad=1.2, dx=0.0, dy=0.0):
+    """A frame-filling stage view around a region of a picture (pixels), with some room, optionally offset."""
+    (x0, y1), (x1, y0) = at(px0, py0), at(px1, py1)
+    return square((x0 + x1) / 2 + dx, (y0 + y1) / 2 + dy, max(x1 - x0, y1 - y0) * pad)
+
+
+def on_screen(rect, p):
+    """Where a card point appears on screen while the stage shows `rect` (for labels that stay put in a view)."""
+    x0, y0, x1, y1 = rect
+    k = 1.0 / max(x1 - x0, y1 - y0)
+    return [round((p[0] - (x0 + x1) / 2) * k + 0.5, 4), round((p[1] - (y0 + y1) / 2) * k + 0.5, 4)]
 
 
 def round_arch(span, n=32):
@@ -300,63 +344,96 @@ def note(nid, text, sentence=0, until=None, position="TOP_LEFT"):
 GOTHIC, ROMANESQUE = "gothic_cathedral_section", "romanesque_church_section"
 
 # C1 -------------------------------------------------------------------------------------------
-# g-r5 (owner: rebuild the opening with the new pictures): the real buildings open the film. Beauvais by its choir,
-# inside and out; Amiens by its nave. The fall is told, never shown; the heights carry their caveat.
+# g-r6 (owner, g-r5 review: still slides): each picture fills the frame and the camera moves with a purpose (up the
+# choir to the vault, out to the building); few words per scene; "today" on photographs while 1284 is told.
+FULL = [0.0, 0.0, 1.0, 1.0]
+CREDIT_TOP = 0.925   # credits sit at the top right, clear of the subtitles
+
+
+def credit_top(c, asset, sentence=0, word=None):
+    c.text(PHOTOS[asset]["credit"], 0.95, CREDIT_TOP, 0.016, sentence, align="RIGHT", color=MUTED, word=word)
+    return c
+
+
+def lower_left(c, lines, sentence, word=None, y=0.3, size=0.03, color=INK, until=None, until_word=None):
+    """Short captions at the lower left, on plates, above the subtitles."""
+    for k, t in enumerate(lines):
+        c.text(t, 0.06, y - k * (1.85 * size + 0.006), size, sentence, align="LEFT", color=color, plate=True, word=word)   # plates 1.74 x size
+        if until is not None:
+            c.gone(until, until_word)
+    return c
+
+
 c = Card("B01")
-box, _ = fitted("IMG_BEAUVAIS_CHOIR", [0.05, 0.21, 0.36, 0.95], (0.0, 0.25, 1.0, 1.0))
-c.image("IMG_BEAUVAIS_CHOIR", [0.05, 0.21, 0.36, 0.95], (0.0, 0.25, 1.0, 1.0), 0, drift=(0.0, -0.01))
-c.credit("IMG_BEAUVAIS_CHOIR", (box[0] + box[2]) / 2, 0.185)
-c.text("Beauvais, November 1284", 0.66, 0.84, 0.042, 0, word="november")
-c.text("Part of the highest stone vaults", 0.66, 0.76, 0.028, 0, word="part")
-c.text("of the Middle Ages came down", 0.66, 0.715, 0.028, 0, word="part")
-# the photograph does not reach the floor: an arrow to the vault, not a bracket that would read as its height
-bx = box[2] + 0.02
-c.drawn_arrow([[bx + 0.03, 0.8], [bx + 0.03, 0.88], [box[2] - 0.03, 0.9]], THRUST, 0.006, 1, "45", seconds=0.6)
-c.text("Vault: more than 45 m", bx + 0.012, 0.765, 0.026, 1, align="LEFT", color=THRUST).later(0.6, "45")
-c.text("above the floor", bx + 0.012, 0.725, 0.022, 1, align="LEFT", color=THRUST).later(0.6, "45")
-c.text("Published heights differ: 46 m to above 48 m", 0.66, 0.6, 0.02, 1, color=MUTED, word="45")
-pbox, _ = fitted("IMG_BEAUVAIS_CHEVET", [0.5, 0.25, 0.82, 0.55], (0.0, 0.42, 1.0, 0.95))
-c.image("IMG_BEAUVAIS_CHEVET", [0.5, 0.25, 0.82, 0.55], (0.0, 0.42, 1.0, 0.95), 2, word="choir")
-c.text("The choir: the eastern arm", 0.87, 0.45, 0.022, 2, word="choir")
-c.text("In use since 1272", 0.87, 0.4, 0.022, 2, word="use")
-c.text("Twelve years", 0.87, 0.355, 0.022, 2, word="12")
-c.credit("IMG_BEAUVAIS_CHEVET", (pbox[0] + pbox[2]) / 2, 0.225)
-c.elements[-1].update(sentence=2, word="choir")   # with its photo
+_, at = fitted("IMG_BEAUVAIS_CHOIR", FULL)
+c.stage()
+c.image("IMG_BEAUVAIS_CHOIR", FULL, sentence=0, until=2)
+c.elements[-1]["until_word"] = "choir"    # leaves once the exterior is in: a dissolve, never an empty frame
+_, at2 = fitted("IMG_BEAUVAIS_CHEVET", FULL)
+c.image("IMG_BEAUVAIS_CHEVET", FULL, sentence=2)
+c.elements[-1]["layer"] = 1
+c.stage(False)
+w = at(1126, 0)[0] - at(0, 0)[0]                      # the photograph's width on the card
+low = c.view(square(0.5, w / 2, w))                   # the lowest arcades
+top = c.view(square(0.5, 1 - w / 2, w), 0, "november", move=5.2)   # a slow tilt up to the vault
+c.view(around(at2, 0, 250, 1706, 1210, pad=1.0), 2, move=1.6)   # out to the choir from outside
+c.view(around(at2, 150, 350, 1550, 1200, pad=1.0), 2, "eastern", move=3.0)
+credit_top(c, "IMG_BEAUVAIS_CHOIR").gone(2)
+credit_top(c, "IMG_BEAUVAIS_CHEVET", 2)
+lower_left(c, ["Beauvais Cathedral today"], 0, size=0.026, color=MUTED, y=0.86, until=2)
+lower_left(c, ["Beauvais, November 1284"], 0, "november", until=1)
+lower_left(c, ["Vault: more than 45 m above the floor"], 1, "45", until=2)
+lower_left(c, ["Published heights differ: 46 m to above 48 m"], 1, "45", y=0.25, size=0.02, color=MUTED, until=2)
+lower_left(c, ["The choir today: the eastern arm", "In use from 1272: twelve years"], 2, "choir", size=0.028)
 beat("C1", "B01", "fact", "INTRODUCE_ARCHITECTURE", [
     "In November 1284, in the French city of Beauvais, part of the highest stone vaults of the Middle Ages came down.",
     "They stood more than 45 meters above the floor.",
     "The choir beneath them, the eastern arm of the cathedral, had been in use for just twelve years."],
     ["CLM_103", "CLM_104", "CLM_106", "CLM_181", "CLM_182"], strategy="CARD", graphic=c.spec(),
-    visual_goal="The real Beauvais: its choir from inside, looking up, with the height and its caveat; then the choir "
-                "from outside. The collapse is told, never shown",
+    visual_goal="The real Beauvais filling the frame: the camera climbs the choir to its vault while 1284 is told, then "
+                "pulls out to the choir seen from outside. The collapse is told, never shown",
     required_concepts=[])
 
 c = Card("B02")
-box, _ = fitted("IMG_AMIENS_NAVE", [0.05, 0.21, 0.42, 0.95])
-c.image("IMG_AMIENS_NAVE", [0.05, 0.21, 0.42, 0.95], sentence=0, drift=(0.0, -0.01))
-c.credit("IMG_AMIENS_NAVE", (box[0] + box[2]) / 2, 0.185)
-c.text("Many still stand", 0.7, 0.8, 0.04, 0, word="many")
-c.text("Amiens, begun 1220", 0.7, 0.66, 0.034, 1, word="begun")
-c.text("Vault: more than 42 m", 0.7, 0.59, 0.03, 1, word="42")
-c.text("Tall, slender, filled with light", 0.7, 0.52, 0.026, 1, color=MUTED, word="tall")
+_, at = fitted("IMG_AMIENS_NAVE", FULL)
+c.stage()
+c.image("IMG_AMIENS_NAVE", FULL, sentence=0)
+c.stage(False)
+w = at(1892, 0)[0] - at(0, 0)[0]
+c.view(square(0.5, w / 2 + 0.02, w))
+c.view(square(0.5, 1 - w / 2, w), 1, "begun", move=4.5)   # up the nave to its vault and rose
+credit_top(c, "IMG_AMIENS_NAVE")
+lower_left(c, ["Amiens Cathedral today"], 0, "many", size=0.026, color=MUTED, y=0.86)
+lower_left(c, ["Amiens, begun 1220", "Vault: more than 42 m"], 1, "1220")
 beat("C1", "B02", "fact", "INTRODUCE_ARCHITECTURE", [
     "And yet many buildings like it are still standing.",
     "At Amiens, begun in 1220, the vault rises more than 42 meters, in a building that is tall, slender and filled with light."],
     ["CLM_110", "CLM_101", "CLM_102", "CLM_156"], strategy="CARD", graphic=c.spec(),
-    visual_goal="Amiens by its own photograph: the nave, tall and full of light, with its date and height",
+    visual_goal="Amiens by its own photograph, filling the frame: the camera rises through the nave to its vault",
     required_concepts=[])
 
+# the title holds a few seconds only; the two questions are asked over Beauvais's own section (owner)
 c = Card("B03")
-c.text("How Gothic Cathedrals Reached", 0.5, 0.7, 0.06, 0)
-c.text("Impossible Heights", 0.5, 0.61, 0.06, 0)
-c.line([[0.28, 0.56], [0.72, 0.56]], FAINT, 0.003, 0)
-c.text("How did they raise stone that high?", 0.5, 0.47, 0.036, 1, color=MUTED)
-c.text("And why, sometimes, did it come down?", 0.5, 0.39, 0.036, 2, color=MUTED)
+_, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", FULL)
+c.stage()
+c.image("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, sentence=0)
+c.stage(False)
+c.view(FULL)
+c.view(around(at, 0, 0, 630, 640, pad=1.0), 0, "relying", move=3.0)       # the section: geometry at work
+vault = c.view(around(at, 330, 0, 630, 330, pad=1.15), 1, "how", move=1.6)   # the high vault and its height
+flyers = c.view(around(at, 120, 120, 400, 400, pad=1.2), 2, "why", move=1.6)   # the flying buttresses
+c.text("How Gothic Cathedrals Reached", 0.5, 0.63, 0.058, 0, plate=True).gone(0, "relying")
+c.text("Impossible Heights", 0.5, 0.52, 0.058, 0, plate=True).gone(0, "relying")
+c.text("How did they raise stone that high?", 0.5, 0.26, 0.04, 1, plate=True, word="how").gone(2)
+c.text("And why, sometimes, did it come down?", 0.5, 0.26, 0.04, 2, plate=True, word="why")
+c.text("Section of Beauvais: Viollet-le-Duc, 1856", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
 beat("C1", "B03", "fact", "SHOW_CONTEXT", [
     "The people who built them worked without modern structural calculations, relying on geometry, craft knowledge and experience.",
     "So how did they raise stone that high?",
     "And why, sometimes, did it come down?"],
-    ["CLM_110"], strategy="CARD", graphic=c.spec(), visual_goal="Title card: the central question", required_concepts=[])
+    ["CLM_110"], strategy="CARD", graphic=c.spec(),
+    visual_goal="A short title, then the two questions asked over Beauvais's section: its high vault, then its flying buttresses",
+    required_concepts=[])
 
 # C2 -------------------------------------------------------------------------------------------
 c = Card("B04")
@@ -517,7 +594,9 @@ BAY_WALLS = [part("arcade_wall", ["clerestory_wall_b1_west", "clerestory_wall_b1
 REST_OF_CHURCH = {"except": BAY + BAY_WALLS + OUTSIDE}   # the church floor included: the camera goes under it
 # the establishing view: the row of high vaults and the top of the piers (the pier feet stay below the frame, since the
 # floor is hidden for a camera under it: owner, g-r4 pilot review)
-UNDER_BAY = {"azimuth": -90.0, "elevation": -84.0}   # straight up under the bay: the X of the ribs, a pier at each corner
+UNDER_BAY = {"azimuth": -90.0, "elevation": -84.0}
+FLOOR = {"concept": "church_floor"}
+AROUND_BAY = {"except": BAY + BAY_WALLS + OUTSIDE + [FLOOR]}   # the church around the bay, kept faded while the camera turns   # straight up under the bay: the X of the ribs, a pier at each corner
 WAS_THERE = {"why": "B12 ends this way: the cut from it is invisible"}
 
 
@@ -531,23 +610,32 @@ beat("C4", "B12", "fact", "SHOW_COMPONENT", [
     "In the four-part vault shown here, two ribs cross diagonally over each bay of the building.",
     "In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners."],
     ["CLM_140"], strategy="SEQUENCE",
-    visual_goal="The row of high vaults from below; the rest of the church leaves, then the camera turns under one bay: "
-                "its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along "
-                "the ribs to the four piers. One change at a time: the camera never moves while parts move",
+    visual_goal="The church on its floor; one bay is marked, the rest fades but stays while the camera turns under the "
+                "bay; then the bay stands alone: its piers, the two diagonal ribs one after the other, the stone web; "
+                "the light runs along the ribs to the four piers",
     required_concepts=[GOTHIC, "rib", "vault_web", "nave_pier"],
     sequence={"camera": "CATHEDRAL_VAULT_BELOW",
               # g-r5: the church as in every other shot, standing on its floor; the rest leaves and one bay stands
               # alone; then (nothing else moving) the camera turns under it and looks straight up
               "views": [{"azimuth": -66.0, "elevation": 12.0},
-                        {"frame": BAY, **UNDER_BAY, "margin": 0.08, "at": {"sentence": 1, "offset": -0.6}, "move_seconds": 2.6}],
-              "steps": [{"do": "GHOST", "targets": BAY_WALLS, "at": {"sentence": 0, "word": "second"}, "seconds": 1.2,
-                         "transparency": 0.9},
-                        {"do": "FADE_OUT", "targets": REST_OF_CHURCH, "at": {"sentence": 0, "word": "second"}, "seconds": 1.2},
-                        {"do": "FADE_OUT", "targets": OUTSIDE + BAY_DIAGONALS + BAY_WEB, "at": {"sentence": 0, "word": "second"},
-                         "seconds": 1.2},
-                        {"do": "REVEAL", "targets": BAY_DIAGONALS[:1], "at": {"sentence": 1, "word": "two", "offset": -0.1},
+                        {"frame": BAY, **UNDER_BAY, "margin": 0.08, "at": {"sentence": 0, "end": True, "offset": 0.3},
+                         "move_seconds": 2.6}],
+              "steps": [glow(BAY, {"sentence": 0, "word": "second"}, {"sentence": 0, "word": "vault", "offset": 0.2}),
+                        # owner (g-r5): the chosen bay is marked before the rest goes, and stays placed in its church
+                        # while the camera turns; only then is it set apart
+                        {"do": "GHOST", "targets": AROUND_BAY, "at": {"sentence": 0, "word": "vault", "offset": 0.2},
+                         "seconds": 1.0, "transparency": 0.88},
+                        {"do": "FADE_OUT", "targets": [FLOOR], "at": {"sentence": 0, "word": "vault", "offset": 0.2},
+                         "seconds": 1.0, "why": "the camera passes under it"},
+                        {"do": "GHOST", "targets": BAY_WALLS, "at": {"sentence": 0, "word": "vault", "offset": 0.2},
+                         "seconds": 1.0, "transparency": 0.9},
+                        {"do": "FADE_OUT", "targets": OUTSIDE + BAY_DIAGONALS + BAY_WEB, "at": {"sentence": 0, "word": "vault",
+                                                                                               "offset": 0.2}, "seconds": 1.0},
+                        {"do": "FADE_OUT", "targets": AROUND_BAY, "at": {"sentence": 1, "word": "here", "offset": 0.45},
+                         "seconds": 0.5},
+                        {"do": "REVEAL", "targets": BAY_DIAGONALS[:1], "at": {"sentence": 1, "word": "two", "offset": 0.3},
                          "seconds": 1.0, "direction": "FROM_BELOW", "distance": 4.0, "sound": "STONE"},
-                        {"do": "REVEAL", "targets": BAY_DIAGONALS[1:], "at": {"sentence": 1, "word": "cross", "offset": -0.1},
+                        {"do": "REVEAL", "targets": BAY_DIAGONALS[1:], "at": {"sentence": 1, "word": "cross", "offset": 0.1},
                          "seconds": 1.0, "direction": "FROM_BELOW", "distance": 4.0, "sound": "STONE"},
                         glow(BAY_DIAGONALS, {"sentence": 1, "word": "over"}, {"sentence": 2, "offset": -0.2}),
                         {"do": "REVEAL", "targets": BAY_WEB, "at": {"sentence": 2, "offset": -0.1}, "seconds": 0.7,
@@ -832,13 +920,12 @@ beat("C7", "B30", "fact", "SHOW_CONTEXT", [
     ["CLM_101"], strategy="CARD", graphic=c.spec(), visual_goal="Ninety years on one line", required_concepts=[])
 
 # C8 -------------------------------------------------------------------------------------------
-# g-r5 (owner): the real buildings by their own pictures. Photographs establish each building; Viollet-le-Duc's own plan
-# and section of Beauvais (1856) carry the marks (affected area, hypotheses, new piers, crossing, unbuilt nave); the
-# film returns to a photograph. Every mark is schematic and says so; no collapse is shown.
-TOP = 0.95           # pictures sit between the subtitle zone and the top of the frame
-BOTTOM = 0.21
-CREDIT_Y = 0.185
-RIGHT = 0.73         # centre of the text column on cards with a picture on the left
+# g-r5/g-r6 (owner): the real buildings by their own pictures, filling the frame. Each document is first seen whole,
+# then the camera moves in on the area the narration names, then out again (before and after). Viollet-le-Duc's own
+# plan and section of Beauvais (1856) carry the marks; every mark is schematic and says so; no collapse is shown.
+_, AT_PLAN = fitted("DRW_VLD_BEAUVAIS_PLAN", FULL)
+CHOIR_VIEW = around(AT_PLAN, 90, 0, 540, 480, pad=1.05)        # choir and transept
+STRAIGHT = around(AT_PLAN, 235, 150, 380, 340, pad=1.3)        # the three straight bays of the choir
 
 
 def mark_box(c, at, px0, py0, px1, py1, sentence, word=None, color=THRUST, until=None, delay=0.0, dash=True, width=0.004):
@@ -848,134 +935,138 @@ def mark_box(c, at, px0, py0, px1, py1, sentence, word=None, color=THRUST, until
                    dash=dash, until=until, delay=delay)
 
 
+def top_left(c, lines, sentence, word=None, size=0.03, color=INK, until=None, until_word=None, delay=0.0):
+    for k, t in enumerate(lines):
+        c.text(t, 0.06, 0.86 - k * (1.85 * size + 0.006), size, sentence, align="LEFT", color=color, plate=True, word=word)
+        if delay:
+            c.later(delay, word)
+        if until is not None:
+            c.gone(until, until_word)
+    return c
+
+
 c = Card("B31")
+_, at = fitted("IMG_BEAUVAIS_CHEVET", FULL)
+c.stage()
+c.image("IMG_BEAUVAIS_CHEVET", FULL, sentence=0)
+c.stage(False)
+c.view(around(at, 0, 250, 1706, 1210, pad=1.0))
+c.view(around(at, 230, 330, 1480, 1050, pad=1.0), 0, "beauvais", move=11.0)   # a slow push in on the choir
 c.tag("8 · The limit: Beauvais")
-box, _ = fitted("IMG_BEAUVAIS_CHEVET", [0.06, BOTTOM, 0.50, 0.87], (0.0, 0.30, 1.0, 1.0))   # below the chapter tag
-c.image("IMG_BEAUVAIS_CHEVET", [0.06, BOTTOM, 0.50, 0.87], (0.0, 0.30, 1.0, 1.0), 0, drift=(0.0, 0.006))
-c.credit("IMG_BEAUVAIS_CHEVET", (box[0] + box[2]) / 2, CREDIT_Y)
-c.text("Beauvais Cathedral", RIGHT, 0.74, 0.044, 0)
-c.text("The choir today", RIGHT, 0.68, 0.026, 0, color=MUTED)
-c.line([[RIGHT - 0.14, 0.645], [RIGHT + 0.14, 0.645]], FAINT, 0.003, 0)
-c.text("1225", RIGHT, 0.56, 0.05, 1, word="1225")
-c.text("A fire damages the old Romanesque choir", RIGHT, 0.47, 0.025, 1, word="fire")
-c.text("The bishop rebuilds it, after", RIGHT, 0.39, 0.025, 1, word="bishop")
-c.text("the greatest buildings of his time", RIGHT, 0.345, 0.025, 1, word="greatest")
+credit_top(c, "IMG_BEAUVAIS_CHEVET")
+lower_left(c, ["Beauvais Cathedral today: the choir"], 0, "beauvais", size=0.028, until=1)
+lower_left(c, ["1225: fire in the old Romanesque choir"], 1, "fire", size=0.03)
 beat("C8", "B31", "fact", "SHOW_CONTEXT", [
     "Which brings us back to Beauvais.",
     "In 1225, a fire damaged the old Romanesque choir, and the bishop decided to rebuild it, inspired by the greatest buildings of his time."],
-    ["CLM_180"], strategy="CARD", graphic=c.spec(), visual_goal="The real building first: the choir of Beauvais today, then place and date",
+    ["CLM_180"], strategy="CARD", graphic=c.spec(), visual_goal="The real building first, filling the frame: the choir of Beauvais today, then the date",
     required_concepts=[])
 
 c = Card("B32")
-CHOIR_CROP = (0.0, 0.15, 1.0, 1.0)
-box, at = fitted("IMG_BEAUVAIS_CHOIR", [0.22, BOTTOM, 0.52, TOP], CHOIR_CROP)
-c.image("IMG_BEAUVAIS_CHOIR", [0.22, BOTTOM, 0.52, TOP], CHOIR_CROP, 0)
-c.credit("IMG_BEAUVAIS_CHOIR", (box[0] + box[2]) / 2, CREDIT_Y)
-bx = box[2] + 0.014
-LEVELS = (("Arcade", 1600, 2176, 0, "lower"), ("Triforium", 1300, 1585, 0, "lower"), ("Upper windows", 430, 1280, 1, "upper"))
-for name, p0, p1, s_, word in LEVELS:   # brackets beside the photograph, at the levels it shows
-    ya, yb = at(0, p1)[1] + 0.006, at(0, p0)[1] - 0.006
-    c.drawn([[bx + 0.008, ya], [bx, ya], [bx, yb], [bx + 0.008, yb]], INK, 0.003, s_, word, seconds=0.5)
-    c.text(name, bx + 0.016, (ya + yb) / 2, 0.025, s_, align="LEFT", word=word).later(0.5, word)
+_, at = fitted("IMG_BEAUVAIS_CHOIR", FULL)
+w = at(1126, 0)[0] - at(0, 0)[0]
+level_y = lambda p0, p1: (at(0, p0)[1] + at(0, p1)[1]) / 2   # noqa: E731
+c.stage()
+c.image("IMG_BEAUVAIS_CHOIR", FULL, sentence=0)
+bx = at(1126, 0)[0] - 0.02   # the bracket inside the photograph, along its right side
 ya, yb = at(0, 1280)[1] + 0.006, at(0, 430)[1] - 0.006
-c.drawn([[bx + 0.008, ya], [bx, ya], [bx, yb], [bx + 0.008, yb]], THRUST, 0.005, 1, "adding", seconds=0.5)
-c.text("+ about 5 m", bx + 0.016, (ya + yb) / 2 - 0.05, 0.025, 1, align="LEFT", color=THRUST, word="adding").later(0.5, "adding")
-COL = 0.82
-c.text("1250s", COL, 0.78, 0.044, 0, word="1250s")
-c.text("Arcade and triforium finished", COL, 0.72, 0.023, 0, word="finished")
-c.text("Then, beyond the planned", COL, 0.6, 0.023, 1, word="beyond")
-c.text("proportions: the upper windows,", COL, 0.56, 0.023, 1, word="beyond")
-c.text("and so the vaults, go higher", COL, 0.52, 0.023, 1, word="beyond")
-c.text("1272", COL, 0.4, 0.044, 2, word="1272")
-c.text("The choir in use", COL, 0.34, 0.023, 2, word="1272")
-c.text("Levels marked beside the photo;", COL, 0.25, 0.018, 1, color=MUTED)
-c.text("the added height is schematic", COL, 0.22, 0.018, 1, color=MUTED)
+c.drawn([[bx - 0.008, ya], [bx, ya], [bx, yb], [bx - 0.008, yb]], THRUST, 0.004, 1, "adding", seconds=0.5, delay=1.8)
+c.stage(False)
+# the camera climbs the choir level by level, as the narration builds it: arcade, triforium, then the upper windows
+arcade = c.view(square(0.5, w / 2, w))
+trif = c.view(square(0.5, level_y(1300, 1585), w), 0, "lower", move=1.6)
+upper = c.view(square(0.5, level_y(430, 1280), 0.3), 1, "adding", move=1.8)
+credit_top(c, "IMG_BEAUVAIS_CHOIR")
+lower_left(c, ["Arcade"], 0, size=0.032, until=0, until_word="lower")
+c.text("Triforium", 0.06, 0.5, 0.032, 0, align="LEFT", plate=True, word="lower").later(1.6, "lower").gone(1, "adding")
+lower_left(c, ["1250s: arcade and triforium finished"], 0, "finished", size=0.028, until=1, until_word="adding")
+x, y = on_screen(upper, [bx, level_y(430, 1280)])
+c.text("Upper windows: + about 5 m", x - 0.03, y + 0.03, 0.03, 1, align="RIGHT", color=THRUST, plate=True, word="adding").later(2.3, "adding")
+c.text("the added height is schematic", x - 0.03, y - 0.03, 0.02, 1, align="RIGHT", color=MUTED, plate=True, word="adding").later(2.3, "adding")
+lower_left(c, ["1272: the choir in use"], 2, "1272", size=0.028)
 beat("C8", "B32", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "By the 1250s, the two lower levels of the new choir were finished.",
     "Then the bishop apparently decided to go beyond the planned proportions, adding about five meters to the upper windows, and so to the vaults.",
     "By 1272, the clergy could use the new choir."],
-    ["CLM_181"], strategy="CARD", graphic=c.spec(), visual_goal="The choir itself: its three levels marked beside the photograph; the top one grows",
+    ["CLM_181"], strategy="CARD", graphic=c.spec(),
+    visual_goal="The choir itself: its three levels marked; the camera moves in on the upper windows when they are said to grow",
     required_concepts=[])
 
 c = Card("B33")
-for asset, bx0, crop, label, word in (("IMG_AMIENS_NAVE", 0.05, (0.0, 0.0, 1.0, 1.0), "Amiens: more than 42 m", "above"),
-                                      ("IMG_BEAUVAIS_CHOIR", 0.55, (0.0, 0.45, 1.0, 1.0), "Beauvais: more than 45 m", "45")):
-    box, _ = fitted(asset, [bx0, 0.28, bx0 + 0.35, 0.86], crop)
-    c.image(asset, [bx0, 0.28, bx0 + 0.35, 0.86], crop, 0, word="vault" if asset == "IMG_BEAUVAIS_CHOIR" else word)
-    c.text(label, (box[0] + box[2]) / 2, 0.905, 0.03, 0, plate=True, word=word)
-    c.credit(asset, (box[0] + box[2]) / 2, CREDIT_Y)
-c.text("The highest vaults built in the Middle Ages", 0.5, 0.235, 0.03, 1, word="highest")
-for k, t in enumerate(("Published", "for Beauvais:", "46 m, 46.7 m, nearly 47 m,", "above 48 m")):
-    c.text(t, 0.47, 0.62 - 0.04 * k, 0.019, 0, color=MUTED, word="45")
+c.image("IMG_BEAUVAIS_CHOIR", [0.5, 0.0, 1.0, 1.0], (0.0, 0.45, 1.0, 1.0), 0)   # first: a card never opens empty
+c.image("IMG_AMIENS_NAVE", [0.0, 0.0, 0.5, 1.0], sentence=0, word="above")
+c.text("Amiens: more than 42 m", 0.25, 0.9, 0.032, 0, plate=True, word="above")
+c.text("Beauvais: more than 45 m", 0.75, 0.9, 0.032, 0, plate=True, word="45")
+c.text("The highest vaults built in the Middle Ages", 0.5, 0.28, 0.032, 1, plate=True, word="highest")
+c.text("Published for Beauvais: 46 m, 46.7 m, nearly 47 m, above 48 m", 0.5, 0.215, 0.018, 0, color=MUTED, plate=True, word="45")
+c.text(PHOTOS["IMG_AMIENS_NAVE"]["credit"], 0.25, 0.83, 0.015, 0, color=MUTED, word="above")
+c.text(PHOTOS["IMG_BEAUVAIS_CHOIR"]["credit"], 0.75, 0.83, 0.015, 0, color=MUTED)
 beat("C8", "B33", "fact", "COMPARE_VARIANTS", [
     "Its vault rose more than 45 meters, a few meters above Amiens.",
     "These were the highest vaults built in the Middle Ages."],
     ["CLM_102", "CLM_103", "CLM_104"], strategy="CARD", graphic=c.spec(),
-    visual_goal="Two real buildings, each by its own photograph, with its height; the caveat on the published figures",
+    visual_goal="Two real buildings side by side, each by its own photograph, with its height; the caveat on the published figures",
     required_concepts=[])
 
 c = Card("B34")
-PLAN_CHOIR = (0.148, 0.4754, 0.887, 1.0)   # the choir and transept of Viollet-le-Duc's plan
-box, at = fitted("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR)
-c.image("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR, 0)
-c.credit("DRW_VLD_BEAUVAIS_PLAN", (box[0] + box[2]) / 2, CREDIT_Y)
-end = mark_box(c, at, 255, 165, 358, 325, 0, "part")
-(x0, y1), (x1, y0) = at(255, 165), at(358, 325)
+c.stage()
+c.image("DRW_VLD_BEAUVAIS_PLAN", FULL, sentence=0)
+end = mark_box(c, AT_PLAN, 255, 165, 358, 325, 0, "part", delay=1.4)
+(x0, y1), (x1, y0) = AT_PLAN(255, 165), AT_PLAN(358, 325)
 for k in range(5):   # a light hatch: the area, not a picture of a collapse
     y = y0 + (y1 - y0) * (k + 1) / 6
-    c.line([[x0 + 0.004, y], [x1 - 0.004, y]], THRUST, 0.0018, 0, layer=2)
+    c.line([[x0 + 0.002, y], [x1 - 0.002, y]], THRUST, 0.0015, 0, layer=2)
     c.elements[-1].update(word="part", delay=round(end + 0.08 * k, 3))
-c.text("Choir: straight bays", (x0 + x1) / 2, y1 + 0.035, 0.022, 0, plate=True, word="part").later(end, "part")
-c.text("29 November 1284", RIGHT + 0.02, 0.8, 0.04, 0, word="november")
-c.text("Vault cells over the choir's", RIGHT + 0.02, 0.72, 0.026, 0, word="part")
-c.text("straight bays came down", RIGHT + 0.02, 0.675, 0.026, 0, word="part")
-c.text("“The last limit” that the building", RIGHT + 0.02, 0.5, 0.026, 1, word="called")
-c.text("of the great 13th-century churches", RIGHT + 0.02, 0.455, 0.026, 1, word="called")
-c.text("could reach", RIGHT + 0.02, 0.41, 0.026, 1, word="called")
-c.text("Viollet-le-Duc, 19th century,", RIGHT + 0.02, 0.33, 0.022, 1, color=MUTED, word="violet")
-c.text("who drew this plan", RIGHT + 0.02, 0.29, 0.022, 1, color=MUTED, word="violet")
+c.stage(False)
+c.view(CHOIR_VIEW)
+c.view(STRAIGHT, 0, "part", move=1.4)
+c.text("Plan of Beauvais: Viollet-le-Duc, 1856", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
+top_left(c, ["29 November 1284"], 0, "november", size=0.034)
+lower_left(c, ["Vault cells over the choir's straight bays fell"], 0, "part", size=0.028).later(end, "part")
+lower_left(c, ["“The last limit”: Viollet-le-Duc, who drew this plan"], 1, "called", y=0.24, size=0.026)
 beat("C8", "B34", "fact", "SHOW_COMPONENT", [
     "Then, in November 1284, part of the vaults over the choir came down.",
     "The architect Viollet-le-Duc, writing centuries later, called it the last limit that the great churches of the 13th century could reach."],
     ["CLM_182"], strategy="CARD", graphic=c.spec(),
-    visual_goal="Beauvais's own plan: the area where vaults fell is marked; no collapse or debris is shown",
+    visual_goal="Beauvais's own plan, whole; the camera moves in on the straight bays where vault cells fell, marked; no collapse is shown",
     required_concepts=[])
 
 c = Card("B35")
-box, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", [0.10, BOTTOM, 0.42, TOP])
-c.image("DRW_VLD_BEAUVAIS_BUTTRESS", [0.10, BOTTOM, 0.42, TOP], sentence=0)
-c.text("Drawing: Viollet-le-Duc, 1856 (public domain); marks schematic", (box[0] + box[2]) / 2, CREDIT_Y, 0.017, 0, color=MUTED)
-COL = 0.70
-c.text("Why did the vaults fall? Still debated.", COL, 0.88, 0.034, 0)
-# 1: the flying buttresses
-mark_box(c, at, 175, 140, 365, 360, 1, "broke", until=2)
-c.text("Hypothesis: settling masonry", COL, 0.72, 0.03, 1, word="blame", until=2)
-c.text("broke the flying buttresses", COL, 0.67, 0.03, 1, word="blame", until=2)
-# 2: gusts of wind on the upper parts
-for k, py in enumerate((150, 260, 370)):
+_, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", FULL)
+c.stage()
+c.image("DRW_VLD_BEAUVAIS_BUTTRESS", FULL, sentence=0)
+mark_box(c, at, 165, 130, 385, 370, 1, "blame", delay=1.2, until=2)               # 1: the flying buttresses
+for k, py in enumerate((150, 260, 370)):                                           # 2: wind on the upper parts
     y = at(0, py)[1]
-    c.drawn_arrow([[0.05, y], [box[0] - 0.006, y]], ACCENT, 0.006, 2, "gusts", seconds=0.5, until=3, delay=0.15 * k)
-c.text("Hypothesis: gusts of wind set the", COL, 0.72, 0.03, 2, word="gusts", until=3)
-c.text("buttress system resonating", COL, 0.67, 0.03, 2, word="gusts", until=3)
-# 3: settlement of the foundations
-for k, px_ in enumerate((110, 235, 360)):
-    (xa, ya), (_, yb) = at(px_, 935), at(px_, 1015)
-    c.drawn_arrow([[xa, ya], [xa, yb]], ACCENT, 0.006, 2, "settlement", seconds=0.4, until=4, delay=0.1 * k)
-c.text("Hypothesis: slow settlement", COL, 0.56, 0.03, 2, word="settlement", until=4)
-c.text("of the foundations", COL, 0.515, 0.03, 2, word="settlement", until=4)
-# the 2024 study: nothing for a foundation cause
-(xa, ya), (xb, yb) = at(80, 925), at(400, 1018)
-c.drawn([[xa, ya], [xb, yb]], THRUST, 0.004, 3, "nothing", seconds=0.3, until=4)
-c.drawn([[xa, yb], [xb, ya]], THRUST, 0.004, 3, "nothing", seconds=0.3, until=4, delay=0.3)
-c.text("Vernhes, Renault and Zotna, 2024:", COL, 0.42, 0.027, 3, color=THRUST, until=4)
-c.text("“nothing appears to justify", COL, 0.37, 0.028, 3, color=THRUST, word="nothing", until=4)
-c.text("a geotechnical origin”", COL, 0.33, 0.028, 3, color=THRUST, word="nothing", until=4)
-# their argument: the upper parts
-mark_box(c, at, 60, 15, 600, 565, 4, "upper", color=THRUST)   # walls, flyers and pinnacles above the aisle roofs
-c.text("Their hypothesis: vaults raised", COL, 0.42, 0.028, 4, color=THRUST, word="raising")   # owner's wording (g-r2)
-c.text("against proven proportions left", COL, 0.375, 0.028, 4, color=THRUST, word="raising")
-c.text("the upper parts too flexible", COL, 0.33, 0.028, 4, color=THRUST, word="upper")
-c.text("ECSMGE 2024: an argument, not a settled result", COL, 0.25, 0.019, 3, color=MUTED)
+    n = len(c.elements)
+    c.drawn_arrow([[at(0, 0)[0] - 0.09, y], [at(0, 0)[0] - 0.006, y]], ACCENT, 0.005, 2, "gusts", seconds=0.5,
+                  until=2, delay=0.15 * k)
+    for e in c.elements[n:]:
+        e["until_word"] = "or"
+for k, px_ in enumerate((110, 235, 360)):                                          # 3: settling foundations
+    (xa, ya), (_, yb) = at(px_, 860), at(px_, 965)
+    c.drawn_arrow([[xa, ya], [xa, yb]], ACCENT, 0.005, 2, "settlement", seconds=0.4, until=3, delay=0.1 * k)
+    c.line([[xa, ya], [xa, yb + 0.012]], FAINT, 0.004, 3, layer=2)                # the study: the arrows grey out
+    c.elements[-1]["until"] = 4
+mark_box(c, at, 60, 15, 600, 565, 4, "raising", color=THRUST)                      # their hypothesis: the upper parts
+c.stage(False)
+c.view(FULL)
+c.view(around(at, 150, 120, 400, 380, pad=1.25), 1, "blame", move=1.2)
+c.view(around(at, 0, 0, 630, 600, pad=1.1), 2, "others", move=1.2)
+low = c.view(square(0.5, 0.128, at(630, 0)[0] - at(0, 0)[0]), 2, "or", move=1.0)
+c.view(around(at, 0, 0, 630, 600, pad=1.1), 4, "authors", move=1.2)
+c.text("Section of Beauvais: Viollet-le-Duc, 1856; marks schematic", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
+top_left(c, ["Why did the vaults fall? Still debated."], 0, size=0.034, until=1)
+top_left(c, ["Hypothesis: settling masonry broke", "the flying buttresses"], 1, "blame", until=2)
+top_left(c, ["Hypothesis: gusts of wind set the", "buttress system resonating"], 2, "gusts", until=2, until_word="or")
+top_left(c, ["Hypothesis: slow settlement", "of the foundations"], 2, "settlement", until=3)
+x, y = on_screen(low, at(235, 900))
+c.text("Not supported by this study", x, y + 0.13, 0.026, 3, color=MUTED, plate=True, word="nothing").gone(4)
+top_left(c, ["Vernhes, Renault and Zotna, 2024:", "“nothing appears to justify", "a geotechnical origin”"], 3, "study",
+         size=0.028, color=THRUST, until=4)
+top_left(c, ["Their hypothesis: vaults raised against proven", "proportions left the upper parts too flexible"], 4,
+         "raising", size=0.028, color=THRUST)
+lower_left(c, ["ECSMGE 2024: an argument, not a settled result"], 3, "study", y=0.25, size=0.02, color=MUTED)
 beat("C8", "B35", "fact", "EXPLAIN_CAUSE_EFFECT", [
     "Why it happened is still debated.",
     "Some blame settling masonry that broke the flying buttresses.",
@@ -983,64 +1074,83 @@ beat("C8", "B35", "fact", "EXPLAIN_CAUSE_EFFECT", [
     "A 2024 study found nothing to justify a foundation cause.",
     "Its authors argue that raising the vaults, against proven proportions, left the upper parts too flexible."],
     ["CLM_183", "CLM_184"], strategy="CARD", graphic=c.spec(),
-    visual_goal="One hypothesis at a time, each marked on Viollet-le-Duc's section of Beauvais; the 2024 argument last",
+    visual_goal="One hypothesis at a time on Viollet-le-Duc's section of Beauvais, the camera on the part each names; the 2024 "
+                "study greys the foundation hypothesis (not supported by that study, not ruled out); their argument last",
     required_concepts=[])
 
 c = Card("B36")
-box, at = fitted("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR)
-c.image("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR, 0)
-c.credit("DRW_VLD_BEAUVAIS_PLAN", (box[0] + box[2]) / 2, CREDIT_Y)
-k = 0
-for px_ in (260, 353.5):   # new piers between the old ones of the main arcade, in the three straight bays
-    for py in (195, 248.75, 298.75):
-        c.circle(at(px_, py), 0.011, THRUST, 1)
-        c.elements[-1].update(word="piers", delay=round(0.12 * k, 3))
-        k += 1
-c.text("The repair", RIGHT + 0.02, 0.8, 0.04, 0)
-c.text("New piers between the old ones", RIGHT + 0.02, 0.71, 0.026, 1, word="new")
-c.text("3 bays become 6", RIGHT + 0.02, 0.66, 0.026, 1, word="six")
-c.text("Four-part vaults rebuilt as six-part (Murray)", RIGHT + 0.02, 0.615, 0.019, 1, color=MUTED, word="six")
-c.text("New piers marked in orange; positions schematic", RIGHT + 0.02, 0.58, 0.019, 1, color=MUTED, word="piers")
-c.text("Finished in 1340", RIGHT + 0.02, 0.49, 0.034, 2, word="finished")
-c.text("“Longer to repair the choir", RIGHT + 0.02, 0.41, 0.026, 2, word="longer")
-c.text("than to build it”: Stephen Murray", RIGHT + 0.02, 0.37, 0.026, 2, word="longer")
+c.stage()
+c.image("DRW_VLD_BEAUVAIS_PLAN", FULL, sentence=0)
+OLD_ROWS, NEW_ROWS = (167.5, 222.5, 275, 322.5), (195, 248.75, 298.75)
+for k, (px_, py) in enumerate((x_, y_) for x_ in (260, 353.5) for y_ in NEW_ROWS):   # new piers between the old ones
+    c.circle(AT_PLAN(px_, py), 0.006, THRUST, 1)
+    c.elements[-1].update(word="piers", delay=round(1.0 + 0.1 * k, 3))
+for k, py in enumerate(NEW_ROWS):   # the new transverse lines: six bays
+    (xa, y), (xb, _) = AT_PLAN(260, py), AT_PLAN(353.5, py)
+    c.drawn([[xa, y], [xb, y]], THRUST, 0.0025, 1, "six", seconds=0.4, dash=True, delay=0.15 * k)
+c.stage(False)
+c.view(CHOIR_VIEW)
+c.view(STRAIGHT, 1, move=1.2)
+c.view(CHOIR_VIEW, 2, "finished", move=1.4, delay=0.3)
+for k, py in enumerate((195, 248.75, 298.75)):   # three bays, numbered while the camera is on them
+    x, y = on_screen(STRAIGHT, AT_PLAN(306, py))
+    c.text(str(k + 1), x, y, 0.034, 1, plate=True).later(1.2).gone(1, "six")
+for k, (a, b) in enumerate(zip(sorted(OLD_ROWS + NEW_ROWS), sorted(OLD_ROWS + NEW_ROWS)[1:])):
+    x, y = on_screen(STRAIGHT, AT_PLAN(306, (a + b) / 2))
+    c.text(str(k + 1), x, y, 0.026, 1, color=THRUST, plate=True, word="six").later(0.6, "six").gone(2, "finished")
+c.text("Plan of Beauvais: Viollet-le-Duc, 1856", 0.95, CREDIT_TOP, 0.016, 0, align="RIGHT", color=MUTED)
+top_left(c, ["The repair"], 0, size=0.034)
+lower_left(c, ["New piers between the old ones (positions schematic)"], 1, "piers", size=0.026, until=2).later(1.0, "piers")
+lower_left(c, ["Finished in 1340", "“Longer to repair the choir than to build it”: Stephen Murray"], 2, "finished", size=0.026)
 beat("C8", "B36", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "The repair tells its own story.",
     "New piers went up between the old ones, turning three bays into six.",
     "The work was not finished until 1340: as the historian Stephen Murray put it, it took longer to repair the choir than to build it."],
     ["CLM_185", "CLM_182"], strategy="CARD", graphic=c.spec(),
-    visual_goal="The same plan: what was added and where (new piers in the straight bays), then the date",
+    visual_goal="The plan, then close on the three straight bays: numbered 1 to 3, the new piers appear, the bays become 1 to 6; "
+                "then out again for the date",
     required_concepts=[])
 
 c = Card("B37")
-box, at = fitted("DRW_VLD_BEAUVAIS_PLAN", [0.03, BOTTOM, 0.36, TOP])
-c.image("DRW_VLD_BEAUVAIS_PLAN", [0.03, BOTTOM, 0.36, TOP], sentence=0)
-c.credit("DRW_VLD_BEAUVAIS_PLAN", (box[0] + box[2]) / 2, CREDIT_Y)
-pbox, _ = fitted("IMG_BEAUVAIS_TRANSEPT", [0.42, 0.5, 0.96, TOP])
-c.image("IMG_BEAUVAIS_TRANSEPT", [0.42, 0.5, 0.96, TOP], sentence=0, word="transept")
-c.text("Beauvais today: transept and choir", (pbox[0] + pbox[2]) / 2, 0.475, 0.021, 0, color=INK, word="transept")
-c.credit("IMG_BEAUVAIS_TRANSEPT", (pbox[0] + pbox[2]) / 2, 0.44).later(0.0, "transept")   # with its photo
-mark_box(c, at, 95, 312, 525, 470, 0, "transept", color=ACCENT)
+_, at_photo = fitted("IMG_BEAUVAIS_TRANSEPT", FULL)
+c.stage()
+c.image("IMG_BEAUVAIS_TRANSEPT", FULL, sentence=0, until=1)
+c.elements[-1]["until_word"] = "instead"   # dissolves under the plan
+c.image("DRW_VLD_BEAUVAIS_PLAN", FULL, sentence=1, until=4)
+c.elements[-1].update(layer=1, until_word="great")
 for k, (px_, py) in enumerate(((260, 322.5), (353.5, 322.5), (260, 416), (353.5, 416))):
-    c.circle(at(px_, py), 0.011, THRUST, 2)
-    c.elements[-1].update(word="slender", delay=round(0.15 * k, 3))
-mark_box(c, at, 150, 475, 460, 905, 2, "west", color=MUTED)
-c.text("No nave: no support to the west", at(305, 690)[0], at(305, 560)[1], 0.02, 2, plate=True, word="west")
-c.text("The Gothic nave: never built", at(305, 690)[0], at(305, 760)[1], 0.022, 4, plate=True, color=THRUST, word="never")
-X = lambda year: 0.44 + (year - 1480) / 120.0 * 0.5   # noqa: E731
-c.line([[X(1480), 0.3], [X(1600), 0.3]], INK, 0.005, 0)
+    c.circle(AT_PLAN(px_, py), 0.006, THRUST, 2)
+    c.elements[-1].update(word="slender", delay=round(0.15 * k, 3), until=4)
+mark_box(c, AT_PLAN, 150, 475, 460, 905, 2, "west", color=THRUST, until=4, delay=0.3)
+c.image("IMG_BEAUVAIS_TRANSEPT", FULL, sentence=4)
+c.elements[-1]["layer"] = 2
+c.stage(False)
+pw = at_photo(1743, 0)[0] - at_photo(0, 0)[0]
+photo = c.view(square(0.5, 0.56, pw))
+c.view(around(AT_PLAN, 200, 270, 410, 470, pad=1.5), 1, move=1.5)          # the crossing, where the tower stood
+nave = c.view(around(AT_PLAN, 100, 270, 520, 905, pad=1.05), 2, "lack", move=1.5)   # and the west side: no nave
+c.view(square(0.5, 0.56, pw), 4, move=1.2)
+# a timeline band at the top: it moves on to each date as it is told
+c.rect([0.04, 0.76, 0.96, 0.95], "#EDEBE5", border=FAINT, sentence=0, border_width=0.002, layer=3)
+X = lambda year: 0.08 + (year - 1480) / 120.0 * 0.84   # noqa: E731
+c.line([[X(1480), 0.85], [X(1600), 0.85]], INK, 0.004, 0, layer=4)
 for year in (1480, 1520, 1560, 1600):
-    c.line([[X(year), 0.288], [X(year), 0.312]], INK, 0.003, 0)
-    c.text(str(year), X(year), 0.265, 0.018, 0, color=MUTED)
+    c.text(str(year), X(year), 0.815, 0.016, 0, color=MUTED)
 reach = X(1480)
-for year, label, s_, word, y in ((1500, "1500  Transept begun", 0, "transept", 0.37),
-                                 (1569, "1569  Tower and spire, about 150 m", 1, "finished", 0.37),
-                                 (1573, "1573  The tower falls", 3, "1573", 0.225)):
-    wait = c.drawn([[reach, 0.3], [X(year), 0.3]], ACCENT, 0.008, s_, word, seconds=min(0.9, 0.25 + (X(year) - reach) * 2))
+for year, label, s_, word, y in ((1500, "1500  Transept begun", 0, "transept", 0.9),
+                                 (1569, "1569  Tower and spire, about 150 m", 1, "finished", 0.9),
+                                 (1573, "1573  The tower falls", 3, "1573", 0.78)):
+    wait = c.drawn([[reach, 0.85], [X(year), 0.85]], ACCENT, 0.007, s_, word, seconds=min(0.9, 0.25 + (X(year) - reach) * 2),
+                   layer=5)
     reach = X(year)
-    c.circle([X(year), 0.3], 0.008, INK, s_).later(wait, word)
-    c.line([[X(year), 0.3], [X(year), y - 0.02 if y > 0.3 else y + 0.02]], FAINT, 0.003, s_).later(wait, word)
-    c.text(label, min(max(X(year), 0.5), 0.86), y, 0.022, s_, plate=True).later(wait, word)
+    c.circle([X(year), 0.85], 0.007, INK, s_).later(wait, word)
+    c.text(label, min(max(X(year), 0.2), 0.8), y, 0.02, s_, plate=True).later(wait, word)
+c.text(PHOTOS["IMG_BEAUVAIS_TRANSEPT"]["credit"] + "; plan: Viollet-le-Duc, 1856", 0.95, 0.205, 0.015, 0, align="RIGHT",
+       color=MUTED)
+lower_left(c, ["Beauvais Cathedral today: transept and choir"], 0, "transept", size=0.026, until=1)
+x, y = on_screen(nave, AT_PLAN(305, 690))
+c.text("No nave: no support to the west", x, y, 0.026, 2, plate=True, word="west").later(1.0, "west").gone(4)
+lower_left(c, ["The Gothic nave: never built"], 4, "never", size=0.03, color=THRUST)
 beat("C8", "B37", "fact", "SHOW_CONTEXT", [
     "In the sixteenth century, work began again, with a new transept, the cross-arm of the building.",
     "Then, instead of a nave, the builders raised a lantern tower and spire about 150 meters high, finished in 1569.",
@@ -1048,40 +1158,45 @@ beat("C8", "B37", "fact", "SHOW_CONTEXT", [
     "In 1573, just four years after it was finished, the tower came down.",
     "The great Gothic nave was never built."],
     ["CLM_186", "CLM_187", "CLM_106"], strategy="CARD", graphic=c.spec(),
-    visual_goal="Beauvais's plan with the transept, the four crossing piers and the nave that was never built; the timeline "
-                "moves to each date; the building today in a photograph. The fall is told, not shown",
+    visual_goal="The building today, then its plan: the crossing and its four piers, then the west side where no nave stands; "
+                "back to the photograph; the timeline moves on to each date. The fall is told, not shown",
     required_concepts=[])
 
 c = Card("B38")
-box, _ = fitted("IMG_AMIENS_NAVE", [0.04, BOTTOM, 0.36, TOP])
-c.image("IMG_AMIENS_NAVE", [0.04, BOTTOM, 0.36, TOP], sentence=0)
-c.credit("IMG_AMIENS_NAVE", (box[0] + box[2]) / 2, CREDIT_Y)
-AMIENS_CROP = (0.0777, 0.1071, 0.932, 0.623)   # nave and crossing of Viollet-le-Duc's plan of Amiens
-pbox, at = fitted("DRW_VLD_AMIENS_PLAN", [0.39, BOTTOM, 0.70, TOP], AMIENS_CROP)
-c.image("DRW_VLD_AMIENS_PLAN", [0.39, BOTTOM, 0.70, TOP], AMIENS_CROP, 1, word="crossing")
-c.credit("DRW_VLD_AMIENS_PLAN", (pbox[0] + pbox[2]) / 2, CREDIT_Y)
-c.elements[-1].update(sentence=1, word="crossing")   # with its plan
+_, at = fitted("IMG_AMIENS_NAVE", FULL)
+_, at_plan = fitted("DRW_VLD_AMIENS_PLAN", FULL)
+c.stage()
+c.image("IMG_AMIENS_NAVE", FULL, sentence=0, until=1)
+c.elements[-1]["until_word"] = "within"
+c.image("DRW_VLD_AMIENS_PLAN", FULL, sentence=1)
+c.elements[-1]["layer"] = 1
 for k, (px_, py) in enumerate(((213, 447), (305, 447), (213, 541), (305, 541))):
-    c.circle(at(px_, py), 0.011, THRUST, 1)
-    c.elements[-1].update(word="crossing", delay=round(0.4 + 0.12 * k, 3))
-xa, ya = at(318, 875)
-_, yb = at(318, 548)
-c.drawn([[xa, ya], [xa, yb]], ACCENT, 0.006, 2, "chain", seconds=1.2, dash=True)
-COL = 0.835
-c.text("Amiens", COL, 0.84, 0.044, 0)
-c.text("Crossing piers threatening", COL, 0.7, 0.023, 1, word="crossing")
-c.text("collapse within two centuries", COL, 0.66, 0.023, 1, word="crossing")
-c.text("1497–1500: an iron chain", COL, 0.54, 0.026, 2, color=ACCENT, word="chain")
-c.text("Iron rods linked together,", COL, 0.48, 0.021, 2, color=MUTED, word="runs")
-c.text("along the nave, tying", COL, 0.445, 0.021, 2, color=MUTED, word="runs")
-c.text("the crossing pier", COL, 0.41, 0.021, 2, color=MUTED, word="runs")
-c.text("Route schematic", COL, 0.35, 0.019, 2, color=MUTED, word="runs")
+    c.circle(at_plan(px_, py), 0.004, THRUST, 1)
+    c.elements[-1].update(word="crossing", delay=round(1.2 + 0.12 * k, 3))
+xa, ya = at_plan(318, 875)
+_, yb = at_plan(318, 548)
+c.drawn([[xa, ya], [xa, yb]], ACCENT, 0.007, 2, "chain", seconds=1.6, dash=True)
+c.stage(False)
+w = at(1892, 0)[0] - at(0, 0)[0]
+c.view(square(0.5, 1 - w / 2, w))
+nave_view = c.view(around(at_plan, 60, 400, 460, 900, pad=1.05), 1, move=1.5)
+crossing = c.view(around(at_plan, 170, 400, 350, 590, pad=1.5), 1, "crossing", move=1.2)
+c.view(nave_view, 2, "between", move=1.5)
+credit_top(c, "IMG_AMIENS_NAVE").gone(1)
+c.text("Plan of Amiens: Viollet-le-Duc, 1854", 0.95, CREDIT_TOP, 0.016, 1, align="RIGHT", color=MUTED)
+lower_left(c, ["Amiens Cathedral today"], 0, size=0.028, until=1)
+lower_left(c, ["Crossing piers: threatening collapse within two centuries"], 1, "crossing", size=0.026, until=2).later(1.2, "crossing")
+x, y = on_screen(nave_view, [xa, (ya + yb) / 2])
+c.text("Iron chain, 1497–1500", x + 0.03, y + 0.03, 0.03, 2, align="LEFT", color=ACCENT, plate=True, word="chain")
+c.text("route schematic", x + 0.03, y - 0.025, 0.022, 2, align="LEFT", color=MUTED, plate=True, word="chain")
+lower_left(c, ["Iron rods linked together, along the nave, tying the crossing pier"], 2, "runs", size=0.024, color=MUTED)
 beat("C8", "B38", "fact", "SHOW_CONTEXT", [
     "Beauvais was not alone.",
     "At Amiens, within two centuries, the piers at the crossing, where the arms of the building meet, were threatening collapse.",
     "Between 1497 and 1500, an iron chain was installed to stop the movement, and it still runs through the building today."],
     ["CLM_190", "CLM_191", "CLM_106"], strategy="CARD", graphic=c.spec(),
-    visual_goal="Amiens by its own photograph, then its plan: the crossing piers, and the chain's route along the nave",
+    visual_goal="Amiens by its own photograph, then its plan, large: the camera moves in on the crossing piers, then out "
+                "along the nave while the chain's route is drawn",
     required_concepts=[])
 
 # C9 -------------------------------------------------------------------------------------------

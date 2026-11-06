@@ -1,0 +1,229 @@
+{
+  "utc": "2026-11-06T15:07:02.632241+00:00",
+  "label": "PILOT_G_R6",
+  "preset": "internal_720p",
+  "shots": [
+    "SC_012",
+    "SC_013",
+    "SC_016",
+    "SC_017"
+  ],
+  "render": {
+    "SC_012": "cached",
+    "SC_013": "cached",
+    "SC_016": "cached",
+    "SC_017": "cached"
+  },
+  "runs": [
+    [
+      "SC_012",
+      "SC_013"
+    ],
+    [
+      "SC_016",
+      "SC_017"
+    ]
+  ],
+  "excerpt_joins": [
+    "SC_013->SC_016"
+  ],
+  "frames": 1870,
+  "seconds": 77.917,
+  "cuts": [
+    {
+      "cut": "SC_012->SC_013",
+      "mode": "match",
+      "ssim": 0.99999,
+      "ok": true
+    },
+    {
+      "cut": "SC_016->SC_017",
+      "mode": "match",
+      "ssim": 1.0,
+      "ok": true
+    }
+  ],
+  "offsets_seconds": {
+    "SC_012": 0.0,
+    "SC_013": 19.625,
+    "SC_016": 41.458333333333336,
+    "SC_017": 56.416666666666664
+  },
+  "sound_cues": [
+    {
+      "at_seconds": 7.295,
+      "kind": "STONE",
+      "step": 6,
+      "shot": "SC_012"
+    },
+    {
+      "at_seconds": 7.775,
+      "kind": "STONE",
+      "step": 7,
+      "shot": "SC_012"
+    },
+    {
+      "at_seconds": 73.4267,
+      "kind": "STONE_HEAVY",
+      "step": 8,
+      "shot": "SC_017"
+    }
+  ],
+  "mix": {
+    "cues": 3,
+    "narration_peak": 16588,
+    "effect_peak": 4166.7,
+    "under_narration_db": 14.0,
+    "clipped_samples": 0
+  },
+  "sound_design": {
+    "schema": "sound_design/1",
+    "note": "Sound effects synthesised in the project (pipeline/sound.py): a stone part set in place. Levels are relative to the narration's peak; the whole mix is then loudness-normalised. An agent cannot listen: the owner decides whether they help.",
+    "under_narration_db": 14.0,
+    "lead_seconds": 0.03,
+    "variants": 3,
+    "kinds": {
+      "STONE": {
+        "seconds": 0.45,
+        "relative_db": 0.0,
+        "thump_hz": 72.0,
+        "thump_start_hz": 110.0,
+        "thump_decay": 0.07,
+        "thump_gain": 1.0,
+        "click_decay": 0.018,
+        "click_lowpass_hz": 3200.0,
+        "click_highpass_hz": 700.0,
+        "click_gain": 0.55,
+        "body": [
+          [
+            430.0,
+            0.05,
+            0.22
+          ],
+          [
+            780.0,
+            0.035,
+            0.14
+          ],
+          [
+            1350.0,
+            0.02,
+            0.08
+          ]
+        ]
+      },
+      "STONE_HEAVY": {
+        "seconds": 0.8,
+        "relative_db": 2.0,
+        "thump_hz": 52.0,
+        "thump_start_hz": 85.0,
+        "thump_decay": 0.13,
+        "thump_gain": 1.0,
+        "click_decay": 0.025,
+        "click_lowpass_hz": 2400.0,
+        "click_highpass_hz": 500.0,
+        "click_gain": 0.45,
+        "body": [
+          [
+            300.0,
+            0.09,
+            0.25
+          ],
+          [
+            560.0,
+            0.06,
+            0.15
+          ],
+          [
+            1020.0,
+            0.03,
+            0.08
+          ]
+        ]
+      }
+    }
+  },
+  "subtitle_stats": {
+    "cues": 17,
+    "sentences": 12,
+    "max_line": 42,
+    "lines_over_42": 0,
+    "two_line_cues": 13,
+    "aligned_boundaries": 5,
+    "sentence_fallbacks": 0,
+    "max_cps": 16.6
+  },
+  "subtitle_warnings": [],
+  "files": {
+    "with_sfx": {
+      "file": "output/pilot/gothic_cathedral_heights_PILOT_G_R6_INTERNAL_REVIEW_720p.mp4",
+      "subtitles": "output/pilot/gothic_cathedral_heights_PILOT_G_R6_INTERNAL_REVIEW_720p.en.srt",
+      "seconds": 77.917,
+      "frames": 1870,
+      "loudness": {
+        "integrated_lufs": -16.4,
+        "true_peak_dbtp": -1.4
+      },
+      "size_bytes": 4373543
+    },
+    "_no_sfx": {
+      "file": "output/pilot/gothic_cathedral_heights_PILOT_G_R6_INTERNAL_REVIEW_720p_no_sfx.mp4",
+      "subtitles": "output/pilot/gothic_cathedral_heights_PILOT_G_R6_INTERNAL_REVIEW_720p_no_sfx.en.srt",
+      "seconds": 77.917,
+      "frames": 1870,
+      "loudness": {
+        "integrated_lufs": -16.4,
+        "true_peak_dbtp": -1.4
+      },
+      "size_bytes": 4372362
+    }
+  },
+  "intelligibility": {
+    "status": "RUN",
+    "model": "openai/whisper-large-v3-turbo",
+    "rows": {
+      "SC_012": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points, the piers or stone pillars at its corners."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points, the piers or stone pillars at its corners."
+        }
+      },
+      "SC_013": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "How exactly these vaults stand has been debated for centuries. Engineers following Jacques Heyman assume that the main ribs bring the forces down and treat the stone between them as a series of parallel arches. So even in that reading, the stone between the ribs carries load."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "How exactly these vaults stand has been debated for centuries. Engineers following Jacques Heyman assume that the main ribs bring the forces down and treat the stone between them as a series of parallel arches. So even in that reading, the stone between the ribs carries load."
+        }
+      },
+      "SC_016": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "But gathering the thrust does not make it go away. Even reduced, that sideways push remains a threat to the stability of the whole building. It still has to be contained somewhere."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "But gathering the thrust does not make it go away. Even reduced, that sideways push remains a threat to the stability of the whole building. It still has to be contained somewhere."
+        }
+      },
+      "SC_017": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "The answer stands outside the building, the flying buttress. It is a stone arch that picks up the thrust where it leaves the vault, carries it across the aisle roof, and brings it down to a massive pier buttress. Often a pinnacle on top adds weight to help stabilize the thrust."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "The answer stands outside the building, the flying buttress. It is a stone arch that picks up the thrust where it leaves the vault, carries it across the aisle roof, and brings it down to a massive pier buttress. Often a pinnacle on top adds weight to help stabilize the thrust."
+        }
+      }
+    },
+    "worse": []
+  },
+  "problems": []
+}

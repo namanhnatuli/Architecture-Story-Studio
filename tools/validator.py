@@ -321,6 +321,23 @@ def validate_graphic(graphic, duration, base=None, assets=None):
         return ["MOTION_GRAPHICS shot needs graphic.elements"]
     manifest = {a.get("id"): a for a in (assets or {}).get("assets", [])}
     ids = set()
+    stage = graphic.get("stage")
+    if stage is not None:   # g-r5: the 2D camera on the picture
+        views = stage.get("views") if isinstance(stage, dict) else None
+        if not views:
+            errors.append("graphic.stage needs views")
+        for k, v in enumerate(views or []):
+            rect = v.get("rect")
+            if not (isinstance(rect, list) and len(rect) == 4 and rect[0] < rect[2] and rect[1] < rect[3]
+                    and all(isinstance(x, (int, float)) and -0.5 <= x <= 1.5 for x in rect)):
+                errors.append(f"graphic.stage view {k}: rect must be [x0, y0, x1, y1] near the card")
+            at, move = v.get("at"), v.get("move_seconds", 0.0)
+            if not isinstance(at, (int, float)) or (k and (not isinstance(move, (int, float)) or move <= 0)):
+                errors.append(f"graphic.stage view {k}: unresolved timing or no move (run plan-visuals)")
+            elif isinstance(duration, (int, float)) and at + move >= duration:
+                errors.append(f"graphic.stage view {k}: the move ends at {at + move:.2f}s, after the shot")
+    elif any(e.get("stage") for e in graphic["elements"]):
+        errors.append("graphic: stage elements without graphic.stage")
     for e in graphic["elements"]:
         eid = e.get("id")
         if not eid or eid in ids:

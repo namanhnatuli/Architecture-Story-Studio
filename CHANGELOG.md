@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.10.3 — 2026-11-06 — Phim Gothic g-r6: chương 1 và 8 bớt dạng slide, chuyển góc B12, bỏ dấu X
+- **Chủ kênh nhận xét g-r5:**
+  - Hình rõ hơn, công trình được nhận diện; đoạn thử 3D gần đạt mức làm mẫu.
+  - Nhưng C1 và C8 vẫn có cảm giác slide; dấu X ở B35 khẳng định quá mạnh; tiêu đề giữ quá lâu.
+  - Đoạn chuyển vào khoang ở B12 khó định hướng; tuyến dây xích Amiens còn nhỏ.
+  - Chưa có gì được duyệt.
+- **Camera 2D cho card (stage):**
+  - `graphic.stage.views`: các khung `rect` mà camera tới, theo câu hoặc từ, có `move_seconds`.
+  - Phần tử `stage: true` (ảnh, dấu vẽ) zoom và lia cùng nhau; chữ đứng yên.
+  - Thực thi trong `engine/diagram.py` (`stage_transform`, `key_stage`); planner tính thời điểm; `validator` kiểm view và phần tử; QA không coi ảnh trên stage là "ra ngoài khung".
+- **`until_word`:** một phần tử card rời màn hình đúng lúc một từ được đọc.
+- **`from_start`:** ảnh đầu tiên của card có mặt ngay từ khung đầu. Card ảnh không còn mở bằng 0,3 giây nền trống.
+- **Đổi ảnh bằng chuyển hoà:** ảnh sau hiện đè lên ảnh trước (lớp cao hơn), ảnh trước rời đi khi ảnh sau đã vào. Trước đây hai lần mờ nối tiếp nhau tạo một khung trống.
+- **C1:**
+  - B01: ảnh dàn hợp xướng Beauvais phủ kín khung, camera lia lên vòm trong lúc kể 1284, rồi kéo ra ảnh bên ngoài. Chữ ghi "today".
+  - B02: Amiens, camera lên dọc lòng chính tới vòm và cửa sổ hoa hồng.
+  - B03: tiêu đề chỉ giữ tới "relying"; hai câu hỏi hiện trên mặt cắt Beauvais của Viollet-le-Duc (vòm cao, rồi trụ chống bay).
+- **C8:**
+  - B31, B32: ảnh phủ kín khung. Camera lên từng tầng theo lời; tầng trên đổi màu khi nói "adding".
+  - B34: mặt bằng toàn cảnh rồi cận các khoang thẳng.
+  - B35: mỗi giả thuyết, camera tới đúng phần đó. Nghiên cứu 2024 làm mờ mũi tên lún, ghi "Not supported by this study" (không còn dấu X).
+  - B36: cận ba khoang đánh số 1–3, trụ mới hiện, rồi thành 1–6.
+  - B37: ảnh, mặt bằng (giao cánh, phía tây), rồi lại ảnh; timeline trên dải đầu khung.
+  - B38: ảnh Amiens, rồi mặt bằng lớn, cận trụ giao cánh, tuyến dây xích vẽ dần kèm nhãn "route schematic".
+- **B12 (đoạn thử):** khoang được chọn đổi màu trên cả nhà thờ trước. Phần còn lại mờ nhưng vẫn còn trong lúc camera quay xuống; sàn ẩn hẳn. Khoang chỉ đứng riêng khi camera đã dừng.
+- Test: `StageCardTest` (7).
+
 ## 0.10.2 — 2026-11-06 — Phim Gothic g-r5, bước 2–3: chương Beauvais và mở phim bằng ảnh thật
 - **Chủ kênh đề nghị:**
   - Beauvais và Amiens phải có hình riêng.

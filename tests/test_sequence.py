@@ -257,3 +257,65 @@ class ExcerptTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class StageCardTest(unittest.TestCase):
+    """g-r6 (owner's g-r5 review): pictures fill the frame and a 2D camera moves on them; the 2024 study greys a
+    hypothesis, it does not cross it out; the chosen bay is marked before the church around it fades."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.story = {s["id"]: s for s in json.loads((PROJECT / "storyboard/storyboard.json").read_text())["shots"]}
+        cls.beats = {b["beat_id"]: b for b in json.loads((PROJECT / "script/visual_beats.json").read_text())["beats"]}
+
+    def test_stage_views_are_timed_and_in_order(self):
+        for sid in ("SC_001", "SC_036", "SC_037"):
+            views = self.story[sid]["graphic"]["stage"]["views"]
+            self.assertEqual(views[0]["at"], 0.0)
+            for a, b in zip(views[1:], views[2:]):
+                self.assertGreaterEqual(b["at"], a["at"] + a["move_seconds"] - 1e-6)
+            self.assertLess(views[-1]["at"] + views[-1]["move_seconds"], self.story[sid]["duration_seconds"])
+
+    def test_pictures_on_the_stage_fill_the_frame_when_the_camera_climbs(self):
+        g = self.story["SC_001"]["graphic"]
+        self.assertTrue(any(e["kind"] == "image" and e.get("stage") for e in g["elements"]))
+        texts = [e for e in g["elements"] if e["kind"] == "text"]
+        self.assertFalse([e for e in texts if e.get("stage")])          # words stay put on screen
+        self.assertTrue(any("today" in e["text"] for e in texts))       # the photograph is of the building today
+
+    def test_the_2024_study_greys_the_foundation_hypothesis_without_crossing_it_out(self):
+        els = self.beats["B35"]["graphic"]["elements"]
+        texts = [e["text"] for e in els if e["kind"] == "text"]
+        self.assertIn("Not supported by this study", texts)
+        self.assertTrue(any("not a settled result" in t for t in texts))
+        crossing = [e for e in els if e["kind"] == "line" and e.get("sentence") == 3 and e.get("color") == "#C25110"]
+        self.assertEqual(crossing, [])   # no X over the arrows
+
+    def test_the_bay_is_marked_before_the_church_around_it_fades(self):
+        steps = self.story["SC_012"]["animation"]["steps"]
+        first_glow = min(s["start_seconds"] for s in steps if s["do"] == "HIGHLIGHT")
+        first_ghost = min(s["start_seconds"] for s in steps if s["do"] == "GHOST")
+        isolate = max(s["start_seconds"] for s in steps if s["do"] == "FADE_OUT")
+        move = self.story["SC_012"]["animation"]["views"][1]
+        self.assertLess(first_glow, first_ghost)
+        self.assertGreaterEqual(isolate + 1e-6, move["start_seconds"] + move["move_seconds"] - 0.5)   # after the turn
+
+    def test_a_picture_card_never_opens_on_an_empty_frame(self):
+        for sid in ("SC_001", "SC_032", "SC_034", "SC_036", "SC_038", "SC_039"):
+            images = [e for e in self.story[sid]["graphic"]["elements"] if e["kind"] == "image"]
+            self.assertEqual(images[0]["appear"], 0.0, sid)
+
+    def test_a_picture_change_is_a_dissolve(self):
+        """The next picture arrives over the last one, which leaves only once it is in (no dip to the background)."""
+        els = self.story["SC_001"]["graphic"]["elements"]
+        inside, outside = [e for e in els if e["kind"] == "image"][:2]
+        self.assertLess(outside["appear"] + 0.35, inside["disappear"])
+        self.assertGreater(outside.get("layer", 0), inside.get("layer", 0))
+
+    def test_a_stage_needs_views_and_its_elements_need_a_stage(self):
+        from tools import validator
+        img = {"id": "x", "kind": "rect", "box": [0.1, 0.1, 0.2, 0.2], "stage": True, "appear": 0.0}
+        self.assertTrue(any("without graphic.stage" in e for e in validator.validate_graphic({"elements": [img]}, 5.0)))
+        bad = {"elements": [img], "stage": {"views": [{"rect": [0, 0, 1, 1], "at": 0.0},
+                                                      {"rect": [0.2, 0.2, 0.4, 0.4], "at": 4.5, "move_seconds": 1.0}]}}
+        self.assertTrue(any("after the shot" in e for e in validator.validate_graphic(bad, 5.0)))

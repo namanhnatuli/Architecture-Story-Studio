@@ -6,8 +6,8 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 
 | Loại hình | Số shot | Thời lượng | Tỉ lệ |
 |---|---|---|---|
-| DIAGRAM | 15 | 348.0 s | 38% |
-| PHOTO | 10 | 210.2 s | 23% |
+| DIAGRAM | 14 | 331.5 s | 36% |
+| PHOTO | 11 | 226.7 s | 25% |
 | 3D_HOLD | 8 | 117.2 s | 13% |
 | 3D_PUSH_IN | 5 | 102.3 s | 11% |
 | 3D_SEQUENCE | 4 | 77.9 s | 8% |
@@ -19,7 +19,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 
 | Chương | Bắt đầu | Dài | Shot | Loại hình |
 |---|---|---|---|---|
-| C1 Hook | 0:00 | 52 s | 3 | DIAGRAM ×1, PHOTO ×2 |
+| C1 Hook | 0:00 | 52 s | 3 | PHOTO ×3 |
 | C2 Stone and its outward push | 0:52 | 78 s | 4 | 3D_HOLD ×3, DIAGRAM ×1 |
 | C3 The pointed arch | 2:10 | 106 s | 4 | DIAGRAM ×4 |
 | C4 The rib vault | 3:56 | 84 s | 4 | 3D_PUSH_IN ×1, 3D_SEQUENCE ×2, DIAGRAM ×1 |
@@ -36,7 +36,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 |---|---|---|---|---|
 | SC_001 | B01 | PHOTO | 21.0 s | match |
 | SC_002 | B02 | PHOTO | 14.6 s | hard |
-| SC_003 | B03 | DIAGRAM | 16.5 s | hard |
+| SC_003 | B03 | PHOTO | 16.5 s | hard |
 | SC_004 | B04 | DIAGRAM | 13.4 s | hard |
 | SC_005 | B05 | 3D_HOLD | 19.5 s | hard |
 | SC_006 | B06 | 3D_HOLD | 24.1 s | match |
@@ -101,11 +101,11 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 - PASS `audio_no_overlap`: no two beats' speech overlaps
 - PASS `narration_silences`: longest gap 1.23s (limit 4.0s), after the last line 0.82s
 - PASS `no_static_stretches`: longest stretch without a visual change 13.7s at 135.0s (limit 14.0s)
-- FAIL `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4); 3D_HOLD 8, 3D_PUSH_IN 5, 3D_SEQUENCE 4, DIAGRAM 15, PHOTO 10, TITLE 5
+- FAIL `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4); 3D_HOLD 8, 3D_PUSH_IN 5, 3D_SEQUENCE 4, DIAGRAM 14, PHOTO 11, TITLE 5
 - PASS `no_repeated_visuals`: no two consecutive shots show the same picture
 - PASS `chapter_openings`: chapters 2-10 open with a numbered title on their first shot
 - PASS `annotations_consistent`: narration/visual consistency: no contradiction; 3 UNCERTAIN for the reviewer (B26.s1 SIDE, B35.s4 SIDE, B44.s0 ARROWS); every annotation placed
 - WARN `render_cache_current`: 32/47 shots not rendered or stale at internal_720p: SC_004, SC_005, SC_006, SC_007, SC_008, SC_009
-- WARN `chapter_variety`: C3, C8
+- WARN `chapter_variety`: C1, C3, C8
 - PASS `image_licences`: 7 external images, all approved with matching files
 - PASS `image_attribution`: every external image is credited (credit card or description)

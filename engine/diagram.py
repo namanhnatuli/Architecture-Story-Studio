@@ -289,6 +289,37 @@ def _key_fades(plan, name, appear, disappear, fade, frames):
         plan.key(name, motion.TRANSPARENCY, frames, 0.0)
 
 
+def stage_transform(rect, aspect):
+    """g-r5: (location, scale) of the stage that makes the card rectangle `rect` [x0, y0, x1, y1] fill the frame
+    (its longer side, in card units: a rect with equal sides has the frame's shape). Pure maths."""
+    x0, y0, x1, y1 = rect
+    k = 1.0 / max(x1 - x0, y1 - y0)
+    cx, cy = ((x0 + x1) / 2 - 0.5) * aspect * CARD_HEIGHT, ((y0 + y1) / 2 - 0.5) * CARD_HEIGHT
+    return (-k * cx, -k * cy, 0.0), (k, k, 1.0)
+
+
+def key_stage(plan, name, cfg, aspect):
+    """Stage views: the first holds from frame 1; each later one eases in over move_seconds from `at`, then holds.
+    Depth is never scaled, so stage parts keep their drawing order against fixed texts."""
+    views = cfg["views"]
+    loc, scl = stage_transform(views[0]["rect"], aspect)
+    plan.key(name, motion.LOC, 1, loc)
+    plan.key(name, motion.SCALE, 1, scl)
+    for k, v in enumerate(views[1:], 1):
+        f0, f1 = plan.frame(float(v["at"])), plan.frame(float(v["at"]) + float(v["move_seconds"]))
+        if f1 >= plan.frame_count or f0 < 1 or f1 <= f0:
+            raise ValueError(f"stage view {k}: frames {f0}-{f1} outside the card's {plan.frame_count}")
+        easing = v.get("easing", "SMOOTH")
+        plan.key(name, motion.LOC, f0, loc, easing)
+        plan.key(name, motion.SCALE, f0, scl, easing)
+        loc, scl = stage_transform(v["rect"], aspect)
+        plan.key(name, motion.LOC, f1, loc)
+        plan.key(name, motion.SCALE, f1, scl)
+        plan.markers[f"stage_view_{k}"] = f1
+    plan.key(name, motion.LOC, plan.frame_count, loc)
+    plan.key(name, motion.SCALE, plan.frame_count, scl)
+
+
 def build_card(data, shot, preset_name, scene):
     style, preset = data["style"], data["preset"]
     fps = int(data["project"]["fps"])
@@ -312,6 +343,10 @@ def build_card(data, shot, preset_name, scene):
     objects, helpers, plan = {}, {}, motion.Plan(fps, frames)
     fade = float(graphic.get("fade_seconds", 0.4))
     materials = {}
+    stage = None
+    if graphic.get("stage"):   # g-r5: a 2D camera on the picture: stage elements zoom and pan together
+        stage = bpy.data.objects.new("CARD_STAGE", None)
+        root.objects.link(stage)
     for element in graphic["elements"]:
         kind = element["kind"]
         if kind == "text":
@@ -343,6 +378,12 @@ def build_card(data, shot, preset_name, scene):
             e["ass_transparency"] = 0.0
             e["card_element"] = element["id"]
         helpers[element["id"]] = extra
+        if element.get("stage"):
+            if stage is None:
+                raise ValueError(f"{element['id']}: a stage element needs graphic.stage")
+            for o in [obj] + extra:   # the stage starts at identity, so local == card space
+                o.parent = stage
+                o["card_stage"] = True
         appear = float(element.get("appear", 0.0))
         disappear = element.get("disappear")
         for o in [obj] + extra:
@@ -360,6 +401,8 @@ def build_card(data, shot, preset_name, scene):
             if f1 < frames:
                 plan.key(obj.name, motion.LOC, frames, tuple(end))
     plan.markers["middle"] = (frames + 1) // 2
+    if stage is not None:
+        key_stage(plan, stage.name, graphic["stage"], aspect)
 
     cam_data = bpy.data.cameras.new("Card camera")
     cam_data.type = "ORTHO"
@@ -372,6 +415,8 @@ def build_card(data, shot, preset_name, scene):
     scene.world = world
 
     render_objects = dict(objects, **{camera.name: camera, background.name: background})
+    if stage is not None:
+        render_objects[stage.name] = stage
     for extra in helpers.values():
         for o in extra:
             render_objects[o.name] = o
