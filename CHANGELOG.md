@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.10.5 — 2026-11-07 — Phim Gothic g-r8: C4, C5, C2, C3, C7 theo bảng việc của chủ kênh
+- **Chủ kênh giao bảng việc từng chương**, thứ tự C4 → C5 → C2 → C3 → C7 → C6. Chưa có gì được duyệt.
+- **C4:**
+  - B14: ảnh nội thất Durham (Cornell University Library, không có hạn chế bản quyền đã biết), camera lên vòm gân; timeline tiến tới dải 1093–1133.
+  - B15: sơ đồ một khoang, trước và sau: lực xuống trụ; tường nhạt, mỏng, mở thành cửa sổ rộng.
+- **C5:**
+  - B18: mặt bằng; tường dày cắt thành đoạn, **mỗi đoạn xoay 90°** thành trụ chống; vòm lộ vẽ dần.
+  - B19: sơ đồ hai nguồn gốc theo BnF; ảnh trụ chống bay Chartres (CC BY 3.0) và mặt đông Notre-Dame (CC0).
+  - B20: đường nước mưa vẽ dần, ghi "schematic"; hệ trụ cao lên bằng nét đứt.
+- **C2:**
+  - B04: đá bị kéo tách rời; vòm đá nén ở từng mạch.
+  - B05: SEQUENCE Romanesque; vòm hạ xuống đặt lên tường, ép xuống rồi đẩy ngang.
+  - B06: camera quay chính diện bức tường; tường, trụ áp tường, cửa sổ lần lượt sáng.
+  - B07: mặt cắt Gothic; trụ, hệ trụ ngoài, ba công cụ lần lượt sáng.
+- **C3:**
+  - B08: vòm nhọn vẽ thành hai cung; đo đỉnh vòm.
+  - B09: dây xích **xoay 180°** thành vòm.
+  - B11: đỉnh vòm tròn và vòm nhọn được kẻ.
+- **C7:**
+  - B25: vòm dựng bằng compa, cùng tỉ lệ vẽ lớn dần.
+  - B26: cọc, dây, hình vuông, thước và compa.
+  - B27: trình tự theo nguồn: vẽ đủ cỡ, khung đỡ, đặt đá từ hai chân lên đá khoá, tháo khung.
+  - B28: giàn giáo, ván khuôn, cần trục, thanh giằng gỗ rồi sắt.
+- **Card:**
+  - `spin`: phần tử xoay quanh một tâm, theo câu hoặc từ.
+  - Mọi phần tử của câu đầu không gắn với từ có mặt từ khung đầu, nên không card nào mở bằng khung trống.
+- **Romanesque:** hỗ trợ SEQUENCE.
+- **QA chú thích:** tia kiểm tra điểm neo theo hướng thật của camera tại khung đó. Trước đây QA dùng hướng của view đầu, nên sai với camera quay.
+- **Mã shot đánh số lại** từ B18 (SC_n trùng Bn).
+- Test: `ChapterRedesignTest` (5).
+
 ## 0.10.4 — 2026-11-07 — Phim Gothic g-r7: bản quét lớn, ghi công dễ đọc, nhịp B35, icon kêu gọi
 - **Chủ kênh nhận xét g-r6:**
   - Giữ cấu trúc hình của đoạn thử, C1 và C8.

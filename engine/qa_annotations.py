@@ -31,7 +31,9 @@ def _first_hit(ctx, world, depsgraph, own):
     """Object hit first by a ray from the camera plane through `world`: the anchor's own
     components count even when ghosted; other see-through parts, annotations and captions
     are passed through."""
-    fwd = Vector(ctx.camera_basis[2])
+    # the camera's own direction at the current frame (an orbiting SEQUENCE camera turns; the basis it was built with
+    # is the opening view's)
+    fwd = -Vector(ctx.camera.matrix_world.col[2][:3]).normalized()
     origin = Vector(world) - fwd * 40.0
     for _ in range(12):
         hit, loc, _n, _i, obj, _m = ctx.scene.ray_cast(depsgraph, origin, fwd, distance=200.0)

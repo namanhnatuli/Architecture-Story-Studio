@@ -32,6 +32,12 @@ PHOTOS = {
                            "credit": "Photo: Dguendel, CC BY 4.0, Wikimedia Commons"},
     "IMG_BEAUVAIS_TRANSEPT": {"path": "assets/external/beauvais_basse_oeuvre_transept_1743.jpg", "size": (1743, 1409),
                               "credit": "Photo: Chris06, CC0, Wikimedia Commons"},
+    "IMG_CHARTRES_FLYERS": {"path": "assets/external/chartres_nave_flyers_2560.jpg", "size": (2560, 1706),
+                            "credit": "Photo: Florestan, CC BY 3.0, Wikimedia Commons"},
+    "IMG_NOTRE_DAME_CHEVET": {"path": "assets/external/notre_dame_chevet_2560.jpg", "size": (1600, 2560),
+                              "credit": "Photo: Jebulon, CC0, Wikimedia Commons"},
+    "IMG_DURHAM_INTERIOR": {"path": "assets/external/durham_interior_cornell_1273.jpg", "size": (1273, 1536),
+                            "credit": "Photo: A. D. White Architectural Photographs, Cornell University Library"},
     "IMG_AMIENS_NAVE": {"path": "assets/external/amiens_nave_from_triforium_2560.jpg", "size": (1892, 2560),
                         "credit": "Photo: Eusebius, CC BY 3.0, Wikimedia Commons"},
     # g-r7 (owner: the drawings were soft when enlarged): the pages of the book's large scan, framed exactly as the
@@ -195,6 +201,11 @@ class Card:
         return self
 
     def spec(self):
+        """g-r8: whatever the first sentence shows from its start is on screen from the first frame (no card opens on an
+        empty frame); later elements still fade in at their moment."""
+        for e in self.elements:
+            if e.get("sentence") == 0 and not e.get("word") and not e.get("delay"):
+                e["from_start"] = True
         return {"fade_seconds": 0.35, "elements": self.elements, **({"stage": {"views": self.views}} if self.views else {})}
 
 
@@ -343,6 +354,15 @@ def note(nid, text, sentence=0, until=None, position="TOP_LEFT"):
     return a
 
 
+def part(concept, local):
+    return {"concept": concept, "local": local}
+
+
+def glow(targets, at, until, **kw):
+    """g-r5 (owner: more contrast on the part being explained): a stronger glow, leaning to the accent colour."""
+    return {"do": "HIGHLIGHT", "targets": targets, "at": at, "until": until, "strength": 1.0, "tint": 0.8, **kw}
+
+
 GOTHIC, ROMANESQUE = "gothic_cathedral_section", "romanesque_church_section"
 
 # C1 -------------------------------------------------------------------------------------------
@@ -366,6 +386,16 @@ def lower_left(c, lines, sentence, word=None, y=0.3, size=0.03, color=INK, until
     """Short captions at the lower left, on plates, above the subtitles."""
     for k, t in enumerate(lines):
         c.text(t, 0.06, y - k * (1.85 * size + 0.006), size, sentence, align="LEFT", color=color, plate=True, word=word)   # plates 1.74 x size
+        if until is not None:
+            c.gone(until, until_word)
+    return c
+
+
+def top_left(c, lines, sentence, word=None, size=0.03, color=INK, until=None, until_word=None, delay=0.0):
+    for k, t in enumerate(lines):
+        c.text(t, 0.06, 0.86 - k * (1.85 * size + 0.006), size, sentence, align="LEFT", color=color, plate=True, word=word)
+        if delay:
+            c.later(delay, word)
         if until is not None:
             c.gone(until, until_word)
     return c
@@ -443,53 +473,111 @@ beat("C1", "B03", "fact", "SHOW_CONTEXT", [
     required_concepts=[])
 
 # C2 -------------------------------------------------------------------------------------------
+# g-r8 (owner: make compression, the outward push and the thick wall's role clear with moving diagrams; fewer
+# still models): two stones pulled apart, an arch of stones pressed together; the vault set on its walls, pressing
+# down and pushing out; the wall along its whole length; the Gothic system, its tools lit as they are named.
 c = Card("B04")
 c.tag("2 · Stone and its outward push")
-voussoirs(c, 0.5, 0.3, 0.42, 0.3, 0.07, 7, 0)
-c.rect([0.33, 0.24, 0.5 - 0.2 / ASPECT, 0.3], STONE, sentence=0)
-c.rect([0.5 + 0.2 / ASPECT, 0.24, 0.67, 0.3], STONE, sentence=0)
-c.text("Pulled apart: little or no strength", 0.5, 0.82, 0.03, 1, plate=True)
-c.text("Stones pressed together: it stands", 0.5, 0.75, 0.03, 2, plate=True, color=ACCENT)
 c.text("Conceptual diagram, not to scale", 0.82, 0.25, 0.02, 0, color=MUTED)
+A, B = [0.355, 0.5, 0.497, 0.64], [0.503, 0.5, 0.645, 0.64]
+for box in (A, B):   # two stones, side by side ...
+    c.rect(box, STONE, border="#7A6E58", sentence=0, border_width=0.003)
+    c.elements[-1].update(until=1, until_word="apart", until_delay=0.4)
+for k, (x0, x1) in enumerate(((0.35, 0.25), (0.65, 0.75))):   # ... pulled apart
+    c.drawn_arrow([[x0, 0.57], [x1, 0.57]], THRUST, 0.008, 1, "pulled", seconds=0.4, until=2)
+c.rect([A[0] - 0.05, A[1], A[2] - 0.05, A[3]], STONE, border="#7A6E58", sentence=1, border_width=0.003, until=2).later(0.4, "apart")
+c.rect([B[0] + 0.05, B[1], B[2] + 0.05, B[3]], STONE, border="#7A6E58", sentence=1, border_width=0.003, until=2).later(0.4, "apart")
+c.text("Pulled apart: little or no strength", 0.5, 0.78, 0.032, 1, plate=True, word="strength", until=2)
+voussoirs(c, 0.5, 0.3, 0.42, 0.3, 0.07, 7, 2)                 # an arch of stones pressed together
+c.rect([0.33, 0.24, 0.5 - 0.2 / ASPECT, 0.3], STONE, sentence=2)
+c.rect([0.5 + 0.2 / ASPECT, 0.24, 0.67, 0.3], STONE, sentence=2)
+ring = place(pointed_arch(0.49, 0.335, 6), 0.5, 0.3)          # the joints of the ring, pressed together
+for k, (x, y) in enumerate(ring[1:-1]):
+    c.circle([x, y], 0.007, ACCENT, 2)
+    c.elements[-1].update(word="pressed", delay=round(0.1 * k, 2))
+c.text("Stones pressed together: it stands", 0.5, 0.78, 0.032, 2, plate=True, color=ACCENT, word="pressed")
 beat("C2", "B04", "fact", "EXPLAIN_STRUCTURE", [
     "Start with the stone itself.",
     "Stone has little or no strength when it is pulled apart.",
     "So a stone building stands largely by keeping its stones pressed together."],
-    ["CLM_111"], strategy="CARD", graphic=c.spec(), visual_goal="An arch of wedge-shaped stones: pressed together, not pulled apart",
+    ["CLM_111"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Two stones pulled apart come apart (no strength); then an arch of stones pressed together at every joint stands",
     required_concepts=[])
+
+ROM_VAULT = [{"concept": "barrel_vault"}, part("arcade_wall", [f"haunch_fill_b{b}_{s}" for b in (1, 2, 3) for s in ("west", "east")])]
+ROM_ROOF = [{"concept": "high_roof"}]
 beat("C2", "B05", "fact", "EXPLAIN_LOAD_PATH", [
     "Now put a heavy stone vault on top of two walls.",
     "A vault does not simply press down: it also pushes outward, like a bow being bent.",
     "That outward push is called thrust, and a document from Amiens shows that builders there were well aware of it."],
-    ["CLM_120", "CLM_121"], strategy="HOLD", visual_goal="Romanesque section: a barrel vault on two walls; conceptual outward arrows at the top of the walls (no magnitudes)",
+    ["CLM_120", "CLM_121"], strategy="SEQUENCE",
+    visual_goal="The section square on: two walls; the heavy vault is set on them; it presses down, then pushes out "
+                "(arrows drawn, no magnitudes), the vault lit like a bent bow",
     required_concepts=[ROMANESQUE, "barrel_vault"],
+    sequence={"camera": "CATHEDRAL_TRANSVERSE",
+              "views": [{"frame": None}],
+              "steps": [{"do": "FADE_OUT", "targets": ROM_ROOF, "at": 0, "seconds": 0},
+                        {"do": "REVEAL", "targets": ROM_VAULT, "at": {"sentence": 0, "word": "heavy", "offset": -0.3},
+                         "seconds": 1.4, "direction": "FROM_ABOVE", "distance": 6.0, "sound": "STONE_HEAVY"},
+                        glow([{"concept": "barrel_vault"}], {"sentence": 1, "word": "bow", "offset": -0.3},
+                             {"sentence": 2, "word": "called"})]},
     annotations=[note("B05_note", "Illustrative model, arrows are conceptual", 1, position="BOTTOM_RIGHT"),
+                 {"id": "B05_down", "type": "LOAD_ARROW", "target": "barrel_vault", "text": "Presses down",
+                  "sentence": 1, "word": "press", "until": 2, "claim_id": "CLM_120"},
                  {"id": "B05_thrust", "type": "THRUST_ARROW", "target": "barrel_vault", "points": ["BOTTOM_LEFT", "BOTTOM_RIGHT"],
-                  "text": "Thrust", "sentence": 1, "claim_id": "CLM_120"},
+                  "text": "Thrust", "sentence": 1, "word": "outward", "claim_id": "CLM_120"},
                  note("B05_word", "An Amiens document calls it “boutture”", 2)])
+
+E_WALLS = [part("thick_wall", [f"thick_wall_b{b}_east" for b in (1, 2, 3)])]      # the east wall, seen along its length
+E_BUTTS = [part("shallow_buttress", [f"shallow_buttress_east{k}" for k in range(4)])]
+E_WINDOWS = [part("small_window", [f"small_window_b{b}_east" for b in (1, 2, 3)])]
 beat("C2", "B06", "fact", "EXPLAIN_STRUCTURE", [
     "Romanesque builders had several ways of covering a great church.",
     "In the barrel-vaulted type shown here, the heavy vault pushes outward along the whole length of the wall, so walls and supports are thick, stiffened by buttresses.",
     "Large openings would weaken the wall that holds the vault, so windows tend to stay small."],
-    ["CLM_122"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="One barrel-vaulted example: thick walls and shallow buttresses highlighted; small windows. Not lit or framed as gloomy",
+    ["CLM_122"], strategy="SEQUENCE",
+    visual_goal="From the section, the camera turns to face the east wall along its length: the wall lights along its whole "
+                "length, then the buttresses, then the small windows, each as it is named",
     required_concepts=[ROMANESQUE, "thick_wall", "shallow_buttress"],
+    sequence={"camera": "CATHEDRAL_TRANSVERSE",
+              "views": [{"frame": None},
+                        {"frame": E_WALLS + E_BUTTS, "azimuth": 0.0, "elevation": 8.0, "margin": 0.17,
+                         "at": {"sentence": 1, "word": "barrel"}, "move_seconds": 2.4}],
+              "steps": [{"do": "FADE_OUT", "targets": ROM_ROOF, "at": 0, "seconds": 0, "why": "B05 ends this way"},
+                        glow(E_WALLS, {"sentence": 1, "word": "length", "offset": -0.4}, {"sentence": 1, "word": "stiffened"}),
+                        glow(E_BUTTS, {"sentence": 1, "word": "buttresses", "offset": -0.3}, {"sentence": 2, "word": "would"}),
+                        glow(E_WINDOWS, {"sentence": 2, "word": "windows", "offset": -0.3}, {"sentence": 2, "end": True, "offset": 0.4})]},
     annotations=[note("B06_note", "One Romanesque type, illustrative model", 1, position="BOTTOM_RIGHT"),
-                 {"id": "B06_vault", "type": "COMPONENT_LABEL", "target": "barrel_vault", "point": "TOP", "text": "Barrel vault", "sentence": 0},
-                 {"id": "B06_wall", "type": "COMPONENT_LABEL", "target": {"concept": "thick_wall", "pick": "RIGHTMOST"}, "point": "CENTER",
+                 {"id": "B06_wall", "type": "COMPONENT_LABEL", "target": part("thick_wall", "thick_wall_b2_east"), "point": "CENTER",
                   "text": "Thick wall", "sentence": 1, "word": "walls"},
-                 {"id": "B06_butt", "type": "COMPONENT_LABEL", "target": {"concept": "shallow_buttress", "pick": "RIGHTMOST"}, "point": "CENTER",
-                  "text": "Shallow buttress", "sentence": 1, "word": "buttresses"},
-                 {"id": "B06_window", "type": "COMPONENT_LABEL", "target": {"concept": "small_window", "pick": "RIGHTMOST"}, "point": "CENTER",
-                  "text": "Small window", "sentence": 2, "word": "windows"}])
+                 {"id": "B06_butt", "type": "COMPONENT_LABEL", "target": part("shallow_buttress", "shallow_buttress_east2"),
+                  "point": "CENTER", "text": "Shallow buttress", "sentence": 1, "word": "buttresses"},
+                 {"id": "B06_window", "type": "COMPONENT_LABEL", "target": part("small_window", "small_window_b2_east"),
+                  "point": "CENTER", "text": "Small window", "sentence": 2, "word": "windows"}])
 
+G_PIERS = [{"concept": "nave_pier", "group": g} for g in ("frame_west0", "frame_east0")]
+G_SYSTEM = [{"concept": c, "group": g} for c in ("flying_buttress", "pier_buttress") for g in ("frame_west0", "frame_east0")]
 beat("C2", "B07", "fact", "SHOW_COMPONENT", [
     "Gothic builders rearranged that system of support.",
     "Instead of spreading the push along a thick wall, they directed it toward particular points, and carried it to supports outside.",
     "Three tools made that possible: the pointed arch, the rib vault, and the flying buttress."],
-    ["CLM_123", "CLM_153"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=2,
-    visual_goal="The Gothic section; the three tools named as they are spoken", required_concepts=[GOTHIC, "rib", "flying_buttress"],
+    ["CLM_123", "CLM_153"], strategy="SEQUENCE",
+    visual_goal="The Gothic section square on: the piers light (particular points), then the supports outside; then the "
+                "three tools light as they are named",
+    required_concepts=[GOTHIC, "rib", "flying_buttress"],
+    sequence={"camera": "CATHEDRAL_TRANSVERSE",
+              "views": [{"frame": None}],
+              "steps": [glow(G_PIERS, {"sentence": 1, "word": "points", "offset": -0.4}, {"sentence": 1, "word": "carried"}),
+                        glow(G_SYSTEM, {"sentence": 1, "word": "supports", "offset": -0.3}, {"sentence": 2, "word": "made"}),
+                        # the three tools follow each other quickly in the narration: short rises and falls
+                        glow([{"concept": "aisle_vault"}], {"sentence": 2, "word": "pointed", "offset": -0.2},   # pointed, in section
+                             {"sentence": 2, "word": "rib", "offset": -0.2}, rise_seconds=0.2, fall_seconds=0.2),
+                        glow([{"concept": "rib"}], {"sentence": 2, "word": "rib", "offset": -0.15},
+                             {"sentence": 2, "word": "flying", "offset": 0.3}, rise_seconds=0.2, fall_seconds=0.2),
+                        glow([{"concept": "flying_buttress"}], {"sentence": 2, "word": "flying", "offset": 0.35},
+                             {"sentence": 2, "end": True, "offset": 0.4}, rise_seconds=0.2, fall_seconds=0.2)]},
     annotations=[note("B07_note", "Illustrative model", 0, position="BOTTOM_RIGHT"),
-                 {"id": "B07_arch", "type": "COMPONENT_LABEL", "target": {"concept": "arcade_wall", "group": "arcade"}, "point": "CENTER",
+                 {"id": "B07_arch", "type": "COMPONENT_LABEL", "target": {"concept": "aisle_vault", "pick": "RIGHTMOST"}, "point": "TOP",
                   "text": "Pointed arch", "sentence": 2, "word": "pointed"},
                  {"id": "B07_rib", "type": "COMPONENT_LABEL", "target": {"concept": "rib", "group": "rib_transverse_0"}, "point": "TOP",
                   "text": "Rib vault", "sentence": 2, "word": "rib"},
@@ -497,49 +585,65 @@ beat("C2", "B07", "fact", "SHOW_COMPONENT", [
                   "text": "Flying buttress", "sentence": 2, "word": "flying"}])
 
 # C3 -------------------------------------------------------------------------------------------
+# g-r8 (owner: animate the geometric comparisons, the chain and the crown heights): each arch is drawn as it is
+# described; the hanging chain turns upside down into the arch; crowns are measured as they are compared.
 c = Card("B08")
 c.tag("3 · The pointed arch")
 Y8 = 0.4
-c.line(place(round_arch(0.36), 0.3, Y8), STONE, 0.014, 0)
-c.line(place(pointed_arch(0.36, 0.42), 0.7, Y8), ACCENT, 0.014, 0)
-c.text("Round arch", 0.3, 0.87, 0.034, 1, plate=True)
-c.text("Pointed arch", 0.7, 0.87, 0.034, 0, plate=True)
-c.text("Rise: half the span", 0.3, Y8 + 0.07, 0.024, 1, color=MUTED)
-c.text("Same span, higher rise", 0.7, Y8 + 0.07, 0.024, 1, color=ACCENT)
-c.arrow([0.3 - 0.18 / ASPECT, Y8], [0.3 - 0.18 / ASPECT - 0.07, Y8 - 0.03], THRUST, 0.008, 1)
-c.arrow([0.3 + 0.18 / ASPECT, Y8], [0.3 + 0.18 / ASPECT + 0.07, Y8 - 0.03], THRUST, 0.008, 1)
-c.arrow([0.7 - 0.18 / ASPECT, Y8], [0.7 - 0.18 / ASPECT - 0.025, Y8 - 0.07], THRUST, 0.008, 1)
-c.arrow([0.7 + 0.18 / ASPECT, Y8], [0.7 + 0.18 / ASPECT + 0.025, Y8 - 0.07], THRUST, 0.008, 1)
-c.text("Conceptual arrows: direction only, not calculated", 0.5, 0.3, 0.021, 1, color=MUTED)
+pa = place(pointed_arch(0.36, 0.42), 0.7, Y8)
+half = len(pa) // 2
+c.drawn(pa[:half + 1], ACCENT, 0.014, 0, "two", seconds=0.9)                 # two arcs of a circle ...
+c.drawn(pa[half:][::-1], ACCENT, 0.014, 0, "meet", seconds=0.6)              # ... that meet at a point
+c.text("Pointed arch", 0.7, 0.88, 0.034, 0, plate=True, word="pointed")
+c.drawn(place(round_arch(0.36), 0.3, Y8), STONE, 0.014, 1, "same", seconds=1.0)   # the same span, round
+c.text("Round arch", 0.3, 0.88, 0.034, 1, plate=True, word="same")
+for cx, rise, color in ((0.3, 0.18, STONE), (0.7, 0.42, ACCENT)):              # the crowns, measured
+    c.drawn([[cx - 0.13, Y8 + rise], [cx + 0.13, Y8 + rise]], color, 0.003, 1, "higher", seconds=0.4, dash=True)
+c.text("Rise: half the span", 0.3, Y8 + 0.24, 0.024, 1, color=MUTED, word="higher")
+c.text("Same span, higher rise", 0.7, Y8 - 0.06, 0.024, 1, color=ACCENT, word="higher")
+for (x0, y0), (x1, y1) in (((0.3 - 0.18 / ASPECT, Y8), (0.3 - 0.18 / ASPECT - 0.07, Y8 - 0.03)),
+                           ((0.3 + 0.18 / ASPECT, Y8), (0.3 + 0.18 / ASPECT + 0.07, Y8 - 0.03)),
+                           ((0.7 - 0.18 / ASPECT, Y8), (0.7 - 0.18 / ASPECT - 0.025, Y8 - 0.07)),
+                           ((0.7 + 0.18 / ASPECT, Y8), (0.7 + 0.18 / ASPECT + 0.025, Y8 - 0.07))):
+    c.drawn_arrow([[x0, y0], [x1, y1]], THRUST, 0.008, 1, "push", seconds=0.4)
+c.text("Conceptual arrows: direction only, not calculated", 0.5, 0.3, 0.021, 1, color=MUTED, word="push")
+for k, (word, label) in enumerate((("shape", "Shape"), ("thickness", "Thickness"), ("weight", "Weight carried"))):
+    c.text(label, 0.3 + 0.2 * k, 0.24, 0.026, 2, plate=True, word=word)
+    c.elements[-1]["until"] = 3
 c.text("Illustrations, not the arches of the study (Block, DeJong and Ochsendorf, 2006)", 0.5, 0.25, 0.022, 3, color=MUTED)
 beat("C3", "B08", "fact", "COMPARE_VARIANTS", [
     "A pointed arch is two arcs of a circle that meet at a point.",
     "Over the same span, it can rise higher than a round arch, and a taller arch can push less to the sides.",
     "How much less depends on its exact shape, its thickness and the weight it carries.",
     "One comparison by MIT engineers, of two other arches, did find that the pointed one pushed less, but that result belongs to those two arches, not to every arch."],
-    ["CLM_130", "CLM_134"], strategy="CARD", graphic=c.spec(), visual_goal="Round and pointed arch on the same span; the higher rise. No thrust figures: these are not the arches of the study",
+    ["CLM_130", "CLM_134"], strategy="CARD", graphic=c.spec(),
+    visual_goal="The pointed arch drawn as two arcs meeting at a point; the round arch on the same span; both crowns "
+                "measured; the push drawn as direction only. No thrust figures: these are not the arches of the study",
     required_concepts=[])
 
 c = Card("B09")
-AY, CY = 0.72, 0.38    # the chain's anchors; the feet of the inverted curve
+CX, AY = 0.33, 0.52    # the chain hangs from two anchors at AY; turned about their midpoint it stands as an arch
 c.text("Robert Hooke, 1675", 0.5, 0.66, 0.05, 0, until=2)
 c.text("“As hangs the flexible line, so but inverted", 0.5, 0.52, 0.042, 1, until=2)
 c.text("will stand the rigid arch.”", 0.5, 0.45, 0.042, 1, until=2)
-c.line([[0.1, AY], [0.44, AY]], FAINT, 0.004, 2)
-chain = place(catenary(0.46, 0.34), 0.27, AY, flip=True)
-c.line(chain, INK, 0.008, 2)
-c.circle([0.27 - 0.23 / ASPECT, AY], 0.011, INK, 2)
-c.circle([0.27 + 0.23 / ASPECT, AY], 0.011, INK, 2)
+c.text("“As hangs the flexible line, so but inverted", 0.72, 0.88, 0.026, 2)
+c.text("will stand the rigid arch.”  Robert Hooke, 1675", 0.72, 0.84, 0.026, 2)
+c.line([[CX - 0.2, AY], [CX + 0.2, AY]], FAINT, 0.004, 2)
+for x in (CX - 0.23 / ASPECT, CX + 0.23 / ASPECT):
+    c.circle([x, AY], 0.011, INK, 2)
+chain = place(catenary(0.46, 0.28), CX, AY, flip=True)
+n0 = len(c.elements)
+c.drawn(chain, INK, 0.008, 2, "chain", seconds=0.9)
 for k in range(4, len(chain) - 1, 4):
     c.circle(chain[k], 0.009, MUTED, 2)
-c.text("A chain with its weights", 0.27, 0.3, 0.03, 2, plate=True)
-c.line(place(catenary(0.46, 0.34), 0.73, CY), INK, 0.008, 3, dash=True)
-c.text("Turned upside down: a path for the force", 0.73, 0.3, 0.03, 3, plate=True)
-c.line(place(funicular(0.46, 0.34, 1.2), 0.27, AY, flip=True), ACCENT, 0.006, 4)
-c.line(place(funicular(0.46, 0.34, 1.2), 0.73, CY), ACCENT, 0.006, 4, dash=True)
-c.text("Different weights, different curve", 0.5, 0.77, 0.028, 4, plate=True, color=ACCENT)
-c.text("“As hangs the flexible line, so but inverted", 0.5, 0.88, 0.032, 2)
-c.text("will stand the rigid arch.”  Robert Hooke, 1675", 0.5, 0.83, 0.032, 2)
+    c.elements[-1].update(word="weights", delay=round(0.08 * k, 2))
+for e in c.elements[n0:]:   # turned upside down, about the middle of its anchors
+    e["spin"] = {"degrees": 180, "pivot": [CX, AY], "sentence": 3, "word": "turn", "seconds": 1.6}
+c.text("A chain with its weights", 0.72, 0.62, 0.03, 2, plate=True, word="chain").gone(3, "turn")
+c.text("Turned upside down:", 0.72, 0.62, 0.03, 3, plate=True, word="upside")
+c.text("a path for the force", 0.72, 0.56, 0.03, 3, plate=True, word="path")
+c.drawn(place(funicular(0.46, 0.28, 1.2), CX, AY), ACCENT, 0.006, 4, "weights", seconds=1.0)
+c.text("Different weights, different curve", 0.72, 0.44, 0.028, 4, plate=True, color=ACCENT, word="changes")
 c.text("Conceptual diagram", 0.5, 0.235, 0.021, 2, color=MUTED)
 beat("C3", "B09", "fact", "EXPLAIN_STRUCTURE", [
     "In 1675, the scientist Robert Hooke summed up an idea about arches in one line.",
@@ -547,7 +651,9 @@ beat("C3", "B09", "fact", "EXPLAIN_STRUCTURE", [
     "Hang a chain with a set of weights, and it takes a shape.",
     "Turn that shape upside down, and it shows a path the force can follow through an arch carrying the same weights.",
     "Change the weights, and the shape changes too."],
-    ["CLM_114", "CLM_115"], strategy="CARD", graphic=c.spec(), visual_goal="Hanging chain with weights, inverted; different weights give a different curve", required_concepts=[])
+    ["CLM_114", "CLM_115"], strategy="CARD", graphic=c.spec(),
+    visual_goal="A chain is hung and its weights added; then the whole shape turns upside down into an arch; different "
+                "weights draw a different curve", required_concepts=[])
 
 EARLY = dict(start=1060, end=1160, ticks=(1060, 1080, 1100, 1120, 1140, 1160))
 c = timeline("B10", [(1088, "Cluny III: construction begins", 1, "cluny")],
@@ -561,31 +667,33 @@ beat("C3", "B10", "fact", "SHOW_CONTEXT", [
     ["CLM_131"], strategy="CARD", graphic=c.spec(), visual_goal="Short timeline: pointed arches before Gothic", required_concepts=[])
 
 c = Card("B11")
-c.text("Round arches", 0.27, 0.84, 0.034, 0, plate=True)
-c.text("Pointed arches", 0.73, 0.84, 0.034, 1, plate=True)
-c.line(place(round_arch(0.22), 0.16, 0.3), STONE, 0.012, 0)
-c.line(place(round_arch(0.42), 0.34, 0.3), STONE, 0.012, 0)
-c.line([[0.06, 0.3 + 0.21], [0.48, 0.3 + 0.21]], FAINT, 0.003, 0, dash=True)
-c.text("Crowns at different heights", 0.27, 0.7, 0.026, 0, color=MUTED)
-c.line(place(pointed_arch(0.22, 0.34), 0.62, 0.3), ACCENT, 0.012, 1)
-c.line(place(pointed_arch(0.42, 0.34), 0.8, 0.3), ACCENT, 0.012, 1)
-c.line([[0.54, 0.64], [0.94, 0.64]], ACCENT, 0.003, 1, dash=True)
-c.text("Same crown height", 0.73, 0.7, 0.026, 1, color=ACCENT)
+for cx, span in ((0.16, 0.22), (0.34, 0.42), (0.62, 0.22), (0.8, 0.42)):   # the feet of each span, from the start
+    for x in (cx - span / 2 / ASPECT, cx + span / 2 / ASPECT):
+        c.rect([x - 0.012, 0.25, x + 0.012, 0.3], STONE, sentence=0)
+c.text("Round arches", 0.27, 0.84, 0.034, 1, plate=True, word="round")
+c.drawn(place(round_arch(0.22), 0.16, 0.3), STONE, 0.012, 1, "round", seconds=0.6)
+c.drawn(place(round_arch(0.42), 0.34, 0.3), STONE, 0.012, 1, "round", seconds=0.8, delay=0.3)
+for cx, r in ((0.16, 0.11), (0.34, 0.21)):   # their crowns: at different heights
+    c.drawn([[cx - 0.07, 0.3 + r], [cx + 0.07, 0.3 + r]], STONE, 0.003, 1, "round", seconds=0.3, dash=True, delay=1.2)
+c.text("Crowns at different heights", 0.27, 0.7, 0.026, 1, color=MUTED, word="round").later(1.4, "round")
+c.text("Pointed arches", 0.73, 0.84, 0.034, 1, plate=True, word="pointed")
+c.drawn(place(pointed_arch(0.22, 0.34), 0.62, 0.3), ACCENT, 0.012, 1, "different", seconds=0.6)
+c.drawn(place(pointed_arch(0.42, 0.34), 0.8, 0.3), ACCENT, 0.012, 1, "different", seconds=0.8, delay=0.3)
+c.drawn([[0.54, 0.64], [0.94, 0.64]], ACCENT, 0.003, 1, "same", seconds=0.6, dash=True)
+c.text("Same crown height", 0.73, 0.7, 0.026, 1, color=ACCENT, word="same")
 c.text("Regular crowns help keep complex vaults regular", 0.5, 0.275, 0.028, 2, plate=True)
 c.text("Wide bay, narrow bay: conceptual diagram", 0.5, 0.225, 0.021, 1, color=MUTED)
 beat("C3", "B11", "fact", "COMPARE_VARIANTS", [
     "It had a subtler advantage too.",
     "Unlike a round arch, a pointed arch can span sections of different widths, called bays, and still reach the same height at its crown.",
     "That was a valuable asset for keeping complex vaults regular."],
-    ["CLM_132"], strategy="CARD", graphic=c.spec(), visual_goal="Level crowns over different widths", required_concepts=[])
+    ["CLM_132"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Round arches drawn over two widths, their crowns at different heights; pointed arches over the same "
+                "widths, their crowns drawn level", required_concepts=[])
 
 # C4 -------------------------------------------------------------------------------------------
 # The pilot (g-r4): rib vault and flying buttress as SEQUENCE shots. One bay is taken out of the model; its parts arrive
 # and light in the order the narration names them; the camera eases from the whole section to that bay.
-def part(concept, local):
-    return {"concept": concept, "local": local}
-
-
 BAY_PIERS = [{"concept": "nave_pier", "group": g} for g in ("frame_west0", "frame_east0", "frame_west1", "frame_east1")]
 BAY_ARCHES = [{"concept": "rib", "group": g} for g in ("rib_transverse_0", "rib_transverse_1")]
 BAY_DIAGONALS = [part("rib", "rib_diagonal_b1a"), part("rib", "rib_diagonal_b1b")]
@@ -605,11 +713,6 @@ UNDER_BAY = {"azimuth": -90.0, "elevation": -84.0}
 FLOOR = {"concept": "church_floor"}
 AROUND_BAY = {"except": BAY + BAY_WALLS + OUTSIDE + [FLOOR]}   # the church around the bay, kept faded while the camera turns   # straight up under the bay: the X of the ribs, a pier at each corner
 WAS_THERE = {"why": "B12 ends this way: the cut from it is invisible"}
-
-
-def glow(targets, at, until, **kw):
-    """g-r5 (owner: more contrast on the part being explained): a stronger glow, leaning to the accent colour."""
-    return {"do": "HIGHLIGHT", "targets": targets, "at": at, "until": until, "strength": 1.0, "tint": 0.8, **kw}
 
 
 beat("C4", "B12", "fact", "SHOW_COMPONENT", [
@@ -683,23 +786,89 @@ beat("C4", "B13", "fact", "SHOW_COMPONENT", [
                   "text": "A series of arches", "sentence": 1, "word": "parallel", "until": 2},
                  {"id": "B13_web", "type": "COMPONENT_LABEL", "target": {**BAY_WEB[0], "pick": "CENTERMOST"}, "point": "CENTER",
                   "text": "Stone web", "sentence": 2, "word": "stone"}])
-c = timeline("B14", [(1088, "Cluny III: construction begins", 0)],
-             [(1093, 1133, "Durham, begun 1093, finished 1133: ribbed vaults, in phases", STONE, 1, 0.72, "durham"),
-              (1140, 1144, "Saint-Denis choir", "#5E86A6", 0, 0.64)], extra=lambda c: (
-                 c.text("At least three technical phases, some forty years", 0.5, 0.34, 0.028, 2, plate=True),
-                 c.text("Earlier sources: Islamic, Roman, Byzantine (Columbia)", 0.5, 0.26, 0.028, 3, plate=True)), **EARLY)
+# g-r8 (owner: finish B14 on Durham and B15 on the wall): Durham by its own photograph, the camera climbing to its
+# ribbed vault while its dates advance; B15 a before-and-after of one bay, the change it tells drawn as it is told
+c = Card("B14")
+_, at = fitted("IMG_DURHAM_INTERIOR", FULL)
+c.stage()
+c.image("IMG_DURHAM_INTERIOR", FULL, sentence=0)
+c.stage(False)
+w = at(1273, 0)[0] - at(0, 0)[0]
+c.view(square(0.5, 0.42, w))                                  # the great piers
+c.view(square(0.5, 1 - w / 2, w), 1, "ribbed", move=2.2)     # up to the ribbed vault as it is named
+credit_line(c, PHOTOS["IMG_DURHAM_INTERIOR"]["credit"])
+top_left(c, ["Durham Cathedral, interior", "(photograph about 1865–1895)"], 1, "durham", size=0.026)
+c.rect([0.04, 0.18, 0.96, 0.335], "#EDEBE5", border=FAINT, sentence=0, border_width=0.002, layer=3)
+X = lambda year: 0.08 + (year - 1080) / 70.0 * 0.84   # noqa: E731
+c.line([[X(1080), 0.255], [X(1150), 0.255]], INK, 0.004, 0, layer=4)
+for year in (1080, 1100, 1120, 1140):
+    c.text(str(year), X(year), 0.225, 0.016, 0, color=MUTED)
+w1 = c.drawn([[X(1080), 0.255], [X(1088), 0.255]], ACCENT, 0.007, 0, "ribs", seconds=0.4, layer=5)
+c.circle([X(1088), 0.255], 0.007, INK, 0).later(w1, "ribs")
+c.text("1088  Cluny III: construction begins", X(1088) + 0.005, 0.3, 0.018, 0, align="LEFT", plate=True).later(w1, "ribs")
+w2 = c.drawn([[X(1088), 0.255], [X(1093), 0.255]], ACCENT, 0.007, 1, "1093", seconds=0.3, layer=5)
+c.drawn([[X(1093), 0.255], [X(1133), 0.255]], STONE, 0.016, 1, "1133", seconds=0.9, layer=5, delay=-0.0)
+c.text("Durham, begun 1093, finished 1133: ribbed vaults, in phases", X(1113), 0.3, 0.018, 1, plate=True).later(0.9, "1133")
+lower_left(c, ["At least three technical phases, some forty years"], 2, "phases", y=0.42, size=0.026)
+lower_left(c, ["Earlier sources: Islamic, Roman, Byzantine (Columbia)"], 3, "traces", y=0.42, size=0.026)
+for e in c.elements:   # the two remarks share a place: the first leaves when the second comes
+    if e.get("text", "").startswith("At least three"):
+        e.update(until=3, until_word="traces")
 beat("C4", "B14", "fact", "SHOW_CONTEXT", [
     "Ribs were not new either.",
     "Durham Cathedral in England, begun in 1093, was completely covered by ribbed vaults by the time it was finished in 1133.",
     "Its masons refined them in phases over some forty years.",
     "Columbia's project traces ribs to Islamic, Roman and Byzantine sources."],
-    ["CLM_142"], strategy="CARD", graphic=c.spec(), visual_goal="The same timeline, with Durham's building years as a band, not one date", required_concepts=[])
+    ["CLM_142"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Durham by its own photograph: the camera climbs from its great piers to its ribbed vault while the "
+                "timeline below advances to Durham's building years, a band, not one date",
+    required_concepts=[])
+
+c = Card("B15")
+L, R, BASE, TOPW = 0.33, 0.67, 0.2, 0.56       # one bay in elevation: piers at L and R, the wall between them
+PW = 0.045                                      # pier width (card x units)
+top_left(c, ["One bay, seen from inside (schematic)"], 0, size=0.022, color=MUTED)
+for x in (L, R):
+    c.rect([x - PW / 2, BASE, x + PW / 2, TOPW], STONE, border="#7A6E58", sentence=0, border_width=0.002, layer=2)
+voussoirs(c, 0.5, TOPW, (R - L - PW) * ASPECT, 0.31, 0.035, 15, 0)   # the pointed arch of the vault over the bay
+# before: a thick wall between the piers, carrying the vault, with a small window
+c.rect([L + PW / 2, BASE, R - PW / 2, TOPW], "#A89A7E", border="#7A6E58", sentence=0, border_width=0.002, layer=1)
+c.elements[-1].update(until=1, until_word="wall")
+c.rect([0.48, BASE + 0.18, 0.52, BASE + 0.3], GLASS, sentence=0, layer=3)
+c.elements[-1].update(until=2, until_word="opened")
+# the vault's load goes down the piers
+for k, x in enumerate((L, R)):
+    c.drawn_arrow([[0.5 + (x - 0.5) * 0.4, TOPW + 0.24], [x, TOPW + 0.02], [x, BASE + 0.03]], THRUST, 0.007, 1, "load",
+                  seconds=0.9, delay=0.2 * k)
+c.text("The load goes", 0.17, 0.5, 0.026, 1, color=THRUST, plate=True, word="piers")
+c.text("to the piers", 0.17, 0.445, 0.026, 1, color=THRUST, plate=True, word="piers")
+# the wall between them: no longer the main support, drawn lighter
+c.rect([L + PW / 2, BASE, R - PW / 2, TOPW], "#D9D1C0", border="#7A6E58", sentence=1, border_width=0.002, layer=1)
+c.elements[-1].update(word="wall", until=2, until_word="opened")
+c.text("The wall: no longer", 0.85, 0.25, 0.024, 1, plate=True, word="longer")
+c.elements[-1].update(until=2, until_word="thinned")
+c.text("the main support", 0.85, 0.205, 0.024, 1, plate=True, word="longer")
+c.elements[-1].update(until=2, until_word="thinned")
+# thinned (a section through the wall, inset) and opened with wide windows
+c.text("Wall thickness (schematic)", 0.85, 0.62, 0.018, 1, color=MUTED, word="wall")
+c.rect([0.83, 0.3, 0.87, 0.58], "#A89A7E", border="#7A6E58", sentence=1, border_width=0.002)
+c.elements[-1].update(word="wall", until=2, until_word="thinned")
+c.rect([0.843, 0.3, 0.857, 0.58], "#A89A7E", border="#7A6E58", sentence=2, border_width=0.002)
+c.elements[-1]["word"] = "thinned"
+c.rect([L + PW / 2 + 0.01, BASE + 0.06, R - PW / 2 - 0.01, TOPW - 0.01], GLASS, sentence=2, layer=3)
+c.elements[-1]["word"] = "opened"
+for x in (0.42, 0.5, 0.58):   # mullions of the wide window
+    c.line([[x, BASE + 0.06], [x, TOPW - 0.01]], "#7A6E58", 0.004, 2, layer=4)
+    c.elements[-1]["word"] = "wide"
+c.text("Wide windows", 0.85, 0.23, 0.028, 2, plate=True, word="wide")
 beat("C4", "B15", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "This kind of vault changes the job of the wall.",
     "With the vault's load directed toward the piers, the wall between them was no longer its main support.",
     "It could be thinned, and opened up with wide windows."],
-    ["CLM_143"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=2, camera_move={"type": "PUSH_IN", "amount": 0.1}, visual_goal="The wall between two piers opens into a tall window",
-    required_concepts=[GOTHIC, "nave_pier", "clerestory_window"])
+    ["CLM_143"], strategy="CARD", graphic=c.spec(),
+    visual_goal="One bay before and after, as it is told: a thick wall with a small window; the load drawn down the piers; "
+                "the wall pales (no longer the main support), thins, and opens into a wide window",
+    required_concepts=[])
 
 # C5 -------------------------------------------------------------------------------------------
 # The east flying buttress at the cut, and what it stands on; the rest of the system waits, faded, until B17 names it.
@@ -782,27 +951,109 @@ beat("C5", "B17", "fact", "EXPLAIN_LOAD_PATH", [
                   "word": "weight", "claim_id": "CLM_152"},
                  {"id": "B17_pinnacle", "type": "COMPONENT_LABEL", "target": PINNACLE, "point": "TOP",
                   "text": "Pinnacle", "sentence": 2, "word": "pinnacle"}])
+# g-r8 (owner): B18 shows the picture it tells (the wall cut into segments, each turned 90 degrees); B19 shows the
+# buildings it names; B20 shows the water's way off the roof. Schematic 2D where the idea is a diagram, photographs
+# where a real building is named.
+c = Card("B18")
+Y_OUT, Y_HIGH, Y_TOP = 0.5, 0.62, 0.8          # plan: outer face of the building, line of the high wall, far side
+SEG_W, SEG_T = 0.12, 0.075                      # a wall segment: length along the wall (card x), thickness (card y)
+X0 = 0.14
+top_left(c, ["The picture from Columbia's Amiens project", "Plan, seen from above (schematic)"], 0, "picture", size=0.024)
+c.rect([0.08, Y_OUT, 0.92, Y_TOP], "#E4DED1", border="#7A6E58", sentence=0, border_width=0.002)
+c.line([[0.08, Y_HIGH], [0.92, Y_HIGH]], FAINT, 0.003, 0, dash=True)
+c.text("Inside the building", 0.5, (Y_HIGH + Y_TOP) / 2, 0.024, 0, color=MUTED)
+c.rect([X0, Y_OUT - SEG_T, X0 + 6 * SEG_W, Y_OUT], "#A89A7E", border="#7A6E58", sentence=0, border_width=0.002, layer=2)
+c.elements[-1].update(until=1, until_word="cut")          # one thick wall ...
+c.text("A thick outer wall", 0.5, Y_OUT - SEG_T - 0.045, 0.026, 1, plate=True, word="thick").gone(1, "turned")
+for k in range(6):                                          # ... cut into segments, each turned 90 degrees
+    x = X0 + k * SEG_W
+    c.rect([x + 0.003, Y_OUT - SEG_T, x + SEG_W - 0.003, Y_OUT], "#A89A7E", border="#7A6E58", sentence=1,
+           border_width=0.002, layer=1)
+    c.elements[-1].update(word="cut", spin={"degrees": -90, "pivot": [x + 0.003, Y_OUT], "sentence": 1, "word": "turned",
+                                             "delay": 0.15 * k, "seconds": 1.0})
+c.text("Each segment turned 90°", 0.5, 0.2, 0.028, 1, plate=True, word="turned").later(0.4, "turned")
+c.elements[-1].update(until=2, until_word="become")
+c.text("Rigid supports, standing out from the building", 0.5, 0.2, 0.028, 2, plate=True, word="supports")
+for k in range(6):                                          # the exposed arches reaching up to the high vaults
+    x = X0 + k * SEG_W + 0.003 - SEG_T / 2 / ASPECT * 1.0
+    c.drawn([[x + 0.012, Y_OUT], [x + 0.012, Y_HIGH]], THRUST, 0.006, 2, "exposed", seconds=0.5, delay=0.12 * k)
+c.text("Exposed arches: flying buttresses", 0.72, Y_TOP + 0.06, 0.026, 2, color=THRUST, plate=True, word="exposed")
 beat("C5", "B18", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "One way to picture it comes from Columbia's Amiens project.",
     "It is as if the thick outer wall had been cut into segments, and each segment turned 90 degrees.",
     "Those segments become rigid supports, standing out from the building, with exposed arches reaching up to the high vaults."],
-    ["CLM_153"], strategy="SEQUENTIAL_STATES", visual_goal="Romanesque thick wall, lit; then Gothic pier buttresses, lit; same camera and scale",
-    required_concepts=[ROMANESQUE, GOTHIC], state_targets={ROMANESQUE: ["thick_wall"], GOTHIC: ["pier_buttress"]}, same_scale=True,
-    annotations=[note("B18_note", "Illustrative models, not measured buildings", 0, position="BOTTOM_RIGHT")])
+    ["CLM_153"], strategy="CARD", graphic=c.spec(),
+    visual_goal="The picture itself, in plan: one thick wall is cut into segments, each turns 90 degrees to stand out as a "
+                "support, and the exposed arches reach from them to the high vault",
+    required_concepts=[])
+
+c = Card("B19")
+_, at_ch = fitted("IMG_CHARTRES_FLYERS", FULL)
+_, at_nd = fitted("IMG_NOTRE_DAME_CHEVET", FULL)
+c.stage()
+c.image("IMG_CHARTRES_FLYERS", FULL, sentence=2, until=3)
+c.elements[-1]["until_word"] = "east"
+c.image("IMG_NOTRE_DAME_CHEVET", FULL, sentence=3)
+c.elements[-1]["layer"] = 1
+c.stage(False)
+c.view(FULL)
+c.view(square(0.5, 0.52, at_ch(2560, 0)[0] - at_ch(0, 0)[0]), 2, move=1.0)
+c.view(around(at_nd, 0, 1100, 1600, 2000, pad=1.0), 3, move=1.2)         # 900 px high: fills the frame's width
+c.view(around(at_nd, 250, 1150, 1350, 1950, pad=1.0), 3, "giant", move=2.5)
+# 1-2: a section, schematic: a church consolidated from outside; timber props made permanent in stone
+G, H = 0.22, 0.62                                   # ground, top of the walls
+for x in (0.42, 0.58):
+    c.rect([x - 0.025, G, x + 0.025, H], STONE, border="#7A6E58", sentence=0, border_width=0.002, until=2)
+outer, inner = place(round_arch(0.21 * ASPECT, 24), 0.5, H), place(round_arch(0.11 * ASPECT, 24), 0.5, H)
+c.polygon(outer + inner[::-1], STONE, border="#7A6E58", sentence=0, until=2)   # a round stone vault, in section
+c.text("A church section (schematic)", 0.5, 0.9, 0.022, 0, color=MUTED, until=2)
+c.drawn([[0.6, H - 0.02], [0.72, H - 0.12], [0.76, G]], STONE, 0.014, 0, "consolidate", seconds=0.8, until=2)
+c.text("Added outside to consolidate (BnF)", 0.8, 0.52, 0.022, 0, plate=True, word="consolidate", until=2)
+c.drawn([[0.4, H - 0.02], [0.28, H - 0.12], [0.24, G]], WOOD, 0.008, 1, "timber", seconds=0.8)
+c.elements[-1]["until"] = 1
+for e in c.elements:
+    if e.get("color") == WOOD and e.get("sentence") == 1:
+        e.update(until=1, until_word="permanent")
+c.text("Timber props, while building", 0.2, 0.52, 0.022, 1, plate=True, color=WOOD, word="timber").gone(1, "permanent")
+c.drawn([[0.4, H - 0.02], [0.28, H - 0.12], [0.24, G]], STONE, 0.014, 1, "permanent", seconds=0.6, until=2)
+c.text("made permanent in stone (BnF)", 0.2, 0.52, 0.022, 1, plate=True, word="permanent", until=2)
+credit_line(c, PHOTOS["IMG_CHARTRES_FLYERS"]["credit"], 2).gone(3, "east")
+credit_line(c, PHOTOS["IMG_NOTRE_DAME_CHEVET"]["credit"], 3, "east")   # takes the place of Chartres's credit
+lower_left(c, ["Chartres today: flying buttresses of the nave", "part of the original plans"], 2, "chartres", size=0.026, until=3)
+lower_left(c, ["Notre-Dame de Paris: the east end (photograph 2011)"], 3, "east", size=0.026)
 beat("C5", "B19", "fact", "INTRODUCE_ARCHITECTURE", [
     "According to France's national library, the first flying buttresses were used to consolidate Romanesque churches that threatened to collapse.",
     "It also says that the slanting timber props used while building the vaults were, in effect, made permanent in stone.",
     "At Chartres, flying buttresses were part of the original plans.",
     "And around the east end of Notre-Dame in Paris, they look almost like a giant external skeleton."],
-    ["CLM_154", "CLM_155"], strategy="HOLD_HIGHLIGHT", camera_move={"type": "PUSH_IN", "amount": 0.1},
-    visual_goal="Flyers on the model; rights-cleared photographs of Chartres and Notre-Dame replace it where available",
-    required_concepts=[GOTHIC, "flying_buttress"],
-    annotations=[note("B19_note", "Illustrative model, not Chartres or Notre-Dame", 0, position="BOTTOM_RIGHT")])
+    ["CLM_154", "CLM_155"], strategy="CARD", graphic=c.spec(),
+    visual_goal="A schematic section for the two origins the library gives (added outside to consolidate; a timber prop made "
+                "permanent in stone); then the buildings named, by their own photographs: Chartres, Notre-Dame's east end",
+    required_concepts=[])
+
+c = Card("B20")
+G = 0.2
+top_left(c, ["Half a section (schematic)"], 0, size=0.022, color=MUTED)
+c.rect([0.43, G, 0.47, 0.66], STONE, border="#7A6E58", sentence=0, border_width=0.002)               # high wall
+c.polygon([[0.2, 0.82], [0.45, 0.68], [0.47, 0.68], [0.47, 0.7], [0.22, 0.84]], "#5E6A72", sentence=0)   # high roof
+c.polygon([[0.47, 0.46], [0.62, 0.38], [0.62, 0.40], [0.47, 0.48]], "#5E6A72", sentence=0)               # aisle roof
+c.rect([0.6, G, 0.625, 0.39], STONE, border="#7A6E58", sentence=0, border_width=0.002)                # aisle wall
+c.rect([0.68, G, 0.74, 0.6], STONE, border="#7A6E58", sentence=0, border_width=0.002)                 # pier buttress
+c.line([[0.47, 0.64], [0.575, 0.625], [0.68, 0.58]], STONE, 0.022, 0)                               # flying buttress
+water = [[0.24, 0.81], [0.44, 0.7], [0.47, 0.665], [0.575, 0.65], [0.68, 0.605], [0.77, 0.6], [0.8, 0.5]]
+c.drawn_arrow(water, ACCENT, 0.006, 0, "rainwater", seconds=1.8)
+c.text("Rainwater led off the roof", 0.83, 0.74, 0.026, 0, color=ACCENT, plate=True, word="rainwater").later(1.0, "rainwater")
+c.text("(schematic)", 0.83, 0.69, 0.02, 0, color=MUTED, plate=True, word="rainwater").later(1.0, "rainwater")
+c.drawn([[0.45, 0.66], [0.45, 0.9]], INK, 0.003, 1, "taller", seconds=0.8, dash=True)                 # ever taller
+c.drawn([[0.71, 0.6], [0.71, 0.78], [0.47, 0.86]], INK, 0.003, 1, "taller", seconds=0.8, dash=True, delay=0.3)
+c.text("Ever taller", 0.3, 0.9, 0.028, 1, plate=True, word="taller")
 beat("C5", "B20", "fact", "INTRODUCE_ARCHITECTURE", [
     "Flying buttresses even help carry rainwater off the roof.",
     "But above all, builders learned how to exploit them, and cathedrals grew ever taller."],
-    ["CLM_156", "CLM_157"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="The full exterior of the section, the nearest flyers highlighted",
-    required_concepts=[GOTHIC, {"concept": "flying_buttress", "group": "frame_east0"}, {"concept": "flying_buttress", "group": "frame_west0"}])
+    ["CLM_156", "CLM_157"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Half a section: the water's way from the roof along the flying buttress and away from the wall, drawn as "
+                "it is told; then the system drawn taller, dashed",
+    required_concepts=[])
 
 # C6 -------------------------------------------------------------------------------------------
 c = timeline("B21", [(1144, "Choir dedicated", 2, "choir")],
@@ -856,64 +1107,136 @@ beat("C6", "B24", "fact", "COMPARE_VARIANTS", [
     ["CLM_163"], strategy="CARD", graphic=c.spec(), visual_goal="Two readings, side by side; the names stay in small type on the card and are not spoken", required_concepts=[])
 
 # C7 -------------------------------------------------------------------------------------------
+# g-r8 (owner: animate the geometry, the centering, the laying of stones and its removal, as the sources describe;
+# replace the cards that list jobs with drawings that explain them). Construction is shown as a schematic sequence
+# after the sources, never as an exploded model.
+IRON = "#55524A"
 c = Card("B25")
 c.tag("7 · Building by geometry")
-c.line(place(pointed_arch(0.16, 0.16), 0.24, 0.32), STONE, 0.01, 0)
-c.line(place(pointed_arch(0.26, 0.26), 0.44, 0.32), STONE, 0.012, 1)
-c.line(place(pointed_arch(0.42, 0.42), 0.7, 0.32), STONE, 0.016, 2)
-c.text("Trial and error, over centuries", 0.5, 0.86, 0.036, 1, plate=True)
-c.text("The same proportions, scaled up", 0.5, 0.25, 0.03, 2, plate=True)
+
+
+def compass_arch(c, cx, y0, span, sentence, word, color, width, seconds, delay=0.0, construct=False):
+    """A pointed arch whose two arcs have their centres on the springing line (an equilateral arch: radius = span)."""
+    pts = place(pointed_arch(span, span * math.sqrt(3) / 2, 16), cx, y0)
+    half = len(pts) // 2
+    if construct:   # the compass: centres on the springing line, a radius swung to the crown
+        for k, (sx, ex) in enumerate(((cx + span / 2 / ASPECT, cx - span / 2 / ASPECT), (cx - span / 2 / ASPECT, cx + span / 2 / ASPECT))):
+            c.circle([sx, y0], 0.007, ACCENT, sentence)
+            c.elements[-1].update(word=word, delay=round(delay + 0.6 * k, 2))
+            c.drawn([[sx, y0], [cx, y0 + span * math.sqrt(3) / 2]], ACCENT, 0.003, sentence, word, seconds=0.4,
+                    dash=True, delay=delay + 0.6 * k)
+    c.drawn(pts[:half + 1], color, width, sentence, word, seconds=seconds / 2, delay=delay + (0.4 if construct else 0))
+    c.drawn(pts[half:][::-1], color, width, sentence, word, seconds=seconds / 2, delay=delay + (1.0 if construct else 0))
+
+
+c.line([[0.12, 0.32], [0.94, 0.32]], FAINT, 0.003, 0)                      # a springing line, ready for the compass
+c.text("Without modern structural calculations", 0.5, 0.7, 0.032, 0, color=MUTED)
+c.elements[-1].update(until=1, until_word="geometrical")
+compass_arch(c, 0.24, 0.32, 0.16, 1, "geometrical", STONE, 0.01, 1.2, construct=True)
+c.text("A geometrical rule: compass and line", 0.5, 0.86, 0.032, 1, plate=True, word="geometrical")
+compass_arch(c, 0.45, 0.32, 0.26, 2, "scaled", STONE, 0.012, 1.0)
+compass_arch(c, 0.72, 0.32, 0.42, 2, "proportions", STONE, 0.016, 1.2)
+c.text("The same proportions, scaled up", 0.5, 0.25, 0.03, 2, plate=True, word="scaled")
 beat("C7", "B25", "fact", "EXPLAIN_STRUCTURE", [
     "So how did they do all this, without modern structural calculations?",
     "Master builders used geometrical rules, developed through centuries of trial and error.",
     "They scaled up the same proportions for new, larger elements."],
-    ["CLM_110"], strategy="CARD", graphic=c.spec(), visual_goal="One proportion at three sizes", required_concepts=[])
+    ["CLM_110"], strategy="CARD", graphic=c.spec(),
+    visual_goal="An arch drawn with compass and line; the same proportion drawn again, larger, twice", required_concepts=[])
 
 c = Card("B26")
-c.line([[0.2, 0.3], [0.2, 0.8], [0.5, 0.8], [0.5, 0.3], [0.2, 0.3]], WOOD, 0.004, 0)
-for x, y in ((0.2, 0.3), (0.2, 0.8), (0.5, 0.3), (0.5, 0.8)):
+PEGS = [(0.2, 0.3), (0.5, 0.3), (0.5, 0.8), (0.2, 0.8)]
+for k, (x, y) in enumerate(PEGS):           # pegs ...
     c.circle([x, y], 0.012, WOOD, 0)
-c.text("Ropes pegged to the ground", 0.35, 0.86, 0.028, 0, plate=True)
-c.line([[0.2, 0.55], [0.35, 0.8], [0.5, 0.55], [0.35, 0.3], [0.2, 0.55]], ACCENT, 0.004, 1)
-c.text("Squares with right angles", 0.74, 0.68, 0.028, 1, plate=True, word="squares")
-c.text("Templates: straight-edge and compass", 0.74, 0.58, 0.026, 1, plate=True, word="templates")
+    c.elements[-1].update(word="pegged", delay=round(0.15 * k, 2))
+c.drawn([list(p) for p in PEGS + PEGS[:1]], WOOD, 0.004, 0, "ropes", seconds=1.2)   # ... ropes stretched between them
+c.text("Ropes pegged to the ground", 0.35, 0.86, 0.028, 0, plate=True, word="ropes")
+c.drawn([[0.2, 0.55], [0.35, 0.8], [0.5, 0.55], [0.35, 0.3], [0.2, 0.55]], ACCENT, 0.004, 1, "squares", seconds=1.2)
+c.text("Squares with right angles", 0.74, 0.7, 0.028, 1, plate=True, word="squares")
+c.drawn([[0.62, 0.42], [0.86, 0.42]], INK, 0.004, 1, "straight", seconds=0.4)        # a straight edge ...
+c.drawn([[0.74 + 0.1 / ASPECT * math.cos(math.radians(a)), 0.42 + 0.1 * math.sin(math.radians(a))]
+         for a in range(0, 181, 15)], ACCENT, 0.004, 1, "compass", seconds=0.8)       # ... and a compass arc
+c.drawn([[0.74, 0.42], [0.74 + 0.1 / ASPECT, 0.42]], ACCENT, 0.003, 1, "compass", seconds=0.3, dash=True)
+c.text("Templates: straight edge and compass", 0.74, 0.58, 0.026, 1, plate=True, word="templates")
 c.text("Schematic, not the Amiens plan", 0.74, 0.3, 0.021, 0, color=MUTED)
 beat("C7", "B26", "fact", "EXPLAIN_STRUCTURE", [
     "At Amiens, setting out the site began with ropes pegged to the ground.",
     "Squares with perfect right angles controlled the plan, and templates for piers, windows and vaults were designed with straight-edge and compass."],
-    ["CLM_170"], strategy="CARD", graphic=c.spec(), visual_goal="Ropes, pegs and a square turned inside a square", required_concepts=[])
+    ["CLM_170"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Pegs driven, ropes stretched between them; a square turned inside the square; a straight edge and a compass arc",
+    required_concepts=[])
 
 c = Card("B27")
-voussoirs(c, 0.5, 0.3, 0.4, 0.38, 0.06, 7, 0)
+SPAN, RISE, Y0 = 0.4, 0.38, 0.3
+outline = place(pointed_arch(SPAN, RISE), 0.5, Y0)
+c.drawn(outline, INK, 0.003, 0, "drawn", seconds=1.2, dash=True, until=1)          # drawn full size on the ground
+c.text("Drawn full size on the ground", 0.19, 0.74, 0.026, 0, plate=True, word="drawn", until=1)
+n0 = len(c.elements)
+voussoirs(c, 0.5, Y0, SPAN, RISE, 0.06, 7, 1)
+stones = [e for e in c.elements[n0:] if e["kind"] == "polygon"]
+order = sorted(range(len(stones)), key=lambda k: min(k, len(stones) - 1 - k))       # from both springings up to the key
+for rank, k in enumerate(order):
+    stones[k].update(word="laid", delay=round(0.25 * rank, 2))
 c.rect([0.33, 0.24, 0.5 - 0.195 / ASPECT, 0.3], STONE, sentence=0)
 c.rect([0.5 + 0.195 / ASPECT, 0.24, 0.67, 0.3], STONE, sentence=0)
-c.line(place(pointed_arch(0.39, 0.37), 0.5, 0.3), WOOD, 0.01, 1, until=2)
+c.text("Divided into voussoirs", 0.19, 0.66, 0.026, 0, plate=True, word="divided", until=1)
+c.text("Each cut to a wooden template", 0.19, 0.74, 0.026, 1, plate=True, word="template")
+c.line(place(pointed_arch(0.39, 0.37), 0.5, 0.3), WOOD, 0.01, 1, until=2)         # the centering
+c.elements[-1].update(word="rigid", until_word="away")
 for k in range(-3, 4):
     u = k * 0.045
     r = (0.39 * 0.39 / 4 + 0.37 * 0.37) / 0.39
     top = 0.3 + math.sqrt(r * r - (abs(u) + r - 0.195) ** 2)
-    c.line([[0.5 + u / ASPECT, 0.24], [0.5 + u / ASPECT, top]], WOOD, 0.006, 1, until=2, layer=-1)
-c.text("Wedge-shaped voussoirs", 0.19, 0.74, 0.028, 0, plate=True)
-c.text("Each cut to a wooden template", 0.19, 0.66, 0.026, 1, plate=True)
-c.text("Centering (temporary)", 0.81, 0.74, 0.028, 1, until=2, plate=True)
-c.text("Centering removed", 0.81, 0.74, 0.028, 2, plate=True)
-c.text("once the mortar has set", 0.81, 0.67, 0.026, 2, plate=True)
+    c.line([[0.5 + u / ASPECT, 0.24], [0.5 + u / ASPECT, top]], WOOD, 0.006, 1, layer=-1)
+    c.elements[-1].update(word="rigid", until=2, until_word="away")
+c.text("Centering (temporary)", 0.81, 0.74, 0.028, 1, plate=True, word="centering").gone(2, "away")
+c.text("Centering removed", 0.81, 0.74, 0.028, 2, plate=True, word="away")
+c.text("once the mortar has set", 0.81, 0.67, 0.026, 2, plate=True, word="mortar")
+c.text("Amiens: after a couple of months or so", 0.81, 0.6, 0.022, 2, plate=True, color=MUTED, word="months")
+c.text("Sequence after the sources, schematic", 0.5, 0.2, 0.02, 0, color=MUTED)
 beat("C7", "B27", "fact", "EXPLAIN_STRUCTURE", [
     "Arches were usually drawn full size on the ground, then divided into wedge-shaped stones called voussoirs.",
     "Each voussoir was cut to a wooden template, and the stones were laid on a rigid wooden frame called centering.",
     "The frame came away only once the mortar had set: at Amiens, after a couple of months or so."],
-    ["CLM_172"], strategy="CARD", graphic=c.spec(), visual_goal="An arch on centering; the centering goes away", required_concepts=[])
+    ["CLM_172"], strategy="CARD", graphic=c.spec(),
+    visual_goal="The arch drawn full size, divided into stones; the centering set up; the stones laid on it from both "
+                "sides to the key; the centering taken away once the mortar has set. A building sequence, schematic",
+    required_concepts=[])
 
 c = Card("B28")
-c.text("The carpenters", 0.5, 0.82, 0.05, 0)
-for x, y, w, word, s in ((0.3, 0.64, "Scaffolding", "scaffolding", 0), (0.7, 0.64, "Formwork for the vaults", "formwork", 0),
-                         (0.3, 0.5, "Lifting gear", "lifting", 0), (0.7, 0.5, "Ties: wood, later iron", "tied", 1)):
-    c.text(w, x, y, 0.034, s, plate=True, word=word)
-c.text("Ties stopped the arches pushing the upper piers over", 0.5, 0.34, 0.028, 1, color=MUTED, word="pushing")
+c.text("The carpenters (schematic)", 0.5, 0.92, 0.024, 0, color=MUTED)
+for x in (0.38, 0.62):                                                                # two upper piers
+    c.rect([x - 0.02, 0.22, x + 0.02, 0.62], STONE, border="#7A6E58", sentence=0, border_width=0.002)
+c.line(place(pointed_arch(0.21 * ASPECT, 0.2), 0.5, 0.62), STONE, 0.016, 0)          # the arch between them
+for k in range(5):                                                                    # scaffolding
+    y = 0.26 + 0.09 * k
+    c.drawn([[0.2, y], [0.34, y]], WOOD, 0.004, 0, "scaffolding", seconds=0.3, delay=0.1 * k)
+for x in (0.22, 0.32):
+    c.drawn([[x, 0.22], [x, 0.66]], WOOD, 0.004, 0, "scaffolding", seconds=0.5)
+c.text("Scaffolding", 0.27, 0.72, 0.024, 0, plate=True, word="scaffolding").later(0.5, "scaffolding")
+c.drawn(place(pointed_arch(0.19 * ASPECT, 0.18), 0.5, 0.62), WOOD, 0.008, 0, "formwork", seconds=0.8)   # formwork
+for u in (-0.05, 0.0, 0.05):
+    c.drawn([[0.5 + u, 0.48], [0.5 + u, 0.62 + (0.15 if u == 0 else 0.1)]], WOOD, 0.004, 0, "formwork", seconds=0.4, delay=0.4)
+c.text("Formwork for the vault", 0.5, 0.42, 0.024, 0, plate=True, word="formwork").later(0.6, "formwork")
+c.drawn([[0.8, 0.22], [0.8, 0.8], [0.66, 0.8]], WOOD, 0.006, 0, "lifting", seconds=0.8)                 # lifting gear
+c.drawn([[0.68, 0.8], [0.68, 0.7]], INK, 0.003, 0, "lifting", seconds=0.3, delay=0.8)
+c.rect([0.667, 0.66, 0.693, 0.7], STONE, sentence=0)
+c.elements[-1].update(word="lifting", delay=1.0)
+c.text("Lifting gear", 0.85, 0.86, 0.024, 0, plate=True, word="lifting").later(0.6, "lifting")
+c.drawn([[0.4, 0.58], [0.6, 0.58]], WOOD, 0.008, 1, "tied", seconds=0.5)             # a tie between the piers ...
+c.elements[-1].update(until=1, until_word="iron")
+c.drawn([[0.4, 0.58], [0.6, 0.58]], IRON, 0.008, 1, "iron", seconds=0.5)             # ... later of iron
+for x0, x1 in ((0.36, 0.3), (0.64, 0.7)):
+    c.drawn_arrow([[x0, 0.6], [x1, 0.6]], THRUST, 0.006, 1, "pushing", seconds=0.4)
+c.text("Ties: wood, later iron", 0.5, 0.52, 0.024, 1, plate=True, word="tied")
+c.text("held against the arches' push", 0.5, 0.3, 0.022, 1, color=MUTED, plate=True, word="pushing")
 beat("C7", "B28", "fact", "EXPLAIN_STRUCTURE", [
     "Carpenters built the scaffolding, the formwork for the vaults and the lifting gear.",
     "They also tied the upper piers with wood, and later iron, to stop the arches pushing them over."],
-    ["CLM_173"], strategy="CARD", graphic=c.spec(), visual_goal="What the carpenters made (words, no workers or machinery)", required_concepts=[])
+    ["CLM_173"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Each work of the carpenters drawn as it is named: scaffolding, the formwork under a vault, lifting gear; "
+                "then a tie between the upper piers, wood then iron, against the arches' push. Schematic, no workers",
+    required_concepts=[])
 beat("C7", "B29", "fact", "SHOW_COMPONENT", [
     "And there was little room for error.",
     "The whole stone skeleton relies on lining up the thrust of each arch with the buttress that supports it."],
@@ -940,16 +1263,6 @@ def mark_box(c, at, px0, py0, px1, py1, sentence, word=None, color=THRUST, until
     (x0, y1), (x1, y0) = at(px0, py0), at(px1, py1)
     return c.drawn([[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]], color, width, sentence, word, seconds=0.8,
                    dash=dash, until=until, delay=delay)
-
-
-def top_left(c, lines, sentence, word=None, size=0.03, color=INK, until=None, until_word=None, delay=0.0):
-    for k, t in enumerate(lines):
-        c.text(t, 0.06, 0.86 - k * (1.85 * size + 0.006), size, sentence, align="LEFT", color=color, plate=True, word=word)
-        if delay:
-            c.later(delay, word)
-        if until is not None:
-            c.gone(until, until_word)
-    return c
 
 
 c = Card("B31")

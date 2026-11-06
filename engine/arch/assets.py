@@ -101,7 +101,7 @@ FAMILIES = {
         "romanesque_section": {
             "generator": cathedral.romanesque_section,
             "materials": ("stone", "stone_dark", "stone_light", "stained_glass", "roof_lead"),
-            "animation": ("HOLD", "HIGHLIGHT"),
+            "animation": ("HOLD", "HIGHLIGHT", "SEQUENCE"),
             "params": {"bay_count": num(1, 6, 3, integer=True), "bay_length_m": num(4, 12, 7.5), "interior_half_width_m": num(3, 10, 6.0),
                        "wall_thickness_m": num(1, 4, 2.4), "wall_height_m": num(6, 25, 13.0), "vault_thickness_m": num(0.5, 2.5, 1.1),
                        "window_half_width_m": num(0.4, 1.5, 0.7), "window_spring_m": num(3, 18, 9.0), "buttress_depth_m": num(0.3, 1.5, 0.6),

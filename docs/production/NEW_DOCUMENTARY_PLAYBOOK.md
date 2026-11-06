@@ -109,6 +109,7 @@ Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều
   - Nếu Commons trả HTTP 429, tải chậm lại, không lách qua bản sao.
   - Bỏ ảnh có tác giả hoặc năm không chắc chắn.
 - Trong `story.py`: `PHOTOS` (đường dẫn, kích thước, dòng ghi công), `Card.image(...)`, `Card.credit(...)`. `fitted(asset, box, crop)` trả về hàm đổi pixel của ảnh sang tọa độ card, để dấu vẽ rơi đúng chỗ trên bản vẽ.
+- Phần tử card có thể xoay (`spin`: `degrees`, `pivot`, `sentence`/`word`, `seconds`). Dùng khi lời dẫn kể một phép biến đổi: "mỗi đoạn tường xoay 90°", "lật ngược dây xích".
 - Các helper vẽ dần: `Card.drawn(...)` vẽ đường theo thứ tự trong `seconds`; `Card.drawn_arrow(...)` vẽ mũi tên, đầu đến cuối cùng; `.later(s)` cho nhãn chờ nét vẽ xong. Phần tử card có `delay` (giây sau câu hoặc từ của nó).
 - **Không dựng như slide** (góp ý g-r5): tránh kiểu ảnh nhỏ bên trái, chữ bên phải.
   - Ảnh chiếm phần lớn khung. Camera 2D (`Card.stage()` và `Card.view(rect, sentence, word, move)`) đi tới đúng vùng đang được kể: lia lên vòm, cận vùng đánh dấu, rồi lùi ra để so trước–sau.

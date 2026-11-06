@@ -463,6 +463,14 @@ def build_strategy(name, ctx):
                     e[field] = round(max(0.0, t - lead + (delay if key == "sentence" else until_delay)), 4)
             if from_start:
                 e["appear"] = 0.0
+            if isinstance(e.get("spin"), dict):   # g-r8: when an element turns, timed like the elements
+                sp = dict(e["spin"])
+                sk = sp.pop("sentence", 0)
+                if not isinstance(sk, int) or not 0 <= sk < len(spans):
+                    raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: spin sentence {sk!r}")
+                t = word_time(sk, sp.pop("word"), f"card element {e.get('id')}") if sp.get("word") else spans[sk][0]
+                e["spin"] = {"degrees": float(sp.get("degrees", 90.0)), "pivot": sp["pivot"],
+                             "at": round(max(0.0, t + float(sp.get("delay", 0.0))), 4), "seconds": float(sp.get("seconds", 1.2))}
             graphic["elements"].append(e)
 
         def make(n):

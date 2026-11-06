@@ -337,29 +337,29 @@
       {
         "cut": "SC_012->SC_013",
         "mode": "match",
-        "ssim": 1.0,
+        "ssim": 0.99999,
         "ok": true
       },
       {
         "cut": "SC_013->SC_014",
         "mode": "hard",
-        "ssim": 0.67339,
+        "ssim": 0.20978,
         "ok": true
       },
       {
         "cut": "SC_014->SC_015",
         "mode": "hard",
-        "ssim": 0.83,
+        "ssim": 0.30445,
         "ok": true
       }
     ],
     "problems": []
   },
   "render_results": {
-    "SC_012": "cached",
-    "SC_013": "cached",
-    "SC_014": "cached",
-    "SC_015": "cached"
+    "SC_012": "rendered",
+    "SC_013": "rendered",
+    "SC_014": "rendered",
+    "SC_015": "rendered"
   },
   "chapter_audio": "output/chapters_internal_720p/gothic_cathedral_heights_C4_narration.wav"
 }

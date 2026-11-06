@@ -378,6 +378,25 @@ def build_card(data, shot, preset_name, scene):
             e["ass_transparency"] = 0.0
             e["card_element"] = element["id"]
         helpers[element["id"]] = extra
+        spin = element.get("spin")
+        if spin:   # g-r8: the element turns about a pivot (a wall segment turned 90 degrees)
+            if element.get("drift"):
+                raise ValueError(f"{element['id']}: spin and drift cannot be combined")
+            pivot = _card_to_world(spin["pivot"], aspect)
+            f0, f1 = plan.frame(float(spin["at"])), plan.frame(float(spin["at"]) + float(spin["seconds"]))
+            if f1 <= f0 or f1 > frames:
+                raise ValueError(f"{element['id']}: spin frames {f0}-{f1} outside the card's {frames}")
+            rad = math.radians(float(spin["degrees"]))
+            for o in [obj] + extra:
+                for v in o.data.vertices:   # the pivot becomes the object's origin
+                    v.co.x -= pivot.x
+                    v.co.y -= pivot.y
+                o.data.update()
+                o.location = (o.location.x + pivot.x, o.location.y + pivot.y, o.location.z)
+                plan.key(o.name, motion.ROT, 1, (0.0, 0.0, 0.0))
+                plan.key(o.name, motion.ROT, f0, (0.0, 0.0, 0.0), "SMOOTH")
+                plan.key(o.name, motion.ROT, f1, (0.0, 0.0, rad))
+                plan.key(o.name, motion.ROT, frames, (0.0, 0.0, rad))
         if element.get("stage"):
             if stage is None:
                 raise ValueError(f"{element['id']}: a stage element needs graphic.stage")

@@ -265,11 +265,12 @@ class StageCardTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.story = {s["id"]: s for s in json.loads((PROJECT / "storyboard/storyboard.json").read_text())["shots"]}
+        shots = json.loads((PROJECT / "storyboard/storyboard.json").read_text())["shots"]
+        cls.story = {b: s for s in shots for b in s.get("beat_ids", [])}   # by beat: shot ids follow the plan
         cls.beats = {b["beat_id"]: b for b in json.loads((PROJECT / "script/visual_beats.json").read_text())["beats"]}
 
     def test_stage_views_are_timed_and_in_order(self):
-        for sid in ("SC_001", "SC_036", "SC_037"):
+        for sid in ("B01", "B35", "B36"):
             views = self.story[sid]["graphic"]["stage"]["views"]
             self.assertEqual(views[0]["at"], 0.0)
             for a, b in zip(views[1:], views[2:]):
@@ -277,7 +278,7 @@ class StageCardTest(unittest.TestCase):
             self.assertLess(views[-1]["at"] + views[-1]["move_seconds"], self.story[sid]["duration_seconds"])
 
     def test_pictures_on_the_stage_fill_the_frame_when_the_camera_climbs(self):
-        g = self.story["SC_001"]["graphic"]
+        g = self.story["B01"]["graphic"]
         self.assertTrue(any(e["kind"] == "image" and e.get("stage") for e in g["elements"]))
         texts = [e for e in g["elements"] if e["kind"] == "text"]
         self.assertFalse([e for e in texts if e.get("stage")])          # words stay put on screen
@@ -292,22 +293,22 @@ class StageCardTest(unittest.TestCase):
         self.assertEqual(crossing, [])   # no X over the arrows
 
     def test_the_bay_is_marked_before_the_church_around_it_fades(self):
-        steps = self.story["SC_012"]["animation"]["steps"]
+        steps = self.story["B12"]["animation"]["steps"]
         first_glow = min(s["start_seconds"] for s in steps if s["do"] == "HIGHLIGHT")
         first_ghost = min(s["start_seconds"] for s in steps if s["do"] == "GHOST")
         isolate = max(s["start_seconds"] for s in steps if s["do"] == "FADE_OUT")
-        move = self.story["SC_012"]["animation"]["views"][1]
+        move = self.story["B12"]["animation"]["views"][1]
         self.assertLess(first_glow, first_ghost)
         self.assertGreaterEqual(isolate + 1e-6, move["start_seconds"] + move["move_seconds"] - 0.5)   # after the turn
 
     def test_a_picture_card_never_opens_on_an_empty_frame(self):
-        for sid in ("SC_001", "SC_032", "SC_034", "SC_036", "SC_038", "SC_039"):
+        for sid in ("B01", "B31", "B33", "B35", "B37", "B38"):
             images = [e for e in self.story[sid]["graphic"]["elements"] if e["kind"] == "image"]
             self.assertEqual(images[0]["appear"], 0.0, sid)
 
     def test_a_picture_change_is_a_dissolve(self):
         """The next picture arrives over the last one, which leaves only once it is in (no dip to the background)."""
-        els = self.story["SC_001"]["graphic"]["elements"]
+        els = self.story["B01"]["graphic"]["elements"]
         inside, outside = [e for e in els if e["kind"] == "image"][:2]
         self.assertLess(outside["appear"] + 0.35, inside["disappear"])
         self.assertGreater(outside.get("layer", 0), inside.get("layer", 0))
@@ -319,3 +320,48 @@ class StageCardTest(unittest.TestCase):
         bad = {"elements": [img], "stage": {"views": [{"rect": [0, 0, 1, 1], "at": 0.0},
                                                       {"rect": [0.2, 0.2, 0.4, 0.4], "at": 4.5, "move_seconds": 1.0}]}}
         self.assertTrue(any("after the shot" in e for e in validator.validate_graphic(bad, 5.0)))
+
+
+class ChapterRedesignTest(unittest.TestCase):
+    """g-r8 (owner's chapter list): pictures that do what the narration says. Shots are looked up by beat."""
+
+    @classmethod
+    def setUpClass(cls):
+        shots = json.loads((PROJECT / "storyboard/storyboard.json").read_text())["shots"]
+        cls.story = {b: s for s in shots for b in s.get("beat_ids", [])}
+
+    def els(self, beat):
+        return self.story[beat]["graphic"]["elements"]
+
+    def test_the_wall_segments_turn_90_degrees_when_it_is_said(self):
+        spins = [e["spin"] for e in self.els("B18") if e.get("spin")]
+        self.assertEqual(len(spins), 6)
+        self.assertTrue(all(abs(s["degrees"]) == 90 for s in spins))
+        self.assertEqual(sorted(s["at"] for s in spins), [s["at"] for s in spins])   # one after another
+
+    def test_the_hanging_chain_is_turned_upside_down(self):
+        spins = {round(e["spin"]["degrees"]) for e in self.els("B09") if e.get("spin")}
+        self.assertEqual(spins, {180})
+
+    def test_stones_are_laid_from_both_springings_to_the_key_then_the_centering_goes(self):
+        els = self.els("B27")
+        stones = [e for e in els if e["kind"] == "polygon"]
+        n = len(stones)
+        key = stones[n // 2]
+        self.assertGreater(key["appear"], max(stones[0]["appear"], stones[-1]["appear"]))
+        centering = [e for e in els if e["kind"] == "line" and e.get("color") == "#8C654D" and e.get("disappear")]
+        self.assertTrue(centering)
+        self.assertGreater(min(e["disappear"] for e in centering), max(s["appear"] for s in stones))
+
+    def test_no_card_opens_on_an_empty_frame(self):
+        for bid, shot in self.story.items():
+            g = shot.get("graphic")
+            if g:
+                self.assertTrue(any(e.get("appear", 1) == 0.0 for e in g["elements"]), bid)
+
+    def test_the_vault_is_set_on_its_walls_before_it_pushes(self):
+        steps = self.story["B05"]["animation"]["steps"]
+        reveal = next(s for s in steps if s["do"] == "REVEAL")
+        self.assertEqual(reveal["direction"], "FROM_ABOVE")
+        thrust = next(a for a in self.story["B05"]["annotations"]["items"] if a["type"] == "THRUST_ARROW")
+        self.assertGreater(thrust["appear"], reveal["start_seconds"] + reveal["seconds"])

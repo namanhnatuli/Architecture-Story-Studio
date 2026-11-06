@@ -2,12 +2,12 @@
   "project_id": "gothic-cathedral-heights",
   "executable": true,
   "visibility_summary": {
-    "shots_assessed": 10,
-    "target_rows": 17,
-    "rows_passing": 17,
+    "shots_assessed": 3,
+    "target_rows": 6,
+    "rows_passing": 6,
     "uncertain_rows": 0,
-    "issues_detected": 1,
-    "auto_repaired": 1,
+    "issues_detected": 0,
+    "auto_repaired": 0,
     "manual_review": 0,
     "method": "LEVEL_1_OFFLINE_RASTER (planner/visibility.py); Level 2: tools/cli.py verify-visibility"
   },
@@ -119,14 +119,14 @@
     {
       "beat_id": "B05",
       "visual_intent": "EXPLAIN_LOAD_PATH",
-      "strategy": "HOLD",
+      "strategy": "SEQUENCE",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 19.525,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD: Hold the structure"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
@@ -138,7 +138,7 @@
       ],
       "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_005"
@@ -152,14 +152,14 @@
     {
       "beat_id": "B06",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": "HOLD_HIGHLIGHT",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 24.125,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
@@ -169,61 +169,30 @@
           "explanation": "cathedral_romanesque_section_01 (offline only, ILLUSTRATIVE) matches cathedral/romanesque_section"
         }
       ],
-      "semantic_targets": [
-        "shallow_buttress",
-        "thick_wall"
-      ],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_006"
       ],
       "planned_seconds": 24.125,
-      "readable": {
-        "shallow_buttress": true,
-        "thick_wall": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_006",
-          "concept": "thick_wall",
-          "label": "highlight_peak",
-          "frame": 349,
-          "visible_share": 0.7462,
-          "core_area": 0.05382,
-          "visible_area": 0.07485,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_006",
-          "concept": "shallow_buttress",
-          "label": "highlight_peak",
-          "frame": 349,
-          "visible_share": 0.6155,
-          "core_area": 0.00926,
-          "visible_area": 0.02609,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B07",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "HOLD_HIGHLIGHT",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 20.825,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
@@ -233,49 +202,18 @@
           "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [
-        "flying_buttress",
-        "rib"
-      ],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_007"
       ],
       "planned_seconds": 20.833,
-      "readable": {
-        "flying_buttress": true,
-        "rib": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_007",
-          "concept": "rib",
-          "label": "highlight_peak",
-          "frame": 411,
-          "visible_share": 0.2914,
-          "core_area": 0.00058,
-          "visible_area": 0.00391,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_007",
-          "concept": "flying_buttress",
-          "label": "highlight_peak",
-          "frame": 411,
-          "visible_share": 0.3974,
-          "core_area": 0.00029,
-          "visible_area": 0.00289,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B08",
@@ -478,66 +416,28 @@
     {
       "beat_id": "B15",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": "HOLD_HIGHLIGHT",
+      "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 16.775,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "clerestory_window",
-        "nave_pier"
-      ],
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
         "SC_015"
       ],
       "planned_seconds": 16.792,
-      "readable": {
-        "clerestory_window": true,
-        "nave_pier": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_015",
-          "concept": "nave_pier",
-          "label": "highlight_peak",
-          "frame": 340,
-          "visible_share": 0.5946,
-          "core_area": 0.00231,
-          "visible_area": 0.02744,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_015",
-          "concept": "clerestory_window",
-          "label": "highlight_peak",
-          "frame": 340,
-          "visible_share": 0.5038,
-          "core_area": 0.00087,
-          "visible_area": 0.00632,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B16",
@@ -608,238 +508,80 @@
     {
       "beat_id": "B18",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": "SEQUENTIAL_STATES",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "CARD",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 21.875,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "SEQUENTIAL_STATES timing: cuts on sentence starts [2]",
-        "SEQUENTIAL_STATES: Show A, cut, show B (states not geometrically compatible)"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "romanesque_church_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_romanesque_section_01",
-          "explanation": "cathedral_romanesque_section_01 (offline only, ILLUSTRATIVE) matches cathedral/romanesque_section"
-        },
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "pier_buttress",
-        "thick_wall"
-      ],
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD",
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_018",
-        "SC_019"
+        "SC_018"
       ],
       "planned_seconds": 21.875,
-      "readable": {
-        "pier_buttress": true,
-        "thick_wall": true
-      },
+      "readable": {},
       "visual_repairs": [],
-      "composition": [
-        {
-          "layout": "SEQUENTIAL_COMPARISON",
-          "purpose": "EXPLAIN_DESIGN_CHANGE",
-          "scale": "COMMON",
-          "sequence": [
-            "romanesque_church_section",
-            "gothic_cathedral_section"
-          ],
-          "metrics": {},
-          "shot_id": "SC_018"
-        },
-        {
-          "layout": "SEQUENTIAL_COMPARISON",
-          "purpose": "EXPLAIN_DESIGN_CHANGE",
-          "scale": "COMMON",
-          "sequence": [
-            "romanesque_church_section",
-            "gothic_cathedral_section"
-          ],
-          "metrics": {},
-          "shot_id": "SC_019"
-        }
-      ],
-      "visibility": [
-        {
-          "shot_id": "SC_018",
-          "concept": "thick_wall",
-          "label": "highlight_peak",
-          "frame": 157,
-          "visible_share": 0.6973,
-          "core_area": 0.00854,
-          "visible_area": 0.01722,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_019",
-          "concept": "pier_buttress",
-          "label": "highlight_peak",
-          "frame": 115,
-          "visible_share": 0.7305,
-          "core_area": 0.04374,
-          "visible_area": 0.05425,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "composition": [],
+      "visibility": []
     },
     {
       "beat_id": "B19",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": "HOLD_HIGHLIGHT",
+      "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 31.5,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "flying_buttress"
-      ],
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_020"
+        "SC_019"
       ],
       "planned_seconds": 31.5,
-      "readable": {
-        "flying_buttress": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_020",
-          "concept": "flying_buttress",
-          "label": "highlight_peak",
-          "frame": 383,
-          "visible_share": 0.3974,
-          "core_area": 0.00029,
-          "visible_area": 0.00289,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B20",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": "HOLD_HIGHLIGHT",
+      "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 12.35,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "flying_buttress"
-      ],
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_021"
+        "SC_020"
       ],
       "planned_seconds": 12.375,
-      "readable": {
-        "flying_buttress": true
-      },
-      "visual_repairs": [
-        {
-          "beat_id": "B20",
-          "shot_id": "SC_021",
-          "concept": "flying_buttress",
-          "problems": [
-            "TOO_SMALL"
-          ],
-          "frame": "highlight_peak",
-          "before": {
-            "visible_share": 0.8261,
-            "core_area": 0.00014,
-            "visible_area": 0.00092
-          },
-          "after": {
-            "visible_share": 0.8554,
-            "core_area": 0.01292,
-            "visible_area": 0.01712
-          },
-          "evaluated": [
-            {
-              "remedy": "REFRAME",
-              "result": "PASS",
-              "detail": "share 0.86, core 1.29%, area 1.71% -> PASS"
-            }
-          ],
-          "chosen": "REFRAME"
-        }
-      ],
+      "readable": {},
+      "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_021",
-          "concept": "flying_buttress",
-          "label": "highlight_peak",
-          "frame": 208,
-          "visible_share": 0.8554,
-          "core_area": 0.01292,
-          "visible_area": 0.01712,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_021",
-          "concept": "flying_buttress",
-          "label": "highlight_peak",
-          "frame": 208,
-          "visible_share": 0.8639,
-          "core_area": 0.01075,
-          "visible_area": 0.015,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B21",
@@ -859,7 +601,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_022"
+        "SC_021"
       ],
       "planned_seconds": 23.458,
       "readable": {},
@@ -885,7 +627,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_023"
+        "SC_022"
       ],
       "planned_seconds": 12.583,
       "readable": {},
@@ -920,7 +662,7 @@
         "HOLD"
       ],
       "shot_ids": [
-        "SC_024"
+        "SC_023"
       ],
       "planned_seconds": 8.833,
       "readable": {
@@ -930,7 +672,7 @@
       "composition": [],
       "visibility": [
         {
-          "shot_id": "SC_024",
+          "shot_id": "SC_023",
           "concept": "clerestory_window",
           "label": "highlight_peak",
           "frame": 111,
@@ -961,7 +703,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_025"
+        "SC_024"
       ],
       "planned_seconds": 18.875,
       "readable": {},
@@ -989,7 +731,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_026"
+        "SC_025"
       ],
       "planned_seconds": 18.208,
       "readable": {},
@@ -1017,7 +759,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_027"
+        "SC_026"
       ],
       "planned_seconds": 16.208,
       "readable": {},
@@ -1043,7 +785,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_028"
+        "SC_027"
       ],
       "planned_seconds": 23.875,
       "readable": {},
@@ -1071,7 +813,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_029"
+        "SC_028"
       ],
       "planned_seconds": 14.083,
       "readable": {},
@@ -1107,7 +849,7 @@
         "HOLD"
       ],
       "shot_ids": [
-        "SC_030"
+        "SC_029"
       ],
       "planned_seconds": 11.542,
       "readable": {
@@ -1118,7 +860,7 @@
       "composition": [],
       "visibility": [
         {
-          "shot_id": "SC_030",
+          "shot_id": "SC_029",
           "concept": "flying_buttress",
           "label": "highlight_peak",
           "frame": 175,
@@ -1130,7 +872,7 @@
           "verification": "ESTIMATED"
         },
         {
-          "shot_id": "SC_030",
+          "shot_id": "SC_029",
           "concept": "pier_buttress",
           "label": "highlight_peak",
           "frame": 175,
@@ -1161,7 +903,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_031"
+        "SC_030"
       ],
       "planned_seconds": 13.333,
       "readable": {},
@@ -1187,7 +929,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_032"
+        "SC_031"
       ],
       "planned_seconds": 15.25,
       "readable": {},
@@ -1213,7 +955,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_033"
+        "SC_032"
       ],
       "planned_seconds": 21.458,
       "readable": {},
@@ -1239,7 +981,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_034"
+        "SC_033"
       ],
       "planned_seconds": 10.833,
       "readable": {},
@@ -1265,7 +1007,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_035"
+        "SC_034"
       ],
       "planned_seconds": 16.708,
       "readable": {},
@@ -1291,7 +1033,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_036"
+        "SC_035"
       ],
       "planned_seconds": 31.5,
       "readable": {},
@@ -1317,7 +1059,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_037"
+        "SC_036"
       ],
       "planned_seconds": 19.542,
       "readable": {},
@@ -1345,7 +1087,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_038"
+        "SC_037"
       ],
       "planned_seconds": 37.333,
       "readable": {},
@@ -1373,7 +1115,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_039"
+        "SC_038"
       ],
       "planned_seconds": 21.958,
       "readable": {},
@@ -1406,7 +1148,7 @@
         "HOLD"
       ],
       "shot_ids": [
-        "SC_040"
+        "SC_039"
       ],
       "planned_seconds": 21.75,
       "readable": {},
@@ -1432,7 +1174,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_041"
+        "SC_040"
       ],
       "planned_seconds": 38.0,
       "readable": {},
@@ -1458,7 +1200,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_042"
+        "SC_041"
       ],
       "planned_seconds": 34.125,
       "readable": {},
@@ -1495,7 +1237,7 @@
         "HOLD"
       ],
       "shot_ids": [
-        "SC_043"
+        "SC_042"
       ],
       "planned_seconds": 20.75,
       "readable": {
@@ -1507,7 +1249,7 @@
       "composition": [],
       "visibility": [
         {
-          "shot_id": "SC_043",
+          "shot_id": "SC_042",
           "concept": "rib",
           "label": "highlight_peak",
           "frame": 288,
@@ -1519,7 +1261,7 @@
           "verification": "ESTIMATED"
         },
         {
-          "shot_id": "SC_043",
+          "shot_id": "SC_042",
           "concept": "flying_buttress",
           "label": "highlight_peak",
           "frame": 288,
@@ -1531,7 +1273,7 @@
           "verification": "ESTIMATED"
         },
         {
-          "shot_id": "SC_043",
+          "shot_id": "SC_042",
           "concept": "clerestory_window",
           "label": "highlight_peak",
           "frame": 288,
@@ -1564,7 +1306,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_044"
+        "SC_043"
       ],
       "planned_seconds": 21.083,
       "readable": {},
@@ -1597,7 +1339,7 @@
         "HOLD"
       ],
       "shot_ids": [
-        "SC_045"
+        "SC_044"
       ],
       "planned_seconds": 9.583,
       "readable": {},
@@ -1623,7 +1365,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_046"
+        "SC_045"
       ],
       "planned_seconds": 12.667,
       "readable": {},
@@ -1649,7 +1391,7 @@
         "MOTION_GRAPHICS"
       ],
       "shot_ids": [
-        "SC_047"
+        "SC_046"
       ],
       "planned_seconds": 7.417,
       "readable": {},

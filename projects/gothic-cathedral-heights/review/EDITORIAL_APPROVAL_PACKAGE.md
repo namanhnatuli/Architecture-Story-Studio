@@ -7,7 +7,7 @@
 1. Lời dẫn: mỗi câu đúng với claim nó trích (xem cột trích dẫn nguồn).
 2. Chữ trên card: tiêu đề, nhãn, chú thích ảnh, thang nhịp và dòng thời gian.
 3. Ảnh lưu trữ: chọn ảnh, cách cắt viền phim, dòng ghi công (xem `review/RIGHTS_PROVENANCE.md`).
-4. Nhãn 'Illustrative model' trên các mô hình 3D (B05, B07, B12, B13, B16, B17, B18, B19, B23).
+4. Nhãn 'Illustrative model' trên các mô hình 3D (B05, B07, B12, B13, B16, B17, B23).
 5. Phát âm các tên mới (narration.voice.pronunciation_review.terms).
 6. Giọng: quyền dùng `am_michael` cho phim này (licence LICENSE_REVIEW_REQUIRED, owner_confirmation_for_this_film = PENDING).
 
@@ -413,41 +413,45 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - **SC_001** (B01): Photo: Dguendel, CC BY 4.0, Wikimedia Commons | Photo: Dguendel, CC BY 4.0, Wikimedia Commons | Beauvais Cathedral today | Beauvais, November 1284 | Vault: more than 45 m above the floor | Published heights differ: 46 m to above 48 m | The choir today: the eastern arm | In use from 1272: twelve years
 - **SC_002** (B02): Photo: Eusebius, CC BY 3.0, Wikimedia Commons | Amiens Cathedral today | Amiens, begun 1220 | Vault: more than 42 m
 - **SC_003** (B03): How Gothic Cathedrals Reached | Impossible Heights | How did they raise stone that high? | And why, sometimes, did it come down? | Section of Beauvais: Viollet-le-Duc, 1856
-- **SC_004** (B04): 2 · Stone and its outward push | Pulled apart: little or no strength | Stones pressed together: it stands | Conceptual diagram, not to scale
-- **SC_008** (B08): 3 · The pointed arch | Round arch | Pointed arch | Rise: half the span | Same span, higher rise | Conceptual arrows: direction only, not calculated | Illustrations, not the arches of the study (Block, DeJong and Ochsendorf, 2006)
-- **SC_009** (B09): Robert Hooke, 1675 | “As hangs the flexible line, so but inverted | will stand the rigid arch.” | A chain with its weights | Turned upside down: a path for the force | Different weights, different curve | “As hangs the flexible line, so but inverted | will stand the rigid arch.”  Robert Hooke, 1675 | Conceptual diagram
+- **SC_004** (B04): 2 · Stone and its outward push | Conceptual diagram, not to scale | Pulled apart: little or no strength | Stones pressed together: it stands
+- **SC_008** (B08): 3 · The pointed arch | Pointed arch | Round arch | Rise: half the span | Same span, higher rise | Conceptual arrows: direction only, not calculated | Shape | Thickness | Weight carried | Illustrations, not the arches of the study (Block, DeJong and Ochsendorf, 2006)
+- **SC_009** (B09): Robert Hooke, 1675 | “As hangs the flexible line, so but inverted | will stand the rigid arch.” | “As hangs the flexible line, so but inverted | will stand the rigid arch.”  Robert Hooke, 1675 | A chain with its weights | Turned upside down: | a path for the force | Different weights, different curve | Conceptual diagram
 - **SC_010** (B10): 1060 | 1080 | 1100 | 1120 | 1140 | 1160 | 1088  Cluny III: construction begins | Saint-Denis: used systematically | Not a Gothic invention
-- **SC_011** (B11): Round arches | Pointed arches | Crowns at different heights | Same crown height | Regular crowns help keep complex vaults regular | Wide bay, narrow bay: conceptual diagram
-- **SC_014** (B14): 1060 | 1080 | 1100 | 1120 | 1140 | 1160 | 1088  Cluny III: construction begins | Durham, begun 1093, finished 1133: ribbed vaults, in phases | Saint-Denis choir | At least three technical phases, some forty years | Earlier sources: Islamic, Roman, Byzantine (Columbia)
-- **SC_022** (B21): 1120 | 1130 | 1140 | 1150 | 1160 | 1144  Choir dedicated | West front | New choir | 6 · Walls of light | Part of the answer: light | Saint-Denis | Pointed arches throughout | Every vault ribbed | Monumental stained glass
-- **SC_023** (B22): “A sign or bridge to the divine” | Light, for Abbot Suger | The new style had to let in as much light as possible | Bibliothèque nationale de France
-- **SC_025** (B24): How new was Gothic? | “An entire revolution | in the art of building” | After Viollet-le-Duc, 19th century | No Gothic break: a creative | proposal rooted in continuity | Arnaud Timbert, art historian | Suger's crypt: round arches, groin vaults
-- **SC_026** (B25): 7 · Building by geometry | Trial and error, over centuries | The same proportions, scaled up
-- **SC_027** (B26): Ropes pegged to the ground | Squares with right angles | Templates: straight-edge and compass | Schematic, not the Amiens plan
-- **SC_028** (B27): Wedge-shaped voussoirs | Each cut to a wooden template | Centering (temporary) | Centering removed | once the mortar has set
-- **SC_029** (B28): The carpenters | Scaffolding | Formwork for the vaults | Lifting gear | Ties: wood, later iron | Ties stopped the arches pushing the upper piers over
-- **SC_031** (B30): 1200 | 1240 | 1280 | 1320 | 1220  Foundation stone | 1310  Main roof finished (about) | Amiens Cathedral
-- **SC_032** (B31): 8 · The limit: Beauvais | Photo: Dguendel, CC BY 4.0, Wikimedia Commons | Beauvais Cathedral today: the choir | 1225: fire in the old Romanesque choir
-- **SC_033** (B32): Photo: Dguendel, CC BY 4.0, Wikimedia Commons | Arcade | Triforium | 1250s: arcade and triforium finished | Upper windows: + about 5 m | the added height is schematic | 1272: the choir in use
-- **SC_034** (B33): Amiens: more than 42 m | Beauvais: more than 45 m | The highest vaults built in the Middle Ages | Published for Beauvais: 46 m, 46.7 m, nearly 47 m, above 48 m | Photo: Eusebius, CC BY 3.0, Wikimedia Commons | Photo: Dguendel, CC BY 4.0, Wikimedia Commons
-- **SC_035** (B34): Plan of Beauvais: Viollet-le-Duc, 1856 | 29 November 1284 | Vault cells over the choir's straight bays fell | “The last limit”: Viollet-le-Duc, who drew this plan
-- **SC_036** (B35): Section of Beauvais: Viollet-le-Duc, 1856; marks schematic | Why did the vaults fall? Still debated. | Hypothesis: settling masonry broke | the flying buttresses | Hypothesis: gusts of wind set the | buttress system resonating | Hypothesis: slow settlement | of the foundations | Not supported by this study | Vernhes, Renault and Zotna, 2024: | “nothing appears to justify | a geotechnical origin” | Their hypothesis: vaults raised against proven | proportions left the upper parts too flexible | ECSMGE 2024: an argument, not a settled result
-- **SC_037** (B36): 1 | 2 | 3 | 1 | 2 | 3 | 4 | 5 | 6 | Plan of Beauvais: Viollet-le-Duc, 1856 | The repair | New piers between the old ones (positions schematic) | Finished in 1340 | “Longer to repair the choir than to build it”: Stephen Murray
-- **SC_038** (B37): 1480 | 1520 | 1560 | 1600 | 1500  Transept begun | 1569  Tower and spire, about 150 m | 1573  The tower falls | Photo: Chris06, CC0, Wikimedia Commons; plan: Viollet-le-Duc, 1856 | Beauvais Cathedral today: transept and choir | No nave: no support to the west | The Gothic nave: never built
-- **SC_039** (B38): Photo: Eusebius, CC BY 3.0, Wikimedia Commons | Plan of Amiens: Viollet-le-Duc, 1854 | Amiens Cathedral today | Crossing piers: threatening collapse within two centuries | Iron chain, 1497–1500 | route schematic | Iron rods linked together, along the nave, tying the crossing pier
-- **SC_041** (B40): The line of thrust | Assumed: stones resist no pulling, never slide, never crush | Many lines can fit. One is enough | Supports moved apart: the arch deforms | At the limit, the line touches the stone at five points | Any further, and no line can fit | After Block, DeJong and Ochsendorf, 2006, Fig. 5, recalculated by Ochsendorf's 2002 method. One idealized arch, self-weight only
-- **SC_042** (B41): Small model | Real building | Same proportions | Shows the role of proportion | Does not prove a real building safe | Rules of geometry, learned by trial and error
-- **SC_044** (B43): Not a simple story of progress | Beauvais: new piers | Amiens: an iron chain | Saint-Denis: a bright choir over a crypt of older forms | Centuries of trial and error
-- **SC_046** (B45): What should we explain next? | Suggest a topic in the comments | SUBSCRIBE | SUBSCRIBED
-- **SC_047** (B46): How Gothic Cathedrals Reached Impossible Heights | Sources: Columbia University (Life of a Cathedral; S. Murray; R. Stalley); Harvard (Loeb Library); New Catholic Encyclopedia; | MIT (P. Block, 2005; Block, DeJong and Ochsendorf, 2006; Romano and Ochsendorf); Cambridge (J. Ochsendorf, 2002); | Bibliothèque nationale de France; France Mémoire (A. Timbert); Durham Cathedral; Abbaye de Cluny (CMN); | ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale | 3D models and diagrams are illustrative, not structural analyses | Architecture Story Studio
+- **SC_011** (B11): Round arches | Crowns at different heights | Pointed arches | Same crown height | Regular crowns help keep complex vaults regular | Wide bay, narrow bay: conceptual diagram
+- **SC_014** (B14): Photo: A. D. White Architectural Photographs, Cornell University Library | Durham Cathedral, interior | (photograph about 1865–1895) | 1080 | 1100 | 1120 | 1140 | 1088  Cluny III: construction begins | Durham, begun 1093, finished 1133: ribbed vaults, in phases | At least three technical phases, some forty years | Earlier sources: Islamic, Roman, Byzantine (Columbia)
+- **SC_015** (B15): One bay, seen from inside (schematic) | The load goes | to the piers | The wall: no longer | the main support | Wall thickness (schematic) | Wide windows
+- **SC_018** (B18): The picture from Columbia's Amiens project | Plan, seen from above (schematic) | Inside the building | A thick outer wall | Each segment turned 90° | Rigid supports, standing out from the building | Exposed arches: flying buttresses
+- **SC_019** (B19): A church section (schematic) | Added outside to consolidate (BnF) | Timber props, while building | made permanent in stone (BnF) | Photo: Florestan, CC BY 3.0, Wikimedia Commons | Photo: Jebulon, CC0, Wikimedia Commons | Chartres today: flying buttresses of the nave | part of the original plans | Notre-Dame de Paris: the east end (photograph 2011)
+- **SC_020** (B20): Half a section (schematic) | Rainwater led off the roof | (schematic) | Ever taller
+- **SC_021** (B21): 1120 | 1130 | 1140 | 1150 | 1160 | 1144  Choir dedicated | West front | New choir | 6 · Walls of light | Part of the answer: light | Saint-Denis | Pointed arches throughout | Every vault ribbed | Monumental stained glass
+- **SC_022** (B22): “A sign or bridge to the divine” | Light, for Abbot Suger | The new style had to let in as much light as possible | Bibliothèque nationale de France
+- **SC_024** (B24): How new was Gothic? | “An entire revolution | in the art of building” | After Viollet-le-Duc, 19th century | No Gothic break: a creative | proposal rooted in continuity | Arnaud Timbert, art historian | Suger's crypt: round arches, groin vaults
+- **SC_025** (B25): 7 · Building by geometry | Without modern structural calculations | A geometrical rule: compass and line | The same proportions, scaled up
+- **SC_026** (B26): Ropes pegged to the ground | Squares with right angles | Templates: straight edge and compass | Schematic, not the Amiens plan
+- **SC_027** (B27): Drawn full size on the ground | Divided into voussoirs | Each cut to a wooden template | Centering (temporary) | Centering removed | once the mortar has set | Amiens: after a couple of months or so | Sequence after the sources, schematic
+- **SC_028** (B28): The carpenters (schematic) | Scaffolding | Formwork for the vault | Lifting gear | Ties: wood, later iron | held against the arches' push
+- **SC_030** (B30): 1200 | 1240 | 1280 | 1320 | 1220  Foundation stone | 1310  Main roof finished (about) | Amiens Cathedral
+- **SC_031** (B31): 8 · The limit: Beauvais | Photo: Dguendel, CC BY 4.0, Wikimedia Commons | Beauvais Cathedral today: the choir | 1225: fire in the old Romanesque choir
+- **SC_032** (B32): Photo: Dguendel, CC BY 4.0, Wikimedia Commons | Arcade | Triforium | 1250s: arcade and triforium finished | Upper windows: + about 5 m | the added height is schematic | 1272: the choir in use
+- **SC_033** (B33): Amiens: more than 42 m | Beauvais: more than 45 m | The highest vaults built in the Middle Ages | Published for Beauvais: 46 m, 46.7 m, nearly 47 m, above 48 m | Photo: Eusebius, CC BY 3.0, Wikimedia Commons | Photo: Dguendel, CC BY 4.0, Wikimedia Commons
+- **SC_034** (B34): Plan of Beauvais: Viollet-le-Duc, 1856 | 29 November 1284 | Vault cells over the choir's straight bays fell | “The last limit”: Viollet-le-Duc, who drew this plan
+- **SC_035** (B35): Section of Beauvais: Viollet-le-Duc, 1856; marks schematic | Why did the vaults fall? Still debated. | Hypothesis: settling masonry broke | the flying buttresses | Hypothesis: gusts of wind set the | buttress system resonating | Hypothesis: slow settlement | of the foundations | Not supported by this study | Vernhes, Renault and Zotna, 2024: | “nothing appears to justify | a geotechnical origin” | Their hypothesis: vaults raised against proven | proportions left the upper parts too flexible | ECSMGE 2024: an argument, not a settled result
+- **SC_036** (B36): 1 | 2 | 3 | 1 | 2 | 3 | 4 | 5 | 6 | Plan of Beauvais: Viollet-le-Duc, 1856 | The repair | New piers between the old ones (positions schematic) | Finished in 1340 | “Longer to repair the choir than to build it”: Stephen Murray
+- **SC_037** (B37): 1480 | 1520 | 1560 | 1600 | 1500  Transept begun | 1569  Tower and spire, about 150 m | 1573  The tower falls | Photo: Chris06, CC0, Wikimedia Commons; plan: Viollet-le-Duc, 1856 | Beauvais Cathedral today: transept and choir | No nave: no support to the west | The Gothic nave: never built
+- **SC_038** (B38): Photo: Eusebius, CC BY 3.0, Wikimedia Commons | Plan of Amiens: Viollet-le-Duc, 1854 | Amiens Cathedral today | Crossing piers: threatening collapse within two centuries | Iron chain, 1497–1500 | route schematic | Iron rods linked together, along the nave, tying the crossing pier
+- **SC_040** (B40): The line of thrust | Assumed: stones resist no pulling, never slide, never crush | Many lines can fit. One is enough | Supports moved apart: the arch deforms | At the limit, the line touches the stone at five points | Any further, and no line can fit | After Block, DeJong and Ochsendorf, 2006, Fig. 5, recalculated by Ochsendorf's 2002 method. One idealized arch, self-weight only
+- **SC_041** (B41): Small model | Real building | Same proportions | Shows the role of proportion | Does not prove a real building safe | Rules of geometry, learned by trial and error
+- **SC_043** (B43): Not a simple story of progress | Beauvais: new piers | Amiens: an iron chain | Saint-Denis: a bright choir over a crypt of older forms | Centuries of trial and error
+- **SC_045** (B45): What should we explain next? | Suggest a topic in the comments | SUBSCRIBE | SUBSCRIBED
+- **SC_046** (B46): How Gothic Cathedrals Reached Impossible Heights | Sources: Columbia University (Life of a Cathedral; S. Murray; R. Stalley); Harvard (Loeb Library); New Catholic Encyclopedia; | MIT (P. Block, 2005; Block, DeJong and Ochsendorf, 2006; Romano and Ochsendorf); Cambridge (J. Ochsendorf, 2002); | Bibliothèque nationale de France; France Mémoire (A. Timbert); Durham Cathedral; Abbaye de Cluny (CMN); | ECSMGE 2024 (Vernhes, Renault, Zotna); Association Beauvais Cathédrale | 3D models and diagrams are illustrative, not structural analyses | Architecture Story Studio
 
 ## Chú thích trên cảnh 3D
 
 - B05 `B05_note` NOTE: "Illustrative model, arrows are conceptual"
+- B05 `B05_down` LOAD_ARROW: "Presses down" (CLM_120)
 - B05 `B05_thrust` THRUST_ARROW: "Thrust" (CLM_120)
 - B05 `B05_word` NOTE: "An Amiens document calls it “boutture”"
 - B06 `B06_note` NOTE: "One Romanesque type, illustrative model"
-- B06 `B06_vault` COMPONENT_LABEL: "Barrel vault"
 - B06 `B06_wall` COMPONENT_LABEL: "Thick wall"
 - B06 `B06_butt` COMPONENT_LABEL: "Shallow buttress"
 - B06 `B06_window` COMPONENT_LABEL: "Small window"
@@ -471,8 +475,6 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - B17 `B17_pier` COMPONENT_LABEL: "Pier buttress"
 - B17 `B17_weight` LOAD_ARROW: "Weight" (CLM_152)
 - B17 `B17_pinnacle` COMPONENT_LABEL: "Pinnacle"
-- B18 `B18_note` NOTE: "Illustrative models, not measured buildings"
-- B19 `B19_note` NOTE: "Illustrative model, not Chartres or Notre-Dame"
 - B23 `B23_n` NOTE: "Chartres: about 2,500 m² of stained glass"
 - B23 `B23_note` NOTE: "Illustrative model, not Chartres Cathedral"
 - B39 `B39_ch` NOTE: "9 · Why they stand"
