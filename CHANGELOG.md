@@ -1,5 +1,47 @@
 # Changelog
 
+## 0.10.1 — 2026-11-06 — Phim Gothic g-r5, bước 1: sửa đoạn thử theo góp ý của chủ kênh
+- **Chủ kênh nhận xét đoạn thử g-r4:** giữ hướng (chuyển động mang thông tin), nhưng phải rõ hơn trước khi nhân rộng.
+  - Bớt lớp mờ phía sau.
+  - Tăng tương phản cho bộ phận đang giải thích.
+  - Hết cảm giác chân trụ treo trong không khí khi nhìn từ dưới.
+  - Trụ ngoài phải rõ khi trụ chống bay xuất hiện.
+  - Khung B17 thừa nền bên phải.
+  - Camera đứng yên trong các thao tác quan trọng của B12.
+  - Chưa có gì được duyệt.
+- **Camera quay một cung ngắn (orbit) trong SEQUENCE:**
+  - Mỗi view có thể có `azimuth`, `elevation` riêng; giữa hai view khác hướng, camera đi theo một cung quanh chủ thể (`framing.orbit_pose`).
+  - Trong lúc quay, camera lùi ra rồi trở lại đúng khung của view sau, và dừng đúng khung tại mỗi view.
+  - Một view nhìn từ dưới mặt đất thì preset phải ẩn mặt đất.
+  - Chú thích xoay theo camera. Kiểm tra Blender còn so hướng nhìn ở mỗi view.
+  - Planner so cả hướng camera ở match cut.
+- **Màu nhấn (`tint`) cho bước HIGHLIGHT:**
+  - Bộ phận chuyển dần sang màu `highlight` của bảng màu thay vì sáng lên; độ sáng phát ra giảm theo đúng tỉ lệ đó.
+  - Lý do: đá sáng phát sáng trên nền sáng làm mất tương phản. `tint` mặc định 0, nên shot cũ không đổi.
+- **Đường lực vẽ dần (`draw_seconds` trong `config/annotation_style.json`):**
+  - `CONCEPTUAL_LOAD_PATH` hiện từng đoạn theo tuyến truyền lực, đầu mũi tên đến cuối cùng, rồi giữ nguyên hình.
+  - Không kéo dài, không phồng lên, không có hạt chạy.
+- **Card và timeline:**
+  - Phần tử card có thể có `delay` sau câu hoặc từ của nó.
+  - Timeline có vạch thời gian màu nhấn tiến tới từng mốc theo lời dẫn, rồi mốc mới hiện.
+- **B12:**
+  - Mở bằng cả nhà thờ đứng trên sàn. Phần còn lại, gồm cả sàn, mờ đi; một khoang đứng riêng, rồi camera quay xuống dưới khoang và nhìn thẳng lên (`UNDER_BAY`, −84°).
+  - Gân chéo, phần đá giữa gân và trụ lần lượt hiện theo lời; trụ thành bốn tiết diện ở bốn góc.
+  - Camera không chuyển động khi bộ phận đang đổi.
+  - Chỉ giữ tường cao của khoang (mờ 0,9) làm mốc.
+- **B13:** giữ góc nhìn thẳng từ dưới lên, tiến lại gần phần đá giữa gân. Các dải xen kẽ đọc thành "một chuỗi vòm"; không còn chân trụ lơ lửng.
+- **B16, B17:**
+  - Chỉ hệ trụ ở mặt cắt chờ mờ; các khoang phía sau bỏ hẳn hệ trụ, vì lớp mờ chồng nhau thành vệt.
+  - Trụ ngoài đặc lại khi đọc "outside", trước khi trụ chống bay tới.
+  - Khung B17 lấy thêm chân vòm cao, nơi lực đẩy "rời vòm".
+- **Preset `CATHEDRAL_VAULT_BELOW`:** giữ sàn nhà thờ; shot bắt đầu dưới sàn phải ẩn sàn ngay từ đầu. Concept mới `church_floor`.
+- **Đoạn thử g-r5:** `output/pilot/…PILOT_G_R5…` (git-ignored); báo cáo `qa/excerpt_PILOT_G_R5.json`.
+  - Kiểm tra Blender 76/76.
+  - Điểm cắt SSIM 0,99999 và 1,0.
+  - −16,4 LUFS.
+  - WER 0 ở cả bản có và không có tiếng đá.
+- Test: 388/388 (thêm orbit, `tint`; test trụ chống bay đổi theo thiết kế mới: trụ ngoài đặc trước). Đánh giá planner 30/30.
+
 ## 0.10.0 — 2026-11-06 — Phim Gothic: đoạn thử vòm gân và trụ chống bay (shot SEQUENCE, âm thanh tổng hợp)
 - **Chủ kênh nhận xét bản g-r3:** vẫn là bản dựng sơ bộ; mô hình đứng yên, camera chỉ tiến gần, ít cỡ cảnh. Chủ kênh đề nghị làm một đoạn thử 60–90 giây (vòm gân, trụ chống bay) để duyệt chất lượng hình trước khi áp cho cả phim. Chưa có gì được duyệt.
 - **Shot SEQUENCE (mới):** một mô hình, các bước theo câu và theo từ của lời dẫn.

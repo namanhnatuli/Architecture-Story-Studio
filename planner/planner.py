@@ -324,6 +324,7 @@ class Draft:
         self.composition = None   # comparison layout decision (planner/composition.py)
         self.sequence = None      # shots of one sequential comparison share a locked camera
         self.end_focus = focus    # SEQUENCE: the framing it ends on (a match cut compares it with the next start)
+        self.angles = self.end_angles = (None, None)   # g-r5 SEQUENCE: camera direction at start / end (None: preset)
 
 
 def _with_context(d, context):
@@ -412,6 +413,9 @@ def build_strategy(name, ctx):
         for e in g["elements"]:   # M7: element timing by sentence (measured when AUDIO_LOCKED), or by word
             e = dict(e)
             word = e.pop("word", None)
+            delay = e.pop("delay", 0.0)   # g-r5: seconds after its moment (a line drawn in pieces, a timeline advancing)
+            if isinstance(delay, bool) or not isinstance(delay, (int, float)) or not 0 <= delay <= 10:
+                raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: delay {delay!r} must be 0..10 s")
             for key, field in (("sentence", "appear"), ("until", "disappear")):
                 if key in e:
                     k = e.pop(key)
@@ -425,7 +429,7 @@ def build_strategy(name, ctx):
                             raise StrategyRejected("INVALID_REQUEST", f"card element {e.get('id')}: word {word!r} "
                                                    f"has no aligned timestamp in sentence {k} (run align)")
                         t = hits[0][1]
-                    e[field] = round(max(0.0, t - lead), 4)
+                    e[field] = round(max(0.0, t - lead + (delay if key == "sentence" else 0.0)), 4)
             graphic["elements"].append(e)
 
         def make(n):
@@ -503,7 +507,7 @@ def build_strategy(name, ctx):
             out = {"focus": None if v.get("frame") is None else sorted(ids(v["frame"], f"views[{k}].frame"))}
             if k:
                 out.update(start_seconds=when(v.get("at"), f"views[{k}].at"), move_seconds=float(v.get("move_seconds", 1.5)))
-            for key in ("easing", "margin"):
+            for key in ("easing", "margin", "azimuth", "elevation"):   # g-r5: a view may turn the camera
                 if key in v:
                     out[key] = v[key]
             views.append(out)
@@ -542,6 +546,8 @@ def build_strategy(name, ctx):
                   f"{len(views)} view(s), {len(steps)} timed steps on {sid}: "
                   + ", ".join(f"{s['do'].lower()} {len(s['components'])}" for s in steps), focus=focus0)
         d.end_focus = focus1
+        d.angles = (views[0].get("azimuth"), views[0].get("elevation"))
+        d.end_angles = (views[-1].get("azimuth"), views[-1].get("elevation"))
         return [d]
 
     if name == "ASSEMBLE_IN":
@@ -1062,7 +1068,10 @@ def _plan_pass(project_dir, root, vocab, excluded):
                                "part": [i + 1, len(drafts)], "template": d.template, "states": d.states,
                                "camera": {"mode": d.mode, "preset": shot["camera"], "focus": d.focus,
                                           "safe_band": shot.get("camera_safe_band", 0.0),
-                                          **({"end_focus": d.end_focus} if d.template == "SEQUENCE" else {})},
+                                          **({"end_focus": d.end_focus} if d.template == "SEQUENCE" else {}),
+                                          **({"angles": list(d.angles), "end_angles": list(d.end_angles)}
+                                             if d.template == "SEQUENCE" and any(v is not None for v in
+                                                                                 d.angles + d.end_angles) else {})},
                                "semantic_targets": [{"concept": t["concept"], "roles": t["roles"], "group": t["group"],
                                                      "component_ids": t["component_ids"]} for t in d.targets],
                                "timing": {"mode": windows[bid][1], "frames": n, "duration_seconds": round(n / fps, 6),
@@ -1188,6 +1197,15 @@ def _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows
             warnings += [f"{beat['beat_id']}: {i}" for i in issues]
 
 
+def _start_angles(camera):
+    """g-r5: the direction a shot's camera starts from ([None, None] = its preset's)."""
+    return list(camera.get("angles") or [None, None])
+
+
+def _end_angles(camera):
+    return list(camera.get("end_angles") or camera.get("angles") or [None, None])
+
+
 def _continuity(plan_shots, model):
     """Continuity groups (one locked camera each) and cut types. A group continues through a
     match cut (same camera preset and focus, the next shot starts where the last ended) and
@@ -1203,6 +1221,7 @@ def _continuity(plan_shots, model):
         elif prev is not None and single and prev["template"] not in ("SIDE_BY_SIDE", "MOTION_GRAPHICS") and \
                 prev["camera"]["preset"] == ps["camera"]["preset"] and \
                 prev["camera"].get("end_focus", prev["camera"]["focus"]) == ps["camera"]["focus"] \
+                and _end_angles(prev["camera"]) == _start_angles(ps["camera"]) \
                 and prev["states"][-1] == ps["states"][0]:
             cut = "match"
         elif prev is not None and ps["template"] == "SIDE_BY_SIDE" and prev["template"] == "SIDE_BY_SIDE" and \

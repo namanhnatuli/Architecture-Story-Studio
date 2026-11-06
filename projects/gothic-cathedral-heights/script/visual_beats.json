@@ -3321,7 +3321,7 @@
         "CLM_140"
       ],
       "narration": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners.",
-      "visual_goal": "From the whole section to one bay: its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along the ribs to the four piers",
+      "visual_goal": "The row of high vaults from below; the rest of the church leaves, then the camera turns under one bay: its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along the ribs to the four piers. One change at a time: the camera never moves while parts move",
       "required_concepts": [
         "gothic_cathedral_section",
         "rib",
@@ -3334,10 +3334,27 @@
         "camera": "CATHEDRAL_VAULT_BELOW",
         "views": [
           {
-            "frame": null
+            "azimuth": -66.0,
+            "elevation": 12.0
           },
           {
             "frame": [
+              {
+                "concept": "nave_pier",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_east1"
+              },
               {
                 "concept": "rib",
                 "group": "rib_transverse_0"
@@ -3380,16 +3397,44 @@
                 ]
               }
             ],
+            "azimuth": -90.0,
+            "elevation": -84.0,
+            "margin": 0.08,
             "at": {
-              "sentence": 0,
-              "word": "rib"
+              "sentence": 1,
+              "offset": -0.6
             },
-            "move_seconds": 1.8
+            "move_seconds": 2.6
           }
         ],
         "steps": [
           {
             "do": "GHOST",
+            "targets": [
+              {
+                "concept": "arcade_wall",
+                "local": [
+                  "clerestory_wall_b1_west",
+                  "clerestory_wall_b1_east"
+                ]
+              },
+              {
+                "concept": "clerestory_window",
+                "local": [
+                  "clerestory_window_b1_west",
+                  "clerestory_window_b1_east"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "second"
+            },
+            "seconds": 1.2,
+            "transparency": 0.9
+          },
+          {
+            "do": "FADE_OUT",
             "targets": {
               "except": [
                 {
@@ -3449,6 +3494,20 @@
                     "vault_web_b1_e1"
                   ]
                 },
+                {
+                  "concept": "arcade_wall",
+                  "local": [
+                    "clerestory_wall_b1_west",
+                    "clerestory_wall_b1_east"
+                  ]
+                },
+                {
+                  "concept": "clerestory_window",
+                  "local": [
+                    "clerestory_window_b1_west",
+                    "clerestory_window_b1_east"
+                  ]
+                },
                 "flying_buttress",
                 "pier_buttress",
                 "pinnacle",
@@ -3458,9 +3517,9 @@
             },
             "at": {
               "sentence": 0,
-              "word": "rib"
+              "word": "second"
             },
-            "seconds": 1.4
+            "seconds": 1.2
           },
           {
             "do": "FADE_OUT",
@@ -3506,7 +3565,7 @@
             ],
             "at": {
               "sentence": 0,
-              "word": "rib"
+              "word": "second"
             },
             "seconds": 1.2
           },
@@ -3521,7 +3580,7 @@
             "at": {
               "sentence": 1,
               "word": "two",
-              "offset": -0.6
+              "offset": -0.1
             },
             "seconds": 1.0,
             "direction": "FROM_BELOW",
@@ -3539,7 +3598,7 @@
             "at": {
               "sentence": 1,
               "word": "cross",
-              "offset": -0.6
+              "offset": -0.1
             },
             "seconds": 1.0,
             "direction": "FROM_BELOW",
@@ -3560,12 +3619,14 @@
             ],
             "at": {
               "sentence": 1,
-              "word": "diagonally"
+              "word": "over"
             },
             "until": {
               "sentence": 2,
               "offset": -0.2
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           },
           {
             "do": "REVEAL",
@@ -3625,7 +3686,9 @@
             "until": {
               "sentence": 2,
               "word": "piers"
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           },
           {
             "do": "HIGHLIGHT",
@@ -3656,7 +3719,9 @@
               "sentence": 2,
               "end": true,
               "offset": 0.3
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           }
         ]
       },
@@ -3681,9 +3746,12 @@
           "type": "COMPONENT_LABEL",
           "target": {
             "concept": "rib",
-            "local": "rib_diagonal_b1b"
+            "local": [
+              "rib_diagonal_b1a",
+              "rib_diagonal_b1b"
+            ]
           },
-          "point": "CENTER",
+          "point": "TOP",
           "text": "Diagonal ribs",
           "sentence": 1,
           "word": "diagonally",
@@ -3726,6 +3794,22 @@
           {
             "frame": [
               {
+                "concept": "nave_pier",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_east1"
+              },
+              {
                 "concept": "rib",
                 "group": "rib_transverse_0"
               },
@@ -3766,13 +3850,20 @@
                   "vault_web_b1_e1"
                 ]
               }
-            ]
+            ],
+            "azimuth": -90.0,
+            "elevation": -84.0,
+            "margin": 0.08
           },
           {
             "frame": [
               {
                 "concept": "vault_web",
                 "local": [
+                  "vault_web_b1_f5",
+                  "vault_web_b1_b5",
+                  "vault_web_b1_w5",
+                  "vault_web_b1_e5",
                   "vault_web_b1_f4",
                   "vault_web_b1_b4",
                   "vault_web_b1_w4",
@@ -3792,6 +3883,9 @@
                 ]
               }
             ],
+            "azimuth": -90.0,
+            "elevation": -84.0,
+            "margin": 0.04,
             "at": {
               "sentence": 0,
               "word": "stand"
@@ -3802,6 +3896,29 @@
         "steps": [
           {
             "do": "GHOST",
+            "targets": [
+              {
+                "concept": "arcade_wall",
+                "local": [
+                  "clerestory_wall_b1_west",
+                  "clerestory_wall_b1_east"
+                ]
+              },
+              {
+                "concept": "clerestory_window",
+                "local": [
+                  "clerestory_window_b1_west",
+                  "clerestory_window_b1_east"
+                ]
+              }
+            ],
+            "at": 0,
+            "seconds": 0,
+            "transparency": 0.9,
+            "why": "B12 ends this way: the cut from it is invisible"
+          },
+          {
+            "do": "FADE_OUT",
             "targets": {
               "except": [
                 {
@@ -3861,6 +3978,20 @@
                     "vault_web_b1_e1"
                   ]
                 },
+                {
+                  "concept": "arcade_wall",
+                  "local": [
+                    "clerestory_wall_b1_west",
+                    "clerestory_wall_b1_east"
+                  ]
+                },
+                {
+                  "concept": "clerestory_window",
+                  "local": [
+                    "clerestory_window_b1_west",
+                    "clerestory_window_b1_east"
+                  ]
+                },
                 "flying_buttress",
                 "pier_buttress",
                 "pinnacle",
@@ -3913,7 +4044,9 @@
             "until": {
               "sentence": 1,
               "word": "treat"
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           },
           {
             "do": "HIGHLIGHT",
@@ -3944,7 +4077,9 @@
             "until": {
               "sentence": 2,
               "offset": -0.1
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           },
           {
             "do": "HIGHLIGHT",
@@ -3984,7 +4119,9 @@
               "sentence": 2,
               "end": true,
               "offset": 0.4
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           }
         ]
       },
@@ -4476,6 +4613,10 @@
           {
             "frame": [
               {
+                "concept": "rib",
+                "group": "rib_transverse_0"
+              },
+              {
                 "concept": "clerestory_window",
                 "local": "clerestory_window_b1_east"
               },
@@ -4504,10 +4645,20 @@
             "do": "GHOST",
             "targets": [
               {
-                "concept": "flying_buttress"
+                "concept": "flying_buttress",
+                "group": "frame_west0"
               },
               {
-                "concept": "pier_buttress"
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east0"
               }
             ],
             "at": 0,
@@ -4519,7 +4670,91 @@
             "do": "FADE_OUT",
             "targets": [
               {
-                "concept": "pinnacle"
+                "concept": "pinnacle",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
+              }
+            ],
+            "at": 0,
+            "seconds": 0
+          },
+          {
+            "do": "FADE_OUT",
+            "targets": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east3"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east3"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east3"
               }
             ],
             "at": 0,
@@ -4545,7 +4780,9 @@
             "until": {
               "sentence": 2,
               "offset": -0.3
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           }
         ]
       },
@@ -4610,6 +4847,10 @@
           {
             "frame": [
               {
+                "concept": "rib",
+                "group": "rib_transverse_0"
+              },
+              {
                 "concept": "clerestory_window",
                 "local": "clerestory_window_b1_east"
               },
@@ -4633,10 +4874,20 @@
             "do": "GHOST",
             "targets": [
               {
-                "concept": "flying_buttress"
+                "concept": "flying_buttress",
+                "group": "frame_west0"
               },
               {
-                "concept": "pier_buttress"
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east0"
               }
             ],
             "at": 0,
@@ -4648,11 +4899,110 @@
             "do": "FADE_OUT",
             "targets": [
               {
-                "concept": "pinnacle"
+                "concept": "pinnacle",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
               }
             ],
             "at": 0,
             "seconds": 0
+          },
+          {
+            "do": "FADE_OUT",
+            "targets": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east3"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east3"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east3"
+              }
+            ],
+            "at": 0,
+            "seconds": 0
+          },
+          {
+            "do": "UNGHOST",
+            "targets": [
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "outside",
+              "offset": -0.2
+            },
+            "seconds": 0.8
           },
           {
             "do": "UNGHOST",
@@ -4684,7 +5034,9 @@
             "until": {
               "sentence": 1,
               "word": "picks"
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           },
           {
             "do": "HIGHLIGHT",
@@ -4701,22 +5053,9 @@
             "until": {
               "sentence": 1,
               "word": "brings"
-            }
-          },
-          {
-            "do": "UNGHOST",
-            "targets": [
-              {
-                "concept": "pier_buttress",
-                "group": "frame_east0"
-              }
-            ],
-            "at": {
-              "sentence": 1,
-              "word": "down",
-              "offset": -0.2
             },
-            "seconds": 0.8
+            "strength": 1.0,
+            "tint": 0.8
           },
           {
             "do": "HIGHLIGHT",
@@ -4734,7 +5073,9 @@
             "until": {
               "sentence": 2,
               "offset": -0.2
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           },
           {
             "do": "REVEAL",
@@ -4771,7 +5112,9 @@
               "sentence": 2,
               "end": true,
               "offset": 0.4
-            }
+            },
+            "strength": 1.0,
+            "tint": 0.8
           }
         ]
       },

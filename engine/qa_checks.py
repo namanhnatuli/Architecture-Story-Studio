@@ -786,6 +786,12 @@ def sequence_camera_checks(ctx, report, plan):
         loc, ortho = tuple(ctx.camera.matrix_world.translation), ctx.camera.data.ortho_scale
         if not (_close(loc, tuple(fit["location"]), 1e-4) and abs(ortho - fit["ortho_scale"]) < 1e-4):
             issues.append(f"view {k}@{f}: camera at {loc}, ortho {ortho:.3f}; fit {fit['ortho_scale']:.3f}")
+        if fit.get("rotation") is not None:   # g-r5: and looking exactly from the view's direction
+            want = framing.basis_from_euler(fit["rotation"])[2]
+            got = tuple(-x for x in ctx.camera.matrix_world.col[2][:3])
+            if not _close(got, want, 1e-4):
+                issues.append(f"view {k}@{f}: camera looks along {tuple(round(x, 4) for x in got)}, view wants "
+                              f"{tuple(round(x, 4) for x in want)}")
         dg = bpy.context.evaluated_depsgraph_get()
         ids = set(v["focus"] or [])
         for n, obj in ctx.objects.items():

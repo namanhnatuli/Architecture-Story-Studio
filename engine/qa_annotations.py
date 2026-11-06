@@ -73,9 +73,15 @@ def check(ctx, report, project, preset):
     problems = []
     for a in items:
         n_el = len(a["elements"]) + sum(1 for e in a["elements"] if e["kind"] == "plate")   # + plate borders
-        got = len(built.get(a["id"], []))
-        if got != n_el:
-            problems.append(f"{a['id']}: {got} objects for {n_el} primitives")
+        objs = built.get(a["id"], [])
+        drawn = [o for o in objs if "draw_at" in o]
+        if drawn:   # g-r5: a drawn path is built in pieces; every primitive has its piece(s), and nothing else
+            got = sorted({int(o["element_index"]) for o in objs})
+            if got != list(range(len(a["elements"]))) or len(objs) - len(drawn) + len(
+                    {int(o["element_index"]) for o in drawn}) != n_el:
+                problems.append(f"{a['id']}: pieces for elements {got} of {len(a['elements'])}")
+        elif len(objs) != n_el:
+            problems.append(f"{a['id']}: {len(objs)} objects for {n_el} primitives")
     extra = sorted(set(built) - {a["id"] for a in items})
     if extra:
         problems.append(f"objects for unknown annotations {extra}")

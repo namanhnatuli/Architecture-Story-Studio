@@ -70,9 +70,65 @@ def fit_ortho(points, basis, aspect, margin=0.07, bottom_band=0.0, clearance=10.
         if low < ground_z + 1.0:
             depth -= (ground_z + 1.0 - low) / -forward[2]
     location = tuple(cx * r + cy * u + depth * f for r, u, f in zip(right, up, forward))
+    # pivot: the frame centre at the subject's mid depth; location = pivot - distance * forward (camera orbits)
+    mid = (min(zs) + max(zs)) / 2.0
+    pivot = tuple(cx * r + cy * u + mid * f for r, u, f in zip(right, up, forward))
     # Clip far enough for an "infinite" ground plane, not just the framed subject.
     return {"location": location, "ortho_scale": ortho, "clip_start": 0.1,
-            "clip_end": max((max(zs) - depth) + clearance, 1000.0)}
+            "clip_end": max((max(zs) - depth) + clearance, 1000.0), "pivot": pivot, "distance": mid - depth}
+
+
+def view_fits(views, points_of, preset, aspect, band=0.0):
+    """SEQUENCE: one orthographic fit per view (engine/shot_builder and planner/visibility share it). A view looks
+    from the preset's direction unless it gives its own azimuth/elevation (an orbit); points_of(focus) returns the
+    rest vertices of the view's focus parts (every built part when focus is None)."""
+    fits = []
+    for k, v in enumerate(views):
+        az = preset["azimuth_degrees"] if v.get("azimuth") is None else float(v["azimuth"])
+        el = preset["elevation_degrees"] if v.get("elevation") is None else float(v["elevation"])
+        if el < 0 and not preset.get("hide_ground"):
+            raise ValueError(f"view {k} looks from below the ground (elevation {el:g}): use a camera preset with "
+                             "hide_ground")
+        pts = points_of(v.get("focus"))
+        if not pts:
+            raise ValueError(f"view focus {sorted(v.get('focus') or [])} matches no built part")
+        basis = camera_basis(az, el)
+        margin = v["margin"] if v.get("margin") is not None else preset.get("margin", 0.07)
+        fit = fit_ortho(pts, basis, aspect, margin, band)
+        fit.update(azimuth=az, elevation=el, rotation=camera_euler(basis))
+        fits.append(fit)
+    return fits
+
+
+def camera_euler(basis):
+    """Blender rotation_euler (XYZ, radians) of a level camera with this (right, up, forward) basis: the camera
+    looks down its local -Z with local +Y up. A level camera has no Y rotation."""
+    right, up, forward = basis
+    return (math.atan2(up[2], -forward[2]), 0.0, math.atan2(right[1], right[0]))
+
+
+def basis_from_euler(euler):
+    """Inverse of camera_euler for a level camera (Y rotation 0)."""
+    x, _, z = euler
+    cx, sx, cz, sz = math.cos(x), math.sin(x), math.cos(z), math.sin(z)
+    right = (cz, sz, 0.0)
+    up = (-sz * cx, cz * cx, sx)
+    forward = (-sz * sx, cz * sx, -cx)
+    return right, up, forward
+
+
+def orbit_pose(a, b, s):
+    """Camera pose at progress s (0..1, already eased) of an orbit between two view fits that carry azimuth,
+    elevation, pivot and distance: the pivot, the angles and the scale are interpolated, and the camera backs away
+    mid-move so it never passes through the subject. Returns (location, euler, ortho_scale); s = 0 and s = 1 give
+    the two fits exactly."""
+    az = a["azimuth"] + (b["azimuth"] - a["azimuth"]) * s
+    el = a["elevation"] + (b["elevation"] - a["elevation"]) * s
+    basis = camera_basis(az, el)
+    pivot = tuple(p + (q - p) * s for p, q in zip(a["pivot"], b["pivot"]))
+    dist = a["distance"] + (b["distance"] - a["distance"]) * s + 4.0 * s * (1.0 - s) * max(a["distance"], b["distance"])
+    location = tuple(p - dist * f for p, f in zip(pivot, basis[2]))
+    return location, camera_euler(basis), a["ortho_scale"] + (b["ortho_scale"] - a["ortho_scale"]) * s
 
 
 def frame_coords(points, fit, basis, aspect):

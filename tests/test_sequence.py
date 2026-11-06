@@ -69,6 +69,47 @@ class PlanSequenceTest(unittest.TestCase):
         self.assertGreater(plan.sample("c", motion.HIGHLIGHT, plan.markers["highlight_3_peak"])[0], 0.5)
         self.assertEqual(plan.sample("c", motion.HIGHLIGHT, plan.frame(3.2))[0], 0.0)
 
+    def test_an_orbit_turns_around_the_subject_and_lands_on_each_view(self):
+        """g-r5: a view with its own direction: the camera turns on a short arc, held exactly on each fit."""
+        from engine import framing
+        pts = [(x, y, z) for x in (-5.0, 5.0) for y in (0.0, 20.0) for z in (0.0, 30.0)]
+        preset = {"azimuth_degrees": -60.0, "elevation_degrees": 20.0, "margin": 0.06}
+        views = motion.sequence_views({"views": [{}, {"start_seconds": 2.0, "move_seconds": 3.0, "azimuth": -30.0}]})
+        fits = framing.view_fits(views, lambda focus: pts, preset, 16 / 9)
+        plan = motion.Plan(24, 240)
+        cam = {"name": templates.CAMERA_NAME, "views": fits}
+        motion.plan_sequence(plan, parts("a"), {"template": "SEQUENCE", "state": "s", "views": views, "steps": []}, cam)
+        name, settled = templates.CAMERA_NAME, plan.markers["view_1_settled"]
+        for f, fit in ((1, fits[0]), (plan.frame(2.0), fits[0]), (settled, fits[1]), (plan.frame_count, fits[1])):
+            for got, want in zip(plan.sample(name, motion.LOC, f), fit["location"]):
+                self.assertAlmostEqual(got, want, places=6)
+            for got, want in zip(framing.basis_from_euler(plan.sample(name, motion.ROT, f))[2],
+                                 framing.camera_basis(fit["azimuth"], fit["elevation"])[2]):
+                self.assertAlmostEqual(got, want, places=6)
+        mid = plan.frame(3.5)   # half way: the camera looks from between the two directions, at the subject
+        fwd = framing.basis_from_euler(plan.sample(name, motion.ROT, mid))[2]
+        az = framing.math.degrees(framing.math.atan2(-fwd[1], -fwd[0]))
+        self.assertTrue(-60.0 < az < -30.0, az)
+        loc = plan.sample(name, motion.LOC, mid)
+        centre = (0.0, 10.0, 15.0)
+        off = [c - l for c, l in zip(centre, loc)]
+        along = sum(o * f for o, f in zip(off, fwd))
+        across = max(abs(o - along * f) for o, f in zip(off, fwd))
+        self.assertGreater(along, 20.0)      # in front of the camera, well clear of it
+        self.assertLess(across, 6.0)         # roughly on the axis: the subject stays in frame
+        with self.assertRaises(ValueError):  # under the ground plane only with a preset that hides it
+            framing.view_fits(motion.sequence_views({"views": [{"elevation": -40.0}]}), lambda f: pts, preset, 16 / 9)
+
+    def test_a_tinted_glow_keys_one_constant_tint(self):
+        plan = run([{"do": "HIGHLIGHT", "components": ["c"], "start_seconds": 1.0, "hold_seconds": 1.0, "tint": 0.7},
+                    {"do": "HIGHLIGHT", "components": ["d"], "start_seconds": 1.0, "hold_seconds": 1.0}])
+        self.assertEqual(plan.sample("c", motion.TINT, 1)[0], 0.7)
+        self.assertEqual(plan.sample("c", motion.TINT, plan.frame_count)[0], 0.7)
+        self.assertNotIn(motion.TINT, plan.channels("d"))
+        with self.assertRaises(motion.PlanError):
+            run([{"do": "HIGHLIGHT", "components": ["c"], "start_seconds": 1.0, "hold_seconds": 1.0, "tint": 0.7},
+                 {"do": "HIGHLIGHT", "components": ["c"], "start_seconds": 4.0, "hold_seconds": 1.0, "tint": 0.2}])
+
     def test_impossible_sequences_are_refused(self):
         bad = [
             [{"do": "HIGHLIGHT", "components": ["a"], "start_seconds": 1.0, "hold_seconds": 3.0},
@@ -149,10 +190,13 @@ class PilotPlanTest(unittest.TestCase):
             self.assertAlmostEqual(cue["at_seconds"], step["start_seconds"] + step["seconds"], places=3)
         self.assertEqual([c["kind"] for c in self.shots["B17"]["shot"]["sound_cues"]], ["STONE_HEAVY"])
 
-    def test_the_flying_buttress_returns_when_it_is_named(self):
+    def test_the_flying_buttress_returns_when_it_is_named_onto_a_solid_pier_buttress(self):
+        """g-r5 (owner's pilot review): the support is solid before the flyer arrives, so the flyer never floats."""
         steps = self.shots["B17"]["shot"]["animation"]["steps"]
-        back = next(s for s in steps if s["do"] == "UNGHOST")
-        self.assertTrue(all("flying_buttress_east0" in c for c in back["components"]))
+        back = {s["components"][0].split("section_")[1]: s for s in steps if s["do"] == "UNGHOST"}
+        self.assertEqual(sorted(back), ["flying_buttress_east0", "pier_buttress_east0"])
+        pier, flyer = back["pier_buttress_east0"], back["flying_buttress_east0"]
+        self.assertLessEqual(pier["start_seconds"] + pier["seconds"], flyer["start_seconds"])
         pinnacle = next(s for s in steps if s["do"] == "REVEAL")
         self.assertEqual([c.split("section_")[1] for c in pinnacle["components"]], ["pinnacle_east0"])
 
@@ -166,7 +210,8 @@ class PilotPlanTest(unittest.TestCase):
     def test_long_form_qa_sees_the_motion_of_a_sequence(self):
         shot = self.shots["B12"]["shot"]
         moving = chapters.motion_intervals(shot)
-        self.assertTrue(any(a <= 3.0 <= b for a, b in moving))     # the camera move to the bay
+        v = shot["animation"]["views"][1]                          # the camera move (an orbit) under the bay
+        self.assertTrue(any(a <= v["start_seconds"] + v["move_seconds"] / 2 <= b for a, b in moving))
         self.assertGreater(len(moving), 6)
 
 

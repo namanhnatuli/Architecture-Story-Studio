@@ -160,7 +160,14 @@ def build_scene(shot, states, fps, presets, aspect=16 / 9):
         shown[slot_id] = set(templates.visible_component_ids(states, active))
     rest = {n: _verts(p) for n, p in parts.items()}
     preset = presets[shot["camera"]]
-    basis = framing.camera_basis(preset["azimuth_degrees"], preset["elevation_degrees"])
+    view_preset = preset
+    if template == "SEQUENCE":   # the opening view may look from its own direction (an orbit follows)
+        v0 = motion.sequence_views(cfg)[0]
+        view_preset = dict(preset, **{k: float(v0[v]) for k, v in (("azimuth_degrees", "azimuth"),
+                                                                    ("elevation_degrees", "elevation"),
+                                                                    ("margin", "margin"))
+                                      if v0[v] is not None})
+    basis = framing.camera_basis(view_preset["azimuth_degrees"], view_preset["elevation_degrees"])
     offsets = {s: (0.0, 0.0, 0.0) for s in slots_parts}
     band = float(shot.get("camera_safe_band", 0.0))
     if template == "SIDE_BY_SIDE":
@@ -189,12 +196,13 @@ def build_scene(shot, states, fps, presets, aspect=16 / 9):
                 center=tuple((a + b) / 2 for a, b in zip(lo, hi)), layer=p.layer, hint=p.hint)
     camera = None
     if template == "SEQUENCE":   # one fit per view, as engine/shot_builder.sequence_fits
-        fits = []
-        for v in motion.sequence_views(cfg):
-            ids = set(v["focus"] or [])
-            vp = [q for n, p in parts.items() if not ids or p.id in ids for q in rest[n]]
-            fits.append(framing.fit_ortho(vp, basis, aspect, v["margin"] if v["margin"] is not None
-                                          else preset.get("margin", 0.07), band))
+        def points_of(focus):
+            ids = set(focus or [])
+            return [q for n, p in parts.items() if not ids or p.id in ids for q in rest[n]]
+        try:
+            fits = framing.view_fits(motion.sequence_views(cfg), points_of, preset, aspect, band)
+        except ValueError as e:
+            raise motion.PlanError(f"SEQUENCE: {e}") from e
         camera = {"name": templates.CAMERA_NAME, "views": fits, "start": fits[0], "end": fits[-1]}
     plan = templates.plan_shot(shot, states, fps, slot_components, camera)
     focus = set(shot.get("camera_focus") or []) if template != "SIDE_BY_SIDE" else set()
@@ -216,7 +224,10 @@ def scene_at(scene, frame):
         return scene
     fit = dict(scene.fit, location=tuple(scene.plan.sample(name, motion.LOC, frame)),
                ortho_scale=scene.plan.sample(name, motion.ORTHO, frame)[0])
-    return dataclasses.replace(scene, fit=fit)
+    rot = scene.plan.sample(name, motion.ROT, frame)   # g-r5: an orbiting camera turns
+    if rot is None:
+        return dataclasses.replace(scene, fit=fit)
+    return dataclasses.replace(scene, fit=fit, basis=framing.basis_from_euler(rot))
 
 
 def focus_envelope(plan, parts, framed):

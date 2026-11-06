@@ -165,6 +165,9 @@ def validate_plan(plan, project_dir, root=ROOT, engine_check=True):
                 errors.append(f"{where}: match cut across continuity groups")
             if prev["camera"].get("end_focus", prev["camera"].get("focus")) != cam.get("focus"):   # SEQUENCE ends elsewhere
                 errors.append(f"{where}: match cut from a different framing (the previous shot ends on another focus)")
+            if list(prev["camera"].get("end_angles") or prev["camera"].get("angles") or [None, None]) != \
+                    list(cam.get("angles") or [None, None]):   # g-r5: an orbit ends looking from elsewhere
+                errors.append(f"{where}: match cut from a different camera direction (the previous shot orbits away)")
             same = prev["states"] == ps["states"] if template == "SIDE_BY_SIDE" else prev["states"][-1:] == ps["states"][:1]
             if not same:
                 errors.append(f"{where}: match cut from {prev['states']} to {ps['states']} changes the shown state")

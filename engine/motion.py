@@ -17,6 +17,7 @@ ROT = "rotation_euler"
 SCALE = "scale"     # M7: the annotation rig of a push-in shot
 TRANSPARENCY = '["ass_transparency"]'
 HIGHLIGHT = '["ass_highlight"]'
+TINT = '["ass_tint"]'   # g-r5: how far a part's glow leans towards the accent colour (one value per part and shot)
 HIDE = "hide_render"  # also mirrored to hide_viewport when applied in Blender
 
 
@@ -628,7 +629,8 @@ def plan_camera_move(plan, cfg, camera):
 # transform) and glow, each pulse on its own parts. Timings are shot-local seconds (the planner resolves sentences and
 # words). The camera keys come from the views' fits, computed by the caller from the rest geometry.
 SEQUENCE_DEFAULTS = {"template": "SEQUENCE", "state": None, "duration_seconds": None, "views": None, "steps": None}
-VIEW_DEFAULTS = {"start_seconds": 0.0, "move_seconds": 0.0, "focus": None, "easing": "SMOOTH", "margin": None}
+VIEW_DEFAULTS = {"start_seconds": 0.0, "move_seconds": 0.0, "focus": None, "easing": "SMOOTH", "margin": None,
+                 "azimuth": None, "elevation": None}   # g-r5: a view may turn the camera (an orbit); None = the preset
 STEP_DEFAULTS = {
     "GHOST": {"components": None, "start_seconds": None, "seconds": 1.0, "transparency": 0.85},
     "UNGHOST": {"components": None, "start_seconds": None, "seconds": 1.0},
@@ -637,7 +639,7 @@ STEP_DEFAULTS = {
     "REVEAL": {"components": None, "start_seconds": None, "seconds": 1.2, "direction": "FROM_ABOVE", "distance": 3.0,
                "stagger_seconds": 0.0, "easing": "EASE_OUT", "fade_end": 0.6, "sound": None},
     "HIGHLIGHT": {"components": None, "start_seconds": None, "rise_seconds": 0.3, "hold_seconds": 1.0,
-                  "fall_seconds": 0.4, "strength": 0.6},
+                  "fall_seconds": 0.4, "strength": 0.6, "tint": 0.0},
 }
 SOUNDS = (None, "STONE", "STONE_HEAVY")
 SEQUENCE_TRANSPARENCY_EPS = 1e-6
@@ -661,6 +663,7 @@ def sequence_steps(cfg, where="SEQUENCE"):
             _number(c, "transparency", w, positive=True, maximum=0.95)
         if c["do"] == "HIGHLIGHT":
             _number(c, "strength", w, positive=True, maximum=1.0)
+            _number(c, "tint", w, maximum=1.0)
         if c["do"] == "REVEAL":
             _number(c, "fade_end", w, positive=True, maximum=1.0)
             if c["sound"] not in SOUNDS:
@@ -689,12 +692,52 @@ def sequence_views(cfg, where="SEQUENCE"):
             raise PlanError(f"{where}.views[{i}].focus must be null (every built part) or a list of component ids")
         if c["easing"] not in EASINGS:
             raise PlanError(f"{where}.views[{i}]: unknown easing {c['easing']!r}")
+        for key, lo, hi in (("azimuth", -360.0, 360.0), ("elevation", -88.0, 88.0)):
+            if c[key] is not None and (isinstance(c[key], bool) or not isinstance(c[key], (int, float))
+                                       or not lo <= c[key] <= hi):
+                raise PlanError(f"{where}.views[{i}].{key} must be null (the preset) or degrees in [{lo:g}, {hi:g}]")
         if i > 0:
             prev = out[-1]
             if c["start_seconds"] < prev["start_seconds"] + prev["move_seconds"] - 1e-9:
                 raise PlanError(f"{where}.views[{i}] starts before the previous camera move ends")
         out.append(c)
     return out
+
+
+def _orbit_camera(plan, name, views, fits):
+    """Camera keys when the views look from different directions: each move is baked frame by frame along an orbit
+    (engine/framing.orbit_pose: pivot, angles and scale eased together, the camera backing away mid-move), linear
+    between baked frames; each view is held exactly on its fit. Returns the end of the last move in seconds."""
+    from engine import framing
+    last = plan.frame_count
+    for k, f in enumerate(fits):
+        missing = [x for x in ("azimuth", "elevation", "pivot", "distance", "rotation") if f.get(x) is None]
+        if missing:
+            raise PlanError(f"SEQUENCE.views[{k}]: an orbit needs fits with {missing}")
+
+    def put(frame, loc, rot, ortho, prev_rot):
+        rot = tuple(r + 2 * math.pi * round((p - r) / (2 * math.pi)) for r, p in zip(rot, prev_rot))   # no wrap
+        plan.key(name, LOC, frame, loc)
+        plan.key(name, ROT, frame, rot)
+        plan.key(name, ORTHO, frame, ortho)
+        return rot
+
+    rot = put(1, fits[0]["location"], fits[0]["rotation"], fits[0]["ortho_scale"], fits[0]["rotation"])
+    for k in range(1, len(views)):
+        v = views[k]
+        f0, f1 = plan.frame(v["start_seconds"]), plan.frame(v["start_seconds"] + v["move_seconds"])
+        if f1 >= last:
+            raise PlanError(f"SEQUENCE.views[{k}]: timing needs frame {f1 + 1} (the camera move ends at {f1}, "
+                            f"then settles), the shot has {last}")
+        a, b = fits[k - 1], fits[k]
+        rot = put(f0, a["location"], a["rotation"], a["ortho_scale"], rot)
+        for f in range(f0 + 1, f1):
+            loc, r, ortho = framing.orbit_pose(a, b, ease(v["easing"], (f - f0) / (f1 - f0)))
+            rot = put(f, loc, r, ortho, rot)
+        rot = put(f1, b["location"], b["rotation"], b["ortho_scale"], rot)
+        plan.markers[f"view_{k}_settled"] = f1
+    put(last, fits[-1]["location"], rot, fits[-1]["ortho_scale"], rot)
+    return views[-1]["start_seconds"] + views[-1]["move_seconds"]
 
 
 def plan_sequence(plan, components, cfg, camera):
@@ -707,7 +750,11 @@ def plan_sequence(plan, components, cfg, camera):
     if len(fits) != len(views):
         raise PlanError(f"SEQUENCE: {len(views)} views but {len(fits)} camera fits")
     end = 0.0
-    if len(views) > 1:   # the camera holds each view, then eases to the next
+    turns = len(views) > 1 and any(f.get("rotation") is not None and f.get("rotation") != fits[0].get("rotation")
+                                   for f in fits)
+    if turns:   # g-r5: an orbit between views that look from different directions
+        end = _orbit_camera(plan, camera["name"], views, fits)
+    elif len(views) > 1:   # the camera holds each view, then eases to the next
         name = camera["name"]
         for channel, key in ((LOC, "location"), (ORTHO, "ortho_scale")):
             plan.key(name, channel, 1, fits[0][key])
@@ -803,6 +850,11 @@ def plan_sequence(plan, components, cfg, camera):
         ps.sort(key=lambda x: x[0])
         n = components[cid].name
         plan.key(n, HIGHLIGHT, 1, 0.0)
+        tints = {s["tint"] for _, _, s, _ in ps}
+        if len(tints) > 1:
+            raise PlanError(f"SEQUENCE: {cid} glows with tints {sorted(tints)}; one tint per part and shot")
+        if tints != {0.0}:   # a constant: the tint only shows while the part glows
+            plan.key(n, TINT, 1, tints.pop(), "CONSTANT")
         prev = -1.0
         for t0, t3, s, i in ps:
             if t0 < prev + 1.0 / plan.fps - 1e-9:

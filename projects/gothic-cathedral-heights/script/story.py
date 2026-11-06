@@ -74,6 +74,61 @@ class Card:
     def tag(self, text, sentence=0):
         return self.text(text, 0.055, 0.915, 0.024, sentence, align="LEFT", color=MUTED, plate=True)
 
+    def image(self, asset, box, crop=(0.0, 0.0, 1.0, 1.0), sentence=0, drift=(0.0, 0.0), until=None, word=None):
+        """g-r5: a photograph or historic drawing with its rights record in assets/manifest.json (PHOTOS)."""
+        return self.add("image", sentence, until, asset=asset, path=PHOTOS[asset]["path"], box=[round(v, 4) for v in box],
+                        crop=[round(v, 4) for v in crop], drift=list(drift), **({"word": word} if word else {}))
+
+    def credit(self, asset, x=0.5, y=0.075, align="CENTER", sentence=0):
+        """The on-screen credit of a photograph (CC BY: name, licence; the full record is in the description)."""
+        return self.text(PHOTOS[asset]["credit"], x, y, 0.017, sentence, align=align, color=MUTED)
+
+    def drawn(self, points, color=INK, width=0.005, sentence=0, word=None, seconds=0.6, dash=False, until=None, layer=2,
+              delay=0.0):
+        """g-r5 (owner: a path is drawn along its route, then holds): a polyline in short pieces that appear in order
+        over `seconds` from its moment (+ delay); returns the time it takes, so a label can wait for it."""
+        pts = [(float(x), float(y)) for x, y in points]
+        total = sum(math.hypot((b[0] - a[0]) * ASPECT, b[1] - a[1]) for a, b in zip(pts, pts[1:])) or 1e-9
+        n = max(2, min(24, int(total / 0.025)))
+        cuts, acc, k = [total * i / n for i in range(n + 1)], 0.0, 1
+        piece = [list(pts[0])]
+        for a, b in zip(pts, pts[1:]):
+            seg = math.hypot((b[0] - a[0]) * ASPECT, b[1] - a[1])
+            while k <= n and cuts[k] <= acc + seg + 1e-12:
+                t = (cuts[k] - acc) / seg if seg else 1.0
+                q = [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]
+                piece.append(q)
+                self.line(piece, color, width, sentence, dash=dash, until=until, layer=layer)
+                self.elements[-1]["delay"] = round(delay + seconds * (k - 1) / n, 3)
+                if word:
+                    self.elements[-1]["word"] = word
+                piece = [q]
+                k += 1
+            if piece[-1] != list(b):
+                piece.append(list(b))
+            acc += seg
+        return delay + seconds
+
+    def drawn_arrow(self, points, color=INK, width=0.007, sentence=0, word=None, seconds=0.6, until=None, delay=0.0):
+        """A drawn path whose head arrives last; the final shape is a plain arrow (never stretched or pulsing)."""
+        (x0, y0), (x1, y1) = points[-2], points[-1]
+        d = math.hypot((x1 - x0) * ASPECT, y1 - y0) or 1e-9
+        head = min(0.04, d * 0.6)
+        base = [x1 - (x1 - x0) / d * head, y1 - (y1 - y0) / d * head]
+        end = self.drawn(list(points[:-1]) + [base], color, width * 0.8, sentence, word, seconds, until=until, delay=delay)
+        self.arrow(base, [x1, y1], color, width, sentence, until=until)
+        self.elements[-1]["delay"] = round(end, 3)
+        if word:
+            self.elements[-1]["word"] = word
+        return end
+
+    def later(self, seconds, word=None):
+        """Delay the last element (its label waits for the drawing)."""
+        self.elements[-1]["delay"] = round(seconds, 3)
+        if word:
+            self.elements[-1]["word"] = word
+        return self
+
     def spec(self):
         return {"fade_seconds": 0.35, "elements": self.elements}
 
@@ -138,11 +193,24 @@ def timeline(name, events, bands, start, end, ticks, extra=None):
     rows = {0.64: [], 0.72: [], 0.36: [], 0.28: []}
     prefs = ((0.64, 0.72, 0.36, 0.28), (0.36, 0.28, 0.64, 0.72))
 
-    def spoken(first, word):
+    def spoken(first, word, wait=0.0):
         for e in c.elements[first:]:
             if word:
                 e["word"] = word
+            if wait and "delay" not in e:
+                e["delay"] = round(wait, 3)
 
+    # g-r5 (owner: the timeline moves on to each date as it is told; a pause after each): the time line advances
+    # (accent) to every event and band in the order they are spoken, then the date appears
+    moments = sorted([(s, 0, year, "event", k) for k, (year, label, s, *w) in enumerate(events)] +
+                     [(s, 1, y0, "band", k) for k, (y0, y1, label, color, s, ly, *w) in enumerate(bands)])
+    reach, wait = X(start), {}
+    for s, _, year, kind, k in moments:
+        word = (events[k][3:4] if kind == "event" else bands[k][6:7]) or [None]
+        if X(year) > reach + 1e-6:
+            wait[(kind, k)] = c.drawn([[reach, 0.5], [X(year), 0.5]], ACCENT, 0.009, s, word[0],
+                                      seconds=min(0.9, 0.25 + (X(year) - reach) * 2.0), layer=1)
+            reach = X(year)
     for k, (year, label, s, *word) in enumerate(events):
         first = len(c.elements)
         text = f"{year}  {label}"
@@ -153,12 +221,12 @@ def timeline(name, events, bands, start, end, ticks, extra=None):
         c.line([[X(year), 0.5], [X(year), y - 0.03 if y > 0.5 else y + 0.03]], FAINT, 0.003, s)
         c.circle([X(year), 0.5], 0.009, INK, s)
         c.text(text, x, y, 0.025, s, plate=True)
-        spoken(first, word[0] if word else None)
-    for y0, y1, label, color, s, ly, *word in bands:
+        spoken(first, word[0] if word else None, wait.get(("event", k), 0.0))
+    for k, (y0, y1, label, color, s, ly, *word) in enumerate(bands):
         first = len(c.elements)
         c.rect([X(y0), 0.53, X(y1), 0.56], color, sentence=s)
         c.text(label, (X(y0) + X(y1)) / 2, ly, 0.024, s, plate=True)
-        spoken(first, word[0] if word else None)
+        spoken(first, word[0] if word else None, wait.get(("band", k), 0.0))
     if extra:
         extra(c)
     return c
@@ -377,12 +445,19 @@ STRIPES = [part("vault_web", [c for c in COURSES if int(c[-1]) % 2])]           
 BAY = BAY_PIERS + BAY_ARCHES + BAY_DIAGONALS + BAY_WEB
 BAY_VAULT = BAY_ARCHES + BAY_DIAGONALS + BAY_WEB
 OUTSIDE = ["flying_buttress", "pier_buttress", "pinnacle", "high_roof", "aisle_roof"]   # nothing a worm's-eye view needs
-REST_OF_CHURCH = {"except": BAY + OUTSIDE}
+# g-r5 (owner: fewer see-through layers): only the bay's own high walls stay, faded, to place it; the rest leaves
+BAY_WALLS = [part("arcade_wall", ["clerestory_wall_b1_west", "clerestory_wall_b1_east"]),
+             part("clerestory_window", ["clerestory_window_b1_west", "clerestory_window_b1_east"])]
+REST_OF_CHURCH = {"except": BAY + BAY_WALLS + OUTSIDE}   # the church floor included: the camera goes under it
+# the establishing view: the row of high vaults and the top of the piers (the pier feet stay below the frame, since the
+# floor is hidden for a camera under it: owner, g-r4 pilot review)
+UNDER_BAY = {"azimuth": -90.0, "elevation": -84.0}   # straight up under the bay: the X of the ribs, a pier at each corner
 WAS_THERE = {"why": "B12 ends this way: the cut from it is invisible"}
 
 
 def glow(targets, at, until, **kw):
-    return {"do": "HIGHLIGHT", "targets": targets, "at": at, "until": until, **kw}
+    """g-r5 (owner: more contrast on the part being explained): a stronger glow, leaning to the accent colour."""
+    return {"do": "HIGHLIGHT", "targets": targets, "at": at, "until": until, "strength": 1.0, "tint": 0.8, **kw}
 
 
 beat("C4", "B12", "fact", "SHOW_COMPONENT", [
@@ -390,20 +465,25 @@ beat("C4", "B12", "fact", "SHOW_COMPONENT", [
     "In the four-part vault shown here, two ribs cross diagonally over each bay of the building.",
     "In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners."],
     ["CLM_140"], strategy="SEQUENCE",
-    visual_goal="From the whole section to one bay: its piers, then the two diagonal ribs one after the other, then the "
-                "stone web; the light runs along the ribs to the four piers",
+    visual_goal="The row of high vaults from below; the rest of the church leaves, then the camera turns under one bay: "
+                "its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along "
+                "the ribs to the four piers. One change at a time: the camera never moves while parts move",
     required_concepts=[GOTHIC, "rib", "vault_web", "nave_pier"],
     sequence={"camera": "CATHEDRAL_VAULT_BELOW",
-              "views": [{"frame": None},
-                        {"frame": BAY_VAULT, "at": {"sentence": 0, "word": "rib"}, "move_seconds": 1.8}],
-              "steps": [{"do": "GHOST", "targets": REST_OF_CHURCH, "at": {"sentence": 0, "word": "rib"}, "seconds": 1.4},
-                        {"do": "FADE_OUT", "targets": OUTSIDE + BAY_DIAGONALS + BAY_WEB, "at": {"sentence": 0, "word": "rib"},
+              # g-r5: the church as in every other shot, standing on its floor; the rest leaves and one bay stands
+              # alone; then (nothing else moving) the camera turns under it and looks straight up
+              "views": [{"azimuth": -66.0, "elevation": 12.0},
+                        {"frame": BAY, **UNDER_BAY, "margin": 0.08, "at": {"sentence": 1, "offset": -0.6}, "move_seconds": 2.6}],
+              "steps": [{"do": "GHOST", "targets": BAY_WALLS, "at": {"sentence": 0, "word": "second"}, "seconds": 1.2,
+                         "transparency": 0.9},
+                        {"do": "FADE_OUT", "targets": REST_OF_CHURCH, "at": {"sentence": 0, "word": "second"}, "seconds": 1.2},
+                        {"do": "FADE_OUT", "targets": OUTSIDE + BAY_DIAGONALS + BAY_WEB, "at": {"sentence": 0, "word": "second"},
                          "seconds": 1.2},
-                        {"do": "REVEAL", "targets": BAY_DIAGONALS[:1], "at": {"sentence": 1, "word": "two", "offset": -0.6},
+                        {"do": "REVEAL", "targets": BAY_DIAGONALS[:1], "at": {"sentence": 1, "word": "two", "offset": -0.1},
                          "seconds": 1.0, "direction": "FROM_BELOW", "distance": 4.0, "sound": "STONE"},
-                        {"do": "REVEAL", "targets": BAY_DIAGONALS[1:], "at": {"sentence": 1, "word": "cross", "offset": -0.6},
+                        {"do": "REVEAL", "targets": BAY_DIAGONALS[1:], "at": {"sentence": 1, "word": "cross", "offset": -0.1},
                          "seconds": 1.0, "direction": "FROM_BELOW", "distance": 4.0, "sound": "STONE"},
-                        glow(BAY_DIAGONALS, {"sentence": 1, "word": "diagonally"}, {"sentence": 2, "offset": -0.2}),
+                        glow(BAY_DIAGONALS, {"sentence": 1, "word": "over"}, {"sentence": 2, "offset": -0.2}),
                         {"do": "REVEAL", "targets": BAY_WEB, "at": {"sentence": 2, "offset": -0.1}, "seconds": 0.7,
                          "stagger_seconds": 0.04, "direction": "FROM_BELOW", "distance": 1.5},
                         # the ribs, not the web, light while they "direct the load": the two lit together wash out
@@ -411,8 +491,8 @@ beat("C4", "B12", "fact", "SHOW_COMPONENT", [
                         glow(BAY_PIERS, {"sentence": 2, "word": "points", "offset": -0.2}, {"sentence": 2, "end": True, "offset": 0.3})]},
     annotations=[note("B12_ch", "4 · The rib vault", 0, 2),
                  note("B12_note", "Illustrative model, one type: a four-part vault", 1, position="BOTTOM_RIGHT"),
-                 {"id": "B12_rib", "type": "COMPONENT_LABEL", "target": BAY_DIAGONALS[1], "point": "CENTER",
-                  "text": "Diagonal ribs", "sentence": 1, "word": "diagonally", "until": 2},
+                 {"id": "B12_rib", "type": "COMPONENT_LABEL", "target": part("rib", ["rib_diagonal_b1a", "rib_diagonal_b1b"]),
+                  "point": "TOP", "text": "Diagonal ribs", "sentence": 1, "word": "diagonally", "until": 2},   # the crossing
                  {"id": "B12_pier", "type": "COMPONENT_LABEL", "target": BAY_PIERS[1], "point": "TOP",
                   "text": "Pier", "sentence": 2, "word": "piers"}])
 beat("C4", "B13", "fact", "SHOW_COMPONENT", [
@@ -425,10 +505,11 @@ beat("C4", "B13", "fact", "SHOW_COMPONENT", [
     required_concepts=[GOTHIC, "rib", "vault_web"],
     sequence={"camera": "CATHEDRAL_VAULT_BELOW",
               # while the debate is named, the camera moves in on the vault surface it is about
-              "views": [{"frame": BAY_VAULT},
-                        {"frame": [part("vault_web", [c for c in COURSES if int(c[-1]) <= 4])],
-                         "at": {"sentence": 0, "word": "stand"}, "move_seconds": 4.5}],
-              "steps": [{"do": "GHOST", "targets": REST_OF_CHURCH, "at": 0, "seconds": 0, **WAS_THERE},
+              "views": [{"frame": BAY, **UNDER_BAY, "margin": 0.08},
+                        {"frame": BAY_WEB, **UNDER_BAY, "margin": 0.04, "at": {"sentence": 0, "word": "stand"},
+                         "move_seconds": 4.5}],
+              "steps": [{"do": "GHOST", "targets": BAY_WALLS, "at": 0, "seconds": 0, "transparency": 0.9, **WAS_THERE},
+                        {"do": "FADE_OUT", "targets": REST_OF_CHURCH, "at": 0, "seconds": 0, **WAS_THERE},
                         {"do": "FADE_OUT", "targets": OUTSIDE, "at": 0, "seconds": 0, **WAS_THERE},
                         glow(BAY_DIAGONALS + BAY_ARCHES, {"sentence": 1, "word": "ribs", "offset": -0.2},
                              {"sentence": 1, "word": "treat"}),
@@ -463,15 +544,23 @@ beat("C4", "B15", "fact", "EXPLAIN_DESIGN_CHANGE", [
 # The east flying buttress at the cut, and what it stands on; the rest of the system waits, faded, until B17 names it.
 EAST = "frame_east0"
 FLYER, PIER_BUTTRESS, PINNACLE = ({"concept": c, "group": EAST} for c in ("flying_buttress", "pier_buttress", "pinnacle"))
-SYSTEM = [{"concept": c} for c in ("flying_buttress", "pier_buttress")]
+# g-r5 (owner: fewer see-through layers): only the system at the cut face waits, faded; the bays behind lose theirs,
+# whose stacked ghosts read as smudges in a near-square view
+SYSTEM = [{"concept": c, "group": g} for c in ("flying_buttress", "pier_buttress") for g in ("frame_west0", EAST)]
+SYSTEM_BEHIND = [{"concept": c, "group": f"frame_{side}{k}"} for c in ("flying_buttress", "pier_buttress", "pinnacle")
+                 for side in ("west", "east") for k in (1, 2, 3)]
 AISLE_ROOF = part("aisle_roof", "aisle_roof_east")
 # The section is taller than it is wide, so a frame on the whole east side is hardly closer than the full view; the
 # close-up keeps the upper part: high window, flyer, pinnacle, aisle roof (the pier buttress runs down out of frame).
-EAST_SIDE = [part("clerestory_window", "clerestory_window_b1_east"), FLYER, PINNACLE, AISLE_ROOF]
+# g-r5: and the springing of the high vault, where the thrust "leaves the vault" (the frame was a third empty)
+EAST_SIDE = [{"concept": "rib", "group": "rib_transverse_0"}, part("clerestory_window", "clerestory_window_b1_east"),
+             FLYER, PINNACLE, AISLE_ROOF]
 HIGH_PIERS = [{"concept": "nave_pier", "group": g} for g in ("frame_west0", EAST)]
 SET_ASIDE = [{"do": "GHOST", "targets": SYSTEM, "at": 0, "seconds": 0, "transparency": 0.8,
               "why": "the supports outside wait, faded, until B17 names them"},
-             {"do": "FADE_OUT", "targets": [{"concept": "pinnacle"}], "at": 0, "seconds": 0}]
+             {"do": "FADE_OUT", "targets": [{"concept": "pinnacle", "group": g} for g in ("frame_west0", EAST)],
+              "at": 0, "seconds": 0},
+             {"do": "FADE_OUT", "targets": SYSTEM_BEHIND, "at": 0, "seconds": 0}]
 
 beat("C5", "B16", "fact", "EXPLAIN_LOAD_PATH", [
     "But gathering the thrust does not make it go away.",
@@ -501,11 +590,13 @@ beat("C5", "B17", "fact", "EXPLAIN_LOAD_PATH", [
     sequence={"camera": "CATHEDRAL_TRANSVERSE",
               "views": [{"frame": EAST_SIDE}],
               "steps": SET_ASIDE + [
+                  # g-r5 (owner): the pier buttress is solid before the flyer arrives, so the flyer never floats
+                  {"do": "UNGHOST", "targets": [PIER_BUTTRESS], "at": {"sentence": 0, "word": "outside", "offset": -0.2},
+                   "seconds": 0.8},
                   {"do": "UNGHOST", "targets": [FLYER], "at": {"sentence": 0, "word": "flying", "offset": -0.3}, "seconds": 0.8},
                   glow([FLYER], {"sentence": 0, "word": "flying"}, {"sentence": 1, "word": "picks"}),
                   glow([AISLE_ROOF], {"sentence": 1, "word": "across"},
                        {"sentence": 1, "word": "brings"}),
-                  {"do": "UNGHOST", "targets": [PIER_BUTTRESS], "at": {"sentence": 1, "word": "down", "offset": -0.2}, "seconds": 0.8},
                   glow([PIER_BUTTRESS], {"sentence": 1, "word": "massive", "offset": -0.2}, {"sentence": 2, "offset": -0.2}),
                   {"do": "REVEAL", "targets": [PINNACLE], "at": {"sentence": 2, "word": "pinnacle", "offset": -0.5},
                    "seconds": 1.1, "direction": "FROM_ABOVE", "distance": 5.0, "sound": "STONE_HEAVY"},

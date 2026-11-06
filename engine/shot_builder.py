@@ -161,6 +161,12 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
             hint=tuple(obj["explode_hint"]) if "explode_hint" in obj else None)
 
     cam_preset = scene_mod.camera_preset(style, shot["camera"])
+    if cfg["template"] == "SEQUENCE":   # g-r5: the opening view may look from its own direction
+        v0 = motion.sequence_views(cfg)[0]
+        cam_preset = dict(cam_preset, **{k: float(v0[v]) for k, v in (("azimuth_degrees", "azimuth"),
+                                                                       ("elevation_degrees", "elevation"),
+                                                                       ("margin", "margin"))
+                                         if v0[v] is not None})   # the built camera IS the opening view's fit
     basis = framing.camera_basis(cam_preset["azimuth_degrees"], cam_preset["elevation_degrees"])
     offsets = {sid: (0.0, 0.0, 0.0) for sid in slots}
     bottom_band = 0.0
@@ -240,7 +246,7 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                        "end": {"location": tuple(fit["location"]), "ortho_scale": fit["ortho_scale"]}}
 
     if cfg["template"] == "SEQUENCE":   # one fit per view (same preset), from the rest geometry
-        fits = sequence_fits(cfg, objects, verts, basis, aspect, bottom_band, cam_preset)
+        fits = sequence_fits(cfg, objects, verts, aspect, bottom_band, scene_mod.camera_preset(style, shot["camera"]))
         camera_keys = {"name": camera.name, "views": fits, "start": fits[0], "end": fits[-1]}
         smallest = min(f["ortho_scale"] for f in fits) / fits[0]["ortho_scale"]
         camera.data.clip_start = min(camera.data.clip_start, 0.3 * smallest)   # the overlays ride closer when zoomed in
@@ -314,17 +320,13 @@ def annotation_rig(plan, annotations, camera, camera_keys, easing, render_object
     return rig
 
 
-def sequence_fits(cfg, objects, verts, basis, aspect, band, cam_preset):
-    """SEQUENCE: the orthographic fit of every view (its focus parts at rest, or every built part), one preset."""
-    fits = []
-    for v in motion.sequence_views(cfg):
-        ids = set(v["focus"] or [])
-        pts = [p for name, obj in objects.items() if not ids or obj["component_id"] in ids for p in verts[name]]
-        if not pts:
-            raise ValueError(f"view focus {sorted(ids)} matches no built part")
-        margin = v["margin"] if v["margin"] is not None else cam_preset.get("margin", 0.07)
-        fits.append(framing.fit_ortho(pts, basis, aspect, margin, band))
-    return fits
+def sequence_fits(cfg, objects, verts, aspect, band, cam_preset):
+    """SEQUENCE: the orthographic fit of every view (its focus parts at rest, or every built part), each from the
+    preset's direction or the view's own (an orbit)."""
+    def points_of(focus):
+        ids = set(focus or [])
+        return [p for name, obj in objects.items() if not ids or obj["component_id"] in ids for p in verts[name]]
+    return framing.view_fits(motion.sequence_views(cfg), points_of, cam_preset, aspect, band)
 
 
 def annotation_rig_keys(plan, annotations, camera, render_objects, collection):
@@ -342,6 +344,8 @@ def annotation_rig_keys(plan, annotations, camera, render_objects, collection):
     base = plan.keys(camera.name, motion.ORTHO)[0].value[0]
     for k in plan.keys(camera.name, motion.LOC):
         plan.key(rig.name, motion.LOC, k.frame, k.value, k.easing)
+    for k in plan.keys(camera.name, motion.ROT):   # g-r5: an orbit turns the overlays with the camera
+        plan.key(rig.name, motion.ROT, k.frame, k.value, k.easing)
     for k in plan.keys(camera.name, motion.ORTHO):
         r = k.value[0] / base
         plan.key(rig.name, motion.SCALE, k.frame, (r, r, r), k.easing)

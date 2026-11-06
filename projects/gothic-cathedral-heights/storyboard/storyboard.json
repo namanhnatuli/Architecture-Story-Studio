@@ -1,6 +1,6 @@
 {
   "generated_by": "planner 1.0.0 (tools/cli.py build-shots); edit script/visual_beats.json and re-plan, not this file",
-  "plan_sha256": "b83269f89ab4a7fc0ef486b0a9ddc67f14f93d3f34d2878e8504c17277474803",
+  "plan_sha256": "47d610733b6ec213f4506b0b797f9d9d0bca4f6a8eea2fd84de668d2e5e52fb8",
   "key_stills": [
     {
       "id": "SC_001_B01_hold",
@@ -260,7 +260,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B01_note",
@@ -426,7 +426,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B02_note",
@@ -1157,7 +1157,7 @@
         "romanesque_church_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "CONCEPTUAL_TAG",
@@ -1544,7 +1544,7 @@
         "romanesque_church_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B06_vault",
@@ -2200,7 +2200,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B07_note",
@@ -5251,10 +5251,16 @@
         "state": "gothic_cathedral_section",
         "views": [
           {
-            "focus": null
+            "focus": null,
+            "azimuth": -66.0,
+            "elevation": 12.0
           },
           {
             "focus": [
+              "gothic_cathedral_section_nave_pier_east0",
+              "gothic_cathedral_section_nave_pier_east1",
+              "gothic_cathedral_section_nave_pier_west0",
+              "gothic_cathedral_section_nave_pier_west1",
               "gothic_cathedral_section_rib_diagonal_b1a",
               "gothic_cathedral_section_rib_diagonal_b1b",
               "gothic_cathedral_section_rib_transverse_0",
@@ -5280,11 +5286,26 @@
               "gothic_cathedral_section_vault_web_b1_w4",
               "gothic_cathedral_section_vault_web_b1_w5"
             ],
-            "start_seconds": 2.04,
-            "move_seconds": 1.8
+            "start_seconds": 3.075,
+            "move_seconds": 2.6,
+            "margin": 0.08,
+            "azimuth": -90.0,
+            "elevation": -84.0
           }
         ],
         "steps": [
+          {
+            "components": [
+              "gothic_cathedral_section_clerestory_wall_b1_west",
+              "gothic_cathedral_section_clerestory_wall_b1_east",
+              "gothic_cathedral_section_clerestory_window_b1_west",
+              "gothic_cathedral_section_clerestory_window_b1_east"
+            ],
+            "start_seconds": 0.88,
+            "seconds": 1.2,
+            "transparency": 0.9,
+            "do": "GHOST"
+          },
           {
             "components": [
               "gothic_cathedral_section_aisle_vault_b1_east",
@@ -5311,18 +5332,15 @@
               "gothic_cathedral_section_arcade_wall_b2_west",
               "gothic_cathedral_section_arcade_wall_b3_east",
               "gothic_cathedral_section_arcade_wall_b3_west",
-              "gothic_cathedral_section_clerestory_wall_b1_east",
-              "gothic_cathedral_section_clerestory_wall_b1_west",
               "gothic_cathedral_section_clerestory_wall_b2_east",
               "gothic_cathedral_section_clerestory_wall_b2_west",
               "gothic_cathedral_section_clerestory_wall_b3_east",
               "gothic_cathedral_section_clerestory_wall_b3_west",
-              "gothic_cathedral_section_clerestory_window_b1_east",
-              "gothic_cathedral_section_clerestory_window_b1_west",
               "gothic_cathedral_section_clerestory_window_b2_east",
               "gothic_cathedral_section_clerestory_window_b2_west",
               "gothic_cathedral_section_clerestory_window_b3_east",
               "gothic_cathedral_section_clerestory_window_b3_west",
+              "gothic_cathedral_section_floor",
               "gothic_cathedral_section_nave_pier_east2",
               "gothic_cathedral_section_nave_pier_east3",
               "gothic_cathedral_section_nave_pier_west2",
@@ -5380,10 +5398,9 @@
               "gothic_cathedral_section_vault_web_b3_w4",
               "gothic_cathedral_section_vault_web_b3_w5"
             ],
-            "start_seconds": 2.04,
-            "seconds": 1.4,
-            "transparency": 0.85,
-            "do": "GHOST"
+            "start_seconds": 0.88,
+            "seconds": 1.2,
+            "do": "FADE_OUT"
           },
           {
             "components": [
@@ -5437,7 +5454,7 @@
               "gothic_cathedral_section_vault_web_b1_e4",
               "gothic_cathedral_section_vault_web_b1_e5"
             ],
-            "start_seconds": 2.04,
+            "start_seconds": 0.88,
             "seconds": 1.2,
             "do": "FADE_OUT"
           },
@@ -5445,7 +5462,7 @@
             "components": [
               "gothic_cathedral_section_rib_diagonal_b1a"
             ],
-            "start_seconds": 5.395,
+            "start_seconds": 5.895,
             "seconds": 1.0,
             "direction": "FROM_BELOW",
             "distance": 4.0,
@@ -5459,7 +5476,7 @@
             "components": [
               "gothic_cathedral_section_rib_diagonal_b1b"
             ],
-            "start_seconds": 6.075,
+            "start_seconds": 6.575,
             "seconds": 1.0,
             "direction": "FROM_BELOW",
             "distance": 4.0,
@@ -5474,11 +5491,12 @@
               "gothic_cathedral_section_rib_diagonal_b1a",
               "gothic_cathedral_section_rib_diagonal_b1b"
             ],
-            "start_seconds": 7.115,
+            "start_seconds": 7.875,
             "rise_seconds": 0.3,
-            "hold_seconds": 2.41,
+            "hold_seconds": 1.65,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           },
           {
@@ -5523,7 +5541,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 2.84,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           },
           {
@@ -5537,7 +5556,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 4.12,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           }
         ]
@@ -5547,7 +5567,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B12_ch",
@@ -5654,7 +5674,7 @@
           {
             "id": "B12_rib",
             "type": "COMPONENT_LABEL",
-            "appear": 7.0833,
+            "appear": 7.5833,
             "disappear": 10.3333,
             "claim_id": null,
             "text": "Diagonal ribs",
@@ -5664,16 +5684,17 @@
             "anchors": [
               {
                 "world": [
-                  -2.47433,
-                  5.07699,
-                  38.62583
+                  -5.21713,
+                  0.72744,
+                  33.42679
                 ],
                 "screen": [
-                  0.46224,
-                  0.622685
+                  0.342448,
+                  0.784722
                 ],
-                "point": "CENTER",
+                "point": "TOP",
                 "component_ids": [
+                  "gothic_cathedral_section_rib_diagonal_b1a",
                   "gothic_cathedral_section_rib_diagonal_b1b"
                 ]
               }
@@ -5682,10 +5703,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.398023,
-                  0.872265,
-                  0.526457,
-                  0.933105
+                  0.278231,
+                  0.624302,
+                  0.406665,
+                  0.685142
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -5697,26 +5718,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.46224,
-                  0.902685
+                  0.342448,
+                  0.654722
                 ],
                 "box": [
-                  0.398023,
-                  0.872265,
-                  0.526457,
-                  0.933105
+                  0.278231,
+                  0.624302,
+                  0.406665,
+                  0.685142
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.46224,
-                    0.872265
+                    0.342448,
+                    0.685142
                   ],
                   [
-                    0.46224,
-                    0.622685
+                    0.342448,
+                    0.784722
                   ]
                 ],
                 "width": 0.0098,
@@ -5728,12 +5749,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.46224,
-                    0.872265
+                    0.342448,
+                    0.685142
                   ],
                   [
-                    0.46224,
-                    0.622685
+                    0.342448,
+                    0.784722
                   ]
                 ],
                 "width": 0.0028,
@@ -5743,8 +5764,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.46224,
-                  0.622685
+                  0.342448,
+                  0.784722
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -5752,21 +5773,21 @@
             ],
             "boxes": [
               [
-                0.398023,
-                0.872265,
-                0.526457,
-                0.933105
+                0.278231,
+                0.624302,
+                0.406665,
+                0.685142
               ]
             ],
             "segments": [
               [
                 [
-                  0.46224,
-                  0.872265
+                  0.342448,
+                  0.685142
                 ],
                 [
-                  0.46224,
-                  0.622685
+                  0.342448,
+                  0.784722
                 ]
               ]
             ]
@@ -5784,13 +5805,13 @@
             "anchors": [
               {
                 "world": [
-                  7.34714,
-                  -0.71171,
-                  33.00064
+                  6.94179,
+                  -0.78842,
+                  38.80378
                 ],
                 "screen": [
-                  0.605469,
-                  0.900463
+                  0.709635,
+                  0.895833
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -5802,10 +5823,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.654071,
-                  0.870043,
-                  0.703117,
-                  0.930883
+                  0.758237,
+                  0.865413,
+                  0.807283,
+                  0.926253
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -5817,26 +5838,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.678594,
-                  0.900463
+                  0.78276,
+                  0.895833
                 ],
                 "box": [
-                  0.654071,
-                  0.870043,
-                  0.703117,
-                  0.930883
+                  0.758237,
+                  0.865413,
+                  0.807283,
+                  0.926253
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.654071,
-                    0.900463
+                    0.758237,
+                    0.895833
                   ],
                   [
-                    0.605469,
-                    0.900463
+                    0.709635,
+                    0.895833
                   ]
                 ],
                 "width": 0.0098,
@@ -5848,12 +5869,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.654071,
-                    0.900463
+                    0.758237,
+                    0.895833
                   ],
                   [
-                    0.605469,
-                    0.900463
+                    0.709635,
+                    0.895833
                   ]
                 ],
                 "width": 0.0028,
@@ -5863,8 +5884,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.605469,
-                  0.900463
+                  0.709635,
+                  0.895833
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -5872,21 +5893,21 @@
             ],
             "boxes": [
               [
-                0.654071,
-                0.870043,
-                0.703117,
-                0.930883
+                0.758237,
+                0.865413,
+                0.807283,
+                0.926253
               ]
             ],
             "segments": [
               [
                 [
-                  0.654071,
-                  0.900463
+                  0.758237,
+                  0.895833
                 ],
                 [
-                  0.605469,
-                  0.900463
+                  0.709635,
+                  0.895833
                 ]
               ]
             ]
@@ -5896,14 +5917,14 @@
       },
       "sound_cues": [
         {
-          "at_seconds": 6.395,
-          "kind": "STONE",
-          "step": 2
-        },
-        {
-          "at_seconds": 7.075,
+          "at_seconds": 6.895,
           "kind": "STONE",
           "step": 3
+        },
+        {
+          "at_seconds": 7.575,
+          "kind": "STONE",
+          "step": 4
         }
       ],
       "start_seconds": 236.458333,
@@ -5915,7 +5936,7 @@
         "CLM_140"
       ],
       "narration": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners.",
-      "visual_purpose": "From the whole section to one bay: its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along the ribs to the four piers [SEQUENCE 1/1: 2 view(s), 8 timed steps on gothic_cathedral_section: ghost 92, fade_out 49, reveal 1, reveal 1, highlight 2, reveal 20, highlight 2, highlight 4]",
+      "visual_purpose": "The row of high vaults from below; the rest of the church leaves, then the camera turns under one bay: its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along the ribs to the four piers. One change at a time: the camera never moves while parts move [SEQUENCE 1/1: 2 view(s), 9 timed steps on gothic_cathedral_section: ghost 4, fade_out 89, fade_out 49, reveal 1, reveal 1, highlight 2, reveal 20, highlight 2, highlight 4]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B12",
@@ -5944,6 +5965,10 @@
         "views": [
           {
             "focus": [
+              "gothic_cathedral_section_nave_pier_east0",
+              "gothic_cathedral_section_nave_pier_east1",
+              "gothic_cathedral_section_nave_pier_west0",
+              "gothic_cathedral_section_nave_pier_west1",
               "gothic_cathedral_section_rib_diagonal_b1a",
               "gothic_cathedral_section_rib_diagonal_b1b",
               "gothic_cathedral_section_rib_transverse_0",
@@ -5968,7 +5993,10 @@
               "gothic_cathedral_section_vault_web_b1_w3",
               "gothic_cathedral_section_vault_web_b1_w4",
               "gothic_cathedral_section_vault_web_b1_w5"
-            ]
+            ],
+            "margin": 0.08,
+            "azimuth": -90.0,
+            "elevation": -84.0
           },
           {
             "focus": [
@@ -5976,24 +6004,43 @@
               "gothic_cathedral_section_vault_web_b1_b2",
               "gothic_cathedral_section_vault_web_b1_b3",
               "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_b5",
               "gothic_cathedral_section_vault_web_b1_e1",
               "gothic_cathedral_section_vault_web_b1_e2",
               "gothic_cathedral_section_vault_web_b1_e3",
               "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_e5",
               "gothic_cathedral_section_vault_web_b1_f1",
               "gothic_cathedral_section_vault_web_b1_f2",
               "gothic_cathedral_section_vault_web_b1_f3",
               "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_f5",
               "gothic_cathedral_section_vault_web_b1_w1",
               "gothic_cathedral_section_vault_web_b1_w2",
               "gothic_cathedral_section_vault_web_b1_w3",
-              "gothic_cathedral_section_vault_web_b1_w4"
+              "gothic_cathedral_section_vault_web_b1_w4",
+              "gothic_cathedral_section_vault_web_b1_w5"
             ],
             "start_seconds": 2.26,
-            "move_seconds": 4.5
+            "move_seconds": 4.5,
+            "margin": 0.04,
+            "azimuth": -90.0,
+            "elevation": -84.0
           }
         ],
         "steps": [
+          {
+            "components": [
+              "gothic_cathedral_section_clerestory_wall_b1_west",
+              "gothic_cathedral_section_clerestory_wall_b1_east",
+              "gothic_cathedral_section_clerestory_window_b1_west",
+              "gothic_cathedral_section_clerestory_window_b1_east"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "transparency": 0.9,
+            "do": "GHOST"
+          },
           {
             "components": [
               "gothic_cathedral_section_aisle_vault_b1_east",
@@ -6020,18 +6067,15 @@
               "gothic_cathedral_section_arcade_wall_b2_west",
               "gothic_cathedral_section_arcade_wall_b3_east",
               "gothic_cathedral_section_arcade_wall_b3_west",
-              "gothic_cathedral_section_clerestory_wall_b1_east",
-              "gothic_cathedral_section_clerestory_wall_b1_west",
               "gothic_cathedral_section_clerestory_wall_b2_east",
               "gothic_cathedral_section_clerestory_wall_b2_west",
               "gothic_cathedral_section_clerestory_wall_b3_east",
               "gothic_cathedral_section_clerestory_wall_b3_west",
-              "gothic_cathedral_section_clerestory_window_b1_east",
-              "gothic_cathedral_section_clerestory_window_b1_west",
               "gothic_cathedral_section_clerestory_window_b2_east",
               "gothic_cathedral_section_clerestory_window_b2_west",
               "gothic_cathedral_section_clerestory_window_b3_east",
               "gothic_cathedral_section_clerestory_window_b3_west",
+              "gothic_cathedral_section_floor",
               "gothic_cathedral_section_nave_pier_east2",
               "gothic_cathedral_section_nave_pier_east3",
               "gothic_cathedral_section_nave_pier_west2",
@@ -6091,8 +6135,7 @@
             ],
             "start_seconds": 0.0,
             "seconds": 0,
-            "transparency": 0.85,
-            "do": "GHOST"
+            "do": "FADE_OUT"
           },
           {
             "components": [
@@ -6139,7 +6182,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 1.94,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           },
           {
@@ -6161,7 +6205,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 1.715,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           },
           {
@@ -6191,7 +6236,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 2.64,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           }
         ]
@@ -6201,7 +6247,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B13_note",
@@ -6267,13 +6313,13 @@
             "anchors": [
               {
                 "world": [
-                  -2.7247,
-                  5.30058,
-                  38.22178
+                  4.05953,
+                  1.5343,
+                  36.11038
                 ],
                 "screen": [
-                  0.438802,
-                  0.469907
+                  0.707031,
+                  0.761574
                 ],
                 "point": "CENTER",
                 "component_ids": [
@@ -6285,10 +6331,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.233706,
-                  0.439487,
-                  0.328898,
-                  0.500327
+                  0.659435,
+                  0.861154,
+                  0.754627,
+                  0.921994
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -6300,26 +6346,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.281302,
-                  0.469907
+                  0.707031,
+                  0.891574
                 ],
                 "box": [
-                  0.233706,
-                  0.439487,
-                  0.328898,
-                  0.500327
+                  0.659435,
+                  0.861154,
+                  0.754627,
+                  0.921994
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.328898,
-                    0.469907
+                    0.707031,
+                    0.861154
                   ],
                   [
-                    0.438802,
-                    0.469907
+                    0.707031,
+                    0.761574
                   ]
                 ],
                 "width": 0.0098,
@@ -6331,12 +6377,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.328898,
-                    0.469907
+                    0.707031,
+                    0.861154
                   ],
                   [
-                    0.438802,
-                    0.469907
+                    0.707031,
+                    0.761574
                   ]
                 ],
                 "width": 0.0028,
@@ -6346,8 +6392,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.438802,
-                  0.469907
+                  0.707031,
+                  0.761574
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -6355,21 +6401,21 @@
             ],
             "boxes": [
               [
-                0.233706,
-                0.439487,
-                0.328898,
-                0.500327
+                0.659435,
+                0.861154,
+                0.754627,
+                0.921994
               ]
             ],
             "segments": [
               [
                 [
-                  0.328898,
-                  0.469907
+                  0.707031,
+                  0.861154
                 ],
                 [
-                  0.438802,
-                  0.469907
+                  0.707031,
+                  0.761574
                 ]
               ]
             ]
@@ -6387,17 +6433,17 @@
             "anchors": [
               {
                 "world": [
-                  -0.25571,
-                  4.39516,
-                  41.74934
+                  -0.02553,
+                  1.99666,
+                  41.97497
                 ],
                 "screen": [
-                  0.503906,
-                  0.706019
+                  0.498698,
+                  0.775463
                 ],
                 "point": "CENTER",
                 "component_ids": [
-                  "gothic_cathedral_section_vault_web_b1_b1"
+                  "gothic_cathedral_section_vault_web_b1_f3"
                 ]
               }
             ],
@@ -6405,10 +6451,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.418366,
-                  0.745599,
-                  0.589446,
-                  0.806439
+                  0.413158,
+                  0.845043,
+                  0.584238,
+                  0.905883
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -6420,26 +6466,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.503906,
-                  0.776019
+                  0.498698,
+                  0.875463
                 ],
                 "box": [
-                  0.418366,
-                  0.745599,
-                  0.589446,
-                  0.806439
+                  0.413158,
+                  0.845043,
+                  0.584238,
+                  0.905883
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.503906,
-                    0.745599
+                    0.498698,
+                    0.845043
                   ],
                   [
-                    0.503906,
-                    0.706019
+                    0.498698,
+                    0.775463
                   ]
                 ],
                 "width": 0.0098,
@@ -6451,12 +6497,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.503906,
-                    0.745599
+                    0.498698,
+                    0.845043
                   ],
                   [
-                    0.503906,
-                    0.706019
+                    0.498698,
+                    0.775463
                   ]
                 ],
                 "width": 0.0028,
@@ -6466,8 +6512,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.503906,
-                  0.706019
+                  0.498698,
+                  0.775463
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -6475,21 +6521,21 @@
             ],
             "boxes": [
               [
-                0.418366,
-                0.745599,
-                0.589446,
-                0.806439
+                0.413158,
+                0.845043,
+                0.584238,
+                0.905883
               ]
             ],
             "segments": [
               [
                 [
-                  0.503906,
-                  0.745599
+                  0.498698,
+                  0.845043
                 ],
                 [
-                  0.503906,
-                  0.706019
+                  0.498698,
+                  0.775463
                 ]
               ]
             ]
@@ -6507,17 +6553,17 @@
             "anchors": [
               {
                 "world": [
-                  -0.25571,
-                  4.39516,
-                  41.74934
+                  -0.02553,
+                  2.6128,
+                  41.97497
                 ],
                 "screen": [
-                  0.503906,
-                  0.706019
+                  0.498698,
+                  0.719907
                 ],
                 "point": "CENTER",
                 "component_ids": [
-                  "gothic_cathedral_section_vault_web_b1_b1"
+                  "gothic_cathedral_section_vault_web_b1_f2"
                 ]
               }
             ],
@@ -6525,10 +6571,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.450077,
-                  0.745599,
-                  0.557735,
-                  0.806439
+                  0.444869,
+                  0.789487,
+                  0.552527,
+                  0.850327
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -6540,26 +6586,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.503906,
-                  0.776019
+                  0.498698,
+                  0.819907
                 ],
                 "box": [
-                  0.450077,
-                  0.745599,
-                  0.557735,
-                  0.806439
+                  0.444869,
+                  0.789487,
+                  0.552527,
+                  0.850327
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.503906,
-                    0.745599
+                    0.498698,
+                    0.789487
                   ],
                   [
-                    0.503906,
-                    0.706019
+                    0.498698,
+                    0.719907
                   ]
                 ],
                 "width": 0.0098,
@@ -6571,12 +6617,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.503906,
-                    0.745599
+                    0.498698,
+                    0.789487
                   ],
                   [
-                    0.503906,
-                    0.706019
+                    0.498698,
+                    0.719907
                   ]
                 ],
                 "width": 0.0028,
@@ -6586,8 +6632,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.503906,
-                  0.706019
+                  0.498698,
+                  0.719907
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -6595,21 +6641,21 @@
             ],
             "boxes": [
               [
-                0.450077,
-                0.745599,
-                0.557735,
-                0.806439
+                0.444869,
+                0.789487,
+                0.552527,
+                0.850327
               ]
             ],
             "segments": [
               [
                 [
-                  0.503906,
-                  0.745599
+                  0.498698,
+                  0.789487
                 ],
                 [
-                  0.503906,
-                  0.706019
+                  0.498698,
+                  0.719907
                 ]
               ]
             ]
@@ -6625,7 +6671,7 @@
         "CLM_141"
       ],
       "narration": "How exactly these vaults stand has been debated for centuries. Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches. So even in that reading, the stone between the ribs carries load.",
-      "visual_purpose": "Closer on the bay's vault: the ribs light, then every other course of the web (the parallel arches of Heyman's reading), then the whole web: it reads as working stone, never as infill [SEQUENCE 1/1: 2 view(s), 5 timed steps on gothic_cathedral_section: ghost 92, fade_out 27, highlight 4, highlight 12, highlight 20]",
+      "visual_purpose": "Closer on the bay's vault: the ribs light, then every other course of the web (the parallel arches of Heyman's reading), then the whole web: it reads as working stone, never as infill [SEQUENCE 1/1: 2 view(s), 6 timed steps on gothic_cathedral_section: ghost 4, fade_out 89, fade_out 27, highlight 4, highlight 12, highlight 20]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B13",
@@ -7148,7 +7194,8 @@
               "gothic_cathedral_section_aisle_roof_east",
               "gothic_cathedral_section_clerestory_window_b1_east",
               "gothic_cathedral_section_flying_buttress_east0",
-              "gothic_cathedral_section_pinnacle_east0"
+              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_rib_transverse_0"
             ],
             "start_seconds": 10.9,
             "move_seconds": 2.4
@@ -7159,20 +7206,8 @@
             "components": [
               "gothic_cathedral_section_flying_buttress_west0",
               "gothic_cathedral_section_flying_buttress_east0",
-              "gothic_cathedral_section_flying_buttress_west1",
-              "gothic_cathedral_section_flying_buttress_east1",
-              "gothic_cathedral_section_flying_buttress_west2",
-              "gothic_cathedral_section_flying_buttress_east2",
-              "gothic_cathedral_section_flying_buttress_west3",
-              "gothic_cathedral_section_flying_buttress_east3",
               "gothic_cathedral_section_pier_buttress_west0",
-              "gothic_cathedral_section_pier_buttress_east0",
-              "gothic_cathedral_section_pier_buttress_west1",
-              "gothic_cathedral_section_pier_buttress_east1",
-              "gothic_cathedral_section_pier_buttress_west2",
-              "gothic_cathedral_section_pier_buttress_east2",
-              "gothic_cathedral_section_pier_buttress_west3",
-              "gothic_cathedral_section_pier_buttress_east3"
+              "gothic_cathedral_section_pier_buttress_east0"
             ],
             "start_seconds": 0.0,
             "seconds": 0,
@@ -7182,12 +7217,31 @@
           {
             "components": [
               "gothic_cathedral_section_pinnacle_west0",
-              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_pinnacle_east0"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "do": "FADE_OUT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_west1",
+              "gothic_cathedral_section_flying_buttress_west2",
+              "gothic_cathedral_section_flying_buttress_west3",
+              "gothic_cathedral_section_flying_buttress_east1",
+              "gothic_cathedral_section_flying_buttress_east2",
+              "gothic_cathedral_section_flying_buttress_east3",
+              "gothic_cathedral_section_pier_buttress_west1",
+              "gothic_cathedral_section_pier_buttress_west2",
+              "gothic_cathedral_section_pier_buttress_west3",
+              "gothic_cathedral_section_pier_buttress_east1",
+              "gothic_cathedral_section_pier_buttress_east2",
+              "gothic_cathedral_section_pier_buttress_east3",
               "gothic_cathedral_section_pinnacle_west1",
-              "gothic_cathedral_section_pinnacle_east1",
               "gothic_cathedral_section_pinnacle_west2",
-              "gothic_cathedral_section_pinnacle_east2",
               "gothic_cathedral_section_pinnacle_west3",
+              "gothic_cathedral_section_pinnacle_east1",
+              "gothic_cathedral_section_pinnacle_east2",
               "gothic_cathedral_section_pinnacle_east3"
             ],
             "start_seconds": 0.0,
@@ -7203,7 +7257,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 2.23,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           }
         ]
@@ -7213,7 +7268,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "CONCEPTUAL_TAG",
@@ -7540,7 +7595,7 @@
         "CLM_150"
       ],
       "narration": "But gathering the thrust does not make it go away. Even reduced, that sideways push remains a threat to the stability of the whole building. It still has to be contained somewhere.",
-      "visual_purpose": "The cut face of the church, square on: an outward arrow at each springing of the high vault, the high piers it pushes on, and the supports outside still faded; then the camera turns to the east side [SEQUENCE 1/1: 2 view(s), 3 timed steps on gothic_cathedral_section: ghost 16, fade_out 8, highlight 2]",
+      "visual_purpose": "The cut face of the church, square on: an outward arrow at each springing of the high vault, the high piers it pushes on, and the supports outside still faded; then the camera turns to the east side [SEQUENCE 1/1: 2 view(s), 4 timed steps on gothic_cathedral_section: ghost 4, fade_out 2, fade_out 18, highlight 2]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B16",
@@ -7572,7 +7627,8 @@
               "gothic_cathedral_section_aisle_roof_east",
               "gothic_cathedral_section_clerestory_window_b1_east",
               "gothic_cathedral_section_flying_buttress_east0",
-              "gothic_cathedral_section_pinnacle_east0"
+              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_rib_transverse_0"
             ]
           }
         ],
@@ -7581,20 +7637,8 @@
             "components": [
               "gothic_cathedral_section_flying_buttress_west0",
               "gothic_cathedral_section_flying_buttress_east0",
-              "gothic_cathedral_section_flying_buttress_west1",
-              "gothic_cathedral_section_flying_buttress_east1",
-              "gothic_cathedral_section_flying_buttress_west2",
-              "gothic_cathedral_section_flying_buttress_east2",
-              "gothic_cathedral_section_flying_buttress_west3",
-              "gothic_cathedral_section_flying_buttress_east3",
               "gothic_cathedral_section_pier_buttress_west0",
-              "gothic_cathedral_section_pier_buttress_east0",
-              "gothic_cathedral_section_pier_buttress_west1",
-              "gothic_cathedral_section_pier_buttress_east1",
-              "gothic_cathedral_section_pier_buttress_west2",
-              "gothic_cathedral_section_pier_buttress_east2",
-              "gothic_cathedral_section_pier_buttress_west3",
-              "gothic_cathedral_section_pier_buttress_east3"
+              "gothic_cathedral_section_pier_buttress_east0"
             ],
             "start_seconds": 0.0,
             "seconds": 0,
@@ -7604,17 +7648,44 @@
           {
             "components": [
               "gothic_cathedral_section_pinnacle_west0",
-              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_pinnacle_east0"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "do": "FADE_OUT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_west1",
+              "gothic_cathedral_section_flying_buttress_west2",
+              "gothic_cathedral_section_flying_buttress_west3",
+              "gothic_cathedral_section_flying_buttress_east1",
+              "gothic_cathedral_section_flying_buttress_east2",
+              "gothic_cathedral_section_flying_buttress_east3",
+              "gothic_cathedral_section_pier_buttress_west1",
+              "gothic_cathedral_section_pier_buttress_west2",
+              "gothic_cathedral_section_pier_buttress_west3",
+              "gothic_cathedral_section_pier_buttress_east1",
+              "gothic_cathedral_section_pier_buttress_east2",
+              "gothic_cathedral_section_pier_buttress_east3",
               "gothic_cathedral_section_pinnacle_west1",
-              "gothic_cathedral_section_pinnacle_east1",
               "gothic_cathedral_section_pinnacle_west2",
-              "gothic_cathedral_section_pinnacle_east2",
               "gothic_cathedral_section_pinnacle_west3",
+              "gothic_cathedral_section_pinnacle_east1",
+              "gothic_cathedral_section_pinnacle_east2",
               "gothic_cathedral_section_pinnacle_east3"
             ],
             "start_seconds": 0.0,
             "seconds": 0,
             "do": "FADE_OUT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_pier_buttress_east0"
+            ],
+            "start_seconds": 1.44,
+            "seconds": 0.8,
+            "do": "UNGHOST"
           },
           {
             "components": [
@@ -7632,7 +7703,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 3.155,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           },
           {
@@ -7643,16 +7715,9 @@
             "rise_seconds": 0.3,
             "hold_seconds": 1.08,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
-          },
-          {
-            "components": [
-              "gothic_cathedral_section_pier_buttress_east0"
-            ],
-            "start_seconds": 12.135,
-            "seconds": 0.8,
-            "do": "UNGHOST"
           },
           {
             "components": [
@@ -7662,7 +7727,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 1.815,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           },
           {
@@ -7687,7 +7753,8 @@
             "rise_seconds": 0.3,
             "hold_seconds": 2.945,
             "fall_seconds": 0.4,
-            "strength": 0.6,
+            "strength": 1.0,
+            "tint": 0.8,
             "do": "HIGHLIGHT"
           }
         ]
@@ -7697,7 +7764,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "CONCEPTUAL_TAG",
@@ -7809,13 +7876,13 @@
             "anchors": [
               {
                 "world": [
-                  11.27079,
+                  10.98777,
                   -0.55,
-                  33.12126
+                  33.34174
                 ],
                 "screen": [
-                  0.485677,
-                  0.68287
+                  0.608073,
+                  0.641204
                 ],
                 "point": "CENTER",
                 "component_ids": [
@@ -7827,10 +7894,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.413368,
-                  0.78245,
-                  0.557986,
-                  0.84329
+                  0.535764,
+                  0.740784,
+                  0.680382,
+                  0.801624
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -7842,26 +7909,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.485677,
-                  0.81287
+                  0.608073,
+                  0.771204
                 ],
                 "box": [
-                  0.413368,
-                  0.78245,
-                  0.557986,
-                  0.84329
+                  0.535764,
+                  0.740784,
+                  0.680382,
+                  0.801624
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.485677,
-                    0.78245
+                    0.608073,
+                    0.740784
                   ],
                   [
-                    0.485677,
-                    0.68287
+                    0.608073,
+                    0.641204
                   ]
                 ],
                 "width": 0.0098,
@@ -7873,12 +7940,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.485677,
-                    0.78245
+                    0.608073,
+                    0.740784
                   ],
                   [
-                    0.485677,
-                    0.68287
+                    0.608073,
+                    0.641204
                   ]
                 ],
                 "width": 0.0028,
@@ -7888,8 +7955,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.485677,
-                  0.68287
+                  0.608073,
+                  0.641204
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -7897,21 +7964,21 @@
             ],
             "boxes": [
               [
-                0.413368,
-                0.78245,
-                0.557986,
-                0.84329
+                0.535764,
+                0.740784,
+                0.680382,
+                0.801624
               ]
             ],
             "segments": [
               [
                 [
-                  0.485677,
-                  0.78245
+                  0.608073,
+                  0.740784
                 ],
                 [
-                  0.485677,
-                  0.68287
+                  0.608073,
+                  0.641204
                 ]
               ]
             ]
@@ -7929,13 +7996,13 @@
             "anchors": [
               {
                 "world": [
-                  5.8547,
+                  5.88976,
                   -0.27,
-                  32.64404
+                  32.52663
                 ],
                 "screen": [
-                  0.38151,
-                  0.668981
+                  0.519531,
+                  0.618056
                 ],
                 "point": "BOTTOM_RIGHT",
                 "component_ids": [
@@ -7944,13 +8011,13 @@
               },
               {
                 "world": [
-                  8.17346,
+                  8.15532,
                   -0.55,
-                  34.9751
+                  34.95292
                 ],
                 "screen": [
-                  0.425781,
-                  0.747685
+                  0.558594,
+                  0.69213
                 ],
                 "point": "TOP_LEFT",
                 "component_ids": [
@@ -7963,12 +8030,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.38151,
-                    0.668981
+                    0.519531,
+                    0.618056
                   ],
                   [
-                    0.425781,
-                    0.747685
+                    0.558594,
+                    0.69213
                   ]
                 ],
                 "width": 0.0125,
@@ -7980,12 +8047,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.38151,
-                    0.668981
+                    0.519531,
+                    0.618056
                   ],
                   [
-                    0.425781,
-                    0.747685
+                    0.558594,
+                    0.69213
                   ]
                 ],
                 "width": 0.0055,
@@ -7998,12 +8065,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.41782604871165135,
-                  0.7335428643762691
+                  0.5508996057879848,
+                  0.6775393501046819
                 ],
                 "tip": [
-                  0.425781,
-                  0.747685
+                  0.558594,
+                  0.69213
                 ],
                 "width": 0.0,
                 "head_length": 0.0284,
@@ -8014,12 +8081,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.41782604871165135,
-                  0.7335428643762691
+                  0.5508996057879848,
+                  0.6775393501046819
                 ],
                 "tip": [
-                  0.425781,
-                  0.747685
+                  0.558594,
+                  0.69213
                 ],
                 "width": 0.0,
                 "head_length": 0.02,
@@ -8031,12 +8098,12 @@
             "segments": [
               [
                 [
-                  0.38151,
-                  0.668981
+                  0.519531,
+                  0.618056
                 ],
                 [
-                  0.425781,
-                  0.747685
+                  0.558594,
+                  0.69213
                 ]
               ]
             ]
@@ -8054,13 +8121,13 @@
             "anchors": [
               {
                 "world": [
-                  8.17346,
+                  8.15532,
                   -0.55,
-                  34.9751
+                  34.95292
                 ],
                 "screen": [
-                  0.425781,
-                  0.747685
+                  0.558594,
+                  0.69213
                 ],
                 "point": "TOP_LEFT",
                 "component_ids": [
@@ -8069,13 +8136,13 @@
               },
               {
                 "world": [
-                  11.00146,
+                  10.98777,
                   -0.55,
-                  33.38768
+                  33.34174
                 ],
                 "screen": [
-                  0.480469,
-                  0.69213
+                  0.608073,
+                  0.641204
                 ],
                 "point": "CENTER",
                 "component_ids": [
@@ -8084,13 +8151,13 @@
               },
               {
                 "world": [
-                  16.83417,
+                  16.84377,
                   -0.95,
-                  31.19033
+                  31.04889
                 ],
                 "screen": [
-                  0.592448,
-                  0.613426
+                  0.709635,
+                  0.56713
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -8103,16 +8170,16 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.425781,
-                    0.747685
-                  ],
-                  [
-                    0.480469,
+                    0.558594,
                     0.69213
                   ],
                   [
-                    0.592448,
-                    0.613426
+                    0.608073,
+                    0.641204
+                  ],
+                  [
+                    0.709635,
+                    0.56713
                   ]
                 ],
                 "width": 0.0125,
@@ -8124,16 +8191,16 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.425781,
-                    0.747685
-                  ],
-                  [
-                    0.480469,
+                    0.558594,
                     0.69213
                   ],
                   [
-                    0.592448,
-                    0.613426
+                    0.608073,
+                    0.641204
+                  ],
+                  [
+                    0.709635,
+                    0.56713
                   ]
                 ],
                 "width": 0.0055,
@@ -8146,12 +8213,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.4488260186252082,
-                  0.7242746355741032
+                  0.5785453660762498,
+                  0.6715951616079732
                 ],
                 "tip": [
-                  0.4585938,
-                  0.714352
+                  0.5882814,
+                  0.6615744
                 ],
                 "width": 0.0,
                 "head_length": 0.0284,
@@ -8162,12 +8229,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.4488260186252082,
-                  0.7242746355741032
+                  0.5785453660762498,
+                  0.6715951616079732
                 ],
                 "tip": [
-                  0.4585938,
-                  0.714352
+                  0.5882814,
+                  0.6615744
                 ],
                 "width": 0.0,
                 "head_length": 0.02,
@@ -8177,12 +8244,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.5819859493269078,
-                  0.6207792111929473
+                  0.6992268589256956,
+                  0.5747211526155258
                 ],
                 "tip": [
-                  0.592448,
-                  0.613426
+                  0.709635,
+                  0.56713
                 ],
                 "width": 0.0,
                 "head_length": 0.0284,
@@ -8193,12 +8260,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.5819859493269078,
-                  0.6207792111929473
+                  0.6992268589256956,
+                  0.5747211526155258
                 ],
                 "tip": [
-                  0.592448,
-                  0.613426
+                  0.709635,
+                  0.56713
                 ],
                 "width": 0.0,
                 "head_length": 0.02,
@@ -8210,22 +8277,22 @@
             "segments": [
               [
                 [
-                  0.425781,
-                  0.747685
+                  0.558594,
+                  0.69213
                 ],
                 [
-                  0.480469,
-                  0.69213
+                  0.608073,
+                  0.641204
                 ]
               ],
               [
                 [
-                  0.480469,
-                  0.69213
+                  0.608073,
+                  0.641204
                 ],
                 [
-                  0.592448,
-                  0.613426
+                  0.709635,
+                  0.56713
                 ]
               ]
             ]
@@ -8243,13 +8310,13 @@
             "anchors": [
               {
                 "world": [
-                  16.83417,
+                  16.84377,
                   -0.95,
-                  31.19033
+                  31.04889
                 ],
                 "screen": [
-                  0.592448,
-                  0.613426
+                  0.709635,
+                  0.56713
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -8258,12 +8325,12 @@
               },
               {
                 "world": [
-                  16.83417,
+                  16.84377,
                   -0.95,
-                  13.71306
+                  13.18982
                 ],
                 "screen": [
-                  0.592448,
+                  0.709635,
                   0.011574
                 ],
                 "point": "BOTTOM",
@@ -8277,11 +8344,11 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.592448,
-                    0.613426
+                    0.709635,
+                    0.56713
                   ],
                   [
-                    0.592448,
+                    0.709635,
                     0.011574
                   ]
                 ],
@@ -8294,11 +8361,11 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.592448,
-                    0.613426
+                    0.709635,
+                    0.56713
                   ],
                   [
-                    0.592448,
+                    0.709635,
                     0.011574
                   ]
                 ],
@@ -8312,11 +8379,11 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.592448,
-                  0.03157399999999997
+                  0.709635,
+                  0.03157399999999998
                 ],
                 "tip": [
-                  0.592448,
+                  0.709635,
                   0.011573999999999973
                 ],
                 "width": 0.0,
@@ -8328,11 +8395,11 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.592448,
-                  0.03157399999999997
+                  0.709635,
+                  0.03157399999999998
                 ],
                 "tip": [
-                  0.592448,
+                  0.709635,
                   0.011573999999999973
                 ],
                 "width": 0.0,
@@ -8345,11 +8412,11 @@
             "segments": [
               [
                 [
-                  0.592448,
-                  0.613426
+                  0.709635,
+                  0.56713
                 ],
                 [
-                  0.592448,
+                  0.709635,
                   0.011574
                 ]
               ]
@@ -8368,13 +8435,13 @@
             "anchors": [
               {
                 "world": [
-                  16.16084,
+                  16.24746,
                   -0.95,
-                  22.04221
+                  21.66742
                 ],
                 "screen": [
-                  0.579427,
-                  0.298611
+                  0.699219,
+                  0.275463
                 ],
                 "point": "CENTER",
                 "component_ids": [
@@ -8386,10 +8453,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.393647,
-                  0.268191,
-                  0.517707,
-                  0.329031
+                  0.513439,
+                  0.245043,
+                  0.637499,
+                  0.305883
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -8401,26 +8468,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.455677,
-                  0.298611
+                  0.575469,
+                  0.275463
                 ],
                 "box": [
-                  0.393647,
-                  0.268191,
-                  0.517707,
-                  0.329031
+                  0.513439,
+                  0.245043,
+                  0.637499,
+                  0.305883
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.517707,
-                    0.298611
+                    0.637499,
+                    0.275463
                   ],
                   [
-                    0.579427,
-                    0.298611
+                    0.699219,
+                    0.275463
                   ]
                 ],
                 "width": 0.0098,
@@ -8432,12 +8499,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.517707,
-                    0.298611
+                    0.637499,
+                    0.275463
                   ],
                   [
-                    0.579427,
-                    0.298611
+                    0.699219,
+                    0.275463
                   ]
                 ],
                 "width": 0.0028,
@@ -8447,8 +8514,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.579427,
-                  0.298611
+                  0.699219,
+                  0.275463
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -8456,21 +8523,21 @@
             ],
             "boxes": [
               [
-                0.393647,
-                0.268191,
-                0.517707,
-                0.329031
+                0.513439,
+                0.245043,
+                0.637499,
+                0.305883
               ]
             ],
             "segments": [
               [
                 [
-                  0.517707,
-                  0.298611
+                  0.637499,
+                  0.275463
                 ],
                 [
-                  0.579427,
-                  0.298611
+                  0.699219,
+                  0.275463
                 ]
               ]
             ]
@@ -8488,13 +8555,13 @@
             "anchors": [
               {
                 "world": [
-                  15.70833,
-                  -0.48847,
-                  36.78638
+                  15.75147,
+                  -0.48599,
+                  36.80272
                 ],
                 "screen": [
-                  0.571615,
-                  0.80787
+                  0.691406,
+                  0.747685
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -8506,10 +8573,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.599659,
-                  0.77745,
-                  0.689821,
-                  0.83829
+                  0.71945,
+                  0.717265,
+                  0.809612,
+                  0.778105
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -8521,26 +8588,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.64474,
-                  0.80787
+                  0.764531,
+                  0.747685
                 ],
                 "box": [
-                  0.599659,
-                  0.77745,
-                  0.689821,
-                  0.83829
+                  0.71945,
+                  0.717265,
+                  0.809612,
+                  0.778105
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.599659,
-                    0.80787
+                    0.71945,
+                    0.747685
                   ],
                   [
-                    0.571615,
-                    0.80787
+                    0.691406,
+                    0.747685
                   ]
                 ],
                 "width": 0.0098,
@@ -8552,12 +8619,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.599659,
-                    0.80787
+                    0.71945,
+                    0.747685
                   ],
                   [
-                    0.571615,
-                    0.80787
+                    0.691406,
+                    0.747685
                   ]
                 ],
                 "width": 0.0028,
@@ -8567,8 +8634,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.571615,
-                  0.80787
+                  0.691406,
+                  0.747685
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -8576,21 +8643,21 @@
             ],
             "boxes": [
               [
-                0.599659,
-                0.77745,
-                0.689821,
-                0.83829
+                0.71945,
+                0.717265,
+                0.809612,
+                0.778105
               ]
             ],
             "segments": [
               [
                 [
-                  0.599659,
-                  0.80787
+                  0.71945,
+                  0.747685
                 ],
                 [
-                  0.571615,
-                  0.80787
+                  0.691406,
+                  0.747685
                 ]
               ]
             ]
@@ -8608,13 +8675,13 @@
             "anchors": [
               {
                 "world": [
-                  15.72888,
+                  15.77228,
                   -0.684,
-                  35.05585
+                  35.03423
                 ],
                 "screen": [
-                  0.571615,
-                  0.747685
+                  0.691406,
+                  0.69213
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -8626,12 +8693,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.571615,
-                  0.838685
+                  0.691406,
+                  0.78313
                 ],
                 "tip": [
-                  0.571615,
-                  0.753685
+                  0.691406,
+                  0.69813
                 ],
                 "width": 0.0135,
                 "head_length": 0.0324,
@@ -8642,12 +8709,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.571615,
-                  0.838685
+                  0.691406,
+                  0.78313
                 ],
                 "tip": [
-                  0.571615,
-                  0.753685
+                  0.691406,
+                  0.69813
                 ],
                 "width": 0.0065,
                 "head_length": 0.024,
@@ -8657,10 +8724,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.461939,
-                  0.818265,
-                  0.535041,
-                  0.879105
+                  0.654855,
+                  0.86271,
+                  0.727957,
+                  0.92355
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -8672,34 +8739,34 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.49849,
-                  0.848685
+                  0.691406,
+                  0.89313
                 ],
                 "box": [
-                  0.461939,
-                  0.818265,
-                  0.535041,
-                  0.879105
+                  0.654855,
+                  0.86271,
+                  0.727957,
+                  0.92355
                 ]
               }
             ],
             "boxes": [
               [
-                0.461939,
-                0.818265,
-                0.535041,
-                0.879105
+                0.654855,
+                0.86271,
+                0.727957,
+                0.92355
               ]
             ],
             "segments": [
               [
                 [
-                  0.571615,
-                  0.838685
+                  0.691406,
+                  0.78313
                 ],
                 [
-                  0.571615,
-                  0.753685
+                  0.691406,
+                  0.69813
                 ]
               ]
             ]
@@ -8711,7 +8778,7 @@
         {
           "at_seconds": 17.01,
           "kind": "STONE_HEAVY",
-          "step": 7
+          "step": 8
         }
       ],
       "start_seconds": 335.208333,
@@ -8723,7 +8790,7 @@
         "CLM_152"
       ],
       "narration": "The answer stands outside the building: the flying buttress. It is a stone arch that picks up the thrust where it leaves the vault, carries it across the aisle roof, and brings it down to a massive pier buttress. Often a pinnacle on top adds weight, to help stabilize the thrust.",
-      "visual_purpose": "One flying buttress in profile: it returns in full when named, the path follows the narration from the vault over the aisle roof down the pier buttress, and the pinnacle is set on top when it is named [SEQUENCE 1/1: 1 view(s), 9 timed steps on gothic_cathedral_section: ghost 16, fade_out 8, unghost 1, highlight 1, highlight 1, unghost 1, highlight 1, reveal 1, highlight 1]",
+      "visual_purpose": "One flying buttress in profile: it returns in full when named, the path follows the narration from the vault over the aisle roof down the pier buttress, and the pinnacle is set on top when it is named [SEQUENCE 1/1: 1 view(s), 10 timed steps on gothic_cathedral_section: ghost 4, fade_out 2, fade_out 18, unghost 1, unghost 1, highlight 1, highlight 1, highlight 1, reveal 1, highlight 1]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B17",
@@ -8773,7 +8840,7 @@
         "romanesque_church_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B18_note",
@@ -8937,7 +9004,7 @@
         "romanesque_church_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B18_note",
@@ -9105,7 +9172,7 @@
         "romanesque_church_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B19_note",
@@ -9848,7 +9915,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B23_n",
@@ -12766,7 +12833,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B34_note",
@@ -13920,7 +13987,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B39_ch",
@@ -18782,7 +18849,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B42_ch",
@@ -19068,7 +19135,7 @@
         "gothic_cathedral_section"
       ],
       "annotations": {
-        "style_sha256": "213a5d0f7c9f39fea1a29bb106f2b1860609e27b531ad56a7ffc33795bc35b3c",
+        "style_sha256": "0a4aa5cb31a1944fc13e109a92857829c4c99545133ffdb64cdeac63814fb420",
         "items": [
           {
             "id": "B44_note",

@@ -122,7 +122,7 @@ def add_units(material, units):
 
 
 def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, render_method="DITHERED",
-                  detail=None, units=None):
+                  detail=None, units=None, tint_color=None):
     """Principled material driven per object by two custom properties:
     ass_highlight (0..1 self-coloured glow) and ass_transparency (0 opaque .. 1
     invisible). Missing properties read as 0."""
@@ -156,6 +156,37 @@ def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, rend
         add_surface_detail(material, color, detail)
     if units:
         add_units(material, units)
+    if tint_color:
+        # g-r5: a SEQUENCE highlight may colour the part instead of brightening it (ass_tint 0..1, default 0): the
+        # surface turns towards the accent as the highlight rises, and the glow gives way by the same share. A light
+        # stone glowing brighter on a light backdrop lost contrast (owner, g-r4 pilot review).
+        tint = nodes.new("ShaderNodeAttribute")
+        tint.attribute_type, tint.attribute_name = "OBJECT", "ass_tint"
+        amount = nodes.new("ShaderNodeMath")
+        amount.operation = "MULTIPLY"
+        amount.use_clamp = True
+        links.new(tint.outputs["Fac"], amount.inputs[0])
+        links.new(hl.outputs["Fac"], amount.inputs[1])
+        mix = nodes.new("ShaderNodeMix")
+        mix.data_type = "RGBA"
+        socket = lambda sockets, ident: next(x for x in sockets if x.identifier == ident)   # names repeat per type
+        links.new(amount.outputs[0], socket(mix.inputs, "Factor_Float"))
+        socket(mix.inputs, "A_Color").default_value = hex_to_rgba(color)
+        socket(mix.inputs, "B_Color").default_value = hex_to_rgba(tint_color)
+        base_in = bsdf.inputs["Base Color"]
+        if base_in.is_linked:   # surface detail or units drive the base colour: tint what they produce
+            src = base_in.links[0].from_socket
+            links.new(src, socket(mix.inputs, "A_Color"))
+        links.new(socket(mix.outputs, "Result_Color"), base_in)
+        keep = nodes.new("ShaderNodeMath")   # glow x (1 - tint)
+        keep.operation = "SUBTRACT"
+        keep.inputs[0].default_value = 1.0
+        links.new(tint.outputs["Fac"], keep.inputs[1])
+        dim = nodes.new("ShaderNodeMath")
+        dim.operation = "MULTIPLY"
+        links.new(glow.outputs[0], dim.inputs[0])
+        links.new(keep.outputs[0], dim.inputs[1])
+        links.new(dim.outputs[0], bsdf.inputs["Emission Strength"])
     if hasattr(material, "surface_render_method"):
         material.surface_render_method = render_method
     if hasattr(material, "use_transparent_shadow"):
@@ -179,7 +210,8 @@ def make_materials(style):
     p = style["palette"]
     m = style.get("materials", {})
     kw = {"glow_gain": m.get("highlight_glow_gain", 1.0),
-          "render_method": m.get("transparency_render_method", "DITHERED")}
+          "render_method": m.get("transparency_render_method", "DITHERED"),
+          "tint_color": p.get("highlight")}
     u = m.get("covering_units", {})
     return {
         "ground": make_material("Ground", p["ground"], roughness=0.9, **kw),

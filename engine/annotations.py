@@ -142,8 +142,80 @@ def _element_geometry(e, plane):
     raise ValueError(f"unknown annotation primitive {kind}")
 
 
+def _path_length(points, aspect):
+    return sum(math.hypot((b[0] - a[0]) * aspect, b[1] - a[1]) for a, b in zip(points, points[1:]))
+
+
+def _pieces(points, n, aspect):
+    """g-r5: a solid polyline cut into n pieces of equal length, in order: [(fraction at start, [a, b, ...]), ...]."""
+    total = _path_length(points, aspect) or 1.0
+    cuts = [total * k / n for k in range(n + 1)]
+    out, acc = [], 0.0
+    pts = [list(points[0])]
+    k = 1
+    for a, b in zip(points, points[1:]):
+        seg = math.hypot((b[0] - a[0]) * aspect, b[1] - a[1])
+        while k <= n and cuts[k] <= acc + seg + 1e-12:
+            t = (cuts[k] - acc) / seg if seg else 1.0
+            q = [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]
+            pts.append(q)
+            out.append((cuts[k - 1] / total, pts))
+            pts = [q]
+            k += 1
+        if pts[-1] != list(b):
+            pts.append(list(b))
+        acc += seg
+    return out
+
+
+def _fraction_along(points, p, aspect):
+    """Arc-length fraction of the point of the polyline nearest to p."""
+    total = _path_length(points, aspect) or 1.0
+    best, acc = (float("inf"), 1.0), 0.0
+    for a, b in zip(points, points[1:]):
+        dx, dy = (b[0] - a[0]) * aspect, b[1] - a[1]
+        seg2 = dx * dx + dy * dy
+        t = 0.0 if not seg2 else max(0.0, min(1.0, ((p[0] - a[0]) * aspect * dx + (p[1] - a[1]) * dy) / seg2))
+        d = math.hypot((a[0] - p[0]) * aspect + dx * t, a[1] - p[1] + dy * t)
+        if d < best[0]:
+            best = (d, (acc + t * math.sqrt(seg2)) / total)
+        acc += math.sqrt(seg2)
+    return best[1]
+
+
+def _drawn_elements(ann, aspect):
+    """g-r5 (owner: a force path is drawn along its route, then holds its final shape): each line of a drawn
+    annotation becomes pieces in path order, each arrow head waits for the path to reach it. Returns [(element,
+    fraction)]; never a stretching or pulsing shape, and no running particles."""
+    route = next((e["points"] for e in ann["elements"] if e["kind"] == "line"), None)
+    out = []
+    for i, e in enumerate(ann["elements"]):
+        if e["kind"] == "line":
+            if e.get("dash"):
+                for a, b in _dashes_frac(e["points"], e["dash"][0], e["dash"][1], aspect):
+                    out.append((dict(e, points=[a, b], dash=None), _fraction_along(route, a, aspect), i))
+            else:
+                n = max(2, int(math.ceil(_path_length(e["points"], aspect) / 0.02)))
+                out += [(dict(e, points=pts), f, i) for f, pts in _pieces(e["points"], n, aspect)]
+        elif e["kind"] == "arrow" and route:
+            out.append((e, _fraction_along(route, e["tip"], aspect), i))
+        else:
+            out.append((e, 0.0, i))
+    return out
+
+
+def _dashes_frac(points, dash, gap, aspect):
+    class _P:   # _dashes only needs the aspect
+        pass
+    plane = _P()
+    plane.aspect = aspect
+    return _dashes(points, dash, gap, plane)
+
+
 def build(shot, fit, basis, aspect, collection):
     """Objects for every annotation of the shot: {annotation id: [objects]} (+ texts list)."""
+    from engine import annotation_layout
+    drawn = annotation_layout.load_style()["timing"].get("draw_seconds", {})
     data = shot.get("annotations") or {}
     plane = Plane(fit, basis, aspect)
     materials, out, texts = {}, {}, {}
@@ -155,7 +227,9 @@ def build(shot, fit, basis, aspect, collection):
 
     for ann in data.get("items", []):
         objs = []
-        for k, e in enumerate(ann["elements"]):
+        elements = _drawn_elements(ann, aspect) if drawn.get(ann["type"]) else \
+            [(e, None, i) for i, e in enumerate(ann["elements"])]
+        for k, (e, draw_at, index) in enumerate(elements):
             name = f"{PREFIX}{ann['id']}_{k:02d}_{e['kind']}"
             if e["kind"] == "text":
                 curve = bpy.data.curves.new(name + "_text", type="FONT")
@@ -171,11 +245,16 @@ def build(shot, fit, basis, aspect, collection):
                 obj["ass_transparency"] = 1.0
                 collection.objects.link(obj)
                 texts.setdefault(ann["id"], []).append((obj, e))
+                obj["element_index"] = index
                 objs.append(obj)
                 continue
             verts, faces, border = _element_geometry(e, plane)
             depth = DEPTH[e["kind"]] + (0.003 if e.get("halo") else 0.0)   # halos sit just behind their line
             obj = _mesh(name, verts, faces, plane, depth, material(e.get("fill") or e["color"]), collection)
+            if draw_at is not None:
+                obj["draw_at"] = round(draw_at, 6)
+                obj["draw_seconds"] = float(drawn[ann["type"]])
+            obj["element_index"] = index
             objs.append(obj)
             if border:   # plate outline (slightly behind the plate fill)
                 x0, y0, x1, y1, bw = border[0]
@@ -188,6 +267,7 @@ def build(shot, fit, basis, aspect, collection):
                     bf.append((k2, k2 + 1, k2 + 2, k2 + 3))
                 objs.append(_mesh(name + "_border", bv, bf, plane, DEPTH["plate"] - 0.005, material(e["border"]),
                                   collection))
+                objs[-1]["element_index"] = index
         for obj in objs:
             obj["annotation_id"] = ann["id"]
             obj["annotation_type"] = ann["type"]
@@ -202,9 +282,15 @@ def key_fades(plan, built, shot, fps, fade_seconds):
     for ann in data.get("items", []):
         f_in = max(1, int(round(ann["appear"] * fps)) + 1)
         f_out = min(n, int(round(ann["disappear"] * fps)))
-        fade = max(1, int(round(fade_seconds * fps)))
+        fade0 = max(1, int(round(fade_seconds * fps)))
         for obj in built.get(ann["id"], []):
             name = obj.name
+            fade = fade0
+            if "draw_at" in obj:   # g-r5: drawn along the route: each piece appears when the path reaches it
+                f_in = max(1, int(round(ann["appear"] * fps)) + 1) + int(round(obj["draw_at"] * obj["draw_seconds"] * fps))
+                fade = 2
+            else:
+                f_in = max(1, int(round(ann["appear"] * fps)) + 1)
             if f_in <= 1:
                 plan.key(name, motion.TRANSPARENCY, 1, 0.0)
             else:
@@ -212,7 +298,7 @@ def key_fades(plan, built, shot, fps, fade_seconds):
                 plan.key(name, motion.TRANSPARENCY, f_in, 1.0, "SMOOTH")
                 plan.key(name, motion.TRANSPARENCY, min(f_in + fade, n), 0.0)
             if f_out < n:
-                plan.key(name, motion.TRANSPARENCY, max(f_out - fade, f_in + fade), 0.0, "SMOOTH")
+                plan.key(name, motion.TRANSPARENCY, max(f_out - fade0, f_in + fade), 0.0, "SMOOTH")
                 plan.key(name, motion.TRANSPARENCY, f_out, 1.0)
                 plan.key(name, motion.TRANSPARENCY, n, 1.0)
             else:

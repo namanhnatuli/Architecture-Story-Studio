@@ -5,7 +5,7 @@ preferences (default BEZIER handles would overshoot and break exact landings).
 """
 from engine import motion
 
-PROPS = {motion.TRANSPARENCY: "ass_transparency", motion.HIGHLIGHT: "ass_highlight"}
+PROPS = {motion.TRANSPARENCY: "ass_transparency", motion.HIGHLIGHT: "ass_highlight", motion.TINT: "ass_tint"}
 
 
 def iter_fcurves(obj):
