@@ -1,13 +1,13 @@
 # Visual-planning evaluation (M5.5)
 
-29/29 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
+30/30 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
 
 | Dimension | Checks passed |
 |---|---|
 | narrative_relevance | 31/31 |
 | asset_selection | 9/9 |
 | target_selection | 25/25 |
-| animation_suitability | 14/14 |
+| animation_suitability | 16/16 |
 | camera_readability | 5/5 |
 | target_visibility | 9/9 |
 | timing_feasibility | 2/2 |
@@ -20,11 +20,11 @@
 | positive | 13/13 |
 | negative | 8/8 |
 | ambiguous | 3/3 |
-| missing_capability | 5/5 |
+| missing_capability | 6/6 |
 
 | Family | Cases passed |
 |---|---|
-| bridge | 23/23 |
+| bridge | 24/24 |
 | roof | 6/6 |
 
 ## Cases
@@ -163,3 +163,6 @@
   - ok [target_selection] annotation B5_comp: FAILED (want FAILED)
   - ok [target_selection] annotation B5_react: PLACED (want PLACED)
   - ok [target_selection] report mentions 'anchor target not found'
+- **SEQ-NEG-01** (missing_capability, bridge) A SEQUENCE on an asset that does not declare it is refused (MISSING_TEMPLATE), never faked with a hold: **PASS**
+  - ok [animation_suitability] status MISSING_TEMPLATE (want MISSING_TEMPLATE)
+  - ok [animation_suitability] report mentions 'does not support SEQUENCE'

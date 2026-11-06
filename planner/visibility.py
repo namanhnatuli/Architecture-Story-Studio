@@ -187,16 +187,36 @@ def build_scene(shot, states, fps, presets, aspect=16 / 9):
             slot_components[slot_id][p.id] = motion.Component(
                 name=p.name, id=p.id, location=p.location, rotation=p.rotation,
                 center=tuple((a + b) / 2 for a, b in zip(lo, hi)), layer=p.layer, hint=p.hint)
-    plan = templates.plan_shot(shot, states, fps, slot_components)
+    camera = None
+    if template == "SEQUENCE":   # one fit per view, as engine/shot_builder.sequence_fits
+        fits = []
+        for v in motion.sequence_views(cfg):
+            ids = set(v["focus"] or [])
+            vp = [q for n, p in parts.items() if not ids or p.id in ids for q in rest[n]]
+            fits.append(framing.fit_ortho(vp, basis, aspect, v["margin"] if v["margin"] is not None
+                                          else preset.get("margin", 0.07), band))
+        camera = {"name": templates.CAMERA_NAME, "views": fits, "start": fits[0], "end": fits[-1]}
+    plan = templates.plan_shot(shot, states, fps, slot_components, camera)
     focus = set(shot.get("camera_focus") or []) if template != "SIDE_BY_SIDE" else set()
     framed = [n for n, p in parts.items() if not focus or p.id in focus]
     pts = [tuple(q[i] + offsets[parts[n].slot][i] for i in range(3)) for n in framed for q in rest[n]]
     pts += focus_envelope(plan, parts, framed) if focus else []
-    fit = framing.fit_ortho(pts, basis, aspect, preset.get("margin", 0.07), band)
+    fit = camera["views"][0] if camera else framing.fit_ortho(pts, basis, aspect, preset.get("margin", 0.07), band)
     hidden = {n for n, p in parts.items() if p.id not in shown[p.slot]}
     return ShotScene(shot=shot, template=template, parts=parts, offsets=offsets, hidden=hidden, plan=plan, fit=fit,
                      basis=basis, aspect=aspect, band=band, frame_count=templates.frame_count(shot, fps),
                      preset=shot["camera"], shared={p["id"] for p in spec.base_parts(states)})
+
+
+def scene_at(scene, frame):
+    """The scene as the camera sees it at `frame`: a SEQUENCE camera eases between views (its plan keys), every
+    other template keeps one fit."""
+    name = templates.CAMERA_NAME
+    if scene.template != "SEQUENCE" or name not in scene.plan.tracks:
+        return scene
+    fit = dict(scene.fit, location=tuple(scene.plan.sample(name, motion.LOC, frame)),
+               ortho_scale=scene.plan.sample(name, motion.ORTHO, frame)[0])
+    return dataclasses.replace(scene, fit=fit)
 
 
 def focus_envelope(plan, parts, framed):

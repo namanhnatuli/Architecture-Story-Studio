@@ -32,12 +32,20 @@ class CathedralAssetsTest(unittest.TestCase):
     def test_the_web_is_real_stone_and_every_vault_crown_is_level(self):
         comps = assets.plan_file(GOTHIC)
         web = [c for c in comps if c.type == "VAULT_WEB"]
-        params = assets.resolve_params("cathedral", "gothic_section", {})[0]
-        self.assertEqual(len(web), params["bay_count"])
-        for c in web:      # a closed slab with thickness, not a surface
+        data, _ = assets.load(GOTHIC)
+        params = assets.resolve_params("cathedral", "gothic_section", data["parameters"])[0]
+        courses = params["web_courses"]
+        self.assertGreater(courses, 1)     # the film's model: each bay's web is cut into courses (Heyman's arches)
+        self.assertEqual(len(web), params["bay_count"] * 4 * courses)
+        for c in web:      # every course is a closed slab with thickness that rises to the crown, not a surface
             lo, hi = semantic.bbox(c)
             self.assertAlmostEqual(hi[2], params["vault_crown_m"] + 0.45, places=3)
-            self.assertGreater(len(c.mesh["faces"]), 40)
+            self.assertGreaterEqual(len(c.mesh["faces"]), 12)
+        for i in range(1, params["bay_count"] + 1):
+            bay = [c for c in web if c.id.startswith(f"vault_web_b{i}_")]
+            self.assertGreater(sum(len(c.mesh["faces"]) for c in bay), 40)
+        one = assets.plan(dict(data, parameters={}))     # the generator's default keeps one web part per bay
+        self.assertEqual(sum(1 for c in one if c.type == "VAULT_WEB"), params["bay_count"])
         ribs = [semantic.bbox(c)[1][2] for c in comps if c.type == "RIB"]
         self.assertLess(max(ribs) - min(ribs), 0.05)    # their section differs a little; the arcs meet one level
 

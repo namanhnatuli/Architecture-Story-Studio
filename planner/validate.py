@@ -150,19 +150,21 @@ def validate_plan(plan, project_dir, root=ROOT, engine_check=True):
                                   f"for concept {tg['concept']}")
         cam = ps["camera"]
         if template != "MOTION_GRAPHICS":
-            if cam["mode"] not in CAM.MODES:
+            if cam["mode"] not in CAM.MODES + ("SEQUENCE",):
                 errors.append(f"{where}: unknown camera mode {cam['mode']}")
             if cam["preset"] not in presets:
                 errors.append(f"{where}: camera preset {cam['preset']} is not in config/visual_style.json")
         if cam.get("focus") and not set(cam["focus"]) <= visible:
             errors.append(f"{where}: camera focus components are not visible")
-        g = groups.setdefault(cam["group"], (shot.get("build_variants"), cam["preset"], cam.get("focus"), cam.get("safe_band")))
-        if g != (shot.get("build_variants"), cam["preset"], cam.get("focus"), cam.get("safe_band")):
+        g = groups.setdefault(cam["group"], (shot.get("build_variants"), cam["preset"], cam.get("safe_band")))
+        if g != (shot.get("build_variants"), cam["preset"], cam.get("safe_band")):
             errors.append(f"{where}: continuity group {cam['group']} mixes cameras/build sets (match cuts would jump)")
         if ps["cut_from_previous"] == "match" and i > 1:
             prev = plan["shots"][i - 2]
             if prev["camera"]["group"] != cam["group"]:
                 errors.append(f"{where}: match cut across continuity groups")
+            if prev["camera"].get("end_focus", prev["camera"].get("focus")) != cam.get("focus"):   # SEQUENCE ends elsewhere
+                errors.append(f"{where}: match cut from a different framing (the previous shot ends on another focus)")
             same = prev["states"] == ps["states"] if template == "SIDE_BY_SIDE" else prev["states"][-1:] == ps["states"][:1]
             if not same:
                 errors.append(f"{where}: match cut from {prev['states']} to {ps['states']} changes the shown state")
@@ -333,7 +335,8 @@ def annotation_errors(plan, project_dir, doc, sources, vocab, root=ROOT):
                         errors.append(f"{sid}: annotation {a['id']} is anchored to {cid}, not shown in {ps['states']}")
                     elif roles.get(cid) not in allowed:
                         errors.append(f"{sid}: annotation {a['id']} anchor {cid} ({roles.get(cid)}) is not a {concepts}")
-                sx, sy = framing.frame_coords([x["world"]], scene.fit, scene.basis, scene.aspect)[0]
+                at = VIS.scene_at(scene, max(1, int(round((a["appear"] + a["disappear"]) / 2 * fps)) + 1))
+                sx, sy = framing.frame_coords([x["world"]], at.fit, at.basis, at.aspect)[0]
                 if abs(sx - x["screen"][0]) > style["qa"]["anchor_tolerance"] or \
                         abs(sy - x["screen"][1]) > style["qa"]["anchor_tolerance"]:
                     errors.append(f"{sid}: annotation {a['id']} anchor world point projects to ({sx:.4f}, {sy:.4f}), "

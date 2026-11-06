@@ -1,9 +1,9 @@
 # Visual coverage: How Gothic Cathedrals Reached Impossible Heights
 
 - Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 47 shots, 923.42 s.
-- Executable: **True** · COVERED 38, PARTIALLY_COVERED 8
+- Executable: **True** · COVERED 40, PARTIALLY_COVERED 6
 - Publication: INTERNAL_ONLY — Revision g-r3: script after the owner's second review; claims source-verified, not editorially approved.
-- Visibility (offline Level 1 estimate): 15 shots, 29/29 target rows read, issues 1, auto-repaired 1, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
+- Visibility (offline Level 1 estimate): 12 shots, 19/19 target rows read, issues 1, auto-repaired 1, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
 
 | Beat | Intent | Strategy | Assets | Semantic targets | Templates (shots) | Expected / planned s | Evidence | Readable | Coverage | Issues |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -18,12 +18,12 @@
 | B09 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_009) | 29.73 / 29.75 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared EXPLAIN_STRUCTURE, narration cues suggest ['EXPLAIN_DESIGN_CHANGE'] |
 | B10 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_010) | 25.60 / 25.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B11 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_011) | 18.80 / 18.83 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B12 | SHOW_COMPONENT | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | rib | HOLD (SC_012) | 19.62 / 19.62 | INTERNAL_PREVIEW | rib: reads | **PARTIALLY_COVERED** | — |
-| B13 | SHOW_COMPONENT | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | rib | HOLD (SC_013) | 21.80 / 21.83 | INTERNAL_PREVIEW | rib: reads | **PARTIALLY_COVERED** | — |
+| B12 | SHOW_COMPONENT | SEQUENCE | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | — | SEQUENCE (SC_012) | 19.62 / 19.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B13 | SHOW_COMPONENT | SEQUENCE | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | — | SEQUENCE (SC_013) | 21.80 / 21.83 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B14 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_014) | 25.52 / 25.54 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B15 | EXPLAIN_DESIGN_CHANGE | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | clerestory_window, nave_pier | HOLD (SC_015) | 16.77 / 16.79 | INTERNAL_PREVIEW | clerestory_window: reads<br>nave_pier: reads | **COVERED** | — |
-| B16 | EXPLAIN_LOAD_PATH | HOLD | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | — | HOLD (SC_016) | 14.93 / 14.96 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B17 | EXPLAIN_LOAD_PATH | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | aisle_roof, flying_buttress, pier_buttress, pinnacle | HOLD (SC_017) | 21.48 / 21.50 | INTERNAL_PREVIEW | aisle_roof: reads<br>flying_buttress: reads<br>pier_buttress: reads<br>pinnacle: reads | **COVERED** | — |
+| B16 | EXPLAIN_LOAD_PATH | SEQUENCE | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | — | SEQUENCE (SC_016) | 14.93 / 14.96 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B17 | EXPLAIN_LOAD_PATH | SEQUENCE | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | — | SEQUENCE (SC_017) | 21.48 / 21.50 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B18 | EXPLAIN_DESIGN_CHANGE | SEQUENTIAL_STATES | romanesque_church_section: REUSE_EXISTING → `cathedral_romanesque_section_01`<br>gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | pier_buttress, thick_wall | HOLD (SC_018), HOLD (SC_019) | 21.88 / 21.88 | INTERNAL_PREVIEW | pier_buttress: reads<br>thick_wall: reads | **PARTIALLY_COVERED** | — |
 | B19 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | flying_buttress | HOLD (SC_020) | 31.50 / 31.50 | INTERNAL_PREVIEW | flying_buttress: reads | **COVERED** | — |
 | B20 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | flying_buttress | HOLD (SC_021) | 12.35 / 12.38 | INTERNAL_PREVIEW | flying_buttress: reads | **COVERED** | — |
@@ -67,12 +67,12 @@
 - **B09**: CARD: 2D card (text/arrows) supplied by the beat
 - **B10**: CARD: 2D card (text/arrows) supplied by the beat
 - **B11**: CARD: 2D card (text/arrows) supplied by the beat
-- **B12**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
-- **B13**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B12**: SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')
+- **B13**: SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')
 - **B14**: CARD: 2D card (text/arrows) supplied by the beat
 - **B15**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
-- **B16**: HOLD: Hold the structure
-- **B17**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B16**: SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')
+- **B17**: SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')
 - **B18**: SEQUENTIAL_STATES timing: cuts on sentence starts [2] · SEQUENTIAL_STATES: Show A, cut, show B (states not geometrically compatible)
 - **B19**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
 - **B20**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components

@@ -71,8 +71,25 @@ Nếu chủ kênh yêu cầu xem kịch bản trước khi có video:
 - Hai mô hình khác nhau cần so kích thước: `SEQUENTIAL_STATES` với `same_scale: true` (một camera khóa) và `state_targets` (bộ phận phát sáng riêng cho từng mô hình). Với mô hình `ILLUSTRATIVE`, chênh lệch kích thước trên hình không phải số đo: đừng ghi "same scale" nếu lời dẫn và sổ claim không nói về kích thước đó.
 - Hai beat liên tiếp cùng một góc nhìn: đặt `close_on` giống nhau (bộ phận để lấy khung, độc lập với bộ phận phát sáng), planner sẽ cho match cut. Khung khác nhau thì là cut thường. `glow_only` chọn riêng bộ phận phát sáng; `highlight_at_sentence` chọn câu bắt đầu. Hai bộ phận sát nhau cùng sáng sẽ lẫn vào nhau, nên cho sáng từng bộ phận.
 - Chú thích `THRUST_ARROW`: mũi tên đẩy ngang ra ngoài, cùng độ dài như mọi mũi tên, phải có claim đã kể.
-- Chiến lược có sẵn: HOLD, HOLD_HIGHLIGHT, ASSEMBLE_IN, EXPLODE, HIGHLIGHT_THEN_EXPLODE, CLOSEUP_EXPLODE, HIGHLIGHT_REPLACE_HIGHLIGHT, COMPARE_SIDE_BY_SIDE, DETAIL_THEN_OVERVIEW, SITE_HOLD, CARD; HOLD có thể kèm `camera_move: PUSH_IN`.
+- Chiến lược có sẵn: HOLD, HOLD_HIGHLIGHT, ASSEMBLE_IN, EXPLODE, HIGHLIGHT_THEN_EXPLODE, CLOSEUP_EXPLODE, HIGHLIGHT_REPLACE_HIGHLIGHT, COMPARE_SIDE_BY_SIDE, DETAIL_THEN_OVERVIEW, SITE_HOLD, CARD, SEQUENCE (mục dưới); HOLD có thể kèm `camera_move: PUSH_IN`.
 - Trộn 3D, sơ đồ, bản đồ sơ lược, dòng thời gian và ảnh có quyền. Tránh chuỗi 2D dài.
+
+### Shot SEQUENCE: hình kể theo lời (2026-11-06)
+Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều gì thay đổi để hiểu ý đang kể?"**. Zoom chỉ có ích khi đưa người xem tới chi tiết vừa được nhắc. Khi câu trả lời là "chưa có gì", dùng `strategy="SEQUENCE"` với `sequence` trong `story.py`:
+- `camera`: một preset cho cả shot. Camera chỉ trượt và zoom giữa các `views`, không xoay. Muốn đổi góc thì cắt sang shot khác.
+- `views`: `{"frame": refs}` cho từng khung (`None` là toàn bộ mô hình), `at` và `move_seconds` cho mỗi lần chuyển.
+- `steps`: lần lượt `GHOST` (làm mờ phần còn lại), `UNGHOST`, `FADE_OUT`, `FADE_IN`, `REVEAL` (bộ phận hiện ra và đặt đúng chỗ) và `HIGHLIGHT` (phát sáng). Mỗi lần sáng có bộ phận riêng và có thể kéo `until` một mốc sau.
+- Mốc thời gian: `{"sentence": k}`, `{"sentence": k, "word": "ribs"}`, `{"sentence": k, "end": true}`, kèm `offset` (giây). Mọi mốc đo trên audio đã khóa.
+- Tham chiếu bộ phận: concept + `group`, hoặc `local` (id cục bộ chính xác, ví dụ `rib_diagonal_b1a`). `{"except": refs}` nghĩa là mọi bộ phận của công trình trừ những cái đó. Các bộ phận bị camera ẩn (sàn khi nhìn từ dưới) không bao giờ bị chọn.
+- Hai shot liền nhau mà shot sau mở đúng khung và đúng trạng thái mờ mà shot trước kết thúc thì planner cho match cut. Ghi lại trạng thái đầu shot bằng bước tức thì ở `at: 0, seconds: 0`.
+- Chú thích bám vào bộ phận chỉ hiện khi camera đứng yên. Planner tự cắt cửa sổ hiển thị, còn ghi chú cố định màn hình thì đi theo camera.
+- Âm thanh: `REVEAL` có `sound` (`STONE`, `STONE_HEAVY`) sinh một mốc âm khi bộ phận đặt xuống. Âm tổng hợp trong `pipeline/sound.py` (`config/sound_design.json`), không có nhạc nền hay ambience.
+- Cách làm hiệu quả: dựng **một đoạn thử 60–90 giây** (`tools/excerpt.py`) cho chủ kênh duyệt chất lượng hình trước, rồi mới áp cho cả phim. Xem frame thử bằng Blender trước khi render cả shot. Kiểm tra Blender riêng các shot mới: `engine/render_scene.py --mode check --shot SC_a,SC_b`.
+- Những điều đã học từ đoạn thử của phim Gothic:
+  - khung "cả mô hình" của một mặt cắt cao hơn chiều ngang thì bị giới hạn theo chiều cao, nên cận cảnh phải cắt bớt chiều cao;
+  - phần bị làm mờ không được đổ bóng (engine tự tắt);
+  - nhìn từ dưới lên thì mặt dưới vòm tối, nên preset `CATHEDRAL_VAULT_BELOW` có đèn phụ từ dưới (`under_light`);
+  - đá giữa gân chia thành các dải (`web_courses`) để cho thấy cách đọc "một loạt vòm song song".
 
 ## 9–10. Tìm và tạo asset
 - `python3 tools/cli.py asset-catalog` liệt kê thư viện:

@@ -11,7 +11,8 @@ class MappingError(ValueError):
 
 
 def resolve_targets(refs, parts, vocab, state):
-    """refs: concept names or {"concept", "group"}; parts: [{id, role, group}] visible in `state`.
+    """refs: concept names or {"concept", "group", "local"}; parts: [{id, role, group}] visible in `state`.
+    `local` names exact parts by their local id (without the variant prefix), e.g. "rib_diagonal_b1a".
     Returns [{"concept", "roles", "group", "component_ids"}]."""
     out = []
     for ref in refs:
@@ -22,7 +23,15 @@ def resolve_targets(refs, parts, vocab, state):
         if c["kind"] != "component":
             continue
         group = ref.get("group") if isinstance(ref, dict) else None
-        matched = [p for p in parts if p["role"] in c["roles"] and (group is None or p["group"] == group)]
+        local = ref.get("local") if isinstance(ref, dict) else None   # exact local part ids (variant prefix omitted)
+        if isinstance(local, str):
+            local = [local]
+        ids = {f"{state}_{x}" for x in local} if local else None
+        matched = [p for p in parts if p["role"] in c["roles"] and (group is None or p["group"] == group)
+                   and (ids is None or p["id"] in ids)]
+        if ids is not None and len(matched) != len(ids):
+            raise MappingError(f"'{name}' local ids {sorted(local)}: {sorted(ids - {p['id'] for p in matched})} "
+                               f"are not {', '.join(c['roles'])} parts of state '{state}'")
         if not matched:
             have = sorted({p["role"] for p in parts})
             raise MappingError(f"'{name}' ({', '.join(c['roles'])}{', group ' + group if group else ''}) has no "

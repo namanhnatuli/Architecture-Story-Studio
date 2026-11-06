@@ -2,14 +2,22 @@
 
 ## Phim đang làm: `gothic-cathedral-heights` (2026-11-06, nhánh `episode-gothic-cathedral-heights`)
 
-- **Trạng thái: dừng ở OWNER_APPROVAL, chờ chủ kênh xem bản review 720p.** Chủ kênh yêu cầu dựng mô hình và bản review nên agent làm tiếp, nhưng chưa có gì được duyệt. Chưa render 4K, chưa có ảnh thật, chưa đăng.
-- Video: `projects/gothic-cathedral-heights/output/gothic_cathedral_heights_G_R3_INTERNAL_REVIEW_720p.mp4` và `.en.srt` (47 shot, 15:23, ngoài git).
-- Revision g-r3: 10 chương, 46 beat, 136 câu, 1.964 từ. Lời dẫn không đổi kể từ commit g-r3.
-- Nghiên cứu: 35 nguồn, 56 claim `SOURCE_VERIFIED`, phim dùng 53; 9 claim được dùng ở mức `medium`. Hình B40 tính lại theo phương pháp của Ochsendorf 2002, đối chiếu với Bảng 5.3 và bài Block 2006 (`script/arch_statics.py`, `research/RESEARCH_REPORT.md`). Agent không phải kỹ sư kết cấu.
-- Lời dẫn: `am_michael`, ASR đạt toàn bộ. 6 mục ghi đè phát âm đang `PENDING_LISTENING_REVIEW`. Giọng chưa được duyệt cho dự án này.
-- Hình: họ `cathedral` mới (`engine/arch/families/cathedral.py`), mặt cắt Gothic và Romanesque, đều `ILLUSTRATIVE`. Điểm yếu còn lại: 14 shot cùng một góc nhìn mô hình Gothic. Xem `qa/EDITORIAL_REVIEW_TIMECODED.md`.
-- **Việc của chủ kênh:** xem video, đọc `projects/gothic-cathedral-heights/review/SCRIPT_REVIEW_NOTES.md`, trả lời mục "Cần bạn quyết định".
-- **Làm tiếp:** `python3 tools/episode.py status --project gothic-cathedral-heights`.
+- **Trạng thái: chờ chủ kênh xem đoạn thử g-r4 (vòm gân và trụ chống bay, 1:18).**
+  - Chủ kênh nhận xét bản g-r3 vẫn là bản dựng sơ bộ và đề nghị một đoạn thử 60–90 giây để duyệt chất lượng hình trước khi áp cho cả phim. Chưa có gì được duyệt.
+  - Chưa render 4K, chưa có ảnh thật, chưa đăng.
+- **Đoạn thử:** `projects/gothic-cathedral-heights/output/pilot/gothic_cathedral_heights_PILOT_G_R4_INTERNAL_REVIEW_720p.mp4` (có tiếng đá) và `…_no_sfx.mp4`, kèm `.en.srt` (ngoài git). Ghi chú: `projects/gothic-cathedral-heights/review/PILOT_REVIEW_G_R4.md`.
+- **Bản g-r3 đầy đủ** (`output/gothic_cathedral_heights_G_R3_INTERNAL_REVIEW_720p.mp4`, 15:23) vẫn còn, nhưng **không còn khớp với kế hoạch hình hiện tại**:
+  - B12, B13, B16, B17 đã chuyển sang shot `SEQUENCE`;
+  - engine và `config/visual_style.json` đổi, nên cả 47 shot phải render lại khi làm bản đầy đủ tiếp theo.
+- **Mới trong pipeline** (dùng lại được):
+  - shot `SEQUENCE` (camera chuyển giữa các khung, bộ phận mờ đi, hiện ra, phát sáng theo từ của lời dẫn);
+  - mặt vòm chia dải (`web_courses`), hai gân chéo riêng;
+  - preset `CATHEDRAL_VAULT_BELOW`, `CATHEDRAL_TRANSVERSE`;
+  - âm thanh tổng hợp (`pipeline/sound.py`) và công cụ ghép đoạn trích `tools/excerpt.py`.
+- **Revision lời dẫn vẫn là g-r3:** 10 chương, 46 beat, 136 câu, 1.964 từ. Lời dẫn và timing không đổi.
+- **Nghiên cứu và lời dẫn:** như g-r3. 35 nguồn, 56 claim `SOURCE_VERIFIED`, phim dùng 53. Giọng `am_michael` chưa được duyệt cho dự án này; 6 mục phát âm đang `PENDING_LISTENING_REVIEW`. Agent không phải kỹ sư kết cấu.
+- **Việc của chủ kênh:** xem đoạn thử (cả hai bản), trả lời mục "Cần bạn quyết định" trong `PILOT_REVIEW_G_R4.md`. Các quyết định của g-r3 trong `review/SCRIPT_REVIEW_NOTES.md` vẫn đang chờ.
+- **Làm tiếp:** `python3 tools/episode.py status --project gothic-cathedral-heights`. Lưu ý: lệnh này còn đọc báo cáo của bản g-r3 đầy đủ.
 
 ---
 

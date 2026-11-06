@@ -356,6 +356,26 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
         report.add(sid, "exploded_no_new_intersections", not new,
                    ", ".join(f"{a}x{b}" for a, b in new) or f"0 new mesh intersections ({len(rest_pairs)} resting contacts ignored)")
 
+    elif template == "SEQUENCE":   # every arriving part lands exactly on its rest transform, fully opaque
+        issues, landed = [], 0
+        for i, step in enumerate(motion.sequence_steps(ctx.cfg)):
+            if step["do"] != "REVEAL":
+                continue
+            ctx.scene.frame_set(plan.markers[f"reveal_{i}_landed"])
+            for cid in step["components"]:
+                o = ctx.objects[templates.object_name("main", cid)]
+                landed += 1
+                if not (_visible(o) and _close(tuple(o.location), comps[o.name].location, TRANSFORM_TOL)
+                        and float(o.get("ass_transparency", 0.0)) == 0.0):
+                    issues.append(f"step {i}: {o.name} not landed, opaque and visible")
+            before = plan.frame(step["start_seconds"]) - 1   # the frame before its arrival starts
+            if before >= 1:
+                ctx.scene.frame_set(before)
+                issues += [f"step {i}: {cid} visible before it arrives (frame {before})" for cid in step["components"]
+                           if _visible(ctx.objects[templates.object_name("main", cid)])]
+        report.add(sid, "sequence_arrivals_land", not issues, "; ".join(issues[:5]) or
+                   f"{landed} arriving parts land exactly at rest (tol {TRANSFORM_TOL}), unseen before they arrive")
+
     # 6. Final visibility is exactly the expected design.
     ctx.scene.frame_set(last)
     expected_visible = set()
@@ -368,6 +388,9 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
         expected_visible |= {templates.object_name(slot_id, i) for i in ids}
     # A camera below the ground plane hides these parts on purpose (camera preset hide_roles; engine/scene.py).
     expected_visible -= {n for n, o in ctx.objects.items() if o.get("hidden_by_camera")}
+    if template == "SEQUENCE":   # parts the sequence fades out stay out (the plan says so, key by key)
+        expected_visible -= {n for n in expected_visible if motion.HIDE in plan.channels(n)
+                             and plan.sample(n, motion.HIDE, last)[0] > 0.5}
     actual_visible = {n for n, o in ctx.objects.items() if _visible(o)}
     report.add(sid, "final_visibility", actual_visible == expected_visible,
                f"missing {sorted(expected_visible - actual_visible)}, unexpected {sorted(actual_visible - expected_visible)}"
@@ -377,17 +400,24 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
     worst_margin, worst_at, bottom_min = 1.0, None, 1.0
     settle = plan.markers.get("intro_end", 1)
     pushing = "camera_move_end" in plan.markers   # M7 push-in: full framing is the first frame
+    if template == "SEQUENCE":
+        sequence_camera_checks(ctx, report, plan)
     ctx.scene.frame_set(settle)
     cam_matrix, cam_ortho = ctx.camera.matrix_world.copy(), ctx.camera.data.ortho_scale
     cam_moves = []
-    for f in ([1] if pushing else frames):
+    for f in ([1] if pushing or template == "SEQUENCE" else frames):
         ctx.scene.frame_set(f)
         dg = bpy.context.evaluated_depsgraph_get()
         if f >= settle and (ctx.camera.matrix_world != cam_matrix or ctx.camera.data.ortho_scale != cam_ortho):
             cam_moves.append(f)
         focus = set(ctx.shot.get("camera_focus") or [])
+        if template == "SEQUENCE":   # the opening view frames its focus; ghosts may leave the frame
+            focus = set(motion.sequence_views(ctx.cfg)[0]["focus"] or [])
         for n, obj in ctx.render_objects.items():
             if obj.type != "MESH" or not _visible(obj):
+                continue
+            if template == "SEQUENCE" and (obj.get("annotation_id") or float(obj.get("ass_transparency", 0.0)) >= 0.5
+                                           or obj.get("fade_twin_of")):
                 continue
             if focus and obj.get("component_id") not in focus:   # close-up: only the framed parts
                 continue
@@ -402,7 +432,9 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
     report.add(sid, "camera_framing", ok,
                f"min margin {worst_margin:.3f} at {worst_at}; lowest point y={bottom_min:.3f} "
                f"(label band {ctx.bottom_band:.2f}); ortho_scale {ctx.camera.data.ortho_scale:.3f}")
-    if pushing:   # the move itself is verified key by key (plan_matches_evaluated_keys)
+    if template == "SEQUENCE":
+        pass   # camera and overlays: sequence_camera_checks
+    elif pushing:   # the move itself is verified key by key (plan_matches_evaluated_keys)
         ctx.scene.frame_set(ctx.frame_count)
         end_ortho = ctx.camera.data.ortho_scale
         ctx.scene.frame_set(1)
@@ -438,13 +470,28 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
             ctx.scene.frame_set(f)
             for name, twin in ctx.fade_twins.items():
                 orig = ctx.objects[name]
-                if not twin.hide_render and (not orig.hide_render or f in (1, last)):
+                # a SEQUENCE ghost held across a cut renders blended on both sides of it (no pop); never with its original
+                edge = f in (1, last) and not (template == "SEQUENCE" and _held(plan, name, f))
+                if not twin.hide_render and (not orig.hide_render or edge):
                     overlap.append(f"{name}@{f}")
         report.add(sid, "fade_twins_exclusive", not overlap, ", ".join(overlap[:5]) or
                    f"{len(ctx.fade_twins)} twins visible only mid-fade, never with their original or on frames 1/{last}")
 
     # 7c. Highlighted parts can actually be seen (not hidden under other parts) at the peak
     #     of the glow: HOLD highlight and the exploded hold of EXPLODED_VIEW.
+    if template == "SEQUENCE":   # every glow step, at its own peak, in the view the camera is in then
+        rows = []
+        for i, step in enumerate(motion.sequence_steps(ctx.cfg)):
+            if step["do"] != "HIGHLIGHT":
+                continue
+            names = {templates.object_name(templates.MAIN_SLOT, c) for c in step["components"]}
+            f = plan.markers[f"highlight_{i}_peak"]
+            share, area, core = highlight_visibility(ctx, names, f, with_core=True)
+            ok = (share >= HIGHLIGHT_MIN_VISIBLE or core >= HIGHLIGHT_MIN_CORE) and area >= HIGHLIGHT_MIN_FRAME
+            rows.append((ok, f"step {i}@{f}: {share * 100:.0f}% visible, {area * 100:.2f}% of frame"))
+        if rows:
+            report.add(sid, "highlight_targets_visible", all(ok for ok, _ in rows),
+                       "; ".join(d for ok, d in rows if not ok) or "; ".join(d for _, d in rows))
     h = ctx.cfg.get("highlight") or {}
     marker = {"HOLD": "highlight_peak", "EXPLODED_VIEW": "exploded_hold"}.get(template)
     if marker and isinstance(h.get("components"), list) and marker in plan.markers:
@@ -651,13 +698,16 @@ def diagram_height():
     return diagram.CARD_HEIGHT
 
 
-def run_all(project_dir, preset="preview"):
+def run_all(project_dir, preset="preview", only=None):
+    """Blender QA of every shot (only: a list of shot ids, e.g. to check new shots before a long render)."""
     data = shot_builder.load_project(project_dir, preset)
     states = data["states"]
     report = Report()
     cameras, signatures, intros = {}, {}, {}
     for shot in data["story"]["shots"]:
         sid = shot["id"]
+        if only and sid not in only:
+            continue
         ctx = shot_builder.build_shot(project_dir, sid, preset)
         if shot.get("visual_type", "BLENDER_3D") == "MOTION_GRAPHICS":
             signatures[sid] = (check_card(ctx, report), None)
@@ -666,8 +716,10 @@ def run_all(project_dir, preset="preview"):
         frames = check_shot(ctx, spec.shot_states(states, shot), report, data["project"], preset)
         ctx.scene.frame_set(1)   # the locked framing (a push-in starts on it)
         if ctx.cfg["template"] != "SIDE_BY_SIDE":
+            opening = shot.get("camera_focus") or ((motion.sequence_views(ctx.cfg)[0]["focus"] or ())
+                                                    if ctx.cfg["template"] == "SEQUENCE" else ())
             group = (shot.get("scene_context"), tuple(templates.layout_slots(shot, states)[0][1]), shot.get("camera"),
-                     tuple(shot.get("camera_focus") or ()), float(shot.get("camera_safe_band", 0.0)))
+                     tuple(sorted(opening)), float(shot.get("camera_safe_band", 0.0)))
             cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale, group)
         elif ctx.camera_keys:
             ctx.scene.frame_set(1)
@@ -709,6 +761,8 @@ def run_all(project_dir, preset="preview"):
     # Rebuilding from the same files gives bit-identical transforms (no hidden state).
     for shot in data["story"]["shots"]:
         sid = shot["id"]
+        if sid not in signatures:
+            continue
         ctx = shot_builder.build_shot(project_dir, sid, preset)
         frames, first = signatures[sid]
         report.add(sid, "repeatable_build", signature(ctx, frames) == first, f"sha256 {first[:16]}")
@@ -717,3 +771,61 @@ def run_all(project_dir, preset="preview"):
     return {"blender": bpy.app.version_string, "preset": preset,
             "summary": {"passed": passed, "failed": len(report.results) - passed, "total": len(report.results)},
             "results": report.results}
+
+
+def sequence_camera_checks(ctx, report, plan):
+    """SEQUENCE: at every settled view the camera is exactly that view's fit, its focus parts sit inside the frame
+    (and above the safe band), and the annotation overlays keep their frame positions through every move."""
+    sid = ctx.shot["id"]
+    views = motion.sequence_views(ctx.cfg)
+    fits = ctx.camera_keys["views"]
+    issues, worst = [], 1.0
+    for k, (v, fit) in enumerate(zip(views, fits)):
+        f = 1 if k == 0 else plan.markers[f"view_{k}_settled"]
+        ctx.scene.frame_set(f)
+        loc, ortho = tuple(ctx.camera.matrix_world.translation), ctx.camera.data.ortho_scale
+        if not (_close(loc, tuple(fit["location"]), 1e-4) and abs(ortho - fit["ortho_scale"]) < 1e-4):
+            issues.append(f"view {k}@{f}: camera at {loc}, ortho {ortho:.3f}; fit {fit['ortho_scale']:.3f}")
+        dg = bpy.context.evaluated_depsgraph_get()
+        ids = set(v["focus"] or [])
+        for n, obj in ctx.objects.items():
+            if obj.type != "MESH" or not _visible(obj) or (ids and obj["component_id"] not in ids) \
+                    or float(obj.get("ass_transparency", 0.0)) >= 0.5:
+                continue
+            for p in shot_builder.world_vertices(obj, dg):
+                c = world_to_camera_view(ctx.scene, ctx.camera, Vector(p))
+                m = min(c.x, 1 - c.x, c.y - ctx.bottom_band, 1 - c.y)
+                if m < worst:
+                    worst = m
+                if m < FRAME_MARGIN and len(issues) < 6:
+                    issues.append(f"view {k}@{f}: {n} at ({c.x:.3f}, {c.y:.3f})")
+                    break
+    report.add(sid, "sequence_views_framed", not issues, "; ".join(issues[:6]) or
+               f"{len(views)} views: camera exactly on each fit when settled, focus parts inside the frame "
+               f"(min margin {worst:.3f})")
+    overlays = [o for objs in (ctx.annotations or {}).values() for o in objs]
+    if overlays and len(views) > 1:
+        def frame_box(f):
+            ctx.scene.frame_set(f)
+            out = []
+            for o in overlays:
+                pts = [world_to_camera_view(ctx.scene, ctx.camera, o.matrix_world @ Vector(c)) for c in o.bound_box]
+                out.append((min(p.x for p in pts), min(p.y for p in pts), max(p.x for p in pts), max(p.y for p in pts)))
+            return out
+        probe = sorted({1, ctx.frame_count} | {plan.markers[f"view_{k}_settled"] for k in range(1, len(views))}
+                       | {max(1, plan.frame(v["start_seconds"] + v["move_seconds"] / 2)) for v in views[1:]})
+        first = frame_box(probe[0])
+        drift = max(abs(a - b) for f in probe[1:] for p, q in zip(first, frame_box(f)) for a, b in zip(p, q))
+        ctx.scene.frame_set(1)
+        report.add(sid, "overlays_screen_fixed", drift < 1e-3,
+                   f"{len(overlays)} annotation objects keep their frame position through {len(views) - 1} camera "
+                   f"move(s) (max drift {drift:.1e})" if drift < 1e-3 else f"annotations drift {drift:.4f} of the frame")
+
+
+def _held(plan, name, f):
+    """SEQUENCE: the part's see-through value does not change at frame f (a ghost held over the shot's first or last
+    frame), so the cut shows the same blended surface on both sides."""
+    if motion.TRANSPARENCY not in plan.channels(name):
+        return False
+    g = 2 if f == 1 else f - 1
+    return abs(plan.sample(name, motion.TRANSPARENCY, f)[0] - plan.sample(name, motion.TRANSPARENCY, g)[0]) < 1e-9

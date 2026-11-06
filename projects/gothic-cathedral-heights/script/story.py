@@ -362,32 +362,85 @@ beat("C3", "B11", "fact", "COMPARE_VARIANTS", [
     ["CLM_132"], strategy="CARD", graphic=c.spec(), visual_goal="Level crowns over different widths", required_concepts=[])
 
 # C4 -------------------------------------------------------------------------------------------
-VAULT_VIEW = [{"concept": "rib", "group": g} for g in ("rib_diagonal_1", "rib_transverse_0", "rib_transverse_1")]   # B12 and B13 share this view
+# The pilot (g-r4): rib vault and flying buttress as SEQUENCE shots. One bay is taken out of the model; its parts arrive
+# and light in the order the narration names them; the camera eases from the whole section to that bay.
+def part(concept, local):
+    return {"concept": concept, "local": local}
+
+
+BAY_PIERS = [{"concept": "nave_pier", "group": g} for g in ("frame_west0", "frame_east0", "frame_west1", "frame_east1")]
+BAY_ARCHES = [{"concept": "rib", "group": g} for g in ("rib_transverse_0", "rib_transverse_1")]
+BAY_DIAGONALS = [part("rib", "rib_diagonal_b1a"), part("rib", "rib_diagonal_b1b")]
+COURSES = [f"vault_web_b1_{panel}{k}" for k in range(5, 0, -1) for panel in "fbwe"]   # from the arches and walls inwards
+BAY_WEB = [part("vault_web", COURSES)]
+STRIPES = [part("vault_web", [c for c in COURSES if int(c[-1]) % 2])]                # every other course
+BAY = BAY_PIERS + BAY_ARCHES + BAY_DIAGONALS + BAY_WEB
+BAY_VAULT = BAY_ARCHES + BAY_DIAGONALS + BAY_WEB
+OUTSIDE = ["flying_buttress", "pier_buttress", "pinnacle", "high_roof", "aisle_roof"]   # nothing a worm's-eye view needs
+REST_OF_CHURCH = {"except": BAY + OUTSIDE}
+WAS_THERE = {"why": "B12 ends this way: the cut from it is invisible"}
+
+
+def glow(targets, at, until, **kw):
+    return {"do": "HIGHLIGHT", "targets": targets, "at": at, "until": until, **kw}
+
+
 beat("C4", "B12", "fact", "SHOW_COMPONENT", [
     "The second tool is the rib vault.",
     "In the four-part vault shown here, two ribs cross diagonally over each bay of the building.",
     "In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners."],
-    ["CLM_140"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, camera_mode="COMPONENT_CLOSEUP", close_on=VAULT_VIEW,
-    visual_goal="The high vault from below: the ribs lit, the stone web visible between them", required_concepts=[GOTHIC] + VAULT_VIEW,
+    ["CLM_140"], strategy="SEQUENCE",
+    visual_goal="From the whole section to one bay: its piers, then the two diagonal ribs one after the other, then the "
+                "stone web; the light runs along the ribs to the four piers",
+    required_concepts=[GOTHIC, "rib", "vault_web", "nave_pier"],
+    sequence={"camera": "CATHEDRAL_VAULT_BELOW",
+              "views": [{"frame": None},
+                        {"frame": BAY_VAULT, "at": {"sentence": 0, "word": "rib"}, "move_seconds": 1.8}],
+              "steps": [{"do": "GHOST", "targets": REST_OF_CHURCH, "at": {"sentence": 0, "word": "rib"}, "seconds": 1.4},
+                        {"do": "FADE_OUT", "targets": OUTSIDE + BAY_DIAGONALS + BAY_WEB, "at": {"sentence": 0, "word": "rib"},
+                         "seconds": 1.2},
+                        {"do": "REVEAL", "targets": BAY_DIAGONALS[:1], "at": {"sentence": 1, "word": "two", "offset": -0.6},
+                         "seconds": 1.0, "direction": "FROM_BELOW", "distance": 4.0, "sound": "STONE"},
+                        {"do": "REVEAL", "targets": BAY_DIAGONALS[1:], "at": {"sentence": 1, "word": "cross", "offset": -0.6},
+                         "seconds": 1.0, "direction": "FROM_BELOW", "distance": 4.0, "sound": "STONE"},
+                        glow(BAY_DIAGONALS, {"sentence": 1, "word": "diagonally"}, {"sentence": 2, "offset": -0.2}),
+                        {"do": "REVEAL", "targets": BAY_WEB, "at": {"sentence": 2, "offset": -0.1}, "seconds": 0.7,
+                         "stagger_seconds": 0.04, "direction": "FROM_BELOW", "distance": 1.5},
+                        # the ribs, not the web, light while they "direct the load": the two lit together wash out
+                        glow(BAY_DIAGONALS, {"sentence": 2, "word": "they", "offset": -0.2}, {"sentence": 2, "word": "piers"}),
+                        glow(BAY_PIERS, {"sentence": 2, "word": "points", "offset": -0.2}, {"sentence": 2, "end": True, "offset": 0.3})]},
     annotations=[note("B12_ch", "4 · The rib vault", 0, 2),
                  note("B12_note", "Illustrative model, one type: a four-part vault", 1, position="BOTTOM_RIGHT"),
-                 {"id": "B12_rib", "type": "COMPONENT_LABEL", "target": {"concept": "rib", "group": "rib_diagonal_1"}, "point": "CENTER",
-                  "text": "Diagonal ribs", "sentence": 1},
-                 {"id": "B12_pier", "type": "COMPONENT_LABEL", "target": {"concept": "nave_pier", "group": "frame_west1"}, "point": "TOP",
-                  "text": "Pier", "sentence": 2}])
+                 {"id": "B12_rib", "type": "COMPONENT_LABEL", "target": BAY_DIAGONALS[1], "point": "CENTER",
+                  "text": "Diagonal ribs", "sentence": 1, "word": "diagonally", "until": 2},
+                 {"id": "B12_pier", "type": "COMPONENT_LABEL", "target": BAY_PIERS[1], "point": "TOP",
+                  "text": "Pier", "sentence": 2, "word": "piers"}])
 beat("C4", "B13", "fact", "SHOW_COMPONENT", [
     "How exactly these vaults stand has been debated for centuries.",
     "Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches.",
     "So even in that reading, the stone between the ribs carries load."],
-    ["CLM_141"], strategy="HOLD_HIGHLIGHT", camera_mode="COMPONENT_CLOSEUP", close_on=VAULT_VIEW,
-    highlight_at_sentence=2, glow_only=["vault_web"],
-    visual_goal="The ribs named, then the web between them lit: it must read as working stone, never as empty infill",
-    required_concepts=[GOTHIC] + VAULT_VIEW,
+    ["CLM_141"], strategy="SEQUENCE",
+    visual_goal="Closer on the bay's vault: the ribs light, then every other course of the web (the parallel arches of "
+                "Heyman's reading), then the whole web: it reads as working stone, never as infill",
+    required_concepts=[GOTHIC, "rib", "vault_web"],
+    sequence={"camera": "CATHEDRAL_VAULT_BELOW",
+              # while the debate is named, the camera moves in on the vault surface it is about
+              "views": [{"frame": BAY_VAULT},
+                        {"frame": [part("vault_web", [c for c in COURSES if int(c[-1]) <= 4])],
+                         "at": {"sentence": 0, "word": "stand"}, "move_seconds": 4.5}],
+              "steps": [{"do": "GHOST", "targets": REST_OF_CHURCH, "at": 0, "seconds": 0, **WAS_THERE},
+                        {"do": "FADE_OUT", "targets": OUTSIDE, "at": 0, "seconds": 0, **WAS_THERE},
+                        glow(BAY_DIAGONALS + BAY_ARCHES, {"sentence": 1, "word": "ribs", "offset": -0.2},
+                             {"sentence": 1, "word": "treat"}),
+                        glow(STRIPES, {"sentence": 1, "word": "parallel", "offset": -0.3}, {"sentence": 2, "offset": -0.1}),
+                        glow(BAY_WEB, {"sentence": 2, "word": "stone", "offset": -0.2}, {"sentence": 2, "end": True, "offset": 0.4})]},
     annotations=[note("B13_note", "Illustrative model of one analysis, still debated", 0),
-                 {"id": "B13_ribs", "type": "COMPONENT_LABEL", "target": {"concept": "rib", "group": "rib_diagonal_2"}, "point": "CENTER",
-                  "text": "Main ribs", "sentence": 1, "until": 2},
-                 {"id": "B13_web", "type": "COMPONENT_LABEL", "target": {"concept": "vault_web", "group": "high_vault"}, "point": "BOTTOM",
-                  "text": "Stone web", "sentence": 2}])
+                 {"id": "B13_ribs", "type": "COMPONENT_LABEL", "target": BAY_DIAGONALS[1], "point": "CENTER",
+                  "text": "Main ribs", "sentence": 1, "word": "ribs", "until": 2},
+                 {"id": "B13_arches", "type": "COMPONENT_LABEL", "target": {**STRIPES[0], "pick": "CENTERMOST"}, "point": "CENTER",
+                  "text": "A series of arches", "sentence": 1, "word": "parallel", "until": 2},
+                 {"id": "B13_web", "type": "COMPONENT_LABEL", "target": {**BAY_WEB[0], "pick": "CENTERMOST"}, "point": "CENTER",
+                  "text": "Stone web", "sentence": 2, "word": "stone"}])
 c = timeline("B14", [(1088, "Cluny III: construction begins", 0)],
              [(1093, 1133, "Durham, begun 1093, finished 1133: ribbed vaults, in phases", STONE, 1, 0.72, "durham"),
               (1140, 1144, "Saint-Denis choir", "#5E86A6", 0, 0.64)], extra=lambda c: (
@@ -407,34 +460,76 @@ beat("C4", "B15", "fact", "EXPLAIN_DESIGN_CHANGE", [
     required_concepts=[GOTHIC, "nave_pier", "clerestory_window"])
 
 # C5 -------------------------------------------------------------------------------------------
+# The east flying buttress at the cut, and what it stands on; the rest of the system waits, faded, until B17 names it.
+EAST = "frame_east0"
+FLYER, PIER_BUTTRESS, PINNACLE = ({"concept": c, "group": EAST} for c in ("flying_buttress", "pier_buttress", "pinnacle"))
+SYSTEM = [{"concept": c} for c in ("flying_buttress", "pier_buttress")]
+AISLE_ROOF = part("aisle_roof", "aisle_roof_east")
+# The section is taller than it is wide, so a frame on the whole east side is hardly closer than the full view; the
+# close-up keeps the upper part: high window, flyer, pinnacle, aisle roof (the pier buttress runs down out of frame).
+EAST_SIDE = [part("clerestory_window", "clerestory_window_b1_east"), FLYER, PINNACLE, AISLE_ROOF]
+HIGH_PIERS = [{"concept": "nave_pier", "group": g} for g in ("frame_west0", EAST)]
+SET_ASIDE = [{"do": "GHOST", "targets": SYSTEM, "at": 0, "seconds": 0, "transparency": 0.8,
+              "why": "the supports outside wait, faded, until B17 names them"},
+             {"do": "FADE_OUT", "targets": [{"concept": "pinnacle"}], "at": 0, "seconds": 0}]
+
 beat("C5", "B16", "fact", "EXPLAIN_LOAD_PATH", [
     "But gathering the thrust does not make it go away.",
     "Even reduced, that sideways push remains a threat to the stability of the whole building.",
     "It still has to be contained somewhere."],
-    ["CLM_150"], strategy="HOLD", visual_goal="Conceptual outward arrow at the top of a pier, with nothing yet to receive it",
+    ["CLM_150"], strategy="SEQUENCE",
+    visual_goal="The cut face of the church, square on: an outward arrow at each springing of the high vault, the high "
+                "piers it pushes on, and the supports outside still faded; then the camera turns to the east side",
     required_concepts=[GOTHIC, "nave_pier"],
+    sequence={"camera": "CATHEDRAL_TRANSVERSE",
+              "views": [{"frame": None}, {"frame": EAST_SIDE, "at": {"sentence": 2, "offset": -0.2}, "move_seconds": 2.4}],
+              "steps": SET_ASIDE + [glow(HIGH_PIERS, {"sentence": 1, "word": "threat", "offset": -0.2},
+                                         {"sentence": 2, "offset": -0.3})]},
     annotations=[note("B16_ch", "5 · The flying buttress", 0, 2),
-                 note("B16_note", "Arrows show the idea, not calculated forces", 1, position="BOTTOM_RIGHT"),
+                 note("B16_note", "Illustrative model", 0, position="BOTTOM_RIGHT"),   # the force tag says "not to scale"
                  {"id": "B16_thrust", "type": "THRUST_ARROW", "target": {"concept": "rib", "group": "rib_transverse_0"},
-                  "points": ["BOTTOM_LEFT", "BOTTOM_RIGHT"], "text": "Thrust", "sentence": 1, "claim_id": "CLM_150"}])
+                  "points": ["BOTTOM_LEFT", "BOTTOM_RIGHT"], "text": "Thrust", "sentence": 0, "word": "thrust",
+                  "until": 2, "claim_id": "CLM_150"}])
 beat("C5", "B17", "fact", "EXPLAIN_LOAD_PATH", [
     "The answer stands outside the building: the flying buttress.",
     "It is a stone arch that picks up the thrust where it leaves the vault, carries it across the aisle roof, and brings it down to a massive pier buttress.",
     "Often a pinnacle on top adds weight, to help stabilize the thrust."],
-    ["CLM_151", "CLM_152"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, visual_goal="Flyers, pier buttresses and pinnacles lit in turn; a conceptual path follows them to the ground",
+    ["CLM_151", "CLM_152"], strategy="SEQUENCE",
+    visual_goal="One flying buttress in profile: it returns in full when named, the path follows the narration from the "
+                "vault over the aisle roof down the pier buttress, and the pinnacle is set on top when it is named",
     required_concepts=[GOTHIC, "flying_buttress", "pier_buttress", "pinnacle", "aisle_roof"],
-    annotations=[note("B17_note", "Illustrative model, conceptual path", 1, position="BOTTOM_RIGHT"),
-                 {"id": "B17_flyer", "type": "COMPONENT_LABEL", "target": {"concept": "flying_buttress", "group": "frame_east0"},
-                  "point": "CENTER", "text": "Flying buttress", "sentence": 0},
-                 {"id": "B17_pier", "type": "COMPONENT_LABEL", "target": {"concept": "pier_buttress", "group": "frame_east0"},
-                  "point": "CENTER", "text": "Pier buttress", "sentence": 1},
-                 {"id": "B17_pinnacle", "type": "COMPONENT_LABEL", "target": {"concept": "pinnacle", "group": "frame_east0"},
-                  "point": "TOP", "text": "Pinnacle", "sentence": 2},
-                 {"id": "B17_path", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 1, "claim_id": "CLM_152",
+    sequence={"camera": "CATHEDRAL_TRANSVERSE",
+              "views": [{"frame": EAST_SIDE}],
+              "steps": SET_ASIDE + [
+                  {"do": "UNGHOST", "targets": [FLYER], "at": {"sentence": 0, "word": "flying", "offset": -0.3}, "seconds": 0.8},
+                  glow([FLYER], {"sentence": 0, "word": "flying"}, {"sentence": 1, "word": "picks"}),
+                  glow([AISLE_ROOF], {"sentence": 1, "word": "across"},
+                       {"sentence": 1, "word": "brings"}),
+                  {"do": "UNGHOST", "targets": [PIER_BUTTRESS], "at": {"sentence": 1, "word": "down", "offset": -0.2}, "seconds": 0.8},
+                  glow([PIER_BUTTRESS], {"sentence": 1, "word": "massive", "offset": -0.2}, {"sentence": 2, "offset": -0.2}),
+                  {"do": "REVEAL", "targets": [PINNACLE], "at": {"sentence": 2, "word": "pinnacle", "offset": -0.5},
+                   "seconds": 1.1, "direction": "FROM_ABOVE", "distance": 5.0, "sound": "STONE_HEAVY"},
+                  glow([PINNACLE], {"sentence": 2, "word": "weight", "offset": -0.2}, {"sentence": 2, "end": True, "offset": 0.4})]},
+    annotations=[note("B17_note", "Illustrative model", 0, position="BOTTOM_RIGHT"),
+                 {"id": "B17_flyer", "type": "COMPONENT_LABEL", "target": FLYER, "point": "CENTER",
+                  "text": "Flying buttress", "sentence": 0, "word": "flying", "until": 2},
+                 {"id": "B17_path1", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 1, "word": "picks",
+                  "claim_id": "CLM_152", "until": 2,
                   "path": [[{"target": {"concept": "rib", "group": "rib_transverse_0"}, "point": "BOTTOM_RIGHT"},
-                            {"target": {"concept": "flying_buttress", "group": "frame_east0"}, "point": "CENTER"},
-                            {"target": {"concept": "pier_buttress", "group": "frame_east0"}, "point": "TOP"},
-                            {"target": {"concept": "pier_buttress", "group": "frame_east0"}, "point": "BOTTOM"}]]}])
+                            {"target": FLYER, "point": "TOP_LEFT"}]]},
+                 {"id": "B17_path2", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 1, "word": "across",
+                  "claim_id": "CLM_152", "until": 2,
+                  "path": [[{"target": FLYER, "point": "TOP_LEFT"}, {"target": FLYER, "point": "CENTER"},
+                            {"target": PIER_BUTTRESS, "point": "TOP"}]]},
+                 {"id": "B17_path3", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 1, "word": "down",
+                  "claim_id": "CLM_152", "until": 2,
+                  "path": [[{"target": PIER_BUTTRESS, "point": "TOP"}, {"target": PIER_BUTTRESS, "point": "BOTTOM"}]]},
+                 {"id": "B17_pier", "type": "COMPONENT_LABEL", "target": PIER_BUTTRESS, "point": "CENTER",
+                  "text": "Pier buttress", "sentence": 1, "word": "massive"},
+                 {"id": "B17_weight", "type": "LOAD_ARROW", "target": PINNACLE, "text": "Weight", "sentence": 2,
+                  "word": "weight", "claim_id": "CLM_152"},
+                 {"id": "B17_pinnacle", "type": "COMPONENT_LABEL", "target": PINNACLE, "point": "TOP",
+                  "text": "Pinnacle", "sentence": 2, "word": "pinnacle"}])
 beat("C5", "B18", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "One way to picture it comes from Columbia's Amiens project.",
     "It is as if the thick outer wall had been cut into segments, and each segment turned 90 degrees.",

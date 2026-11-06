@@ -32,7 +32,7 @@ KEY_VERSION = 3
 ROOT = Path(__file__).resolve().parent.parent
 
 SHOT_NON_VISUAL = ("beat_ids", "visual_purpose", "narration", "claim_ids", "start_seconds", "cut_from_previous",
-                   "notes", "editorial")
+                   "notes", "editorial", "sound_cues")   # sound cues: mixed into the audio, never rendered
 STATE_NON_VISUAL = ("name", "claim_ids", "note", "notes", "description")
 STATES_TOP_NON_VISUAL = ("note", "transitions", "schema_version")
 PROJECT_NON_VISUAL = ("slug", "title", "mode", "language", "duration_seconds", "render_preset", "factual_review",

@@ -60,7 +60,16 @@ def _visible_annotations(ps, t0, t1):
 
 
 def _glowing(ps, t0, t1):
-    h = (ps["shot"].get("animation") or {}).get("highlight") or {}
+    anim = ps["shot"].get("animation") or {}
+    if anim.get("template") == "SEQUENCE":   # any glow step overlapping the window
+        for s in anim.get("steps") or []:
+            if s["do"] == "HIGHLIGHT":
+                start = float(s["start_seconds"])
+                end = start + float(s.get("rise_seconds", 0.3)) + float(s.get("hold_seconds", 1.0)) + float(s.get("fall_seconds", 0.4))
+                if start < t1 and end > t0:
+                    return True
+        return False
+    h = anim.get("highlight") or {}
     if not isinstance(h, dict) or not h.get("components"):
         return False
     start = float(h.get("start_seconds", 0.0))

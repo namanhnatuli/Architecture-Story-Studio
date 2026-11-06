@@ -27,6 +27,8 @@ STRATEGIES = {
     "SEQUENTIAL_COMPARISON": (["HOLD"], "One variant at a time under one shared locked camera (same scale), captioned"),
     "CONTINUE_COMPARISON": (["SIDE_BY_SIDE"], "Stay on the comparison, glow what differs"),
     "CARD": (["MOTION_GRAPHICS"], "2D card (text/arrows) supplied by the beat"),
+    "SEQUENCE": (["SEQUENCE"], "One model, steps timed to the narration: the camera eases from one framing to the next "
+                 "(same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"),
 }
 
 INTENTS = {

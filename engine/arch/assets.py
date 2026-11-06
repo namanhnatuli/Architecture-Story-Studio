@@ -14,7 +14,7 @@ from engine.arch.families import bridge, cathedral, site
 
 ROOT = Path(__file__).resolve().parents[2]
 ACCURACY_LEVELS = ("ILLUSTRATIVE", "REFERENCE_BASED", "HISTORICALLY_VERIFIED")
-TEMPLATES = ("HOLD", "EXPLODED_VIEW", "SIDE_BY_SIDE", "REPLACE_PARTS", "HIGHLIGHT")
+TEMPLATES = ("HOLD", "EXPLODED_VIEW", "SIDE_BY_SIDE", "REPLACE_PARTS", "HIGHLIGHT", "SEQUENCE")
 
 
 def num(lo, hi, default=None, integer=False, odd=False, even=False):
@@ -87,8 +87,8 @@ FAMILIES = {
         "gothic_section": {
             "generator": cathedral.gothic_section,
             "materials": ("stone", "stone_dark", "stone_light", "stained_glass", "roof_lead"),
-            "animation": ("HOLD", "HIGHLIGHT"),
-            "params": {"bay_count": num(1, 6, 3, integer=True), "bay_length_m": num(4, 12, 7.5), "nave_half_width_m": num(4, 12, 7.0),
+            "animation": ("HOLD", "HIGHLIGHT", "SEQUENCE"),
+            "params": {"bay_count": num(1, 6, 3, integer=True), "web_courses": num(1, 12, 1, integer=True), "bay_length_m": num(4, 12, 7.5), "nave_half_width_m": num(4, 12, 7.0),
                        "aisle_width_m": num(3, 12, 7.0), "pier_radius_m": num(0.4, 1.6, 0.8), "vault_spring_m": num(10, 40, 26.0),
                        "vault_crown_m": num(15, 55, 42.0), "arcade_top_m": num(8, 30, 20.0), "arcade_rise_m": num(2, 12, 7.0),
                        "triforium_top_m": num(9, 35, 24.0), "window_spring_m": num(10, 45, 31.0), "window_rise_m": num(2, 12, 6.5),

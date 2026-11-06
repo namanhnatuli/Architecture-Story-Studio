@@ -1,6 +1,6 @@
 {
   "generated_by": "planner 1.0.0 (tools/cli.py build-shots); edit script/visual_beats.json and re-plan, not this file",
-  "plan_sha256": "8cd95f7529aadee08491b072d9a5ea24ef3c2577e2f572635665a2a225cf1bcb",
+  "plan_sha256": "b83269f89ab4a7fc0ef486b0a9ddc67f14f93d3f34d2878e8504c17277474803",
   "key_stills": [
     {
       "id": "SC_001_B01_hold",
@@ -58,12 +58,12 @@
       "time_seconds": 10.3583
     },
     {
-      "id": "SC_012_B12_hold",
+      "id": "SC_012_B12_sequence",
       "shot": "SC_012",
       "time_seconds": 10.7938
     },
     {
-      "id": "SC_013_B13_hold",
+      "id": "SC_013_B13_sequence",
       "shot": "SC_013",
       "time_seconds": 12.0083
     },
@@ -78,12 +78,12 @@
       "time_seconds": 9.2354
     },
     {
-      "id": "SC_016_B16_hold",
+      "id": "SC_016_B16_sequence",
       "shot": "SC_016",
       "time_seconds": 8.2271
     },
     {
-      "id": "SC_017_B17_hold",
+      "id": "SC_017_B17_sequence",
       "shot": "SC_017",
       "time_seconds": 11.825
     },
@@ -2177,9 +2177,12 @@
             "gothic_cathedral_section_flying_buttress_west1",
             "gothic_cathedral_section_flying_buttress_west2",
             "gothic_cathedral_section_flying_buttress_west3",
-            "gothic_cathedral_section_rib_diagonal_b1",
-            "gothic_cathedral_section_rib_diagonal_b2",
-            "gothic_cathedral_section_rib_diagonal_b3",
+            "gothic_cathedral_section_rib_diagonal_b1a",
+            "gothic_cathedral_section_rib_diagonal_b1b",
+            "gothic_cathedral_section_rib_diagonal_b2a",
+            "gothic_cathedral_section_rib_diagonal_b2b",
+            "gothic_cathedral_section_rib_diagonal_b3a",
+            "gothic_cathedral_section_rib_diagonal_b3b",
             "gothic_cathedral_section_rib_transverse_0",
             "gothic_cathedral_section_rib_transverse_1",
             "gothic_cathedral_section_rib_transverse_2",
@@ -2647,9 +2650,12 @@
           {
             "concept": "rib",
             "component_ids": [
-              "gothic_cathedral_section_rib_diagonal_b1",
-              "gothic_cathedral_section_rib_diagonal_b2",
-              "gothic_cathedral_section_rib_diagonal_b3",
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b",
+              "gothic_cathedral_section_rib_diagonal_b2a",
+              "gothic_cathedral_section_rib_diagonal_b2b",
+              "gothic_cathedral_section_rib_diagonal_b3a",
+              "gothic_cathedral_section_rib_diagonal_b3b",
               "gothic_cathedral_section_rib_transverse_0",
               "gothic_cathedral_section_rib_transverse_1",
               "gothic_cathedral_section_rib_transverse_2",
@@ -5236,31 +5242,306 @@
       "id": "SC_012",
       "duration_seconds": 19.625,
       "visual_type": "BLENDER_3D",
-      "transition": "HOLD",
-      "camera": "CATHEDRAL_FROM_BELOW",
+      "transition": "SEQUENCE",
+      "camera": "CATHEDRAL_VAULT_BELOW",
       "from_state": "gothic_cathedral_section",
       "to_state": "gothic_cathedral_section",
       "animation": {
-        "template": "HOLD",
+        "template": "SEQUENCE",
         "state": "gothic_cathedral_section",
-        "highlight": {
-          "components": [
-            "gothic_cathedral_section_rib_diagonal_b1",
-            "gothic_cathedral_section_rib_transverse_0",
-            "gothic_cathedral_section_rib_transverse_1"
-          ],
-          "start_seconds": 3.475,
-          "rise_seconds": 0.4,
-          "hold_seconds": 15.05,
-          "fall_seconds": 0.4,
-          "strength": 0.45
-        }
+        "views": [
+          {
+            "focus": null
+          },
+          {
+            "focus": [
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b",
+              "gothic_cathedral_section_rib_transverse_0",
+              "gothic_cathedral_section_rib_transverse_1",
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b2",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_b5",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e2",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_e5",
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f2",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_f5",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w2",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w4",
+              "gothic_cathedral_section_vault_web_b1_w5"
+            ],
+            "start_seconds": 2.04,
+            "move_seconds": 1.8
+          }
+        ],
+        "steps": [
+          {
+            "components": [
+              "gothic_cathedral_section_aisle_vault_b1_east",
+              "gothic_cathedral_section_aisle_vault_b1_west",
+              "gothic_cathedral_section_aisle_vault_b2_east",
+              "gothic_cathedral_section_aisle_vault_b2_west",
+              "gothic_cathedral_section_aisle_vault_b3_east",
+              "gothic_cathedral_section_aisle_vault_b3_west",
+              "gothic_cathedral_section_aisle_wall_b1_east",
+              "gothic_cathedral_section_aisle_wall_b1_west",
+              "gothic_cathedral_section_aisle_wall_b2_east",
+              "gothic_cathedral_section_aisle_wall_b2_west",
+              "gothic_cathedral_section_aisle_wall_b3_east",
+              "gothic_cathedral_section_aisle_wall_b3_west",
+              "gothic_cathedral_section_aisle_window_b1_east",
+              "gothic_cathedral_section_aisle_window_b1_west",
+              "gothic_cathedral_section_aisle_window_b2_east",
+              "gothic_cathedral_section_aisle_window_b2_west",
+              "gothic_cathedral_section_aisle_window_b3_east",
+              "gothic_cathedral_section_aisle_window_b3_west",
+              "gothic_cathedral_section_arcade_wall_b1_east",
+              "gothic_cathedral_section_arcade_wall_b1_west",
+              "gothic_cathedral_section_arcade_wall_b2_east",
+              "gothic_cathedral_section_arcade_wall_b2_west",
+              "gothic_cathedral_section_arcade_wall_b3_east",
+              "gothic_cathedral_section_arcade_wall_b3_west",
+              "gothic_cathedral_section_clerestory_wall_b1_east",
+              "gothic_cathedral_section_clerestory_wall_b1_west",
+              "gothic_cathedral_section_clerestory_wall_b2_east",
+              "gothic_cathedral_section_clerestory_wall_b2_west",
+              "gothic_cathedral_section_clerestory_wall_b3_east",
+              "gothic_cathedral_section_clerestory_wall_b3_west",
+              "gothic_cathedral_section_clerestory_window_b1_east",
+              "gothic_cathedral_section_clerestory_window_b1_west",
+              "gothic_cathedral_section_clerestory_window_b2_east",
+              "gothic_cathedral_section_clerestory_window_b2_west",
+              "gothic_cathedral_section_clerestory_window_b3_east",
+              "gothic_cathedral_section_clerestory_window_b3_west",
+              "gothic_cathedral_section_nave_pier_east2",
+              "gothic_cathedral_section_nave_pier_east3",
+              "gothic_cathedral_section_nave_pier_west2",
+              "gothic_cathedral_section_nave_pier_west3",
+              "gothic_cathedral_section_rib_diagonal_b2a",
+              "gothic_cathedral_section_rib_diagonal_b2b",
+              "gothic_cathedral_section_rib_diagonal_b3a",
+              "gothic_cathedral_section_rib_diagonal_b3b",
+              "gothic_cathedral_section_rib_transverse_2",
+              "gothic_cathedral_section_rib_transverse_3",
+              "gothic_cathedral_section_triforium_b1_east",
+              "gothic_cathedral_section_triforium_b1_west",
+              "gothic_cathedral_section_triforium_b2_east",
+              "gothic_cathedral_section_triforium_b2_west",
+              "gothic_cathedral_section_triforium_b3_east",
+              "gothic_cathedral_section_triforium_b3_west",
+              "gothic_cathedral_section_vault_web_b2_b1",
+              "gothic_cathedral_section_vault_web_b2_b2",
+              "gothic_cathedral_section_vault_web_b2_b3",
+              "gothic_cathedral_section_vault_web_b2_b4",
+              "gothic_cathedral_section_vault_web_b2_b5",
+              "gothic_cathedral_section_vault_web_b2_e1",
+              "gothic_cathedral_section_vault_web_b2_e2",
+              "gothic_cathedral_section_vault_web_b2_e3",
+              "gothic_cathedral_section_vault_web_b2_e4",
+              "gothic_cathedral_section_vault_web_b2_e5",
+              "gothic_cathedral_section_vault_web_b2_f1",
+              "gothic_cathedral_section_vault_web_b2_f2",
+              "gothic_cathedral_section_vault_web_b2_f3",
+              "gothic_cathedral_section_vault_web_b2_f4",
+              "gothic_cathedral_section_vault_web_b2_f5",
+              "gothic_cathedral_section_vault_web_b2_w1",
+              "gothic_cathedral_section_vault_web_b2_w2",
+              "gothic_cathedral_section_vault_web_b2_w3",
+              "gothic_cathedral_section_vault_web_b2_w4",
+              "gothic_cathedral_section_vault_web_b2_w5",
+              "gothic_cathedral_section_vault_web_b3_b1",
+              "gothic_cathedral_section_vault_web_b3_b2",
+              "gothic_cathedral_section_vault_web_b3_b3",
+              "gothic_cathedral_section_vault_web_b3_b4",
+              "gothic_cathedral_section_vault_web_b3_b5",
+              "gothic_cathedral_section_vault_web_b3_e1",
+              "gothic_cathedral_section_vault_web_b3_e2",
+              "gothic_cathedral_section_vault_web_b3_e3",
+              "gothic_cathedral_section_vault_web_b3_e4",
+              "gothic_cathedral_section_vault_web_b3_e5",
+              "gothic_cathedral_section_vault_web_b3_f1",
+              "gothic_cathedral_section_vault_web_b3_f2",
+              "gothic_cathedral_section_vault_web_b3_f3",
+              "gothic_cathedral_section_vault_web_b3_f4",
+              "gothic_cathedral_section_vault_web_b3_f5",
+              "gothic_cathedral_section_vault_web_b3_w1",
+              "gothic_cathedral_section_vault_web_b3_w2",
+              "gothic_cathedral_section_vault_web_b3_w3",
+              "gothic_cathedral_section_vault_web_b3_w4",
+              "gothic_cathedral_section_vault_web_b3_w5"
+            ],
+            "start_seconds": 2.04,
+            "seconds": 1.4,
+            "transparency": 0.85,
+            "do": "GHOST"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_west0",
+              "gothic_cathedral_section_flying_buttress_east0",
+              "gothic_cathedral_section_flying_buttress_west1",
+              "gothic_cathedral_section_flying_buttress_east1",
+              "gothic_cathedral_section_flying_buttress_west2",
+              "gothic_cathedral_section_flying_buttress_east2",
+              "gothic_cathedral_section_flying_buttress_west3",
+              "gothic_cathedral_section_flying_buttress_east3",
+              "gothic_cathedral_section_pier_buttress_west0",
+              "gothic_cathedral_section_pier_buttress_east0",
+              "gothic_cathedral_section_pier_buttress_west1",
+              "gothic_cathedral_section_pier_buttress_east1",
+              "gothic_cathedral_section_pier_buttress_west2",
+              "gothic_cathedral_section_pier_buttress_east2",
+              "gothic_cathedral_section_pier_buttress_west3",
+              "gothic_cathedral_section_pier_buttress_east3",
+              "gothic_cathedral_section_pinnacle_west0",
+              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_pinnacle_west1",
+              "gothic_cathedral_section_pinnacle_east1",
+              "gothic_cathedral_section_pinnacle_west2",
+              "gothic_cathedral_section_pinnacle_east2",
+              "gothic_cathedral_section_pinnacle_west3",
+              "gothic_cathedral_section_pinnacle_east3",
+              "gothic_cathedral_section_high_roof",
+              "gothic_cathedral_section_aisle_roof_west",
+              "gothic_cathedral_section_aisle_roof_east",
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b",
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f2",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_f5",
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b2",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_b5",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w2",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w4",
+              "gothic_cathedral_section_vault_web_b1_w5",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e2",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_e5"
+            ],
+            "start_seconds": 2.04,
+            "seconds": 1.2,
+            "do": "FADE_OUT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_rib_diagonal_b1a"
+            ],
+            "start_seconds": 5.395,
+            "seconds": 1.0,
+            "direction": "FROM_BELOW",
+            "distance": 4.0,
+            "stagger_seconds": 0.0,
+            "easing": "EASE_OUT",
+            "fade_end": 0.6,
+            "sound": "STONE",
+            "do": "REVEAL"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_rib_diagonal_b1b"
+            ],
+            "start_seconds": 6.075,
+            "seconds": 1.0,
+            "direction": "FROM_BELOW",
+            "distance": 4.0,
+            "stagger_seconds": 0.0,
+            "easing": "EASE_OUT",
+            "fade_end": 0.6,
+            "sound": "STONE",
+            "do": "REVEAL"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b"
+            ],
+            "start_seconds": 7.115,
+            "rise_seconds": 0.3,
+            "hold_seconds": 2.41,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f2",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_f5",
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b2",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_b5",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w2",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w4",
+              "gothic_cathedral_section_vault_web_b1_w5",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e2",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_e5"
+            ],
+            "start_seconds": 10.325,
+            "seconds": 0.7,
+            "direction": "FROM_BELOW",
+            "distance": 1.5,
+            "stagger_seconds": 0.04,
+            "easing": "EASE_OUT",
+            "fade_end": 0.6,
+            "sound": null,
+            "do": "REVEAL"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b"
+            ],
+            "start_seconds": 12.165,
+            "rise_seconds": 0.3,
+            "hold_seconds": 2.84,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_nave_pier_west0",
+              "gothic_cathedral_section_nave_pier_east0",
+              "gothic_cathedral_section_nave_pier_west1",
+              "gothic_cathedral_section_nave_pier_east1"
+            ],
+            "start_seconds": 14.305,
+            "rise_seconds": 0.3,
+            "hold_seconds": 4.12,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          }
+        ]
       },
-      "camera_focus": [
-        "gothic_cathedral_section_rib_diagonal_b1",
-        "gothic_cathedral_section_rib_transverse_0",
-        "gothic_cathedral_section_rib_transverse_1"
-      ],
       "camera_safe_band": 0.1,
       "build_variants": [
         "gothic_cathedral_section"
@@ -5373,8 +5654,8 @@
           {
             "id": "B12_rib",
             "type": "COMPONENT_LABEL",
-            "appear": 3.5833,
-            "disappear": 19.2917,
+            "appear": 7.0833,
+            "disappear": 10.3333,
             "claim_id": null,
             "text": "Diagonal ribs",
             "style": null,
@@ -5383,17 +5664,17 @@
             "anchors": [
               {
                 "world": [
-                  -3.07539,
-                  5.14228,
-                  38.14463
+                  -2.47433,
+                  5.07699,
+                  38.62583
                 ],
                 "screen": [
-                  0.454427,
-                  0.659722
+                  0.46224,
+                  0.622685
                 ],
                 "point": "CENTER",
                 "component_ids": [
-                  "gothic_cathedral_section_rib_diagonal_b1"
+                  "gothic_cathedral_section_rib_diagonal_b1b"
                 ]
               }
             ],
@@ -5401,10 +5682,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.456773,
-                  0.883068,
-                  0.585206,
-                  0.943908
+                  0.398023,
+                  0.872265,
+                  0.526457,
+                  0.933105
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -5416,26 +5697,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.520989,
-                  0.913488
+                  0.46224,
+                  0.902685
                 ],
                 "box": [
-                  0.456773,
-                  0.883068,
-                  0.585206,
-                  0.943908
+                  0.398023,
+                  0.872265,
+                  0.526457,
+                  0.933105
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.456773,
-                    0.883068
+                    0.46224,
+                    0.872265
                   ],
                   [
-                    0.454427,
-                    0.659722
+                    0.46224,
+                    0.622685
                   ]
                 ],
                 "width": 0.0098,
@@ -5447,12 +5728,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.456773,
-                    0.883068
+                    0.46224,
+                    0.872265
                   ],
                   [
-                    0.454427,
-                    0.659722
+                    0.46224,
+                    0.622685
                   ]
                 ],
                 "width": 0.0028,
@@ -5462,8 +5743,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.454427,
-                  0.659722
+                  0.46224,
+                  0.622685
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -5471,21 +5752,21 @@
             ],
             "boxes": [
               [
-                0.456773,
-                0.883068,
-                0.585206,
-                0.943908
+                0.398023,
+                0.872265,
+                0.526457,
+                0.933105
               ]
             ],
             "segments": [
               [
                 [
-                  0.456773,
-                  0.883068
+                  0.46224,
+                  0.872265
                 ],
                 [
-                  0.454427,
-                  0.659722
+                  0.46224,
+                  0.622685
                 ]
               ]
             ]
@@ -5493,7 +5774,7 @@
           {
             "id": "B12_pier",
             "type": "COMPONENT_LABEL",
-            "appear": 10.3333,
+            "appear": 15.625,
             "disappear": 19.2917,
             "claim_id": null,
             "text": "Pier",
@@ -5503,17 +5784,17 @@
             "anchors": [
               {
                 "world": [
-                  -6.30158,
-                  7.13297,
-                  26.20111
+                  7.34714,
+                  -0.71171,
+                  33.00064
                 ],
                 "screen": [
-                  0.41276,
-                  0.1875
+                  0.605469,
+                  0.900463
                 ],
                 "point": "TOP",
                 "component_ids": [
-                  "gothic_cathedral_section_nave_pier_west1"
+                  "gothic_cathedral_section_nave_pier_east0"
                 ]
               }
             ],
@@ -5521,10 +5802,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.444254,
-                  0.240642,
-                  0.4933,
-                  0.301482
+                  0.654071,
+                  0.870043,
+                  0.703117,
+                  0.930883
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -5536,26 +5817,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.468777,
-                  0.271062
+                  0.678594,
+                  0.900463
                 ],
                 "box": [
-                  0.444254,
-                  0.240642,
-                  0.4933,
-                  0.301482
+                  0.654071,
+                  0.870043,
+                  0.703117,
+                  0.930883
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.444254,
-                    0.240642
+                    0.654071,
+                    0.900463
                   ],
                   [
-                    0.41276,
-                    0.1875
+                    0.605469,
+                    0.900463
                   ]
                 ],
                 "width": 0.0098,
@@ -5567,12 +5848,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.444254,
-                    0.240642
+                    0.654071,
+                    0.900463
                   ],
                   [
-                    0.41276,
-                    0.1875
+                    0.605469,
+                    0.900463
                   ]
                 ],
                 "width": 0.0028,
@@ -5582,8 +5863,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.41276,
-                  0.1875
+                  0.605469,
+                  0.900463
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -5591,21 +5872,21 @@
             ],
             "boxes": [
               [
-                0.444254,
-                0.240642,
-                0.4933,
-                0.301482
+                0.654071,
+                0.870043,
+                0.703117,
+                0.930883
               ]
             ],
             "segments": [
               [
                 [
-                  0.444254,
-                  0.240642
+                  0.654071,
+                  0.900463
                 ],
                 [
-                  0.41276,
-                  0.1875
+                  0.605469,
+                  0.900463
                 ]
               ]
             ]
@@ -5613,6 +5894,18 @@
         ],
         "reserved": []
       },
+      "sound_cues": [
+        {
+          "at_seconds": 6.395,
+          "kind": "STONE",
+          "step": 2
+        },
+        {
+          "at_seconds": 7.075,
+          "kind": "STONE",
+          "step": 3
+        }
+      ],
       "start_seconds": 236.458333,
       "cut_from_previous": "hard",
       "beat_ids": [
@@ -5622,106 +5915,287 @@
         "CLM_140"
       ],
       "narration": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners.",
-      "visual_purpose": "The high vault from below: the ribs lit, the stone web visible between them [HOLD_HIGHLIGHT 1/1: hold gothic_cathedral_section, glowing rib, rib, rib from sentence 1]",
+      "visual_purpose": "From the whole section to one bay: its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along the ribs to the four piers [SEQUENCE 1/1: 2 view(s), 8 timed steps on gothic_cathedral_section: ghost 92, fade_out 49, reveal 1, reveal 1, highlight 2, reveal 20, highlight 2, highlight 4]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B12",
         "visual_intent": "SHOW_COMPONENT",
-        "strategy": "HOLD_HIGHLIGHT",
+        "strategy": "SEQUENCE",
         "part": [
           1,
           1
         ],
         "evidence_status": "INTERNAL_PREVIEW",
-        "semantic_targets": [
-          "rib",
-          "rib",
-          "rib"
-        ],
-        "timing_mode": "AUDIO_LOCKED",
-        "visibility_targets": [
-          {
-            "concept": "rib",
-            "component_ids": [
-              "gothic_cathedral_section_rib_diagonal_b1"
-            ],
-            "pieces": false
-          },
-          {
-            "concept": "rib",
-            "component_ids": [
-              "gothic_cathedral_section_rib_transverse_0"
-            ],
-            "pieces": false
-          },
-          {
-            "concept": "rib",
-            "component_ids": [
-              "gothic_cathedral_section_rib_transverse_1"
-            ],
-            "pieces": false
-          }
-        ],
-        "visibility_estimate": [
-          {
-            "concept": "rib",
-            "label": "highlight_peak",
-            "frame": 275,
-            "visible_share": 0.4056,
-            "core_area": 0.00632,
-            "visible_area": 0.01606,
-            "ok": true
-          },
-          {
-            "concept": "rib",
-            "label": "highlight_peak",
-            "frame": 275,
-            "visible_share": 0.6714,
-            "core_area": 0.0081,
-            "visible_area": 0.01587,
-            "ok": true
-          },
-          {
-            "concept": "rib",
-            "label": "highlight_peak",
-            "frame": 275,
-            "visible_share": 0.3067,
-            "core_area": 0.00246,
-            "visible_area": 0.00723,
-            "ok": true
-          }
-        ]
+        "semantic_targets": [],
+        "timing_mode": "AUDIO_LOCKED"
       }
     },
     {
       "id": "SC_013",
       "duration_seconds": 21.833333333333332,
       "visual_type": "BLENDER_3D",
-      "transition": "HOLD",
-      "camera": "CATHEDRAL_FROM_BELOW",
+      "transition": "SEQUENCE",
+      "camera": "CATHEDRAL_VAULT_BELOW",
       "from_state": "gothic_cathedral_section",
       "to_state": "gothic_cathedral_section",
       "animation": {
-        "template": "HOLD",
+        "template": "SEQUENCE",
         "state": "gothic_cathedral_section",
-        "highlight": {
-          "components": [
-            "gothic_cathedral_section_vault_web_b1",
-            "gothic_cathedral_section_vault_web_b2",
-            "gothic_cathedral_section_vault_web_b3"
-          ],
-          "start_seconds": 16.0,
-          "rise_seconds": 0.4,
-          "hold_seconds": 4.7333,
-          "fall_seconds": 0.4,
-          "strength": 0.45
-        }
+        "views": [
+          {
+            "focus": [
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b",
+              "gothic_cathedral_section_rib_transverse_0",
+              "gothic_cathedral_section_rib_transverse_1",
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b2",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_b5",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e2",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_e5",
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f2",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_f5",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w2",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w4",
+              "gothic_cathedral_section_vault_web_b1_w5"
+            ]
+          },
+          {
+            "focus": [
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b2",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e2",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f2",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w2",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w4"
+            ],
+            "start_seconds": 2.26,
+            "move_seconds": 4.5
+          }
+        ],
+        "steps": [
+          {
+            "components": [
+              "gothic_cathedral_section_aisle_vault_b1_east",
+              "gothic_cathedral_section_aisle_vault_b1_west",
+              "gothic_cathedral_section_aisle_vault_b2_east",
+              "gothic_cathedral_section_aisle_vault_b2_west",
+              "gothic_cathedral_section_aisle_vault_b3_east",
+              "gothic_cathedral_section_aisle_vault_b3_west",
+              "gothic_cathedral_section_aisle_wall_b1_east",
+              "gothic_cathedral_section_aisle_wall_b1_west",
+              "gothic_cathedral_section_aisle_wall_b2_east",
+              "gothic_cathedral_section_aisle_wall_b2_west",
+              "gothic_cathedral_section_aisle_wall_b3_east",
+              "gothic_cathedral_section_aisle_wall_b3_west",
+              "gothic_cathedral_section_aisle_window_b1_east",
+              "gothic_cathedral_section_aisle_window_b1_west",
+              "gothic_cathedral_section_aisle_window_b2_east",
+              "gothic_cathedral_section_aisle_window_b2_west",
+              "gothic_cathedral_section_aisle_window_b3_east",
+              "gothic_cathedral_section_aisle_window_b3_west",
+              "gothic_cathedral_section_arcade_wall_b1_east",
+              "gothic_cathedral_section_arcade_wall_b1_west",
+              "gothic_cathedral_section_arcade_wall_b2_east",
+              "gothic_cathedral_section_arcade_wall_b2_west",
+              "gothic_cathedral_section_arcade_wall_b3_east",
+              "gothic_cathedral_section_arcade_wall_b3_west",
+              "gothic_cathedral_section_clerestory_wall_b1_east",
+              "gothic_cathedral_section_clerestory_wall_b1_west",
+              "gothic_cathedral_section_clerestory_wall_b2_east",
+              "gothic_cathedral_section_clerestory_wall_b2_west",
+              "gothic_cathedral_section_clerestory_wall_b3_east",
+              "gothic_cathedral_section_clerestory_wall_b3_west",
+              "gothic_cathedral_section_clerestory_window_b1_east",
+              "gothic_cathedral_section_clerestory_window_b1_west",
+              "gothic_cathedral_section_clerestory_window_b2_east",
+              "gothic_cathedral_section_clerestory_window_b2_west",
+              "gothic_cathedral_section_clerestory_window_b3_east",
+              "gothic_cathedral_section_clerestory_window_b3_west",
+              "gothic_cathedral_section_nave_pier_east2",
+              "gothic_cathedral_section_nave_pier_east3",
+              "gothic_cathedral_section_nave_pier_west2",
+              "gothic_cathedral_section_nave_pier_west3",
+              "gothic_cathedral_section_rib_diagonal_b2a",
+              "gothic_cathedral_section_rib_diagonal_b2b",
+              "gothic_cathedral_section_rib_diagonal_b3a",
+              "gothic_cathedral_section_rib_diagonal_b3b",
+              "gothic_cathedral_section_rib_transverse_2",
+              "gothic_cathedral_section_rib_transverse_3",
+              "gothic_cathedral_section_triforium_b1_east",
+              "gothic_cathedral_section_triforium_b1_west",
+              "gothic_cathedral_section_triforium_b2_east",
+              "gothic_cathedral_section_triforium_b2_west",
+              "gothic_cathedral_section_triforium_b3_east",
+              "gothic_cathedral_section_triforium_b3_west",
+              "gothic_cathedral_section_vault_web_b2_b1",
+              "gothic_cathedral_section_vault_web_b2_b2",
+              "gothic_cathedral_section_vault_web_b2_b3",
+              "gothic_cathedral_section_vault_web_b2_b4",
+              "gothic_cathedral_section_vault_web_b2_b5",
+              "gothic_cathedral_section_vault_web_b2_e1",
+              "gothic_cathedral_section_vault_web_b2_e2",
+              "gothic_cathedral_section_vault_web_b2_e3",
+              "gothic_cathedral_section_vault_web_b2_e4",
+              "gothic_cathedral_section_vault_web_b2_e5",
+              "gothic_cathedral_section_vault_web_b2_f1",
+              "gothic_cathedral_section_vault_web_b2_f2",
+              "gothic_cathedral_section_vault_web_b2_f3",
+              "gothic_cathedral_section_vault_web_b2_f4",
+              "gothic_cathedral_section_vault_web_b2_f5",
+              "gothic_cathedral_section_vault_web_b2_w1",
+              "gothic_cathedral_section_vault_web_b2_w2",
+              "gothic_cathedral_section_vault_web_b2_w3",
+              "gothic_cathedral_section_vault_web_b2_w4",
+              "gothic_cathedral_section_vault_web_b2_w5",
+              "gothic_cathedral_section_vault_web_b3_b1",
+              "gothic_cathedral_section_vault_web_b3_b2",
+              "gothic_cathedral_section_vault_web_b3_b3",
+              "gothic_cathedral_section_vault_web_b3_b4",
+              "gothic_cathedral_section_vault_web_b3_b5",
+              "gothic_cathedral_section_vault_web_b3_e1",
+              "gothic_cathedral_section_vault_web_b3_e2",
+              "gothic_cathedral_section_vault_web_b3_e3",
+              "gothic_cathedral_section_vault_web_b3_e4",
+              "gothic_cathedral_section_vault_web_b3_e5",
+              "gothic_cathedral_section_vault_web_b3_f1",
+              "gothic_cathedral_section_vault_web_b3_f2",
+              "gothic_cathedral_section_vault_web_b3_f3",
+              "gothic_cathedral_section_vault_web_b3_f4",
+              "gothic_cathedral_section_vault_web_b3_f5",
+              "gothic_cathedral_section_vault_web_b3_w1",
+              "gothic_cathedral_section_vault_web_b3_w2",
+              "gothic_cathedral_section_vault_web_b3_w3",
+              "gothic_cathedral_section_vault_web_b3_w4",
+              "gothic_cathedral_section_vault_web_b3_w5"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "transparency": 0.85,
+            "do": "GHOST"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_west0",
+              "gothic_cathedral_section_flying_buttress_east0",
+              "gothic_cathedral_section_flying_buttress_west1",
+              "gothic_cathedral_section_flying_buttress_east1",
+              "gothic_cathedral_section_flying_buttress_west2",
+              "gothic_cathedral_section_flying_buttress_east2",
+              "gothic_cathedral_section_flying_buttress_west3",
+              "gothic_cathedral_section_flying_buttress_east3",
+              "gothic_cathedral_section_pier_buttress_west0",
+              "gothic_cathedral_section_pier_buttress_east0",
+              "gothic_cathedral_section_pier_buttress_west1",
+              "gothic_cathedral_section_pier_buttress_east1",
+              "gothic_cathedral_section_pier_buttress_west2",
+              "gothic_cathedral_section_pier_buttress_east2",
+              "gothic_cathedral_section_pier_buttress_west3",
+              "gothic_cathedral_section_pier_buttress_east3",
+              "gothic_cathedral_section_pinnacle_west0",
+              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_pinnacle_west1",
+              "gothic_cathedral_section_pinnacle_east1",
+              "gothic_cathedral_section_pinnacle_west2",
+              "gothic_cathedral_section_pinnacle_east2",
+              "gothic_cathedral_section_pinnacle_west3",
+              "gothic_cathedral_section_pinnacle_east3",
+              "gothic_cathedral_section_high_roof",
+              "gothic_cathedral_section_aisle_roof_west",
+              "gothic_cathedral_section_aisle_roof_east"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "do": "FADE_OUT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b",
+              "gothic_cathedral_section_rib_transverse_0",
+              "gothic_cathedral_section_rib_transverse_1"
+            ],
+            "start_seconds": 8.805,
+            "rise_seconds": 0.3,
+            "hold_seconds": 1.94,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f5",
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b5",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w5",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e5"
+            ],
+            "start_seconds": 13.685,
+            "rise_seconds": 0.3,
+            "hold_seconds": 1.715,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f2",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_f5",
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b2",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_b5",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w2",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w4",
+              "gothic_cathedral_section_vault_web_b1_w5",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e2",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_e5"
+            ],
+            "start_seconds": 18.06,
+            "rise_seconds": 0.3,
+            "hold_seconds": 2.64,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          }
+        ]
       },
-      "camera_focus": [
-        "gothic_cathedral_section_rib_diagonal_b1",
-        "gothic_cathedral_section_rib_transverse_0",
-        "gothic_cathedral_section_rib_transverse_1"
-      ],
       "camera_safe_band": 0.1,
       "build_variants": [
         "gothic_cathedral_section"
@@ -5783,7 +6257,7 @@
           {
             "id": "B13_ribs",
             "type": "COMPONENT_LABEL",
-            "appear": 5.4167,
+            "appear": 8.9167,
             "disappear": 16.0833,
             "claim_id": null,
             "text": "Main ribs",
@@ -5793,17 +6267,17 @@
             "anchors": [
               {
                 "world": [
-                  -3.51874,
-                  12.87979,
-                  37.56164
+                  -2.7247,
+                  5.30058,
+                  38.22178
                 ],
                 "screen": [
-                  0.535156,
-                  0.465278
+                  0.438802,
+                  0.469907
                 ],
                 "point": "CENTER",
                 "component_ids": [
-                  "gothic_cathedral_section_rib_diagonal_b2"
+                  "gothic_cathedral_section_rib_diagonal_b1b"
                 ]
               }
             ],
@@ -5811,10 +6285,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.61131,
-                  0.434858,
-                  0.706502,
-                  0.495698
+                  0.233706,
+                  0.439487,
+                  0.328898,
+                  0.500327
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -5826,26 +6300,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.658906,
-                  0.465278
+                  0.281302,
+                  0.469907
                 ],
                 "box": [
-                  0.61131,
-                  0.434858,
-                  0.706502,
-                  0.495698
+                  0.233706,
+                  0.439487,
+                  0.328898,
+                  0.500327
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.61131,
-                    0.465278
+                    0.328898,
+                    0.469907
                   ],
                   [
-                    0.535156,
-                    0.465278
+                    0.438802,
+                    0.469907
                   ]
                 ],
                 "width": 0.0098,
@@ -5857,12 +6331,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.61131,
-                    0.465278
+                    0.328898,
+                    0.469907
                   ],
                   [
-                    0.535156,
-                    0.465278
+                    0.438802,
+                    0.469907
                   ]
                 ],
                 "width": 0.0028,
@@ -5872,8 +6346,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.535156,
-                  0.465278
+                  0.438802,
+                  0.469907
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -5881,21 +6355,141 @@
             ],
             "boxes": [
               [
-                0.61131,
-                0.434858,
-                0.706502,
-                0.495698
+                0.233706,
+                0.439487,
+                0.328898,
+                0.500327
               ]
             ],
             "segments": [
               [
                 [
-                  0.61131,
-                  0.465278
+                  0.328898,
+                  0.469907
                 ],
                 [
-                  0.535156,
-                  0.465278
+                  0.438802,
+                  0.469907
+                ]
+              ]
+            ]
+          },
+          {
+            "id": "B13_arches",
+            "type": "COMPONENT_LABEL",
+            "appear": 13.875,
+            "disappear": 16.0833,
+            "claim_id": null,
+            "text": "A series of arches",
+            "style": null,
+            "force": null,
+            "direction": null,
+            "anchors": [
+              {
+                "world": [
+                  -0.25571,
+                  4.39516,
+                  41.74934
+                ],
+                "screen": [
+                  0.503906,
+                  0.706019
+                ],
+                "point": "CENTER",
+                "component_ids": [
+                  "gothic_cathedral_section_vault_web_b1_b1"
+                ]
+              }
+            ],
+            "elements": [
+              {
+                "kind": "plate",
+                "box": [
+                  0.418366,
+                  0.745599,
+                  0.589446,
+                  0.806439
+                ],
+                "fill": "#FBF9F4",
+                "border": "#77736A",
+                "border_width": 0.0025
+              },
+              {
+                "kind": "text",
+                "text": "A series of arches",
+                "size": 0.036,
+                "color": "#24231F",
+                "center": [
+                  0.503906,
+                  0.776019
+                ],
+                "box": [
+                  0.418366,
+                  0.745599,
+                  0.589446,
+                  0.806439
+                ]
+              },
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.503906,
+                    0.745599
+                  ],
+                  [
+                    0.503906,
+                    0.706019
+                  ]
+                ],
+                "width": 0.0098,
+                "color": "#FBF9F4",
+                "dash": null,
+                "halo": true
+              },
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.503906,
+                    0.745599
+                  ],
+                  [
+                    0.503906,
+                    0.706019
+                  ]
+                ],
+                "width": 0.0028,
+                "color": "#3B3A36",
+                "dash": null
+              },
+              {
+                "kind": "dot",
+                "center": [
+                  0.503906,
+                  0.706019
+                ],
+                "radius": 0.0065,
+                "color": "#3B3A36"
+              }
+            ],
+            "boxes": [
+              [
+                0.418366,
+                0.745599,
+                0.589446,
+                0.806439
+              ]
+            ],
+            "segments": [
+              [
+                [
+                  0.503906,
+                  0.745599
+                ],
+                [
+                  0.503906,
+                  0.706019
                 ]
               ]
             ]
@@ -5903,7 +6497,7 @@
           {
             "id": "B13_web",
             "type": "COMPONENT_LABEL",
-            "appear": 16.0833,
+            "appear": 18.1667,
             "disappear": 21.8333,
             "claim_id": null,
             "text": "Stone web",
@@ -5913,19 +6507,17 @@
             "anchors": [
               {
                 "world": [
-                  -6.38774,
-                  13.80217,
-                  35.59749
+                  -0.25571,
+                  4.39516,
+                  41.74934
                 ],
                 "screen": [
-                  0.488281,
-                  0.344907
+                  0.503906,
+                  0.706019
                 ],
-                "point": "BOTTOM",
+                "point": "CENTER",
                 "component_ids": [
-                  "gothic_cathedral_section_vault_web_b1",
-                  "gothic_cathedral_section_vault_web_b2",
-                  "gothic_cathedral_section_vault_web_b3"
+                  "gothic_cathedral_section_vault_web_b1_b1"
                 ]
               }
             ],
@@ -5933,10 +6525,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.591952,
-                  0.314487,
-                  0.69961,
-                  0.375327
+                  0.450077,
+                  0.745599,
+                  0.557735,
+                  0.806439
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -5948,26 +6540,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.645781,
-                  0.344907
+                  0.503906,
+                  0.776019
                 ],
                 "box": [
-                  0.591952,
-                  0.314487,
-                  0.69961,
-                  0.375327
+                  0.450077,
+                  0.745599,
+                  0.557735,
+                  0.806439
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.591952,
-                    0.344907
+                    0.503906,
+                    0.745599
                   ],
                   [
-                    0.488281,
-                    0.344907
+                    0.503906,
+                    0.706019
                   ]
                 ],
                 "width": 0.0098,
@@ -5979,12 +6571,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.591952,
-                    0.344907
+                    0.503906,
+                    0.745599
                   ],
                   [
-                    0.488281,
-                    0.344907
+                    0.503906,
+                    0.706019
                   ]
                 ],
                 "width": 0.0028,
@@ -5994,8 +6586,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.488281,
-                  0.344907
+                  0.503906,
+                  0.706019
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -6003,21 +6595,21 @@
             ],
             "boxes": [
               [
-                0.591952,
-                0.314487,
-                0.69961,
-                0.375327
+                0.450077,
+                0.745599,
+                0.557735,
+                0.806439
               ]
             ],
             "segments": [
               [
                 [
-                  0.591952,
-                  0.344907
+                  0.503906,
+                  0.745599
                 ],
                 [
-                  0.488281,
-                  0.344907
+                  0.503906,
+                  0.706019
                 ]
               ]
             ]
@@ -6033,75 +6625,19 @@
         "CLM_141"
       ],
       "narration": "How exactly these vaults stand has been debated for centuries. Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches. So even in that reading, the stone between the ribs carries load.",
-      "visual_purpose": "The ribs named, then the web between them lit: it must read as working stone, never as empty infill [HOLD_HIGHLIGHT 1/1: hold gothic_cathedral_section, glowing rib, rib, rib from sentence 2]",
+      "visual_purpose": "Closer on the bay's vault: the ribs light, then every other course of the web (the parallel arches of Heyman's reading), then the whole web: it reads as working stone, never as infill [SEQUENCE 1/1: 2 view(s), 5 timed steps on gothic_cathedral_section: ghost 92, fade_out 27, highlight 4, highlight 12, highlight 20]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B13",
         "visual_intent": "SHOW_COMPONENT",
-        "strategy": "HOLD_HIGHLIGHT",
+        "strategy": "SEQUENCE",
         "part": [
           1,
           1
         ],
         "evidence_status": "INTERNAL_PREVIEW",
-        "semantic_targets": [
-          "rib",
-          "rib",
-          "rib"
-        ],
-        "timing_mode": "AUDIO_LOCKED",
-        "visibility_targets": [
-          {
-            "concept": "rib",
-            "component_ids": [
-              "gothic_cathedral_section_rib_diagonal_b1"
-            ],
-            "pieces": false
-          },
-          {
-            "concept": "rib",
-            "component_ids": [
-              "gothic_cathedral_section_rib_transverse_0"
-            ],
-            "pieces": false
-          },
-          {
-            "concept": "rib",
-            "component_ids": [
-              "gothic_cathedral_section_rib_transverse_1"
-            ],
-            "pieces": false
-          }
-        ],
-        "visibility_estimate": [
-          {
-            "concept": "rib",
-            "label": "highlight_peak",
-            "frame": 451,
-            "visible_share": 0.4056,
-            "core_area": 0.00632,
-            "visible_area": 0.01606,
-            "ok": true
-          },
-          {
-            "concept": "rib",
-            "label": "highlight_peak",
-            "frame": 451,
-            "visible_share": 0.6714,
-            "core_area": 0.0081,
-            "visible_area": 0.01587,
-            "ok": true
-          },
-          {
-            "concept": "rib",
-            "label": "highlight_peak",
-            "frame": 451,
-            "visible_share": 0.3067,
-            "core_area": 0.00246,
-            "visible_area": 0.00723,
-            "ok": true
-          }
-        ]
+        "semantic_targets": [],
+        "timing_mode": "AUDIO_LOCKED"
       }
     },
     {
@@ -6596,13 +7132,81 @@
       "id": "SC_016",
       "duration_seconds": 14.958333333333334,
       "visual_type": "BLENDER_3D",
-      "transition": "HOLD",
-      "camera": "CATHEDRAL_SECTION",
+      "transition": "SEQUENCE",
+      "camera": "CATHEDRAL_TRANSVERSE",
       "from_state": "gothic_cathedral_section",
       "to_state": "gothic_cathedral_section",
       "animation": {
-        "template": "HOLD",
-        "state": "gothic_cathedral_section"
+        "template": "SEQUENCE",
+        "state": "gothic_cathedral_section",
+        "views": [
+          {
+            "focus": null
+          },
+          {
+            "focus": [
+              "gothic_cathedral_section_aisle_roof_east",
+              "gothic_cathedral_section_clerestory_window_b1_east",
+              "gothic_cathedral_section_flying_buttress_east0",
+              "gothic_cathedral_section_pinnacle_east0"
+            ],
+            "start_seconds": 10.9,
+            "move_seconds": 2.4
+          }
+        ],
+        "steps": [
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_west0",
+              "gothic_cathedral_section_flying_buttress_east0",
+              "gothic_cathedral_section_flying_buttress_west1",
+              "gothic_cathedral_section_flying_buttress_east1",
+              "gothic_cathedral_section_flying_buttress_west2",
+              "gothic_cathedral_section_flying_buttress_east2",
+              "gothic_cathedral_section_flying_buttress_west3",
+              "gothic_cathedral_section_flying_buttress_east3",
+              "gothic_cathedral_section_pier_buttress_west0",
+              "gothic_cathedral_section_pier_buttress_east0",
+              "gothic_cathedral_section_pier_buttress_west1",
+              "gothic_cathedral_section_pier_buttress_east1",
+              "gothic_cathedral_section_pier_buttress_west2",
+              "gothic_cathedral_section_pier_buttress_east2",
+              "gothic_cathedral_section_pier_buttress_west3",
+              "gothic_cathedral_section_pier_buttress_east3"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "transparency": 0.8,
+            "do": "GHOST"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_pinnacle_west0",
+              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_pinnacle_west1",
+              "gothic_cathedral_section_pinnacle_east1",
+              "gothic_cathedral_section_pinnacle_west2",
+              "gothic_cathedral_section_pinnacle_east2",
+              "gothic_cathedral_section_pinnacle_west3",
+              "gothic_cathedral_section_pinnacle_east3"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "do": "FADE_OUT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_nave_pier_west0",
+              "gothic_cathedral_section_nave_pier_east0"
+            ],
+            "start_seconds": 7.87,
+            "rise_seconds": 0.3,
+            "hold_seconds": 2.23,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          }
+        ]
       },
       "camera_safe_band": 0.1,
       "build_variants": [
@@ -6614,8 +7218,8 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 4.3333,
-            "disappear": 14.625,
+            "appear": 1.4583,
+            "disappear": 10.9583,
             "elements": [
               {
                 "kind": "plate",
@@ -6711,10 +7315,10 @@
           {
             "id": "B16_note",
             "type": "NOTE",
-            "appear": 4.3333,
+            "appear": 0.2917,
             "disappear": 14.625,
             "claim_id": null,
-            "text": "Arrows show the idea, not calculated forces",
+            "text": "Illustrative model",
             "style": null,
             "force": null,
             "direction": null,
@@ -6723,10 +7327,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.045,
-                  0.7739,
-                  0.377289,
-                  0.8246
+                  0.816807,
+                  0.18,
+                  0.955,
+                  0.2307
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -6734,27 +7338,27 @@
               },
               {
                 "kind": "text",
-                "text": "Arrows show the idea, not calculated forces",
+                "text": "Illustrative model",
                 "size": 0.03,
                 "color": "#4C4A44",
                 "center": [
-                  0.211144,
-                  0.79925
+                  0.885904,
+                  0.20535
                 ],
                 "box": [
-                  0.045,
-                  0.7739,
-                  0.377289,
-                  0.8246
+                  0.816807,
+                  0.18,
+                  0.955,
+                  0.2307
                 ]
               }
             ],
             "boxes": [
               [
-                0.045,
-                0.7739,
-                0.377289,
-                0.8246
+                0.816807,
+                0.18,
+                0.955,
+                0.2307
               ]
             ],
             "segments": []
@@ -6762,8 +7366,8 @@
           {
             "id": "B16_thrust",
             "type": "THRUST_ARROW",
-            "appear": 4.3333,
-            "disappear": 14.625,
+            "appear": 1.4583,
+            "disappear": 10.9583,
             "claim_id": "CLM_150",
             "text": "Thrust",
             "style": null,
@@ -6772,12 +7376,12 @@
             "anchors": [
               {
                 "world": [
-                  -5.65553,
+                  -5.80435,
                   -0.27,
-                  33.09649
+                  32.78318
                 ],
                 "screen": [
-                  0.43099,
+                  0.446615,
                   0.631944
                 ],
                 "point": "BOTTOM_LEFT",
@@ -6787,13 +7391,13 @@
               },
               {
                 "world": [
-                  5.67274,
+                  5.61523,
                   -0.27,
-                  33.66224
+                  33.57854
                 ],
                 "screen": [
-                  0.501302,
-                  0.631944
+                  0.532552,
+                  0.641204
                 ],
                 "point": "BOTTOM_RIGHT",
                 "component_ids": [
@@ -6805,11 +7409,11 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.427615,
+                  0.44324,
                   0.631944
                 ],
                 "tip": [
-                  0.379802,
+                  0.395427,
                   0.631944
                 ],
                 "width": 0.0135,
@@ -6821,11 +7425,11 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.427615,
+                  0.44324,
                   0.631944
                 ],
                 "tip": [
-                  0.379802,
+                  0.395427,
                   0.631944
                 ],
                 "width": 0.0065,
@@ -6836,12 +7440,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.504677,
-                  0.631944
+                  0.535927,
+                  0.641204
                 ],
                 "tip": [
-                  0.552489,
-                  0.631944
+                  0.583739,
+                  0.641204
                 ],
                 "width": 0.0135,
                 "head_length": 0.0324,
@@ -6852,12 +7456,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.504677,
-                  0.631944
+                  0.535927,
+                  0.641204
                 ],
                 "tip": [
-                  0.552489,
-                  0.631944
+                  0.583739,
+                  0.641204
                 ],
                 "width": 0.0065,
                 "head_length": 0.024,
@@ -6867,10 +7471,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.431344,
-                  0.501524,
-                  0.500948,
-                  0.562364
+                  0.454782,
+                  0.506154,
+                  0.524385,
+                  0.566994
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -6882,44 +7486,44 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.466146,
-                  0.531944
+                  0.489583,
+                  0.536574
                 ],
                 "box": [
-                  0.431344,
-                  0.501524,
-                  0.500948,
-                  0.562364
+                  0.454782,
+                  0.506154,
+                  0.524385,
+                  0.566994
                 ]
               }
             ],
             "boxes": [
               [
-                0.431344,
-                0.501524,
-                0.500948,
-                0.562364
+                0.454782,
+                0.506154,
+                0.524385,
+                0.566994
               ]
             ],
             "segments": [
               [
                 [
-                  0.427615,
+                  0.44324,
                   0.631944
                 ],
                 [
-                  0.379802,
+                  0.395427,
                   0.631944
                 ]
               ],
               [
                 [
-                  0.504677,
-                  0.631944
+                  0.535927,
+                  0.641204
                 ],
                 [
-                  0.552489,
-                  0.631944
+                  0.583739,
+                  0.641204
                 ]
               ]
             ]
@@ -6936,12 +7540,12 @@
         "CLM_150"
       ],
       "narration": "But gathering the thrust does not make it go away. Even reduced, that sideways push remains a threat to the stability of the whole building. It still has to be contained somewhere.",
-      "visual_purpose": "Conceptual outward arrow at the top of a pier, with nothing yet to receive it [HOLD 1/1: hold gothic_cathedral_section]",
+      "visual_purpose": "The cut face of the church, square on: an outward arrow at each springing of the high vault, the high piers it pushes on, and the supports outside still faded; then the camera turns to the east side [SEQUENCE 1/1: 2 view(s), 3 timed steps on gothic_cathedral_section: ghost 16, fade_out 8, highlight 2]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B16",
         "visual_intent": "EXPLAIN_LOAD_PATH",
-        "strategy": "HOLD",
+        "strategy": "SEQUENCE",
         "part": [
           1,
           1
@@ -6955,48 +7559,138 @@
       "id": "SC_017",
       "duration_seconds": 21.5,
       "visual_type": "BLENDER_3D",
-      "transition": "HOLD",
-      "camera": "CATHEDRAL_SECTION",
+      "transition": "SEQUENCE",
+      "camera": "CATHEDRAL_TRANSVERSE",
       "from_state": "gothic_cathedral_section",
       "to_state": "gothic_cathedral_section",
       "animation": {
-        "template": "HOLD",
+        "template": "SEQUENCE",
         "state": "gothic_cathedral_section",
-        "highlight": {
-          "components": [
-            "gothic_cathedral_section_aisle_roof_east",
-            "gothic_cathedral_section_aisle_roof_west",
-            "gothic_cathedral_section_flying_buttress_east0",
-            "gothic_cathedral_section_flying_buttress_east1",
-            "gothic_cathedral_section_flying_buttress_east2",
-            "gothic_cathedral_section_flying_buttress_east3",
-            "gothic_cathedral_section_flying_buttress_west0",
-            "gothic_cathedral_section_flying_buttress_west1",
-            "gothic_cathedral_section_flying_buttress_west2",
-            "gothic_cathedral_section_flying_buttress_west3",
-            "gothic_cathedral_section_pier_buttress_east0",
-            "gothic_cathedral_section_pier_buttress_east1",
-            "gothic_cathedral_section_pier_buttress_east2",
-            "gothic_cathedral_section_pier_buttress_east3",
-            "gothic_cathedral_section_pier_buttress_west0",
-            "gothic_cathedral_section_pier_buttress_west1",
-            "gothic_cathedral_section_pier_buttress_west2",
-            "gothic_cathedral_section_pier_buttress_west3",
-            "gothic_cathedral_section_pinnacle_east0",
-            "gothic_cathedral_section_pinnacle_east1",
-            "gothic_cathedral_section_pinnacle_east2",
-            "gothic_cathedral_section_pinnacle_east3",
-            "gothic_cathedral_section_pinnacle_west0",
-            "gothic_cathedral_section_pinnacle_west1",
-            "gothic_cathedral_section_pinnacle_west2",
-            "gothic_cathedral_section_pinnacle_west3"
-          ],
-          "start_seconds": 4.875,
-          "rise_seconds": 0.4,
-          "hold_seconds": 15.525,
-          "fall_seconds": 0.4,
-          "strength": 0.45
-        }
+        "views": [
+          {
+            "focus": [
+              "gothic_cathedral_section_aisle_roof_east",
+              "gothic_cathedral_section_clerestory_window_b1_east",
+              "gothic_cathedral_section_flying_buttress_east0",
+              "gothic_cathedral_section_pinnacle_east0"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_west0",
+              "gothic_cathedral_section_flying_buttress_east0",
+              "gothic_cathedral_section_flying_buttress_west1",
+              "gothic_cathedral_section_flying_buttress_east1",
+              "gothic_cathedral_section_flying_buttress_west2",
+              "gothic_cathedral_section_flying_buttress_east2",
+              "gothic_cathedral_section_flying_buttress_west3",
+              "gothic_cathedral_section_flying_buttress_east3",
+              "gothic_cathedral_section_pier_buttress_west0",
+              "gothic_cathedral_section_pier_buttress_east0",
+              "gothic_cathedral_section_pier_buttress_west1",
+              "gothic_cathedral_section_pier_buttress_east1",
+              "gothic_cathedral_section_pier_buttress_west2",
+              "gothic_cathedral_section_pier_buttress_east2",
+              "gothic_cathedral_section_pier_buttress_west3",
+              "gothic_cathedral_section_pier_buttress_east3"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "transparency": 0.8,
+            "do": "GHOST"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_pinnacle_west0",
+              "gothic_cathedral_section_pinnacle_east0",
+              "gothic_cathedral_section_pinnacle_west1",
+              "gothic_cathedral_section_pinnacle_east1",
+              "gothic_cathedral_section_pinnacle_west2",
+              "gothic_cathedral_section_pinnacle_east2",
+              "gothic_cathedral_section_pinnacle_west3",
+              "gothic_cathedral_section_pinnacle_east3"
+            ],
+            "start_seconds": 0.0,
+            "seconds": 0,
+            "do": "FADE_OUT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_east0"
+            ],
+            "start_seconds": 2.72,
+            "seconds": 0.8,
+            "do": "UNGHOST"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_flying_buttress_east0"
+            ],
+            "start_seconds": 3.02,
+            "rise_seconds": 0.3,
+            "hold_seconds": 3.155,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_aisle_roof_east"
+            ],
+            "start_seconds": 10.135,
+            "rise_seconds": 0.3,
+            "hold_seconds": 1.08,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_pier_buttress_east0"
+            ],
+            "start_seconds": 12.135,
+            "seconds": 0.8,
+            "do": "UNGHOST"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_pier_buttress_east0"
+            ],
+            "start_seconds": 12.835,
+            "rise_seconds": 0.3,
+            "hold_seconds": 1.815,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_pinnacle_east0"
+            ],
+            "start_seconds": 15.91,
+            "seconds": 1.1,
+            "direction": "FROM_ABOVE",
+            "distance": 5.0,
+            "stagger_seconds": 0.0,
+            "easing": "EASE_OUT",
+            "fade_end": 0.6,
+            "sound": "STONE_HEAVY",
+            "do": "REVEAL"
+          },
+          {
+            "components": [
+              "gothic_cathedral_section_pinnacle_east0"
+            ],
+            "start_seconds": 17.43,
+            "rise_seconds": 0.3,
+            "hold_seconds": 2.945,
+            "fall_seconds": 0.4,
+            "strength": 0.6,
+            "do": "HIGHLIGHT"
+          }
+        ]
       },
       "camera_safe_band": 0.1,
       "build_variants": [
@@ -7008,7 +7702,7 @@
           {
             "id": "CONCEPTUAL_TAG",
             "type": "TAG",
-            "appear": 4.9583,
+            "appear": 6.7917,
             "disappear": 21.5,
             "elements": [
               {
@@ -7052,10 +7746,61 @@
             "segments": []
           },
           {
-            "id": "B17_flyer",
-            "type": "COMPONENT_LABEL",
+            "id": "B17_note",
+            "type": "NOTE",
             "appear": 0.2917,
             "disappear": 21.5,
+            "claim_id": null,
+            "text": "Illustrative model",
+            "style": null,
+            "force": null,
+            "direction": null,
+            "anchors": [],
+            "elements": [
+              {
+                "kind": "plate",
+                "box": [
+                  0.816807,
+                  0.18,
+                  0.955,
+                  0.2307
+                ],
+                "fill": "#FBF9F4",
+                "border": "#77736A",
+                "border_width": 0.0025
+              },
+              {
+                "kind": "text",
+                "text": "Illustrative model",
+                "size": 0.03,
+                "color": "#4C4A44",
+                "center": [
+                  0.885904,
+                  0.20535
+                ],
+                "box": [
+                  0.816807,
+                  0.18,
+                  0.955,
+                  0.2307
+                ]
+              }
+            ],
+            "boxes": [
+              [
+                0.816807,
+                0.18,
+                0.955,
+                0.2307
+              ]
+            ],
+            "segments": []
+          },
+          {
+            "id": "B17_flyer",
+            "type": "COMPONENT_LABEL",
+            "appear": 2.9167,
+            "disappear": 15.4583,
             "claim_id": null,
             "text": "Flying buttress",
             "style": null,
@@ -7064,13 +7809,13 @@
             "anchors": [
               {
                 "world": [
-                  10.83219,
+                  11.27079,
                   -0.55,
-                  33.56514
+                  33.12126
                 ],
                 "screen": [
-                  0.532552,
-                  0.627315
+                  0.485677,
+                  0.68287
                 ],
                 "point": "CENTER",
                 "component_ids": [
@@ -7082,10 +7827,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.460243,
-                  0.666895,
-                  0.604861,
-                  0.727735
+                  0.413368,
+                  0.78245,
+                  0.557986,
+                  0.84329
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -7097,26 +7842,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.532552,
-                  0.697315
+                  0.485677,
+                  0.81287
                 ],
                 "box": [
-                  0.460243,
-                  0.666895,
-                  0.604861,
-                  0.727735
+                  0.413368,
+                  0.78245,
+                  0.557986,
+                  0.84329
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.532552,
-                    0.666895
+                    0.485677,
+                    0.78245
                   ],
                   [
-                    0.532552,
-                    0.627315
+                    0.485677,
+                    0.68287
                   ]
                 ],
                 "width": 0.0098,
@@ -7128,12 +7873,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.532552,
-                    0.666895
+                    0.485677,
+                    0.78245
                   ],
                   [
-                    0.532552,
-                    0.627315
+                    0.485677,
+                    0.68287
                   ]
                 ],
                 "width": 0.0028,
@@ -7143,8 +7888,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.532552,
-                  0.627315
+                  0.485677,
+                  0.68287
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -7152,201 +7897,30 @@
             ],
             "boxes": [
               [
-                0.460243,
-                0.666895,
-                0.604861,
-                0.727735
+                0.413368,
+                0.78245,
+                0.557986,
+                0.84329
               ]
             ],
             "segments": [
               [
                 [
-                  0.532552,
-                  0.666895
+                  0.485677,
+                  0.78245
                 ],
                 [
-                  0.532552,
-                  0.627315
+                  0.485677,
+                  0.68287
                 ]
               ]
             ]
           },
           {
-            "id": "B17_note",
-            "type": "NOTE",
-            "appear": 4.9583,
-            "disappear": 21.5,
-            "claim_id": null,
-            "text": "Illustrative model, conceptual path",
-            "style": null,
-            "force": null,
-            "direction": null,
-            "anchors": [],
-            "elements": [
-              {
-                "kind": "plate",
-                "box": [
-                  0.045,
-                  0.8366,
-                  0.306941,
-                  0.8873
-                ],
-                "fill": "#FBF9F4",
-                "border": "#77736A",
-                "border_width": 0.0025
-              },
-              {
-                "kind": "text",
-                "text": "Illustrative model, conceptual path",
-                "size": 0.03,
-                "color": "#4C4A44",
-                "center": [
-                  0.17597,
-                  0.86195
-                ],
-                "box": [
-                  0.045,
-                  0.8366,
-                  0.306941,
-                  0.8873
-                ]
-              }
-            ],
-            "boxes": [
-              [
-                0.045,
-                0.8366,
-                0.306941,
-                0.8873
-              ]
-            ],
-            "segments": []
-          },
-          {
-            "id": "B17_pier",
-            "type": "COMPONENT_LABEL",
-            "appear": 4.9583,
-            "disappear": 21.5,
-            "claim_id": null,
-            "text": "Pier buttress",
-            "style": null,
-            "force": null,
-            "direction": null,
-            "anchors": [
-              {
-                "world": [
-                  16.8842,
-                  -0.95,
-                  14.21754
-                ],
-                "screen": [
-                  0.56901,
-                  0.391204
-                ],
-                "point": "CENTER",
-                "component_ids": [
-                  "gothic_cathedral_section_pier_buttress_east0"
-                ]
-              }
-            ],
-            "elements": [
-              {
-                "kind": "plate",
-                "box": [
-                  0.602605,
-                  0.360784,
-                  0.726665,
-                  0.421624
-                ],
-                "fill": "#FBF9F4",
-                "border": "#77736A",
-                "border_width": 0.0025
-              },
-              {
-                "kind": "text",
-                "text": "Pier buttress",
-                "size": 0.036,
-                "color": "#24231F",
-                "center": [
-                  0.664635,
-                  0.391204
-                ],
-                "box": [
-                  0.602605,
-                  0.360784,
-                  0.726665,
-                  0.421624
-                ]
-              },
-              {
-                "kind": "line",
-                "points": [
-                  [
-                    0.602605,
-                    0.391204
-                  ],
-                  [
-                    0.56901,
-                    0.391204
-                  ]
-                ],
-                "width": 0.0098,
-                "color": "#FBF9F4",
-                "dash": null,
-                "halo": true
-              },
-              {
-                "kind": "line",
-                "points": [
-                  [
-                    0.602605,
-                    0.391204
-                  ],
-                  [
-                    0.56901,
-                    0.391204
-                  ]
-                ],
-                "width": 0.0028,
-                "color": "#3B3A36",
-                "dash": null
-              },
-              {
-                "kind": "dot",
-                "center": [
-                  0.56901,
-                  0.391204
-                ],
-                "radius": 0.0065,
-                "color": "#3B3A36"
-              }
-            ],
-            "boxes": [
-              [
-                0.602605,
-                0.360784,
-                0.726665,
-                0.421624
-              ]
-            ],
-            "segments": [
-              [
-                [
-                  0.602605,
-                  0.391204
-                ],
-                [
-                  0.56901,
-                  0.391204
-                ]
-              ]
-            ]
-          },
-          {
-            "id": "B17_path",
+            "id": "B17_path1",
             "type": "CONCEPTUAL_LOAD_PATH",
-            "appear": 4.9583,
-            "disappear": 21.5,
+            "appear": 6.7917,
+            "disappear": 15.4583,
             "claim_id": "CLM_152",
             "text": null,
             "style": "LOAD",
@@ -7355,13 +7929,13 @@
             "anchors": [
               {
                 "world": [
-                  5.67274,
+                  5.8547,
                   -0.27,
-                  33.66224
+                  32.64404
                 ],
                 "screen": [
-                  0.501302,
-                  0.631944
+                  0.38151,
+                  0.668981
                 ],
                 "point": "BOTTOM_RIGHT",
                 "component_ids": [
@@ -7370,47 +7944,17 @@
               },
               {
                 "world": [
-                  10.83219,
+                  8.17346,
                   -0.55,
-                  33.56514
+                  34.9751
                 ],
                 "screen": [
-                  0.532552,
-                  0.627315
+                  0.425781,
+                  0.747685
                 ],
-                "point": "CENTER",
+                "point": "TOP_LEFT",
                 "component_ids": [
                   "gothic_cathedral_section_flying_buttress_east0"
-                ]
-              },
-              {
-                "world": [
-                  17.30377,
-                  -0.95,
-                  26.98213
-                ],
-                "screen": [
-                  0.571615,
-                  0.543981
-                ],
-                "point": "TOP",
-                "component_ids": [
-                  "gothic_cathedral_section_pier_buttress_east0"
-                ]
-              },
-              {
-                "world": [
-                  17.30377,
-                  -0.95,
-                  1.10869
-                ],
-                "screen": [
-                  0.571615,
-                  0.233796
-                ],
-                "point": "BOTTOM",
-                "component_ids": [
-                  "gothic_cathedral_section_pier_buttress_east0"
                 ]
               }
             ],
@@ -7419,20 +7963,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.501302,
-                    0.631944
+                    0.38151,
+                    0.668981
                   ],
                   [
-                    0.532552,
-                    0.627315
-                  ],
-                  [
-                    0.571615,
-                    0.543981
-                  ],
-                  [
-                    0.571615,
-                    0.233796
+                    0.425781,
+                    0.747685
                   ]
                 ],
                 "width": 0.0125,
@@ -7444,20 +7980,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.501302,
-                    0.631944
+                    0.38151,
+                    0.668981
                   ],
                   [
-                    0.532552,
-                    0.627315
-                  ],
-                  [
-                    0.571615,
-                    0.543981
-                  ],
-                  [
-                    0.571615,
-                    0.233796
+                    0.425781,
+                    0.747685
                   ]
                 ],
                 "width": 0.0055,
@@ -7470,12 +7998,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.5088408497051695,
-                  0.6308272852708726
+                  0.41782604871165135,
+                  0.7335428643762691
                 ],
                 "tip": [
-                  0.5200520000000001,
-                  0.6291665999999999
+                  0.425781,
+                  0.747685
                 ],
                 "width": 0.0,
                 "head_length": 0.0284,
@@ -7486,74 +8014,12 @@
               {
                 "kind": "arrow",
                 "tail": [
-                  0.5088408497051695,
-                  0.6308272852708726
+                  0.41782604871165135,
+                  0.7335428643762691
                 ],
                 "tip": [
-                  0.5200520000000001,
-                  0.6291665999999999
-                ],
-                "width": 0.0,
-                "head_length": 0.02,
-                "head_width": 0.02,
-                "color": "#C25110"
-              },
-              {
-                "kind": "arrow",
-                "tail": [
-                  0.5487877051020558,
-                  0.5926789953671064
-                ],
-                "tip": [
-                  0.5559898,
-                  0.5773146
-                ],
-                "width": 0.0,
-                "head_length": 0.0284,
-                "head_width": 0.0305,
-                "color": "#FBF9F4",
-                "halo": true
-              },
-              {
-                "kind": "arrow",
-                "tail": [
-                  0.5487877051020558,
-                  0.5926789953671064
-                ],
-                "tip": [
-                  0.5559898,
-                  0.5773146
-                ],
-                "width": 0.0,
-                "head_length": 0.02,
-                "head_width": 0.02,
-                "color": "#C25110"
-              },
-              {
-                "kind": "arrow",
-                "tail": [
-                  0.571615,
-                  0.253796
-                ],
-                "tip": [
-                  0.571615,
-                  0.233796
-                ],
-                "width": 0.0,
-                "head_length": 0.0284,
-                "head_width": 0.0305,
-                "color": "#FBF9F4",
-                "halo": true
-              },
-              {
-                "kind": "arrow",
-                "tail": [
-                  0.571615,
-                  0.253796
-                ],
-                "tip": [
-                  0.571615,
-                  0.233796
+                  0.425781,
+                  0.747685
                 ],
                 "width": 0.0,
                 "head_length": 0.02,
@@ -7565,60 +8031,354 @@
             "segments": [
               [
                 [
-                  0.501302,
-                  0.631944
+                  0.38151,
+                  0.668981
                 ],
                 [
-                  0.532552,
-                  0.627315
-                ]
-              ],
-              [
-                [
-                  0.532552,
-                  0.627315
-                ],
-                [
-                  0.571615,
-                  0.543981
-                ]
-              ],
-              [
-                [
-                  0.571615,
-                  0.543981
-                ],
-                [
-                  0.571615,
-                  0.233796
+                  0.425781,
+                  0.747685
                 ]
               ]
             ]
           },
           {
-            "id": "B17_pinnacle",
+            "id": "B17_path2",
+            "type": "CONCEPTUAL_LOAD_PATH",
+            "appear": 10.0417,
+            "disappear": 15.4583,
+            "claim_id": "CLM_152",
+            "text": null,
+            "style": "LOAD",
+            "force": null,
+            "direction": null,
+            "anchors": [
+              {
+                "world": [
+                  8.17346,
+                  -0.55,
+                  34.9751
+                ],
+                "screen": [
+                  0.425781,
+                  0.747685
+                ],
+                "point": "TOP_LEFT",
+                "component_ids": [
+                  "gothic_cathedral_section_flying_buttress_east0"
+                ]
+              },
+              {
+                "world": [
+                  11.00146,
+                  -0.55,
+                  33.38768
+                ],
+                "screen": [
+                  0.480469,
+                  0.69213
+                ],
+                "point": "CENTER",
+                "component_ids": [
+                  "gothic_cathedral_section_flying_buttress_east0"
+                ]
+              },
+              {
+                "world": [
+                  16.83417,
+                  -0.95,
+                  31.19033
+                ],
+                "screen": [
+                  0.592448,
+                  0.613426
+                ],
+                "point": "TOP",
+                "component_ids": [
+                  "gothic_cathedral_section_pier_buttress_east0"
+                ]
+              }
+            ],
+            "elements": [
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.425781,
+                    0.747685
+                  ],
+                  [
+                    0.480469,
+                    0.69213
+                  ],
+                  [
+                    0.592448,
+                    0.613426
+                  ]
+                ],
+                "width": 0.0125,
+                "color": "#FBF9F4",
+                "dash": null,
+                "halo": true
+              },
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.425781,
+                    0.747685
+                  ],
+                  [
+                    0.480469,
+                    0.69213
+                  ],
+                  [
+                    0.592448,
+                    0.613426
+                  ]
+                ],
+                "width": 0.0055,
+                "color": "#C25110",
+                "dash": [
+                  0.02,
+                  0.011
+                ]
+              },
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.4488260186252082,
+                  0.7242746355741032
+                ],
+                "tip": [
+                  0.4585938,
+                  0.714352
+                ],
+                "width": 0.0,
+                "head_length": 0.0284,
+                "head_width": 0.0305,
+                "color": "#FBF9F4",
+                "halo": true
+              },
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.4488260186252082,
+                  0.7242746355741032
+                ],
+                "tip": [
+                  0.4585938,
+                  0.714352
+                ],
+                "width": 0.0,
+                "head_length": 0.02,
+                "head_width": 0.02,
+                "color": "#C25110"
+              },
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.5819859493269078,
+                  0.6207792111929473
+                ],
+                "tip": [
+                  0.592448,
+                  0.613426
+                ],
+                "width": 0.0,
+                "head_length": 0.0284,
+                "head_width": 0.0305,
+                "color": "#FBF9F4",
+                "halo": true
+              },
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.5819859493269078,
+                  0.6207792111929473
+                ],
+                "tip": [
+                  0.592448,
+                  0.613426
+                ],
+                "width": 0.0,
+                "head_length": 0.02,
+                "head_width": 0.02,
+                "color": "#C25110"
+              }
+            ],
+            "boxes": [],
+            "segments": [
+              [
+                [
+                  0.425781,
+                  0.747685
+                ],
+                [
+                  0.480469,
+                  0.69213
+                ]
+              ],
+              [
+                [
+                  0.480469,
+                  0.69213
+                ],
+                [
+                  0.592448,
+                  0.613426
+                ]
+              ]
+            ]
+          },
+          {
+            "id": "B17_path3",
+            "type": "CONCEPTUAL_LOAD_PATH",
+            "appear": 12.25,
+            "disappear": 15.4583,
+            "claim_id": "CLM_152",
+            "text": null,
+            "style": "LOAD",
+            "force": null,
+            "direction": null,
+            "anchors": [
+              {
+                "world": [
+                  16.83417,
+                  -0.95,
+                  31.19033
+                ],
+                "screen": [
+                  0.592448,
+                  0.613426
+                ],
+                "point": "TOP",
+                "component_ids": [
+                  "gothic_cathedral_section_pier_buttress_east0"
+                ]
+              },
+              {
+                "world": [
+                  16.83417,
+                  -0.95,
+                  13.71306
+                ],
+                "screen": [
+                  0.592448,
+                  0.011574
+                ],
+                "point": "BOTTOM",
+                "component_ids": [
+                  "gothic_cathedral_section_pier_buttress_east0"
+                ]
+              }
+            ],
+            "elements": [
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.592448,
+                    0.613426
+                  ],
+                  [
+                    0.592448,
+                    0.011574
+                  ]
+                ],
+                "width": 0.0125,
+                "color": "#FBF9F4",
+                "dash": null,
+                "halo": true
+              },
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.592448,
+                    0.613426
+                  ],
+                  [
+                    0.592448,
+                    0.011574
+                  ]
+                ],
+                "width": 0.0055,
+                "color": "#C25110",
+                "dash": [
+                  0.02,
+                  0.011
+                ]
+              },
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.592448,
+                  0.03157399999999997
+                ],
+                "tip": [
+                  0.592448,
+                  0.011573999999999973
+                ],
+                "width": 0.0,
+                "head_length": 0.0284,
+                "head_width": 0.0305,
+                "color": "#FBF9F4",
+                "halo": true
+              },
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.592448,
+                  0.03157399999999997
+                ],
+                "tip": [
+                  0.592448,
+                  0.011573999999999973
+                ],
+                "width": 0.0,
+                "head_length": 0.02,
+                "head_width": 0.02,
+                "color": "#C25110"
+              }
+            ],
+            "boxes": [],
+            "segments": [
+              [
+                [
+                  0.592448,
+                  0.613426
+                ],
+                [
+                  0.592448,
+                  0.011574
+                ]
+              ]
+            ]
+          },
+          {
+            "id": "B17_pier",
             "type": "COMPONENT_LABEL",
-            "appear": 15.4583,
+            "appear": 12.9167,
             "disappear": 21.5,
             "claim_id": null,
-            "text": "Pinnacle",
+            "text": "Pier buttress",
             "style": null,
             "force": null,
             "direction": null,
             "anchors": [
               {
                 "world": [
-                  15.92664,
-                  -0.684,
-                  33.06225
+                  16.16084,
+                  -0.95,
+                  22.04221
                 ],
                 "screen": [
-                  0.563802,
-                  0.618056
+                  0.579427,
+                  0.298611
                 ],
-                "point": "TOP",
+                "point": "CENTER",
                 "component_ids": [
-                  "gothic_cathedral_section_pinnacle_east0"
+                  "gothic_cathedral_section_pier_buttress_east0"
                 ]
               }
             ],
@@ -7626,10 +8386,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.591846,
-                  0.587636,
-                  0.682008,
-                  0.648476
+                  0.393647,
+                  0.268191,
+                  0.517707,
+                  0.329031
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -7637,30 +8397,30 @@
               },
               {
                 "kind": "text",
-                "text": "Pinnacle",
+                "text": "Pier buttress",
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.636927,
-                  0.618056
+                  0.455677,
+                  0.298611
                 ],
                 "box": [
-                  0.591846,
-                  0.587636,
-                  0.682008,
-                  0.648476
+                  0.393647,
+                  0.268191,
+                  0.517707,
+                  0.329031
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.591846,
-                    0.618056
+                    0.517707,
+                    0.298611
                   ],
                   [
-                    0.563802,
-                    0.618056
+                    0.579427,
+                    0.298611
                   ]
                 ],
                 "width": 0.0098,
@@ -7672,12 +8432,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.591846,
-                    0.618056
+                    0.517707,
+                    0.298611
                   ],
                   [
-                    0.563802,
-                    0.618056
+                    0.579427,
+                    0.298611
                   ]
                 ],
                 "width": 0.0028,
@@ -7687,8 +8447,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.563802,
-                  0.618056
+                  0.579427,
+                  0.298611
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -7696,21 +8456,250 @@
             ],
             "boxes": [
               [
-                0.591846,
-                0.587636,
-                0.682008,
-                0.648476
+                0.393647,
+                0.268191,
+                0.517707,
+                0.329031
               ]
             ],
             "segments": [
               [
                 [
-                  0.591846,
-                  0.618056
+                  0.517707,
+                  0.298611
                 ],
                 [
-                  0.563802,
-                  0.618056
+                  0.579427,
+                  0.298611
+                ]
+              ]
+            ]
+          },
+          {
+            "id": "B17_pinnacle",
+            "type": "COMPONENT_LABEL",
+            "appear": 17.0,
+            "disappear": 21.5,
+            "claim_id": null,
+            "text": "Pinnacle",
+            "style": null,
+            "force": null,
+            "direction": null,
+            "anchors": [
+              {
+                "world": [
+                  15.70833,
+                  -0.48847,
+                  36.78638
+                ],
+                "screen": [
+                  0.571615,
+                  0.80787
+                ],
+                "point": "TOP",
+                "component_ids": [
+                  "gothic_cathedral_section_pinnacle_east0"
+                ]
+              }
+            ],
+            "elements": [
+              {
+                "kind": "plate",
+                "box": [
+                  0.599659,
+                  0.77745,
+                  0.689821,
+                  0.83829
+                ],
+                "fill": "#FBF9F4",
+                "border": "#77736A",
+                "border_width": 0.0025
+              },
+              {
+                "kind": "text",
+                "text": "Pinnacle",
+                "size": 0.036,
+                "color": "#24231F",
+                "center": [
+                  0.64474,
+                  0.80787
+                ],
+                "box": [
+                  0.599659,
+                  0.77745,
+                  0.689821,
+                  0.83829
+                ]
+              },
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.599659,
+                    0.80787
+                  ],
+                  [
+                    0.571615,
+                    0.80787
+                  ]
+                ],
+                "width": 0.0098,
+                "color": "#FBF9F4",
+                "dash": null,
+                "halo": true
+              },
+              {
+                "kind": "line",
+                "points": [
+                  [
+                    0.599659,
+                    0.80787
+                  ],
+                  [
+                    0.571615,
+                    0.80787
+                  ]
+                ],
+                "width": 0.0028,
+                "color": "#3B3A36",
+                "dash": null
+              },
+              {
+                "kind": "dot",
+                "center": [
+                  0.571615,
+                  0.80787
+                ],
+                "radius": 0.0065,
+                "color": "#3B3A36"
+              }
+            ],
+            "boxes": [
+              [
+                0.599659,
+                0.77745,
+                0.689821,
+                0.83829
+              ]
+            ],
+            "segments": [
+              [
+                [
+                  0.599659,
+                  0.80787
+                ],
+                [
+                  0.571615,
+                  0.80787
+                ]
+              ]
+            ]
+          },
+          {
+            "id": "B17_weight",
+            "type": "LOAD_ARROW",
+            "appear": 17.5417,
+            "disappear": 21.5,
+            "claim_id": "CLM_152",
+            "text": "Weight",
+            "style": null,
+            "force": null,
+            "direction": null,
+            "anchors": [
+              {
+                "world": [
+                  15.72888,
+                  -0.684,
+                  35.05585
+                ],
+                "screen": [
+                  0.571615,
+                  0.747685
+                ],
+                "point": "TOP",
+                "component_ids": [
+                  "gothic_cathedral_section_pinnacle_east0"
+                ]
+              }
+            ],
+            "elements": [
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.571615,
+                  0.838685
+                ],
+                "tip": [
+                  0.571615,
+                  0.753685
+                ],
+                "width": 0.0135,
+                "head_length": 0.0324,
+                "head_width": 0.0345,
+                "color": "#FBF9F4",
+                "halo": true
+              },
+              {
+                "kind": "arrow",
+                "tail": [
+                  0.571615,
+                  0.838685
+                ],
+                "tip": [
+                  0.571615,
+                  0.753685
+                ],
+                "width": 0.0065,
+                "head_length": 0.024,
+                "head_width": 0.024,
+                "color": "#C25110"
+              },
+              {
+                "kind": "plate",
+                "box": [
+                  0.461939,
+                  0.818265,
+                  0.535041,
+                  0.879105
+                ],
+                "fill": "#FBF9F4",
+                "border": "#77736A",
+                "border_width": 0.0025
+              },
+              {
+                "kind": "text",
+                "text": "Weight",
+                "size": 0.036,
+                "color": "#24231F",
+                "center": [
+                  0.49849,
+                  0.848685
+                ],
+                "box": [
+                  0.461939,
+                  0.818265,
+                  0.535041,
+                  0.879105
+                ]
+              }
+            ],
+            "boxes": [
+              [
+                0.461939,
+                0.818265,
+                0.535041,
+                0.879105
+              ]
+            ],
+            "segments": [
+              [
+                [
+                  0.571615,
+                  0.838685
+                ],
+                [
+                  0.571615,
+                  0.753685
                 ]
               ]
             ]
@@ -7718,6 +8707,13 @@
         ],
         "reserved": []
       },
+      "sound_cues": [
+        {
+          "at_seconds": 17.01,
+          "kind": "STONE_HEAVY",
+          "step": 7
+        }
+      ],
       "start_seconds": 335.208333,
       "beat_ids": [
         "B17"
@@ -7727,114 +8723,19 @@
         "CLM_152"
       ],
       "narration": "The answer stands outside the building: the flying buttress. It is a stone arch that picks up the thrust where it leaves the vault, carries it across the aisle roof, and brings it down to a massive pier buttress. Often a pinnacle on top adds weight, to help stabilize the thrust.",
-      "visual_purpose": "Flyers, pier buttresses and pinnacles lit in turn; a conceptual path follows them to the ground [HOLD_HIGHLIGHT 1/1: hold gothic_cathedral_section, glowing flying_buttress, pier_buttress, pinnacle, aisle_roof from sentence 1]",
+      "visual_purpose": "One flying buttress in profile: it returns in full when named, the path follows the narration from the vault over the aisle roof down the pier buttress, and the pinnacle is set on top when it is named [SEQUENCE 1/1: 1 view(s), 9 timed steps on gothic_cathedral_section: ghost 16, fade_out 8, unghost 1, highlight 1, highlight 1, unghost 1, highlight 1, reveal 1, highlight 1]",
       "editorial": {
         "planned_by": "planner 1.0.0",
         "beat_id": "B17",
         "visual_intent": "EXPLAIN_LOAD_PATH",
-        "strategy": "HOLD_HIGHLIGHT",
+        "strategy": "SEQUENCE",
         "part": [
           1,
           1
         ],
         "evidence_status": "INTERNAL_PREVIEW",
-        "semantic_targets": [
-          "flying_buttress",
-          "pier_buttress",
-          "pinnacle",
-          "aisle_roof"
-        ],
-        "timing_mode": "AUDIO_LOCKED",
-        "visibility_targets": [
-          {
-            "concept": "flying_buttress",
-            "component_ids": [
-              "gothic_cathedral_section_flying_buttress_west0",
-              "gothic_cathedral_section_flying_buttress_east0",
-              "gothic_cathedral_section_flying_buttress_west1",
-              "gothic_cathedral_section_flying_buttress_east1",
-              "gothic_cathedral_section_flying_buttress_west2",
-              "gothic_cathedral_section_flying_buttress_east2",
-              "gothic_cathedral_section_flying_buttress_west3",
-              "gothic_cathedral_section_flying_buttress_east3"
-            ],
-            "pieces": false
-          },
-          {
-            "concept": "pier_buttress",
-            "component_ids": [
-              "gothic_cathedral_section_pier_buttress_west0",
-              "gothic_cathedral_section_pier_buttress_east0",
-              "gothic_cathedral_section_pier_buttress_west1",
-              "gothic_cathedral_section_pier_buttress_east1",
-              "gothic_cathedral_section_pier_buttress_west2",
-              "gothic_cathedral_section_pier_buttress_east2",
-              "gothic_cathedral_section_pier_buttress_west3",
-              "gothic_cathedral_section_pier_buttress_east3"
-            ],
-            "pieces": false
-          },
-          {
-            "concept": "pinnacle",
-            "component_ids": [
-              "gothic_cathedral_section_pinnacle_west0",
-              "gothic_cathedral_section_pinnacle_east0",
-              "gothic_cathedral_section_pinnacle_west1",
-              "gothic_cathedral_section_pinnacle_east1",
-              "gothic_cathedral_section_pinnacle_west2",
-              "gothic_cathedral_section_pinnacle_east2",
-              "gothic_cathedral_section_pinnacle_west3",
-              "gothic_cathedral_section_pinnacle_east3"
-            ],
-            "pieces": false
-          },
-          {
-            "concept": "aisle_roof",
-            "component_ids": [
-              "gothic_cathedral_section_aisle_roof_west",
-              "gothic_cathedral_section_aisle_roof_east"
-            ],
-            "pieces": false
-          }
-        ],
-        "visibility_estimate": [
-          {
-            "concept": "flying_buttress",
-            "label": "highlight_peak",
-            "frame": 314,
-            "visible_share": 0.3974,
-            "core_area": 0.00029,
-            "visible_area": 0.00289,
-            "ok": true
-          },
-          {
-            "concept": "pier_buttress",
-            "label": "highlight_peak",
-            "frame": 314,
-            "visible_share": 0.7305,
-            "core_area": 0.04374,
-            "visible_area": 0.05425,
-            "ok": true
-          },
-          {
-            "concept": "pinnacle",
-            "label": "highlight_peak",
-            "frame": 314,
-            "visible_share": 0.8722,
-            "core_area": 0.00039,
-            "visible_area": 0.00559,
-            "ok": true
-          },
-          {
-            "concept": "aisle_roof",
-            "label": "highlight_peak",
-            "frame": 314,
-            "visible_share": 0.2857,
-            "core_area": 0.00096,
-            "visible_area": 0.0026,
-            "ok": true
-          }
-        ]
+        "semantic_targets": [],
+        "timing_mode": "AUDIO_LOCKED"
       }
     },
     {
@@ -11792,9 +12693,66 @@
         "state": "gothic_cathedral_section",
         "highlight": {
           "components": [
-            "gothic_cathedral_section_vault_web_b1",
-            "gothic_cathedral_section_vault_web_b2",
-            "gothic_cathedral_section_vault_web_b3"
+            "gothic_cathedral_section_vault_web_b1_b1",
+            "gothic_cathedral_section_vault_web_b1_b2",
+            "gothic_cathedral_section_vault_web_b1_b3",
+            "gothic_cathedral_section_vault_web_b1_b4",
+            "gothic_cathedral_section_vault_web_b1_b5",
+            "gothic_cathedral_section_vault_web_b1_e1",
+            "gothic_cathedral_section_vault_web_b1_e2",
+            "gothic_cathedral_section_vault_web_b1_e3",
+            "gothic_cathedral_section_vault_web_b1_e4",
+            "gothic_cathedral_section_vault_web_b1_e5",
+            "gothic_cathedral_section_vault_web_b1_f1",
+            "gothic_cathedral_section_vault_web_b1_f2",
+            "gothic_cathedral_section_vault_web_b1_f3",
+            "gothic_cathedral_section_vault_web_b1_f4",
+            "gothic_cathedral_section_vault_web_b1_f5",
+            "gothic_cathedral_section_vault_web_b1_w1",
+            "gothic_cathedral_section_vault_web_b1_w2",
+            "gothic_cathedral_section_vault_web_b1_w3",
+            "gothic_cathedral_section_vault_web_b1_w4",
+            "gothic_cathedral_section_vault_web_b1_w5",
+            "gothic_cathedral_section_vault_web_b2_b1",
+            "gothic_cathedral_section_vault_web_b2_b2",
+            "gothic_cathedral_section_vault_web_b2_b3",
+            "gothic_cathedral_section_vault_web_b2_b4",
+            "gothic_cathedral_section_vault_web_b2_b5",
+            "gothic_cathedral_section_vault_web_b2_e1",
+            "gothic_cathedral_section_vault_web_b2_e2",
+            "gothic_cathedral_section_vault_web_b2_e3",
+            "gothic_cathedral_section_vault_web_b2_e4",
+            "gothic_cathedral_section_vault_web_b2_e5",
+            "gothic_cathedral_section_vault_web_b2_f1",
+            "gothic_cathedral_section_vault_web_b2_f2",
+            "gothic_cathedral_section_vault_web_b2_f3",
+            "gothic_cathedral_section_vault_web_b2_f4",
+            "gothic_cathedral_section_vault_web_b2_f5",
+            "gothic_cathedral_section_vault_web_b2_w1",
+            "gothic_cathedral_section_vault_web_b2_w2",
+            "gothic_cathedral_section_vault_web_b2_w3",
+            "gothic_cathedral_section_vault_web_b2_w4",
+            "gothic_cathedral_section_vault_web_b2_w5",
+            "gothic_cathedral_section_vault_web_b3_b1",
+            "gothic_cathedral_section_vault_web_b3_b2",
+            "gothic_cathedral_section_vault_web_b3_b3",
+            "gothic_cathedral_section_vault_web_b3_b4",
+            "gothic_cathedral_section_vault_web_b3_b5",
+            "gothic_cathedral_section_vault_web_b3_e1",
+            "gothic_cathedral_section_vault_web_b3_e2",
+            "gothic_cathedral_section_vault_web_b3_e3",
+            "gothic_cathedral_section_vault_web_b3_e4",
+            "gothic_cathedral_section_vault_web_b3_e5",
+            "gothic_cathedral_section_vault_web_b3_f1",
+            "gothic_cathedral_section_vault_web_b3_f2",
+            "gothic_cathedral_section_vault_web_b3_f3",
+            "gothic_cathedral_section_vault_web_b3_f4",
+            "gothic_cathedral_section_vault_web_b3_f5",
+            "gothic_cathedral_section_vault_web_b3_w1",
+            "gothic_cathedral_section_vault_web_b3_w2",
+            "gothic_cathedral_section_vault_web_b3_w3",
+            "gothic_cathedral_section_vault_web_b3_w4",
+            "gothic_cathedral_section_vault_web_b3_w5"
           ],
           "start_seconds": 0.6,
           "rise_seconds": 0.4,
@@ -11943,9 +12901,66 @@
           {
             "concept": "vault_web",
             "component_ids": [
-              "gothic_cathedral_section_vault_web_b1",
-              "gothic_cathedral_section_vault_web_b2",
-              "gothic_cathedral_section_vault_web_b3"
+              "gothic_cathedral_section_vault_web_b1_f1",
+              "gothic_cathedral_section_vault_web_b1_f2",
+              "gothic_cathedral_section_vault_web_b1_f3",
+              "gothic_cathedral_section_vault_web_b1_f4",
+              "gothic_cathedral_section_vault_web_b1_f5",
+              "gothic_cathedral_section_vault_web_b1_b1",
+              "gothic_cathedral_section_vault_web_b1_b2",
+              "gothic_cathedral_section_vault_web_b1_b3",
+              "gothic_cathedral_section_vault_web_b1_b4",
+              "gothic_cathedral_section_vault_web_b1_b5",
+              "gothic_cathedral_section_vault_web_b1_w1",
+              "gothic_cathedral_section_vault_web_b1_w2",
+              "gothic_cathedral_section_vault_web_b1_w3",
+              "gothic_cathedral_section_vault_web_b1_w4",
+              "gothic_cathedral_section_vault_web_b1_w5",
+              "gothic_cathedral_section_vault_web_b1_e1",
+              "gothic_cathedral_section_vault_web_b1_e2",
+              "gothic_cathedral_section_vault_web_b1_e3",
+              "gothic_cathedral_section_vault_web_b1_e4",
+              "gothic_cathedral_section_vault_web_b1_e5",
+              "gothic_cathedral_section_vault_web_b2_f1",
+              "gothic_cathedral_section_vault_web_b2_f2",
+              "gothic_cathedral_section_vault_web_b2_f3",
+              "gothic_cathedral_section_vault_web_b2_f4",
+              "gothic_cathedral_section_vault_web_b2_f5",
+              "gothic_cathedral_section_vault_web_b2_b1",
+              "gothic_cathedral_section_vault_web_b2_b2",
+              "gothic_cathedral_section_vault_web_b2_b3",
+              "gothic_cathedral_section_vault_web_b2_b4",
+              "gothic_cathedral_section_vault_web_b2_b5",
+              "gothic_cathedral_section_vault_web_b2_w1",
+              "gothic_cathedral_section_vault_web_b2_w2",
+              "gothic_cathedral_section_vault_web_b2_w3",
+              "gothic_cathedral_section_vault_web_b2_w4",
+              "gothic_cathedral_section_vault_web_b2_w5",
+              "gothic_cathedral_section_vault_web_b2_e1",
+              "gothic_cathedral_section_vault_web_b2_e2",
+              "gothic_cathedral_section_vault_web_b2_e3",
+              "gothic_cathedral_section_vault_web_b2_e4",
+              "gothic_cathedral_section_vault_web_b2_e5",
+              "gothic_cathedral_section_vault_web_b3_f1",
+              "gothic_cathedral_section_vault_web_b3_f2",
+              "gothic_cathedral_section_vault_web_b3_f3",
+              "gothic_cathedral_section_vault_web_b3_f4",
+              "gothic_cathedral_section_vault_web_b3_f5",
+              "gothic_cathedral_section_vault_web_b3_b1",
+              "gothic_cathedral_section_vault_web_b3_b2",
+              "gothic_cathedral_section_vault_web_b3_b3",
+              "gothic_cathedral_section_vault_web_b3_b4",
+              "gothic_cathedral_section_vault_web_b3_b5",
+              "gothic_cathedral_section_vault_web_b3_w1",
+              "gothic_cathedral_section_vault_web_b3_w2",
+              "gothic_cathedral_section_vault_web_b3_w3",
+              "gothic_cathedral_section_vault_web_b3_w4",
+              "gothic_cathedral_section_vault_web_b3_w5",
+              "gothic_cathedral_section_vault_web_b3_e1",
+              "gothic_cathedral_section_vault_web_b3_e2",
+              "gothic_cathedral_section_vault_web_b3_e3",
+              "gothic_cathedral_section_vault_web_b3_e4",
+              "gothic_cathedral_section_vault_web_b3_e5"
             ],
             "pieces": false
           }
@@ -17744,9 +18759,12 @@
             "gothic_cathedral_section_flying_buttress_west1",
             "gothic_cathedral_section_flying_buttress_west2",
             "gothic_cathedral_section_flying_buttress_west3",
-            "gothic_cathedral_section_rib_diagonal_b1",
-            "gothic_cathedral_section_rib_diagonal_b2",
-            "gothic_cathedral_section_rib_diagonal_b3",
+            "gothic_cathedral_section_rib_diagonal_b1a",
+            "gothic_cathedral_section_rib_diagonal_b1b",
+            "gothic_cathedral_section_rib_diagonal_b2a",
+            "gothic_cathedral_section_rib_diagonal_b2b",
+            "gothic_cathedral_section_rib_diagonal_b3a",
+            "gothic_cathedral_section_rib_diagonal_b3b",
             "gothic_cathedral_section_rib_transverse_0",
             "gothic_cathedral_section_rib_transverse_1",
             "gothic_cathedral_section_rib_transverse_2",
@@ -17854,9 +18872,12 @@
           {
             "concept": "rib",
             "component_ids": [
-              "gothic_cathedral_section_rib_diagonal_b1",
-              "gothic_cathedral_section_rib_diagonal_b2",
-              "gothic_cathedral_section_rib_diagonal_b3",
+              "gothic_cathedral_section_rib_diagonal_b1a",
+              "gothic_cathedral_section_rib_diagonal_b1b",
+              "gothic_cathedral_section_rib_diagonal_b2a",
+              "gothic_cathedral_section_rib_diagonal_b2b",
+              "gothic_cathedral_section_rib_diagonal_b3a",
+              "gothic_cathedral_section_rib_diagonal_b3b",
               "gothic_cathedral_section_rib_transverse_0",
               "gothic_cathedral_section_rib_transverse_1",
               "gothic_cathedral_section_rib_transverse_2",

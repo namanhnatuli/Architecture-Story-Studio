@@ -622,6 +622,205 @@ def plan_camera_move(plan, cfg, camera):
     return last
 
 
+# ---------------------------------------------------------------- SEQUENCE
+# One model, several timed steps keyed to the narration: the camera eases between framings of the same preset (pan and
+# zoom, never a turn), parts fade to a see-through ghost and back, fade out, arrive (fade in while landing on their rest
+# transform) and glow, each pulse on its own parts. Timings are shot-local seconds (the planner resolves sentences and
+# words). The camera keys come from the views' fits, computed by the caller from the rest geometry.
+SEQUENCE_DEFAULTS = {"template": "SEQUENCE", "state": None, "duration_seconds": None, "views": None, "steps": None}
+VIEW_DEFAULTS = {"start_seconds": 0.0, "move_seconds": 0.0, "focus": None, "easing": "SMOOTH", "margin": None}
+STEP_DEFAULTS = {
+    "GHOST": {"components": None, "start_seconds": None, "seconds": 1.0, "transparency": 0.85},
+    "UNGHOST": {"components": None, "start_seconds": None, "seconds": 1.0},
+    "FADE_OUT": {"components": None, "start_seconds": None, "seconds": 1.0},
+    "FADE_IN": {"components": None, "start_seconds": None, "seconds": 1.0},
+    "REVEAL": {"components": None, "start_seconds": None, "seconds": 1.2, "direction": "FROM_ABOVE", "distance": 3.0,
+               "stagger_seconds": 0.0, "easing": "EASE_OUT", "fade_end": 0.6, "sound": None},
+    "HIGHLIGHT": {"components": None, "start_seconds": None, "rise_seconds": 0.3, "hold_seconds": 1.0,
+                  "fall_seconds": 0.4, "strength": 0.6},
+}
+SOUNDS = (None, "STONE", "STONE_HEAVY")
+SEQUENCE_TRANSPARENCY_EPS = 1e-6
+
+
+def sequence_steps(cfg, where="SEQUENCE"):
+    """Validated steps of a SEQUENCE config, each merged with its defaults ({"do": ...} + options)."""
+    out = []
+    for i, s in enumerate(cfg.get("steps") or []):
+        w = f"{where}.steps[{i}]"
+        if not isinstance(s, dict) or s.get("do") not in STEP_DEFAULTS:
+            raise PlanError(f"{w}: 'do' must be one of {', '.join(STEP_DEFAULTS)}")
+        c = merge_config(dict(STEP_DEFAULTS[s["do"]], do=s["do"]), s, w)
+        if not isinstance(c["components"], list) or not c["components"]:
+            raise PlanError(f"{w}: components must be a non-empty list of component ids")
+        _number(c, "start_seconds", w)
+        for key in ("seconds", "rise_seconds", "hold_seconds", "fall_seconds", "stagger_seconds", "distance"):
+            if key in c:
+                _number(c, key, w)
+        if c["do"] == "GHOST":
+            _number(c, "transparency", w, positive=True, maximum=0.95)
+        if c["do"] == "HIGHLIGHT":
+            _number(c, "strength", w, positive=True, maximum=1.0)
+        if c["do"] == "REVEAL":
+            _number(c, "fade_end", w, positive=True, maximum=1.0)
+            if c["sound"] not in SOUNDS:
+                raise PlanError(f"{w}: sound must be one of {SOUNDS}")
+            if c["seconds"] <= 0:
+                raise PlanError(f"{w}: a REVEAL needs seconds > 0")
+        elif c["do"] != "HIGHLIGHT" and c["seconds"] <= 0 and c["start_seconds"] > 0:
+            raise PlanError(f"{w}: an instant {c['do']} is only allowed at the start of the shot (start_seconds 0)")
+        out.append(c)
+    return out
+
+
+def sequence_views(cfg, where="SEQUENCE"):
+    views = cfg.get("views") or [{}]
+    out = []
+    for i, v in enumerate(views):
+        c = merge_config(VIEW_DEFAULTS, v, f"{where}.views[{i}]", free_form=("focus",))
+        _number(c, "start_seconds", f"{where}.views[{i}]")
+        _number(c, "move_seconds", f"{where}.views[{i}]")
+        if i == 0 and (c["start_seconds"] or c["move_seconds"]):
+            raise PlanError(f"{where}.views[0] is the opening framing: start_seconds and move_seconds must be 0")
+        if i > 0 and c["move_seconds"] <= 0:
+            raise PlanError(f"{where}.views[{i}]: the camera eases between views (move_seconds > 0); cut to a new shot "
+                            "for an instant change")
+        if c["focus"] is not None and (not isinstance(c["focus"], list) or not c["focus"]):
+            raise PlanError(f"{where}.views[{i}].focus must be null (every built part) or a list of component ids")
+        if c["easing"] not in EASINGS:
+            raise PlanError(f"{where}.views[{i}]: unknown easing {c['easing']!r}")
+        if i > 0:
+            prev = out[-1]
+            if c["start_seconds"] < prev["start_seconds"] + prev["move_seconds"] - 1e-9:
+                raise PlanError(f"{where}.views[{i}] starts before the previous camera move ends")
+        out.append(c)
+    return out
+
+
+def plan_sequence(plan, components, cfg, camera):
+    """Keys for a SEQUENCE shot. components: {id: Component} the steps may name (the shown state + shared parts);
+    camera: {"name", "views": [{"location", "ortho_scale"}, ...]} (one fit per view, same basis)."""
+    c = merge_config(SEQUENCE_DEFAULTS, cfg, "SEQUENCE", free_form=("views", "steps"))
+    views, steps = sequence_views(c), sequence_steps(c)
+    last = plan.frame_count
+    fits = camera.get("views") or [camera.get("start")] * len(views)
+    if len(fits) != len(views):
+        raise PlanError(f"SEQUENCE: {len(views)} views but {len(fits)} camera fits")
+    end = 0.0
+    if len(views) > 1:   # the camera holds each view, then eases to the next
+        name = camera["name"]
+        for channel, key in ((LOC, "location"), (ORTHO, "ortho_scale")):
+            plan.key(name, channel, 1, fits[0][key])
+            for k in range(1, len(views)):
+                v = views[k]
+                f0, f1 = plan.frame(v["start_seconds"]), plan.frame(v["start_seconds"] + v["move_seconds"])
+                if f1 >= last:
+                    raise PlanError(f"SEQUENCE.views[{k}]: timing needs frame {f1 + 1} (the camera move ends at {f1}, "
+                                    f"then settles), the shot has {last}")
+                plan.key(name, channel, f0, fits[k - 1][key], v["easing"])
+                plan.key(name, channel, f1, fits[k][key])
+                plan.markers[f"view_{k}_settled"] = f1
+            plan.key(name, channel, last, fits[-1][key])
+        end = views[-1]["start_seconds"] + views[-1]["move_seconds"]
+    for i, s in enumerate(steps):
+        unknown = [x for x in s["components"] if x not in components]
+        if unknown:
+            raise PlanError(f"SEQUENCE.steps[{i}] ({s['do']}): {unknown} are not parts of the shown state")
+    # transparency: per part, a timeline of (frame0, frame1, target) segments that must not overlap
+    segments, reveals, pulses = {}, [], {}
+    for i, s in enumerate(steps):
+        t0 = s["start_seconds"]
+        if s["do"] == "HIGHLIGHT":
+            t3 = t0 + s["rise_seconds"] + s["hold_seconds"] + s["fall_seconds"]
+            for cid in s["components"]:
+                pulses.setdefault(cid, []).append((t0, t3, s, i))
+            end = max(end, t3)
+            continue
+        groups = [[cid] for cid in s["components"]] if s["do"] == "REVEAL" and s["stagger_seconds"] > 0 \
+            else [list(s["components"])]
+        for gi, group in enumerate(groups):
+            start = t0 + gi * (s["stagger_seconds"] if s["do"] == "REVEAL" else 0.0)
+            stop = start + s["seconds"]
+            target = {"GHOST": s.get("transparency"), "UNGHOST": 0.0, "FADE_OUT": 1.0, "FADE_IN": 0.0, "REVEAL": 0.0}[s["do"]]
+            fade_stop = start + s["seconds"] * s["fade_end"] if s["do"] == "REVEAL" else stop
+            for cid in group:
+                segments.setdefault(cid, []).append((start, fade_stop, target, s["do"], i))
+                if s["do"] == "REVEAL":
+                    reveals.append((cid, start, stop, s, i))
+            end = max(end, stop)
+    if plan.frame(end) > last:
+        raise PlanError(f"SEQUENCE timing needs {end:.2f}s for its last step; the shot has {last / plan.fps:.2f}s")
+    for cid, segs in segments.items():
+        segs.sort()
+        n = components[cid].name
+        first_do = segs[0][3]
+        value = 1.0 if first_do in ("REVEAL", "FADE_IN") else 0.0    # a part that arrives starts unseen
+        plan.key(n, TRANSPARENCY, 1, value)
+        prev_end = -1.0
+        for start, stop, target, do, i in segs:
+            if start < prev_end - 1e-9:
+                raise PlanError(f"SEQUENCE.steps[{i}] ({do}): {cid} is still fading from an earlier step")
+            if do in ("REVEAL", "FADE_IN") and value < 1.0 - SEQUENCE_TRANSPARENCY_EPS:
+                raise PlanError(f"SEQUENCE.steps[{i}] ({do}): {cid} is already visible; only an unseen part can arrive")
+            if do in ("GHOST", "UNGHOST", "FADE_OUT") and value >= 1.0 - SEQUENCE_TRANSPARENCY_EPS:
+                raise PlanError(f"SEQUENCE.steps[{i}] ({do}): {cid} is not visible at that point")
+            f0, f1 = plan.frame(start), plan.frame(stop)
+            if f1 <= f0:   # instant (only at frame 1, checked in sequence_steps)
+                plan.key(n, TRANSPARENCY, 1, target)
+            else:
+                plan.key(n, TRANSPARENCY, max(f0, 1), value, "SMOOTH")
+                plan.key(n, TRANSPARENCY, f1, target)
+            value, prev_end = target, stop
+        plan.key(n, TRANSPARENCY, last, value)
+        # hidden whenever fully transparent (no shadow, no stray dither); visibility changes only between frames
+        previous = None
+        for f in range(1, last + 1):
+            hidden = plan.sample(n, TRANSPARENCY, f)[0] >= 1.0 - SEQUENCE_TRANSPARENCY_EPS
+            if hidden != previous:
+                plan.key(n, HIDE, f, 1.0 if hidden else 0.0, "CONSTANT")
+                previous = hidden
+    center = centroid([components[cid] for cid, *_ in reveals]) if reveals else (0.0, 0.0, 0.0)
+    for cid, start, stop, s, i in reveals:
+        comp = components[cid]
+        direction = resolve_direction(s["direction"], comp, center)
+        begin = _add(comp.location, _mul(direction, float(s["distance"])))
+        f0, f1 = plan.frame(start), plan.frame(stop)
+        hidden_from = f0   # a part seen earlier in the shot (then faded out) moves to its start only once unseen
+        while hidden_from > 1 and plan.sample(comp.name, HIDE, hidden_from - 1)[0] > 0.5:
+            hidden_from -= 1
+        if hidden_from > 1:
+            plan.key(comp.name, LOC, 1, comp.location, "CONSTANT")
+            plan.key(comp.name, LOC, hidden_from, begin, "CONSTANT")
+        else:
+            plan.key(comp.name, LOC, 1, begin)
+        plan.key(comp.name, LOC, f0, begin, s["easing"])
+        plan.key(comp.name, LOC, f1, comp.location)
+        plan.key(comp.name, LOC, last, comp.location)
+        plan.markers[f"reveal_{i}_landed"] = max(plan.markers.get(f"reveal_{i}_landed", 0), f1)
+    if len({cid for cid, *_ in reveals}) != len(reveals):
+        raise PlanError("SEQUENCE: a part arrives twice; fade it out and back in instead")
+    for cid, ps in pulses.items():
+        ps.sort(key=lambda x: x[0])
+        n = components[cid].name
+        plan.key(n, HIGHLIGHT, 1, 0.0)
+        prev = -1.0
+        for t0, t3, s, i in ps:
+            if t0 < prev + 1.0 / plan.fps - 1e-9:
+                raise PlanError(f"SEQUENCE.steps[{i}] (HIGHLIGHT): {cid} is still glowing from an earlier step")
+            f0, f1 = plan.frame(t0), plan.frame(t0 + s["rise_seconds"])
+            f2 = plan.frame(t0 + s["rise_seconds"] + s["hold_seconds"])
+            f3 = plan.frame(t3)
+            plan.key(n, HIGHLIGHT, max(f0, 1), 0.0, "SMOOTH")
+            plan.key(n, HIGHLIGHT, f1, s["strength"], "LINEAR")
+            plan.key(n, HIGHLIGHT, f2, s["strength"], "SMOOTH")
+            plan.key(n, HIGHLIGHT, f3, 0.0)
+            plan.markers[f"highlight_{i}_peak"] = plan.frame(t0 + s["rise_seconds"] + s["hold_seconds"] / 2.0)
+            prev = t3
+        plan.key(n, HIGHLIGHT, last, 0.0)
+    plan.markers.setdefault("middle", (plan.frame_count + 1) // 2)
+    return plan
+
+
 def plan_highlight_only(plan, cfg, defaults, names_for, where):
     """HOLD and SIDE_BY_SIDE: no transforms move; an optional highlight pulse."""
     c = merge_config(defaults, cfg, where)

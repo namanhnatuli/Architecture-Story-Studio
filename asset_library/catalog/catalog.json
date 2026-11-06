@@ -1,6 +1,6 @@
 {
   "schema": "asset_catalog/1",
-  "generated_utc": "2026-11-05T18:04:46.411801+00:00",
+  "generated_utc": "2026-11-06T01:09:08.112275+00:00",
   "generator_version": "1.0.0",
   "assets": [
     {
@@ -1300,7 +1300,7 @@
       },
       "source_config": {
         "path": "asset_library/architecture/cathedrals/cathedral_gothic_section_01.json",
-        "sha256": "d3650d10749aa6da7a55674dfbd7d2f896e6fbe6e3a1e63a08bacf70d1b98571"
+        "sha256": "fd98ce16bc9f959b4d29e7a72cbb2b2683af93a32fab344c3012621660d02309"
       },
       "units": "METRIC",
       "accuracy": "ILLUSTRATIVE",
@@ -1308,8 +1308,8 @@
         "basis": "Illustrative archetype for visual explanation: proportions chosen for legibility; not a reconstruction of Amiens, Beauvais or any building, and not a structural analysis."
       },
       "geometry": {
-        "components": 88,
-        "unique_meshes": 71,
+        "components": 148,
+        "unique_meshes": 131,
         "by_type": {
           "AISLE_ROOF": 2,
           "AISLE_VAULT": 6,
@@ -1320,13 +1320,13 @@
           "NAVE_PIER": 8,
           "PIER_BUTTRESS": 8,
           "PINNACLE": 8,
-          "RIB": 7,
+          "RIB": 10,
           "ROOF": 1,
-          "VAULT_WEB": 3,
+          "VAULT_WEB": 60,
           "WALL": 24
         },
-        "verts": 7744,
-        "faces": 6218,
+        "verts": 10048,
+        "faces": 8330,
         "bbox": [
           [
             -20.1,
@@ -1347,6 +1347,7 @@
       },
       "resolved_parameters": {
         "bay_count": 3,
+        "web_courses": 5,
         "bay_length_m": 7.5,
         "nave_half_width_m": 7.0,
         "aisle_width_m": 7.0,
@@ -1387,7 +1388,8 @@
       },
       "animation_support": [
         "HOLD",
-        "HIGHLIGHT"
+        "HIGHLIGHT",
+        "SEQUENCE"
       ],
       "previews": {
         "preview": [
@@ -1413,33 +1415,33 @@
               "reproducible_build": "PASS",
               "semantic_tags_match_plan": "PASS"
             },
-            "signature": "d6b6cdabc610446173f3abfaa84ac538aeeba671c4a8160c46a9c3baeaa2eeb4",
+            "signature": "b410577019106aea47c43713b1ffa17c3973fb051e8e802aa0aef4aedbe27812",
             "stats": {
-              "build_seconds": 0.065,
-              "objects": 89,
-              "asset_objects": 88,
-              "mesh_datablocks": 72,
-              "asset_mesh_datablocks": 71,
-              "evaluated_verts": 7752
+              "build_seconds": 0.075,
+              "objects": 149,
+              "asset_objects": 148,
+              "mesh_datablocks": 132,
+              "asset_mesh_datablocks": 131,
+              "evaluated_verts": 10056
             },
             "process": {
-              "wall_seconds": 4.2,
-              "peak_rss_mb": 516.7,
-              "peak_memory_footprint_mb": 1886.5,
+              "wall_seconds": 3.9,
+              "peak_rss_mb": 533.0,
+              "peak_memory_footprint_mb": 1900.8,
               "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
             },
             "views": {
               "three_quarter": {
-                "render_seconds": 0.903
+                "render_seconds": 0.862
               },
               "elevation": {
-                "render_seconds": 0.386
+                "render_seconds": 0.357
               },
               "top": {
-                "render_seconds": 0.725
+                "render_seconds": 0.744
               },
               "exploded": {
-                "render_seconds": 0.703
+                "render_seconds": 0.758
               }
             }
           }

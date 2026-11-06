@@ -9,7 +9,7 @@ from planner.planner import is_site_state
 
 SHOT_KEYS = ("id", "duration_seconds", "visual_type", "transition", "camera", "from_state", "to_state",
              "animation", "graphic", "camera_focus", "camera_safe_band", "build_variants", "annotations",
-             "scene_context")
+             "scene_context", "sound_cues")
 
 
 def storyboard(plan):

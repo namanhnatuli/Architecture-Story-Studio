@@ -278,6 +278,32 @@ def _pulse(ids, seconds, m, start=None):
             "fall_seconds": m["fall"], "strength": m["strength"]}
 
 
+def sequence_clock(ctx, preset):
+    """SEQUENCE time references -> shot-local seconds: None (0), a number of seconds, or {"sentence": k} (its start),
+    {"sentence": k, "end": true} (its end), {"sentence": k, "word": w} (the aligned moment w is spoken), each with an
+    optional "offset" in seconds. Sentence and word times are measured on the locked audio."""
+    spans = ctx["sentence_offsets"] or []
+    words = ctx.get("word_offsets") or []
+
+    def when(ref, where):
+        if ref is None:
+            return 0.0
+        if isinstance(ref, (int, float)) and not isinstance(ref, bool):
+            return round(float(ref), 4)
+        if not isinstance(ref, dict) or not isinstance(ref.get("sentence"), int) or not 0 <= ref["sentence"] < len(spans):
+            raise StrategyRejected("INVALID_REQUEST", f"{where}: {ref!r} is not a sentence of the beat (0..{len(spans) - 1})")
+        k = ref["sentence"]
+        t = spans[k][1] if ref.get("end") else spans[k][0]
+        if ref.get("word"):
+            hits = [x for x in (words[k] if k < len(words) else []) if x[0] == T.norm_word(ref["word"])]
+            if not hits:
+                raise StrategyRejected("INVALID_REQUEST", f"{where}: word {ref['word']!r} has no aligned timestamp in "
+                                       f"sentence {k} (run align)")
+            t = hits[int(ref.get("occurrence", 1)) - 1][1]
+        return round(max(0.0, t + float(ref.get("offset", 0.0))), 4)
+    return when
+
+
 def _shot(template, states_kw, animation, n, fps, camera, focus=None, band=0.0):
     shot = {"id": "PLAN", "duration_seconds": n / fps, "visual_type": "BLENDER_3D", "transition": template,
             "camera": camera, "animation": animation, **states_kw}
@@ -297,6 +323,7 @@ class Draft:
         self.extend_hold = None   # REPLACE: rebuild with a longer pre-swap hold once frames are allocated
         self.composition = None   # comparison layout decision (planner/composition.py)
         self.sequence = None      # shots of one sequential comparison share a locked camera
+        self.end_focus = focus    # SEQUENCE: the framing it ends on (a match cut compares it with the next start)
 
 
 def _with_context(d, context):
@@ -442,6 +469,80 @@ def build_strategy(name, ctx):
                       f"hold {sid}" + (f", glowing {', '.join(t['concept'] for t in tg)}" if tg else "")
                       + (f" from sentence {k}" if glow_start is not None else "")
                       + (f"; slow push-in ({move.get('amount', 0.1):.0%})" if move else ""), focus=focus)]
+
+    if name == "SEQUENCE":
+        need_states(1)
+        sid = arch[0]
+        support(sid, "SEQUENCE")
+        seq = beat.get("sequence")
+        if not isinstance(seq, dict):
+            raise StrategyRejected("INVALID_REQUEST", "SEQUENCE needs a beat 'sequence' (camera, views, steps)")
+        preset = seq.get("camera")
+        if preset not in ctx["presets"]:
+            raise StrategyRejected("INVALID_REQUEST", f"sequence.camera {preset!r} is not a camera preset "
+                                   f"(config/visual_style.json: {', '.join(sorted(ctx['presets']))})")
+        hidden_roles = set(ctx["presets"][preset].get("hide_roles", ()))
+        parts = [p for p in model.parts(sid) if p["role"] not in hidden_roles]
+        shared = {p["id"] for p in ctx["model"].state_ctx(sid)["shared_parts"]}
+        when = sequence_clock(ctx, preset)
+
+        def ids(refs, where):
+            if isinstance(refs, dict) and "except" in refs:   # every part of the structure but these (never the site)
+                keep = set(ids(refs["except"], where))
+                return sorted(p["id"] for p in parts if p["id"] not in keep and p["id"] not in shared)
+            try:   # in the order the refs name them (a staggered arrival follows it)
+                out = list(dict.fromkeys(i for t in mapper.resolve_targets(refs, parts, model.vocab, sid)
+                                         for i in t["component_ids"]))
+            except mapper.MappingError as e:
+                raise StrategyRejected("INVALID_REQUEST", f"{where}: {e}")
+            if not out:
+                raise StrategyRejected("INVALID_REQUEST", f"{where}: no component concept")
+            return out
+        views, steps, cues = [], [], []
+        for k, v in enumerate(seq.get("views") or [{}]):
+            out = {"focus": None if v.get("frame") is None else sorted(ids(v["frame"], f"views[{k}].frame"))}
+            if k:
+                out.update(start_seconds=when(v.get("at"), f"views[{k}].at"), move_seconds=float(v.get("move_seconds", 1.5)))
+            for key in ("easing", "margin"):
+                if key in v:
+                    out[key] = v[key]
+            views.append(out)
+        for k, s in enumerate(seq.get("steps") or []):
+            where = f"steps[{k}] ({s.get('do')})"
+            if s.get("do") not in motion.STEP_DEFAULTS:
+                raise StrategyRejected("INVALID_REQUEST", f"{where}: 'do' must be one of {', '.join(motion.STEP_DEFAULTS)}")
+            out = dict(motion.STEP_DEFAULTS[s["do"]], do=s["do"])   # explicit: the storyboard says every timing
+            out.update({key: val for key, val in s.items() if key not in ("targets", "at", "until", "why")})
+            out["components"] = ids(s.get("targets"), where)
+            out["start_seconds"] = when(s.get("at"), where)
+            if s.get("do") == "HIGHLIGHT" and s.get("until") is not None:   # glow until a later moment of the beat
+                rise, fall = float(s.get("rise_seconds", 0.3)), float(s.get("fall_seconds", 0.4))
+                hold = when(s["until"], where + ".until") - out["start_seconds"] - rise - fall
+                if hold < 0.3:
+                    raise StrategyRejected("INVALID_REQUEST", f"{where}: 'until' leaves a {hold:.2f} s glow")
+                out["hold_seconds"] = round(hold, 4)
+            if s.get("do") == "REVEAL" and s.get("sound"):   # one cue per part, the moment it lands
+                lag = float(s.get("stagger_seconds", 0.0))
+                for i, _ in enumerate(out["components"] if lag else [None]):
+                    cues.append({"at_seconds": round(out["start_seconds"] + i * lag + float(s.get("seconds", 1.2)), 4),
+                                 "kind": s["sound"], "step": k})
+            steps.append(out)
+        focus0, focus1 = views[0]["focus"], views[-1]["focus"]
+
+        def make_seq(n):
+            anim = {"template": "SEQUENCE", "state": sid, "views": views, "steps": steps}
+            if n / fps < max([v.get("start_seconds", 0) + v.get("move_seconds", 0) for v in views] +
+                             [s["start_seconds"] for s in steps]):
+                raise T.TooShort("sequence")
+            shot = _shot("SEQUENCE", {"from_state": sid, "to_state": sid}, anim, n, fps, preset, None, band)
+            if cues:
+                shot["sound_cues"] = sorted(cues, key=lambda c: c["at_seconds"])
+            return shot
+        d = Draft("SEQUENCE", "SEQUENCE", make_seq, w["HOLD"], [sid], [],
+                  f"{len(views)} view(s), {len(steps)} timed steps on {sid}: "
+                  + ", ".join(f"{s['do'].lower()} {len(s['components'])}" for s in steps), focus=focus0)
+        d.end_focus = focus1
+        return [d]
 
     if name == "ASSEMBLE_IN":
         need_states(1)
@@ -960,7 +1061,8 @@ def _plan_pass(project_dir, root, vocab, excluded):
             plan_shots.append({"shot": shot, "beat_id": bid, "visual_intent": intent, "strategy": name,
                                "part": [i + 1, len(drafts)], "template": d.template, "states": d.states,
                                "camera": {"mode": d.mode, "preset": shot["camera"], "focus": d.focus,
-                                          "safe_band": shot.get("camera_safe_band", 0.0)},
+                                          "safe_band": shot.get("camera_safe_band", 0.0),
+                                          **({"end_focus": d.end_focus} if d.template == "SEQUENCE" else {})},
                                "semantic_targets": [{"concept": t["concept"], "roles": t["roles"], "group": t["group"],
                                                      "component_ids": t["component_ids"]} for t in d.targets],
                                "timing": {"mode": windows[bid][1], "frames": n, "duration_seconds": round(n / fps, 6),
@@ -1099,7 +1201,8 @@ def _continuity(plan_shots, model):
         elif prev is not None and ps.get("sequence") and prev.get("sequence") == ps["sequence"]:
             cut = "hard"    # next model of a sequential comparison: same locked camera, new state
         elif prev is not None and single and prev["template"] not in ("SIDE_BY_SIDE", "MOTION_GRAPHICS") and \
-                prev["camera"]["preset"] == ps["camera"]["preset"] and prev["camera"]["focus"] == ps["camera"]["focus"] \
+                prev["camera"]["preset"] == ps["camera"]["preset"] and \
+                prev["camera"].get("end_focus", prev["camera"]["focus"]) == ps["camera"]["focus"] \
                 and prev["states"][-1] == ps["states"][0]:
             cut = "match"
         elif prev is not None and ps["template"] == "SIDE_BY_SIDE" and prev["template"] == "SIDE_BY_SIDE" and \

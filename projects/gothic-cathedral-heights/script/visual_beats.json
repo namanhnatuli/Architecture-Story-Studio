@@ -3321,40 +3321,345 @@
         "CLM_140"
       ],
       "narration": "The second tool is the rib vault. In the four-part vault shown here, two ribs cross diagonally over each bay of the building. In this simplified picture, they direct the vault's load toward four points: the piers, or stone pillars, at its corners.",
-      "visual_goal": "The high vault from below: the ribs lit, the stone web visible between them",
+      "visual_goal": "From the whole section to one bay: its piers, then the two diagonal ribs one after the other, then the stone web; the light runs along the ribs to the four piers",
       "required_concepts": [
         "gothic_cathedral_section",
-        {
-          "concept": "rib",
-          "group": "rib_diagonal_1"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_0"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_1"
-        }
+        "rib",
+        "vault_web",
+        "nave_pier"
       ],
       "expected_complexity": "MEDIUM",
-      "strategy": "HOLD_HIGHLIGHT",
-      "highlight_at_sentence": 1,
-      "camera_mode": "COMPONENT_CLOSEUP",
-      "close_on": [
-        {
-          "concept": "rib",
-          "group": "rib_diagonal_1"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_0"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_1"
-        }
-      ],
+      "strategy": "SEQUENCE",
+      "sequence": {
+        "camera": "CATHEDRAL_VAULT_BELOW",
+        "views": [
+          {
+            "frame": null
+          },
+          {
+            "frame": [
+              {
+                "concept": "rib",
+                "group": "rib_transverse_0"
+              },
+              {
+                "concept": "rib",
+                "group": "rib_transverse_1"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1a"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1b"
+              },
+              {
+                "concept": "vault_web",
+                "local": [
+                  "vault_web_b1_f5",
+                  "vault_web_b1_b5",
+                  "vault_web_b1_w5",
+                  "vault_web_b1_e5",
+                  "vault_web_b1_f4",
+                  "vault_web_b1_b4",
+                  "vault_web_b1_w4",
+                  "vault_web_b1_e4",
+                  "vault_web_b1_f3",
+                  "vault_web_b1_b3",
+                  "vault_web_b1_w3",
+                  "vault_web_b1_e3",
+                  "vault_web_b1_f2",
+                  "vault_web_b1_b2",
+                  "vault_web_b1_w2",
+                  "vault_web_b1_e2",
+                  "vault_web_b1_f1",
+                  "vault_web_b1_b1",
+                  "vault_web_b1_w1",
+                  "vault_web_b1_e1"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "rib"
+            },
+            "move_seconds": 1.8
+          }
+        ],
+        "steps": [
+          {
+            "do": "GHOST",
+            "targets": {
+              "except": [
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_west0"
+                },
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_east0"
+                },
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_west1"
+                },
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_east1"
+                },
+                {
+                  "concept": "rib",
+                  "group": "rib_transverse_0"
+                },
+                {
+                  "concept": "rib",
+                  "group": "rib_transverse_1"
+                },
+                {
+                  "concept": "rib",
+                  "local": "rib_diagonal_b1a"
+                },
+                {
+                  "concept": "rib",
+                  "local": "rib_diagonal_b1b"
+                },
+                {
+                  "concept": "vault_web",
+                  "local": [
+                    "vault_web_b1_f5",
+                    "vault_web_b1_b5",
+                    "vault_web_b1_w5",
+                    "vault_web_b1_e5",
+                    "vault_web_b1_f4",
+                    "vault_web_b1_b4",
+                    "vault_web_b1_w4",
+                    "vault_web_b1_e4",
+                    "vault_web_b1_f3",
+                    "vault_web_b1_b3",
+                    "vault_web_b1_w3",
+                    "vault_web_b1_e3",
+                    "vault_web_b1_f2",
+                    "vault_web_b1_b2",
+                    "vault_web_b1_w2",
+                    "vault_web_b1_e2",
+                    "vault_web_b1_f1",
+                    "vault_web_b1_b1",
+                    "vault_web_b1_w1",
+                    "vault_web_b1_e1"
+                  ]
+                },
+                "flying_buttress",
+                "pier_buttress",
+                "pinnacle",
+                "high_roof",
+                "aisle_roof"
+              ]
+            },
+            "at": {
+              "sentence": 0,
+              "word": "rib"
+            },
+            "seconds": 1.4
+          },
+          {
+            "do": "FADE_OUT",
+            "targets": [
+              "flying_buttress",
+              "pier_buttress",
+              "pinnacle",
+              "high_roof",
+              "aisle_roof",
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1a"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1b"
+              },
+              {
+                "concept": "vault_web",
+                "local": [
+                  "vault_web_b1_f5",
+                  "vault_web_b1_b5",
+                  "vault_web_b1_w5",
+                  "vault_web_b1_e5",
+                  "vault_web_b1_f4",
+                  "vault_web_b1_b4",
+                  "vault_web_b1_w4",
+                  "vault_web_b1_e4",
+                  "vault_web_b1_f3",
+                  "vault_web_b1_b3",
+                  "vault_web_b1_w3",
+                  "vault_web_b1_e3",
+                  "vault_web_b1_f2",
+                  "vault_web_b1_b2",
+                  "vault_web_b1_w2",
+                  "vault_web_b1_e2",
+                  "vault_web_b1_f1",
+                  "vault_web_b1_b1",
+                  "vault_web_b1_w1",
+                  "vault_web_b1_e1"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "rib"
+            },
+            "seconds": 1.2
+          },
+          {
+            "do": "REVEAL",
+            "targets": [
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1a"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "two",
+              "offset": -0.6
+            },
+            "seconds": 1.0,
+            "direction": "FROM_BELOW",
+            "distance": 4.0,
+            "sound": "STONE"
+          },
+          {
+            "do": "REVEAL",
+            "targets": [
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1b"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "cross",
+              "offset": -0.6
+            },
+            "seconds": 1.0,
+            "direction": "FROM_BELOW",
+            "distance": 4.0,
+            "sound": "STONE"
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1a"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1b"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "diagonally"
+            },
+            "until": {
+              "sentence": 2,
+              "offset": -0.2
+            }
+          },
+          {
+            "do": "REVEAL",
+            "targets": [
+              {
+                "concept": "vault_web",
+                "local": [
+                  "vault_web_b1_f5",
+                  "vault_web_b1_b5",
+                  "vault_web_b1_w5",
+                  "vault_web_b1_e5",
+                  "vault_web_b1_f4",
+                  "vault_web_b1_b4",
+                  "vault_web_b1_w4",
+                  "vault_web_b1_e4",
+                  "vault_web_b1_f3",
+                  "vault_web_b1_b3",
+                  "vault_web_b1_w3",
+                  "vault_web_b1_e3",
+                  "vault_web_b1_f2",
+                  "vault_web_b1_b2",
+                  "vault_web_b1_w2",
+                  "vault_web_b1_e2",
+                  "vault_web_b1_f1",
+                  "vault_web_b1_b1",
+                  "vault_web_b1_w1",
+                  "vault_web_b1_e1"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "offset": -0.1
+            },
+            "seconds": 0.7,
+            "stagger_seconds": 0.04,
+            "direction": "FROM_BELOW",
+            "distance": 1.5
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1a"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1b"
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "word": "they",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 2,
+              "word": "piers"
+            }
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "nave_pier",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_east1"
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "word": "points",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 2,
+              "end": true,
+              "offset": 0.3
+            }
+          }
+        ]
+      },
       "annotations": [
         {
           "id": "B12_ch",
@@ -3376,22 +3681,25 @@
           "type": "COMPONENT_LABEL",
           "target": {
             "concept": "rib",
-            "group": "rib_diagonal_1"
+            "local": "rib_diagonal_b1b"
           },
           "point": "CENTER",
           "text": "Diagonal ribs",
-          "sentence": 1
+          "sentence": 1,
+          "word": "diagonally",
+          "until": 2
         },
         {
           "id": "B12_pier",
           "type": "COMPONENT_LABEL",
           "target": {
             "concept": "nave_pier",
-            "group": "frame_west1"
+            "group": "frame_east0"
           },
           "point": "TOP",
           "text": "Pier",
-          "sentence": 2
+          "sentence": 2,
+          "word": "piers"
         }
       ]
     },
@@ -3404,43 +3712,282 @@
         "CLM_141"
       ],
       "narration": "How exactly these vaults stand has been debated for centuries. Engineers following Jacques Heyman assume that the main ribs bring the forces down, and treat the stone between them as a series of parallel arches. So even in that reading, the stone between the ribs carries load.",
-      "visual_goal": "The ribs named, then the web between them lit: it must read as working stone, never as empty infill",
+      "visual_goal": "Closer on the bay's vault: the ribs light, then every other course of the web (the parallel arches of Heyman's reading), then the whole web: it reads as working stone, never as infill",
       "required_concepts": [
         "gothic_cathedral_section",
-        {
-          "concept": "rib",
-          "group": "rib_diagonal_1"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_0"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_1"
-        }
-      ],
-      "expected_complexity": "MEDIUM",
-      "strategy": "HOLD_HIGHLIGHT",
-      "camera_mode": "COMPONENT_CLOSEUP",
-      "close_on": [
-        {
-          "concept": "rib",
-          "group": "rib_diagonal_1"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_0"
-        },
-        {
-          "concept": "rib",
-          "group": "rib_transverse_1"
-        }
-      ],
-      "highlight_at_sentence": 2,
-      "glow_only": [
+        "rib",
         "vault_web"
       ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "SEQUENCE",
+      "sequence": {
+        "camera": "CATHEDRAL_VAULT_BELOW",
+        "views": [
+          {
+            "frame": [
+              {
+                "concept": "rib",
+                "group": "rib_transverse_0"
+              },
+              {
+                "concept": "rib",
+                "group": "rib_transverse_1"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1a"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1b"
+              },
+              {
+                "concept": "vault_web",
+                "local": [
+                  "vault_web_b1_f5",
+                  "vault_web_b1_b5",
+                  "vault_web_b1_w5",
+                  "vault_web_b1_e5",
+                  "vault_web_b1_f4",
+                  "vault_web_b1_b4",
+                  "vault_web_b1_w4",
+                  "vault_web_b1_e4",
+                  "vault_web_b1_f3",
+                  "vault_web_b1_b3",
+                  "vault_web_b1_w3",
+                  "vault_web_b1_e3",
+                  "vault_web_b1_f2",
+                  "vault_web_b1_b2",
+                  "vault_web_b1_w2",
+                  "vault_web_b1_e2",
+                  "vault_web_b1_f1",
+                  "vault_web_b1_b1",
+                  "vault_web_b1_w1",
+                  "vault_web_b1_e1"
+                ]
+              }
+            ]
+          },
+          {
+            "frame": [
+              {
+                "concept": "vault_web",
+                "local": [
+                  "vault_web_b1_f4",
+                  "vault_web_b1_b4",
+                  "vault_web_b1_w4",
+                  "vault_web_b1_e4",
+                  "vault_web_b1_f3",
+                  "vault_web_b1_b3",
+                  "vault_web_b1_w3",
+                  "vault_web_b1_e3",
+                  "vault_web_b1_f2",
+                  "vault_web_b1_b2",
+                  "vault_web_b1_w2",
+                  "vault_web_b1_e2",
+                  "vault_web_b1_f1",
+                  "vault_web_b1_b1",
+                  "vault_web_b1_w1",
+                  "vault_web_b1_e1"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "stand"
+            },
+            "move_seconds": 4.5
+          }
+        ],
+        "steps": [
+          {
+            "do": "GHOST",
+            "targets": {
+              "except": [
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_west0"
+                },
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_east0"
+                },
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_west1"
+                },
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_east1"
+                },
+                {
+                  "concept": "rib",
+                  "group": "rib_transverse_0"
+                },
+                {
+                  "concept": "rib",
+                  "group": "rib_transverse_1"
+                },
+                {
+                  "concept": "rib",
+                  "local": "rib_diagonal_b1a"
+                },
+                {
+                  "concept": "rib",
+                  "local": "rib_diagonal_b1b"
+                },
+                {
+                  "concept": "vault_web",
+                  "local": [
+                    "vault_web_b1_f5",
+                    "vault_web_b1_b5",
+                    "vault_web_b1_w5",
+                    "vault_web_b1_e5",
+                    "vault_web_b1_f4",
+                    "vault_web_b1_b4",
+                    "vault_web_b1_w4",
+                    "vault_web_b1_e4",
+                    "vault_web_b1_f3",
+                    "vault_web_b1_b3",
+                    "vault_web_b1_w3",
+                    "vault_web_b1_e3",
+                    "vault_web_b1_f2",
+                    "vault_web_b1_b2",
+                    "vault_web_b1_w2",
+                    "vault_web_b1_e2",
+                    "vault_web_b1_f1",
+                    "vault_web_b1_b1",
+                    "vault_web_b1_w1",
+                    "vault_web_b1_e1"
+                  ]
+                },
+                "flying_buttress",
+                "pier_buttress",
+                "pinnacle",
+                "high_roof",
+                "aisle_roof"
+              ]
+            },
+            "at": 0,
+            "seconds": 0,
+            "why": "B12 ends this way: the cut from it is invisible"
+          },
+          {
+            "do": "FADE_OUT",
+            "targets": [
+              "flying_buttress",
+              "pier_buttress",
+              "pinnacle",
+              "high_roof",
+              "aisle_roof"
+            ],
+            "at": 0,
+            "seconds": 0,
+            "why": "B12 ends this way: the cut from it is invisible"
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1a"
+              },
+              {
+                "concept": "rib",
+                "local": "rib_diagonal_b1b"
+              },
+              {
+                "concept": "rib",
+                "group": "rib_transverse_0"
+              },
+              {
+                "concept": "rib",
+                "group": "rib_transverse_1"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "ribs",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 1,
+              "word": "treat"
+            }
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "vault_web",
+                "local": [
+                  "vault_web_b1_f5",
+                  "vault_web_b1_b5",
+                  "vault_web_b1_w5",
+                  "vault_web_b1_e5",
+                  "vault_web_b1_f3",
+                  "vault_web_b1_b3",
+                  "vault_web_b1_w3",
+                  "vault_web_b1_e3",
+                  "vault_web_b1_f1",
+                  "vault_web_b1_b1",
+                  "vault_web_b1_w1",
+                  "vault_web_b1_e1"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "parallel",
+              "offset": -0.3
+            },
+            "until": {
+              "sentence": 2,
+              "offset": -0.1
+            }
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "vault_web",
+                "local": [
+                  "vault_web_b1_f5",
+                  "vault_web_b1_b5",
+                  "vault_web_b1_w5",
+                  "vault_web_b1_e5",
+                  "vault_web_b1_f4",
+                  "vault_web_b1_b4",
+                  "vault_web_b1_w4",
+                  "vault_web_b1_e4",
+                  "vault_web_b1_f3",
+                  "vault_web_b1_b3",
+                  "vault_web_b1_w3",
+                  "vault_web_b1_e3",
+                  "vault_web_b1_f2",
+                  "vault_web_b1_b2",
+                  "vault_web_b1_w2",
+                  "vault_web_b1_e2",
+                  "vault_web_b1_f1",
+                  "vault_web_b1_b1",
+                  "vault_web_b1_w1",
+                  "vault_web_b1_e1"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "word": "stone",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 2,
+              "end": true,
+              "offset": 0.4
+            }
+          }
+        ]
+      },
       "annotations": [
         {
           "id": "B13_note",
@@ -3454,11 +4001,39 @@
           "type": "COMPONENT_LABEL",
           "target": {
             "concept": "rib",
-            "group": "rib_diagonal_2"
+            "local": "rib_diagonal_b1b"
           },
           "point": "CENTER",
           "text": "Main ribs",
           "sentence": 1,
+          "word": "ribs",
+          "until": 2
+        },
+        {
+          "id": "B13_arches",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "vault_web",
+            "local": [
+              "vault_web_b1_f5",
+              "vault_web_b1_b5",
+              "vault_web_b1_w5",
+              "vault_web_b1_e5",
+              "vault_web_b1_f3",
+              "vault_web_b1_b3",
+              "vault_web_b1_w3",
+              "vault_web_b1_e3",
+              "vault_web_b1_f1",
+              "vault_web_b1_b1",
+              "vault_web_b1_w1",
+              "vault_web_b1_e1"
+            ],
+            "pick": "CENTERMOST"
+          },
+          "point": "CENTER",
+          "text": "A series of arches",
+          "sentence": 1,
+          "word": "parallel",
           "until": 2
         },
         {
@@ -3466,11 +4041,34 @@
           "type": "COMPONENT_LABEL",
           "target": {
             "concept": "vault_web",
-            "group": "high_vault"
+            "local": [
+              "vault_web_b1_f5",
+              "vault_web_b1_b5",
+              "vault_web_b1_w5",
+              "vault_web_b1_e5",
+              "vault_web_b1_f4",
+              "vault_web_b1_b4",
+              "vault_web_b1_w4",
+              "vault_web_b1_e4",
+              "vault_web_b1_f3",
+              "vault_web_b1_b3",
+              "vault_web_b1_w3",
+              "vault_web_b1_e3",
+              "vault_web_b1_f2",
+              "vault_web_b1_b2",
+              "vault_web_b1_w2",
+              "vault_web_b1_e2",
+              "vault_web_b1_f1",
+              "vault_web_b1_b1",
+              "vault_web_b1_w1",
+              "vault_web_b1_e1"
+            ],
+            "pick": "CENTERMOST"
           },
-          "point": "BOTTOM",
+          "point": "CENTER",
           "text": "Stone web",
-          "sentence": 2
+          "sentence": 2,
+          "word": "stone"
         }
       ]
     },
@@ -3862,13 +4460,95 @@
         "CLM_150"
       ],
       "narration": "But gathering the thrust does not make it go away. Even reduced, that sideways push remains a threat to the stability of the whole building. It still has to be contained somewhere.",
-      "visual_goal": "Conceptual outward arrow at the top of a pier, with nothing yet to receive it",
+      "visual_goal": "The cut face of the church, square on: an outward arrow at each springing of the high vault, the high piers it pushes on, and the supports outside still faded; then the camera turns to the east side",
       "required_concepts": [
         "gothic_cathedral_section",
         "nave_pier"
       ],
       "expected_complexity": "MEDIUM",
-      "strategy": "HOLD",
+      "strategy": "SEQUENCE",
+      "sequence": {
+        "camera": "CATHEDRAL_TRANSVERSE",
+        "views": [
+          {
+            "frame": null
+          },
+          {
+            "frame": [
+              {
+                "concept": "clerestory_window",
+                "local": "clerestory_window_b1_east"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "aisle_roof",
+                "local": "aisle_roof_east"
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "offset": -0.2
+            },
+            "move_seconds": 2.4
+          }
+        ],
+        "steps": [
+          {
+            "do": "GHOST",
+            "targets": [
+              {
+                "concept": "flying_buttress"
+              },
+              {
+                "concept": "pier_buttress"
+              }
+            ],
+            "at": 0,
+            "seconds": 0,
+            "transparency": 0.8,
+            "why": "the supports outside wait, faded, until B17 names them"
+          },
+          {
+            "do": "FADE_OUT",
+            "targets": [
+              {
+                "concept": "pinnacle"
+              }
+            ],
+            "at": 0,
+            "seconds": 0
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "nave_pier",
+                "group": "frame_west0"
+              },
+              {
+                "concept": "nave_pier",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "threat",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 2,
+              "offset": -0.3
+            }
+          }
+        ]
+      },
       "annotations": [
         {
           "id": "B16_ch",
@@ -3881,8 +4561,8 @@
         {
           "id": "B16_note",
           "type": "NOTE",
-          "text": "Arrows show the idea, not calculated forces",
-          "sentence": 1,
+          "text": "Illustrative model",
+          "sentence": 0,
           "position": "BOTTOM_RIGHT"
         },
         {
@@ -3897,7 +4577,9 @@
             "BOTTOM_RIGHT"
           ],
           "text": "Thrust",
-          "sentence": 1,
+          "sentence": 0,
+          "word": "thrust",
+          "until": 2,
           "claim_id": "CLM_150"
         }
       ]
@@ -3912,7 +4594,7 @@
         "CLM_152"
       ],
       "narration": "The answer stands outside the building: the flying buttress. It is a stone arch that picks up the thrust where it leaves the vault, carries it across the aisle roof, and brings it down to a massive pier buttress. Often a pinnacle on top adds weight, to help stabilize the thrust.",
-      "visual_goal": "Flyers, pier buttresses and pinnacles lit in turn; a conceptual path follows them to the ground",
+      "visual_goal": "One flying buttress in profile: it returns in full when named, the path follows the narration from the vault over the aisle roof down the pier buttress, and the pinnacle is set on top when it is named",
       "required_concepts": [
         "gothic_cathedral_section",
         "flying_buttress",
@@ -3921,14 +4603,184 @@
         "aisle_roof"
       ],
       "expected_complexity": "MEDIUM",
-      "strategy": "HOLD_HIGHLIGHT",
-      "highlight_at_sentence": 1,
+      "strategy": "SEQUENCE",
+      "sequence": {
+        "camera": "CATHEDRAL_TRANSVERSE",
+        "views": [
+          {
+            "frame": [
+              {
+                "concept": "clerestory_window",
+                "local": "clerestory_window_b1_east"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "aisle_roof",
+                "local": "aisle_roof_east"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "do": "GHOST",
+            "targets": [
+              {
+                "concept": "flying_buttress"
+              },
+              {
+                "concept": "pier_buttress"
+              }
+            ],
+            "at": 0,
+            "seconds": 0,
+            "transparency": 0.8,
+            "why": "the supports outside wait, faded, until B17 names them"
+          },
+          {
+            "do": "FADE_OUT",
+            "targets": [
+              {
+                "concept": "pinnacle"
+              }
+            ],
+            "at": 0,
+            "seconds": 0
+          },
+          {
+            "do": "UNGHOST",
+            "targets": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "flying",
+              "offset": -0.3
+            },
+            "seconds": 0.8
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "flying"
+            },
+            "until": {
+              "sentence": 1,
+              "word": "picks"
+            }
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "aisle_roof",
+                "local": "aisle_roof_east"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "across"
+            },
+            "until": {
+              "sentence": 1,
+              "word": "brings"
+            }
+          },
+          {
+            "do": "UNGHOST",
+            "targets": [
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "down",
+              "offset": -0.2
+            },
+            "seconds": 0.8
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "massive",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 2,
+              "offset": -0.2
+            }
+          },
+          {
+            "do": "REVEAL",
+            "targets": [
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "word": "pinnacle",
+              "offset": -0.5
+            },
+            "seconds": 1.1,
+            "direction": "FROM_ABOVE",
+            "distance": 5.0,
+            "sound": "STONE_HEAVY"
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "word": "weight",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 2,
+              "end": true,
+              "offset": 0.4
+            }
+          }
+        ]
+      },
       "annotations": [
         {
           "id": "B17_note",
           "type": "NOTE",
-          "text": "Illustrative model, conceptual path",
-          "sentence": 1,
+          "text": "Illustrative model",
+          "sentence": 0,
           "position": "BOTTOM_RIGHT"
         },
         {
@@ -3940,36 +4792,18 @@
           },
           "point": "CENTER",
           "text": "Flying buttress",
-          "sentence": 0
+          "sentence": 0,
+          "word": "flying",
+          "until": 2
         },
         {
-          "id": "B17_pier",
-          "type": "COMPONENT_LABEL",
-          "target": {
-            "concept": "pier_buttress",
-            "group": "frame_east0"
-          },
-          "point": "CENTER",
-          "text": "Pier buttress",
-          "sentence": 1
-        },
-        {
-          "id": "B17_pinnacle",
-          "type": "COMPONENT_LABEL",
-          "target": {
-            "concept": "pinnacle",
-            "group": "frame_east0"
-          },
-          "point": "TOP",
-          "text": "Pinnacle",
-          "sentence": 2
-        },
-        {
-          "id": "B17_path",
+          "id": "B17_path1",
           "type": "CONCEPTUAL_LOAD_PATH",
           "style": "LOAD",
           "sentence": 1,
+          "word": "picks",
           "claim_id": "CLM_152",
+          "until": 2,
           "path": [
             [
               {
@@ -3984,8 +4818,55 @@
                   "concept": "flying_buttress",
                   "group": "frame_east0"
                 },
+                "point": "TOP_LEFT"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "B17_path2",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "style": "LOAD",
+          "sentence": 1,
+          "word": "across",
+          "claim_id": "CLM_152",
+          "until": 2,
+          "path": [
+            [
+              {
+                "target": {
+                  "concept": "flying_buttress",
+                  "group": "frame_east0"
+                },
+                "point": "TOP_LEFT"
+              },
+              {
+                "target": {
+                  "concept": "flying_buttress",
+                  "group": "frame_east0"
+                },
                 "point": "CENTER"
               },
+              {
+                "target": {
+                  "concept": "pier_buttress",
+                  "group": "frame_east0"
+                },
+                "point": "TOP"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "B17_path3",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "style": "LOAD",
+          "sentence": 1,
+          "word": "down",
+          "claim_id": "CLM_152",
+          "until": 2,
+          "path": [
+            [
               {
                 "target": {
                   "concept": "pier_buttress",
@@ -4002,6 +4883,42 @@
               }
             ]
           ]
+        },
+        {
+          "id": "B17_pier",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "pier_buttress",
+            "group": "frame_east0"
+          },
+          "point": "CENTER",
+          "text": "Pier buttress",
+          "sentence": 1,
+          "word": "massive"
+        },
+        {
+          "id": "B17_weight",
+          "type": "LOAD_ARROW",
+          "target": {
+            "concept": "pinnacle",
+            "group": "frame_east0"
+          },
+          "text": "Weight",
+          "sentence": 2,
+          "word": "weight",
+          "claim_id": "CLM_152"
+        },
+        {
+          "id": "B17_pinnacle",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "pinnacle",
+            "group": "frame_east0"
+          },
+          "point": "TOP",
+          "text": "Pinnacle",
+          "sentence": 2,
+          "word": "pinnacle"
         }
       ]
     },

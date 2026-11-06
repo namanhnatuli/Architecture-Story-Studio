@@ -161,3 +161,14 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **Kiểm tra "lời và hình có khẳng định vượt quá bằng chứng không?"** là bắt buộc trước khi giao kịch bản và trước khi giao bản review (danh sách câu hỏi ở playbook, mục 4–6). Khớp nguyên văn với nguồn chưa đủ.
 - **Các nguồn lệch nhau về một con số:** nói cách diễn đạt đúng với mọi nguồn đã đọc ("more than 42 meters") và ghi rõ trên hình khi cần. Đừng chọn một con số rồi im lặng.
 
+## Bổ sung 2026-11-06: shot SEQUENCE, âm thanh tổng hợp, đoạn thử
+- **SEQUENCE** (`engine/motion.plan_sequence`, chiến lược planner cùng tên): một mô hình, nhiều bước theo lời dẫn (làm mờ, hiện ra, phát sáng; camera trượt và zoom giữa các khung của một preset). Cách viết: playbook, mục "Shot SEQUENCE".
+  - Asset phải khai báo `SEQUENCE` trong `animation_support`. Không có thì planner trả MISSING_TEMPLATE, không thay bằng hình giữ.
+  - Không xoay camera trong shot. Không dùng hoạt ảnh để tái hiện một vụ sập lịch sử: nguyên nhân còn tranh luận thì vẽ từng giả thuyết riêng, có nhãn.
+- **Âm thanh:** chỉ âm tổng hợp trong dự án (`pipeline/sound.py`, `config/sound_design.json`), mỗi âm gắn với một sự kiện nhìn thấy được, nhỏ hơn lời dẫn.
+  - Không nhạc nền, không ambience, không tải âm thanh ngoài khi chưa kiểm giấy phép.
+  - Agent không nghe được, nên luôn giao kèm một bản không âm thanh để so. Whisper trên lời dẫn có âm và không âm phải cho WER tương đương (`tools/excerpt.py`).
+- **Đoạn thử** (`tools/excerpt.py`): các shot của phim, render đúng như trong phim, ghép với đúng đoạn lời dẫn của chúng.
+  - Tên file luôn có `INTERNAL_REVIEW`. Chỗ nối giữa hai shot không liền nhau trong phim được ghi là "excerpt join".
+  - Chủ kênh duyệt chất lượng hình trên đoạn thử trước khi agent áp cách làm đó cho cả phim.
+

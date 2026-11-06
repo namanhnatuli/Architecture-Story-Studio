@@ -2,9 +2,9 @@
   "project_id": "gothic-cathedral-heights",
   "executable": true,
   "visibility_summary": {
-    "shots_assessed": 15,
-    "target_rows": 29,
-    "rows_passing": 29,
+    "shots_assessed": 12,
+    "target_rows": 19,
+    "rows_passing": 19,
     "uncertain_rows": 0,
     "issues_detected": 1,
     "auto_repaired": 1,
@@ -29,7 +29,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],
@@ -62,7 +62,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -164,7 +164,7 @@
           "concept": "romanesque_church_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_romanesque_section_01",
-          "explanation": "cathedral_romanesque_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/romanesque_section"
+          "explanation": "cathedral_romanesque_section_01 (offline only, ILLUSTRATIVE) matches cathedral/romanesque_section"
         }
       ],
       "semantic_targets": [],
@@ -197,7 +197,7 @@
           "concept": "romanesque_church_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_romanesque_section_01",
-          "explanation": "cathedral_romanesque_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/romanesque_section"
+          "explanation": "cathedral_romanesque_section_01 (offline only, ILLUSTRATIVE) matches cathedral/romanesque_section"
         }
       ],
       "semantic_targets": [
@@ -261,7 +261,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -417,150 +417,68 @@
     {
       "beat_id": "B12",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "HOLD_HIGHLIGHT",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 19.625,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [
-        "rib"
-      ],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_012"
       ],
       "planned_seconds": 19.625,
-      "readable": {
-        "rib": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_012",
-          "concept": "rib",
-          "label": "highlight_peak",
-          "frame": 275,
-          "visible_share": 0.4056,
-          "core_area": 0.00632,
-          "visible_area": 0.01606,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_012",
-          "concept": "rib",
-          "label": "highlight_peak",
-          "frame": 275,
-          "visible_share": 0.6714,
-          "core_area": 0.0081,
-          "visible_area": 0.01587,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_012",
-          "concept": "rib",
-          "label": "highlight_peak",
-          "frame": 275,
-          "visible_share": 0.3067,
-          "core_area": 0.00246,
-          "visible_area": 0.00723,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B13",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "HOLD_HIGHLIGHT",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 21.8,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [
-        "rib"
-      ],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_013"
       ],
       "planned_seconds": 21.833,
-      "readable": {
-        "rib": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_013",
-          "concept": "rib",
-          "label": "highlight_peak",
-          "frame": 451,
-          "visible_share": 0.4056,
-          "core_area": 0.00632,
-          "visible_area": 0.01606,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_013",
-          "concept": "rib",
-          "label": "highlight_peak",
-          "frame": 451,
-          "visible_share": 0.6714,
-          "core_area": 0.0081,
-          "visible_area": 0.01587,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_013",
-          "concept": "rib",
-          "label": "highlight_peak",
-          "frame": 451,
-          "visible_share": 0.3067,
-          "core_area": 0.00246,
-          "visible_area": 0.00723,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B14",
@@ -605,7 +523,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -655,26 +573,26 @@
     {
       "beat_id": "B16",
       "visual_intent": "EXPLAIN_LOAD_PATH",
-      "strategy": "HOLD",
+      "strategy": "SEQUENCE",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 14.925,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD: Hold the structure"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_016"
@@ -688,94 +606,35 @@
     {
       "beat_id": "B17",
       "visual_intent": "EXPLAIN_LOAD_PATH",
-      "strategy": "HOLD_HIGHLIGHT",
+      "strategy": "SEQUENCE",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 21.475,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [
-        "aisle_roof",
-        "flying_buttress",
-        "pier_buttress",
-        "pinnacle"
-      ],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_017"
       ],
       "planned_seconds": 21.5,
-      "readable": {
-        "aisle_roof": true,
-        "flying_buttress": true,
-        "pier_buttress": true,
-        "pinnacle": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_017",
-          "concept": "flying_buttress",
-          "label": "highlight_peak",
-          "frame": 314,
-          "visible_share": 0.3974,
-          "core_area": 0.00029,
-          "visible_area": 0.00289,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_017",
-          "concept": "pier_buttress",
-          "label": "highlight_peak",
-          "frame": 314,
-          "visible_share": 0.7305,
-          "core_area": 0.04374,
-          "visible_area": 0.05425,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_017",
-          "concept": "pinnacle",
-          "label": "highlight_peak",
-          "frame": 314,
-          "visible_share": 0.8722,
-          "core_area": 0.00039,
-          "visible_area": 0.00559,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_017",
-          "concept": "aisle_roof",
-          "label": "highlight_peak",
-          "frame": 314,
-          "visible_share": 0.2857,
-          "core_area": 0.00096,
-          "visible_area": 0.0026,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B18",
@@ -795,13 +654,13 @@
           "concept": "romanesque_church_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_romanesque_section_01",
-          "explanation": "cathedral_romanesque_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/romanesque_section"
+          "explanation": "cathedral_romanesque_section_01 (offline only, ILLUSTRATIVE) matches cathedral/romanesque_section"
         },
         {
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -890,7 +749,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -940,7 +799,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -1082,7 +941,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -1268,7 +1127,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -1436,7 +1295,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -1594,7 +1453,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],
@@ -1679,7 +1538,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [
@@ -1785,7 +1644,7 @@
           "concept": "gothic_cathedral_section",
           "status": "REUSE_EXISTING",
           "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (not in catalog, ILLUSTRATIVE) matches cathedral/gothic_section"
+          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
       "semantic_targets": [],

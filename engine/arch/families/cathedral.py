@@ -136,6 +136,54 @@ def _vault_bay(cx, half_span, cy, half_bay, spring, rise, n=14):
     return web, diagonals, transverse
 
 
+COURSE_PANELS = ("f", "b", "w", "e")   # web panels against the front / back transverse arch, the west / east wall
+
+
+def _vault_courses(cx, half_span, cy, half_bay, spring, rise, courses, n=14):
+    """The web of one four-part bay cut into courses: {panel: [mesh per course]}.
+
+    The same groin-type surface as _vault_bay, sliced the way Heyman's analysis reads it: each course is one arch that
+    springs from a diagonal rib and lands on the other one (or on the wall), parallel to the transverse arch (panels
+    f, b) or to the wall (panels w, e). The course against the arch or wall is a full arch; the courses towards the crown
+    are shorter, as the diagonals close in. Courses touch, so at rest the web reads as one surface."""
+    curve = [(u, spring + v) for u, v in pointed_half(half_span, rise, n)][1:]
+    ratio = half_bay / half_span
+    out = {}
+    for panel in COURSE_PANELS:
+        along_y = panel in ("f", "b")        # f/b courses are cut at constant y, w/e at constant x
+        extent = half_bay if along_y else half_span
+
+        def reach(u):                        # where the diagonal rib is at the height of curve point u, in the cut direction
+            return u * ratio if along_y else u
+        meshes = []
+        for k in range(courses):
+            a, b = extent * k / courses, extent * (k + 1) / courses
+            strips, pts = [], []             # pts: (u, z, inner end of the row) from the course's foot to the crown
+            for j, (u, z) in enumerate(curve):
+                if reach(u) >= b - 1e-6:
+                    continue
+                if not pts and j > 0:        # the course starts exactly where the diagonal crosses b (no sliver gap)
+                    (pu, pz) = curve[j - 1]
+                    t = (reach(pu) - b) / (reach(pu) - reach(u))
+                    pts.append((pu + (u - pu) * t, pz + (z - pz) * t, b - 0.02))
+                pts.append((u, z, max(a, reach(u))))
+            for sa in (-1, 1):               # the two halves of the course, either side of the crown line
+                rows = []
+                for u, z, lo in pts:
+                    if along_y:
+                        sy = -1 if panel == "f" else 1
+                        rows.append([(cx + sa * u, cy + sy * b, z), (cx + sa * u, cy + sy * lo, z)])
+                    else:
+                        sx = -1 if panel == "w" else 1
+                        y = u * ratio
+                        rows.append([(cx + sx * b, cy + sa * y, z), (cx + sx * lo, cy + sa * y, z)])
+                if len(rows) >= 2:
+                    strips.append(rows)
+            meshes.append(P.merge(*[shell(s, WEB_THICKNESS) for s in strips]))
+        out[panel] = meshes
+    return out
+
+
 def _pinnacle(size, z0, shaft, spire):
     h = size / 2.0
     tip = z0 + shaft + spire
@@ -226,11 +274,18 @@ def gothic_section(p):
                                    group="aisle_windows", layer=2, animation=("HIGHLIGHT", "STATIC")))
     # vaults: nave and both aisles
     rise = crown - spring
+    courses = int(p.get("web_courses", 1))
     for i in range(n):
         cy = frames[i] + bay / 2.0
         web, diagonals, _ = _vault_bay(0.0, nave, cy, bay / 2.0, spring, rise)
-        comps.append(Component(f"vault_web_b{i + 1}", "VAULT_WEB", "stone_light", web, group="high_vault",
-                               layer=4, animation=("HIGHLIGHT", "STATIC")))
+        if courses > 1:   # the web as courses (one arch each), so a shot can show Heyman's reading of it
+            for panel, meshes in _vault_courses(0.0, nave, cy, bay / 2.0, spring, rise, courses).items():
+                for k, mesh in enumerate(meshes):
+                    comps.append(Component(f"vault_web_b{i + 1}_{panel}{k + 1}", "VAULT_WEB", "stone_light", mesh,
+                                           group="high_vault", layer=4, animation=("HIGHLIGHT", "STATIC")))
+        else:
+            comps.append(Component(f"vault_web_b{i + 1}", "VAULT_WEB", "stone_light", web, group="high_vault",
+                                   layer=4, animation=("HIGHLIGHT", "STATIC")))
         d = math.hypot(nave, bay / 2.0)
         rib_lines = []
         for k, line in enumerate(diagonals):
@@ -238,8 +293,11 @@ def gothic_section(p):
             sy = 1 if k % 2 == 0 else -1
             side = (-sy * (bay / 2.0) / d, sx * nave / d, 0.0)
             rib_lines.append(sweep([(a, b, c - 0.12) for a, b, c in line], p["rib_width_m"], p["rib_depth_m"], side))
-        comps.append(Component(f"rib_diagonal_b{i + 1}", "RIB", "stone_light", P.merge(*rib_lines), group=f"rib_diagonal_{i + 1}",
-                               layer=5, animation=("HIGHLIGHT", "STATIC")))
+        # the two diagonal ribs of the bay are separate parts (half-ribs 0 and 3 make one, 1 and 2 the other), so "two
+        # ribs cross diagonally" can show them one after the other
+        for suffix, halves in (("a", (0, 3)), ("b", (1, 2))):
+            comps.append(Component(f"rib_diagonal_b{i + 1}{suffix}", "RIB", "stone_light", P.merge(*[rib_lines[h] for h in halves]),
+                                   group=f"rib_diagonal_{i + 1}", layer=5, animation=("HIGHLIGHT", "STATIC")))
     transverse_lines = _vault_bay(0.0, nave, 0.0, bay / 2.0, spring, rise)[2]
     for j, y in enumerate(frames):
         rib = P.merge(*[sweep([(a, 0.0, c - 0.12) for a, _b, c in line], p["rib_width_m"] * 1.2, p["rib_depth_m"], (0.0, 1.0, 0.0))

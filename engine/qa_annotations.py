@@ -19,6 +19,10 @@ from engine import annotation_layout as AL, framing, motion
 
 
 def _frame_xy(ctx, world):
+    if ctx.cfg.get("template") == "SEQUENCE":   # the camera moves between views: project with it, at the current frame
+        from bpy_extras.object_utils import world_to_camera_view
+        c = world_to_camera_view(ctx.scene, ctx.camera, Vector(tuple(world)))
+        return (c.x, c.y)
     sc = framing.frame_coords([tuple(world)], ctx.camera_fit, ctx.camera_basis, ctx.aspect)[0]
     return sc
 

@@ -28,7 +28,7 @@ def expected_counts(family, variant, p):
     if variant == "gothic_section":
         n, sides = p["bay_count"], 2
         return {"FLOOR": 1, "NAVE_PIER": sides * (n + 1), "WALL": 4 * sides * n, "CLERESTORY_WINDOW": sides * n, "AISLE_WINDOW": sides * n,
-                "VAULT_WEB": n, "RIB": n + n + 1, "AISLE_VAULT": sides * n, "ROOF": 1, "AISLE_ROOF": sides,
+                "VAULT_WEB": n * (1 if p.get("web_courses", 1) <= 1 else 4 * p["web_courses"]), "RIB": 2 * n + n + 1, "AISLE_VAULT": sides * n, "ROOF": 1, "AISLE_ROOF": sides,
                 "PIER_BUTTRESS": sides * (n + 1), "PINNACLE": sides * (n + 1), "FLYING_BUTTRESS": sides * (n + 1)}
     if variant == "romanesque_section":
         n, sides = p["bay_count"], 2

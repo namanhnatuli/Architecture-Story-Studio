@@ -276,6 +276,10 @@ def apply_from_below(scene, style, cam_preset, objects):
         if obj.get("role") in cam_preset.get("hide_roles", ()):
             obj.hide_render = obj.hide_viewport = True
             obj["hidden_by_camera"] = True
+    under = cam_preset.get("under_light")
+    if under:   # the undersides the camera looks at: a shadowless sun from below (vault surfaces read as light stone)
+        collection = next(iter(bpy.data.objects["Key sun"].users_collection))
+        _sun("Under fill sun", collection, under["direction"], under["strength"], 30.0, shadow=False)
 
 
 def camera_preset(style, name):

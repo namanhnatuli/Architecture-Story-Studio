@@ -8,7 +8,7 @@ import math
 
 from engine import motion, spec
 
-TEMPLATES = ("HOLD", "REPLACE_PARTS", "EXPLODED_VIEW", "SIDE_BY_SIDE")
+TEMPLATES = ("HOLD", "REPLACE_PARTS", "EXPLODED_VIEW", "SIDE_BY_SIDE", "SEQUENCE")
 MAIN_SLOT = "main"
 
 
@@ -42,7 +42,7 @@ def _known_state(states, state_id, sid, field):
 
 
 def single_state(shot, cfg, states):
-    """State shown by HOLD / EXPLODED_VIEW: animation.state, else from_state."""
+    """State shown by HOLD / EXPLODED_VIEW / SEQUENCE: animation.state, else from_state."""
     sid = shot.get("id")
     state = cfg.get("state") or shot.get("from_state")
     if not state:
@@ -191,9 +191,9 @@ def _select(selector, keyword, default_ids, slot, sid, where, allowed_ids):
 CAMERA_NAME = "Camera_LOCKED"
 
 
-def placeholder_camera():
+def placeholder_camera(views=1):
     rest = {"location": (0.0, 0.0, 0.0), "ortho_scale": 1.0}
-    return {"name": CAMERA_NAME, "start": rest, "end": rest}
+    return {"name": CAMERA_NAME, "start": rest, "end": rest, "views": [rest] * views}
 
 
 CARD_MIN_SECONDS = 1.5   # M7: a 2D card is never a flash frame
@@ -263,6 +263,20 @@ def plan_shot(shot, states, fps, slots, camera=None):
             if unknown:
                 raise motion.PlanError(f"{sid}: per_component names {unknown}, which are not exploded components")
             motion.plan_exploded_view(plan, comps, cfg)
+        elif template == "SEQUENCE":
+            state = single_state(shot, cfg, states)
+            slot = slots[MAIN_SLOT]
+            if shot.get("camera_focus"):
+                raise motion.PlanError(f"{sid}: a SEQUENCE frames its views (views[].focus), not camera_focus")
+            allowed = set(spec.state_ids(states, state)) | set(spec.shared_ids(states))
+            comps = {i: slot[i] for i in allowed if i in slot}
+            shown = visible_component_ids(states, [state])
+            for k, v in enumerate(cfg.get("views") or []):
+                bad = sorted(set((v or {}).get("focus") or []) - shown)
+                if bad:
+                    raise motion.PlanError(f"{sid}: views[{k}].focus {bad} are not visible parts of {state}")
+            cam = camera if camera and camera.get("views") else placeholder_camera(len(cfg.get("views") or [{}]))
+            motion.plan_sequence(plan, comps, cfg, cam)
         elif template == "HOLD":
             state = single_state(shot, cfg, states)
             slot = slots[MAIN_SLOT]

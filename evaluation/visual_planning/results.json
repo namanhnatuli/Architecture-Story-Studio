@@ -1,7 +1,7 @@
 {
  "dataset": "M5.5 evaluation dataset for planner/ (python3 tools/cli.py evaluate-planning). Each case edits a temporary copy of a project; narration or concept edits are SYNTHETIC test inputs, not factual content. The planner never reads this file.",
- "cases": 29,
- "passed": 29,
+ "cases": 30,
+ "passed": 30,
  "dimensions": {
   "narrative_relevance": {
    "passed": 31,
@@ -16,8 +16,8 @@
    "checks": 25
   },
   "animation_suitability": {
-   "passed": 14,
-   "checks": 14
+   "passed": 16,
+   "checks": 16
   },
   "camera_readability": {
    "passed": 5,
@@ -58,14 +58,14 @@
    "cases": 3
   },
   "missing_capability": {
-   "passed": 5,
-   "cases": 5
+   "passed": 6,
+   "cases": 6
   }
  },
  "by_family": {
   "bridge": {
-   "passed": 23,
-   "cases": 23
+   "passed": 24,
+   "cases": 24
   },
   "roof": {
    "passed": 6,
@@ -960,6 +960,27 @@
      "check": "mentions",
      "ok": true,
      "detail": "report mentions 'anchor target not found'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "SEQ-NEG-01",
+   "kind": "missing_capability",
+   "family": "bridge",
+   "title": "A SEQUENCE on an asset that does not declare it is refused (MISSING_TEMPLATE), never faked with a hold",
+   "checks": [
+    {
+     "dimension": "animation_suitability",
+     "check": "status",
+     "ok": true,
+     "detail": "status MISSING_TEMPLATE (want MISSING_TEMPLATE)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'does not support SEQUENCE'"
     }
    ],
    "ok": true

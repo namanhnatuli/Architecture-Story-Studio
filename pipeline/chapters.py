@@ -152,6 +152,18 @@ def motion_intervals(shot):
         out += [(h0, max(h0, d - h1 - ret - hold)), (d - h1 - ret, d - h1)]
     elif t == "REPLACE_PARTS":
         out.append((a.get("hold_start_seconds", 0.0), d - a.get("hold_end_seconds", 0.0)))
+    elif t == "SEQUENCE":   # camera moves between views; parts fade, arrive and glow step by step
+        for v in (a.get("views") or [])[1:]:
+            out.append((v["start_seconds"], v["start_seconds"] + v["move_seconds"]))
+        for s in a.get("steps") or []:
+            s0 = s["start_seconds"]
+            if s["do"] == "HIGHLIGHT":
+                r1 = s0 + s.get("rise_seconds", 0.3)
+                f0 = r1 + s.get("hold_seconds", 1.0)
+                out += [(s0, r1), (f0, f0 + s.get("fall_seconds", 0.4))]
+            else:
+                n = len(s.get("components") or []) if s["do"] == "REVEAL" and s.get("stagger_seconds") else 1
+                out.append((s0, s0 + s.get("seconds", 1.0) + (n - 1) * s.get("stagger_seconds", 0.0)))
     intro = a.get("intro")
     if isinstance(intro, dict) and intro.get("seconds"):
         out.append((0.0, float(intro["seconds"])))

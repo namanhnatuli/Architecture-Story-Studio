@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.10.0 — 2026-11-06 — Phim Gothic: đoạn thử vòm gân và trụ chống bay (shot SEQUENCE, âm thanh tổng hợp)
+- **Chủ kênh nhận xét bản g-r3:** vẫn là bản dựng sơ bộ; mô hình đứng yên, camera chỉ tiến gần, ít cỡ cảnh. Chủ kênh đề nghị làm một đoạn thử 60–90 giây (vòm gân, trụ chống bay) để duyệt chất lượng hình trước khi áp cho cả phim. Chưa có gì được duyệt.
+- **Shot SEQUENCE (mới):** một mô hình, các bước theo câu và theo từ của lời dẫn.
+  - Camera trượt và zoom giữa các khung của một preset.
+  - Các bước: làm mờ phần còn lại, cho mờ trở lại, ẩn dần, hiện dần, cho bộ phận hiện ra và đặt đúng chỗ, phát sáng. Mỗi lần sáng có bộ phận riêng.
+  - Phần thực thi: `engine/motion.plan_sequence`, `templates`, `shot_builder` (khung từng view, rig chú thích theo camera, phần mờ không đổ bóng), Blender QA (`sequence_arrivals_land`, `sequence_views_framed`, chú thích theo camera), planner (chiến lược `SEQUENCE`, `sequence_clock`, match cut theo khung cuối), chú thích (chỉ bám khi camera đứng yên), `validate-plan`, QA phim dài, kiểm lời–hình.
+- **Mô hình Gothic 1.1.0:**
+  - mỗi khoang có hai gân chéo riêng (`rib_diagonal_b{n}a/b`);
+  - phần đá giữa gân chia thành 5 dải mỗi mặt (`web_courses`): mỗi dải là một vòm từ gân chéo này sang gân chéo kia, đúng cách Heyman đọc vòm.
+  - Concept mới: `high_roof`, `aisle_vault`. Tham chiếu `local` chọn đúng một bộ phận.
+- **Camera:** `CATHEDRAL_VAULT_BELOW` (nhìn dốc từ dưới, đèn phụ từ dưới cho mặt dưới vòm), `CATHEDRAL_TRANSVERSE` (mặt cắt ngang, gần như chính diện).
+- **Âm thanh:** `pipeline/sound.py` và `config/sound_design.json`: tiếng đá đặt xuống, tổng hợp trong dự án, tất định, nhỏ hơn lời dẫn 14 dB, không nhạc nền.
+- **`tools/excerpt.py`:** đoạn trích của phim (các shot không cần liền nhau). Kèm bản không âm thanh để so; Whisper so lời dẫn có âm và không âm; ghi rõ chỗ nối đoạn trích.
+- **Beat B12, B13, B16, B17** viết lại thành SEQUENCE; lời dẫn và timing không đổi. Bỏ ghi chú "Arrows show the idea…" ở B16 vì trùng với nhãn tự động "not to scale".
+- **Kiểm tra Blender bắt được hai lỗi của chính SEQUENCE và đã sửa:** bộ phận đang hiện mà bị dời trước khi ẩn; bản sao mờ bị coi là lỗi khi cố ý mờ liên tục qua điểm cắt.
+- Test: `tests/test_sequence.py` (18), cập nhật hai test về B13 và phần đá giữa gân theo thiết kế mới; ca đánh giá planner `SEQ-NEG-01`.
+
 ## 0.9.9 — 2026-11-06 — Phim Gothic: họ mô hình nhà thờ và bản review 720p
 - **Chủ kênh yêu cầu:** dựng mô hình và bản internal review 720p; sửa và kiểm chứng B40; bổ sung nguồn Cluny và Beauvais; thêm bước kiểm tra vào playbook. Chưa có gì được duyệt.
 - **B40:** số ở mục 0.9.8 (+10,6%, +86%) là của phép tính cũ, đã sai. `script/arch_statics.py` viết lại theo chương trình ArchSpread trong luận án Ochsendorf 2002: đo nhịp ở mặt trong, khớp mặt trong dịch chuyển, sập khi đường áp lực chạm mặt ngoài ở gối.

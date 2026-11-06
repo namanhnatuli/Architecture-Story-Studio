@@ -185,12 +185,14 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     # share one identical locked camera. M5: camera_focus frames only the listed
     # components (COMPONENT_CLOSEUP); camera_safe_band keeps a strip free for subtitles.
     focus = set(shot.get("camera_focus") or []) if cfg["template"] != "SIDE_BY_SIDE" else set()
+    if cfg["template"] == "SEQUENCE":   # the opening view frames its own focus (every built part when null)
+        focus = set((motion.sequence_views(cfg)[0]["focus"]) or [])
     framed = [name for name, obj in objects.items() if not focus or obj["component_id"] in focus]
     if focus and not framed:
         raise ValueError(f"{shot_id}: camera_focus matches no built component")
     points = [tuple(p[i] + offsets[objects[name]["slot_id"]][i] for i in range(3))
               for name in framed for p in verts[name]]
-    if focus:   # M5.5: a close-up of moving parts frames them at every keyed position
+    if focus and cfg["template"] != "SEQUENCE":   # M5.5: a close-up of moving parts frames them at every keyed position
         early = templates.plan_shot(shot, states, fps, {sid: {cid: components[obj.name] for cid, obj in parts.items()}
                                                         for sid, parts in slots.items()})
         points += focus_motion_points(early, objects, framed, depsgraph)
@@ -237,6 +239,12 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
                                  "ortho_scale": single["ortho_scale"]},
                        "end": {"location": tuple(fit["location"]), "ortho_scale": fit["ortho_scale"]}}
 
+    if cfg["template"] == "SEQUENCE":   # one fit per view (same preset), from the rest geometry
+        fits = sequence_fits(cfg, objects, verts, basis, aspect, bottom_band, cam_preset)
+        camera_keys = {"name": camera.name, "views": fits, "start": fits[0], "end": fits[-1]}
+        smallest = min(f["ortho_scale"] for f in fits) / fits[0]["ortho_scale"]
+        camera.data.clip_start = min(camera.data.clip_start, 0.3 * smallest)   # the overlays ride closer when zoomed in
+
     move = cfg.get("camera_move") if cfg["template"] == "HOLD" else None
     if move:   # M7: slow push-in from the group's locked framing towards the focus parts
         focus_ids = set(move.get("focus") or [])
@@ -256,9 +264,14 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
     fade_twins = {}
     if style.get("materials", {}).get("fade_render_method", "DITHERED") == "BLENDED":
         fade_twins = make_fade_twins(plan, objects, render_objects)
+        if cfg["template"] == "SEQUENCE":   # a ghost is context, not mass: it never throws a shadow on what it frames
+            for twin in fade_twins.values():
+                twin.visible_shadow = False
     if annotations and move:   # M7: screen-fixed overlays ride with the pushing camera
         annotation_rig(plan, annotations, camera, camera_keys, {**motion.CAMERA_MOVE_DEFAULTS, **move}["easing"],
                        render_objects, next(iter(annotations.values()))[0].users_collection[0])
+    elif annotations and cfg["template"] == "SEQUENCE" and camera.name in plan.tracks:   # overlays ride every camera move
+        annotation_rig_keys(plan, annotations, camera, render_objects, next(iter(annotations.values()))[0].users_collection[0])
     if annotations:   # after the twins: annotation materials are blended already, no twin needed
         from engine import annotation_layout, annotations as ann_mod
         ann_mod.key_fades(plan, annotations, shot, fps, annotation_layout.load_style()["timing"]["fade_seconds"])
@@ -297,6 +310,41 @@ def annotation_rig(plan, annotations, camera, camera_keys, easing, render_object
     plan.key(rig.name, motion.LOC, last, tuple(end["location"]))
     plan.key(rig.name, motion.SCALE, 1, (1.0, 1.0, 1.0), easing)
     plan.key(rig.name, motion.SCALE, last, (ratio, ratio, ratio))
+    render_objects[rig.name] = rig
+    return rig
+
+
+def sequence_fits(cfg, objects, verts, basis, aspect, band, cam_preset):
+    """SEQUENCE: the orthographic fit of every view (its focus parts at rest, or every built part), one preset."""
+    fits = []
+    for v in motion.sequence_views(cfg):
+        ids = set(v["focus"] or [])
+        pts = [p for name, obj in objects.items() if not ids or obj["component_id"] in ids for p in verts[name]]
+        if not pts:
+            raise ValueError(f"view focus {sorted(ids)} matches no built part")
+        margin = v["margin"] if v["margin"] is not None else cam_preset.get("margin", 0.07)
+        fits.append(framing.fit_ortho(pts, basis, aspect, margin, band))
+    return fits
+
+
+def annotation_rig_keys(plan, annotations, camera, render_objects, collection):
+    """SEQUENCE: the push-in rig generalised to every camera key of the plan. The overlays are built on the opening
+    view's plane; the rig follows the camera (location) and scales with ortho(t) / ortho(start), so every overlay keeps
+    its frame position and size whichever view the camera is in."""
+    rig = bpy.data.objects.new("ANN_RIG", None)
+    collection.objects.link(rig)
+    rig.matrix_world = camera.matrix_world.copy()
+    inverse = rig.matrix_world.inverted()
+    for objs in annotations.values():
+        for obj in objs:
+            obj.parent = rig
+            obj.matrix_parent_inverse = inverse
+    base = plan.keys(camera.name, motion.ORTHO)[0].value[0]
+    for k in plan.keys(camera.name, motion.LOC):
+        plan.key(rig.name, motion.LOC, k.frame, k.value, k.easing)
+    for k in plan.keys(camera.name, motion.ORTHO):
+        r = k.value[0] / base
+        plan.key(rig.name, motion.SCALE, k.frame, (r, r, r), k.easing)
     render_objects[rig.name] = rig
     return rig
 

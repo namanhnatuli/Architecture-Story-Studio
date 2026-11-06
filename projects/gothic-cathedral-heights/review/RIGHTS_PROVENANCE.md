@@ -1,4 +1,4 @@
-# Bản kê quyền và nguồn gốc: gothic-cathedral-heights (revision g-r3)
+# Bản kê quyền và nguồn gốc: gothic-cathedral-heights (revision g-r3, đoạn thử g-r4)
 
 - Ngày lập: 2026-11-06, cho bản review nội bộ 720p. Người lập: agent. Đây là bản kê, **không phải tư vấn pháp lý**.
 - **Trạng thái duyệt:** chưa có. Chưa có `review/OWNER_APPROVALS.json`. Các nhận xét của chủ kênh về g-r1, g-r2 và g-r3 là yêu cầu sửa hoặc cho làm tiếp, không phải duyệt. Bản này là **INTERNAL REVIEW**.
@@ -15,7 +15,8 @@
 | Chữ trên hình | Font `<builtin>` của Blender | Như các phim trước: chưa xác định file font cụ thể đứng sau `<builtin>` | Cần chốt trước khi xuất bản |
 | Phụ đề (SRT + track mov_text) | Chép nguyên văn lời dẫn; thời điểm theo khoảng câu đã đo | Của dự án | — |
 | ASR (chỉ dùng cho QA) | `openai/whisper-large-v3-turbo` cục bộ | MIT | Không nằm trong video |
-| Nhạc, hiệu ứng âm thanh | **Không có** | — | — |
+| Nhạc | **Không có** | — | — |
+| Hiệu ứng âm thanh (chỉ trong đoạn thử g-r4) | Tổng hợp trong dự án bằng `pipeline/sound.py` theo `config/sound_design.json`: tiếng đá đặt xuống (`STONE`, `STONE_HEAVY`), không dùng bản ghi hay thư viện nào | Của dự án | Agent không nghe được. Có bản không âm thanh để chủ kênh so. Chưa có trong phim đầy đủ |
 
 ## Nguồn không dùng được
 

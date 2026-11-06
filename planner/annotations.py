@@ -217,6 +217,7 @@ class ShotRaster:
     """Opaque-geometry raster with depth of one shot at one frame (cached)."""
 
     def __init__(self, scene, frame, res):
+        scene = VIS.scene_at(scene, frame)   # SEQUENCE: the view the camera is in at that frame
         self.scene, self.frame = scene, frame
         self.nx, self.ny = res
         self.st = VIS.state_at(scene, frame)
@@ -266,15 +267,17 @@ class ShotRaster:
                 round((max(ys) + 1) / self.ny, 6)]
 
 
-def _static_window(scene, comp_ids, f0, f1, min_frames):
-    """Longest run of frames inside [f0, f1] in which the components do not move, or None."""
+def _static_window(scene, comp_ids, f0, f1, min_frames, camera=True):
+    """Longest run of frames inside [f0, f1] in which the components (and, for anchored annotations, the camera) do
+    not move, or None. Screen-fixed notes ride the camera (camera=False)."""
     from engine import motion
-    names = [templates.object_name(templates.MAIN_SLOT, c) for c in comp_ids]
-    def pos(f):
+    names = [templates.object_name(templates.MAIN_SLOT, c) for c in comp_ids] + ([templates.CAMERA_NAME] if camera else [])
+    def pos(f):   # the targets and the camera (a SEQUENCE eases between views): anchors need both still
         out = []
         for n in names:
-            if motion.LOC in scene.plan.channels(n):
-                out.append(tuple(round(v, 5) for v in scene.plan.sample(n, motion.LOC, f)))
+            for ch in (motion.LOC, motion.ORTHO):
+                if ch in scene.plan.channels(n):
+                    out.append(tuple(round(v, 5) for v in scene.plan.sample(n, ch, f)))
         return tuple(out)
     runs, start, prev = [], f0, pos(f0)
     for f in range(f0 + 1, f1 + 1):
@@ -434,7 +437,8 @@ def _resolve(a, rec, ps, scene, parts, vocab, sid, btype, claims, rasters, style
     all_ids = sorted({c for ref in refs for c in comps_of(ref)[0]})
     f0 = max(1, int(round(t0 * fps)) + 1)
     f1 = min(scene.frame_count, int(round(t1 * fps)))
-    run = _static_window(scene, all_ids, f0, f1, int(math.ceil(style["timing"]["min_display_seconds"] * fps)))
+    run = _static_window(scene, all_ids, f0, f1, int(math.ceil(style["timing"]["min_display_seconds"] * fps)),
+                         camera=kind not in ("TENSION_COMPRESSION_LEGEND", "NOTE"))
     if run is None:
         raise AnnotationError(f"its targets move during the whole display window (frames {f0}-{f1}); anchors "
                               "are only attached to still parts")
@@ -520,7 +524,7 @@ def _resolve(a, rec, ps, scene, parts, vocab, sid, btype, claims, rasters, style
             ys = sorted(j for _, j in col)
             j = ys[len(ys) // 2]
             i = min((p for p in col if p[1] == j), key=lambda p: abs(p[0] - c))[0]
-            world, screen = _world(scene, i, j, R.depth_at(i, j, [templates.object_name(templates.MAIN_SLOT, c)
+            world, screen = _world(R.scene, i, j, R.depth_at(i, j, [templates.object_name(templates.MAIN_SLOT, c)
                                                                    for c in visible]), R.nx, R.ny)
             anchors.append({"world": world, "screen": screen, "point": "TOP", "component_ids": visible})
         item["anchors"], item["target_boxes"] = anchors, boxes

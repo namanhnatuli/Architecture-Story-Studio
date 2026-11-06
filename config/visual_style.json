@@ -68,6 +68,32 @@
         "backdrop": "#E2DFD6",
         "note": "Worm's-eye axonometric (Choisy's classic view of vaults) for close-ups of the vault: ribs and web read from below. The camera lies below the ground plane, which is hidden for these shots, with a flat backdrop."
       },
+      "CATHEDRAL_VAULT_BELOW": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -60.0,
+        "elevation_degrees": -62.0,
+        "margin": 0.06,
+        "hide_ground": true,
+        "hide_roles": [
+          "floor",
+          "ground"
+        ],
+        "backdrop": "#E2DFD6",
+        "under_light": {"direction": [0.35, -0.6, -1.0], "strength": 1.6},
+        "note": "A steeper worm's-eye view than CATHEDRAL_FROM_BELOW: the two diagonal ribs of a bay read as an X, the web between them as a surface; the piers are foreshortened."
+      },
+      "CATHEDRAL_TRANSVERSE": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -84.0,
+        "elevation_degrees": 5.0,
+        "margin": 0.08,
+        "hide_ground": true,
+        "hide_roles": [
+          "ground"
+        ],
+        "backdrop": "#EDEBE5",
+        "note": "The cut face of the church, nearly square on: the classic transverse section that explains flying buttresses (vault, high wall, aisle, flyer and pier buttress in profile), with a little depth so the bays behind read. No ground plane: at 5 degrees it read as a hard grey band across the frame; the church floor stays."
+      },
       "CATHEDRAL_SECTION": {
         "type": "ORTHOGRAPHIC",
         "azimuth_degrees": -66.0,

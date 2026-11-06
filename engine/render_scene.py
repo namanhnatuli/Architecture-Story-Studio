@@ -173,7 +173,7 @@ def main():
 
     if args.mode == "check":
         from engine import qa_checks
-        report = qa_checks.run_all(project_dir, args.preset)
+        report = qa_checks.run_all(project_dir, args.preset, args.shot.split(",") if args.shot else None)
         target = Path(args.report) if args.report else project_dir / "qa" / "blender_checks.json"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(report, indent=2), encoding="utf-8")

@@ -1,19 +1,19 @@
 {
-  "asset_library/architecture/sites/site_level_ground.json": [
+  "asset_library/architecture/cathedrals/cathedral_gothic_section_01.json": [
     {
       "check": "specification_valid",
       "status": "PASS",
-      "detail": "site/level_ground, accuracy ILLUSTRATIVE"
+      "detail": "cathedral/gothic_section, accuracy ILLUSTRATIVE"
     },
     {
       "check": "components_valid",
       "status": "PASS",
-      "detail": "1 components, ids unique, types known"
+      "detail": "148 components, ids unique, types known"
     },
     {
       "check": "expected_component_counts",
       "status": "PASS",
-      "detail": "GROUND 1"
+      "detail": "AISLE_ROOF 2, AISLE_VAULT 6, AISLE_WINDOW 6, CLERESTORY_WINDOW 6, FLOOR 1, FLYING_BUTTRESS 8, NAVE_PIER 8, PIER_BUTTRESS 8, PINNACLE 8, RIB 10, ROOF 1, VAULT_WEB 60, WALL 24"
     },
     {
       "check": "no_floating_components",

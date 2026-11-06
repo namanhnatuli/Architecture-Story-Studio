@@ -198,27 +198,58 @@ class GothicFilmTest(unittest.TestCase):
         self.assertEqual(list(self.P.glob("output/*FINAL*")), [])
 
     def test_a_match_cut_never_moves_the_camera(self):
-        """A match cut promises the same view. SC_012 to SC_013 once jumped because the framing differed."""
+        """A match cut promises the same view. SC_012 to SC_013 once jumped because the framing differed. A SEQUENCE
+        shot moves between views, so the cut compares where the first shot ends with where the next one starts: the
+        framing, and the see-through state of every part (a ghost that pops back would show at the cut)."""
+        from engine import motion, templates
         plan = read(self.P / "storyboard/visual_plan.json")
+        states = read(self.P / "storyboard/states.json")
         matches = [(a, b) for a, b in zip(plan["shots"], plan["shots"][1:]) if b["cut_from_previous"] == "match"]
         self.assertTrue(matches)
+
+        def framing(shot, end):
+            anim = shot["animation"]
+            if anim.get("template") == "SEQUENCE":
+                return sorted(anim["views"][-1 if end else 0]["focus"] or [])
+            return sorted(shot.get("camera_focus") or [])
+
+        def see_through(shot, end):
+            pl = templates.plan_shot(shot, states, 24, templates.placeholder_slots(shot, states))
+            f = pl.frame_count if end else 1
+            return {n: round(pl.sample(n, motion.TRANSPARENCY, f)[0], 4) for n in pl.tracks
+                    if motion.TRANSPARENCY in pl.channels(n)}
         for a, b in matches:
             self.assertEqual(a["camera"]["preset"], b["camera"]["preset"], b["shot"]["id"])
-            self.assertEqual(a["shot"].get("camera_focus"), b["shot"].get("camera_focus"), b["shot"]["id"])
+            self.assertEqual(framing(a["shot"], True), framing(b["shot"], False), b["shot"]["id"])
+            ta, tb = see_through(a["shot"], True), see_through(b["shot"], False)
+            for n in set(ta) | set(tb):
+                self.assertEqual(ta.get(n, 0.0), tb.get(n, 0.0), (b["shot"]["id"], n))
 
     def test_b13_names_the_ribs_then_lights_the_web(self):
-        """Ribs and web lit together wash out: the ribs must stay readable while the web is lit."""
+        """Ribs and web lit together wash out: the ribs must stay readable while the web is lit. B13 (SEQUENCE) lights
+        the ribs, then every other course of the web (Heyman's parallel arches), then the whole web as sentence 2
+        says the stone between the ribs carries load; the ribs and the web never glow at the same time."""
         shots = {s["beat_id"]: s for s in read(self.P / "storyboard/visual_plan.json")["shots"]}
-        b12, b13 = shots["B12"], shots["B13"]
+        b13 = shots["B13"]
         self.assertEqual(b13["cut_from_previous"], "match")
-        self.assertEqual(b12["shot"]["camera_focus"], b13["shot"]["camera_focus"])
-        glow = b13["shot"]["animation"]["highlight"]
-        self.assertTrue(glow["components"])
-        self.assertTrue(all("vault_web" in c for c in glow["components"]), glow["components"])
-        timing = {b["id"]: b for b in read(self.P / "script/timing.json")["beats"]}["B13"]
-        carries_load = timing["sentences"][2]
-        self.assertIn("carries load", carries_load["text"])
-        self.assertAlmostEqual(glow["start_seconds"], carries_load["rel_start"], delta=1.0)
+        anim = b13["shot"]["animation"]
+        self.assertEqual(anim["template"], "SEQUENCE")
+        glows = [s for s in anim["steps"] if s["do"] == "HIGHLIGHT"]
+        kind = lambda s: {("rib" if "_rib_" in c else "web" if "_vault_web_" in c else c) for c in s["components"]}  # noqa: E731
+        self.assertEqual([kind(s) for s in glows], [{"rib"}, {"web"}, {"web"}])
+        end = lambda s: s["start_seconds"] + s["rise_seconds"] + s["hold_seconds"] + s["fall_seconds"]  # noqa: E731
+        for a, b in zip(glows, glows[1:]):
+            self.assertLessEqual(end(a), b["start_seconds"] + 1e-6)
+        stripes, web = glows[1]["components"], glows[2]["components"]
+        self.assertTrue(set(stripes) < set(web))
+        self.assertTrue(all(int(c[-1]) % 2 for c in stripes), stripes)
+        t = read(self.P / "script/timing.json")
+        start = {s["id"]: s for s in t["shots"]}[b13["shot_id"]]["start_seconds"]
+        s1, s2 = {b["id"]: b for b in t["beats"]}["B13"]["sentences"][1:3]
+        self.assertIn("parallel arches", s1["text"])
+        self.assertIn("carries load", s2["text"])
+        self.assertTrue(s1["start"] - start <= glows[1]["start_seconds"] <= s1["end"] - start)
+        self.assertTrue(s2["start"] - start - 0.5 <= glows[2]["start_seconds"] <= s2["end"] - start - 1.0)
 
     def test_runtime_is_the_owners_and_within_it(self):
         decision = read(self.P / "project.json")["runtime_decision"]
