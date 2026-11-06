@@ -1,4 +1,4 @@
-# Bản kê quyền và nguồn gốc: gothic-cathedral-heights (revision g-r3, đoạn thử g-r4)
+# Bản kê quyền và nguồn gốc: gothic-cathedral-heights (revision g-r3, đoạn thử g-r4, vòng g-r5)
 
 - Ngày lập: 2026-11-06, cho bản review nội bộ 720p. Người lập: agent. Đây là bản kê, **không phải tư vấn pháp lý**.
 - **Trạng thái duyệt:** chưa có. Chưa có `review/OWNER_APPROVALS.json`. Các nhận xét của chủ kênh về g-r1, g-r2 và g-r3 là yêu cầu sửa hoặc cho làm tiếp, không phải duyệt. Bản này là **INTERNAL REVIEW**.
@@ -11,7 +11,9 @@
 | Mô hình 3D | Sinh thủ tục trong dự án: `cathedral_gothic_section_01`, `cathedral_romanesque_section_01`, `site_level_ground` (`engine/arch/families/cathedral.py`) | `generated_in_project` | `ILLUSTRATIVE`: tỉ lệ tự chọn cho dễ nhìn, không dựng lại công trình thật, không phải phân tích kết cấu. Hình có ghi chú nói rõ |
 | Sơ đồ, dòng thời gian, thanh độ cao | Agent vẽ bằng phần tử phẳng (`engine/diagram.py`) từ giá trị trong claim | Của dự án | Có nhãn "Conceptual diagram" hoặc "Schematic" khi cần |
 | Hình B40 | Tính lại bằng `script/arch_statics.py` theo phương pháp đã công bố, không chép hình | Của dự án. Ghi "After Block, DeJong and Ochsendorf, 2006, Fig. 5, recalculated by Ochsendorf's 2002 method" | Chưa có người có chuyên môn kết cấu đọc lại |
-| Ảnh, tư liệu, footage | **Không có** | — | Chưa tải ảnh nào. Nếu thêm, mỗi ảnh cần hồ sơ đầy đủ trong `assets/manifest.json` |
+| Ảnh chụp (g-r5, chương 8) | Wikimedia Commons, tải 2026-11-06 (không lách qua bản sao lưu):<br>– Beauvais, dàn hợp xướng nhìn từ phố Chambiges (Dguendel)<br>– Beauvais, dàn hợp xướng bên trong (Dguendel)<br>– Beauvais, cánh ngang và dàn hợp xướng (Chris06)<br>– Amiens, lòng chính nhìn từ triforium (Eusebius) | CC BY 4.0, CC BY 4.0, CC0, CC BY 3.0. Không dùng ảnh CC BY-SA, vì điều khoản ShareAlike với video chưa rõ | Hồ sơ đầy đủ trong `assets/manifest.json`: nguồn, tác giả, giấy phép, SHA256, chỉnh sửa (thu nhỏ, cắt khung khi render, đánh dấu bên cạnh). Ghi công trên hình và trong mô tả. **Agent chỉ kiểm giấy phép theo hồ sơ Commons. Chủ kênh chưa duyệt ảnh và ghi công** |
+| Bản vẽ lịch sử (g-r5, chương 8) | Eugène Viollet-le-Duc, *Dictionnaire raisonné de l'architecture française* (1854–1868), bản quét trên Wikimedia Commons:<br>– mặt cắt trụ chống bay Beauvais<br>– mặt bằng Beauvais<br>– mặt bằng Amiens | Public domain (tác giả mất năm 1879) | Dùng nguyên bản quét. Dấu vẽ lên (vùng vòm sập, giả thuyết, trụ mới, giao cánh, tuyến dây xích) đều ghi "schematic". Mặt bằng Amiens là thiết kế gốc theo Viollet-le-Duc, chú thích có nói rõ. Bản vẽ thanh sắt Amiens trên Commons bị bỏ, vì tác giả và năm ghi không chắc chắn |
+| Footage | **Không có** | — | — |
 | Chữ trên hình | Font `<builtin>` của Blender | Như các phim trước: chưa xác định file font cụ thể đứng sau `<builtin>` | Cần chốt trước khi xuất bản |
 | Phụ đề (SRT + track mov_text) | Chép nguyên văn lời dẫn; thời điểm theo khoảng câu đã đo | Của dự án | — |
 | ASR (chỉ dùng cho QA) | `openai/whisper-large-v3-turbo` cục bộ | MIT | Không nằm trong video |

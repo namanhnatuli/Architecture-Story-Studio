@@ -53,13 +53,20 @@ Sources
 - French art, known as 'Gothic', in Beauvais, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page). https://cathedrale-beauvais.fr/en/french-art-known-as-gothic/
 - Description of the cathedral, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page). https://cathedrale-beauvais.fr/en/description-of-the-cathedral/
 
-Archival photographs
+Photographs and drawings
 
+- Beauvais Cathedral, the choir seen from the Rue Chambiges: Dguendel, CC BY 4.0, via Wikimedia Commons. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Original record: https://commons.wikimedia.org/wiki/File:Beauvais,_the_Rue_Chambiges,_view_to_cathedral.JPG. Changes: Commons 1920-px rendition of the 3456x5184 original, downscaled to 1706x2560 JPEG; cropped at render time; slow drift; no retouching
+- Beauvais Cathedral, the choir (interior, looking up): Dguendel, CC BY 4.0, via Wikimedia Commons. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Original record: https://commons.wikimedia.org/wiki/File:Beauvais,_Beauvais,_cathedral_Saint_Pierre,_the_choir.JPG. Changes: original 2403x5462 downscaled to 1126x2560 JPEG; cropped at render time; schematic level marks drawn beside it, not on it; no retouching
+- Beauvais Cathedral: transept and choir, with a lower, older building in front: Chris06, CC0, via Wikimedia Commons. CC0 (https://creativecommons.org/publicdomain/zero/1.0/). Original record: https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Pierre_de_Beauvais1.JPG. Changes: original file (1743x1409), unchanged; fitted in a frame at render time
+- Amiens Cathedral, the nave seen from the triforium: Eusebius, CC BY 3.0, via Wikimedia Commons. CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Original record: https://commons.wikimedia.org/wiki/File:Cathedrale_d%27Amiens_-_nef_depuis_le_triforium.jpg. Changes: original 2237x3028 downscaled to 1892x2560 JPEG; fitted in a frame at render time; no retouching
+- A flying buttress of Beauvais Cathedral (Dictionnaire raisonné, article Arc-boutant): Drawing: Viollet-le-Duc, 1856 (public domain). Public domain (PD-old: Viollet-le-Duc died 1879; Commons template {{Viollet-le-Duc}}). Original record: https://commons.wikimedia.org/wiki/File:Arc.boutant.cathedrale.Beauvais.png. Changes: original scan (630x1021), unchanged; schematic marks (outlines, arrows) drawn over it at render time
+- Plan of Beauvais Cathedral (Dictionnaire raisonné, article Cathédrale, fig. 22): Plan: Viollet-le-Duc, 1856 (public domain). Public domain (PD-old: Viollet-le-Duc died 1879; Commons template {{Viollet-le-Duc}}). Original record: https://commons.wikimedia.org/wiki/File:Plan.cathedrale.Beauvais.png. Changes: original scan (609x915), unchanged; cropped at render time; schematic marks drawn over it
+- Plan of Amiens Cathedral after its original design (Dictionnaire raisonné, article Cathédrale, fig. 19): Plan: Viollet-le-Duc, 1854 (public domain). Public domain (PD-old: Viollet-le-Duc died 1879; Commons template {{Viollet-le-Duc}}). Original record: https://commons.wikimedia.org/wiki/File:Plan.cathedrale.Amiens.png. Changes: original scan (515x1008), unchanged; cropped at render time; schematic marks drawn over it
 
 Credits and disclosures
 
 - Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael).
-- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs or reconstructions of the bridges shown in the photographs.
+- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs or reconstructions of the buildings shown in the photographs and drawings.
 - Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given.
-- Historic American Engineering Record (HAER), National Park Service; Library of Congress Prints & Photographs Division. Photographs are public-domain works of the U.S. Government.
+- Marks drawn on the photographs and historic drawings are schematic.
 

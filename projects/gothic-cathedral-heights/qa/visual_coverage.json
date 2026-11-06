@@ -2,9 +2,9 @@
   "project_id": "gothic-cathedral-heights",
   "executable": true,
   "visibility_summary": {
-    "shots_assessed": 12,
-    "target_rows": 19,
-    "rows_passing": 19,
+    "shots_assessed": 10,
+    "target_rows": 17,
+    "rows_passing": 17,
     "uncertain_rows": 0,
     "issues_detected": 1,
     "auto_repaired": 1,
@@ -15,26 +15,19 @@
     {
       "beat_id": "B01",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": "HOLD",
+      "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 20.975,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD: Hold the structure"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
+      "assets": [],
       "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
         "SC_001"
@@ -48,52 +41,28 @@
     {
       "beat_id": "B02",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": "HOLD_HIGHLIGHT",
+      "strategy": "CARD",
       "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 14.625,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "clerestory_window"
-      ],
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
         "SC_002"
       ],
       "planned_seconds": 14.625,
-      "readable": {
-        "clerestory_window": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_002",
-          "concept": "clerestory_window",
-          "label": "highlight_peak",
-          "frame": 222,
-          "visible_share": 0.5038,
-          "core_area": 0.00087,
-          "visible_area": 0.00632,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B03",
@@ -1281,52 +1250,28 @@
     {
       "beat_id": "B34",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "HOLD_HIGHLIGHT",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "CARD",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 16.675,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "assets": [
-        {
-          "concept": "gothic_cathedral_section",
-          "status": "REUSE_EXISTING",
-          "asset_id": "cathedral_gothic_section_01",
-          "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
-        }
-      ],
-      "semantic_targets": [
-        "vault_web"
-      ],
+      "assets": [],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "MOTION_GRAPHICS"
       ],
       "shot_ids": [
         "SC_035"
       ],
       "planned_seconds": 16.708,
-      "readable": {
-        "vault_web": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_035",
-          "concept": "vault_web",
-          "label": "highlight_peak",
-          "frame": 205,
-          "visible_share": 0.303,
-          "core_area": 0.00207,
-          "visible_area": 0.0053,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B35",

@@ -199,17 +199,27 @@ def youtube_description(p, d, manifest):
         if not s["id"].startswith("SRC_HAER"):
             lines.append(f"- {s['title']}, {s.get('publisher', '')}" + (f" ({s['edition']})" if s.get("edition") else "")
                          + f". {s.get('url', '')}" + (f" (archived copy: {s['archived_url']})" if s.get("archived_url") else ""))
-    lines += ["", "Archival photographs", ""]
+    haer = any("HAER" in (a.get("attribution", "") + a.get("creator", "")) or "Historic American Engineering Record"
+               in a.get("attribution", "") for a in photos)
+    lines += ["", "Archival photographs" if haer else "Photographs and drawings", ""]
     for a in photos:
-        lines.append(f"- {a.get('title') or a['id']}: {a['attribution']}. {a['license']}. Original record: "
-                     f"{a.get('original_record') or a['source_url']}")
+        lines.append(f"- {a.get('title') or a['id']}: {a['attribution']}. {a['license']}"
+                     + (f" ({a['license_url']})" if a.get("license_url") else "")
+                     + f". Original record: {a.get('original_record') or a['source_url']}"
+                     + (f". Changes: {a['modifications']}" if not haer and a.get("modifications") else ""))
     lines += ["", "Credits and disclosures", "",
               f"- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice {d['narration']['voice']['voice']}).",
+              # g-r5: the bridge film's wording stays exactly as it was; other films get their own
               "- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs "
-              "or reconstructions of the bridges shown in the photographs.",
-              "- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given.",
-              "- Historic American Engineering Record (HAER), National Park Service; Library of Congress Prints & "
-              "Photographs Division. Photographs are public-domain works of the U.S. Government.", ""]
+              + ("or reconstructions of the bridges shown in the photographs." if haer else
+                 "or reconstructions of the buildings shown in the photographs and drawings."),
+              "- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given."]
+    if haer:
+        lines.append("- Historic American Engineering Record (HAER), National Park Service; Library of Congress Prints & "
+                     "Photographs Division. Photographs are public-domain works of the U.S. Government.")
+    elif photos:
+        lines.append("- Marks drawn on the photographs and historic drawings are schematic.")
+    lines.append("")
     out = p / "review" / "YOUTUBE_DESCRIPTION.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return out

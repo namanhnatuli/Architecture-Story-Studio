@@ -164,7 +164,7 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 ## Bổ sung 2026-11-06: shot SEQUENCE, âm thanh tổng hợp, đoạn thử
 - **SEQUENCE** (`engine/motion.plan_sequence`, chiến lược planner cùng tên): một mô hình, nhiều bước theo lời dẫn (làm mờ, hiện ra, phát sáng; camera trượt và zoom giữa các khung của một preset). Cách viết: playbook, mục "Shot SEQUENCE".
   - Asset phải khai báo `SEQUENCE` trong `animation_support`. Không có thì planner trả MISSING_TEMPLATE, không thay bằng hình giữ.
-  - Không xoay camera trong shot. Không dùng hoạt ảnh để tái hiện một vụ sập lịch sử: nguyên nhân còn tranh luận thì vẽ từng giả thuyết riêng, có nhãn.
+  - Camera chỉ quay một cung ngắn giữa hai view (từ g-r5), không quay khi bộ phận đang đổi. Không dùng hoạt ảnh để tái hiện một vụ sập lịch sử: nguyên nhân còn tranh luận thì vẽ từng giả thuyết riêng, có nhãn.
 - **Âm thanh:** chỉ âm tổng hợp trong dự án (`pipeline/sound.py`, `config/sound_design.json`), mỗi âm gắn với một sự kiện nhìn thấy được, nhỏ hơn lời dẫn.
   - Không nhạc nền, không ambience, không tải âm thanh ngoài khi chưa kiểm giấy phép.
   - Agent không nghe được, nên luôn giao kèm một bản không âm thanh để so. Whisper trên lời dẫn có âm và không âm phải cho WER tương đương (`tools/excerpt.py`).
@@ -172,3 +172,14 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
   - Tên file luôn có `INTERNAL_REVIEW`. Chỗ nối giữa hai shot không liền nhau trong phim được ghi là "excerpt join".
   - Chủ kênh duyệt chất lượng hình trên đoạn thử trước khi agent áp cách làm đó cho cả phim.
 
+
+## Bổ sung 2026-11-06 (g-r5): công trình thật có hình riêng
+- **Không thay tên trên cùng một mô hình chung để giới thiệu hai công trình thật.** Dùng ảnh thật và tài liệu của chính công trình đó (mặt bằng, mặt cắt lịch sử). Chỉ dựng 3D phần phục vụ câu chuyện, dựa trên tài liệu tham chiếu. Mô hình chung chỉ dùng cho phần giải thích nguyên lý.
+- **Ảnh và bản vẽ ngoài:**
+  - Tìm trên Wikimedia Commons, kiểm giấy phép qua API.
+  - Ưu tiên public domain, CC0, CC BY. Không dùng CC BY-SA khi chưa có quyết định về ShareAlike.
+  - Bỏ ảnh có tác giả hoặc ngày không chắc chắn.
+  - Mỗi ảnh có hồ sơ đầy đủ trong `assets/manifest.json` và dòng ghi công trên hình.
+  - `status: approved` ở đó chỉ nghĩa là agent đã kiểm giấy phép theo hồ sơ nguồn. Việc chủ kênh duyệt ảnh và ghi công vẫn là một mục riêng trong checklist duyệt cuối, agent không đánh dấu.
+- **Dấu vẽ lên ảnh hay bản vẽ** (vùng, mũi tên, tuyến) chỉ đặt ở nơi nguồn nói tới, và ghi "schematic". Khi nguồn chỉ tả một tuyến ("dọc lòng chính, giằng trụ giao cánh"), vẽ đúng tuyến đó, không tự thêm hình dạng.
+- **Duyệt theo chương:** khi cách làm hình thay đổi, render và giao từng chương đã làm lại (`chapter --chapter Cn --preset internal_720p`). Chỉ render lại cả phim khi chủ kênh đã duyệt các chương.

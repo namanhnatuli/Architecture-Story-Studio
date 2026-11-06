@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.10.2 — 2026-11-06 — Phim Gothic g-r5, bước 2–3: chương Beauvais và mở phim bằng ảnh thật
+- **Chủ kênh đề nghị:**
+  - Beauvais và Amiens phải có hình riêng.
+  - Chuỗi trình bày: ảnh thật → đánh dấu bộ phận → mặt cắt hoặc mô hình → trở lại ảnh thật.
+  - Timeline tiến theo lời.
+  - Giả thuyết sập: mỗi giả thuyết một sơ đồ.
+  - Duyệt từng chương trước khi render lại toàn bộ.
+  - Chưa có gì được duyệt.
+- **Ảnh và bản vẽ (Wikimedia Commons, kiểm giấy phép qua API):**
+  - 4 ảnh chụp: Beauvais ba ảnh (CC BY 4.0, CC0), Amiens một ảnh (CC BY 3.0).
+  - 3 bản vẽ public domain của Viollet-le-Duc: mặt cắt trụ chống bay Beauvais, mặt bằng Beauvais, mặt bằng Amiens.
+  - Hồ sơ trong `assets/manifest.json`; ghi công trên hình và trong mô tả. Không dùng CC BY-SA. Bỏ một bản vẽ có tác giả và năm không chắc chắn.
+- **Chương 8 (B31–B38):** card ảnh và bản vẽ, đánh dấu theo lời.
+  - Ba tầng của dàn hợp xướng.
+  - Vùng các khoang thẳng có vòm sập; không dựng cảnh sập.
+  - Từng giả thuyết trên mặt cắt của Viollet-le-Duc.
+  - Trụ mới giữa trụ cũ.
+  - Cánh ngang, bốn trụ giao cánh, lòng chính không bao giờ xây.
+  - Timeline tiến theo lời.
+  - Tuyến dây xích Amiens dọc lòng chính, đúng như nguồn tả.
+- **Mở phim (B01, B02):** ảnh thật của Beauvais (trong và ngoài dàn hợp xướng) và Amiens, thay cho mô hình chung ghi "not Beauvais/Amiens".
+- **Card:** `Card.image`, `Card.credit`, `fitted` (pixel của ảnh → tọa độ card), `Card.drawn`, `Card.drawn_arrow`, `.later()`; phần tử card có `delay`.
+- **`tools/longform_reports.py`:**
+  - Mô tả YouTube không còn chép câu và dòng ghi công HAER của phim cầu vào phim khác.
+  - Mục "Photographs and drawings" có giấy phép, đường dẫn và chỉnh sửa.
+  - Phim cầu giữ nguyên văn.
+- Bản review: `output/chapters_internal_720p/…C8…`, `…C1…` (ngoài git). Ghi chú duyệt: `review/REVIEW_G_R5.md`.
+
 ## 0.10.1 — 2026-11-06 — Phim Gothic g-r5, bước 1: sửa đoạn thử theo góp ý của chủ kênh
 - **Chủ kênh nhận xét đoạn thử g-r4:** giữ hướng (chuyển động mang thông tin), nhưng phải rõ hơn trước khi nhân rộng.
   - Bớt lớp mờ phía sau.

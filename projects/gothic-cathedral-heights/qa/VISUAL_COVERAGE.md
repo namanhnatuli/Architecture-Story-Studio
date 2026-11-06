@@ -1,14 +1,14 @@
 # Visual coverage: How Gothic Cathedrals Reached Impossible Heights
 
 - Planner 1.0.0, timing **AUDIO_LOCKED** (measured narration windows), 47 shots, 923.42 s.
-- Executable: **True** · COVERED 40, PARTIALLY_COVERED 6
+- Executable: **True** · COVERED 41, PARTIALLY_COVERED 5
 - Publication: INTERNAL_ONLY — Revision g-r3: script after the owner's second review; claims source-verified, not editorially approved.
-- Visibility (offline Level 1 estimate): 12 shots, 19/19 target rows read, issues 1, auto-repaired 1, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
+- Visibility (offline Level 1 estimate): 10 shots, 17/17 target rows read, issues 1, auto-repaired 1, manual review 0, uncertain 0 (Blender check: `verify-visibility`).
 
 | Beat | Intent | Strategy | Assets | Semantic targets | Templates (shots) | Expected / planned s | Evidence | Readable | Coverage | Issues |
 |---|---|---|---|---|---|---|---|---|---|---|
-| B01 | INTRODUCE_ARCHITECTURE | HOLD | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | — | HOLD (SC_001) | 20.98 / 21.00 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B02 | INTRODUCE_ARCHITECTURE | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | clerestory_window | HOLD (SC_002) | 14.62 / 14.62 | INTERNAL_PREVIEW | clerestory_window: reads | **COVERED** | — |
+| B01 | INTRODUCE_ARCHITECTURE | CARD | — | — | MOTION_GRAPHICS (SC_001) | 20.98 / 21.00 | INTERNAL_PREVIEW | — | **COVERED** | — |
+| B02 | INTRODUCE_ARCHITECTURE | CARD | — | — | MOTION_GRAPHICS (SC_002) | 14.62 / 14.62 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B03 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_003) | 16.48 / 16.50 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B04 | EXPLAIN_STRUCTURE | CARD | — | — | MOTION_GRAPHICS (SC_004) | 13.38 / 13.38 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B05 | EXPLAIN_LOAD_PATH | HOLD | romanesque_church_section: REUSE_EXISTING → `cathedral_romanesque_section_01` | — | HOLD (SC_005) | 19.52 / 19.54 | INTERNAL_PREVIEW | — | **COVERED** | — |
@@ -40,7 +40,7 @@
 | B31 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_032) | 15.22 / 15.25 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B32 | EXPLAIN_DESIGN_CHANGE | CARD | — | — | MOTION_GRAPHICS (SC_033) | 21.43 / 21.46 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B33 | COMPARE_VARIANTS | CARD | — | — | MOTION_GRAPHICS (SC_034) | 10.80 / 10.83 | INTERNAL_PREVIEW | — | **COVERED** | — |
-| B34 | SHOW_COMPONENT | HOLD_HIGHLIGHT | gothic_cathedral_section: REUSE_EXISTING → `cathedral_gothic_section_01` | vault_web | HOLD (SC_035) | 16.68 / 16.71 | INTERNAL_PREVIEW | vault_web: reads | **PARTIALLY_COVERED** | — |
+| B34 | SHOW_COMPONENT | CARD | — | — | MOTION_GRAPHICS (SC_035) | 16.68 / 16.71 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B35 | EXPLAIN_CAUSE_EFFECT | CARD | — | — | MOTION_GRAPHICS (SC_036) | 31.50 / 31.50 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B36 | EXPLAIN_DESIGN_CHANGE | CARD | — | — | MOTION_GRAPHICS (SC_037) | 19.52 / 19.54 | INTERNAL_PREVIEW | — | **COVERED** | — |
 | B37 | SHOW_CONTEXT | CARD | — | — | MOTION_GRAPHICS (SC_038) | 37.33 / 37.33 | INTERNAL_PREVIEW | — | **COVERED** | intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE', 'SHOW_EVOLUTION'] |
@@ -56,8 +56,8 @@
 
 ## Planner decisions
 
-- **B01**: HOLD: Hold the structure
-- **B02**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B01**: CARD: 2D card (text/arrows) supplied by the beat
+- **B02**: CARD: 2D card (text/arrows) supplied by the beat
 - **B03**: CARD: 2D card (text/arrows) supplied by the beat
 - **B04**: CARD: 2D card (text/arrows) supplied by the beat
 - **B05**: HOLD: Hold the structure
@@ -89,7 +89,7 @@
 - **B31**: CARD: 2D card (text/arrows) supplied by the beat
 - **B32**: CARD: 2D card (text/arrows) supplied by the beat
 - **B33**: CARD: 2D card (text/arrows) supplied by the beat
-- **B34**: HOLD_HIGHLIGHT: Hold the structure and glow the focus components
+- **B34**: CARD: 2D card (text/arrows) supplied by the beat
 - **B35**: CARD: 2D card (text/arrows) supplied by the beat
 - **B36**: CARD: 2D card (text/arrows) supplied by the beat
 - **B37**: CARD: 2D card (text/arrows) supplied by the beat

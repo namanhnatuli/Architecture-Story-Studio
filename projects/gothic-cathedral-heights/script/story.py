@@ -23,6 +23,42 @@ INK, MUTED, FAINT = "#24231F", "#55524A", "#8A867C"
 STONE, WOOD, GLASS = "#B9A887", "#8C654D", "#5E86A6"
 THRUST, ACCENT = "#C25110", "#1E5C96"
 CHAR_W = 0.26   # text width per character in units of the text size (measured from card QA boxes)
+# g-r5 (owner: real buildings need their own pictures): photographs and historic drawings; the rights record of each is
+# in assets/manifest.json, the credit below is shown on screen and in the description
+PHOTOS = {
+    "IMG_BEAUVAIS_CHEVET": {"path": "assets/external/beauvais_chevet_rue_chambiges_2560.jpg", "size": (1706, 2560),
+                            "credit": "Photo: Dguendel, CC BY 4.0, Wikimedia Commons"},
+    "IMG_BEAUVAIS_CHOIR": {"path": "assets/external/beauvais_choir_interior_2560.jpg", "size": (1126, 2560),
+                           "credit": "Photo: Dguendel, CC BY 4.0, Wikimedia Commons"},
+    "IMG_BEAUVAIS_TRANSEPT": {"path": "assets/external/beauvais_basse_oeuvre_transept_1743.jpg", "size": (1743, 1409),
+                              "credit": "Photo: Chris06, CC0, Wikimedia Commons"},
+    "IMG_AMIENS_NAVE": {"path": "assets/external/amiens_nave_from_triforium_2560.jpg", "size": (1892, 2560),
+                        "credit": "Photo: Eusebius, CC BY 3.0, Wikimedia Commons"},
+    "DRW_VLD_BEAUVAIS_BUTTRESS": {"path": "assets/external/vld_beauvais_flying_buttress.png", "size": (630, 1021),
+                                  "credit": "Drawing: Viollet-le-Duc, 1856 (public domain)"},
+    "DRW_VLD_BEAUVAIS_PLAN": {"path": "assets/external/vld_beauvais_plan.png", "size": (609, 915),
+                              "credit": "Plan: Viollet-le-Duc, 1856 (public domain)"},
+    "DRW_VLD_AMIENS_PLAN": {"path": "assets/external/vld_amiens_plan.png", "size": (515, 1008),
+                            "credit": "Plan: Viollet-le-Duc, 1854 (public domain)"},
+}
+
+
+def fitted(asset, box, crop=(0.0, 0.0, 1.0, 1.0)):
+    """The image's box on the card (as engine/diagram.image_box) and a map from its pixels (x right, y down) to card
+    coordinates, so marks land on the drawing."""
+    w, h = PHOTOS[asset]["size"]
+    u0, v0, u1, v1 = crop
+    img = (w * (u1 - u0)) / (h * (v1 - v0))
+    x0, y0, x1, y1 = box
+    bw, bh = (x1 - x0) * ASPECT, y1 - y0
+    fw, fh = (bw, bw / img) if img > bw / bh else (bh * img, bh)
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    fb = [cx - fw / ASPECT / 2, cy - fh / 2, cx + fw / ASPECT / 2, cy + fh / 2]
+
+    def at(px, py):
+        u, v = px / w, 1 - py / h
+        return [round(fb[0] + (u - u0) / (u1 - u0) * (fb[2] - fb[0]), 4), round(fb[1] + (v - v0) / (v1 - v0) * (fb[3] - fb[1]), 4)]
+    return fb, at
 DASH = [0.012, 0.008]   # dash and gap of a dashed card line, in units of the card height
 
 
@@ -264,21 +300,51 @@ def note(nid, text, sentence=0, until=None, position="TOP_LEFT"):
 GOTHIC, ROMANESQUE = "gothic_cathedral_section", "romanesque_church_section"
 
 # C1 -------------------------------------------------------------------------------------------
+# g-r5 (owner: rebuild the opening with the new pictures): the real buildings open the film. Beauvais by its choir,
+# inside and out; Amiens by its nave. The fall is told, never shown; the heights carry their caveat.
+c = Card("B01")
+box, _ = fitted("IMG_BEAUVAIS_CHOIR", [0.05, 0.21, 0.36, 0.95], (0.0, 0.25, 1.0, 1.0))
+c.image("IMG_BEAUVAIS_CHOIR", [0.05, 0.21, 0.36, 0.95], (0.0, 0.25, 1.0, 1.0), 0, drift=(0.0, -0.01))
+c.credit("IMG_BEAUVAIS_CHOIR", (box[0] + box[2]) / 2, 0.185)
+c.text("Beauvais, November 1284", 0.66, 0.84, 0.042, 0, word="november")
+c.text("Part of the highest stone vaults", 0.66, 0.76, 0.028, 0, word="part")
+c.text("of the Middle Ages came down", 0.66, 0.715, 0.028, 0, word="part")
+# the photograph does not reach the floor: an arrow to the vault, not a bracket that would read as its height
+bx = box[2] + 0.02
+c.drawn_arrow([[bx + 0.03, 0.8], [bx + 0.03, 0.88], [box[2] - 0.03, 0.9]], THRUST, 0.006, 1, "45", seconds=0.6)
+c.text("Vault: more than 45 m", bx + 0.012, 0.765, 0.026, 1, align="LEFT", color=THRUST).later(0.6, "45")
+c.text("above the floor", bx + 0.012, 0.725, 0.022, 1, align="LEFT", color=THRUST).later(0.6, "45")
+c.text("Published heights differ: 46 m to above 48 m", 0.66, 0.6, 0.02, 1, color=MUTED, word="45")
+pbox, _ = fitted("IMG_BEAUVAIS_CHEVET", [0.5, 0.25, 0.82, 0.55], (0.0, 0.42, 1.0, 0.95))
+c.image("IMG_BEAUVAIS_CHEVET", [0.5, 0.25, 0.82, 0.55], (0.0, 0.42, 1.0, 0.95), 2, word="choir")
+c.text("The choir: the eastern arm", 0.87, 0.45, 0.022, 2, word="choir")
+c.text("In use since 1272", 0.87, 0.4, 0.022, 2, word="use")
+c.text("Twelve years", 0.87, 0.355, 0.022, 2, word="12")
+c.credit("IMG_BEAUVAIS_CHEVET", (pbox[0] + pbox[2]) / 2, 0.225)
+c.elements[-1].update(sentence=2, word="choir")   # with its photo
 beat("C1", "B01", "fact", "INTRODUCE_ARCHITECTURE", [
     "In November 1284, in the French city of Beauvais, part of the highest stone vaults of the Middle Ages came down.",
     "They stood more than 45 meters above the floor.",
     "The choir beneath them, the eastern arm of the cathedral, had been in use for just twelve years."],
-    ["CLM_103", "CLM_104", "CLM_106", "CLM_181", "CLM_182"], strategy="HOLD", camera_move={"type": "PUSH_IN", "amount": 0.1},
-    visual_goal="A Gothic section through one bay, seen from low down; the collapse is told, never shown",
-    required_concepts=[GOTHIC],
-    annotations=[note("B01_note", "Illustrative model, not Beauvais Cathedral", 0, position="BOTTOM_RIGHT"),
-                 {**note("B01_h", "Published heights differ: 46 m to above 48 m", 1), "claim_id": "CLM_104"}])
+    ["CLM_103", "CLM_104", "CLM_106", "CLM_181", "CLM_182"], strategy="CARD", graphic=c.spec(),
+    visual_goal="The real Beauvais: its choir from inside, looking up, with the height and its caveat; then the choir "
+                "from outside. The collapse is told, never shown",
+    required_concepts=[])
+
+c = Card("B02")
+box, _ = fitted("IMG_AMIENS_NAVE", [0.05, 0.21, 0.42, 0.95])
+c.image("IMG_AMIENS_NAVE", [0.05, 0.21, 0.42, 0.95], sentence=0, drift=(0.0, -0.01))
+c.credit("IMG_AMIENS_NAVE", (box[0] + box[2]) / 2, 0.185)
+c.text("Many still stand", 0.7, 0.8, 0.04, 0, word="many")
+c.text("Amiens, begun 1220", 0.7, 0.66, 0.034, 1, word="begun")
+c.text("Vault: more than 42 m", 0.7, 0.59, 0.03, 1, word="42")
+c.text("Tall, slender, filled with light", 0.7, 0.52, 0.026, 1, color=MUTED, word="tall")
 beat("C1", "B02", "fact", "INTRODUCE_ARCHITECTURE", [
     "And yet many buildings like it are still standing.",
     "At Amiens, begun in 1220, the vault rises more than 42 meters, in a building that is tall, slender and filled with light."],
-    ["CLM_110", "CLM_101", "CLM_102", "CLM_156"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1,
-    visual_goal="The same section: slender piers and tall windows", required_concepts=[GOTHIC, "clerestory_window"],
-    annotations=[note("B02_note", "Illustrative model, not Amiens Cathedral", 0, position="BOTTOM_RIGHT")])
+    ["CLM_110", "CLM_101", "CLM_102", "CLM_156"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Amiens by its own photograph: the nave, tall and full of light, with its date and height",
+    required_concepts=[])
 
 c = Card("B03")
 c.text("How Gothic Cathedrals Reached", 0.5, 0.7, 0.06, 0)
@@ -766,122 +832,257 @@ beat("C7", "B30", "fact", "SHOW_CONTEXT", [
     ["CLM_101"], strategy="CARD", graphic=c.spec(), visual_goal="Ninety years on one line", required_concepts=[])
 
 # C8 -------------------------------------------------------------------------------------------
+# g-r5 (owner): the real buildings by their own pictures. Photographs establish each building; Viollet-le-Duc's own plan
+# and section of Beauvais (1856) carry the marks (affected area, hypotheses, new piers, crossing, unbuilt nave); the
+# film returns to a photograph. Every mark is schematic and says so; no collapse is shown.
+TOP = 0.95           # pictures sit between the subtitle zone and the top of the frame
+BOTTOM = 0.21
+CREDIT_Y = 0.185
+RIGHT = 0.73         # centre of the text column on cards with a picture on the left
+
+
+def mark_box(c, at, px0, py0, px1, py1, sentence, word=None, color=THRUST, until=None, delay=0.0, dash=True, width=0.004):
+    """A drawn outline around a region of a picture (pixels), in order around it."""
+    (x0, y1), (x1, y0) = at(px0, py0), at(px1, py1)
+    return c.drawn([[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]], color, width, sentence, word, seconds=0.8,
+                   dash=dash, until=until, delay=delay)
+
+
 c = Card("B31")
 c.tag("8 · The limit: Beauvais")
-c.text("Beauvais, 1225", 0.5, 0.66, 0.06, 0)
-c.text("A fire damages the old Romanesque choir", 0.5, 0.54, 0.034, 1, word="fire")
-c.text("The bishop rebuilds, after the greatest buildings of his time", 0.5, 0.46, 0.034, 1, word="bishop")
+box, _ = fitted("IMG_BEAUVAIS_CHEVET", [0.06, BOTTOM, 0.50, 0.87], (0.0, 0.30, 1.0, 1.0))   # below the chapter tag
+c.image("IMG_BEAUVAIS_CHEVET", [0.06, BOTTOM, 0.50, 0.87], (0.0, 0.30, 1.0, 1.0), 0, drift=(0.0, 0.006))
+c.credit("IMG_BEAUVAIS_CHEVET", (box[0] + box[2]) / 2, CREDIT_Y)
+c.text("Beauvais Cathedral", RIGHT, 0.74, 0.044, 0)
+c.text("The choir today", RIGHT, 0.68, 0.026, 0, color=MUTED)
+c.line([[RIGHT - 0.14, 0.645], [RIGHT + 0.14, 0.645]], FAINT, 0.003, 0)
+c.text("1225", RIGHT, 0.56, 0.05, 1, word="1225")
+c.text("A fire damages the old Romanesque choir", RIGHT, 0.47, 0.025, 1, word="fire")
+c.text("The bishop rebuilds it, after", RIGHT, 0.39, 0.025, 1, word="bishop")
+c.text("the greatest buildings of his time", RIGHT, 0.345, 0.025, 1, word="greatest")
 beat("C8", "B31", "fact", "SHOW_CONTEXT", [
     "Which brings us back to Beauvais.",
     "In 1225, a fire damaged the old Romanesque choir, and the bishop decided to rebuild it, inspired by the greatest buildings of his time."],
-    ["CLM_180"], strategy="CARD", graphic=c.spec(), visual_goal="Place and date", required_concepts=[])
+    ["CLM_180"], strategy="CARD", graphic=c.spec(), visual_goal="The real building first: the choir of Beauvais today, then place and date",
+    required_concepts=[])
 
 c = Card("B32")
-x0, x1 = 0.36, 0.64
-for y0, y1, label, s in ((0.24, 0.46, "Arcade", 0), (0.46, 0.56, "Triforium", 0), (0.56, 0.72, "Upper windows", 1)):
-    c.rect([x0, y0, x1, y1], STONE if s == 0 else GLASS, border="#7A6E58", sentence=s, border_width=0.003)
-    c.text(label, 0.5, (y0 + y1) / 2, 0.028, s, plate=True)
-c.rect([x0, 0.72, x1, 0.84], border=THRUST, sentence=1, border_width=0.005, dash=True)
-c.text("+ about 5 m", 0.5, 0.78, 0.032, 1, color=THRUST, word="adding")
-c.text("Beyond the planned proportions", 0.82, 0.78, 0.026, 1, plate=True, word="beyond")
-c.text("1250s: lower levels finished", 0.18, 0.5, 0.026, 0, plate=True)
-c.text("1272: choir in use", 0.18, 0.78, 0.026, 2, plate=True)
-c.text("Schematic, not to scale", 0.82, 0.26, 0.021, 0, color=MUTED)
+CHOIR_CROP = (0.0, 0.15, 1.0, 1.0)
+box, at = fitted("IMG_BEAUVAIS_CHOIR", [0.22, BOTTOM, 0.52, TOP], CHOIR_CROP)
+c.image("IMG_BEAUVAIS_CHOIR", [0.22, BOTTOM, 0.52, TOP], CHOIR_CROP, 0)
+c.credit("IMG_BEAUVAIS_CHOIR", (box[0] + box[2]) / 2, CREDIT_Y)
+bx = box[2] + 0.014
+LEVELS = (("Arcade", 1600, 2176, 0, "lower"), ("Triforium", 1300, 1585, 0, "lower"), ("Upper windows", 430, 1280, 1, "upper"))
+for name, p0, p1, s_, word in LEVELS:   # brackets beside the photograph, at the levels it shows
+    ya, yb = at(0, p1)[1] + 0.006, at(0, p0)[1] - 0.006
+    c.drawn([[bx + 0.008, ya], [bx, ya], [bx, yb], [bx + 0.008, yb]], INK, 0.003, s_, word, seconds=0.5)
+    c.text(name, bx + 0.016, (ya + yb) / 2, 0.025, s_, align="LEFT", word=word).later(0.5, word)
+ya, yb = at(0, 1280)[1] + 0.006, at(0, 430)[1] - 0.006
+c.drawn([[bx + 0.008, ya], [bx, ya], [bx, yb], [bx + 0.008, yb]], THRUST, 0.005, 1, "adding", seconds=0.5)
+c.text("+ about 5 m", bx + 0.016, (ya + yb) / 2 - 0.05, 0.025, 1, align="LEFT", color=THRUST, word="adding").later(0.5, "adding")
+COL = 0.82
+c.text("1250s", COL, 0.78, 0.044, 0, word="1250s")
+c.text("Arcade and triforium finished", COL, 0.72, 0.023, 0, word="finished")
+c.text("Then, beyond the planned", COL, 0.6, 0.023, 1, word="beyond")
+c.text("proportions: the upper windows,", COL, 0.56, 0.023, 1, word="beyond")
+c.text("and so the vaults, go higher", COL, 0.52, 0.023, 1, word="beyond")
+c.text("1272", COL, 0.4, 0.044, 2, word="1272")
+c.text("The choir in use", COL, 0.34, 0.023, 2, word="1272")
+c.text("Levels marked beside the photo;", COL, 0.25, 0.018, 1, color=MUTED)
+c.text("the added height is schematic", COL, 0.22, 0.018, 1, color=MUTED)
 beat("C8", "B32", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "By the 1250s, the two lower levels of the new choir were finished.",
     "Then the bishop apparently decided to go beyond the planned proportions, adding about five meters to the upper windows, and so to the vaults.",
     "By 1272, the clergy could use the new choir."],
-    ["CLM_181"], strategy="CARD", graphic=c.spec(), visual_goal="Three levels; the top one grows", required_concepts=[])
+    ["CLM_181"], strategy="CARD", graphic=c.spec(), visual_goal="The choir itself: its three levels marked beside the photograph; the top one grows",
+    required_concepts=[])
 
 c = Card("B33")
-for x, h, name, label, s in ((0.36, 42.5, "Amiens", "more than 42 m", 0), (0.64, 46.0, "Beauvais", "more than 45 m", 0)):
-    top = 0.24 + h * 0.012
-    c.rect([x - 0.07, 0.24, x + 0.07, top], STONE if name == "Amiens" else ACCENT, sentence=s)
-    c.text(name, x, 0.3, 0.034, s, plate=True)
-    c.text(label, x, top + 0.04, 0.03, s)
-c.text("The highest vaults of the Middle Ages", 0.5, 0.88, 0.034, 1)
-c.text("Published for Beauvais:", 0.86, 0.5, 0.021, 0, color=MUTED)
-c.text("46 m, 46.7 m, nearly 47 m,", 0.86, 0.46, 0.021, 0, color=MUTED)
-c.text("above 48 m", 0.86, 0.42, 0.021, 0, color=MUTED)
-c.text("Bars are schematic", 0.86, 0.36, 0.021, 0, color=MUTED)
+for asset, bx0, crop, label, word in (("IMG_AMIENS_NAVE", 0.05, (0.0, 0.0, 1.0, 1.0), "Amiens: more than 42 m", "above"),
+                                      ("IMG_BEAUVAIS_CHOIR", 0.55, (0.0, 0.45, 1.0, 1.0), "Beauvais: more than 45 m", "45")):
+    box, _ = fitted(asset, [bx0, 0.28, bx0 + 0.35, 0.86], crop)
+    c.image(asset, [bx0, 0.28, bx0 + 0.35, 0.86], crop, 0, word="vault" if asset == "IMG_BEAUVAIS_CHOIR" else word)
+    c.text(label, (box[0] + box[2]) / 2, 0.905, 0.03, 0, plate=True, word=word)
+    c.credit(asset, (box[0] + box[2]) / 2, CREDIT_Y)
+c.text("The highest vaults built in the Middle Ages", 0.5, 0.235, 0.03, 1, word="highest")
+for k, t in enumerate(("Published", "for Beauvais:", "46 m, 46.7 m, nearly 47 m,", "above 48 m")):
+    c.text(t, 0.47, 0.62 - 0.04 * k, 0.019, 0, color=MUTED, word="45")
 beat("C8", "B33", "fact", "COMPARE_VARIANTS", [
     "Its vault rose more than 45 meters, a few meters above Amiens.",
     "These were the highest vaults built in the Middle Ages."],
-    ["CLM_102", "CLM_103", "CLM_104"], strategy="CARD", graphic=c.spec(), visual_goal="Two heights side by side, with the caveat on screen",
+    ["CLM_102", "CLM_103", "CLM_104"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Two real buildings, each by its own photograph, with its height; the caveat on the published figures",
     required_concepts=[])
+
+c = Card("B34")
+PLAN_CHOIR = (0.148, 0.4754, 0.887, 1.0)   # the choir and transept of Viollet-le-Duc's plan
+box, at = fitted("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR)
+c.image("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR, 0)
+c.credit("DRW_VLD_BEAUVAIS_PLAN", (box[0] + box[2]) / 2, CREDIT_Y)
+end = mark_box(c, at, 255, 165, 358, 325, 0, "part")
+(x0, y1), (x1, y0) = at(255, 165), at(358, 325)
+for k in range(5):   # a light hatch: the area, not a picture of a collapse
+    y = y0 + (y1 - y0) * (k + 1) / 6
+    c.line([[x0 + 0.004, y], [x1 - 0.004, y]], THRUST, 0.0018, 0, layer=2)
+    c.elements[-1].update(word="part", delay=round(end + 0.08 * k, 3))
+c.text("Choir: straight bays", (x0 + x1) / 2, y1 + 0.035, 0.022, 0, plate=True, word="part").later(end, "part")
+c.text("29 November 1284", RIGHT + 0.02, 0.8, 0.04, 0, word="november")
+c.text("Vault cells over the choir's", RIGHT + 0.02, 0.72, 0.026, 0, word="part")
+c.text("straight bays came down", RIGHT + 0.02, 0.675, 0.026, 0, word="part")
+c.text("“The last limit” that the building", RIGHT + 0.02, 0.5, 0.026, 1, word="called")
+c.text("of the great 13th-century churches", RIGHT + 0.02, 0.455, 0.026, 1, word="called")
+c.text("could reach", RIGHT + 0.02, 0.41, 0.026, 1, word="called")
+c.text("Viollet-le-Duc, 19th century,", RIGHT + 0.02, 0.33, 0.022, 1, color=MUTED, word="violet")
+c.text("who drew this plan", RIGHT + 0.02, 0.29, 0.022, 1, color=MUTED, word="violet")
 beat("C8", "B34", "fact", "SHOW_COMPONENT", [
     "Then, in November 1284, part of the vaults over the choir came down.",
     "The architect Viollet-le-Duc, writing centuries later, called it the last limit that the great churches of the 13th century could reach."],
-    ["CLM_182"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=0, visual_goal="The section at rest, the vault highlighted; no collapse or debris is shown",
-    required_concepts=[GOTHIC, "vault_web"],
-    annotations=[note("B34_note", "Illustrative model, not Beauvais Cathedral", 0, position="BOTTOM_RIGHT"),
-                 note("B34_q", "“The last limit”: Viollet-le-Duc, 19th century", 1)])
+    ["CLM_182"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Beauvais's own plan: the area where vaults fell is marked; no collapse or debris is shown",
+    required_concepts=[])
 
 c = Card("B35")
-c.text("Why did the vaults fall? Still debated.", 0.5, 0.86, 0.04, 0)
-for y, t, s_, word in ((0.75, "Hypothesis: settling masonry broke the flying buttresses", 1, None),
-                       (0.67, "Hypothesis: gusts of wind set the buttress system resonating", 2, "gusts"),
-                       (0.59, "Hypothesis: slow settlement of the foundations", 2, "settlement")):
-    c.text(t, 0.5, y, 0.03, s_, plate=True, word=word)
-c.line([[0.2, 0.53], [0.8, 0.53]], FAINT, 0.003, 3)
-c.text("Vernhes, Renault and Zotna, 2024:", 0.5, 0.47, 0.028, 3, color=ACCENT)
-c.text("“nothing appears to justify a geotechnical origin”", 0.5, 0.41, 0.03, 3, color=ACCENT)
-c.text("Their hypothesis: vaults raised against proven proportions,", 0.5, 0.33, 0.028, 4, color=ACCENT)
-c.text("upper parts too flexible", 0.5, 0.28, 0.028, 4, color=ACCENT)
-c.text("ECSMGE 2024, an argument, not a settled result", 0.5, 0.235, 0.021, 3, color=MUTED)
+box, at = fitted("DRW_VLD_BEAUVAIS_BUTTRESS", [0.10, BOTTOM, 0.42, TOP])
+c.image("DRW_VLD_BEAUVAIS_BUTTRESS", [0.10, BOTTOM, 0.42, TOP], sentence=0)
+c.text("Drawing: Viollet-le-Duc, 1856 (public domain); marks schematic", (box[0] + box[2]) / 2, CREDIT_Y, 0.017, 0, color=MUTED)
+COL = 0.70
+c.text("Why did the vaults fall? Still debated.", COL, 0.88, 0.034, 0)
+# 1: the flying buttresses
+mark_box(c, at, 175, 140, 365, 360, 1, "broke", until=2)
+c.text("Hypothesis: settling masonry", COL, 0.72, 0.03, 1, word="blame", until=2)
+c.text("broke the flying buttresses", COL, 0.67, 0.03, 1, word="blame", until=2)
+# 2: gusts of wind on the upper parts
+for k, py in enumerate((150, 260, 370)):
+    y = at(0, py)[1]
+    c.drawn_arrow([[0.05, y], [box[0] - 0.006, y]], ACCENT, 0.006, 2, "gusts", seconds=0.5, until=3, delay=0.15 * k)
+c.text("Hypothesis: gusts of wind set the", COL, 0.72, 0.03, 2, word="gusts", until=3)
+c.text("buttress system resonating", COL, 0.67, 0.03, 2, word="gusts", until=3)
+# 3: settlement of the foundations
+for k, px_ in enumerate((110, 235, 360)):
+    (xa, ya), (_, yb) = at(px_, 935), at(px_, 1015)
+    c.drawn_arrow([[xa, ya], [xa, yb]], ACCENT, 0.006, 2, "settlement", seconds=0.4, until=4, delay=0.1 * k)
+c.text("Hypothesis: slow settlement", COL, 0.56, 0.03, 2, word="settlement", until=4)
+c.text("of the foundations", COL, 0.515, 0.03, 2, word="settlement", until=4)
+# the 2024 study: nothing for a foundation cause
+(xa, ya), (xb, yb) = at(80, 925), at(400, 1018)
+c.drawn([[xa, ya], [xb, yb]], THRUST, 0.004, 3, "nothing", seconds=0.3, until=4)
+c.drawn([[xa, yb], [xb, ya]], THRUST, 0.004, 3, "nothing", seconds=0.3, until=4, delay=0.3)
+c.text("Vernhes, Renault and Zotna, 2024:", COL, 0.42, 0.027, 3, color=THRUST, until=4)
+c.text("“nothing appears to justify", COL, 0.37, 0.028, 3, color=THRUST, word="nothing", until=4)
+c.text("a geotechnical origin”", COL, 0.33, 0.028, 3, color=THRUST, word="nothing", until=4)
+# their argument: the upper parts
+mark_box(c, at, 60, 15, 600, 565, 4, "upper", color=THRUST)   # walls, flyers and pinnacles above the aisle roofs
+c.text("Their hypothesis: vaults raised", COL, 0.42, 0.028, 4, color=THRUST, word="raising")   # owner's wording (g-r2)
+c.text("against proven proportions left", COL, 0.375, 0.028, 4, color=THRUST, word="raising")
+c.text("the upper parts too flexible", COL, 0.33, 0.028, 4, color=THRUST, word="upper")
+c.text("ECSMGE 2024: an argument, not a settled result", COL, 0.25, 0.019, 3, color=MUTED)
 beat("C8", "B35", "fact", "EXPLAIN_CAUSE_EFFECT", [
     "Why it happened is still debated.",
     "Some blame settling masonry that broke the flying buttresses.",
     "Others point to gusts of wind setting the buttress system resonating, or to slow settlement of the foundations.",
     "A 2024 study found nothing to justify a foundation cause.",
     "Its authors argue that raising the vaults, against proven proportions, left the upper parts too flexible."],
-    ["CLM_183", "CLM_184"], strategy="CARD", graphic=c.spec(), visual_goal="The explanations, one by one", required_concepts=[])
+    ["CLM_183", "CLM_184"], strategy="CARD", graphic=c.spec(),
+    visual_goal="One hypothesis at a time, each marked on Viollet-le-Duc's section of Beauvais; the 2024 argument last",
+    required_concepts=[])
 
 c = Card("B36")
-xs = [0.2 + 0.2 * k for k in range(4)]
-c.rect([0.2, 0.46, 0.8, 0.72], border=FAINT, sentence=0, border_width=0.004)
-for x in xs:
-    for y in (0.46, 0.72):
-        c.circle([x, y], 0.016, INK, 0)
-for x in (0.3, 0.5, 0.7):
-    for y in (0.46, 0.72):
-        c.circle([x, y], 0.016, ACCENT, 1)
-c.text("Three bays", 0.2, 0.82, 0.03, 0, plate=True)
-c.text("New piers: six bays", 0.76, 0.82, 0.03, 1, plate=True, color=ACCENT)
-c.text("Repairs finished in 1340", 0.5, 0.36, 0.032, 2, plate=True, word="finished")
-c.text("Longer to repair than to build (Stephen Murray)", 0.5, 0.28, 0.026, 2, color=MUTED, word="longer")
+box, at = fitted("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR)
+c.image("DRW_VLD_BEAUVAIS_PLAN", [0.04, BOTTOM, 0.48, TOP], PLAN_CHOIR, 0)
+c.credit("DRW_VLD_BEAUVAIS_PLAN", (box[0] + box[2]) / 2, CREDIT_Y)
+k = 0
+for px_ in (260, 353.5):   # new piers between the old ones of the main arcade, in the three straight bays
+    for py in (195, 248.75, 298.75):
+        c.circle(at(px_, py), 0.011, THRUST, 1)
+        c.elements[-1].update(word="piers", delay=round(0.12 * k, 3))
+        k += 1
+c.text("The repair", RIGHT + 0.02, 0.8, 0.04, 0)
+c.text("New piers between the old ones", RIGHT + 0.02, 0.71, 0.026, 1, word="new")
+c.text("3 bays become 6", RIGHT + 0.02, 0.66, 0.026, 1, word="six")
+c.text("Four-part vaults rebuilt as six-part (Murray)", RIGHT + 0.02, 0.615, 0.019, 1, color=MUTED, word="six")
+c.text("New piers marked in orange; positions schematic", RIGHT + 0.02, 0.58, 0.019, 1, color=MUTED, word="piers")
+c.text("Finished in 1340", RIGHT + 0.02, 0.49, 0.034, 2, word="finished")
+c.text("“Longer to repair the choir", RIGHT + 0.02, 0.41, 0.026, 2, word="longer")
+c.text("than to build it”: Stephen Murray", RIGHT + 0.02, 0.37, 0.026, 2, word="longer")
 beat("C8", "B36", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "The repair tells its own story.",
     "New piers went up between the old ones, turning three bays into six.",
     "The work was not finished until 1340: as the historian Stephen Murray put it, it took longer to repair the choir than to build it."],
-    ["CLM_185", "CLM_182"], strategy="CARD", graphic=c.spec(), visual_goal="Plan of the choir's straight bays: three become six", required_concepts=[])
+    ["CLM_185", "CLM_182"], strategy="CARD", graphic=c.spec(),
+    visual_goal="The same plan: what was added and where (new piers in the straight bays), then the date",
+    required_concepts=[])
 
-c = timeline("B37", [(1500, "Transept begun", 0, "transept"), (1569, "Lantern tower finished", 1, "finished"),
-                     (1573, "Tower falls", 3, "tower")],
-             [], start=1480, end=1600, ticks=(1480, 1520, 1560, 1600), extra=lambda c: (
-                 c.text("Four slender piers, no support to the west", 0.5, 0.82, 0.03, 2, plate=True, word="slender"),
-                 c.text("The great Gothic nave: never built", 0.5, 0.24, 0.03, 4, plate=True)))
+c = Card("B37")
+box, at = fitted("DRW_VLD_BEAUVAIS_PLAN", [0.03, BOTTOM, 0.36, TOP])
+c.image("DRW_VLD_BEAUVAIS_PLAN", [0.03, BOTTOM, 0.36, TOP], sentence=0)
+c.credit("DRW_VLD_BEAUVAIS_PLAN", (box[0] + box[2]) / 2, CREDIT_Y)
+pbox, _ = fitted("IMG_BEAUVAIS_TRANSEPT", [0.42, 0.5, 0.96, TOP])
+c.image("IMG_BEAUVAIS_TRANSEPT", [0.42, 0.5, 0.96, TOP], sentence=0, word="transept")
+c.text("Beauvais today: transept and choir", (pbox[0] + pbox[2]) / 2, 0.475, 0.021, 0, color=INK, word="transept")
+c.credit("IMG_BEAUVAIS_TRANSEPT", (pbox[0] + pbox[2]) / 2, 0.44).later(0.0, "transept")   # with its photo
+mark_box(c, at, 95, 312, 525, 470, 0, "transept", color=ACCENT)
+for k, (px_, py) in enumerate(((260, 322.5), (353.5, 322.5), (260, 416), (353.5, 416))):
+    c.circle(at(px_, py), 0.011, THRUST, 2)
+    c.elements[-1].update(word="slender", delay=round(0.15 * k, 3))
+mark_box(c, at, 150, 475, 460, 905, 2, "west", color=MUTED)
+c.text("No nave: no support to the west", at(305, 690)[0], at(305, 560)[1], 0.02, 2, plate=True, word="west")
+c.text("The Gothic nave: never built", at(305, 690)[0], at(305, 760)[1], 0.022, 4, plate=True, color=THRUST, word="never")
+X = lambda year: 0.44 + (year - 1480) / 120.0 * 0.5   # noqa: E731
+c.line([[X(1480), 0.3], [X(1600), 0.3]], INK, 0.005, 0)
+for year in (1480, 1520, 1560, 1600):
+    c.line([[X(year), 0.288], [X(year), 0.312]], INK, 0.003, 0)
+    c.text(str(year), X(year), 0.265, 0.018, 0, color=MUTED)
+reach = X(1480)
+for year, label, s_, word, y in ((1500, "1500  Transept begun", 0, "transept", 0.37),
+                                 (1569, "1569  Tower and spire, about 150 m", 1, "finished", 0.37),
+                                 (1573, "1573  The tower falls", 3, "1573", 0.225)):
+    wait = c.drawn([[reach, 0.3], [X(year), 0.3]], ACCENT, 0.008, s_, word, seconds=min(0.9, 0.25 + (X(year) - reach) * 2))
+    reach = X(year)
+    c.circle([X(year), 0.3], 0.008, INK, s_).later(wait, word)
+    c.line([[X(year), 0.3], [X(year), y - 0.02 if y > 0.3 else y + 0.02]], FAINT, 0.003, s_).later(wait, word)
+    c.text(label, min(max(X(year), 0.5), 0.86), y, 0.022, s_, plate=True).later(wait, word)
 beat("C8", "B37", "fact", "SHOW_CONTEXT", [
     "In the sixteenth century, work began again, with a new transept, the cross-arm of the building.",
     "Then, instead of a nave, the builders raised a lantern tower and spire about 150 meters high, finished in 1569.",
     "It rested on four slender piers, and the sources point to a lack of support on the west side, where the nave had not been built.",
     "In 1573, just four years after it was finished, the tower came down.",
     "The great Gothic nave was never built."],
-    ["CLM_186", "CLM_187", "CLM_106"], strategy="CARD", graphic=c.spec(), visual_goal="Timeline; the fall is told, not shown", required_concepts=[])
+    ["CLM_186", "CLM_187", "CLM_106"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Beauvais's plan with the transept, the four crossing piers and the nave that was never built; the timeline "
+                "moves to each date; the building today in a photograph. The fall is told, not shown",
+    required_concepts=[])
 
 c = Card("B38")
-c.text("Amiens", 0.5, 0.86, 0.05, 0)
-for x in (0.3, 0.7):
-    c.rect([x - 0.03, 0.24, x + 0.03, 0.78], STONE, sentence=0)
-c.line([[0.3, 0.6], [0.7, 0.6]], INK, 0.008, 2, dash=True)
-c.text("Iron chain, 1497–1500", 0.5, 0.66, 0.032, 2, plate=True, word="chain")
-c.text("Within two centuries, the crossing piers were threatening collapse", 0.5, 0.48, 0.027, 1, plate=True)
-c.text("Schematic, not to scale", 0.5, 0.26, 0.021, 0, color=MUTED)
+box, _ = fitted("IMG_AMIENS_NAVE", [0.04, BOTTOM, 0.36, TOP])
+c.image("IMG_AMIENS_NAVE", [0.04, BOTTOM, 0.36, TOP], sentence=0)
+c.credit("IMG_AMIENS_NAVE", (box[0] + box[2]) / 2, CREDIT_Y)
+AMIENS_CROP = (0.0777, 0.1071, 0.932, 0.623)   # nave and crossing of Viollet-le-Duc's plan of Amiens
+pbox, at = fitted("DRW_VLD_AMIENS_PLAN", [0.39, BOTTOM, 0.70, TOP], AMIENS_CROP)
+c.image("DRW_VLD_AMIENS_PLAN", [0.39, BOTTOM, 0.70, TOP], AMIENS_CROP, 1, word="crossing")
+c.credit("DRW_VLD_AMIENS_PLAN", (pbox[0] + pbox[2]) / 2, CREDIT_Y)
+c.elements[-1].update(sentence=1, word="crossing")   # with its plan
+for k, (px_, py) in enumerate(((213, 447), (305, 447), (213, 541), (305, 541))):
+    c.circle(at(px_, py), 0.011, THRUST, 1)
+    c.elements[-1].update(word="crossing", delay=round(0.4 + 0.12 * k, 3))
+xa, ya = at(318, 875)
+_, yb = at(318, 548)
+c.drawn([[xa, ya], [xa, yb]], ACCENT, 0.006, 2, "chain", seconds=1.2, dash=True)
+COL = 0.835
+c.text("Amiens", COL, 0.84, 0.044, 0)
+c.text("Crossing piers threatening", COL, 0.7, 0.023, 1, word="crossing")
+c.text("collapse within two centuries", COL, 0.66, 0.023, 1, word="crossing")
+c.text("1497–1500: an iron chain", COL, 0.54, 0.026, 2, color=ACCENT, word="chain")
+c.text("Iron rods linked together,", COL, 0.48, 0.021, 2, color=MUTED, word="runs")
+c.text("along the nave, tying", COL, 0.445, 0.021, 2, color=MUTED, word="runs")
+c.text("the crossing pier", COL, 0.41, 0.021, 2, color=MUTED, word="runs")
+c.text("Route schematic", COL, 0.35, 0.019, 2, color=MUTED, word="runs")
 beat("C8", "B38", "fact", "SHOW_CONTEXT", [
     "Beauvais was not alone.",
     "At Amiens, within two centuries, the piers at the crossing, where the arms of the building meet, were threatening collapse.",
     "Between 1497 and 1500, an iron chain was installed to stop the movement, and it still runs through the building today."],
-    ["CLM_190", "CLM_191", "CLM_106"], strategy="CARD", graphic=c.spec(), visual_goal="Two piers tied by a chain", required_concepts=[])
+    ["CLM_190", "CLM_191", "CLM_106"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Amiens by its own photograph, then its plan: the crossing piers, and the chain's route along the nave",
+    required_concepts=[])
 
 # C9 -------------------------------------------------------------------------------------------
 beat("C9", "B39", "fact", "EXPLAIN_STRUCTURE", [

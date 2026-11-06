@@ -76,7 +76,7 @@ Nếu chủ kênh yêu cầu xem kịch bản trước khi có video:
 
 ### Shot SEQUENCE: hình kể theo lời (2026-11-06)
 Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều gì thay đổi để hiểu ý đang kể?"**. Zoom chỉ có ích khi đưa người xem tới chi tiết vừa được nhắc. Khi câu trả lời là "chưa có gì", dùng `strategy="SEQUENCE"` với `sequence` trong `story.py`:
-- `camera`: một preset cho cả shot. Camera chỉ trượt và zoom giữa các `views`, không xoay. Muốn đổi góc thì cắt sang shot khác.
+- `camera`: một preset cho cả shot. Camera trượt và zoom giữa các `views`. Từ g-r5, một view có thể có `azimuth`, `elevation` riêng: camera đi một cung quanh chủ thể rồi dừng đúng khung (orbit). Dùng cho cảnh mở và cảnh toàn: một cung ngắn, kết thúc ở góc phục vụ phần giải thích tiếp theo. Một view nhìn từ dưới sàn cần preset ẩn mặt đất. Không cho camera vừa quay vừa có bộ phận đang đổi.
 - `views`: `{"frame": refs}` cho từng khung (`None` là toàn bộ mô hình), `at` và `move_seconds` cho mỗi lần chuyển.
 - `steps`: lần lượt `GHOST` (làm mờ phần còn lại), `UNGHOST`, `FADE_OUT`, `FADE_IN`, `REVEAL` (bộ phận hiện ra và đặt đúng chỗ) và `HIGHLIGHT` (phát sáng). Mỗi lần sáng có bộ phận riêng và có thể kéo `until` một mốc sau.
 - Mốc thời gian: `{"sentence": k}`, `{"sentence": k, "word": "ribs"}`, `{"sentence": k, "end": true}`, kèm `offset` (giây). Mọi mốc đo trên audio đã khóa.
@@ -90,6 +90,29 @@ Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều
   - phần bị làm mờ không được đổ bóng (engine tự tắt);
   - nhìn từ dưới lên thì mặt dưới vòm tối, nên preset `CATHEDRAL_VAULT_BELOW` có đèn phụ từ dưới (`under_light`);
   - đá giữa gân chia thành các dải (`web_courses`) để cho thấy cách đọc "một loạt vòm song song".
+- Bổ sung sau góp ý của chủ kênh về đoạn thử (g-r5):
+  - **Tương phản:** `glow(...)` trong `story.py` dùng `HIGHLIGHT` với `tint` (0..1). Bộ phận chuyển sang màu `highlight` của bảng màu thay vì sáng lên, vì đá sáng trên nền sáng thì mất tương phản.
+  - **Ít lớp mờ:** chỉ giữ mờ phần đủ để định vị (ví dụ tường cao của khoang). Phần còn lại cho `FADE_OUT`, vì nhiều lớp mờ chồng nhau thành vệt.
+  - **Không để chân trụ lơ lửng:** khi nhìn từ dưới sàn (sàn bị ẩn), nhìn thẳng lên (`elevation` khoảng −84°), hoặc cắt khung sao cho chân trụ nằm ngoài. Cảnh mở nên bắt đầu ở góc thường, công trình đứng trên sàn.
+  - **Gối đỡ trước, bộ phận sau:** trụ ngoài phải đặc trước khi trụ chống bay hiện ra.
+  - **Đường lực vẽ dần:** `CONCEPTUAL_LOAD_PATH` tự vẽ theo tuyến (`draw_seconds` trong `config/annotation_style.json`) rồi giữ nguyên. Không kéo dài, không phồng, không chạy hạt.
+
+### Ảnh thật và bản vẽ lịch sử (g-r5)
+- Vai trò:
+  - ảnh thật xác lập địa điểm, vật liệu, quy mô và trải nghiệm không gian;
+  - mô hình 3D giải thích cấu tạo;
+  - sơ đồ động giải thích lực, so sánh, thời gian và giả thuyết;
+  - chữ chỉ dành cho tên gọi, con số, trích dẫn ngắn và giới hạn của minh họa.
+- Chuỗi hiệu quả: ảnh thật xác lập công trình → đánh dấu bộ phận liên quan → chuyển sang mặt cắt hoặc mô hình để giải thích → trở lại ảnh thật.
+- Nguồn: Wikimedia Commons, kiểm giấy phép qua API (`extmetadata`).
+  - Ưu tiên public domain (bản vẽ của Viollet-le-Duc), CC0, CC BY. Tránh CC BY-SA.
+  - Nếu Commons trả HTTP 429, tải chậm lại, không lách qua bản sao.
+  - Bỏ ảnh có tác giả hoặc năm không chắc chắn.
+- Trong `story.py`: `PHOTOS` (đường dẫn, kích thước, dòng ghi công), `Card.image(...)`, `Card.credit(...)`. `fitted(asset, box, crop)` trả về hàm đổi pixel của ảnh sang tọa độ card, để dấu vẽ rơi đúng chỗ trên bản vẽ.
+- Các helper vẽ dần: `Card.drawn(...)` vẽ đường theo thứ tự trong `seconds`; `Card.drawn_arrow(...)` vẽ mũi tên, đầu đến cuối cùng; `.later(s)` cho nhãn chờ nét vẽ xong. Phần tử card có `delay` (giây sau câu hoặc từ của nó).
+- Mọi dấu vẽ lên ảnh hay bản vẽ đều ghi "schematic". Không đánh dấu vị trí mà nguồn không nói, ví dụ tuyến dây xích Amiens: chỉ vẽ "dọc lòng chính, giằng trụ giao cánh" như Columbia viết.
+- Mỗi ảnh có hồ sơ đầy đủ trong `assets/manifest.json` và dòng ghi công trên hình. `tools/longform_reports.py` đưa ảnh vào mô tả YouTube (mục "Photographs and drawings").
+- Ảnh khổ 2560 px ở cạnh dài để không làm nặng git. Bản vẽ Viollet-le-Duc chỉ khoảng 600 px, nên ở 4K sẽ hơi mềm; cần chốt trước bản cuối.
 
 ## 9–10. Tìm và tạo asset
 - `python3 tools/cli.py asset-catalog` liệt kê thư viện:
