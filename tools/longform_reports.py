@@ -2,7 +2,8 @@
 
   review/EVIDENCE_MATRIX.md             claim -> sources/locators -> sentences -> on-screen use
   review/EDITORIAL_APPROVAL_PACKAGE.md  everything the owner must approve, sentence by sentence
-  review/YOUTUBE_DESCRIPTION.md         DRAFT description: chapters (timestamps), sources, credits
+  review/YOUTUBE_DESCRIPTION.md         DRAFT description: chapters (timestamps), sources, credits (never overwritten once it exists and the
+                                        generated text exceeds YouTube's 5000 characters; the whole text is in YOUTUBE_DESCRIPTION_FULL_REFERENCE.md)
   qa/VISUAL_VARIETY.md                  visual kinds per chapter, runs, shot lengths
 
   python3 tools/longform_reports.py --project why-bridges-look-different [--preset review]
@@ -220,9 +221,20 @@ def youtube_description(p, d, manifest):
     elif photos:
         lines.append("- Marks drawn on the photographs and historic drawings are schematic.")
     lines.append("")
+    text = "\n".join(lines) + "\n"
+    # YouTube accepts at most 5000 characters. The generated text is always kept whole in
+    # YOUTUBE_DESCRIPTION_FULL_REFERENCE.md; YOUTUBE_DESCRIPTION.md (what the owner pastes) is only written when
+    # it is new or the generated text fits, so a shortened description the owner edited is never overwritten.
+    full = p / "review" / "YOUTUBE_DESCRIPTION_FULL_REFERENCE.md"
+    full.write_text(text, encoding="utf-8")
     out = p / "review" / "YOUTUBE_DESCRIPTION.md"
-    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    return out
+    if not out.is_file() or len(text) <= 5000:
+        out.write_text(text, encoding="utf-8")
+    else:
+        current = len(out.read_text(encoding="utf-8"))
+        print(f"NOTE: generated description is {len(text)} characters (YouTube limit 5000); kept the existing "
+              f"{out.name} ({current} characters). Full text: {full.name}")
+    return full
 
 
 def visual_variety(p, d, manifest, rows):

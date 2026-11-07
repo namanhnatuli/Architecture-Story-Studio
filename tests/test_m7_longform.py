@@ -662,6 +662,28 @@ class AsrReuseTest(unittest.TestCase):
 
 
 class ReviewDocumentsTest(unittest.TestCase):
+    def test_a_shortened_description_is_never_overwritten(self):
+        """YouTube takes 5000 characters: the owner's shortened YOUTUBE_DESCRIPTION.md survives a regeneration and the
+        whole generated text goes to YOUTUBE_DESCRIPTION_FULL_REFERENCE.md."""
+        from tools import longform_reports as LR
+        tmp, p = copy_film()
+        with tmp:
+            (p / "qa").mkdir(exist_ok=True)
+            d = LR._load(p)
+            rows, manifest = CH.longform_qa(p)
+            desc = p / "review" / "YOUTUBE_DESCRIPTION.md"
+            desc.write_text("SHORT\n", encoding="utf-8")
+            full = LR.youtube_description(p, d, manifest)
+            self.assertEqual(full.name, "YOUTUBE_DESCRIPTION_FULL_REFERENCE.md")
+            text = full.read_text(encoding="utf-8")
+            if len(text) > 5000:
+                self.assertEqual(desc.read_text(encoding="utf-8"), "SHORT\n")
+            else:
+                self.assertEqual(desc.read_text(encoding="utf-8"), text)
+            desc.unlink()                                  # a new film gets the generated text
+            LR.youtube_description(p, d, manifest)
+            self.assertEqual(desc.read_text(encoding="utf-8"), text)
+
     def test_generated_documents_never_claim_approval(self):
         from tools import longform_reports as LR
         tmp, p = copy_film()

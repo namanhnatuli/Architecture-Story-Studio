@@ -1,11 +1,6 @@
-<!-- PUBLICATION CANDIDATE: description for the owner's own upload (approvals in review/OWNER_APPROVALS.json). The Studio never uploads. -->
-
-# How Gothic Cathedrals Reached Impossible Heights
-
-In 1284 part of the highest stone vaults of the Middle Ages fell at Beauvais; others from the same age still stand. This documentary explains how Gothic builders raised stone so high: the pointed arch, the rib vault, the flying buttress, walls of light, and geometry in place of calculation, and where the limit lay.
+In 1284, part of the highest stone vaults of the Middle Ages fell at Beauvais; others from the same age still stand. This documentary explains how Gothic builders raised stone so high: the pointed arch, the rib vault, the flying buttress, walls of light, and geometry in place of calculation, and where the limit lay.
 
 Chapters
-
 0:00 Hook
 0:52 Stone and its outward push
 2:10 The pointed arch
@@ -17,65 +12,59 @@ Chapters
 12:38 Why they stand
 14:11 Never impossible
 
-Sources
-
-- Equilibrium Systems: Studies in Masonry Structure (S.M.Arch.S. thesis), Philippe Block, Massachusetts Institute of Technology, Department of Architecture (supervisor: John A. Ochsendorf) (June 2005). http://web.mit.edu/masonry/papers/block_SMArchS_2005.pdf
-- As Hangs the Flexible Line: Equilibrium of Masonry Arches, Philippe Block, Matt DeJong and John Ochsendorf, Nexus Network Journal, vol. 8, no. 2 (2006), DOI 10.1007/s00004-006-0015-9; copy hosted by the MIT Masonry Research Group (2006). https://web.mit.edu/masonry/papers/block_dejong_ochs_NNJ.pdf
-- Comparison of Pointed vs. Circular Arches (research summary), A. Romano and J. Ochsendorf, MIT Masonry Research Group (web page). https://web.mit.edu/masonry/projects/projects_romano.html
-- The Structural System, Durham Cathedral and Anglo-Norman Romanesque, by Professor Roger Stalley, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/sr/ma_sr_discuss_dc_structure.htm
-- Architectural Description and Analysis, Durham Cathedral and Anglo-Norman Romanesque, by Professor Roger Stalley, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/sr/ma_sr_discuss_dc_describe.htm
-- Central Tower Restoration (section 'The Norman cathedral'), Durham Cathedral (durhamcathedral.co.uk) (web page). https://www.durhamcathedral.co.uk/explore/caring-conservation/central-tower-restoration
-- Collapse of Masonry Structures (PhD dissertation), John Allen Ochsendorf, University of Cambridge, Department of Engineering; Apollo repository (1810/244820) (June 2002). https://www.repository.cam.ac.uk/bitstream/1810/244820/1/Ochsendorf25710.pdf
-- The Collapse of the Choir in 1284 and the Subsequent Rebuilding, Saint-Pierre de Beauvais, by Professor Stephen Murray, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_collapse.htm
-- Phase III, 1250s-1260s, Saint-Pierre de Beauvais, by Professor Stephen Murray, Columbia University Media Center for Art History (Medieval Architecture briefing) (web page). https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_phase3.htm
-- 'Ah, Cluny... How Wonderful... Only Paradise is More Beautiful', Harvard University, Graduate School of Design, Frances Loeb Library, Special Collections (web page). https://sites.gsd.harvard.edu/specialcollections/ah-clunyhow-wonderfulonly-paradise-is-more-beautiful
-- Cluniac Art and Architecture, by C. F. Barnes, Jr. (New Catholic Encyclopedia), New Catholic Encyclopedia, via Encyclopedia.com (web page). https://encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/cluniac-art-and-architecture
-- History of the Abbey of Cluny, Abbaye de Cluny, Centre des monuments nationaux (cluny-abbaye.fr) (web page). https://www.cluny-abbaye.fr/en/discover/history-of-the-abbey-of-cluny
-- Cathédrale de Beauvais : les accidents structurels des XIIIe et XVIe siècles eurent-ils une origine géotechnique ? Partie 1 : contexte historique et naturel (J.-D. Vernhes, P. Renault, Y. Zotna), Proceedings of the XVIII European Conference on Soil Mechanics and Geotechnical Engineering (ECSMGE 2024, Lisbon); ISSMGE Online Library (2024). https://www.issmge.org/uploads/publications/51/126/1039_C_cathdrale_de_beauvais_les_accidents_structurels_de.pdf
-- Cathédrale de Beauvais : les accidents structurels des XIIIe et XVIe siècles eurent-ils une origine géotechnique ? Partie 2 : accidents structurels et rôle de la géotechnique (J.-D. Vernhes, P. Renault, Y. Zotna), Proceedings of the XVIII ECSMGE 2024 (DOI 10.1201/9781003431749-378); ISSMGE Online Library (2024). https://www.issmge.org/uploads/publications/51/126/1040_C_cathdrale_de_beauvais_les_accidents_structurels_de.pdf
-- The Gothic Structural Revolution (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/gothic-structural-revolution.html
-- The Pointed Arch (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/pointed-arch.html
-- Dynamic Geometry (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/dynamic-geometry.html
-- The Work of the Carpenters (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/detail/work-carpenters.html
-- The Work of the Masons, First Phase c.1220-25 (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/detail/work-masons.html
-- Amiens Cathedral, upper nave, north (image essay) (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/detail/amiens-cathedral-0.html
-- Amiens Cathedral (Ascent): triforium passage and iron chain (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/node/3012.html
-- E-Text 1: Introduction to Amiens Cathedral, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/node/3418.html
-- E-Text 4: Entering the Cathedral, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-4.html
-- E-Text 11: Presence of the Clergy, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-11.html
-- E-Text 17: Forces in the Cathedral, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-17.html
-- E-Text 18: Gothic as One of the Three Great Architectural Revolutions, by Stephen Murray (Columbia University Media Center for Art History, 'Life of a Cathedral: Notre-Dame of Amiens' (Stephen Murray et al.)), Columbia University Media Center for Art History (web project, copyright 2017). https://projects.mcah.columbia.edu/amiens-arthum/e-text-18.html
-- Saint-Denis (Paris and its monuments teaching map), Columbia University (CCNMTL) (web page, undated). https://ccnmtl.columbia.edu/projects/paris_map/buildings/stdenis/1300.html
-- Arc brisé et voûte sur croisée d'ogive (Passerelles, dossier 'La cathédrale Notre-Dame de Chartres'), Bibliothèque nationale de France, BnF Essentiels / Passerelles (web page). https://passerelles.essentiels.bnf.fr/fr/article/8fc27d60-6dd7-4cbd-88c3-8d8a50988db4-arc-brise-et-voute-sur-croisee-ogive
-- Les arcs-boutants (Passerelles, dossier 'La cathédrale Notre-Dame de Chartres'), Bibliothèque nationale de France, BnF Essentiels / Passerelles (web page). https://passerelles.essentiels.bnf.fr/fr/article/6e7cfc7d-da13-4d81-bb7c-c85c1698aa76-arcs-boutants
-- La naissance du style gothique à Saint-Denis (Passerelles), Bibliothèque nationale de France, BnF Essentiels / Passerelles (web page). https://passerelles.essentiels.bnf.fr/fr/chronologie/construction/55e1a07f-e1e6-47e3-a690-ef8c003c9159-basilique-saint-denis/article/3038d0ed-badc-47e6-a520-5c8b6caeeca8-naissance-style-gothique-saint-denis
-- L'abbatiale de Saint-Denis et les débuts de l'architecture gothique, by Arnaud Timbert (professor of medieval art history, Université de Picardie Jules Verne), France Mémoire (web page). https://www.france-memoire.fr/labbatiale-de-saint-denis-et-les-debuts-de-larchitecture-gothique/
-- Basilique de Saint-Denis, by Michaël Wyss, Département de la Seine-Saint-Denis, Atlas du patrimoine de la Seine-Saint-Denis (web page). https://patrimoine.seinesaintdenis.fr/Basilique-de-Saint-Denis
-- History of Beauvais Cathedral, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page, copyright 2026). https://cathedrale-beauvais.fr/en/history-of-beauvais-cathedral/
-- From Romanesque to Gothic art: the thrust revolution, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page, consulted sources dated 2026). https://cathedrale-beauvais.fr/en/from-romanesque-to-gothic-art-the-thrust-revolution/
-- French art, known as 'Gothic', in Beauvais, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page). https://cathedrale-beauvais.fr/en/french-art-known-as-gothic/
-- Description of the cathedral, Association Beauvais Cathédrale (cathedrale-beauvais.fr) (web page). https://cathedrale-beauvais.fr/en/description-of-the-cathedral/
+Selected sources
+Block, DeJong & Ochsendorf: As Hangs the Flexible Line (2006)
+https://web.mit.edu/masonry/papers/block_dejong_ochs_NNJ.pdf
+Romano & Ochsendorf: Pointed vs. Circular Arches
+https://web.mit.edu/masonry/projects/projects_romano.html
+Stephen Murray, Columbia: Beauvais collapse and rebuilding
+https://projects.mcah.columbia.edu/medieval-architecture/htm/ms/ma_ms_bc_discuss_collapse.htm
+Stephen Murray, Columbia: Forces in Amiens Cathedral
+https://projects.mcah.columbia.edu/amiens-arthum/e-text-17.html
+Roger Stalley, Columbia: Durham structural system
+https://projects.mcah.columbia.edu/medieval-architecture/htm/sr/ma_sr_discuss_dc_structure.htm
+Centre des monuments nationaux: History of Cluny
+https://www.cluny-abbaye.fr/en/discover/history-of-the-abbey-of-cluny
+Arnaud Timbert: Saint-Denis and early Gothic
+https://www.france-memoire.fr/labbatiale-de-saint-denis-et-les-debuts-de-larchitecture-gothique/
 
 Photographs and drawings
+Via Wikimedia Commons unless noted. Images resized/framed; some cropped or panned. Beauvais interior has schematic level marks beside it; Saint-Denis ambulatory and historic drawings have schematic overlays. No photographic retouching.
+Beauvais exterior — Dguendel; CC BY 4.0
+https://commons.wikimedia.org/wiki/File:Beauvais,_the_Rue_Chambiges,_view_to_cathedral.JPG
+Beauvais choir interior — Dguendel; CC BY 4.0
+https://commons.wikimedia.org/wiki/File:Beauvais,_Beauvais,_cathedral_Saint_Pierre,_the_choir.JPG
+Beauvais transept and choir — Chris06; CC0
+https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Pierre_de_Beauvais1.JPG
+Amiens nave from triforium — Eusebius; CC BY 3.0
+https://commons.wikimedia.org/wiki/File:Cathedrale_d%27Amiens_-_nef_depuis_le_triforium.jpg
+Beauvais flying buttress, vol. 1, scan p. 96 — Viollet-le-Duc; public domain
+https://commons.wikimedia.org/w/index.php?title=File%3ADictionnaire+raisonn%C3%A9+de+l%E2%80%99architecture+fran%C3%A7aise+du+XIe+au+XVIe+si%C3%A8cle%2C+1.djvu&page=96
+Beauvais plan, vol. 2, scan p. 342 — Viollet-le-Duc; public domain
+https://commons.wikimedia.org/w/index.php?title=File%3ADictionnaire+raisonn%C3%A9+de+l%E2%80%99architecture+fran%C3%A7aise+du+XIe+au+XVIe+si%C3%A8cle%2C+2.djvu&page=342
+Amiens plan, vol. 2, scan p. 335 — Viollet-le-Duc; public domain
+https://commons.wikimedia.org/w/index.php?title=File%3ADictionnaire+raisonn%C3%A9+de+l%E2%80%99architecture+fran%C3%A7aise+du+XIe+au+XVIe+si%C3%A8cle%2C+2.djvu&page=335
+Durham interior — A. D. White Architectural Photographs, Cornell University Library; no known copyright restrictions
+http://hdl.handle.net/1813.001/5t5q
+Chartres flying buttresses — Florestan; CC BY 3.0
+https://commons.wikimedia.org/wiki/File:Chartres_-_cath%C3%A9drale_-_arcs-boutants_de_la_nef.JPG
+Notre-Dame chevet (2011) — Jebulon; CC0
+https://commons.wikimedia.org/wiki/File:Notre_Dame_chevet.jpg
+Saint-Denis rose window — Guilhem Vellut; CC BY 2.0
+https://commons.wikimedia.org/wiki/File:Stained_glass_@_Basilique_de_Saint-Denis_@_Saint-Denis_(30675936826).jpg
+Saint-Denis ambulatory — NateBergin; CC BY 4.0
+https://commons.wikimedia.org/wiki/File:A_Vault_in_Ambulatory_at_Saint-Denis.png
+Chartres north rose — Eusebius; public domain
+https://commons.wikimedia.org/wiki/File:Chartres_-_cath%C3%A9drale_-_rosace_nord.jpg
 
-- Beauvais Cathedral, the choir seen from the Rue Chambiges: Dguendel, CC BY 4.0, via Wikimedia Commons. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Original record: https://commons.wikimedia.org/wiki/File:Beauvais,_the_Rue_Chambiges,_view_to_cathedral.JPG. Changes: Commons 1920-px rendition of the 3456x5184 original, downscaled to 1706x2560 JPEG; cropped at render time; slow drift; no retouching
-- Beauvais Cathedral, the choir (interior, looking up): Dguendel, CC BY 4.0, via Wikimedia Commons. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Original record: https://commons.wikimedia.org/wiki/File:Beauvais,_Beauvais,_cathedral_Saint_Pierre,_the_choir.JPG. Changes: original 2403x5462 downscaled to 1126x2560 JPEG; cropped at render time; schematic level marks drawn beside it, not on it; no retouching
-- Beauvais Cathedral: transept and choir, with a lower, older building in front: Chris06, CC0, via Wikimedia Commons. CC0 (https://creativecommons.org/publicdomain/zero/1.0/). Original record: https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Pierre_de_Beauvais1.JPG. Changes: original file (1743x1409), unchanged; fitted in a frame at render time
-- Amiens Cathedral, the nave seen from the triforium: Eusebius, CC BY 3.0, via Wikimedia Commons. CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Original record: https://commons.wikimedia.org/wiki/File:Cathedrale_d%27Amiens_-_nef_depuis_le_triforium.jpg. Changes: original 2237x3028 downscaled to 1892x2560 JPEG; fitted in a frame at render time; no retouching
-- A flying buttress of Beauvais Cathedral (Dictionnaire raisonné, article Arc-boutant): Drawing: Viollet-le-Duc, 1856 (public domain). Public domain (PD-old: Viollet-le-Duc died 1879; Commons template {{Viollet-le-Duc}}). Original record: https://commons.wikimedia.org/w/index.php?title=File%3ADictionnaire+raisonn%C3%A9+de+l%E2%80%99architecture+fran%C3%A7aise+du+XIe+au+XVIe+si%C3%A8cle%2C+1.djvu&page=96. Changes: g-r7: page 96 of the tome 1 scan (fig. 61, printed page 70), rendered at 1920 px wide by Commons, crop [244, 325, 1505 x 2439] of the page; the page's text above and below the figure is left out by the card crop; registered to the earlier 600-px figure file (same framing, about 2.3-2.4 x the detail) so the schematic marks keep their places; JPEG; no retouching. Marks drawn over it at render time
-- Plan of Beauvais Cathedral (Dictionnaire raisonné, article Cathédrale, fig. 22): Plan: Viollet-le-Duc, 1856 (public domain). Public domain (PD-old: Viollet-le-Duc died 1879; Commons template {{Viollet-le-Duc}}). Original record: https://commons.wikimedia.org/w/index.php?title=File%3ADictionnaire+raisonn%C3%A9+de+l%E2%80%99architecture+fran%C3%A7aise+du+XIe+au+XVIe+si%C3%A8cle%2C+2.djvu&page=342. Changes: g-r7: page 342 of the tome 2 scan (fig. 22), rendered at 1920 px wide by Commons, crop [290, 410, 1411 x 2120] of the page; registered to the earlier 600-px figure file (same framing, about 2.3-2.4 x the detail) so the schematic marks keep their places; JPEG; no retouching. Marks drawn over it at render time
-- Plan of Amiens Cathedral after its original design (Dictionnaire raisonné, article Cathédrale, fig. 19): Plan: Viollet-le-Duc, 1854 (public domain). Public domain (PD-old: Viollet-le-Duc died 1879; Commons template {{Viollet-le-Duc}}). Original record: https://commons.wikimedia.org/w/index.php?title=File%3ADictionnaire+raisonn%C3%A9+de+l%E2%80%99architecture+fran%C3%A7aise+du+XIe+au+XVIe+si%C3%A8cle%2C+2.djvu&page=335. Changes: g-r7: page 335 of the tome 2 scan (fig. 19), rendered at 1920 px wide by Commons, crop [335, 299, 1242 x 2431] of the page; registered to the earlier 600-px figure file (same framing, about 2.3-2.4 x the detail) so the schematic marks keep their places; JPEG; no retouching. Marks drawn over it at render time
-- Durham Cathedral, interior (albumen print, about 1865-1895): A. D. White Architectural Photographs, Cornell University Library. No known copyright restrictions (Flickr Commons, Cornell University Library). Original record: http://hdl.handle.net/1813.001/5t5q. Changes: original file (1273x1536), unchanged; framed and moved by the card camera at render time
-- Chartres Cathedral, the flying buttresses of the nave: Florestan, CC BY 3.0, via Wikimedia Commons. CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Original record: https://commons.wikimedia.org/wiki/File:Chartres_-_cath%C3%A9drale_-_arcs-boutants_de_la_nef.JPG. Changes: Commons 3840-px rendition of the 4272x2848 original, downscaled to 2560x1706 JPEG; framed and moved by the card camera
-- Notre-Dame de Paris, the choir and its flying buttresses from outside (photograph 2011): Jebulon, CC0, via Wikimedia Commons. CC0 (https://creativecommons.org/publicdomain/zero/1.0/). Original record: https://commons.wikimedia.org/wiki/File:Notre_Dame_chevet.jpg. Changes: original 2057x3291 downscaled to 1600x2560 JPEG; framed and moved by the card camera
-- Basilica of Saint-Denis today: interior, a rose window and the light (photograph 2016): Guilhem Vellut, CC BY 2.0, via Wikimedia Commons (from Flickr). CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/). Original record: https://commons.wikimedia.org/wiki/File:Stained_glass_@_Basilique_de_Saint-Denis_@_Saint-Denis_(30675936826).jpg. Changes: Commons 3840-px rendition of the 5472x3648 original, downscaled to 2560x1706 JPEG; framed and moved by the card camera
-- Basilica of Saint-Denis today: the ambulatory kept from Abbot Suger's choir (photograph 2025): NateBergin, CC BY 4.0, via Wikimedia Commons. CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Original record: https://commons.wikimedia.org/wiki/File:A_Vault_in_Ambulatory_at_Saint-Denis.png. Changes: original PNG 2160x2888 saved as JPEG; framed and moved by the card camera; a line drawn along one rib and labels with leaders drawn over it
-- Chartres Cathedral today: the north rose window (photograph 2009): Eusebius, public domain, via Wikimedia Commons. Public domain. Original record: https://commons.wikimedia.org/wiki/File:Chartres_-_cath%C3%A9drale_-_rosace_nord.jpg. Changes: original 2167x3000 downscaled to 1850x2560 JPEG; framed and moved by the card camera
+Licenses
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+CC BY 3.0: https://creativecommons.org/licenses/by/3.0/
+CC BY 2.0: https://creativecommons.org/licenses/by/2.0/
 
 Credits and disclosures
+AI-generated narration: Kokoro-82M (Apache-2.0), voice am_michael.
+3D models and diagrams are illustrative, not engineering designs or reconstructions of the photographed structures. Force arrows are conceptual, not calculated forces; no load capacities, stresses or safety factors are given.
 
-- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael).
-- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs or reconstructions of the buildings shown in the photographs and drawings.
-- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given.
-- Marks drawn on the photographs and historic drawings are schematic.
-
+Suggest a structure for our next film in the comments. Like and subscribe for more from Architecture Story Studio.
