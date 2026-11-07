@@ -14,5 +14,27 @@
 | B2 | How Do Bridges Carry Load? Six Designs Explained | 48 | đúng sáu kiểu của phim: beam, arch, truss, cantilever, suspension, cable-stayed |
 | B3 | Beam, Arch, Truss, Suspension: Why Bridges Look So Different | 61 | chỉ nêu bốn trong sáu kiểu để title không quá dài; người xem có thể tưởng phim chỉ có bốn |
 
-## Thumbnail
-Chưa có. Nên làm bộ thumbnail cùng phong cách với phim Gothic (một thông điệp chính, công trình lớn, không dòng phụ) trước khi chạy test. Ảnh dùng phải có trong danh sách ghi công của `review/YOUTUBE_DESCRIPTION.md`; ảnh HAER là public domain của chính phủ Hoa Kỳ.
+## Thumbnail (trong `review/thumbnails/`, 1280×720)
+Bảy thiết kế của chủ kênh, đều dùng mô hình 3D và đồ họa tự dựng của phim nên không có ghi công ảnh nào thêm. Mỗi bản có `.jpg` (100–160 KB); bản D–G có thêm `.png` (khoảng 1,8 MB, gần giới hạn 2 MB của YouTube, nên dùng `.jpg`).
+
+| Bản | Chữ | Hình | Nhận xét thiết kế (chưa phải dự đoán CTR) |
+|---|---|---|---|
+| A `thumb_A_3_bridges_3_answers` | 3 BRIDGES. 3 ANSWERS. / WHY THEY LOOK DIFFERENT | Ba cầu xếp dọc (arch, truss, cable-stayed), khối chữ nền tối bên trái | Có dòng phụ nhỏ ("WHY THEY LOOK DIFFERENT") sẽ khó đọc ở 160 px; ba cầu nhỏ. Hứa "3" trong khi phim có 6 kiểu. |
+| B `thumb_B_why_that_shape` | WHY THAT SHAPE? | Một cầu treo lớn, chữ trên cùng | Đơn giản và dễ đọc nhất khi thu nhỏ; một vật thể, một câu hỏi. Chữ gần như lặp title B1. |
+| C `thumb_C_see_the_forces` | SEE THE FORCES + nhãn PUSH / PULL | Cầu giàn thép có mũi tên xanh (đẩy), đỏ (kéo) | Khác biệt rõ nhất: cho thấy phim có đồ họa lực. Nhớ rằng mũi tên là khái niệm, không phải lực tính toán (phim đã ghi chú). |
+| D `thumb_D_blueprint_sheet` | nhãn từng kiểu: Timber Beam, Stone Arch, Steel Truss, Cantilever, Suspension, Cable-Stayed | Lưới 2×3 sáu cầu | Khớp đúng sáu kiểu của phim. Nhiều chi tiết nhỏ và nhãn nhỏ; ít hiệu quả ở 160 px. Hợp với title B2 "Six Designs". |
+| E `thumb_E_why_that_shape_sheet` | WHY THAT SHAPE? (serif) | Lưới sáu cầu bên dưới | D với tiêu đề hỏi; chữ serif hợp chất "lịch sử" nhưng cầu nhỏ. |
+| F `thumb_F_title_in_middle` | WHY THAT SHAPE? ở giữa | Ba cầu trên, ba cầu dưới | Chữ ở giữa chia hình thành hai nửa; dễ đọc hơn E. |
+| G `thumb_G_title_sans` | WHY THAT SHAPE? (sans, đậm) | Ba cầu trên, ba cầu dưới | F với chữ sans-serif đậm; chữ mạnh nhất trong nhóm E–G. |
+
+E, F, G chỉ khác phông chữ và bố cục; nếu chạy test, chọn một trong ba, không đưa cả ba vào cùng vòng.
+
+## Ghép đề xuất
+| Vòng | Thumbnail | Title | Lý do |
+|---|---|---|---|
+| 1 (so thumbnail, title B1 cố định) | B, C, và G hoặc D | B1 "Why Bridges Don't All Look the Same" | Ba hướng khác hẳn nhau: một cầu + câu hỏi, đồ họa lực, và bảng sáu kiểu. A bỏ vì hứa "3" và có dòng phụ nhỏ. |
+| 2 (so title, thumbnail thắng vòng 1) | thắng vòng 1 | B1, B2, B3 | Nếu thắng là B hoặc G (chữ "WHY THAT SHAPE?") thì title B1 trùng ý; thử B2 hoặc B3 để title bổ sung chứ không lặp lại. Nếu thắng là D, B2 "Six Designs" khớp nhất. |
+
+## Còn mở
+- Chưa kiểm tra cả bảy bản ở 320 px và 160 px (tôi xem ở cỡ ~640 px).
+- Chưa đối chiếu hình cầu trong thumbnail với cảnh của phim; nên xem các mô hình trùng với những gì phim cho thấy.
