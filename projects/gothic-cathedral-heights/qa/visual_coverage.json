@@ -2,9 +2,9 @@
   "project_id": "gothic-cathedral-heights",
   "executable": true,
   "visibility_summary": {
-    "shots_assessed": 2,
-    "target_rows": 5,
-    "rows_passing": 5,
+    "shots_assessed": 1,
+    "target_rows": 3,
+    "rows_passing": 3,
     "uncertain_rows": 0,
     "issues_detected": 0,
     "auto_repaired": 0,
@@ -800,14 +800,14 @@
     {
       "beat_id": "B29",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": "HOLD_HIGHLIGHT",
-      "status": "PARTIALLY_COVERED",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "INTERNAL_PREVIEW",
       "expected_seconds": 11.525,
       "timing_source": "AUDIO_LOCKED",
       "issues": [],
       "explanation": [
-        "HOLD_HIGHLIGHT: Hold the structure and glow the focus components"
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
       "assets": [
         {
@@ -817,49 +817,18 @@
           "explanation": "cathedral_gothic_section_01 (offline only, ILLUSTRATIVE) matches cathedral/gothic_section"
         }
       ],
-      "semantic_targets": [
-        "flying_buttress",
-        "pier_buttress"
-      ],
+      "semantic_targets": [],
       "templates": [
-        "HOLD"
+        "SEQUENCE"
       ],
       "shot_ids": [
         "SC_029"
       ],
       "planned_seconds": 11.542,
-      "readable": {
-        "flying_buttress": true,
-        "pier_buttress": true
-      },
+      "readable": {},
       "visual_repairs": [],
       "composition": [],
-      "visibility": [
-        {
-          "shot_id": "SC_029",
-          "concept": "flying_buttress",
-          "label": "highlight_peak",
-          "frame": 175,
-          "visible_share": 0.3974,
-          "core_area": 0.00029,
-          "visible_area": 0.00289,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        },
-        {
-          "shot_id": "SC_029",
-          "concept": "pier_buttress",
-          "label": "highlight_peak",
-          "frame": 175,
-          "visible_share": 0.7305,
-          "core_area": 0.04374,
-          "visible_area": 0.05425,
-          "ok": true,
-          "problems": [],
-          "verification": "ESTIMATED"
-        }
-      ]
+      "visibility": []
     },
     {
       "beat_id": "B30",

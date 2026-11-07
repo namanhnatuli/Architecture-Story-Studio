@@ -1,6 +1,6 @@
 # Subtitle QA
 
-- File: `output/gothic_cathedral_heights_G_R3_INTERNAL_REVIEW_720p.en.srt` — 214 cues for 136 sentences; 144 two-line cues; longest line 42 chars (limit 42); max reading speed 17.8 chars/s.
+- File: `output/gothic_cathedral_heights_G_R9_INTERNAL_REVIEW_720p.en.srt` — 214 cues for 136 sentences; 144 two-line cues; longest line 42 chars (limit 42); max reading speed 17.8 chars/s.
 - Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: 78; sentence-span fallbacks: 0.
 - Text comes from the script (official spellings kept); ASR text is never used as subtitle text.
 - Problems: none

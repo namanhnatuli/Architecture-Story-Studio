@@ -117,6 +117,9 @@ Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều
   - Mỗi cảnh ít chữ: tên, con số, trích dẫn ngắn, giới hạn của minh họa. Không chép lại lời dẫn.
   - Tiêu đề chỉ giữ vài giây (`gone(sentence, word)`); các câu hỏi tiếp theo hiện trên hình.
   - Khi kể một sự kiện cũ trên ảnh chụp hôm nay, ghi "today".
+  - **"today" chưa đủ khi công trình đã được dựng lại** (góp ý g-r8). Khi lời dẫn kể một giai đoạn xây dựng, ảnh phải cho thấy phần còn lại từ đúng giai đoạn đó (ví dụ ambulatory của Suger ở Saint-Denis, không phải phần trên dàn hợp xướng dựng lại từ 1231). Chú thích nói rõ phần nào, và giữ qua lúc chuyển cảnh. Phần nào dựng lại phải có nguồn và claim.
+  - Nhãn chỉ bộ phận phải chấm đúng vào bộ phận đó (một gân rõ, không phải mảng đá giữa các gân). Soi khung 1:1 trước khi render. Nếu cần, vẽ sáng ngắn dọc bộ phận khi nó được gọi tên.
+  - Tọa độ phần tử phải nằm trong 0..1. Nếu bố cục stage cần rộng hơn (ví dụ một ảnh dọc rất cao đặt cạnh ảnh ngang), thu cả bố cục về giữa card theo một tỉ lệ. Camera stage bù lại nên khung hình không đổi; nét vẽ trên stage cũng thu theo tỉ lệ đó.
   - Card ảnh không bao giờ mở bằng khung trống: ảnh đầu tiên có `from_start` (`Card.image` tự gán).
   - Đổi ảnh bằng chuyển hoà: ảnh sau ở `layer` cao hơn và vào trước; ảnh trước rời đi bằng `until_word` vài từ sau.
 - **Kết quả của một nghiên cứu không phải phán quyết:** không gạch chéo một giả thuyết. Làm mờ nó và ghi "Not supported by this study", kèm tên nghiên cứu.

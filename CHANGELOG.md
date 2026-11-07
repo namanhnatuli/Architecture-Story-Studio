@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.10.6 — 2026-11-07 — Phim Gothic g-r9: sửa cục bộ sau review g-r8
+- **Theo review g-r8 của chủ kênh:** giữ hướng hình, chỉ sửa bốn chỗ. Chưa có gì được duyệt.
+- **C6/B21–B22 (ảnh và niên đại):**
+  - Phần trên dàn hợp xướng Saint-Denis được dựng lại từ 1231, nên ảnh apse (Ninaras) không còn đứng cho công trình 1140–1144 của Suger.
+  - Ảnh mới: ambulatory còn lại từ thời Suger (NateBergin, CC BY 4.0).
+  - Ảnh cửa sổ hoa hồng chuyển hoà sang ambulatory, đúng khung, không giật camera.
+  - Chú thích "The ambulatory of Suger's choir, 1140–1144" và "Upper choir rebuilt in the 13th century" giữ qua lúc chuyển sang B22.
+  - Nguồn mới: Atlas du patrimoine de la Seine-Saint-Denis (Michaël Wyss) và claim CLM_165, kiểm nguyên văn.
+- **C6/B21 (nhãn gân vòm):** nhãn "Vault rib" chấm đúng vào một gân rõ; gân đó được vẽ sáng dọc chiều dài trong khoảng 1,6 giây.
+- **C7/B29:** đổi thành SEQUENCE như B17.
+  - Một trụ chống bay và trụ chống của nó được đánh dấu trên cả nhà thờ; phần còn lại mờ đi trong lúc camera tiến vào chỗ tiếp xúc.
+  - Lực đẩy của vòm được vẽ vào flyer rồi tới đỉnh trụ chống, kèm nhãn "Lined up with its buttress".
+- **C3/B09:** hai gối có từ đầu; dây treo được vẽ khi giới thiệu Hooke, lớn hơn; câu trích nằm bên phải; thao tác lật vẫn đúng chữ "turn".
+- **C7/B25:** mở cận cảnh. Từ giây đầu, mũi compa đặt lên một chân vòm, cánh tay quay từ chân kia lên đỉnh, cung vẽ theo, rồi camera lùi ra cho hai bản lớn hơn. Độ dày nét theo đúng tỉ lệ.
+- **Manifest chương** sinh lại theo mã shot hiện tại. Có bản ghép xem trước toàn phim 720p từ các chương: `gothic_cathedral_heights_G_R9_INTERNAL_REVIEW_720p.mp4`.
+- **`final-assemble` với preset nội bộ** không còn đặt tên file FINAL. Bản ghép nội bộ lấy tên theo `review_label` của `project.json`, như `assemble`. Thêm test.
+- **Long-form QA báo `visual_variety` FAIL:** 8 shot ảnh liền nhau ở chương 8, ngưỡng 4. Ngưỡng giữ nguyên; chờ chủ kênh quyết.
+
 ## 0.10.5 — 2026-11-07 — Phim Gothic g-r8: C4, C5, C2, C3, C7, C6 theo bảng việc của chủ kênh
 - **Chủ kênh giao bảng việc từng chương**, thứ tự C4 → C5 → C2 → C3 → C7 → C6. Chưa có gì được duyệt.
 - **C4:**

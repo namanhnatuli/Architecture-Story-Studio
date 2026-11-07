@@ -7,7 +7,7 @@
 1. Lời dẫn: mỗi câu đúng với claim nó trích (xem cột trích dẫn nguồn).
 2. Chữ trên card: tiêu đề, nhãn, chú thích ảnh, thang nhịp và dòng thời gian.
 3. Ảnh lưu trữ: chọn ảnh, cách cắt viền phim, dòng ghi công (xem `review/RIGHTS_PROVENANCE.md`).
-4. Nhãn 'Illustrative model' trên các mô hình 3D (B05, B07, B12, B13, B16, B17).
+4. Nhãn 'Illustrative model' trên các mô hình 3D (B05, B07, B12, B13, B16, B17, B29).
 5. Phát âm các tên mới (narration.voice.pronunciation_review.terms).
 6. Giọng: quyền dùng `am_michael` cho phim này (licence LICENSE_REVIEW_REQUIRED, owner_confirmation_for_this_film = PENDING).
 
@@ -194,7 +194,7 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 
 ### C6 · Walls of light
 
-**B21** (fact; claim: CLM_160, CLM_161)
+**B21** (fact; claim: CLM_160, CLM_161, CLM_165)
 
 - `7:02` Why go to all this trouble?
 - `7:05` Part of the answer is light.
@@ -202,13 +202,15 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - `7:16` Pointed arches run throughout, every vault is ribbed, and monumental stained glass seems to dissolve the whole structure.
   - CLM_160: SRC_FM_TIMBERT_SAINT_DENIS paragraph 2: "Entre 1130 et 1140, l’abbé Suger (1122-1151) choisit de greffer sur la nef carolingienne de son abbatiale un massif de façade* voûté d’ogives* et structuré par des arcs brisés*. Puis, entre 1140 et 1144, il érigea un chevet*" · SRC_FM_TIMBERT_SAINT_DENIS Au-dessus de la crypte: "Ici, l’arc brisé est généralisé (fenêtres, arcs formerets* et doubleaux*), l’emploi de la voûte d’ogives est exclusif, les supports appareillés sont supplantés par des colonnes monolithes, les murs intermédiaires des chapelles sont élidés et, enfin, des vitraux monumentaux dématérialisent l’ensemble."
   - CLM_161: SRC_CU_SAINT_DENIS Significance and Basic Concepts: "For Suger light functioned as a sign or bridge to the divine." · SRC_CU_SAINT_DENIS Building Campaigns: "This Choir was built in new, gothic style and dedicated in 1144."
+  - CLM_165: SRC_ATLAS_SAINT_DENIS Basilique de Saint-Denis: Suger's chevet: "L’emploi de la voûte d’ogives permet de monter les voûtes des chapelles rayonnantes et du double déambulatoire â la même hauteur" · SRC_ATLAS_SAINT_DENIS Basilique de Saint-Denis: Suger's chevet: "Le jugement sur le chevet de Suger ne peut pas être complet du fait de la disparition du sanctuaire et de la reconstruction de ses parties supérieures à partir de 1231" · SRC_ATLAS_SAINT_DENIS Basilique de Saint-Denis: the rebuilding of the 13th century: "De l’édifice du 12e siècle, il conserve le double déambulatoire et son couvrement, et les tailloirs des grandes-arcades." — giả định: The article dates the rebuilding of the upper parts 'from 1231' and the abbot's launch of the rebuilding to 1232; the card says only 'in the 13th century'. The photograph shows the ambulatory today; its glass is not claimed to be Suger's.
 
-**B22** (fact; claim: CLM_161, CLM_164)
+**B22** (fact; claim: CLM_161, CLM_164, CLM_165)
 
 - `7:26` For Suger, light was a sign, a bridge to the divine.
 - `7:30` France's national library says the new style had to let in as much light as possible.
   - CLM_161: SRC_CU_SAINT_DENIS Significance and Basic Concepts: "For Suger light functioned as a sign or bridge to the divine." · SRC_CU_SAINT_DENIS Building Campaigns: "This Choir was built in new, gothic style and dedicated in 1144."
   - CLM_164: SRC_BNF_SAINT_DENIS Le rôle clé de la lumière: "Le nouveau style de la basilique de Saint-Denis doit rendre sensible aux fidèles cette conception dès leur entrée dans l’édifice : il devient nécessaire d’y faire entrer un maximum de lumière."
+  - CLM_165: SRC_ATLAS_SAINT_DENIS Basilique de Saint-Denis: Suger's chevet: "L’emploi de la voûte d’ogives permet de monter les voûtes des chapelles rayonnantes et du double déambulatoire â la même hauteur" · SRC_ATLAS_SAINT_DENIS Basilique de Saint-Denis: Suger's chevet: "Le jugement sur le chevet de Suger ne peut pas être complet du fait de la disparition du sanctuaire et de la reconstruction de ses parties supérieures à partir de 1231" · SRC_ATLAS_SAINT_DENIS Basilique de Saint-Denis: the rebuilding of the 13th century: "De l’édifice du 12e siècle, il conserve le double déambulatoire et son couvrement, et les tailloirs des grandes-arcades." — giả định: The article dates the rebuilding of the upper parts 'from 1231' and the abbot's launch of the rebuilding to 1232; the card says only 'in the 13th century'. The photograph shows the ambulatory today; its glass is not claimed to be Suger's.
 
 **B23** (fact; claim: CLM_162)
 
@@ -415,7 +417,7 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - **SC_003** (B03): How Gothic Cathedrals Reached | Impossible Heights | How did they raise stone that high? | And why, sometimes, did it come down? | Section of Beauvais: Viollet-le-Duc, 1856
 - **SC_004** (B04): 2 · Stone and its outward push | Conceptual diagram, not to scale | Pulled apart: little or no strength | Stones pressed together: it stands
 - **SC_008** (B08): 3 · The pointed arch | Pointed arch | Round arch | Rise: half the span | Same span, higher rise | Conceptual arrows: direction only, not calculated | Shape | Thickness | Weight carried | Illustrations, not the arches of the study (Block, DeJong and Ochsendorf, 2006)
-- **SC_009** (B09): Robert Hooke, 1675 | “As hangs the flexible line, so but inverted | will stand the rigid arch.” | “As hangs the flexible line, so but inverted | will stand the rigid arch.”  Robert Hooke, 1675 | A chain with its weights | Turned upside down: | a path for the force | Different weights, different curve | Conceptual diagram
+- **SC_009** (B09): Robert Hooke, 1675 | “As hangs the flexible line, so but inverted | will stand the rigid arch.” | A chain with its weights | Turned upside down: | a path for the force | Different weights, different curve | Conceptual diagram
 - **SC_010** (B10): 1060 | 1080 | 1100 | 1120 | 1140 | 1160 | 1088  Cluny III: construction begins | Saint-Denis: used systematically | Not a Gothic invention
 - **SC_011** (B11): Round arches | Crowns at different heights | Pointed arches | Same crown height | Regular crowns help keep complex vaults regular | Wide bay, narrow bay: conceptual diagram
 - **SC_014** (B14): Photo: A. D. White Architectural Photographs, Cornell University Library | Durham Cathedral, interior | (photograph about 1865–1895) | 1080 | 1100 | 1120 | 1140 | 1088  Cluny III: construction begins | Durham, begun 1093, finished 1133: ribbed vaults, in phases | At least three technical phases, some forty years | Earlier sources: Islamic, Roman, Byzantine (Columbia)
@@ -423,11 +425,11 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - **SC_018** (B18): The picture from Columbia's Amiens project | Plan, seen from above (schematic) | Inside the building | A thick outer wall | Each segment turned 90° | Rigid supports, standing out from the building | Exposed arches: flying buttresses
 - **SC_019** (B19): A church section (schematic) | Added outside to consolidate (BnF) | Timber props, while building | made permanent in stone (BnF) | Photo: Florestan, CC BY 3.0, Wikimedia Commons | Photo: Jebulon, CC0, Wikimedia Commons | Chartres today: flying buttresses of the nave | part of the original plans | Notre-Dame de Paris: the east end (photograph 2011)
 - **SC_020** (B20): Half a section (schematic) | Rainwater led off the roof | (schematic) | Ever taller
-- **SC_021** (B21): 6 · Walls of light | Photo: Guilhem Vellut, CC BY 2.0, Wikimedia Commons | Photo: Ninaras, CC BY 4.0, Wikimedia Commons | Part of the answer: light | Saint-Denis today | Abbot Suger's new choir: 1140–1144 | Pointed arches | Every vault ribbed | Stained glass
-- **SC_022** (B22): Photo: Ninaras, CC BY 4.0, Wikimedia Commons | “A sign, a bridge to the divine” | Light, for Abbot Suger | The new style had to let in as much light as possible | Bibliothèque nationale de France
+- **SC_021** (B21): 6 · Walls of light | Photo: Guilhem Vellut, CC BY 2.0, Wikimedia Commons | Photo: NateBergin, CC BY 4.0, Wikimedia Commons | Saint-Denis today | Part of the answer: light | The ambulatory of Suger's choir, 1140–1144 | Upper choir rebuilt in the 13th century | Pointed arch | Vault rib | Stained glass
+- **SC_022** (B22): Photo: NateBergin, CC BY 4.0, Wikimedia Commons | Saint-Denis today: Suger's ambulatory | “A sign, a bridge to the divine” | Light, for Abbot Suger | The new style had to let in as much light as possible | Bibliothèque nationale de France
 - **SC_023** (B23): Photo: Eusebius, public domain, Wikimedia Commons | Chartres today: the north rose | About 2,500 m² of stained glass survive, | most of it original
 - **SC_024** (B24): How new was Gothic? | “An entire revolution | in the art of building” | After Viollet-le-Duc, 19th century | No Gothic break: a creative | proposal rooted in continuity | Arnaud Timbert, art historian | Suger's crypt: round arches, groin vaults
-- **SC_025** (B25): 7 · Building by geometry | Without modern structural calculations | A geometrical rule: compass and line | The same proportions, scaled up
+- **SC_025** (B25): 7 · Building by geometry | Without modern structural calculations | A geometrical rule: compass and line | One example: the radius equals the span | The same proportions, scaled up
 - **SC_026** (B26): Ropes pegged to the ground | Squares with right angles | Templates: straight edge and compass | Schematic, not the Amiens plan
 - **SC_027** (B27): Drawn full size on the ground | Divided into voussoirs | Each cut to a wooden template | Centering (temporary) | Centering removed | once the mortar has set | Amiens: after a couple of months or so | Sequence after the sources, schematic
 - **SC_028** (B28): The carpenters (schematic) | Scaffolding | Formwork for the vault | Lifting gear | Ties: wood, later iron | held against the arches' push
@@ -476,6 +478,8 @@ Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/pr
 - B17 `B17_pier` COMPONENT_LABEL: "Pier buttress"
 - B17 `B17_weight` LOAD_ARROW: "Weight" (CLM_152)
 - B17 `B17_pinnacle` COMPONENT_LABEL: "Pinnacle"
+- B29 `B29_note` NOTE: "Illustrative model"
+- B29 `B29_meet` COMPONENT_LABEL: "Lined up with its buttress"
 - B39 `B39_ch` NOTE: "9 · Why they stand"
 - B42 `B42_ch` NOTE: "10 · Never impossible"
 - B44 `B44_note` NOTE: "Models are illustrations, not structural analyses"

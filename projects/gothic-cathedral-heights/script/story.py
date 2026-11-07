@@ -38,8 +38,8 @@ PHOTOS = {
                               "credit": "Photo: Jebulon, CC0, Wikimedia Commons"},
     "IMG_SAINT_DENIS_ROSE": {"path": "assets/external/saint_denis_rose_vellut_2560.jpg", "size": (2560, 1706),
                              "credit": "Photo: Guilhem Vellut, CC BY 2.0, Wikimedia Commons"},
-    "IMG_SAINT_DENIS_APSE": {"path": "assets/external/saint_denis_apse_ninaras_2560.jpg", "size": (2560, 1706),
-                             "credit": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons"},
+    "IMG_SAINT_DENIS_AMBULATORY": {"path": "assets/external/saint_denis_ambulatory_bergin_2160.jpg", "size": (2160, 2888),
+                                   "credit": "Photo: NateBergin, CC BY 4.0, Wikimedia Commons"},
     "IMG_CHARTRES_ROSE": {"path": "assets/external/chartres_north_rose_2560.jpg", "size": (1850, 2560),
                           "credit": "Photo: Eusebius, public domain, Wikimedia Commons"},
     "IMG_DURHAM_INTERIOR": {"path": "assets/external/durham_interior_cornell_1273.jpg", "size": (1273, 1536),
@@ -628,29 +628,30 @@ beat("C3", "B08", "fact", "COMPARE_VARIANTS", [
     required_concepts=[])
 
 c = Card("B09")
-CX, AY = 0.33, 0.52    # the chain hangs from two anchors at AY; turned about their midpoint it stands as an arch
-c.text("Robert Hooke, 1675", 0.5, 0.66, 0.05, 0, until=2)
-c.text("“As hangs the flexible line, so but inverted", 0.5, 0.52, 0.042, 1, until=2)
-c.text("will stand the rigid arch.”", 0.5, 0.45, 0.042, 1, until=2)
-c.text("“As hangs the flexible line, so but inverted", 0.72, 0.88, 0.026, 2)
-c.text("will stand the rigid arch.”  Robert Hooke, 1675", 0.72, 0.84, 0.026, 2)
-c.line([[CX - 0.2, AY], [CX + 0.2, AY]], FAINT, 0.004, 2)
-for x in (CX - 0.23 / ASPECT, CX + 0.23 / ASPECT):
-    c.circle([x, AY], 0.011, INK, 2)
-chain = place(catenary(0.46, 0.28), CX, AY, flip=True)
+CX, AY = 0.3, 0.55    # the chain hangs from two anchors at AY; turned about their midpoint it stands as an arch
+# g-r9 (owner, g-r8 review: 14 s of a name and a quote before the chain): the anchors are there from the start and the
+# chain hangs while Hooke's idea is introduced, at the left; his words stay at the right; the turn keeps its word
+c.text("Robert Hooke, 1675", 0.72, 0.8, 0.04, 0)
+c.text("“As hangs the flexible line, so but inverted", 0.72, 0.7, 0.03, 1)
+c.text("will stand the rigid arch.”", 0.72, 0.645, 0.03, 1)
+SPAN9, RISE9 = 0.56, 0.31
+c.line([[CX - 0.2, AY], [CX + 0.2, AY]], FAINT, 0.004, 0)
+for x in (CX - SPAN9 / 2 / ASPECT, CX + SPAN9 / 2 / ASPECT):
+    c.circle([x, AY], 0.011, INK, 0)
+chain = place(catenary(SPAN9, RISE9), CX, AY, flip=True)
 n0 = len(c.elements)
-c.drawn(chain, INK, 0.008, 2, "chain", seconds=0.9)
+c.drawn(chain, INK, 0.008, 0, "hooke", seconds=1.4)
 for k in range(4, len(chain) - 1, 4):
     c.circle(chain[k], 0.009, MUTED, 2)
     c.elements[-1].update(word="weights", delay=round(0.08 * k, 2))
 for e in c.elements[n0:]:   # turned upside down, about the middle of its anchors
     e["spin"] = {"degrees": 180, "pivot": [CX, AY], "sentence": 3, "word": "turn", "seconds": 1.6}
-c.text("A chain with its weights", 0.72, 0.62, 0.03, 2, plate=True, word="chain").gone(3, "turn")
-c.text("Turned upside down:", 0.72, 0.62, 0.03, 3, plate=True, word="upside")
-c.text("a path for the force", 0.72, 0.56, 0.03, 3, plate=True, word="path")
-c.drawn(place(funicular(0.46, 0.28, 1.2), CX, AY), ACCENT, 0.006, 4, "weights", seconds=1.0)
-c.text("Different weights, different curve", 0.72, 0.44, 0.028, 4, plate=True, color=ACCENT, word="changes")
-c.text("Conceptual diagram", 0.5, 0.235, 0.021, 2, color=MUTED)
+c.text("A chain with its weights", 0.72, 0.5, 0.03, 2, plate=True, word="chain").gone(3, "turn")
+c.text("Turned upside down:", 0.72, 0.5, 0.03, 3, plate=True, word="upside")
+c.text("a path for the force", 0.72, 0.44, 0.03, 3, plate=True, word="path")
+c.drawn(place(funicular(SPAN9, RISE9, 1.2), CX, AY), ACCENT, 0.006, 4, "weights", seconds=1.0)
+c.text("Different weights, different curve", 0.72, 0.34, 0.028, 4, plate=True, color=ACCENT, word="changes")
+c.text("Conceptual diagram", 0.3, 0.2, 0.021, 0, color=MUTED)
 beat("C3", "B09", "fact", "EXPLAIN_STRUCTURE", [
     "In 1675, the scientist Robert Hooke summed up an idea about arches in one line.",
     "As hangs the flexible line, so but inverted will stand the rigid arch.",
@@ -658,8 +659,8 @@ beat("C3", "B09", "fact", "EXPLAIN_STRUCTURE", [
     "Turn that shape upside down, and it shows a path the force can follow through an arch carrying the same weights.",
     "Change the weights, and the shape changes too."],
     ["CLM_114", "CLM_115"], strategy="CARD", graphic=c.spec(),
-    visual_goal="A chain is hung and its weights added; then the whole shape turns upside down into an arch; different "
-                "weights draw a different curve", required_concepts=[])
+    visual_goal="A chain hangs between its anchors while Hooke's idea and words are given; its weights are added; then "
+                "the whole shape turns upside down into an arch; different weights draw a different curve", required_concepts=[])
 
 EARLY = dict(start=1060, end=1160, ticks=(1060, 1080, 1100, 1120, 1140, 1160))
 c = timeline("B10", [(1088, "Cluny III: construction begins", 1, "cluny")],
@@ -1075,43 +1076,70 @@ def pointer(c, view, at, px, py, text, x, y, sentence, word, size=0.026):
 
 
 c = Card("B21")
-_, at_rose = fitted("IMG_SAINT_DENIS_ROSE", FULL)
-_, at_apse = fitted("IMG_SAINT_DENIS_APSE", FULL)
+# g-r9 (owner, g-r8 review: the upper choir seen was rebuilt from 1231, so it cannot stand for Suger's work of
+# 1140-1144): Suger's choir is shown by the part of it that survives, the double ambulatory and its vaults (CLM_165),
+# and the captions say so through the cut to B22. The ambulatory (a tall photograph) is sized to the rose photograph's
+# width and placed so that the frame the push into the rose ends on shows its columns and chapel windows: the dissolve
+# needs no camera jump; then the camera tilts up to the vaults. The whole stage layout is scaled about the card's
+# middle so that it stays inside the card (positions are 0..1); the stage camera makes up for it, the frames are the same.
+S21 = 0.49
+
+
+def m21(x, y):
+    return 0.5 + (x - 0.5) * S21, 0.5 + (y - 0.684) * S21
+
+
+ROSE = [*m21(0.0, 0.0), *m21(1.0, 1.0)]
+_, at_rose = fitted("IMG_SAINT_DENIS_ROSE", ROSE)
+wr = at_rose(2560, 0)[0] - at_rose(0, 0)[0]            # the rose photograph's width on the card
+AMB_H = wr * ASPECT * 2888 / 2160
+AMB = [0.5 - wr / 2, m21(0.0, 1.687)[1] - AMB_H, 0.5 + wr / 2, m21(0.0, 1.687)[1]]
+_, at_amb = fitted("IMG_SAINT_DENIS_AMBULATORY", AMB)
 c.stage()
-c.image("IMG_SAINT_DENIS_ROSE", FULL, sentence=0, until=3)
-c.elements[-1]["until_word"] = "arches"
-c.image("IMG_SAINT_DENIS_APSE", FULL, sentence=3)
+c.image("IMG_SAINT_DENIS_ROSE", ROSE, sentence=0, until=2)
+c.elements[-1]["until_word"] = "abbey"                  # leaves once the ambulatory is in (a dissolve)
+c.image("IMG_SAINT_DENIS_AMBULATORY", AMB, sentence=2)
 c.elements[-1]["layer"] = 1
 c.stage(False)
-wr = at_rose(2560, 0)[0] - at_rose(0, 0)[0]
-c.view(square(0.5, 0.5, wr))
-c.view(square(0.5, 0.56, wr * 0.86), 0, "why", move=9.0)                    # a slow push into the light
-apse = c.view(square(0.5, 0.55, wr), 3, move=1.2)
+c.view(square(0.5, m21(0.0, 0.5)[1], wr))
+c.view(square(0.5, m21(0.0, 0.56)[1], wr * 0.86), 0, "why", move=4.4)      # a slow push into the light
+AMB_HOLD = c.view(square(0.5, at_amb(0, 1282)[1], wr * 0.86), 2, "suger", move=5.0)   # up to the vaults
 c.tag("6 · Walls of light")
-credit_line(c, PHOTOS["IMG_SAINT_DENIS_ROSE"]["credit"]).gone(3, "arches")
-credit_line(c, PHOTOS["IMG_SAINT_DENIS_APSE"]["credit"], 3, "arches")
-c.text("Part of the answer: light", 0.5, 0.3, 0.05, 1, plate=True, word="light").gone(2)
-lower_left(c, ["Saint-Denis today", "Abbot Suger's new choir: 1140–1144"], 2, "denis", size=0.028, until=3)
-pointer(c, apse, at_apse, 1212, 812, "Pointed arches", 0.2, 0.62, 3, "pointed")
-pointer(c, apse, at_apse, 1280, 200, "Every vault ribbed", 0.78, 0.84, 3, "ribbed")
-pointer(c, apse, at_apse, 1280, 1175, "Stained glass", 0.8, 0.36, 3, "glass")
+credit_line(c, PHOTOS["IMG_SAINT_DENIS_ROSE"]["credit"]).gone(2, "abbey")
+credit_line(c, PHOTOS["IMG_SAINT_DENIS_AMBULATORY"]["credit"], 2, "abbey")
+top_left(c, ["Saint-Denis today"], 0, size=0.026)
+c.text("Part of the answer: light", 0.5, 0.3, 0.05, 1, plate=True).gone(2)    # with its sentence (was 1.3 s)
+c.text("The ambulatory of Suger's choir, 1140–1144", 0.06, 0.375, 0.03, 2, align="LEFT", plate=True, word="suger")
+c.text("Upper choir rebuilt in the 13th century", 0.06, 0.32, 0.024, 2, align="LEFT", plate=True, word="choir")
+pointer(c, AMB_HOLD, at_amb, 950, 1045, "Pointed arch", 0.7, 0.8, 3, "pointed")
+c.stage()                                               # the rib named, drawn along its length for a moment
+c.drawn([[a, b] for a, b in (at_amb(721, 780), at_amb(735, 900), at_amb(752, 1100), at_amb(764, 1250))], ACCENT, 0.003,
+        3, "ribbed", seconds=0.7, until=3)                 # 0.003 on the stage: about 0.0085 of the screen
+for e in c.elements:
+    if e.get("until") == 3 and e.get("word") == "ribbed":
+        e["until_word"] = "stained"
+c.stage(False)
+pointer(c, AMB_HOLD, at_amb, 740, 950, "Vault rib", 0.14, 0.66, 3, "ribbed")
+pointer(c, AMB_HOLD, at_amb, 865, 1500, "Stained glass", 0.68, 0.36, 3, "glass")
 beat("C6", "B21", "fact", "SHOW_CONTEXT", [
     "Why go to all this trouble?",
     "Part of the answer is light.",
     "At the abbey church of Saint-Denis, Abbot Suger built a new choir between 1140 and 1144.",
     "Pointed arches run throughout, every vault is ribbed, and monumental stained glass seems to dissolve the whole structure."],
-    ["CLM_160", "CLM_161"], strategy="CARD", graphic=c.spec(),
-    visual_goal="Saint-Denis today, filling the frame with its light; then its apse windows, the pointed arches, the "
-                "ribbed vault and the stained glass pointed out as each is named",
+    ["CLM_160", "CLM_161", "CLM_165"], strategy="CARD", graphic=c.spec(),
+    visual_goal="Saint-Denis today, filling the frame with its light; then the ambulatory kept from Suger's choir, said "
+                "to be so, the camera rising from its columns to its vaults; a pointed arch, one rib (drawn along its "
+                "length) and the chapel glass pointed out as each is named",
     required_concepts=[])
 
 c = Card("B22")
 c.stage()
-c.image("IMG_SAINT_DENIS_APSE", FULL, sentence=0)
+c.image("IMG_SAINT_DENIS_AMBULATORY", AMB, sentence=0)
 c.stage(False)
-c.view(square(0.5, 0.55, wr))
-c.view(around(at_apse, 1080, 650, 1480, 1500, pad=1.0), 0, "light", move=6.0)   # into the central window
-credit_line(c, PHOTOS["IMG_SAINT_DENIS_APSE"]["credit"])
+c.view(AMB_HOLD)                                                            # where B21 ends
+c.view(around(at_amb, 60, 1240, 1340, 1960, pad=1.0), 0, "light", move=6.0)   # toward the chapel windows
+credit_line(c, PHOTOS["IMG_SAINT_DENIS_AMBULATORY"]["credit"])
+top_left(c, ["Saint-Denis today: Suger's ambulatory"], 0, size=0.026)
 c.text("“A sign, a bridge to the divine”", 0.5, 0.62, 0.044, 0, plate=True, word="sign")
 c.text("Light, for Abbot Suger", 0.5, 0.54, 0.026, 0, plate=True, word="sign")
 c.text("The new style had to let in as much light as possible", 0.5, 0.36, 0.03, 1, plate=True, word="library")
@@ -1119,8 +1147,9 @@ c.text("Bibliothèque nationale de France", 0.5, 0.3, 0.022, 1, plate=True, word
 beat("C6", "B22", "fact", "SHOW_CONTEXT", [
     "For Suger, light was a sign, a bridge to the divine.",
     "France's national library says the new style had to let in as much light as possible."],
-    ["CLM_161", "CLM_164"], strategy="CARD", graphic=c.spec(),
-    visual_goal="The camera moves into the coloured light of one window while Suger's idea and the library's words are given",
+    ["CLM_161", "CLM_164", "CLM_165"], strategy="CARD", graphic=c.spec(),
+    visual_goal="From where B21 ends, the camera moves down Suger's ambulatory toward the coloured light of its chapel "
+                "windows while Suger's idea and the library's words are given; the caption keeps saying what part this is",
     required_concepts=[])
 
 c = Card("B23")
@@ -1165,34 +1194,63 @@ c = Card("B25")
 c.tag("7 · Building by geometry")
 
 
-def compass_arch(c, cx, y0, span, sentence, word, color, width, seconds, delay=0.0, construct=False):
+def compass_arch(c, cx, y0, span, sentence, word, color, width, seconds, delay=0.0):
     """A pointed arch whose two arcs have their centres on the springing line (an equilateral arch: radius = span)."""
     pts = place(pointed_arch(span, span * math.sqrt(3) / 2, 16), cx, y0)
     half = len(pts) // 2
-    if construct:   # the compass: centres on the springing line, a radius swung to the crown
-        for k, (sx, ex) in enumerate(((cx + span / 2 / ASPECT, cx - span / 2 / ASPECT), (cx - span / 2 / ASPECT, cx + span / 2 / ASPECT))):
-            c.circle([sx, y0], 0.007, ACCENT, sentence)
-            c.elements[-1].update(word=word, delay=round(delay + 0.6 * k, 2))
-            c.drawn([[sx, y0], [cx, y0 + span * math.sqrt(3) / 2]], ACCENT, 0.003, sentence, word, seconds=0.4,
-                    dash=True, delay=delay + 0.6 * k)
-    c.drawn(pts[:half + 1], color, width, sentence, word, seconds=seconds / 2, delay=delay + (0.4 if construct else 0))
-    c.drawn(pts[half:][::-1], color, width, sentence, word, seconds=seconds / 2, delay=delay + (1.0 if construct else 0))
+    c.drawn(pts[:half + 1], color, width, sentence, word, seconds=seconds / 2, delay=delay)
+    c.drawn(pts[half:][::-1], color, width, sentence, word, seconds=seconds / 2, delay=delay)
 
 
-c.line([[0.12, 0.32], [0.94, 0.32]], FAINT, 0.003, 0)                      # a springing line, ready for the compass
-c.text("Without modern structural calculations", 0.5, 0.7, 0.032, 0, color=MUTED)
+def compass_swing(c, cx, y0, span, sentence, delay, seconds, color, width, until, until_word):
+    """g-r9 (owner, g-r8 review: the compass at work from the start, close up): for each arc, the compass point is set
+    on one foot and its arm, opened to the span, swings from the other foot up to the crown while the arc is drawn
+    behind it. The arm turns with the engine's SMOOTH (sine) easing, so each piece of the arc waits for the moment the
+    arm reaches it (pieces are equal steps of angle)."""
+    pts = place(pointed_arch(span, span * math.sqrt(3) / 2, 16), cx, y0)
+    half = len(pts) // 2
+    sides = ((pts[:half + 1], cx + span / 2 / ASPECT, cx - span / 2 / ASPECT, -60.0),   # left arc, centre on the right foot
+             (pts[half:][::-1], cx - span / 2 / ASPECT, cx + span / 2 / ASPECT, 60.0))  # right arc, centre on the left foot
+    for k, (arc, centre, foot, degrees) in enumerate(sides):
+        t0 = delay + k * (seconds + 0.4)
+        c.circle([centre, y0], 0.003, ACCENT, sentence, until=until)                  # the compass point
+        c.elements[-1].update(delay=round(max(0.0, t0 - 0.4), 2), until_word=until_word)
+        c.line([[centre, y0], [foot, y0]], ACCENT, 0.0025, sentence, until=until, layer=3)   # the arm, opened to the span
+        c.elements[-1].update(delay=round(max(0.0, t0 - 0.4), 2), until_word=until_word,
+                              spin={"degrees": degrees, "pivot": [centre, y0], "sentence": sentence, "delay": t0,
+                                    "seconds": seconds})
+        n = len(arc) - 1
+        for i in range(n):    # piece i: when the arm passes its middle (inverse of the sine easing), less the fade
+            when = t0 + seconds * math.acos(1 - 2 * (i + 0.5) / n) / math.pi + 0.1 - 0.15
+            c.line([arc[i], arc[i + 1]], color, width, sentence, layer=2)
+            c.elements[-1]["delay"] = round(max(0.0, when), 3)
+
+
+# the first arch, close up (the camera on the stage), drawn by compass while the question is asked; then the camera
+# pulls back as the same proportion is drawn larger, twice. Line widths keep the proportion too.
+c.stage()
+c.line([[0.06, 0.32], [0.94, 0.32]], FAINT, 0.002, 0)                      # a springing line, ready for the compass
+compass_swing(c, 0.24, 0.32, 0.16, 0, 0.7, 1.6, STONE, 0.0035, 2, "scaled")
+compass_arch(c, 0.45, 0.32, 0.26, 2, "scaled", STONE, 0.0057, 1.0)
+compass_arch(c, 0.72, 0.32, 0.42, 2, "proportions", STONE, 0.0092, 1.2)
+c.stage(False)
+c.view(square(0.24, 0.38, 0.3))                                            # the feet at 0.3 of the screen, crown 0.76
+c.view(square(0.24, 0.376, 0.28), 1, "geometrical", move=5.0)              # a slow push while the rule is named
+c.view([0.0, 0.0, 1.0, 1.0], 2, "scaled", move=1.8)                         # back for the larger elements
+c.text("Without modern structural calculations", 0.5, 0.86, 0.032, 0, color=MUTED)
 c.elements[-1].update(until=1, until_word="geometrical")
-compass_arch(c, 0.24, 0.32, 0.16, 1, "geometrical", STONE, 0.01, 1.2, construct=True)
 c.text("A geometrical rule: compass and line", 0.5, 0.86, 0.032, 1, plate=True, word="geometrical")
-compass_arch(c, 0.45, 0.32, 0.26, 2, "scaled", STONE, 0.012, 1.0)
-compass_arch(c, 0.72, 0.32, 0.42, 2, "proportions", STONE, 0.016, 1.2)
+c.text("One example: the radius equals the span", 0.5, 0.235, 0.024, 1, color=MUTED, word="rules")
+c.elements[-1].update(until=2, until_word="scaled")
 c.text("The same proportions, scaled up", 0.5, 0.25, 0.03, 2, plate=True, word="scaled")
 beat("C7", "B25", "fact", "EXPLAIN_STRUCTURE", [
     "So how did they do all this, without modern structural calculations?",
     "Master builders used geometrical rules, developed through centuries of trial and error.",
     "They scaled up the same proportions for new, larger elements."],
     ["CLM_110"], strategy="CARD", graphic=c.spec(),
-    visual_goal="An arch drawn with compass and line; the same proportion drawn again, larger, twice", required_concepts=[])
+    visual_goal="Close up, from the first seconds: the compass set on one foot, its arm swung from the other foot to the "
+                "crown as each arc is drawn; then the camera pulls back and the same proportion is drawn larger, twice",
+    required_concepts=[])
 
 c = Card("B26")
 PEGS = [(0.2, 0.3), (0.5, 0.3), (0.5, 0.8), (0.2, 0.8)]
@@ -1287,11 +1345,46 @@ beat("C7", "B28", "fact", "EXPLAIN_STRUCTURE", [
     visual_goal="Each work of the carpenters drawn as it is named: scaffolding, the formwork under a vault, lifting gear; "
                 "then a tie between the upper piers, wood then iron, against the arches' push. Schematic, no workers",
     required_concepts=[])
+# g-r9 (owner, g-r8 review: "close on the point where the flyer meets the pier" was still the whole model with a small
+# push): as in B17, one flying buttress and its pier buttress are marked on the whole church, the rest fades while the
+# camera moves in on them, and the parts light as the narration names them: the vault's thrust, the arch that carries
+# it, the buttress it is lined up with.
+ONE_SYSTEM = [FLYER, PIER_BUTTRESS, PINNACLE]
+HIGH_VAULT_ARCH = {"concept": "rib", "group": "rib_transverse_0"}
+CLUSTER = ONE_SYSTEM + [HIGH_VAULT_ARCH, HIGH_PIERS[1], part("clerestory_window", "clerestory_window_b1_east"), AISLE_ROOF]
 beat("C7", "B29", "fact", "SHOW_COMPONENT", [
     "And there was little room for error.",
     "The whole stone skeleton relies on lining up the thrust of each arch with the buttress that supports it."],
-    ["CLM_171"], strategy="HOLD_HIGHLIGHT", highlight_at_sentence=1, camera_move={"type": "PUSH_IN", "amount": 0.12},
-    visual_goal="Close on the point where the flyer meets the pier", required_concepts=[GOTHIC, "flying_buttress", "pier_buttress"])
+    ["CLM_171"], strategy="SEQUENCE",
+    visual_goal="The whole section; one flying buttress and its pier buttress are marked, the rest fades while the camera "
+                "moves in on where the flyer meets its buttress; the vault's thrust is drawn into the flyer and on to "
+                "the buttress top, each part lit as it is named",
+    required_concepts=[GOTHIC, "flying_buttress", "pier_buttress", "pinnacle"],
+    sequence={"camera": "CATHEDRAL_TRANSVERSE",
+              "views": [{"frame": None},
+                        {"frame": [FLYER, PINNACLE], "at": {"sentence": 0, "word": "error", "offset": 0.1},
+                         "move_seconds": 2.6}],
+              "steps": [glow(ONE_SYSTEM, {"sentence": 0, "word": "little", "offset": -0.2},
+                             {"sentence": 0, "word": "error", "offset": 0.5}),
+                        {"do": "FADE_OUT", "targets": SYSTEM_BEHIND, "at": {"sentence": 0, "word": "error", "offset": 0.1},
+                         "seconds": 1.0, "why": "the systems behind would stack as smudges in the close view"},
+                        {"do": "GHOST", "targets": {"except": CLUSTER + SYSTEM_BEHIND},
+                         "at": {"sentence": 0, "word": "error", "offset": 0.1}, "seconds": 1.0, "transparency": 0.85},
+                        glow([HIGH_VAULT_ARCH], {"sentence": 1, "word": "thrust", "offset": -0.3},
+                             {"sentence": 1, "word": "with"}),
+                        glow([FLYER], {"sentence": 1, "word": "arch", "offset": -0.2}, {"sentence": 1, "word": "buttress"}),
+                        glow([PIER_BUTTRESS], {"sentence": 1, "word": "buttress", "offset": -0.1},
+                             {"sentence": 1, "end": True, "offset": 0.4})]},
+    annotations=[note("B29_note", "Illustrative model", 0, position="BOTTOM_RIGHT"),
+                 {"id": "B29_path1", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 1, "word": "thrust",
+                  "claim_id": "CLM_171",
+                  "path": [[{"target": HIGH_VAULT_ARCH, "point": "BOTTOM_RIGHT"}, {"target": FLYER, "point": "TOP_LEFT"}]]},
+                 {"id": "B29_path2", "type": "CONCEPTUAL_LOAD_PATH", "style": "LOAD", "sentence": 1, "word": "buttress",
+                  "claim_id": "CLM_171",
+                  "path": [[{"target": FLYER, "point": "TOP_LEFT"}, {"target": FLYER, "point": "CENTER"},
+                            {"target": PIER_BUTTRESS, "point": "TOP"}]]},
+                 {"id": "B29_meet", "type": "COMPONENT_LABEL", "target": PIER_BUTTRESS, "point": "TOP",
+                  "text": "Lined up with its buttress", "sentence": 1, "word": "supports"}])
 c = timeline("B30", [(1220, "Foundation stone", 1, "foundation"), (1310, "Main roof finished (about)", 1, "roof")],
              [(1220, 1310, "Amiens Cathedral", STONE, 1, 0.72)], start=1200, end=1320, ticks=(1200, 1240, 1280, 1320))
 beat("C7", "B30", "fact", "SHOW_CONTEXT", [

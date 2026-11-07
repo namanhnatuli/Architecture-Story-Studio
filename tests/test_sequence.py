@@ -365,3 +365,69 @@ class ChapterRedesignTest(unittest.TestCase):
         self.assertEqual(reveal["direction"], "FROM_ABOVE")
         thrust = next(a for a in self.story["B05"]["annotations"]["items"] if a["type"] == "THRUST_ARROW")
         self.assertGreater(thrust["appear"], reveal["start_seconds"] + reveal["seconds"])
+
+
+class ReviewG8FixesTest(unittest.TestCase):
+    """g-r9 (owner's g-r8 review): the photograph matches the period told, labels land on the part they name, B29 closes
+    on one flyer and its buttress, and B09/B25 show their drawing from the first seconds."""
+
+    @classmethod
+    def setUpClass(cls):
+        shots = json.loads((PROJECT / "storyboard/storyboard.json").read_text())["shots"]
+        cls.story = {b: s for s in shots for b in s.get("beat_ids", [])}
+
+    def els(self, beat):
+        return self.story[beat]["graphic"]["elements"]
+
+    def texts(self, beat):
+        return {e["text"]: e for e in self.els(beat) if e["kind"] == "text"}
+
+    def test_suger_is_shown_by_the_part_of_his_choir_that_survives(self):
+        used = {e.get("asset") for s in self.story.values() for e in (s.get("graphic") or {}).get("elements", [])}
+        self.assertNotIn("IMG_SAINT_DENIS_APSE", used)   # the upper choir, rebuilt from 1231
+        images = [e for e in self.els("B21") if e["kind"] == "image"]
+        self.assertEqual([e["asset"] for e in images], ["IMG_SAINT_DENIS_ROSE", "IMG_SAINT_DENIS_AMBULATORY"])
+        caption = next(e for t, e in self.texts("B21").items() if t.startswith("The ambulatory of Suger's choir"))
+        self.assertLessEqual(images[1]["appear"], caption["appear"])        # Suger's dates only over his ambulatory
+        self.assertGreater(images[0]["disappear"], images[1]["appear"])     # a dissolve
+        self.assertIn("Upper choir rebuilt in the 13th century", self.texts("B21"))
+        self.assertEqual({e["asset"] for e in self.els("B22") if e["kind"] == "image"}, {"IMG_SAINT_DENIS_AMBULATORY"})
+        for beat in ("B21", "B22"):
+            self.assertIn("CLM_165", self.story[beat]["claim_ids"])
+
+    def test_the_rib_label_names_a_rib_lit_along_its_length_for_a_moment(self):
+        texts = self.texts("B21")
+        self.assertIn("Vault rib", texts)
+        self.assertNotIn("Every vault ribbed", texts)
+        rib = [e for e in self.els("B21") if e["kind"] == "line" and e.get("stage") and e.get("disappear")]
+        self.assertTrue(rib)
+        self.assertLessEqual(min(e["appear"] for e in rib), texts["Vault rib"]["appear"] + 0.01)
+        self.assertLess(max(e["disappear"] for e in rib) - min(e["appear"] for e in rib), 3.0)   # a short highlight
+
+    def test_the_chain_hangs_while_hooke_is_introduced(self):
+        chain = [e for e in self.els("B09") if e.get("spin")]
+        quote = next(e for t, e in self.texts("B09").items() if t.startswith("“As hangs"))
+        self.assertLess(max(e["appear"] for e in chain if e["kind"] == "line"), quote["appear"])
+        anchors = [e for e in self.els("B09") if e["kind"] == "circle" and not e.get("spin")]
+        self.assertTrue(anchors and all(e["appear"] == 0.0 for e in anchors))
+
+    def test_the_compass_swings_from_the_first_seconds_close_up_then_pulls_back(self):
+        arms = [e for e in self.els("B25") if e.get("spin")]
+        self.assertEqual(sorted(round(e["spin"]["degrees"]) for e in arms), [-60, 60])
+        self.assertLess(min(e["spin"]["at"] for e in arms), 2.0)
+        views = self.story["B25"]["graphic"]["stage"]["views"]
+        x0, y0, x1, y1 = views[0]["rect"]
+        self.assertLess(x1 - x0, 0.5)                              # opens close on the operation
+        self.assertEqual(views[-1]["rect"], [0.0, 0.0, 1.0, 1.0])  # back out for the larger elements
+
+    def test_b29_closes_on_one_flyer_and_its_buttress_and_the_rest_fades(self):
+        a = self.story["B29"]["animation"]
+        self.assertEqual(sorted(a["views"][-1]["focus"]), ["gothic_cathedral_section_flying_buttress_east0",
+                                                           "gothic_cathedral_section_pinnacle_east0"])
+        ghost = next(s for s in a["steps"] if s["do"] == "GHOST")
+        self.assertNotIn("gothic_cathedral_section_pier_buttress_east0", ghost["components"])
+        self.assertNotIn("gothic_cathedral_section_flying_buttress_east0", ghost["components"])
+        lit = [s["components"] for s in a["steps"] if s["do"] == "HIGHLIGHT" and s["start_seconds"] > a["views"][-1]["start_seconds"]]
+        self.assertIn(["gothic_cathedral_section_pier_buttress_east0"], lit)
+        label = next(x for x in self.story["B29"]["annotations"]["items"] if x["type"] == "COMPONENT_LABEL")
+        self.assertGreater(label["appear"], a["views"][-1]["start_seconds"] + a["views"][-1]["move_seconds"])

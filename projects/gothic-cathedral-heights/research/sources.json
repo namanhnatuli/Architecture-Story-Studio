@@ -344,6 +344,17 @@
       "license": "Quoted for research/citation only."
     },
     {
+      "id": "SRC_ATLAS_SAINT_DENIS",
+      "title": "Basilique de Saint-Denis, by Michaël Wyss",
+      "publisher": "Département de la Seine-Saint-Denis, Atlas du patrimoine de la Seine-Saint-Denis",
+      "kind": "departmental heritage atlas article",
+      "edition": "web page",
+      "url": "https://patrimoine.seinesaintdenis.fr/Basilique-de-Saint-Denis",
+      "accessed": "2026-11-07",
+      "verification": "HTML downloaded 2026-11-07; text extracted (scripts/styles and tags stripped, entities unescaped, whitespace collapsed); every excerpt matched verbatim. French text; the claim gives the English meaning.",
+      "license": "Quoted for research/citation only."
+    },
+    {
       "id": "SRC_ABC_HISTORY",
       "title": "History of Beauvais Cathedral",
       "publisher": "Association Beauvais Cathédrale (cathedrale-beauvais.fr)",
@@ -1755,6 +1766,40 @@
       ],
       "components": [],
       "intended_visual": "Card: the sentence, credited to the BnF",
+      "scope": "qualitative; illustrative models; no forces, stresses, loads or safety factors beyond quoted facts",
+      "caveat": "Not editorially approved."
+    },
+    {
+      "id": "CLM_165",
+      "text": "Of Abbot Suger's 12th-century choir at Saint-Denis, the double ambulatory and its vaults survive (rib vaults over the ambulatory and the radiating chapels); the upper parts of the choir were rebuilt in the 13th century.",
+      "source_ids": [
+        "SRC_ATLAS_SAINT_DENIS"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_ATLAS_SAINT_DENIS",
+          "locator": "Basilique de Saint-Denis: Suger's chevet",
+          "excerpt": "L’emploi de la voûte d’ogives permet de monter les voûtes des chapelles rayonnantes et du double déambulatoire â la même hauteur"
+        },
+        {
+          "source_id": "SRC_ATLAS_SAINT_DENIS",
+          "locator": "Basilique de Saint-Denis: Suger's chevet",
+          "excerpt": "Le jugement sur le chevet de Suger ne peut pas être complet du fait de la disparition du sanctuaire et de la reconstruction de ses parties supérieures à partir de 1231"
+        },
+        {
+          "source_id": "SRC_ATLAS_SAINT_DENIS",
+          "locator": "Basilique de Saint-Denis: the rebuilding of the 13th century",
+          "excerpt": "De l’édifice du 12e siècle, il conserve le double déambulatoire et son couvrement, et les tailloirs des grandes-arcades."
+        }
+      ],
+      "assumptions": "The article dates the rebuilding of the upper parts 'from 1231' and the abbot's launch of the rebuilding to 1232; the card says only 'in the 13th century'. The photograph shows the ambulatory today; its glass is not claimed to be Suger's.",
+      "applies_to": [
+        "saint_denis"
+      ],
+      "components": [],
+      "intended_visual": "The ambulatory photographed today, captioned as the part kept from Suger's choir; the upper choir's later rebuilding stated",
       "scope": "qualitative; illustrative models; no forces, stresses, loads or safety factors beyond quoted facts",
       "caveat": "Not editorially approved."
     },

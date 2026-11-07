@@ -8,8 +8,8 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 |---|---|---|---|
 | DIAGRAM | 17 | 360.2 s | 39% |
 | PHOTO | 16 | 328.6 s | 36% |
-| 3D_SEQUENCE | 7 | 142.4 s | 15% |
-| 3D_PUSH_IN | 3 | 54.0 s | 6% |
+| 3D_SEQUENCE | 8 | 154.0 s | 17% |
+| 3D_PUSH_IN | 2 | 42.5 s | 5% |
 | TITLE | 2 | 28.5 s | 3% |
 | 3D_HOLD | 1 | 9.6 s | 1% |
 
@@ -25,7 +25,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 | C4 The rib vault | 3:56 | 84 s | 4 | 3D_SEQUENCE ×2, DIAGRAM ×1, PHOTO ×1 |
 | C5 The flying buttress | 5:20 | 102 s | 5 | 3D_SEQUENCE ×2, DIAGRAM ×2, PHOTO ×1 |
 | C6 Walls of light | 7:02 | 64 s | 4 | DIAGRAM ×1, PHOTO ×3 |
-| C7 Building by geometry | 8:06 | 97 s | 6 | 3D_PUSH_IN ×1, DIAGRAM ×5 |
+| C7 Building by geometry | 8:06 | 97 s | 6 | 3D_SEQUENCE ×1, DIAGRAM ×5 |
 | C8 The limit: Beauvais | 9:43 | 175 s | 8 | PHOTO ×8 |
 | C9 Why they stand | 12:38 | 94 s | 3 | 3D_PUSH_IN ×1, DIAGRAM ×2 |
 | C10 Never impossible | 14:11 | 72 s | 5 | 3D_HOLD ×1, 3D_PUSH_IN ×1, DIAGRAM ×1, TITLE ×2 |
@@ -62,7 +62,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 | SC_026 | B26 | DIAGRAM | 16.2 s | hard |
 | SC_027 | B27 | DIAGRAM | 23.9 s | hard |
 | SC_028 | B28 | DIAGRAM | 14.1 s | hard |
-| SC_029 | B29 | 3D_PUSH_IN | 11.5 s | hard |
+| SC_029 | B29 | 3D_SEQUENCE | 11.5 s | hard |
 | SC_030 | B30 | DIAGRAM | 13.3 s | hard |
 | SC_031 | B31 | PHOTO | 15.2 s | hard |
 | SC_032 | B32 | PHOTO | 21.5 s | hard |
@@ -83,11 +83,11 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 
 ## Lặp lại, mật độ và kích thước mục tiêu
 
-- Template theo số shot: MOTION_GRAPHICS ×35, SEQUENCE ×7, HOLD ×4
-- Push-in: 3 shot (SC_029, SC_039, SC_042), mỗi cái cách nhau ít nhất một chương, trừ B27/B29 (hai mô hình minh họa đứng cạnh ảnh thật).
+- Template theo số shot: MOTION_GRAPHICS ×35, SEQUENCE ×8, HOLD ×3
+- Push-in: 2 shot (SC_039, SC_042), mỗi cái cách nhau ít nhất một chương, trừ B27/B29 (hai mô hình minh họa đứng cạnh ảnh thật).
 - Cụm chú thích dày (≥ 3 chú thích hiện trong 1,5 s): SC_016 @5:20
-- Mục tiêu nhỏ hoặc bị che nhiều (diện tích thấy < 0,4% khung hoặc thấy < 35%): SC_029 flying_buttress (visible area 0.0029, share 0.40); SC_042 rib (visible area 0.0039, share 0.29); SC_042 flying_buttress (visible area 0.0029, share 0.40)
-- Tầm nhìn (planner L1): 5/5 dòng mục tiêu đạt, 0 tự sửa, 0 cần xem tay.
+- Mục tiêu nhỏ hoặc bị che nhiều (diện tích thấy < 0,4% khung hoặc thấy < 35%): SC_042 rib (visible area 0.0039, share 0.29); SC_042 flying_buttress (visible area 0.0029, share 0.40)
+- Tầm nhìn (planner L1): 3/3 dòng mục tiêu đạt, 0 tự sửa, 0 cần xem tay.
 
 ## Kiểm tra phim dài (pipeline/chapters.py)
 
@@ -100,11 +100,11 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 - PASS `audio_no_overlap`: no two beats' speech overlaps
 - PASS `narration_silences`: longest gap 1.23s (limit 4.0s), after the last line 0.82s
 - PASS `no_static_stretches`: longest stretch without a visual change 13.5s at 148.8s (limit 14.0s)
-- FAIL `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4); 3D_HOLD 1, 3D_PUSH_IN 3, 3D_SEQUENCE 7, DIAGRAM 17, PHOTO 16, TITLE 2
+- FAIL `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4); 3D_HOLD 1, 3D_PUSH_IN 2, 3D_SEQUENCE 8, DIAGRAM 17, PHOTO 16, TITLE 2
 - PASS `no_repeated_visuals`: no two consecutive shots show the same picture
 - PASS `chapter_openings`: chapters 2-10 open with a numbered title on their first shot
 - PASS `annotations_consistent`: narration/visual consistency: no contradiction; 3 UNCERTAIN for the reviewer (B26.s1 SIDE, B35.s4 SIDE, B44.s0 ARROWS); every annotation placed
-- WARN `render_cache_current`: 23/46 shots not rendered or stale at internal_720p: SC_001, SC_002, SC_003, SC_012, SC_013, SC_014
+- PASS `render_cache_current`: all 46 shots rendered at internal_720p with current cache keys
 - WARN `chapter_variety`: C1, C3, C8
 - PASS `image_licences`: 13 external images, all approved with matching files
 - PASS `image_attribution`: every external image is credited (credit card or description)

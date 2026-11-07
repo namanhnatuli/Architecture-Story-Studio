@@ -197,6 +197,21 @@ class GothicFilmTest(unittest.TestCase):
             self.assertIn("INTERNAL", video.name.upper())
         self.assertEqual(list(self.P.glob("output/*FINAL*")), [])
 
+    def test_an_internal_film_assembled_from_its_chapters_is_never_named_final(self):
+        """g-r9: `final-assemble` on an internal preset once wrote ..._FINAL_720p_INTERNAL_REVIEW.mp4 and a FINAL silent
+        concatenation; an internal review is named by project.json review_label, like `assemble` names one."""
+        from tools import cli
+        cfg = {"height": 720}
+        for f in cli.final_outputs(self.P, "internal_720p", cfg):
+            self.assertIn("INTERNAL_REVIEW", f.name)
+            self.assertNotIn("FINAL", f.name.upper())
+        with tempfile.TemporaryDirectory() as d:
+            q = Path(d) / "gothic-cathedral-heights"
+            q.mkdir()
+            (q / "project.json").write_text(json.dumps({"slug": "gothic-cathedral-heights", "review_label": "FINAL_INTERNAL_REVIEW"}))
+            with self.assertRaises(SystemExit):
+                cli.final_outputs(q, "internal_720p", cfg)
+
     def test_a_match_cut_never_moves_the_camera(self):
         """A match cut promises the same view. SC_012 to SC_013 once jumped because the framing differed. A SEQUENCE
         shot moves between views, so the cut compares where the first shot ends with where the next one starts: the

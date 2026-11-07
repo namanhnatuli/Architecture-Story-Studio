@@ -1,6 +1,6 @@
 {
-  "output": "output/gothic_cathedral_heights_G_R3_INTERNAL_REVIEW_720p.mp4",
-  "subtitles": "output/gothic_cathedral_heights_G_R3_INTERNAL_REVIEW_720p.en.srt",
+  "output": "output/gothic_cathedral_heights_G_R9_INTERNAL_REVIEW_720p.mp4",
+  "subtitles": "output/gothic_cathedral_heights_G_R9_INTERNAL_REVIEW_720p.en.srt",
   "narration_rights": [
     "PUBLICATION_CLEARED"
   ],
@@ -3153,6 +3153,109 @@
     }
   ],
   "problems": [],
-  "narration_master_clean": "output/gothic_cathedral_heights_narration_master_clean_internal_720p.wav",
-  "audio_master": "output/gothic_cathedral_heights_audio_master_internal_720p.wav"
+  "media": {
+    "preset": "internal_720p",
+    "file": "output/gothic_cathedral_heights_G_R9_INTERNAL_REVIEW_720p.mp4",
+    "codec": "h264",
+    "width": 1280,
+    "height": 720,
+    "pix_fmt": "yuv420p",
+    "fps": "24/1",
+    "frames": 22162,
+    "duration": 923.416667,
+    "color": {
+      "profile": "High",
+      "level": 31,
+      "color_range": "tv",
+      "color_transfer": "iec61966-2-1",
+      "color_primaries": "bt709"
+    },
+    "decode_errors": 0,
+    "black_segments": 0,
+    "chapter_intermediates": [
+      "output/chapters_internal_720p/gothic_cathedral_heights_C1_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C2_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C3_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C4_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C5_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C6_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C7_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C8_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C9_silent.mp4",
+      "output/chapters_internal_720p/gothic_cathedral_heights_C10_silent.mp4"
+    ],
+    "chapter_boundaries": [
+      {
+        "cut": "C1->C2",
+        "frame": 1251,
+        "mode": "hard",
+        "ssim": 0.69572,
+        "ok": true
+      },
+      {
+        "cut": "C2->C3",
+        "frame": 3120,
+        "mode": "hard",
+        "ssim": 0.8807,
+        "ok": true
+      },
+      {
+        "cut": "C3->C4",
+        "frame": 5675,
+        "mode": "hard",
+        "ssim": 0.82071,
+        "ok": true
+      },
+      {
+        "cut": "C4->C5",
+        "frame": 7686,
+        "mode": "hard",
+        "ssim": 0.84085,
+        "ok": true
+      },
+      {
+        "cut": "C5->C6",
+        "frame": 10139,
+        "mode": "hard",
+        "ssim": 0.09135,
+        "ok": true
+      },
+      {
+        "cut": "C6->C7",
+        "frame": 11669,
+        "mode": "hard",
+        "ssim": 0.91515,
+        "ok": true
+      },
+      {
+        "cut": "C7->C8",
+        "frame": 14003,
+        "mode": "hard",
+        "ssim": 0.3721,
+        "ok": true
+      },
+      {
+        "cut": "C8->C9",
+        "frame": 18193,
+        "mode": "hard",
+        "ssim": 0.72159,
+        "ok": true
+      },
+      {
+        "cut": "C9->C10",
+        "frame": 20446,
+        "mode": "hard",
+        "ssim": 0.83123,
+        "ok": true
+      }
+    ],
+    "expected_total_frames": 22162,
+    "problems": []
+  },
+  "checksums": {
+    "gothic_cathedral_heights_G_R9_INTERNAL_REVIEW_720p.mp4": "fe3bec5d5a7805ce3d4272985086b6828c20248991941a15636cf12b832125fe",
+    "gothic_cathedral_heights_G_R9_INTERNAL_REVIEW_720p.en.srt": "0d888c679f38c1e2f653a15a4be986a37aaadbc41f15438c3d770e257cb39657",
+    "gothic_cathedral_heights_audio_master_internal_720p.wav": "dd289e645a81352d0c31f49c258b93a4c1b8475f865a785d38bd144a613b695a",
+    "gothic_cathedral_heights_narration_master_clean_internal_720p.wav": "b157427a3e0681472b952e91ecfe5c053f2c8e30dbdd91e180daa8f71fe9ff3e"
+  }
 }

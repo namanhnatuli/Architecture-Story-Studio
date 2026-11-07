@@ -4711,7 +4711,7 @@
         "CLM_115"
       ],
       "narration": "In 1675, the scientist Robert Hooke summed up an idea about arches in one line. As hangs the flexible line, so but inverted will stand the rigid arch. Hang a chain with a set of weights, and it takes a shape. Turn that shape upside down, and it shows a path the force can follow through an arch carrying the same weights. Change the weights, and the shape changes too.",
-      "visual_goal": "A chain is hung and its weights added; then the whole shape turns upside down into an arch; different weights draw a different curve",
+      "visual_goal": "A chain hangs between its anchors while Hooke's idea and words are given; its weights are added; then the whole shape turns upside down into an arch; different weights draw a different curve",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
       "strategy": "CARD",
@@ -4724,14 +4724,13 @@
             "sentence": 0,
             "text": "Robert Hooke, 1675",
             "position": [
-              0.5,
-              0.66
+              0.72,
+              0.8
             ],
-            "size": 0.05,
+            "size": 0.04,
             "align": "CENTER",
             "color": "#24231F",
             "plate": false,
-            "until": 2,
             "from_start": true
           },
           {
@@ -4740,14 +4739,13 @@
             "sentence": 1,
             "text": "“As hangs the flexible line, so but inverted",
             "position": [
-              0.5,
-              0.52
+              0.72,
+              0.7
             ],
-            "size": 0.042,
+            "size": 0.03,
             "align": "CENTER",
             "color": "#24231F",
-            "plate": false,
-            "until": 2
+            "plate": false
           },
           {
             "id": "B09_02",
@@ -4755,107 +4753,149 @@
             "sentence": 1,
             "text": "will stand the rigid arch.”",
             "position": [
-              0.5,
-              0.45
+              0.72,
+              0.645
             ],
-            "size": 0.042,
+            "size": 0.03,
             "align": "CENTER",
             "color": "#24231F",
-            "plate": false,
-            "until": 2
+            "plate": false
           },
           {
             "id": "B09_03",
-            "kind": "text",
-            "sentence": 2,
-            "text": "“As hangs the flexible line, so but inverted",
-            "position": [
-              0.72,
-              0.88
-            ],
-            "size": 0.026,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": false
-          },
-          {
-            "id": "B09_04",
-            "kind": "text",
-            "sentence": 2,
-            "text": "will stand the rigid arch.”  Robert Hooke, 1675",
-            "position": [
-              0.72,
-              0.84
-            ],
-            "size": 0.026,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": false
-          },
-          {
-            "id": "B09_05",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.13,
-                0.52
+                0.1,
+                0.55
               ],
               [
-                0.53,
-                0.52
+                0.5,
+                0.55
               ]
             ],
             "color": "#8A867C",
             "width": 0.004,
-            "layer": 0
+            "layer": 0,
+            "from_start": true
+          },
+          {
+            "id": "B09_04",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.1425,
+              0.55
+            ],
+            "radius": 0.011,
+            "color": "#24231F",
+            "from_start": true
+          },
+          {
+            "id": "B09_05",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.4575,
+              0.55
+            ],
+            "radius": 0.011,
+            "color": "#24231F",
+            "from_start": true
           },
           {
             "id": "B09_06",
-            "kind": "circle",
-            "sentence": 2,
-            "center": [
-              0.2006,
-              0.52
-            ],
-            "radius": 0.011,
-            "color": "#24231F"
-          },
-          {
-            "id": "B09_07",
-            "kind": "circle",
-            "sentence": 2,
-            "center": [
-              0.4594,
-              0.52
-            ],
-            "radius": 0.011,
-            "color": "#24231F"
-          },
-          {
-            "id": "B09_08",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2006,
-                0.52
+                0.1425,
+                0.55
               ],
               [
-                0.2065,
-                0.4897
+                0.15,
+                0.5156
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
             "delay": 0.0,
-            "word": "chain",
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
+              ],
+              "sentence": 3,
+              "word": "turn",
+              "seconds": 1.6
+            }
+          },
+          {
+            "id": "B09_07",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.15,
+                0.5156
+              ],
+              [
+                0.1523,
+                0.5047
+              ],
+              [
+                0.158,
+                0.4815
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.008,
+            "layer": 2,
+            "delay": 0.058,
+            "word": "hooke",
+            "spin": {
+              "degrees": 180,
+              "pivot": [
+                0.3,
+                0.55
+              ],
+              "sentence": 3,
+              "word": "turn",
+              "seconds": 1.6
+            }
+          },
+          {
+            "id": "B09_08",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.158,
+                0.4815
+              ],
+              [
+                0.1622,
+                0.4644
+              ],
+              [
+                0.1667,
+                0.448
+              ]
+            ],
+            "color": "#24231F",
+            "width": 0.008,
+            "layer": 2,
+            "delay": 0.117,
+            "word": "hooke",
+            "spin": {
+              "degrees": 180,
+              "pivot": [
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -4865,31 +4905,31 @@
           {
             "id": "B09_09",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2065,
-                0.4897
+                0.1667,
+                0.448
               ],
               [
-                0.2087,
-                0.4782
+                0.172,
+                0.4286
               ],
               [
-                0.2128,
-                0.4596
+                0.1762,
+                0.4152
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.037,
-            "word": "chain",
+            "delay": 0.175,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -4899,31 +4939,31 @@
           {
             "id": "B09_10",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2128,
-                0.4596
+                0.1762,
+                0.4152
               ],
               [
-                0.2168,
-                0.4412
+                0.1819,
+                0.3969
               ],
               [
-                0.2196,
-                0.4299
+                0.1866,
+                0.3834
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.075,
-            "word": "chain",
+            "delay": 0.233,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -4933,31 +4973,31 @@
           {
             "id": "B09_11",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2196,
-                0.4299
+                0.1866,
+                0.3834
               ],
               [
-                0.2249,
-                0.4085
+                0.1917,
+                0.369
               ],
               [
-                0.2271,
-                0.4008
+                0.1982,
+                0.3528
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.113,
-            "word": "chain",
+            "delay": 0.292,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -4967,31 +5007,31 @@
           {
             "id": "B09_12",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2271,
-                0.4008
+                0.1982,
+                0.3528
               ],
               [
-                0.233,
-                0.3798
+                0.2016,
+                0.3445
               ],
               [
-                0.2354,
-                0.3723
+                0.2111,
+                0.3238
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.15,
-            "word": "chain",
+            "delay": 0.35,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5001,31 +5041,35 @@
           {
             "id": "B09_13",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2354,
-                0.3723
+                0.2111,
+                0.3238
               ],
               [
-                0.2411,
-                0.3546
+                0.2114,
+                0.3231
               ],
               [
-                0.2446,
-                0.3448
+                0.2212,
+                0.3046
+              ],
+              [
+                0.2256,
+                0.2975
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.188,
-            "word": "chain",
+            "delay": 0.408,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5035,31 +5079,35 @@
           {
             "id": "B09_14",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2446,
-                0.3448
+                0.2256,
+                0.2975
               ],
               [
-                0.2491,
-                0.3326
+                0.2311,
+                0.2887
               ],
               [
-                0.255,
-                0.3186
+                0.2409,
+                0.2754
+              ],
+              [
+                0.2418,
+                0.2744
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.225,
-            "word": "chain",
+            "delay": 0.467,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5069,35 +5117,31 @@
           {
             "id": "B09_15",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.255,
-                0.3186
+                0.2418,
+                0.2744
               ],
               [
-                0.2572,
-                0.3135
+                0.2508,
+                0.2643
               ],
               [
-                0.2653,
-                0.297
-              ],
-              [
-                0.2668,
-                0.2944
+                0.2598,
+                0.2561
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.263,
-            "word": "chain",
+            "delay": 0.525,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5107,31 +5151,35 @@
           {
             "id": "B09_16",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2668,
-                0.2944
+                0.2598,
+                0.2561
               ],
               [
-                0.2734,
-                0.2829
+                0.2606,
+                0.2554
               ],
               [
-                0.2802,
-                0.2729
+                0.2705,
+                0.2486
+              ],
+              [
+                0.2794,
+                0.2442
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.3,
-            "word": "chain",
+            "delay": 0.583,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5141,35 +5189,35 @@
           {
             "id": "B09_17",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2802,
-                0.2729
+                0.2794,
+                0.2442
               ],
               [
-                0.2815,
-                0.2711
+                0.2803,
+                0.2438
               ],
               [
-                0.2896,
-                0.2613
+                0.2902,
+                0.2409
               ],
               [
-                0.2954,
-                0.2557
+                0.3,
+                0.24
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.337,
-            "word": "chain",
+            "delay": 0.642,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5179,35 +5227,39 @@
           {
             "id": "B09_18",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.2954,
-                0.2557
+                0.3,
+                0.24
               ],
               [
-                0.2977,
-                0.2535
+                0.3,
+                0.24
               ],
               [
-                0.3057,
-                0.2475
+                0.3098,
+                0.2409
               ],
               [
-                0.3122,
+                0.3197,
+                0.2438
+              ],
+              [
+                0.3206,
                 0.2442
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.375,
-            "word": "chain",
+            "delay": 0.7,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5217,35 +5269,35 @@
           {
             "id": "B09_19",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.3122,
+                0.3206,
                 0.2442
               ],
               [
-                0.3138,
-                0.2433
+                0.3295,
+                0.2486
               ],
               [
-                0.3219,
-                0.2408
+                0.3394,
+                0.2554
               ],
               [
-                0.33,
-                0.24
+                0.3402,
+                0.2561
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.413,
-            "word": "chain",
+            "delay": 0.758,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5255,39 +5307,31 @@
           {
             "id": "B09_20",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.33,
-                0.24
+                0.3402,
+                0.2561
               ],
               [
-                0.33,
-                0.24
+                0.3492,
+                0.2643
               ],
               [
-                0.3381,
-                0.2408
-              ],
-              [
-                0.3462,
-                0.2433
-              ],
-              [
-                0.3478,
-                0.2442
+                0.3582,
+                0.2744
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.45,
-            "word": "chain",
+            "delay": 0.817,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5297,35 +5341,35 @@
           {
             "id": "B09_21",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.3478,
-                0.2442
+                0.3582,
+                0.2744
               ],
               [
-                0.3543,
-                0.2475
+                0.3591,
+                0.2754
               ],
               [
-                0.3623,
-                0.2535
+                0.3689,
+                0.2887
               ],
               [
-                0.3646,
-                0.2557
+                0.3744,
+                0.2975
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.488,
-            "word": "chain",
+            "delay": 0.875,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5335,35 +5379,35 @@
           {
             "id": "B09_22",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.3646,
-                0.2557
+                0.3744,
+                0.2975
               ],
               [
-                0.3704,
-                0.2613
+                0.3788,
+                0.3046
               ],
               [
-                0.3785,
-                0.2711
+                0.3886,
+                0.3231
               ],
               [
-                0.3798,
-                0.2729
+                0.3889,
+                0.3238
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.525,
-            "word": "chain",
+            "delay": 0.933,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5373,31 +5417,31 @@
           {
             "id": "B09_23",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.3798,
-                0.2729
+                0.3889,
+                0.3238
               ],
               [
-                0.3866,
-                0.2829
+                0.3984,
+                0.3445
               ],
               [
-                0.3932,
-                0.2944
+                0.4018,
+                0.3528
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.562,
-            "word": "chain",
+            "delay": 0.992,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5407,35 +5451,31 @@
           {
             "id": "B09_24",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.3932,
-                0.2944
+                0.4018,
+                0.3528
               ],
               [
-                0.3947,
-                0.297
+                0.4083,
+                0.369
               ],
               [
-                0.4028,
-                0.3135
-              ],
-              [
-                0.405,
-                0.3186
+                0.4134,
+                0.3834
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.6,
-            "word": "chain",
+            "delay": 1.05,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5445,31 +5485,31 @@
           {
             "id": "B09_25",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.405,
-                0.3186
+                0.4134,
+                0.3834
               ],
               [
-                0.4109,
-                0.3326
+                0.4181,
+                0.3969
               ],
               [
-                0.4154,
-                0.3448
+                0.4238,
+                0.4152
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.638,
-            "word": "chain",
+            "delay": 1.108,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5479,31 +5519,31 @@
           {
             "id": "B09_26",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.4154,
-                0.3448
+                0.4238,
+                0.4152
               ],
               [
-                0.4189,
-                0.3546
+                0.428,
+                0.4286
               ],
               [
-                0.4246,
-                0.3723
+                0.4333,
+                0.448
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.675,
-            "word": "chain",
+            "delay": 1.167,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5513,31 +5553,31 @@
           {
             "id": "B09_27",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.4246,
-                0.3723
+                0.4333,
+                0.448
               ],
               [
-                0.427,
-                0.3798
+                0.4378,
+                0.4644
               ],
               [
-                0.4329,
-                0.4008
+                0.442,
+                0.4815
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.713,
-            "word": "chain",
+            "delay": 1.225,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5547,31 +5587,31 @@
           {
             "id": "B09_28",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.4329,
-                0.4008
+                0.442,
+                0.4815
               ],
               [
-                0.4351,
-                0.4085
+                0.4477,
+                0.5047
               ],
               [
-                0.4404,
-                0.4299
+                0.45,
+                0.5156
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.75,
-            "word": "chain",
+            "delay": 1.283,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5581,31 +5621,27 @@
           {
             "id": "B09_29",
             "kind": "line",
-            "sentence": 2,
+            "sentence": 0,
             "points": [
               [
-                0.4404,
-                0.4299
+                0.45,
+                0.5156
               ],
               [
-                0.4432,
-                0.4412
-              ],
-              [
-                0.4472,
-                0.4596
+                0.4575,
+                0.55
               ]
             ],
             "color": "#24231F",
             "width": 0.008,
             "layer": 2,
-            "delay": 0.788,
-            "word": "chain",
+            "delay": 1.342,
+            "word": "hooke",
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5614,32 +5650,21 @@
           },
           {
             "id": "B09_30",
-            "kind": "line",
+            "kind": "circle",
             "sentence": 2,
-            "points": [
-              [
-                0.4472,
-                0.4596
-              ],
-              [
-                0.4513,
-                0.4782
-              ],
-              [
-                0.4535,
-                0.4897
-              ]
+            "center": [
+              0.1819,
+              0.3969
             ],
-            "color": "#24231F",
-            "width": 0.008,
-            "layer": 2,
-            "delay": 0.825,
-            "word": "chain",
+            "radius": 0.009,
+            "color": "#55524A",
+            "word": "weights",
+            "delay": 0.32,
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5648,28 +5673,21 @@
           },
           {
             "id": "B09_31",
-            "kind": "line",
+            "kind": "circle",
             "sentence": 2,
-            "points": [
-              [
-                0.4535,
-                0.4897
-              ],
-              [
-                0.4594,
-                0.52
-              ]
+            "center": [
+              0.2212,
+              0.3046
             ],
-            "color": "#24231F",
-            "width": 0.008,
-            "layer": 2,
-            "delay": 0.862,
-            "word": "chain",
+            "radius": 0.009,
+            "color": "#55524A",
+            "word": "weights",
+            "delay": 0.64,
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5681,18 +5699,18 @@
             "kind": "circle",
             "sentence": 2,
             "center": [
-              0.233,
-              0.3798
+              0.2606,
+              0.2554
             ],
             "radius": 0.009,
             "color": "#55524A",
             "word": "weights",
-            "delay": 0.32,
+            "delay": 0.96,
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5704,18 +5722,18 @@
             "kind": "circle",
             "sentence": 2,
             "center": [
-              0.2653,
-              0.297
+              0.3,
+              0.24
             ],
             "radius": 0.009,
             "color": "#55524A",
             "word": "weights",
-            "delay": 0.64,
+            "delay": 1.28,
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5727,18 +5745,18 @@
             "kind": "circle",
             "sentence": 2,
             "center": [
-              0.2977,
-              0.2535
+              0.3394,
+              0.2554
             ],
             "radius": 0.009,
             "color": "#55524A",
             "word": "weights",
-            "delay": 0.96,
+            "delay": 1.6,
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5750,18 +5768,18 @@
             "kind": "circle",
             "sentence": 2,
             "center": [
-              0.33,
-              0.24
+              0.3788,
+              0.3046
             ],
             "radius": 0.009,
             "color": "#55524A",
             "word": "weights",
-            "delay": 1.28,
+            "delay": 1.92,
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5773,54 +5791,8 @@
             "kind": "circle",
             "sentence": 2,
             "center": [
-              0.3623,
-              0.2535
-            ],
-            "radius": 0.009,
-            "color": "#55524A",
-            "word": "weights",
-            "delay": 1.6,
-            "spin": {
-              "degrees": 180,
-              "pivot": [
-                0.33,
-                0.52
-              ],
-              "sentence": 3,
-              "word": "turn",
-              "seconds": 1.6
-            }
-          },
-          {
-            "id": "B09_37",
-            "kind": "circle",
-            "sentence": 2,
-            "center": [
-              0.3947,
-              0.297
-            ],
-            "radius": 0.009,
-            "color": "#55524A",
-            "word": "weights",
-            "delay": 1.92,
-            "spin": {
-              "degrees": 180,
-              "pivot": [
-                0.33,
-                0.52
-              ],
-              "sentence": 3,
-              "word": "turn",
-              "seconds": 1.6
-            }
-          },
-          {
-            "id": "B09_38",
-            "kind": "circle",
-            "sentence": 2,
-            "center": [
-              0.427,
-              0.3798
+              0.4181,
+              0.3969
             ],
             "radius": 0.009,
             "color": "#55524A",
@@ -5829,8 +5801,8 @@
             "spin": {
               "degrees": 180,
               "pivot": [
-                0.33,
-                0.52
+                0.3,
+                0.55
               ],
               "sentence": 3,
               "word": "turn",
@@ -5838,13 +5810,13 @@
             }
           },
           {
-            "id": "B09_39",
+            "id": "B09_37",
             "kind": "text",
             "sentence": 2,
             "text": "A chain with its weights",
             "position": [
               0.72,
-              0.62
+              0.5
             ],
             "size": 0.03,
             "align": "CENTER",
@@ -5855,13 +5827,13 @@
             "until_word": "turn"
           },
           {
-            "id": "B09_40",
+            "id": "B09_38",
             "kind": "text",
             "sentence": 3,
             "text": "Turned upside down:",
             "position": [
               0.72,
-              0.62
+              0.5
             ],
             "size": 0.03,
             "align": "CENTER",
@@ -5870,13 +5842,13 @@
             "word": "upside"
           },
           {
-            "id": "B09_41",
+            "id": "B09_39",
             "kind": "text",
             "sentence": 3,
             "text": "a path for the force",
             "position": [
               0.72,
-              0.56
+              0.44
             ],
             "size": 0.03,
             "align": "CENTER",
@@ -5885,21 +5857,21 @@
             "word": "path"
           },
           {
-            "id": "B09_42",
+            "id": "B09_40",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2006,
-                0.52
+                0.1425,
+                0.55
               ],
               [
-                0.2087,
-                0.5423
+                0.1523,
+                0.5747
               ],
               [
-                0.2099,
-                0.5455
+                0.1539,
+                0.5785
               ]
             ],
             "color": "#1E5C96",
@@ -5909,21 +5881,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_43",
+            "id": "B09_41",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2099,
-                0.5455
+                0.1539,
+                0.5785
               ],
               [
-                0.2168,
-                0.564
+                0.1622,
+                0.5987
               ],
               [
-                0.2193,
-                0.5706
+                0.1655,
+                0.6066
               ]
             ],
             "color": "#1E5C96",
@@ -5933,21 +5905,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_44",
+            "id": "B09_42",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2193,
-                0.5706
+                0.1655,
+                0.6066
               ],
               [
-                0.2249,
-                0.585
+                0.172,
+                0.622
               ],
               [
-                0.229,
-                0.5956
+                0.1774,
+                0.6344
               ]
             ],
             "color": "#1E5C96",
@@ -5957,21 +5929,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_45",
+            "id": "B09_43",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.229,
-                0.5956
+                0.1774,
+                0.6344
               ],
               [
-                0.233,
-                0.6054
+                0.1819,
+                0.6446
               ],
               [
-                0.239,
-                0.6202
+                0.1896,
+                0.6618
               ]
             ],
             "color": "#1E5C96",
@@ -5981,25 +5953,25 @@
             "word": "weights"
           },
           {
-            "id": "B09_46",
+            "id": "B09_44",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.239,
-                0.6202
+                0.1896,
+                0.6618
               ],
               [
-                0.2411,
-                0.6252
+                0.1917,
+                0.6665
               ],
               [
-                0.2491,
-                0.6443
+                0.2016,
+                0.6876
               ],
               [
-                0.2492,
-                0.6444
+                0.2021,
+                0.6888
               ]
             ],
             "color": "#1E5C96",
@@ -6009,21 +5981,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_47",
+            "id": "B09_45",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2492,
-                0.6444
+                0.2021,
+                0.6888
               ],
               [
-                0.2572,
-                0.6628
+                0.2114,
+                0.7081
               ],
               [
-                0.2597,
-                0.6683
+                0.215,
+                0.7152
               ]
             ],
             "color": "#1E5C96",
@@ -6033,21 +6005,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_48",
+            "id": "B09_46",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2597,
-                0.6683
+                0.215,
+                0.7152
               ],
               [
-                0.2653,
-                0.6806
+                0.2212,
+                0.7278
               ],
               [
-                0.2705,
-                0.6917
+                0.2281,
+                0.7411
               ]
             ],
             "color": "#1E5C96",
@@ -6057,25 +6029,25 @@
             "word": "weights"
           },
           {
-            "id": "B09_49",
+            "id": "B09_47",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2705,
-                0.6917
+                0.2281,
+                0.7411
               ],
               [
-                0.2734,
-                0.6978
+                0.2311,
+                0.7468
               ],
               [
-                0.2815,
-                0.7143
+                0.2409,
+                0.7651
               ],
               [
-                0.2817,
-                0.7146
+                0.2417,
+                0.7665
               ]
             ],
             "color": "#1E5C96",
@@ -6085,21 +6057,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_50",
+            "id": "B09_48",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2817,
-                0.7146
+                0.2417,
+                0.7665
               ],
               [
-                0.2896,
-                0.7302
+                0.2508,
+                0.7827
               ],
               [
-                0.2932,
-                0.737
+                0.2556,
+                0.791
               ]
             ],
             "color": "#1E5C96",
@@ -6109,21 +6081,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_51",
+            "id": "B09_49",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.2932,
-                0.737
+                0.2556,
+                0.791
               ],
               [
-                0.2977,
-                0.7454
+                0.2606,
+                0.7996
               ],
               [
-                0.305,
-                0.7588
+                0.27,
+                0.8149
               ]
             ],
             "color": "#1E5C96",
@@ -6133,25 +6105,25 @@
             "word": "weights"
           },
           {
-            "id": "B09_52",
+            "id": "B09_50",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.305,
-                0.7588
+                0.27,
+                0.8149
               ],
               [
-                0.3057,
-                0.76
+                0.2705,
+                0.8158
               ],
               [
-                0.3138,
-                0.774
+                0.2803,
+                0.8312
               ],
               [
-                0.3173,
-                0.7798
+                0.2848,
+                0.8379
               ]
             ],
             "color": "#1E5C96",
@@ -6161,21 +6133,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_53",
+            "id": "B09_51",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.3173,
-                0.7798
+                0.2848,
+                0.8379
               ],
               [
-                0.3219,
-                0.7873
+                0.2902,
+                0.846
               ],
               [
-                0.33,
-                0.8
+                0.3,
+                0.86
               ]
             ],
             "color": "#1E5C96",
@@ -6185,21 +6157,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_54",
+            "id": "B09_52",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.33,
-                0.8
+                0.3,
+                0.86
               ],
               [
-                0.3381,
-                0.7873
+                0.3098,
+                0.846
               ],
               [
-                0.3427,
-                0.7798
+                0.3152,
+                0.8379
               ]
             ],
             "color": "#1E5C96",
@@ -6209,25 +6181,25 @@
             "word": "weights"
           },
           {
-            "id": "B09_55",
+            "id": "B09_53",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.3427,
-                0.7798
+                0.3152,
+                0.8379
               ],
               [
-                0.3462,
-                0.774
+                0.3197,
+                0.8312
               ],
               [
-                0.3543,
-                0.76
+                0.3295,
+                0.8158
               ],
               [
-                0.355,
-                0.7588
+                0.33,
+                0.8149
               ]
             ],
             "color": "#1E5C96",
@@ -6237,21 +6209,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_56",
+            "id": "B09_54",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.355,
-                0.7588
+                0.33,
+                0.8149
               ],
               [
-                0.3623,
-                0.7454
+                0.3394,
+                0.7996
               ],
               [
-                0.3668,
-                0.737
+                0.3444,
+                0.791
               ]
             ],
             "color": "#1E5C96",
@@ -6261,21 +6233,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_57",
+            "id": "B09_55",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.3668,
-                0.737
+                0.3444,
+                0.791
               ],
               [
-                0.3704,
-                0.7302
+                0.3492,
+                0.7827
               ],
               [
-                0.3783,
-                0.7146
+                0.3583,
+                0.7665
               ]
             ],
             "color": "#1E5C96",
@@ -6285,25 +6257,25 @@
             "word": "weights"
           },
           {
-            "id": "B09_58",
+            "id": "B09_56",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.3783,
-                0.7146
+                0.3583,
+                0.7665
               ],
               [
-                0.3785,
-                0.7143
+                0.3591,
+                0.7651
               ],
               [
-                0.3866,
-                0.6978
+                0.3689,
+                0.7468
               ],
               [
-                0.3895,
-                0.6917
+                0.3719,
+                0.7411
               ]
             ],
             "color": "#1E5C96",
@@ -6313,21 +6285,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_59",
+            "id": "B09_57",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.3895,
-                0.6917
+                0.3719,
+                0.7411
               ],
               [
-                0.3947,
-                0.6806
+                0.3788,
+                0.7278
               ],
               [
-                0.4003,
-                0.6683
+                0.385,
+                0.7152
               ]
             ],
             "color": "#1E5C96",
@@ -6337,21 +6309,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_60",
+            "id": "B09_58",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.4003,
-                0.6683
+                0.385,
+                0.7152
               ],
               [
-                0.4028,
-                0.6628
+                0.3886,
+                0.7081
               ],
               [
-                0.4108,
-                0.6444
+                0.3979,
+                0.6888
               ]
             ],
             "color": "#1E5C96",
@@ -6361,25 +6333,25 @@
             "word": "weights"
           },
           {
-            "id": "B09_61",
+            "id": "B09_59",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.4108,
-                0.6444
+                0.3979,
+                0.6888
               ],
               [
-                0.4109,
-                0.6443
+                0.3984,
+                0.6876
               ],
               [
-                0.4189,
-                0.6252
+                0.4083,
+                0.6665
               ],
               [
-                0.421,
-                0.6202
+                0.4104,
+                0.6618
               ]
             ],
             "color": "#1E5C96",
@@ -6389,21 +6361,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_62",
+            "id": "B09_60",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.421,
-                0.6202
+                0.4104,
+                0.6618
               ],
               [
-                0.427,
-                0.6054
+                0.4181,
+                0.6446
               ],
               [
-                0.431,
-                0.5956
+                0.4226,
+                0.6344
               ]
             ],
             "color": "#1E5C96",
@@ -6413,21 +6385,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_63",
+            "id": "B09_61",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.431,
-                0.5956
+                0.4226,
+                0.6344
               ],
               [
-                0.4351,
-                0.585
+                0.428,
+                0.622
               ],
               [
-                0.4407,
-                0.5706
+                0.4345,
+                0.6066
               ]
             ],
             "color": "#1E5C96",
@@ -6437,21 +6409,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_64",
+            "id": "B09_62",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.4407,
-                0.5706
+                0.4345,
+                0.6066
               ],
               [
-                0.4432,
-                0.564
+                0.4378,
+                0.5987
               ],
               [
-                0.4501,
-                0.5455
+                0.4461,
+                0.5785
               ]
             ],
             "color": "#1E5C96",
@@ -6461,21 +6433,21 @@
             "word": "weights"
           },
           {
-            "id": "B09_65",
+            "id": "B09_63",
             "kind": "line",
             "sentence": 4,
             "points": [
               [
-                0.4501,
-                0.5455
+                0.4461,
+                0.5785
               ],
               [
-                0.4513,
-                0.5423
+                0.4477,
+                0.5747
               ],
               [
-                0.4594,
-                0.52
+                0.4575,
+                0.55
               ]
             ],
             "color": "#1E5C96",
@@ -6485,13 +6457,13 @@
             "word": "weights"
           },
           {
-            "id": "B09_66",
+            "id": "B09_64",
             "kind": "text",
             "sentence": 4,
             "text": "Different weights, different curve",
             "position": [
               0.72,
-              0.44
+              0.34
             ],
             "size": 0.028,
             "align": "CENTER",
@@ -6500,18 +6472,19 @@
             "word": "changes"
           },
           {
-            "id": "B09_67",
+            "id": "B09_65",
             "kind": "text",
-            "sentence": 2,
+            "sentence": 0,
             "text": "Conceptual diagram",
             "position": [
-              0.5,
-              0.235
+              0.3,
+              0.2
             ],
             "size": 0.021,
             "align": "CENTER",
             "color": "#55524A",
-            "plate": false
+            "plate": false,
+            "from_start": true
           }
         ]
       }
@@ -20136,10 +20109,11 @@
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
         "CLM_160",
-        "CLM_161"
+        "CLM_161",
+        "CLM_165"
       ],
       "narration": "Why go to all this trouble? Part of the answer is light. At the abbey church of Saint-Denis, Abbot Suger built a new choir between 1140 and 1144. Pointed arches run throughout, every vault is ribbed, and monumental stained glass seems to dissolve the whole structure.",
-      "visual_goal": "Saint-Denis today, filling the frame with its light; then its apse windows, the pointed arches, the ribbed vault and the stained glass pointed out as each is named",
+      "visual_goal": "Saint-Denis today, filling the frame with its light; then the ambulatory kept from Suger's choir, said to be so, the camera rising from its columns to its vaults; a pointed arch, one rib (drawn along its length) and the chapel glass pointed out as each is named",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
       "strategy": "CARD",
@@ -20153,10 +20127,10 @@
             "asset": "IMG_SAINT_DENIS_ROSE",
             "path": "assets/external/saint_denis_rose_vellut_2560.jpg",
             "box": [
-              0.0,
-              0.0,
-              1.0,
-              1.0
+              0.255,
+              0.1648,
+              0.745,
+              0.6548
             ],
             "crop": [
               0.0,
@@ -20169,21 +20143,21 @@
               0.0
             ],
             "from_start": true,
-            "until": 3,
+            "until": 2,
             "stage": true,
-            "until_word": "arches"
+            "until_word": "abbey"
           },
           {
             "id": "B21_01",
             "kind": "image",
-            "sentence": 3,
-            "asset": "IMG_SAINT_DENIS_APSE",
-            "path": "assets/external/saint_denis_apse_ninaras_2560.jpg",
+            "sentence": 2,
+            "asset": "IMG_SAINT_DENIS_AMBULATORY",
+            "path": "assets/external/saint_denis_ambulatory_bergin_2160.jpg",
             "box": [
-              0.0,
-              0.0,
-              1.0,
-              1.0
+              0.2932,
+              0.0084,
+              0.7068,
+              0.9915
             ],
             "crop": [
               0.0,
@@ -20226,15 +20200,15 @@
             "align": "RIGHT",
             "color": "#24231F",
             "plate": true,
-            "until": 3,
-            "until_word": "arches",
+            "until": 2,
+            "until_word": "abbey",
             "from_start": true
           },
           {
             "id": "B21_04",
             "kind": "text",
-            "sentence": 3,
-            "text": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons",
+            "sentence": 2,
+            "text": "Photo: NateBergin, CC BY 4.0, Wikimedia Commons",
             "position": [
               0.95,
               0.925
@@ -20243,10 +20217,25 @@
             "align": "RIGHT",
             "color": "#24231F",
             "plate": true,
-            "word": "arches"
+            "word": "abbey"
           },
           {
             "id": "B21_05",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Saint-Denis today",
+            "position": [
+              0.06,
+              0.86
+            ],
+            "size": 0.026,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": true,
+            "from_start": true
+          },
+          {
+            "id": "B21_06",
             "kind": "text",
             "sentence": 1,
             "text": "Part of the answer: light",
@@ -20258,48 +20247,45 @@
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
-            "word": "light",
             "until": 2
-          },
-          {
-            "id": "B21_06",
-            "kind": "text",
-            "sentence": 2,
-            "text": "Saint-Denis today",
-            "position": [
-              0.06,
-              0.3
-            ],
-            "size": 0.028,
-            "align": "LEFT",
-            "color": "#24231F",
-            "plate": true,
-            "word": "denis",
-            "until": 3
           },
           {
             "id": "B21_07",
             "kind": "text",
             "sentence": 2,
-            "text": "Abbot Suger's new choir: 1140–1144",
+            "text": "The ambulatory of Suger's choir, 1140–1144",
             "position": [
               0.06,
-              0.2422
+              0.375
             ],
-            "size": 0.028,
+            "size": 0.03,
             "align": "LEFT",
             "color": "#24231F",
             "plate": true,
-            "word": "denis",
-            "until": 3
+            "word": "suger"
           },
           {
             "id": "B21_08",
+            "kind": "text",
+            "sentence": 2,
+            "text": "Upper choir rebuilt in the 13th century",
+            "position": [
+              0.06,
+              0.32
+            ],
+            "size": 0.024,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": true,
+            "word": "choir"
+          },
+          {
+            "id": "B21_09",
             "kind": "circle",
             "sentence": 3,
             "center": [
-              0.4735,
-              0.4692
+              0.43,
+              0.7266
             ],
             "radius": 0.007,
             "color": "#FFFFFF",
@@ -20307,17 +20293,17 @@
             "layer": 3
           },
           {
-            "id": "B21_09",
+            "id": "B21_10",
             "kind": "line",
             "sentence": 3,
             "points": [
               [
-                0.4735,
-                0.4692
+                0.43,
+                0.7266
               ],
               [
-                0.2,
-                0.62
+                0.7,
+                0.8
               ]
             ],
             "color": "#FFFFFF",
@@ -20326,32 +20312,19 @@
             "word": "pointed"
           },
           {
-            "id": "B21_10",
+            "id": "B21_11",
             "kind": "text",
             "sentence": 3,
-            "text": "Pointed arches",
+            "text": "Pointed arch",
             "position": [
-              0.2,
-              0.62
+              0.7,
+              0.8
             ],
             "size": 0.026,
             "align": "CENTER",
             "color": "#24231F",
             "plate": true,
             "word": "pointed"
-          },
-          {
-            "id": "B21_11",
-            "kind": "circle",
-            "sentence": 3,
-            "center": [
-              0.5,
-              0.8943
-            ],
-            "radius": 0.007,
-            "color": "#FFFFFF",
-            "word": "ribbed",
-            "layer": 3
           },
           {
             "id": "B21_12",
@@ -20359,12 +20332,171 @@
             "sentence": 3,
             "points": [
               [
-                0.5,
-                0.8943
+                0.4313,
+                0.7259
               ],
               [
-                0.78,
-                0.84
+                0.433,
+                0.6993
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.003,
+            "layer": 2,
+            "until": 3,
+            "stage": true,
+            "delay": 0.0,
+            "word": "ribbed",
+            "until_word": "stained"
+          },
+          {
+            "id": "B21_13",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.433,
+                0.6993
+              ],
+              [
+                0.4339,
+                0.6851
+              ],
+              [
+                0.4345,
+                0.6727
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.003,
+            "layer": 2,
+            "until": 3,
+            "stage": true,
+            "delay": 0.117,
+            "word": "ribbed",
+            "until_word": "stained"
+          },
+          {
+            "id": "B21_14",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.4345,
+                0.6727
+              ],
+              [
+                0.4358,
+                0.646
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.003,
+            "layer": 2,
+            "until": 3,
+            "stage": true,
+            "delay": 0.233,
+            "word": "ribbed",
+            "until_word": "stained"
+          },
+          {
+            "id": "B21_15",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.4358,
+                0.646
+              ],
+              [
+                0.4371,
+                0.6194
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.003,
+            "layer": 2,
+            "until": 3,
+            "stage": true,
+            "delay": 0.35,
+            "word": "ribbed",
+            "until_word": "stained"
+          },
+          {
+            "id": "B21_16",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.4371,
+                0.6194
+              ],
+              [
+                0.4372,
+                0.617
+              ],
+              [
+                0.4383,
+                0.5927
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.003,
+            "layer": 2,
+            "until": 3,
+            "stage": true,
+            "delay": 0.467,
+            "word": "ribbed",
+            "until_word": "stained"
+          },
+          {
+            "id": "B21_17",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.4383,
+                0.5927
+              ],
+              [
+                0.4395,
+                0.566
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.003,
+            "layer": 2,
+            "until": 3,
+            "stage": true,
+            "delay": 0.583,
+            "word": "ribbed",
+            "until_word": "stained"
+          },
+          {
+            "id": "B21_18",
+            "kind": "circle",
+            "sentence": 3,
+            "center": [
+              0.317,
+              0.8177
+            ],
+            "radius": 0.007,
+            "color": "#FFFFFF",
+            "word": "ribbed",
+            "layer": 3
+          },
+          {
+            "id": "B21_19",
+            "kind": "line",
+            "sentence": 3,
+            "points": [
+              [
+                0.317,
+                0.8177
+              ],
+              [
+                0.14,
+                0.66
               ]
             ],
             "color": "#FFFFFF",
@@ -20373,13 +20505,13 @@
             "word": "ribbed"
           },
           {
-            "id": "B21_13",
+            "id": "B21_20",
             "kind": "text",
             "sentence": 3,
-            "text": "Every vault ribbed",
+            "text": "Vault rib",
             "position": [
-              0.78,
-              0.84
+              0.14,
+              0.66
             ],
             "size": 0.026,
             "align": "CENTER",
@@ -20388,12 +20520,12 @@
             "word": "ribbed"
           },
           {
-            "id": "B21_14",
+            "id": "B21_21",
             "kind": "circle",
             "sentence": 3,
             "center": [
-              0.5,
-              0.2172
+              0.3842,
+              0.2914
             ],
             "radius": 0.007,
             "color": "#FFFFFF",
@@ -20401,16 +20533,16 @@
             "layer": 3
           },
           {
-            "id": "B21_15",
+            "id": "B21_22",
             "kind": "line",
             "sentence": 3,
             "points": [
               [
-                0.5,
-                0.2172
+                0.3842,
+                0.2914
               ],
               [
-                0.8,
+                0.68,
                 0.36
               ]
             ],
@@ -20420,12 +20552,12 @@
             "word": "glass"
           },
           {
-            "id": "B21_16",
+            "id": "B21_23",
             "kind": "text",
             "sentence": 3,
             "text": "Stained glass",
             "position": [
-              0.8,
+              0.68,
               0.36
             ],
             "size": 0.026,
@@ -20439,32 +20571,33 @@
           "views": [
             {
               "rect": [
-                0.078,
-                0.078,
-                0.922,
-                0.922
+                0.2932,
+                0.203,
+                0.7068,
+                0.6166
               ]
             },
             {
               "rect": [
-                0.1371,
-                0.1971,
-                0.8629,
-                0.9229
+                0.3222,
+                0.2614,
+                0.6778,
+                0.6171
               ],
               "sentence": 0,
-              "move_seconds": 9.0,
+              "move_seconds": 4.4,
               "word": "why"
             },
             {
               "rect": [
-                0.078,
-                0.128,
-                0.922,
-                0.972
+                0.3222,
+                0.3773,
+                0.6778,
+                0.7329
               ],
-              "sentence": 3,
-              "move_seconds": 1.2
+              "sentence": 2,
+              "move_seconds": 5.0,
+              "word": "suger"
             }
           ]
         }
@@ -20477,10 +20610,11 @@
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [
         "CLM_161",
-        "CLM_164"
+        "CLM_164",
+        "CLM_165"
       ],
       "narration": "For Suger, light was a sign, a bridge to the divine. France's national library says the new style had to let in as much light as possible.",
-      "visual_goal": "The camera moves into the coloured light of one window while Suger's idea and the library's words are given",
+      "visual_goal": "From where B21 ends, the camera moves down Suger's ambulatory toward the coloured light of its chapel windows while Suger's idea and the library's words are given; the caption keeps saying what part this is",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
       "strategy": "CARD",
@@ -20491,13 +20625,13 @@
             "id": "B22_00",
             "kind": "image",
             "sentence": 0,
-            "asset": "IMG_SAINT_DENIS_APSE",
-            "path": "assets/external/saint_denis_apse_ninaras_2560.jpg",
+            "asset": "IMG_SAINT_DENIS_AMBULATORY",
+            "path": "assets/external/saint_denis_ambulatory_bergin_2160.jpg",
             "box": [
-              0.0,
-              0.0,
-              1.0,
-              1.0
+              0.2932,
+              0.0084,
+              0.7068,
+              0.9915
             ],
             "crop": [
               0.0,
@@ -20516,7 +20650,7 @@
             "id": "B22_01",
             "kind": "text",
             "sentence": 0,
-            "text": "Photo: Ninaras, CC BY 4.0, Wikimedia Commons",
+            "text": "Photo: NateBergin, CC BY 4.0, Wikimedia Commons",
             "position": [
               0.95,
               0.925
@@ -20531,6 +20665,21 @@
             "id": "B22_02",
             "kind": "text",
             "sentence": 0,
+            "text": "Saint-Denis today: Suger's ambulatory",
+            "position": [
+              0.06,
+              0.86
+            ],
+            "size": 0.026,
+            "align": "LEFT",
+            "color": "#24231F",
+            "plate": true,
+            "from_start": true
+          },
+          {
+            "id": "B22_03",
+            "kind": "text",
+            "sentence": 0,
             "text": "“A sign, a bridge to the divine”",
             "position": [
               0.5,
@@ -20543,7 +20692,7 @@
             "word": "sign"
           },
           {
-            "id": "B22_03",
+            "id": "B22_04",
             "kind": "text",
             "sentence": 0,
             "text": "Light, for Abbot Suger",
@@ -20558,7 +20707,7 @@
             "word": "sign"
           },
           {
-            "id": "B22_04",
+            "id": "B22_05",
             "kind": "text",
             "sentence": 1,
             "text": "The new style had to let in as much light as possible",
@@ -20573,7 +20722,7 @@
             "word": "library"
           },
           {
-            "id": "B22_05",
+            "id": "B22_06",
             "kind": "text",
             "sentence": 1,
             "text": "Bibliothèque nationale de France",
@@ -20592,18 +20741,18 @@
           "views": [
             {
               "rect": [
-                0.078,
-                0.128,
-                0.922,
-                0.972
+                0.3222,
+                0.3773,
+                0.6778,
+                0.7329
               ]
             },
             {
               "rect": [
-                0.2509,
-                0.1208,
-                0.7491,
-                0.619
+                0.3047,
+                0.3243,
+                0.5498,
+                0.5694
               ],
               "sentence": 0,
               "move_seconds": 6.0,
@@ -20905,7 +21054,7 @@
         "CLM_110"
       ],
       "narration": "So how did they do all this, without modern structural calculations? Master builders used geometrical rules, developed through centuries of trial and error. They scaled up the same proportions for new, larger elements.",
-      "visual_goal": "An arch drawn with compass and line; the same proportion drawn again, larger, twice",
+      "visual_goal": "Close up, from the first seconds: the compass set on one foot, its arm swung from the other foot to the crown as each arc is drawn; then the camera pulls back and the same proportion is drawn larger, twice",
       "required_concepts": [],
       "expected_complexity": "MEDIUM",
       "strategy": "CARD",
@@ -20933,7 +21082,7 @@
             "sentence": 0,
             "points": [
               [
-                0.12,
+                0.06,
                 0.32
               ],
               [
@@ -20942,345 +21091,62 @@
               ]
             ],
             "color": "#8A867C",
-            "width": 0.003,
+            "width": 0.002,
             "layer": 0,
+            "stage": true,
             "from_start": true
           },
           {
             "id": "B25_02",
-            "kind": "text",
-            "sentence": 0,
-            "text": "Without modern structural calculations",
-            "position": [
-              0.5,
-              0.7
-            ],
-            "size": 0.032,
-            "align": "CENTER",
-            "color": "#55524A",
-            "plate": false,
-            "until": 1,
-            "until_word": "geometrical",
-            "from_start": true
-          },
-          {
-            "id": "B25_03",
             "kind": "circle",
-            "sentence": 1,
+            "sentence": 0,
             "center": [
               0.285,
               0.32
             ],
-            "radius": 0.007,
+            "radius": 0.003,
             "color": "#1E5C96",
-            "word": "geometrical",
-            "delay": 0.0
+            "until": 2,
+            "stage": true,
+            "delay": 0.3,
+            "until_word": "scaled"
           },
           {
-            "id": "B25_04",
+            "id": "B25_03",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
               [
                 0.285,
                 0.32
               ],
               [
-                0.2775,
-                0.3431
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.0,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_05",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.2775,
-                0.3431
-              ],
-              [
-                0.27,
-                0.3662
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.067,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_06",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.27,
-                0.3662
-              ],
-              [
-                0.2625,
-                0.3893
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.133,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_07",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.2625,
-                0.3893
-              ],
-              [
-                0.255,
-                0.4124
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.2,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_08",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.255,
-                0.4124
-              ],
-              [
-                0.2475,
-                0.4355
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.267,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_09",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.2475,
-                0.4355
-              ],
-              [
-                0.24,
-                0.4586
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.333,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_10",
-            "kind": "circle",
-            "sentence": 1,
-            "center": [
-              0.195,
-              0.32
-            ],
-            "radius": 0.007,
-            "color": "#1E5C96",
-            "word": "geometrical",
-            "delay": 0.6
-          },
-          {
-            "id": "B25_11",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
                 0.195,
                 0.32
-              ],
-              [
-                0.2025,
-                0.3431
               ]
             ],
             "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.6,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_12",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.2025,
-                0.3431
+            "width": 0.0025,
+            "layer": 3,
+            "until": 2,
+            "stage": true,
+            "delay": 0.3,
+            "until_word": "scaled",
+            "spin": {
+              "degrees": -60.0,
+              "pivot": [
+                0.285,
+                0.32
               ],
-              [
-                0.21,
-                0.3662
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.667,
-            "word": "geometrical"
+              "sentence": 0,
+              "delay": 0.7,
+              "seconds": 1.6
+            }
           },
           {
-            "id": "B25_13",
+            "id": "B25_04",
             "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.21,
-                0.3662
-              ],
-              [
-                0.2175,
-                0.3893
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.733,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_14",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.2175,
-                0.3893
-              ],
-              [
-                0.225,
-                0.4124
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.8,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_15",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.225,
-                0.4124
-              ],
-              [
-                0.2325,
-                0.4355
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.867,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_16",
-            "kind": "line",
-            "sentence": 1,
-            "points": [
-              [
-                0.2325,
-                0.4355
-              ],
-              [
-                0.24,
-                0.4586
-              ]
-            ],
-            "color": "#1E5C96",
-            "width": 0.003,
-            "layer": 2,
-            "dash": [
-              0.012,
-              0.008
-            ],
-            "delay": 0.933,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_17",
-            "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
               [
                 0.195,
@@ -21289,31 +21155,59 @@
               [
                 0.1952,
                 0.3305
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 0.831
+          },
+          {
+            "id": "B25_05",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1952,
+                0.3305
               ],
+              [
+                0.1958,
+                0.3409
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 0.967
+          },
+          {
+            "id": "B25_06",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.1958,
                 0.3409
               ],
               [
-                0.1964,
-                0.3478
+                0.1967,
+                0.3512
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 0.4,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 1.064
           },
           {
-            "id": "B25_18",
+            "id": "B25_07",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.1964,
-                0.3478
-              ],
               [
                 0.1967,
                 0.3512
@@ -21321,35 +21215,79 @@
               [
                 0.1981,
                 0.3614
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.146
+          },
+          {
+            "id": "B25_08",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.1981,
+                0.3614
               ],
+              [
+                0.1998,
+                0.3714
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.219
+          },
+          {
+            "id": "B25_09",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.1998,
                 0.3714
               ],
               [
-                0.2005,
-                0.3747
+                0.2019,
+                0.3812
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 0.5,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 1.288
           },
           {
-            "id": "B25_19",
+            "id": "B25_10",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.2005,
-                0.3747
-              ],
               [
                 0.2019,
                 0.3812
               ],
+              [
+                0.2043,
+                0.3908
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.354
+          },
+          {
+            "id": "B25_11",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2043,
                 0.3908
@@ -21360,15 +21298,15 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 0.6,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 1.418
           },
           {
-            "id": "B25_20",
+            "id": "B25_12",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
               [
                 0.2071,
@@ -21377,31 +21315,59 @@
               [
                 0.2102,
                 0.4089
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.482
+          },
+          {
+            "id": "B25_13",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2102,
+                0.4089
               ],
+              [
+                0.2136,
+                0.4174
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.546
+          },
+          {
+            "id": "B25_14",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2136,
                 0.4174
               ],
               [
-                0.2161,
-                0.4228
+                0.2173,
+                0.4255
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 0.7,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 1.612
           },
           {
-            "id": "B25_21",
+            "id": "B25_15",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.2161,
-                0.4228
-              ],
               [
                 0.2173,
                 0.4255
@@ -21409,35 +21375,79 @@
               [
                 0.2214,
                 0.4331
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.681
+          },
+          {
+            "id": "B25_16",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2214,
+                0.4331
               ],
+              [
+                0.2257,
+                0.4403
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.754
+          },
+          {
+            "id": "B25_17",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2257,
                 0.4403
               ],
               [
-                0.2272,
-                0.4425
+                0.2302,
+                0.4469
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 0.8,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 1.836
           },
           {
-            "id": "B25_22",
+            "id": "B25_18",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.2272,
-                0.4425
-              ],
               [
                 0.2302,
                 0.4469
               ],
+              [
+                0.235,
+                0.453
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 1.933
+          },
+          {
+            "id": "B25_19",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.235,
                 0.453
@@ -21448,15 +21458,62 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 0.9,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 2.069
           },
           {
-            "id": "B25_23",
+            "id": "B25_20",
+            "kind": "circle",
+            "sentence": 0,
+            "center": [
+              0.195,
+              0.32
+            ],
+            "radius": 0.003,
+            "color": "#1E5C96",
+            "until": 2,
+            "stage": true,
+            "delay": 2.3,
+            "until_word": "scaled"
+          },
+          {
+            "id": "B25_21",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
+            "points": [
+              [
+                0.195,
+                0.32
+              ],
+              [
+                0.285,
+                0.32
+              ]
+            ],
+            "color": "#1E5C96",
+            "width": 0.0025,
+            "layer": 3,
+            "until": 2,
+            "stage": true,
+            "delay": 2.3,
+            "until_word": "scaled",
+            "spin": {
+              "degrees": 60.0,
+              "pivot": [
+                0.19499999999999998,
+                0.32
+              ],
+              "sentence": 0,
+              "delay": 2.7,
+              "seconds": 1.6
+            }
+          },
+          {
+            "id": "B25_22",
+            "kind": "line",
+            "sentence": 0,
             "points": [
               [
                 0.285,
@@ -21465,31 +21522,59 @@
               [
                 0.2848,
                 0.3305
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 2.831
+          },
+          {
+            "id": "B25_23",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2848,
+                0.3305
               ],
+              [
+                0.2842,
+                0.3409
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 2.967
+          },
+          {
+            "id": "B25_24",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2842,
                 0.3409
               ],
               [
-                0.2836,
-                0.3478
+                0.2833,
+                0.3512
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 1.0,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 3.064
           },
           {
-            "id": "B25_24",
+            "id": "B25_25",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.2836,
-                0.3478
-              ],
               [
                 0.2833,
                 0.3512
@@ -21497,35 +21582,79 @@
               [
                 0.2819,
                 0.3614
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.146
+          },
+          {
+            "id": "B25_26",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2819,
+                0.3614
               ],
+              [
+                0.2802,
+                0.3714
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.219
+          },
+          {
+            "id": "B25_27",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2802,
                 0.3714
               ],
               [
-                0.2795,
-                0.3747
+                0.2781,
+                0.3812
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 1.1,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 3.288
           },
           {
-            "id": "B25_25",
+            "id": "B25_28",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.2795,
-                0.3747
-              ],
               [
                 0.2781,
                 0.3812
               ],
+              [
+                0.2757,
+                0.3908
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.354
+          },
+          {
+            "id": "B25_29",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2757,
                 0.3908
@@ -21536,15 +21665,15 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 1.2,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 3.418
           },
           {
-            "id": "B25_26",
+            "id": "B25_30",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
               [
                 0.2729,
@@ -21553,31 +21682,59 @@
               [
                 0.2698,
                 0.4089
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.482
+          },
+          {
+            "id": "B25_31",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2698,
+                0.4089
               ],
+              [
+                0.2664,
+                0.4174
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.546
+          },
+          {
+            "id": "B25_32",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2664,
                 0.4174
               ],
               [
-                0.2639,
-                0.4228
+                0.2627,
+                0.4255
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 1.3,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 3.612
           },
           {
-            "id": "B25_27",
+            "id": "B25_33",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.2639,
-                0.4228
-              ],
               [
                 0.2627,
                 0.4255
@@ -21585,35 +21742,79 @@
               [
                 0.2586,
                 0.4331
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.681
+          },
+          {
+            "id": "B25_34",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
+              [
+                0.2586,
+                0.4331
               ],
+              [
+                0.2543,
+                0.4403
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.754
+          },
+          {
+            "id": "B25_35",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.2543,
                 0.4403
               ],
               [
-                0.2528,
-                0.4425
+                0.2498,
+                0.4469
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 1.4,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 3.836
           },
           {
-            "id": "B25_28",
+            "id": "B25_36",
             "kind": "line",
-            "sentence": 1,
+            "sentence": 0,
             "points": [
-              [
-                0.2528,
-                0.4425
-              ],
               [
                 0.2498,
                 0.4469
               ],
+              [
+                0.245,
+                0.453
+              ]
+            ],
+            "color": "#B9A887",
+            "width": 0.0035,
+            "layer": 2,
+            "stage": true,
+            "delay": 3.933
+          },
+          {
+            "id": "B25_37",
+            "kind": "line",
+            "sentence": 0,
+            "points": [
               [
                 0.245,
                 0.453
@@ -21624,28 +21825,13 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.01,
+            "width": 0.0035,
             "layer": 2,
-            "delay": 1.5,
-            "word": "geometrical"
+            "stage": true,
+            "delay": 4.069
           },
           {
-            "id": "B25_29",
-            "kind": "text",
-            "sentence": 1,
-            "text": "A geometrical rule: compass and line",
-            "position": [
-              0.5,
-              0.86
-            ],
-            "size": 0.032,
-            "align": "CENTER",
-            "color": "#24231F",
-            "plate": true,
-            "word": "geometrical"
-          },
-          {
-            "id": "B25_30",
+            "id": "B25_38",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21663,13 +21849,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.0,
             "word": "scaled"
           },
           {
-            "id": "B25_31",
+            "id": "B25_39",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21691,13 +21878,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.05,
             "word": "scaled"
           },
           {
-            "id": "B25_32",
+            "id": "B25_40",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21715,13 +21903,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.1,
             "word": "scaled"
           },
           {
-            "id": "B25_33",
+            "id": "B25_41",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21743,13 +21932,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.15,
             "word": "scaled"
           },
           {
-            "id": "B25_34",
+            "id": "B25_42",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21767,13 +21957,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.2,
             "word": "scaled"
           },
           {
-            "id": "B25_35",
+            "id": "B25_43",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21795,13 +21986,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.25,
             "word": "scaled"
           },
           {
-            "id": "B25_36",
+            "id": "B25_44",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21823,13 +22015,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.3,
             "word": "scaled"
           },
           {
-            "id": "B25_37",
+            "id": "B25_45",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21847,13 +22040,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.35,
             "word": "scaled"
           },
           {
-            "id": "B25_38",
+            "id": "B25_46",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21875,13 +22069,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.4,
             "word": "scaled"
           },
           {
-            "id": "B25_39",
+            "id": "B25_47",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21899,13 +22094,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.45,
             "word": "scaled"
           },
           {
-            "id": "B25_40",
+            "id": "B25_48",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21923,13 +22119,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.0,
             "word": "scaled"
           },
           {
-            "id": "B25_41",
+            "id": "B25_49",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21951,13 +22148,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.05,
             "word": "scaled"
           },
           {
-            "id": "B25_42",
+            "id": "B25_50",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -21975,13 +22173,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.1,
             "word": "scaled"
           },
           {
-            "id": "B25_43",
+            "id": "B25_51",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22003,13 +22202,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.15,
             "word": "scaled"
           },
           {
-            "id": "B25_44",
+            "id": "B25_52",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22027,13 +22227,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.2,
             "word": "scaled"
           },
           {
-            "id": "B25_45",
+            "id": "B25_53",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22055,13 +22256,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.25,
             "word": "scaled"
           },
           {
-            "id": "B25_46",
+            "id": "B25_54",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22083,13 +22285,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.3,
             "word": "scaled"
           },
           {
-            "id": "B25_47",
+            "id": "B25_55",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22107,13 +22310,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.35,
             "word": "scaled"
           },
           {
-            "id": "B25_48",
+            "id": "B25_56",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22135,13 +22339,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.4,
             "word": "scaled"
           },
           {
-            "id": "B25_49",
+            "id": "B25_57",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22159,13 +22364,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.012,
+            "width": 0.0057,
             "layer": 2,
+            "stage": true,
             "delay": 0.45,
             "word": "scaled"
           },
           {
-            "id": "B25_50",
+            "id": "B25_58",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22179,13 +22385,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.0,
             "word": "proportions"
           },
           {
-            "id": "B25_51",
+            "id": "B25_59",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22203,13 +22410,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.035,
             "word": "proportions"
           },
           {
-            "id": "B25_52",
+            "id": "B25_60",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22227,13 +22435,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.071,
             "word": "proportions"
           },
           {
-            "id": "B25_53",
+            "id": "B25_61",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22251,13 +22460,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.106,
             "word": "proportions"
           },
           {
-            "id": "B25_54",
+            "id": "B25_62",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22275,13 +22485,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.141,
             "word": "proportions"
           },
           {
-            "id": "B25_55",
+            "id": "B25_63",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22299,13 +22510,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.176,
             "word": "proportions"
           },
           {
-            "id": "B25_56",
+            "id": "B25_64",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22323,13 +22535,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.212,
             "word": "proportions"
           },
           {
-            "id": "B25_57",
+            "id": "B25_65",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22347,13 +22560,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.247,
             "word": "proportions"
           },
           {
-            "id": "B25_58",
+            "id": "B25_66",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22371,13 +22585,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.282,
             "word": "proportions"
           },
           {
-            "id": "B25_59",
+            "id": "B25_67",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22395,13 +22610,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.318,
             "word": "proportions"
           },
           {
-            "id": "B25_60",
+            "id": "B25_68",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22419,13 +22635,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.353,
             "word": "proportions"
           },
           {
-            "id": "B25_61",
+            "id": "B25_69",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22443,13 +22660,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.388,
             "word": "proportions"
           },
           {
-            "id": "B25_62",
+            "id": "B25_70",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22467,13 +22685,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.424,
             "word": "proportions"
           },
           {
-            "id": "B25_63",
+            "id": "B25_71",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22491,13 +22710,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.459,
             "word": "proportions"
           },
           {
-            "id": "B25_64",
+            "id": "B25_72",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22515,13 +22735,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.494,
             "word": "proportions"
           },
           {
-            "id": "B25_65",
+            "id": "B25_73",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22539,13 +22760,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.529,
             "word": "proportions"
           },
           {
-            "id": "B25_66",
+            "id": "B25_74",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22559,13 +22781,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.565,
             "word": "proportions"
           },
           {
-            "id": "B25_67",
+            "id": "B25_75",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22579,13 +22802,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.0,
             "word": "proportions"
           },
           {
-            "id": "B25_68",
+            "id": "B25_76",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22603,13 +22827,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.035,
             "word": "proportions"
           },
           {
-            "id": "B25_69",
+            "id": "B25_77",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22627,13 +22852,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.071,
             "word": "proportions"
           },
           {
-            "id": "B25_70",
+            "id": "B25_78",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22651,13 +22877,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.106,
             "word": "proportions"
           },
           {
-            "id": "B25_71",
+            "id": "B25_79",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22675,13 +22902,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.141,
             "word": "proportions"
           },
           {
-            "id": "B25_72",
+            "id": "B25_80",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22699,13 +22927,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.176,
             "word": "proportions"
           },
           {
-            "id": "B25_73",
+            "id": "B25_81",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22723,13 +22952,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.212,
             "word": "proportions"
           },
           {
-            "id": "B25_74",
+            "id": "B25_82",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22747,13 +22977,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.247,
             "word": "proportions"
           },
           {
-            "id": "B25_75",
+            "id": "B25_83",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22771,13 +23002,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.282,
             "word": "proportions"
           },
           {
-            "id": "B25_76",
+            "id": "B25_84",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22795,13 +23027,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.318,
             "word": "proportions"
           },
           {
-            "id": "B25_77",
+            "id": "B25_85",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22819,13 +23052,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.353,
             "word": "proportions"
           },
           {
-            "id": "B25_78",
+            "id": "B25_86",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22843,13 +23077,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.388,
             "word": "proportions"
           },
           {
-            "id": "B25_79",
+            "id": "B25_87",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22867,13 +23102,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.424,
             "word": "proportions"
           },
           {
-            "id": "B25_80",
+            "id": "B25_88",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22891,13 +23127,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.459,
             "word": "proportions"
           },
           {
-            "id": "B25_81",
+            "id": "B25_89",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22915,13 +23152,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.494,
             "word": "proportions"
           },
           {
-            "id": "B25_82",
+            "id": "B25_90",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22939,13 +23177,14 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.529,
             "word": "proportions"
           },
           {
-            "id": "B25_83",
+            "id": "B25_91",
             "kind": "line",
             "sentence": 2,
             "points": [
@@ -22959,13 +23198,63 @@
               ]
             ],
             "color": "#B9A887",
-            "width": 0.016,
+            "width": 0.0092,
             "layer": 2,
+            "stage": true,
             "delay": 0.565,
             "word": "proportions"
           },
           {
-            "id": "B25_84",
+            "id": "B25_92",
+            "kind": "text",
+            "sentence": 0,
+            "text": "Without modern structural calculations",
+            "position": [
+              0.5,
+              0.86
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false,
+            "until": 1,
+            "until_word": "geometrical",
+            "from_start": true
+          },
+          {
+            "id": "B25_93",
+            "kind": "text",
+            "sentence": 1,
+            "text": "A geometrical rule: compass and line",
+            "position": [
+              0.5,
+              0.86
+            ],
+            "size": 0.032,
+            "align": "CENTER",
+            "color": "#24231F",
+            "plate": true,
+            "word": "geometrical"
+          },
+          {
+            "id": "B25_94",
+            "kind": "text",
+            "sentence": 1,
+            "text": "One example: the radius equals the span",
+            "position": [
+              0.5,
+              0.235
+            ],
+            "size": 0.024,
+            "align": "CENTER",
+            "color": "#55524A",
+            "plate": false,
+            "word": "rules",
+            "until": 2,
+            "until_word": "scaled"
+          },
+          {
+            "id": "B25_95",
             "kind": "text",
             "sentence": 2,
             "text": "The same proportions, scaled up",
@@ -22979,7 +23268,41 @@
             "plate": true,
             "word": "scaled"
           }
-        ]
+        ],
+        "stage": {
+          "views": [
+            {
+              "rect": [
+                0.09,
+                0.23,
+                0.39,
+                0.53
+              ]
+            },
+            {
+              "rect": [
+                0.1,
+                0.236,
+                0.38,
+                0.516
+              ],
+              "sentence": 1,
+              "move_seconds": 5.0,
+              "word": "geometrical"
+            },
+            {
+              "rect": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "sentence": 2,
+              "move_seconds": 1.8,
+              "word": "scaled"
+            }
+          ]
+        }
       }
     },
     {
@@ -30593,19 +30916,411 @@
         "CLM_171"
       ],
       "narration": "And there was little room for error. The whole stone skeleton relies on lining up the thrust of each arch with the buttress that supports it.",
-      "visual_goal": "Close on the point where the flyer meets the pier",
+      "visual_goal": "The whole section; one flying buttress and its pier buttress are marked, the rest fades while the camera moves in on where the flyer meets its buttress; the vault's thrust is drawn into the flyer and on to the buttress top, each part lit as it is named",
       "required_concepts": [
         "gothic_cathedral_section",
         "flying_buttress",
-        "pier_buttress"
+        "pier_buttress",
+        "pinnacle"
       ],
       "expected_complexity": "MEDIUM",
-      "strategy": "HOLD_HIGHLIGHT",
-      "highlight_at_sentence": 1,
-      "camera_move": {
-        "type": "PUSH_IN",
-        "amount": 0.12
-      }
+      "strategy": "SEQUENCE",
+      "sequence": {
+        "camera": "CATHEDRAL_TRANSVERSE",
+        "views": [
+          {
+            "frame": null
+          },
+          {
+            "frame": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "error",
+              "offset": 0.1
+            },
+            "move_seconds": 2.6
+          }
+        ],
+        "steps": [
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east0"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "little",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 0,
+              "word": "error",
+              "offset": 0.5
+            },
+            "strength": 1.0,
+            "tint": 0.8
+          },
+          {
+            "do": "FADE_OUT",
+            "targets": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east3"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east3"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west1"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west2"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_west3"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east1"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east2"
+              },
+              {
+                "concept": "pinnacle",
+                "group": "frame_east3"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "error",
+              "offset": 0.1
+            },
+            "seconds": 1.0,
+            "why": "the systems behind would stack as smudges in the close view"
+          },
+          {
+            "do": "GHOST",
+            "targets": {
+              "except": [
+                {
+                  "concept": "flying_buttress",
+                  "group": "frame_east0"
+                },
+                {
+                  "concept": "pier_buttress",
+                  "group": "frame_east0"
+                },
+                {
+                  "concept": "pinnacle",
+                  "group": "frame_east0"
+                },
+                {
+                  "concept": "rib",
+                  "group": "rib_transverse_0"
+                },
+                {
+                  "concept": "nave_pier",
+                  "group": "frame_east0"
+                },
+                {
+                  "concept": "clerestory_window",
+                  "local": "clerestory_window_b1_east"
+                },
+                {
+                  "concept": "aisle_roof",
+                  "local": "aisle_roof_east"
+                },
+                {
+                  "concept": "flying_buttress",
+                  "group": "frame_west1"
+                },
+                {
+                  "concept": "flying_buttress",
+                  "group": "frame_west2"
+                },
+                {
+                  "concept": "flying_buttress",
+                  "group": "frame_west3"
+                },
+                {
+                  "concept": "flying_buttress",
+                  "group": "frame_east1"
+                },
+                {
+                  "concept": "flying_buttress",
+                  "group": "frame_east2"
+                },
+                {
+                  "concept": "flying_buttress",
+                  "group": "frame_east3"
+                },
+                {
+                  "concept": "pier_buttress",
+                  "group": "frame_west1"
+                },
+                {
+                  "concept": "pier_buttress",
+                  "group": "frame_west2"
+                },
+                {
+                  "concept": "pier_buttress",
+                  "group": "frame_west3"
+                },
+                {
+                  "concept": "pier_buttress",
+                  "group": "frame_east1"
+                },
+                {
+                  "concept": "pier_buttress",
+                  "group": "frame_east2"
+                },
+                {
+                  "concept": "pier_buttress",
+                  "group": "frame_east3"
+                },
+                {
+                  "concept": "pinnacle",
+                  "group": "frame_west1"
+                },
+                {
+                  "concept": "pinnacle",
+                  "group": "frame_west2"
+                },
+                {
+                  "concept": "pinnacle",
+                  "group": "frame_west3"
+                },
+                {
+                  "concept": "pinnacle",
+                  "group": "frame_east1"
+                },
+                {
+                  "concept": "pinnacle",
+                  "group": "frame_east2"
+                },
+                {
+                  "concept": "pinnacle",
+                  "group": "frame_east3"
+                }
+              ]
+            },
+            "at": {
+              "sentence": 0,
+              "word": "error",
+              "offset": 0.1
+            },
+            "seconds": 1.0,
+            "transparency": 0.85
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "rib",
+                "group": "rib_transverse_0"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "thrust",
+              "offset": -0.3
+            },
+            "until": {
+              "sentence": 1,
+              "word": "with"
+            },
+            "strength": 1.0,
+            "tint": 0.8
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "flying_buttress",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "arch",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 1,
+              "word": "buttress"
+            },
+            "strength": 1.0,
+            "tint": 0.8
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "pier_buttress",
+                "group": "frame_east0"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "buttress",
+              "offset": -0.1
+            },
+            "until": {
+              "sentence": 1,
+              "end": true,
+              "offset": 0.4
+            },
+            "strength": 1.0,
+            "tint": 0.8
+          }
+        ]
+      },
+      "annotations": [
+        {
+          "id": "B29_note",
+          "type": "NOTE",
+          "text": "Illustrative model",
+          "sentence": 0,
+          "position": "BOTTOM_RIGHT"
+        },
+        {
+          "id": "B29_path1",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "style": "LOAD",
+          "sentence": 1,
+          "word": "thrust",
+          "claim_id": "CLM_171",
+          "path": [
+            [
+              {
+                "target": {
+                  "concept": "rib",
+                  "group": "rib_transverse_0"
+                },
+                "point": "BOTTOM_RIGHT"
+              },
+              {
+                "target": {
+                  "concept": "flying_buttress",
+                  "group": "frame_east0"
+                },
+                "point": "TOP_LEFT"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "B29_path2",
+          "type": "CONCEPTUAL_LOAD_PATH",
+          "style": "LOAD",
+          "sentence": 1,
+          "word": "buttress",
+          "claim_id": "CLM_171",
+          "path": [
+            [
+              {
+                "target": {
+                  "concept": "flying_buttress",
+                  "group": "frame_east0"
+                },
+                "point": "TOP_LEFT"
+              },
+              {
+                "target": {
+                  "concept": "flying_buttress",
+                  "group": "frame_east0"
+                },
+                "point": "CENTER"
+              },
+              {
+                "target": {
+                  "concept": "pier_buttress",
+                  "group": "frame_east0"
+                },
+                "point": "TOP"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "B29_meet",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "pier_buttress",
+            "group": "frame_east0"
+          },
+          "point": "TOP",
+          "text": "Lined up with its buttress",
+          "sentence": 1,
+          "word": "supports"
+        }
+      ]
     },
     {
       "beat_id": "B30",

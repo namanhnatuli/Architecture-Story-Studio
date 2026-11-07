@@ -5,16 +5,16 @@
     "PUBLICATION_CLEARED"
   ],
   "publication_audio": true,
-  "narration_track": "audio/narration_mix_SC_032-SC_039.wav",
+  "narration_track": "audio/narration_mix_SC_031-SC_038.wav",
   "shots": [
+    "SC_031",
     "SC_032",
     "SC_033",
     "SC_034",
     "SC_035",
     "SC_036",
     "SC_037",
-    "SC_038",
-    "SC_039"
+    "SC_038"
   ],
   "frames": 4190,
   "seconds": 174.58333333333334,
@@ -624,14 +624,14 @@
     "chapter": "C8",
     "video": "output/chapters_internal_720p/gothic_cathedral_heights_C8_silent.mp4",
     "shots": [
+      "SC_031",
       "SC_032",
       "SC_033",
       "SC_034",
       "SC_035",
       "SC_036",
       "SC_037",
-      "SC_038",
-      "SC_039"
+      "SC_038"
     ],
     "expected_frames": 4190,
     "probe": {
@@ -651,59 +651,59 @@
     },
     "cuts": [
       {
+        "cut": "SC_031->SC_032",
+        "mode": "hard",
+        "ssim": 0.06257,
+        "ok": true
+      },
+      {
         "cut": "SC_032->SC_033",
         "mode": "hard",
-        "ssim": 0.05727,
+        "ssim": 0.20036,
         "ok": true
       },
       {
         "cut": "SC_033->SC_034",
         "mode": "hard",
-        "ssim": 0.20116,
+        "ssim": 0.22982,
         "ok": true
       },
       {
         "cut": "SC_034->SC_035",
         "mode": "hard",
-        "ssim": 0.23108,
+        "ssim": 0.56886,
         "ok": true
       },
       {
         "cut": "SC_035->SC_036",
         "mode": "hard",
-        "ssim": 0.56608,
+        "ssim": 0.66632,
         "ok": true
       },
       {
         "cut": "SC_036->SC_037",
         "mode": "hard",
-        "ssim": 0.66299,
+        "ssim": 0.46192,
         "ok": true
       },
       {
         "cut": "SC_037->SC_038",
         "mode": "hard",
-        "ssim": 0.45234,
-        "ok": true
-      },
-      {
-        "cut": "SC_038->SC_039",
-        "mode": "hard",
-        "ssim": 0.23258,
+        "ssim": 0.23375,
         "ok": true
       }
     ],
     "problems": []
   },
   "render_results": {
+    "SC_031": "rendered",
     "SC_032": "rendered",
     "SC_033": "rendered",
     "SC_034": "rendered",
     "SC_035": "rendered",
     "SC_036": "rendered",
     "SC_037": "rendered",
-    "SC_038": "rendered",
-    "SC_039": "rendered"
+    "SC_038": "rendered"
   },
   "chapter_audio": "output/chapters_internal_720p/gothic_cathedral_heights_C8_narration.wav"
 }

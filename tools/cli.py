@@ -1136,6 +1136,23 @@ def do_chapter(p, chapter, preset, force=False, release=False):
           + ", ".join(f"{k} {list(report['render_results'].values()).count(k)}" for k in ("rendered", "resumed", "cached")) + ")")
 
 
+def final_outputs(p, preset, cfg):
+    """The assembled film and its silent concatenation. g-r9: an internal preset assembled from its chapters is an
+    internal review, named like `assemble` names one (project.json review_label + INTERNAL_REVIEW), never FINAL: no
+    file named FINAL may exist before the owner's approval."""
+    if preset in INTERNAL_PRESETS:
+        review_label = read_json(p / "project.json").get("review_label", "INTERNAL_REVIEW")
+        if "INTERNAL_REVIEW" not in review_label or "FINAL" in review_label.upper():
+            raise SystemExit(f"project.json review_label {review_label!r}: an internal review needs INTERNAL_REVIEW "
+                             "in its name and never FINAL")
+        stem = f"{slug_name(p)}_{review_label}_{preset.split('_')[1]}"
+        return p / "output" / f"{stem}.mp4", p / "output" / f"{stem}_video.mp4"
+    tag = "FINAL_4K_2160p" if cfg["height"] == 2160 else f"FINAL_{cfg['height']}p"
+    out = p / "output" / (f"{slug_name(p)}_{tag}.mp4" if output_label(p) == "documentary"
+                          else f"{slug_name(p)}_{tag}_INTERNAL_REVIEW.mp4")
+    return out, p / "output" / f"{slug_name(p)}_{tag}_video.mp4"
+
+
 def do_final_assemble(p, preset):
     """M7: the final film from the verified chapter intermediates of a streaming preset: concatenated
     without re-encoding, then narration + subtitles (assemble.assemble) and a media QA of the actual file."""
@@ -1157,10 +1174,8 @@ def do_final_assemble(p, preset):
             raise SystemExit(f"chapter {c['id']}: {problem} - run `chapter --chapter {c['id']} --preset {preset}`")
         files.append(p / entry["file"])
     cfg = read_json(ROOT / "config/render_presets.json")[preset]
-    tag = "FINAL_4K_2160p" if cfg["height"] == 2160 else f"FINAL_{cfg['height']}p"
+    out, video = final_outputs(p, preset, cfg)
     label = output_label(p)
-    out = p / "output" / (f"{slug_name(p)}_{tag}.mp4" if label == "documentary" else f"{slug_name(p)}_{tag}_INTERNAL_REVIEW.mp4")
-    video = p / "output" / f"{slug_name(p)}_{tag}_video.mp4"
     lst = p / "output" / f".concat_{preset}.txt"
     lst.write_text("".join(f"file '{f.resolve()}'\n" for f in files))
     partial = video.with_name(video.stem + ".partial.mp4")
