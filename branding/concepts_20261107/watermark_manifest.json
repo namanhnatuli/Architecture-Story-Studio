@@ -1,0 +1,20 @@
+{
+  "tool": "built-in image_gen",
+  "selected_by_user": {
+    "avatar": "A_avatar_concept_v1.png",
+    "banner": "B_banner_desktop_v2_2560x1440.png"
+  },
+  "watermark": {
+    "outputs": [
+      "A_watermark_youtube_150.png",
+      "A_watermark_youtube_300.png"
+    ],
+    "source": "/Users/trananh/.codex/generated_images/01a1a3c2-b382-7e50-8837-83189b24a3f8/exec-8d316556-0642-4ae0-bcaf-62051eeaf212.png",
+    "prompts": [
+      "Use case: background-extraction / logo-brand. Edit the provided selected Architecture Story Studio avatar into a transparent video watermark. Preserve the EXACT distinctive A-shaped architectural arch silhouette: two ivory curved diagonal legs, central horizontal crossbar, stepped feet, and the ochre-gold tapered keystone at the top. Do not invent a new logo. REMOVE the entire navy background, including the triangular inner opening and space underneath the crossbar: all negative space genuinely transparent alpha, not a checkerboard drawing. Clean near-white ivory flat fill with gold keystone, remove paper texture and gradients. Add only a very slim deep navy contour around the logo edges for visibility on pale video footage, subtle about 1% of mark width, no thick badge. Square canvas. Enlarge and center the mark to occupy about 84% of canvas width/height with balanced transparent margins. Crisp antialiased edges. No text, no channel name, no additional objects, no glow, no cast shadow, no backdrop, no frame. This is a small unobtrusive corner watermark matching the supplied avatar, not a new logo concept.",
+      "Clean up this transparent watermark image. Preserve the A architectural monogram geometry and colors. Remove ALL stray white speckles, ragged white fringes, red/yellow pixels and disconnected pixels around the perimeter and in both inner negative spaces. Rebuild its edge as an extremely clean smooth vector-like contour. Two solid curved ivory legs, ivory horizontal crossbar, stepped ivory feet, gold top keystone, very thin continuous navy outline. Flat solid colors ONLY, no gradients, paper texture, distress, scratches, halos or decorative effects. Background and both inner openings must be perfectly transparent alpha. Square centered layout with 8 percent transparent margins. This is a polished small YouTube watermark, so pixel cleanliness is essential."
+    ],
+    "processing": "sips downsampled to square 150 and 300 pixel PNGs",
+    "verification": "150px export visually inspected; sips used to check dimensions and alpha channel. Small generation edge irregularities remain in full-size source."
+  }
+}

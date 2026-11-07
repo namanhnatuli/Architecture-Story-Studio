@@ -1,0 +1,33 @@
+{
+  "tool": "built-in image_gen",
+  "purpose": "Permanent composited video watermark; source attribution, not a guarantee against reupload",
+  "reference": "A_avatar_concept_v1.png",
+  "prompts": [
+    "Use case: logo-brand. Create a production watermark lockup to burn into architectural documentary videos, using the supplied selected Architecture Story Studio avatar as the exact logo reference. This is an edit/extension of the existing identity.\n\nOutput a wide horizontal transparent PNG, approximately 3:1 aspect ratio. Genuine transparent alpha everywhere outside the mark and lettering, including inside the A. No checkerboard artwork. Design a compact horizontal lockup: on the left, faithfully reproduce the recognizable architectural A from the reference, with curved ivory legs, horizontal crossbar, stepped feet and gold tapered keystone. On the right, two stacked text lines, left aligned, EXACTLY:\n\"ARCHITECTURE\"\n\"STORY STUDIO\"\nThe two text lines together approximately equal the height of the A. Use clean substantial uppercase typography with restrained classical proportions, medium weight, not hairline thin, slightly spaced but compact enough to read when the entire lockup is only 320 pixels wide. Logo should occupy roughly 23 percent of the lockup width, text the remaining 72 percent, with a small gap. Keep moderate 5 percent transparent padding on all sides.\n\nColor: near-white warm ivory logo and lettering, muted ochre gold keystone. Give all shapes and letters a very thin dark navy keyline for readability over light footage. Use solid flat color and sharp clean antialiased edges; opacity will be set by the video editor later. No shadows, no glow, no fake grain, no background panel, no surrounding rectangle, no badges, no tagline, no subscribe, no copyright symbol, no additional text. Avoid ragged fringes and disconnected pixels. Professional discreet corner branding, exact spelling essential. Preserve source logo silhouette rather than replacing it with a generic letter A.",
+    "Polish this exact watermark lockup. Keep the layout, A logo with gold keystone, two lines reading exactly \"ARCHITECTURE\" and \"STORY STUDIO\". Fix the bad ragged transparency and dirty outlines. Make clean flat vector-style artwork: pure ivory solid letters and A, gold keystone, only a single hairline navy outline. Remove ALL bevels, 3D depth, extrusion, offset outlines, cast shadows, highlights, colored fringes and stray white specks. The previous lettering looked embossed; now it must be completely FLAT with smooth clean contours. All negative space and all gaps between letters must be completely transparent, no residual pixels, no checkerboard. Keep wide 3:1 proportions and generous enough margins. Do not change spelling. Clean professional broadcast corner watermark."
+  ],
+  "source": "/Users/trananh/.codex/generated_images/01a1a3c2-b382-7e50-8837-83189b24a3f8/exec-62bbe9b2-1f32-4079-be5a-14cc396e9754.png",
+  "exports": [
+    {
+      "file": "A_watermark_burnin_320.png",
+      "width": 320,
+      "height": 106,
+      "recommended_canvas": "1920x1080"
+    },
+    {
+      "file": "A_watermark_burnin_640.png",
+      "width": 640,
+      "height": 213,
+      "recommended_canvas": "3840x2160"
+    }
+  ],
+  "suggested_compositing": {
+    "position": "top-right, adjusted per shot to avoid labels",
+    "opacity": 0.5,
+    "right_margin_fraction": 0.03,
+    "top_margin_fraction": 0.03,
+    "timing": "throughout film; static within each shot"
+  },
+  "verification": "320px export visually inspected; alpha and dimensions checked with sips. Not composited or reviewed on actual video. Full-size generation has minor edge artifacts; only downsampled delivery exports are supplied.",
+  "video_modified": false
+}

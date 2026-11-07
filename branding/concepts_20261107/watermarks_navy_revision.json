@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen",
+  "revision": "navy_for_light_backgrounds",
+  "edits": [
+    {
+      "file": "A_watermark_burnin_640.png",
+      "prompt": "Edit this exact existing transparent architectural channel watermark, recoloring ONLY. Change every ivory/white letter and the ivory/white A-shaped architectural symbol to solid dark navy #152238. Keep the top keystone ochre gold. Preserve EXACT typography, spelling \"ARCHITECTURE\" on line one and \"STORY STUDIO\" on line two, arrangement, logo shape, stepped feet, spacing and wide aspect ratio. No redesign. Important: remove white fringe and dirty residual pixels; all lettering and logo edges should be clean solid navy with no white outlines, no shadows, no gradients. The entire background and negative spaces MUST stay genuinely transparent alpha, not white, not a black background, not a checkerboard drawing. Designed to overlay very light cream/white video footage, so the solid navy lettering is essential. Flat sharp vector-like appearance. Keep all artwork fully visible with the existing margins.",
+      "generated_source": "/Users/trananh/.codex/generated_images/01a1a3c2-b382-7e50-8837-83189b24a3f8/exec-962db4a7-855f-4e64-893a-248297838ccb.png"
+    },
+    {
+      "file": "A_watermark_youtube_300.png",
+      "prompt": "Edit this exact existing transparent square A-shaped architectural logo watermark, recoloring ONLY. Change both ivory/white curved legs, crossbar and stepped feet to solid dark navy #152238. Keep the top keystone ochre gold. Preserve the EXACT supplied A silhouette, proportions, square canvas and margins. Do not add text. No redesign. Clean all white fringe and residual pixels; crisp smooth solid navy edges. No white outline, no shadow, no gradients. The entire background, triangular inner opening and gap below crossbar MUST remain genuinely transparent alpha, not white, not black, not a checkerboard drawing. This navy-and-gold icon will overlay pale cream or white video footage.",
+      "generated_source": "/Users/trananh/.codex/generated_images/01a1a3c2-b382-7e50-8837-83189b24a3f8/exec-586e735e-9f2f-4e79-9025-c507e4898c3e.png"
+    }
+  ],
+  "backups": [
+    "A_watermark_burnin_640_white_backup.png",
+    "A_watermark_youtube_300_white_backup.png"
+  ],
+  "qa": "Dimensions and alpha checked with sips; both final PNGs composited onto cream background and visually inspected.",
+  "preview": "watermarks_navy_on_light_preview.png"
+}
