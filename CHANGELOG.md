@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.7 — 2026-11-07 — Phim Gothic: duyệt của chủ kênh, bản final 4K, kinh nghiệm chung
+- **Chủ kênh duyệt bản g-r9 để render final 4K** và chọn bốn nhóm: 54 claim; giọng `am_michael` và phát âm; ảnh, ghi công và công bố AI; lời kêu gọi cuối và ngoại lệ chương 8. Agent ghi đúng các mục được chọn: `research/editorial_approval.json`, `config/tts_providers.json` (giọng cho dự án), `voice.license`, `voice.pronunciation_review`, `script/pronunciation.json`, `review/OWNER_APPROVALS.json`. Profile `PUBLICATION_CANDIDATE`; `final-gate` đạt.
+- **`variety_exception` trong `project.json`** (`pipeline/chapters.py`): một chuỗi cùng loại hình dài hơn ngưỡng chung chỉ khi chủ kênh ghi quyết định; báo cáo QA nêu rõ. Ngưỡng chung 4 không đổi.
+- **Kinh nghiệm chung** vào `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` mục 27–28 và `AGENTS.md`.
+
 ## 0.10.6 — 2026-11-07 — Phim Gothic g-r9: sửa cục bộ sau review g-r8
 - **Theo review g-r8 của chủ kênh:** giữ hướng hình, chỉ sửa bốn chỗ. Chưa có gì được duyệt.
 - **C6/B21–B22 (ảnh và niên đại):**

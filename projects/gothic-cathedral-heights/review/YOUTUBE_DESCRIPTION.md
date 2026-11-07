@@ -1,6 +1,8 @@
-<!-- DRAFT: not for publication until the editorial approval package is approved. -->
+<!-- PUBLICATION CANDIDATE: description for the owner's own upload (approvals in review/OWNER_APPROVALS.json). The Studio never uploads. -->
 
 # How Gothic Cathedrals Reached Impossible Heights
+
+In 1284 part of the highest stone vaults of the Middle Ages fell at Beauvais; others from the same age still stand. This documentary explains how Gothic builders raised stone so high: the pointed arch, the rib vault, the flying buttress, walls of light, and geometry in place of calculation, and where the limit lay.
 
 Chapters
 

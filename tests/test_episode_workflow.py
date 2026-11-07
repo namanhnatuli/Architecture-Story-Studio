@@ -178,24 +178,44 @@ class GothicFilmTest(unittest.TestCase):
     """The film stops at the owner's script review: nothing may look approved or rendered."""
     P = ROOT / "projects" / "gothic-cathedral-heights"
 
-    def test_script_stage_is_done_and_nothing_is_approved(self):
+    def test_approvals_are_only_those_the_owner_gave_and_are_bound_to_the_revision(self):
+        """2026-11-07: the owner approved the 720p review for the 4K final and selected claims, voice and pronunciation,
+        images/credits/disclosure, and the closing call to action with the chapter 8 exception. Every approval
+        is on record and bound to the audio; nothing else is approved on the owner's behalf."""
         rows = rows_of(self.P)
-        for stage in ("RESEARCH", "SCRIPT", "CLAIM_SOURCE_VERIFICATION", "TTS", "AUDIO_LOCK"):
+        for stage in ("RESEARCH", "SCRIPT", "CLAIM_SOURCE_VERIFICATION", "TTS", "AUDIO_LOCK", "VISUAL_PLAN",
+                      "OWNER_APPROVAL", "PUBLICATION_CANDIDATE"):
             self.assertEqual(rows[stage][0], "DONE", (stage, rows[stage]))
-        self.assertEqual(rows["VISUAL_PLAN"][0], "DONE")   # the cathedral family (engine/arch/families/cathedral.py)
         n = read(self.P / "script/narration.json")
-        self.assertEqual(n["voice"]["license"]["status"], "LICENSE_REVIEW_REQUIRED")
-        self.assertEqual(n["voice"]["license"]["owner_confirmation_for_this_film"], "PENDING")
-        self.assertEqual(n["voice"]["pronunciation_review"]["status"], "PENDING")
-        self.assertEqual({e["status"] for e in read(self.P / "script/pronunciation.json")["entries"]}, {"PENDING_LISTENING_REVIEW"})
-        self.assertEqual({c["review_status"] for c in read(self.P / "research/sources.json")["claims"]}, {"SOURCE_VERIFIED"})
-        self.assertEqual(read(self.P / "project.json")["production_profile"], "NARRATED_INTERNAL_REVIEW")
-        self.assertFalse((self.P / "review/OWNER_APPROVALS.json").exists())
-        self.assertFalse((self.P / "research/editorial_approval.json").exists())
-        # the owner asked for a 720p internal review; every video must say so, and no final may exist
+        self.assertEqual(n["voice"]["license"]["status"], "APPROVED")
+        self.assertEqual(n["voice"]["license"]["owner_confirmation_for_this_film"], "CONFIRMED")
+        review = n["voice"]["pronunciation_review"]
+        self.assertEqual(review["status"], "ACCEPTED_BY_OWNER")
+        from pipeline import narration as nar, pronunciation as pron
+        self.assertEqual(review["audio_revision"], nar.narration_hash(n, pron.load(self.P)))   # bound to this audio
+        self.assertEqual({e["status"] for e in read(self.P / "script/pronunciation.json")["entries"]}, {"CONFIRMED"})
+        claims = read(self.P / "research/sources.json")["claims"]
+        used = {c for b in n["beats"] for c in b.get("claim_ids", [])}
+        self.assertEqual({c["id"] for c in claims if c["review_status"] == "EDITORIALLY_APPROVED"}, used)
+        self.assertTrue(all(c["review_status"] == "SOURCE_VERIFIED" for c in claims if c["id"] not in used))
+        self.assertEqual(read(self.P / "project.json")["production_profile"], "PUBLICATION_CANDIDATE")
+        ids = {d["id"] for d in read(self.P / "review/OWNER_APPROVALS.json")["decisions"]}
+        self.assertTrue({"APP-CLAIMS", "APP-VOICE", "APP-PRONUNCIATION", "APP-IMAGES", "APP-CTA", "DEC-C8-VARIETY"} <= ids)
+        # an internal review says so in its name; a FINAL file may exist only as the 4K deliverable
         for video in self.P.glob("output/*.mp4"):
-            self.assertIn("INTERNAL", video.name.upper())
-        self.assertEqual(list(self.P.glob("output/*FINAL*")), [])
+            self.assertTrue("INTERNAL" in video.name.upper() or "FINAL_4K_2160P" in video.name.upper(), video.name)
+        for video in self.P.glob("output/*FINAL*.mp4"):
+            self.assertIn("FINAL_4K_2160P", video.name.upper())
+
+    def test_the_chapter_8_exception_is_the_owners_and_only_for_that_run(self):
+        project = read(self.P / "project.json")
+        exc = project["variety_exception"]
+        self.assertEqual((exc["chapter"], exc["max_run"], exc["decided_by"]), ("C8", 8, "Tran Nam Anh (channel owner)"))
+        from pipeline import chapters as CH
+        self.assertEqual(CH.MAX_SAME_KIND_RUN, 4)   # the film-wide limit is unchanged
+        rows = {r["check"]: r for r in read(self.P / "qa/longform_qa.json")["results"]}
+        self.assertEqual(rows["visual_variety"]["status"], "PASS")
+        self.assertIn("owner exception", rows["visual_variety"]["detail"])
 
     def test_an_internal_film_assembled_from_its_chapters_is_never_named_final(self):
         """g-r9: `final-assemble` on an internal preset once wrote ..._FINAL_720p_INTERNAL_REVIEW.mp4 and a FINAL silent

@@ -1,0 +1,100 @@
+{
+  "preset": "final_4k",
+  "file": "output/gothic_cathedral_heights_FINAL_4K_2160p.mp4",
+  "codec": "h264",
+  "width": 3840,
+  "height": 2160,
+  "pix_fmt": "yuv420p",
+  "fps": "24/1",
+  "frames": 22162,
+  "duration": 923.416667,
+  "color": {
+    "profile": "High",
+    "level": 51,
+    "color_range": "tv",
+    "color_space": "bt709",
+    "color_transfer": "bt709",
+    "color_primaries": "bt709"
+  },
+  "decode_errors": 0,
+  "black_segments": 0,
+  "chapter_intermediates": [
+    "output/chapters_final_4k/gothic_cathedral_heights_C1_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C2_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C3_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C4_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C5_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C6_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C7_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C8_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C9_silent.mp4",
+    "output/chapters_final_4k/gothic_cathedral_heights_C10_silent.mp4"
+  ],
+  "chapter_boundaries": [
+    {
+      "cut": "C1->C2",
+      "frame": 1251,
+      "mode": "hard",
+      "ssim": 0.80096,
+      "ok": true
+    },
+    {
+      "cut": "C2->C3",
+      "frame": 3120,
+      "mode": "hard",
+      "ssim": 0.91635,
+      "ok": true
+    },
+    {
+      "cut": "C3->C4",
+      "frame": 5675,
+      "mode": "hard",
+      "ssim": 0.88562,
+      "ok": true
+    },
+    {
+      "cut": "C4->C5",
+      "frame": 7686,
+      "mode": "hard",
+      "ssim": 0.90185,
+      "ok": true
+    },
+    {
+      "cut": "C5->C6",
+      "frame": 10139,
+      "mode": "hard",
+      "ssim": 0.15655,
+      "ok": true
+    },
+    {
+      "cut": "C6->C7",
+      "frame": 11669,
+      "mode": "hard",
+      "ssim": 0.95422,
+      "ok": true
+    },
+    {
+      "cut": "C7->C8",
+      "frame": 14003,
+      "mode": "hard",
+      "ssim": 0.49818,
+      "ok": true
+    },
+    {
+      "cut": "C8->C9",
+      "frame": 18193,
+      "mode": "hard",
+      "ssim": 0.81211,
+      "ok": true
+    },
+    {
+      "cut": "C9->C10",
+      "frame": 20446,
+      "mode": "hard",
+      "ssim": 0.88873,
+      "ok": true
+    }
+  ],
+  "expected_total_frames": 22162,
+  "problems": []
+}

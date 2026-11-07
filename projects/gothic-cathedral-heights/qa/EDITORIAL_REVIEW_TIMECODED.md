@@ -4,6 +4,18 @@
 - **Cách xem:** 308 ảnh tách mỗi 3 giây, rồi frame gốc 1280×720 ở những chỗ có nghi vấn. Các mốc dưới đây lấy từ bảng shot và frame gốc, vì ảnh tách bằng `fps=1/3` lệch khoảng 1,5 giây.
 - **Giới hạn:** agent không nghe được audio. Mọi nhận xét về nhịp đọc và phát âm chỉ suy ra từ timing và kết quả ASR. Chưa có ảnh thật nào trong phim.
 
+## Cập nhật g-r9 (2026-11-07): bản `G_R9_INTERNAL_REVIEW_720p`
+
+- **Đã xem:** khung hình trích từ chính MP4 ghép tại các đoạn đổi ở g-r8 và g-r9 (B09, B21, B22, B25, B29 và các điểm cắt quanh chúng), và chứng cứ review của chủ kênh về C2–C7 (`qa/codex_gr8_review_20261107/`). **Chưa xem liên tục toàn phim ở tốc độ thật**, không nghe audio.
+- **Lỗi tìm thấy và đã sửa ở vòng này:**
+  - 00:08–00:23 của C6 (≈7:10 trong phim): ảnh phần trên dàn hợp xướng (dựng lại từ 1231) đi cùng lời về Suger 1140–1144. Đã đổi sang ảnh ambulatory còn lại từ thời Suger, thêm chú thích về phần dựng lại sau. Nguồn Atlas du patrimoine de la Seine-Saint-Denis, claim CLM_165.
+  - C6 ≈00:19: chấm "Every vault ribbed" nằm trên mảng đá; nay "Vault rib" chấm đúng gân và gân sáng dọc chiều dài.
+  - C7/B29 (9:19): toàn mô hình với zoom nhẹ; nay cận một trụ chống bay và trụ chống của nó, phần còn lại mờ đi.
+  - C3/B09 (2:42) và C7/B25 (8:06): chờ hình quá lâu; nay dây treo và thao tác compa bắt đầu từ những giây đầu.
+  - Lệnh `final-assemble` từng đặt tên FINAL cho bản nội bộ; đã sửa và có test.
+- **Chương 8:** 8 shot ảnh hoặc bản vẽ liền nhau. Chủ kênh chấp nhận ngoại lệ này ngày 2026-11-07 (`project.json` → `variety_exception`); ngưỡng chung 4 giữ nguyên.
+- **Giới hạn đã biết:** ảnh Durham (1273 px) và ambulatory (2160 px) sẽ mềm khi phủ kín khung 4K.
+
 ## Lỗi tìm thấy và đã sửa
 
 | Mốc | Vấn đề | Vì sao quan trọng | Cách sửa | Ảnh hưởng | Render lại |

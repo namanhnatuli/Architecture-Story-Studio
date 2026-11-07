@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "note": "Speech-only overrides (pipeline/pronunciation.py). The written word stays unchanged in narration, subtitles, citations and metadata. All PENDING_LISTENING_REVIEW: only the owner can confirm them, and an ASR pass proves nothing about pronunciation.",
+  "note": "Speech-only overrides (pipeline/pronunciation.py). The written word stays unchanged in narration, subtitles, citations and metadata. Confirmed by the owner on 2026-11-07 (see review/OWNER_APPROVALS.json); an ASR pass proves nothing about pronunciation.",
   "entries": [
     {
       "id": "PRON_BEAUVAIS",
@@ -17,9 +17,11 @@
         "beauvay",
         "beauvet"
       ],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md",
-      "without_override": "bˈOvIz ('BOH-vize'; Whisper heard 'Bovis')"
+      "without_override": "bˈOvIz ('BOH-vize'; Whisper heard 'Bovis')",
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-07"
     },
     {
       "id": "PRON_AMIENS",
@@ -35,9 +37,11 @@
         "amian",
         "amiens'"
       ],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md",
-      "without_override": "ˈɑmiən ('AH-mee-en')"
+      "without_override": "ˈɑmiən ('AH-mee-en')",
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-07"
     },
     {
       "id": "PRON_SUGER",
@@ -54,9 +58,11 @@
         "suzhair",
         "sugere"
       ],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md",
-      "without_override": "sˈuɡəɹ ('SOO-gur')"
+      "without_override": "sˈuɡəɹ ('SOO-gur')",
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-07"
     },
     {
       "id": "PRON_CLUNY",
@@ -71,9 +77,11 @@
         "clooney",
         "cloony"
       ],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md",
-      "without_override": "klˈʌni ('KLUH-nee')"
+      "without_override": "klˈʌni ('KLUH-nee')",
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-07"
     },
     {
       "id": "PRON_NOTRE_DAME",
@@ -89,9 +97,11 @@
         "dame",
         "notredame"
       ],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md",
-      "without_override": "nˈɑTəɹdˈAm (the American 'Noter Dame')"
+      "without_override": "nˈɑTəɹdˈAm (the American 'Noter Dame')",
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-07"
     },
     {
       "id": "PRON_VIOLLET",
@@ -110,9 +120,11 @@
         "luh",
         "duke"
       ],
-      "status": "PENDING_LISTENING_REVIEW",
+      "status": "CONFIRMED",
       "evidence": "review/PRONUNCIATION_REVIEW.md",
-      "without_override": "vˈIəlɪtlədˈʌk ('VY-ə-lit luh DUCK')"
+      "without_override": "vˈIəlɪtlədˈʌk ('VY-ə-lit luh DUCK')",
+      "confirmed_by": "Tran Nam Anh (channel owner)",
+      "confirmed_on": "2026-11-07"
     }
   ]
 }

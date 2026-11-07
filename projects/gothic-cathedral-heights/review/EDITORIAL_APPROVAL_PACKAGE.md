@@ -1,6 +1,6 @@
 # Gói duyệt biên tập: "How Gothic Cathedrals Reached Impossible Heights" (narration `g-r3`)
 
-> **Đang chờ duyệt.** Agent soạn gói này nhưng không tự duyệt claim, giọng hay phát âm. Tới khi chủ kênh duyệt, mọi bản dựng mang nhãn INTERNAL REVIEW.
+> **Đã duyệt claim:** Tran Nam Anh (channel owner) duyệt 54 claim được lời dẫn dùng, ngày 2026-11-07, cho narration `g-r3` (`research/editorial_approval.json`). Agent chỉ ghi lại quyết định. Phát âm và quyền giọng cho phim vẫn là các bước duyệt riêng; tới khi đủ, mọi bản dựng mang nhãn INTERNAL REVIEW.
 
 ## Cần chủ kênh quyết định
 
@@ -9,7 +9,7 @@
 3. Ảnh lưu trữ: chọn ảnh, cách cắt viền phim, dòng ghi công (xem `review/RIGHTS_PROVENANCE.md`).
 4. Nhãn 'Illustrative model' trên các mô hình 3D (B05, B07, B12, B13, B16, B17, B29).
 5. Phát âm các tên mới (narration.voice.pronunciation_review.terms).
-6. Giọng: quyền dùng `am_michael` cho phim này (licence LICENSE_REVIEW_REQUIRED, owner_confirmation_for_this_film = PENDING).
+6. Giọng: duyệt `am_michael` hiện có (Tran Nam Anh (channel owner), 2026-11-07; theo dự án) vẫn áp dụng cho revision này: xác nhận lại hoặc rút.
 
 Cách ghi quyết định (agent chỉ ghi lại lời chủ kênh; xem `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` bước 23): `research/editorial_approval.json` (id claim, `claims_text_sha256`, `narration_revision` của revision này), rồi chạy `research/build_sources.py`; `project.json` → `factual_review: verified`; `narration.voice.pronunciation_review` (`ACCEPTED_BY_OWNER` hoặc `CONFIRMED`, gắn với hash audio); `review/OWNER_APPROVALS.json`.
 

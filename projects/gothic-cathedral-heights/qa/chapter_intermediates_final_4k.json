@@ -1,0 +1,663 @@
+{
+  "preset": "final_4k",
+  "chapters": {
+    "C1": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C1_silent.mp4",
+      "sha256": "81339a85f87ebe68b2a0381aafc39cebf732688b1f7da417c72d3a4061e2dce9",
+      "frames": 1251,
+      "shot_keys": {
+        "SC_001": "78491c9fbae2836d330ba385a8b58e85b9cfa9edafed34f9fe056c71803a2c68",
+        "SC_002": "ed3612c62262dfa0befacb8dd98d813a6e1d5f09372d84ea711ccda1f3597f15",
+        "SC_003": "c2f953c742e63b68d6582bbfa4004e3df9c207fda25930357cdaf7a726da9d43"
+      },
+      "media": {
+        "chapter": "C1",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C1_silent.mp4",
+        "shots": [
+          "SC_001",
+          "SC_002",
+          "SC_003"
+        ],
+        "expected_frames": 1251,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1251,
+          "duration": 52.125,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_001->SC_002",
+            "mode": "hard",
+            "ssim": 0.35381,
+            "ok": true
+          },
+          {
+            "cut": "SC_002->SC_003",
+            "mode": "hard",
+            "ssim": 0.50372,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T06:39:08.307715+00:00",
+      "free_gb_after_encode": 87.0,
+      "png_bytes_released": 4556432885
+    },
+    "C2": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C2_silent.mp4",
+      "sha256": "304c6af733729604bc494cf1635b0e29acb10b71366307c67c8b7125391d66b3",
+      "frames": 1869,
+      "shot_keys": {
+        "SC_004": "07eba0e81ab750b8f299cef3bae5bb50c60433398aa6e95564c51592b86f6847",
+        "SC_005": "609396b8b81063257d317ade09bca1d78f53a171a3fedc078b3a181c0e982fc4",
+        "SC_006": "6af9c32e2c26fd5fa7e6274b996af0bbe0da7adaef2c5f90dd96152ec7aec8dd",
+        "SC_007": "11227a4819ee7200849abef479a036aad9f771f836bd0fc3f586ee2041a6f29d"
+      },
+      "media": {
+        "chapter": "C2",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C2_silent.mp4",
+        "shots": [
+          "SC_004",
+          "SC_005",
+          "SC_006",
+          "SC_007"
+        ],
+        "expected_frames": 1869,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1869,
+          "duration": 77.875,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_004->SC_005",
+            "mode": "hard",
+            "ssim": 0.93879,
+            "ok": true
+          },
+          {
+            "cut": "SC_005->SC_006",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_006->SC_007",
+            "mode": "hard",
+            "ssim": 0.84749,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T06:51:37.236588+00:00",
+      "free_gb_after_encode": 89.3,
+      "png_bytes_released": 2144860457
+    },
+    "C3": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C3_silent.mp4",
+      "sha256": "617fb28281bb54fdcb7c28e217c5237af811c64ab6e92f56f25fd0abf5509988",
+      "frames": 2555,
+      "shot_keys": {
+        "SC_008": "fbba724708bf496f3025961ea2f1990cc904d02d23e2af6aa32c9ded9f993630",
+        "SC_009": "962ae727d4d8f744659543097f3e5837bd7c5a12d6dd3a10d8ccf3ab14db5d37",
+        "SC_010": "1f942c23b126baf6ff5327bcb5e9d64ae16f8358c3b8b66904bcd9bc003f4d46",
+        "SC_011": "5f561f949a5948adf4a12fbaacb0e507fd0b6c4bdf91138a2c0cdf75aca1d5d0"
+      },
+      "media": {
+        "chapter": "C3",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C3_silent.mp4",
+        "shots": [
+          "SC_008",
+          "SC_009",
+          "SC_010",
+          "SC_011"
+        ],
+        "expected_frames": 2555,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2555,
+          "duration": 106.458333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_008->SC_009",
+            "mode": "hard",
+            "ssim": 0.95971,
+            "ok": true
+          },
+          {
+            "cut": "SC_009->SC_010",
+            "mode": "hard",
+            "ssim": 0.94589,
+            "ok": true
+          },
+          {
+            "cut": "SC_010->SC_011",
+            "mode": "hard",
+            "ssim": 0.96796,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T06:58:16.300388+00:00",
+      "free_gb_after_encode": 89.2,
+      "png_bytes_released": 2225009296
+    },
+    "C4": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C4_silent.mp4",
+      "sha256": "0c2e871dcf180de03b3efdbcc828bce8b66f688d42d3d4171c7b1967a0ef5041",
+      "frames": 2011,
+      "shot_keys": {
+        "SC_012": "29b955e3863a5054e7b46e71b2d15294c80abaf7f042c347be2ef3c111c958bc",
+        "SC_013": "07105f1e0b8f0c59a552beae3e9d65a27f0b15b427e4f72ffe6bea6fdffbf3b6",
+        "SC_014": "39d4ff5fca161325d4b900838542cf5ccfa889031fc71b9b34a26966312f0c84",
+        "SC_015": "af53318fd3652fd0596f51bb104ff544dc71b904ff7fbad201ed84dd178cb3d4"
+      },
+      "media": {
+        "chapter": "C4",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C4_silent.mp4",
+        "shots": [
+          "SC_012",
+          "SC_013",
+          "SC_014",
+          "SC_015"
+        ],
+        "expected_frames": 2011,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2011,
+          "duration": 83.791667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_012->SC_013",
+            "mode": "match",
+            "ssim": 0.99999,
+            "ok": true
+          },
+          {
+            "cut": "SC_013->SC_014",
+            "mode": "hard",
+            "ssim": 0.41604,
+            "ok": true
+          },
+          {
+            "cut": "SC_014->SC_015",
+            "mode": "hard",
+            "ssim": 0.4508,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T07:21:49.468283+00:00",
+      "free_gb_after_encode": 86.7,
+      "png_bytes_released": 4619919424
+    },
+    "C5": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C5_silent.mp4",
+      "sha256": "86cd772083f58bdd2013684c4dd846abd2363b723f0311b0a15d45aff766f74e",
+      "frames": 2453,
+      "shot_keys": {
+        "SC_016": "9f7eeddbf133a2ef18622b2d95d850c0205b01c062affe64e293b8fea722f60e",
+        "SC_017": "976b682168c78d403f4d37203352347e7c680eada4911d3a10bd5df99b7f0b33",
+        "SC_018": "bb8b1d1b8433fdac9c43aa92732cace8237b9d703f9fc15ba041a56be8647104",
+        "SC_019": "350ab5860c4fd32c67802fcf658b13ab31a26e08414288a30d4dea6c1085cd2e",
+        "SC_020": "6ad2ac770c9feae3b80dcfcf6fd5d74c965dd82d30a888950a0088fd6d000012"
+      },
+      "media": {
+        "chapter": "C5",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C5_silent.mp4",
+        "shots": [
+          "SC_016",
+          "SC_017",
+          "SC_018",
+          "SC_019",
+          "SC_020"
+        ],
+        "expected_frames": 2453,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2453,
+          "duration": 102.208333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_016->SC_017",
+            "mode": "match",
+            "ssim": 1.0,
+            "ok": true
+          },
+          {
+            "cut": "SC_017->SC_018",
+            "mode": "hard",
+            "ssim": 0.87101,
+            "ok": true
+          },
+          {
+            "cut": "SC_018->SC_019",
+            "mode": "hard",
+            "ssim": 0.94513,
+            "ok": true
+          },
+          {
+            "cut": "SC_019->SC_020",
+            "mode": "hard",
+            "ssim": 0.29714,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T07:39:25.757655+00:00",
+      "free_gb_after_encode": 86.7,
+      "png_bytes_released": 4505218069
+    },
+    "C6": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C6_silent.mp4",
+      "sha256": "c178e306f0c039dd56a4f1adb019f13347e89e956ca5df8abfec7be76aeac631",
+      "frames": 1530,
+      "shot_keys": {
+        "SC_021": "038f40fee0fd232af2a9fc4bc7cd89cdc6a1a17e2d58a227420c079eff690c5e",
+        "SC_022": "27879ef2f6b6c28ce09b2041078df682b2beb51b5b5fbcf875e73f8cd7e31399",
+        "SC_023": "a1eb09945288cce6d978741cda2c192a51390117e13cc437f2c590512b05a17c",
+        "SC_024": "59a7a4e41ca329dc1509affdf543e2450d5bbb920b472dea8c4b2aa0a77b0455"
+      },
+      "media": {
+        "chapter": "C6",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C6_silent.mp4",
+        "shots": [
+          "SC_021",
+          "SC_022",
+          "SC_023",
+          "SC_024"
+        ],
+        "expected_frames": 1530,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1530,
+          "duration": 63.75,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_021->SC_022",
+            "mode": "hard",
+            "ssim": 0.95746,
+            "ok": true
+          },
+          {
+            "cut": "SC_022->SC_023",
+            "mode": "hard",
+            "ssim": 0.02595,
+            "ok": true
+          },
+          {
+            "cut": "SC_023->SC_024",
+            "mode": "hard",
+            "ssim": 0.04379,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T07:47:45.847737+00:00",
+      "free_gb_after_encode": 85.6,
+      "png_bytes_released": 5479746489
+    },
+    "C7": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C7_silent.mp4",
+      "sha256": "78a972800a6a0a0afe2e34f069c9680351afa271ced12d191acf5b154ebf7824",
+      "frames": 2334,
+      "shot_keys": {
+        "SC_025": "2bae0ac2a44cdedf378c8daf9a8dd3560a15293c91936bfa0b3d67c03dddff25",
+        "SC_026": "52d8eab82c8f4cd7b67b4e07cfd99ad87da59e1969755164399f439ee157f156",
+        "SC_027": "d1c16272c957bb8468793917907d2c9a5c36424bbec81f8728dfe26a368a0a1d",
+        "SC_028": "d3f9f5b1f785bac9b203bcecebfc790b329e2f60071ee6b5b86687d322a1ce04",
+        "SC_029": "f29105d429b30aa5b413ee52c113e3fe657a6d4e30d68557f5c7b62626bcea8b",
+        "SC_030": "d2e15dc7948a6e53d8747fe572f926839fe7db1a6e06acd3ce907af96076b876"
+      },
+      "media": {
+        "chapter": "C7",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C7_silent.mp4",
+        "shots": [
+          "SC_025",
+          "SC_026",
+          "SC_027",
+          "SC_028",
+          "SC_029",
+          "SC_030"
+        ],
+        "expected_frames": 2334,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2334,
+          "duration": 97.25,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_025->SC_026",
+            "mode": "hard",
+            "ssim": 0.96841,
+            "ok": true
+          },
+          {
+            "cut": "SC_026->SC_027",
+            "mode": "hard",
+            "ssim": 0.96053,
+            "ok": true
+          },
+          {
+            "cut": "SC_027->SC_028",
+            "mode": "hard",
+            "ssim": 0.96006,
+            "ok": true
+          },
+          {
+            "cut": "SC_028->SC_029",
+            "mode": "hard",
+            "ssim": 0.90022,
+            "ok": true
+          },
+          {
+            "cut": "SC_029->SC_030",
+            "mode": "hard",
+            "ssim": 0.91968,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T07:57:10.877597+00:00",
+      "free_gb_after_encode": 87.7,
+      "png_bytes_released": 4278143796
+    },
+    "C8": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C8_silent.mp4",
+      "sha256": "eaf1be5f082d849b39798e0bdfeb4234b92fa6f8694374fc497a9ada928883b8",
+      "frames": 4190,
+      "shot_keys": {
+        "SC_031": "fac2cfe7cbe6fb9b3669a41b24b5c2c197111af5affeaddf27c8b49a17f4666a",
+        "SC_032": "97e70a7f8e27b02b997cac2e6e40adc31347ca517f773e951524ffb88e632b10",
+        "SC_033": "ab27d2d8fa177e70ccdcf511de0114b62229d781ddcb0e3a0315522238bc390e",
+        "SC_034": "381c268c859c6ed38b1082d0c6264f5bc86e8364d6d575a038584d054021db98",
+        "SC_035": "f07c26273e989d6f51bbc7e86ddd7cf8997ba6bb4d730e2aab34a00196a3ddfa",
+        "SC_036": "f90888f45285a0802800e9173ba7842de376476319dc25c130b24b7e0dcc422a",
+        "SC_037": "3324daa2fd3bb55ea591cc319403b571f31f9997811b8cfa17b05ad13e20a23a",
+        "SC_038": "e2edc2d6fa7b183f87ab4e4610784874006d6593e6269ee55f6627467bb1de53"
+      },
+      "media": {
+        "chapter": "C8",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C8_silent.mp4",
+        "shots": [
+          "SC_031",
+          "SC_032",
+          "SC_033",
+          "SC_034",
+          "SC_035",
+          "SC_036",
+          "SC_037",
+          "SC_038"
+        ],
+        "expected_frames": 4190,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 4190,
+          "duration": 174.583333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_031->SC_032",
+            "mode": "hard",
+            "ssim": 0.1033,
+            "ok": true
+          },
+          {
+            "cut": "SC_032->SC_033",
+            "mode": "hard",
+            "ssim": 0.33863,
+            "ok": true
+          },
+          {
+            "cut": "SC_033->SC_034",
+            "mode": "hard",
+            "ssim": 0.36022,
+            "ok": true
+          },
+          {
+            "cut": "SC_034->SC_035",
+            "mode": "hard",
+            "ssim": 0.71,
+            "ok": true
+          },
+          {
+            "cut": "SC_035->SC_036",
+            "mode": "hard",
+            "ssim": 0.77333,
+            "ok": true
+          },
+          {
+            "cut": "SC_036->SC_037",
+            "mode": "hard",
+            "ssim": 0.57756,
+            "ok": true
+          },
+          {
+            "cut": "SC_037->SC_038",
+            "mode": "hard",
+            "ssim": 0.43208,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T08:15:51.496968+00:00",
+      "free_gb_after_encode": 81.8,
+      "png_bytes_released": 10024835631
+    },
+    "C9": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C9_silent.mp4",
+      "sha256": "751a74c606584c277fe5a52dd2cb1cf1d79059867fc211b0de5aa755619c999d",
+      "frames": 2253,
+      "shot_keys": {
+        "SC_039": "2966a8abd15292dbe2ac8a02fc8ceb85d756aa72389c94f61dbee0cdd182b4be",
+        "SC_040": "38df285f71715bdb32af5df2b39021b6fd0b5d1b4fd43090b06b789776872224",
+        "SC_041": "4c632a9b2088245309f7dd90f9fa785f1e531760d45a0e1a1953a58299484867"
+      },
+      "media": {
+        "chapter": "C9",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C9_silent.mp4",
+        "shots": [
+          "SC_039",
+          "SC_040",
+          "SC_041"
+        ],
+        "expected_frames": 2253,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2253,
+          "duration": 93.875,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_039->SC_040",
+            "mode": "hard",
+            "ssim": 0.89219,
+            "ok": true
+          },
+          {
+            "cut": "SC_040->SC_041",
+            "mode": "hard",
+            "ssim": 0.92123,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T09:20:30.154708+00:00",
+      "free_gb_after_encode": 87.8,
+      "png_bytes_released": 3743045906
+    },
+    "C10": {
+      "file": "output/chapters_final_4k/gothic_cathedral_heights_C10_silent.mp4",
+      "sha256": "13c6631e95d47e792a78b03c880c2a83f3feee03d1472e682f2931ac0664cf20",
+      "frames": 1716,
+      "shot_keys": {
+        "SC_042": "bd118b3e87ed5b8ee08760220b69edb90d1342006a14be5dd366ed79a0d81637",
+        "SC_043": "1417711266103b21e9f16c0bba7ee0864ac6c4798be9178b346cca17a34cb5eb",
+        "SC_044": "42f3efe8b9d94dab34e5a34d761f3cd6ecedb902371f3e4e276f2e10085eaac9",
+        "SC_045": "2f41061f24f52af92858c56bf1b59d70669651aa56c43754b8566b649ba5e8e2",
+        "SC_046": "820c2557a7cb8b3faa5814428d27d2eaa3565bc545de7af1238db97c97b3f533"
+      },
+      "media": {
+        "chapter": "C10",
+        "video": "output/chapters_final_4k/gothic_cathedral_heights_C10_silent.mp4",
+        "shots": [
+          "SC_042",
+          "SC_043",
+          "SC_044",
+          "SC_045",
+          "SC_046"
+        ],
+        "expected_frames": 1716,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1716,
+          "duration": 71.5,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_042->SC_043",
+            "mode": "hard",
+            "ssim": 0.9082,
+            "ok": true
+          },
+          {
+            "cut": "SC_043->SC_044",
+            "mode": "hard",
+            "ssim": 0.90251,
+            "ok": true
+          },
+          {
+            "cut": "SC_044->SC_045",
+            "mode": "hard",
+            "ssim": 0.90858,
+            "ok": true
+          },
+          {
+            "cut": "SC_045->SC_046",
+            "mode": "hard",
+            "ssim": 0.92786,
+            "ok": true
+          }
+        ],
+        "problems": []
+      },
+      "encoded_utc": "2026-11-07T10:27:10.899506+00:00",
+      "free_gb_after_encode": 87.6,
+      "png_bytes_released": 3694577785
+    }
+  }
+}

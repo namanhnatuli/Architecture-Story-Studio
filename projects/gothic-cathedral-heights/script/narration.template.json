@@ -22,7 +22,7 @@
       "lang_code": "a"
     },
     "license": {
-      "status": "LICENSE_REVIEW_REQUIRED",
+      "status": "APPROVED",
       "rights_class": "PUBLICATION_CLEARED",
       "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
       "components": [
@@ -52,15 +52,23 @@
           "evidence": "model card; unresolved, audit section 5"
         }
       ],
-      "permitted_use": "internal review only until the owner approves am_michael for this project (config/tts_providers.json clearance.voice_approvals lists why-bridges-look-different only)",
+      "permitted_use": "Public YouTube release of gothic-cathedral-heights (monetization included), under the owner's am_michael voice approval in config/tts_providers.json; disclose AI-generated narration.",
       "reviewed_on": "2026-11-05",
       "reviewed_by": "agent technical check: same pinned model revision and voice hash as the audited am_michael (not legal advice)",
-      "owner_confirmation_for_this_film": "PENDING",
-      "decision": "PENDING: the owner's 2026-10-30 approval of am_michael covers why-bridges-look-different only; a new approval for this project is on review/FINAL_APPROVAL_CHECKLIST.md"
+      "owner_confirmation_for_this_film": "CONFIRMED",
+      "decision": "APPROVED by the channel owner on 2026-11-07 for this documentary (voice am_michael, Kokoro-82M @ f3ff3571); the terms of the 2026-10-30 approval apply (Apache-2.0 weights, code and voice file; GPL G2P fallback local only; training-data open points audit §5).",
+      "approved_by": "Tran Nam Anh (channel owner)",
+      "approved_on": "2026-11-07",
+      "basis": "config/tts_providers.json providers.kokoro.clearance.voice_approvals (am_michael, gothic-cathedral-heights)",
+      "owner_confirmation": {
+        "by": "Tran Nam Anh (channel owner)",
+        "on": "2026-11-07",
+        "evidence": "in-session instruction 'tôi duyệt bản này để render bản final 4k' (2026-11-07), after review/REVIEW_G_R9.md and the 15:23 720p internal review; the owner then selected, from the agent's list of items, claims, voice and pronunciation, images/credits/AI disclosure, and the closing call to action with the chapter 8 exception"
+      }
     },
     "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
     "pronunciation_review": {
-      "status": "PENDING",
+      "status": "ACCEPTED_BY_OWNER",
       "terms": [
         "Gothic",
         "Romanesque",
@@ -83,7 +91,11 @@
         "centering"
       ],
       "note": "French names are spoken by an American English voice. Six speech-only overrides in script/pronunciation.json (Beauvais, Amiens, Suger, Cluny, Notre-Dame, Viollet-le-Duc), all PENDING_LISTENING_REVIEW. Not reviewed yet.",
-      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance"
+      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance",
+      "accepted_by": "Tran Nam Anh (channel owner)",
+      "accepted_on": "2026-11-07",
+      "audio_revision": "70d882d6d3ea1409f9857b27901e41e1b1af031b0aea4e907806093708435f30",
+      "basis": "in-session instruction 'tôi duyệt bản này để render bản final 4k' (2026-11-07), after review/REVIEW_G_R9.md and the 15:23 720p internal review; the owner then selected, from the agent's list of items, claims, voice and pronunciation, images/credits/AI disclosure, and the closing call to action with the chapter 8 exception. The six speech-only overrides are recorded as confirmed by the owner (script/pronunciation.json). The agent did not listen."
     }
   },
   "pacing": {

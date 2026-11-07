@@ -1,0 +1,108 @@
+{
+  "schema": "owner_approvals/1",
+  "project": "gothic-cathedral-heights",
+  "owner": "Tran Nam Anh (channel owner)",
+  "recorded_by": "agent (records the owner's decision; approves nothing itself)",
+  "decisions": [
+    {
+      "id": "APP-CLAIMS",
+      "subject": "54 claims used by the narration (incl. CLM_165 added in g-r9)",
+      "scope": "gothic-cathedral-heights",
+      "source_revision": {
+        "narration_revision": "g-r3",
+        "narration_sha256": "70d882d6d3ea1409f9857b27901e41e1b1af031b0aea4e907806093708435f30",
+        "record": "research/editorial_approval.json (claims_text_sha256)"
+      },
+      "decision": "EDITORIALLY_APPROVED",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent",
+      "applicable_publication": "public YouTube release",
+      "conditions": "claim texts and narration unchanged",
+      "invalidation": "changed claim text or narration revision"
+    },
+    {
+      "id": "APP-VOICE",
+      "subject": "Kokoro-82M @ f3ff3571, voice am_michael, for this film",
+      "scope": "gothic-cathedral-heights",
+      "source_revision": {
+        "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37"
+      },
+      "decision": "APPROVED for public YouTube release incl. potential monetization",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent",
+      "applicable_publication": "public YouTube release",
+      "conditions": "disclose AI-generated narration; third-party licences unchanged (Apache-2.0; GPL fallback local only)",
+      "invalidation": "different voice hash, model revision or project",
+      "records": [
+        "config/tts_providers.json providers.kokoro.clearance.voice_approvals",
+        "script/narration.json voice.license (APPROVED, owner_confirmation_for_this_film CONFIRMED)"
+      ]
+    },
+    {
+      "id": "APP-PRONUNCIATION",
+      "subject": "the 19 terms of review/PRONUNCIATION_REVIEW.md and the 6 speech-only overrides in script/pronunciation.json",
+      "scope": "current audio revision",
+      "source_revision": {
+        "narration_sha256": "70d882d6d3ea1409f9857b27901e41e1b1af031b0aea4e907806093708435f30"
+      },
+      "decision": "ACCEPTED_BY_OWNER; the six overrides CONFIRMED by the owner (the option offered read 'Giọng am_michael + phát âm: duyệt giọng cho dự án này và 6 mục phát âm (bạn đã nghe)'; the agent did not listen and records no listening session of its own)",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent",
+      "applicable_publication": "public YouTube release",
+      "conditions": "audio unchanged",
+      "invalidation": "any narration audio change (narration hash)",
+      "records": [
+        "script/narration.json voice.pronunciation_review",
+        "script/pronunciation.json"
+      ]
+    },
+    {
+      "id": "APP-IMAGES",
+      "subject": "the 13 photographs and drawings, their on-screen credits and the licence records",
+      "scope": "review/RIGHTS_PROVENANCE.md, assets/manifest.json",
+      "decision": "APPROVED by the owner; the agent's earlier 'approved' status had meant only that the agent verified each licence from the source record",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent",
+      "conditions": "files and records unchanged (sha256 in assets/manifest.json); attribution kept on screen and in the description",
+      "invalidation": "any change of an image, its licence record or its credit"
+    },
+    {
+      "id": "APP-DISCLOSURE",
+      "subject": "AI-generated narration stated in the description",
+      "scope": "review/YOUTUBE_DESCRIPTION.md",
+      "decision": "APPROVED",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent"
+    },
+    {
+      "id": "APP-CTA",
+      "subject": "the closing call to action (suggest topics, like, subscribe; self-drawn icons, no platform logos)",
+      "scope": "C10 / B45",
+      "decision": "APPROVED",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent"
+    },
+    {
+      "id": "DEC-C8-VARIETY",
+      "subject": "8 consecutive photograph/drawing shots in chapter 8 (B31-B38)",
+      "scope": "qa/longform_qa.json visual_variety",
+      "decision": "ACCEPTED as an exception by the owner; the film-wide limit of 4 is unchanged; recorded as project.json variety_exception",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent"
+    },
+    {
+      "id": "REQ-PUBLICATION-EVALUATION",
+      "subject": "publication readiness",
+      "decision": "owner asked for the final 4K render; production_profile set to PUBLICATION_CANDIDATE with publication_metadata. Not an upload: the Studio never publishes.",
+      "date": "2026-11-07",
+      "evidence": "owner instruction in session, 2026-11-07: 'tôi duyệt bản này để render bản final 4k', then the selection of all four item groups offered by the agent"
+    },
+    {
+      "id": "NOTE-REVIEW-SCOPE",
+      "subject": "what the owner did not state",
+      "decision": "The 3 registry claims the film does not narrate stay SOURCE_VERIFIED and are not approved on the owner's behalf. The owner did not state a separate listening session; none is recorded, and the agent did not listen.",
+      "date": "2026-11-07"
+    }
+  ],
+  "recorded_by_note": "the agent records the owner's words; it approves nothing itself"
+}

@@ -209,6 +209,50 @@ python3 tools/cli.py gates $P --preset final_4k
 ## 26. Đóng gói
 `output/<slug>_FINAL_4K_2160p.mp4` + `.en.srt` + WAV master + `.sha256`; cập nhật PROJECT_STATUS, CHANGELOG và docs; commit trên nhánh riêng. **Không upload, không merge, không push.**
 
+## 27. Kinh nghiệm từ phim Gothic (g-r1 tới g-r9, bản final 4K, 2026-11-05 tới 2026-11-07)
+Rút ra từ một phim 15 phút, 46 shot, chín vòng review. Đây là cách làm, không phải nội dung; không chép claim hay id beat.
+
+### Nhịp làm việc với chủ kênh
+- **Mỗi vòng một bản `review/REVIEW_G_Rn.md`:** bảng "góp ý → đã làm", mục Kiểm tra và mục Còn lại/Cần quyết. Giữ hướng hình đã được khen, sửa cục bộ; không làm lại cả chương khi chủ kênh nói "giữ hướng".
+- **Thứ tự sửa:** làm trọn một chương mẫu cho tới khi chủ kênh hài lòng, rồi mới áp phương pháp sang chương khác. Đừng thêm hiệu ứng vào đoạn chủ kênh đã bảo là rõ.
+- **Đổi mã shot thì sinh lại manifest chương** (`chapters --preset internal_720p`) và báo cáo (`tools/longform_reports.py`) ở mỗi vòng. Chủ kênh đã gặp manifest còn mã shot cũ.
+- **Việc cần quyết của chủ kênh:** hỏi bằng câu hỏi có lựa chọn, mỗi lựa chọn nêu đúng điều nó ghi vào hồ sơ. Chỉ ghi các mục được chọn. Câu "duyệt bản này" chưa phải duyệt từng mục.
+- **Ngoại lệ của một ngưỡng** (ví dụ một chuỗi dài cùng loại hình) là quyết định của chủ kênh, ghi ở `project.json` (`variety_exception`, như `runtime_decision`), hiện trong báo cáo QA. Ngưỡng chung không đổi. Không tự miễn một kiểm tra.
+- **Không bao giờ có file tên FINAL trước khi duyệt.** `final-assemble` từng đặt tên FINAL cho bản nội bộ; một test của dự án bắt được. Bản nội bộ lấy tên theo `review_label`.
+
+### Hình phải khớp lời, niên đại và nguồn
+- **Ảnh phải cho thấy đúng giai đoạn lời đang kể.** "today" chưa đủ nếu công trình đã được dựng lại; chọn ảnh phần còn lại từ giai đoạn đó, hoặc chú thích phần dựng lại, và chú thích giữ qua chuyển cảnh. Khẳng định về phần nào còn lại phải có nguồn và claim riêng.
+- **Nhãn chỉ bộ phận phải chấm đúng bộ phận.** Soi khung 1:1 sau khi render, ở từng nhãn. Nếu cần, vẽ sáng ngắn dọc bộ phận khi nó được gọi tên.
+- **Hình giải thích một phép biến đổi thì vẽ chính phép đó** (xoay 90°, lật dây xích, compa quay từ chân vòm lên đỉnh), theo đúng từ trong lời, thay vì card chữ hay mô hình đứng yên. Chữ chỉ cho tên, con số, trích dẫn ngắn và giới hạn của minh họa.
+- **Không để khung chờ lâu:** tên người và câu trích không nên chiếm cả chục giây khi hình đã có thể bắt đầu. Cho hình xuất hiện từ những giây đầu, giữ thao tác chính đúng từ trong lời.
+- **Cận cảnh thật sự:** "close on X" nghĩa là camera tới X, làm mờ phần còn lại (SEQUENCE), sáng bộ phận theo lời; không phải toàn mô hình với zoom nhẹ.
+- **Cái nguồn không nói thì không vẽ.** Mọi dấu vẽ lên ảnh hay sơ đồ ghi "schematic"; một nghiên cứu không phải phán quyết; không dựng lại vụ sập.
+
+### Kiểm tra: máy bắt một phần, mắt bắt phần còn lại
+- **Xem video thật, không chỉ ảnh tĩnh.** Trích khung từ MP4 ghép quanh mọi lần đổi ảnh và điểm cắt. Hai lỗi chỉ thấy ở video: card mở bằng nền trống, và đổi ảnh để lộ một khung trống.
+- **QA Blender cũng có lỗi.** Khi một kiểm tra báo sai đáng ngờ, tìm nguyên nhân trước khi sửa hình (tia kiểm tra nhãn từng đi theo hướng camera lúc dựng shot, không theo hướng thật).
+- **Planner từ chối là có lý do:** vệt sáng quá ngắn, phần tử biến mất trước khi hiện đủ. Sửa nhịp, không nới ngưỡng.
+- **Đổi bố cục stage:** tọa độ phải trong 0..1; muốn rộng hơn thì thu cả bố cục về giữa card theo một tỉ lệ, camera stage bù lại, nét vẽ trên stage thu theo.
+- **Chạy toàn bộ test sau mỗi vòng.** Hai lần test bắt lỗi quy trình mà QA hình không thấy (tên file FINAL; trạng thái duyệt).
+
+### Nguồn và ảnh
+- **Kiểm nguyên văn** mọi trích dẫn nguồn (`research/build_sources.py`); nguồn tiếng Pháp trích bằng tiếng Pháp, claim nêu nghĩa tiếng Anh. Nguồn mới thêm vào build, kèm bản chụp và SHA256 ở `research/source_snapshots.json` (thư mục chụp không vào git).
+- **Ảnh:** Wikimedia Commons qua API (`extmetadata`); ưu tiên public domain, CC0, CC BY; tránh CC BY-SA; tải chậm khi gặp HTTP 429; không lách qua bản sao. Lấy bản gốc lớn nhất có thể (bản vẽ 600 px phải thay bằng bản quét lớn, đối chiếu tự động bằng tương quan FFT để dấu vẽ giữ nguyên chỗ).
+- **Hồ sơ ảnh đầy đủ** ở `assets/manifest.json`. `status: approved` ban đầu chỉ nghĩa agent đã kiểm giấy phép; chủ kênh duyệt ảnh và ghi công là một bước riêng ở `OWNER_APPROVALS.json`.
+- Ảnh lưu 2560 px ở cạnh dài để không làm nặng git. Ảnh nguồn nhỏ (dưới khoảng 2000 px) sẽ mềm ở 4K khi phủ kín khung: biết trước và ghi vào báo cáo.
+
+### Render
+- **Một Blender tại một lúc;** không sửa `engine/*.py` và không chạy test gọi Blender khi đang render.
+- Tốc độ tham khảo (Mac Apple Silicon, EEVEE): 3D ở 4K khoảng 2,2 giây mỗi frame; card 2D rẻ hơn nhiều. Benchmark một shot 3D trước khi chạy cả phim; `caffeinate -is` cho chuỗi dài.
+- **Thứ tự cuối:** `final-gate` → `chapter --preset final_4k --release-frames` từng chương → `final-assemble` → `gates --preset final_4k` → dọn file render thử và review cũ (mục 28).
+
+## 28. Dọn dẹp sau bản final
+- **Chỉ dọn sau khi** bản final được kiểm (gates, media QA) và checksum đã ghi.
+- **Xóa:** thư mục render thử và review cũ không còn dùng (PNG và shot 720p, bản ghép g-r cũ, đoạn thử, preview card), file trung gian 4K đã được thay bằng bản ghép cuối nếu chủ kênh không cần.
+- **Giữ:** bản final 4K + `.en.srt` + WAV master + `.sha256`; bản review nội bộ 720p mới nhất đã được duyệt (một file); `review/`, `qa/*.json`, `research/`, `script/`, `assets/` (trong git).
+- **Sau khi ghi duyệt, trước `gates` cuối:** `sources.json` đã đổi nên chạy lại `plan-visuals` → `build-shots` → `chapters --preset final_4k` (chỉ đổi `evidence_status` và hash; không render lại). Nếu không, GV báo kế hoạch cũ và GL báo QA cũ.
+- Không xóa trong git; không động tới dự án khác. Ghi những gì đã xóa và dung lượng vào `docs/production/CLEANUP_REPORT.md`.
+
 ## Làm tiếp sau khi dừng
 1. `python3 tools/episode.py status --project <slug>`.
 2. Đọc `NEXT:`: AGENT thì làm theo mục tương ứng ở trên; CLI thì chạy lệnh; OWNER thì dừng và trình gói review.

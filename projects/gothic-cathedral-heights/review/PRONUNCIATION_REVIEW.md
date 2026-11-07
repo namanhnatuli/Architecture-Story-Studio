@@ -1,6 +1,6 @@
 # Nghe lại phát âm: How Gothic Cathedrals Reached Impossible Heights (narration `g-r3`)
 
-Trạng thái: **PENDING**. Agent không xác nhận phát âm. Chủ kênh nghe các đoạn dưới đây rồi ghi `narration.voice.pronunciation_review.status: CONFIRMED` (kèm `confirmed_by`, `confirmed_on`), hoặc ghi chữ cần đọc khác.
+Trạng thái: **ACCEPTED_BY_OWNER**. Agent không xác nhận phát âm. Chủ kênh nghe các đoạn dưới đây rồi ghi `narration.voice.pronunciation_review.status: CONFIRMED` (kèm `confirmed_by`, `confirmed_on`), hoặc ghi chữ cần đọc khác.
 
 | Thuật ngữ | Câu | Mốc trong phim | File audio | Âm vị Kokoro (cả câu) | ASR nghe thấy từ này? |
 |---|---|---|---|---|---|

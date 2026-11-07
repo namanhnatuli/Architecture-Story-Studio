@@ -58,3 +58,28 @@ Xem `README.md` trong thư mục lưu trữ. Tóm tắt:
 3. chuyển lại về fixture trước khi chạy test.
 
 Muốn lấy lại toàn bộ lịch sử: `git clone <bundle>`.
+
+---
+
+# Dọn sau bản final 4K: `gothic-cathedral-heights` (2026-11-07)
+
+Làm sau khi `gates --preset final_4k` đạt (PUBLICATION_READY), `episode.py status` COMPLETE. Chuyển sang thư mục tạm, chạy lại gates, rồi mới xoá. Không có file nào trong git bị xoá (các thư mục này chỉ có `.gitkeep`).
+
+**Giữ trong `output/`:** bản final 4K (`…_FINAL_4K_2160p.mp4`, `.en.srt`, `.sha256`), `audio_master_final_4k.wav`, `narration_master_clean_final_4k.wav`, bản review nội bộ 720p đã duyệt (`…G_R9_INTERNAL_REVIEW_720p.mp4/.en.srt/.sha256`), `chapters_final_4k/` (trung gian 4K theo chương, cần để ghép lại và để cổng cache đạt).
+
+| Đã xoá | Dung lượng |
+|---|---|
+| `renders/internal_720p/` (khung PNG và cache 720p) | 5,5 GB |
+| `output/chapters_internal_720p/` | 211 MB |
+| `output/…FINAL_4K_2160p_video.mp4` (file video trung gian, đã thay bằng bản ghép cuối) | 398 MB |
+| `output/…G_R9_INTERNAL_REVIEW_720p_video.mp4`, WAV master 720p (2 file) | 180 MB |
+| bản review cũ: `G_R3_INTERNAL_REVIEW_720p` (mp4, srt), `preview_internal_720p.mp4`, `narration_preview_g-r3.m4a` | 63 MB |
+| `output/pilot/`, `shots/`, `shots_internal_720p/`, `shots_final_4k/` (shot thử), `card_previews_g-r3/` | 54 MB |
+| `qa/codex_*` của các vòng cũ: pilot, g-r5, g-r6, video, g-r8 (không theo dõi bởi git) | 47 MB |
+| **Tổng** | **khoảng 6,5 GB** |
+
+Giữ lại `qa/codex_gr9_review_20261107` (review mới nhất của chủ kênh) và mọi hồ sơ trong git (`review/`, `qa/*.json`, `research/`, `script/`, `assets/`).
+
+**Việc cần làm khi chạy lại gates sau khi xoá:** `render_cache_current` của preset 720p không còn (đã dự kiến, chỉ là WARN cho preset nội bộ); preset `final_4k` vẫn đạt.
+
+**Gặp khi hoàn tất:** sau khi duyệt, `sources.json` đổi nên `visual_plan.json` và `storyboard.json` cũ (hash nguồn). Chạy `plan-visuals`, `build-shots` (chỉ đổi `evidence_status` và hash, không đổi shot), rồi `chapters --preset final_4k` để QA dài khớp timing mới trước khi `gates`. Không cần render lại.

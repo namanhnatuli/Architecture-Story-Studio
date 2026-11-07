@@ -5,8 +5,8 @@
   "language": "en",
   "fps": 24,
   "render_preset": "review",
-  "factual_review": "pending",
-  "production_profile": "NARRATED_INTERNAL_REVIEW",
+  "factual_review": "verified",
+  "production_profile": "PUBLICATION_CANDIDATE",
   "chapters": "script/chapters.json",
   "review_label": "G_R9_INTERNAL_REVIEW",
   "runtime_decision": {
@@ -19,5 +19,23 @@
     "basis": "owner request of 2026-11-05: 'Hãy tạo một documentary tiếng Anh dài 10–18 phút với chủ đề \"How Gothic Cathedrals Reached Impossible Heights\"'"
   },
   "audio_timing_locked": true,
-  "duration_seconds": 923.4166666666666
+  "duration_seconds": 923.4166666666666,
+  "variety_exception": {
+    "check": "visual_variety",
+    "chapter": "C8",
+    "max_run": 8,
+    "decided_by": "Tran Nam Anh (channel owner)",
+    "decided_on": "2026-11-07",
+    "basis": "owner selection 'Lời kêu gọi cuối + chương 8' (2026-11-07), which the agent's question defined as accepting the 8 consecutive photo/drawing shots of chapter 8 (B31-B38); the film-wide limit of 4 is unchanged for every other run"
+  },
+  "factual_review_basis": "the owner approved the 54 narrated claims on 2026-11-07 ('tôi duyệt bản này để render bản final 4k', claims selected); research/editorial_approval.json, bound to narration g-r3 (hash 70d882d6…); the 3 registry claims the film does not narrate stay SOURCE_VERIFIED",
+  "publication_metadata": {
+    "title": "How Gothic Cathedrals Reached Impossible Heights",
+    "description": "review/YOUTUBE_DESCRIPTION.md",
+    "language": "en",
+    "credits": "review/RIGHTS_PROVENANCE.md; on screen: a credit line on every photograph and drawing",
+    "disclosure": "Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael) - in the description",
+    "approvals": "review/OWNER_APPROVALS.json",
+    "summary": "In 1284 part of the highest stone vaults of the Middle Ages fell at Beauvais; others from the same age still stand. This documentary explains how Gothic builders raised stone so high: the pointed arch, the rib vault, the flying buttress, walls of light, and geometry in place of calculation, and where the limit lay."
+  }
 }

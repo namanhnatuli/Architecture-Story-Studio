@@ -100,11 +100,11 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 - PASS `audio_no_overlap`: no two beats' speech overlaps
 - PASS `narration_silences`: longest gap 1.23s (limit 4.0s), after the last line 0.82s
 - PASS `no_static_stretches`: longest stretch without a visual change 13.5s at 148.8s (limit 14.0s)
-- FAIL `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4); 3D_HOLD 1, 3D_PUSH_IN 2, 3D_SEQUENCE 8, DIAGRAM 17, PHOTO 16, TITLE 2
+- PASS `visual_variety`: longest run of one visual kind: 8 x PHOTO (limit 4; owner exception to 8 for C8, Tran Nam Anh (channel owner), 2026-11-07); 3D_HOLD 1, 3D_PUSH_IN 2, 3D_SEQUENCE 8, DIAGRAM 17, PHOTO 16, TITLE 2
 - PASS `no_repeated_visuals`: no two consecutive shots show the same picture
 - PASS `chapter_openings`: chapters 2-10 open with a numbered title on their first shot
 - PASS `annotations_consistent`: narration/visual consistency: no contradiction; 3 UNCERTAIN for the reviewer (B26.s1 SIDE, B35.s4 SIDE, B44.s0 ARROWS); every annotation placed
-- PASS `render_cache_current`: all 46 shots rendered at internal_720p with current cache keys
+- WARN `render_cache_current`: 46/46 shots not rendered or stale at internal_720p: SC_001, SC_002, SC_003, SC_004, SC_005, SC_006
 - WARN `chapter_variety`: C1, C3, C8
 - PASS `image_licences`: 13 external images, all approved with matching files
 - PASS `image_attribution`: every external image is credited (credit card or description)

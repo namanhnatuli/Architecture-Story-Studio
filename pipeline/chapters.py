@@ -349,9 +349,16 @@ def longform_qa(p, preset="review"):
         run = run + 1 if a == b else 1
         if run > best:
             best, at = run, b
-    row("visual_variety", best <= MAX_SAME_KIND_RUN,
-        f"longest run of one visual kind: {best} x {at} (limit {MAX_SAME_KIND_RUN}); "
-        + ", ".join(f"{k} {kinds.count(k)}" for k in sorted(set(kinds))))
+    # g-r9: the film-wide limit stays; one run may be accepted by the owner, on the record in project.json
+    # (`variety_exception`: max_run, chapter, decided_by, decided_on, basis), as `runtime_decision` does for the runtime
+    exc = (_read(p / "project.json") or {}).get("variety_exception") or {}
+    limit = MAX_SAME_KIND_RUN
+    if exc.get("max_run") and exc.get("decided_by") and exc.get("decided_on") and exc.get("basis"):
+        limit = max(limit, int(exc["max_run"]))
+    row("visual_variety", best <= limit,
+        f"longest run of one visual kind: {best} x {at} (limit {MAX_SAME_KIND_RUN}"
+        + (f"; owner exception to {limit} for {exc.get('chapter')}, {exc['decided_by']}, {exc['decided_on']}" if limit != MAX_SAME_KIND_RUN else "")
+        + "); " + ", ".join(f"{k} {kinds.count(k)}" for k in sorted(set(kinds))))
     def signature(sh):
         return (sh.get("visual_type"), sh.get("transition"), sh.get("from_state"), sh.get("to_state"), sh.get("camera"),
                 json.dumps((sh.get("animation") or {}).get("camera_move"), sort_keys=True),

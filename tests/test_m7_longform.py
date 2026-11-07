@@ -187,7 +187,7 @@ class RuntimeAndEvidenceTest(unittest.TestCase):
         clearance = registry["providers"]["kokoro"]["clearance"]
         self.assertNotIn("am_michael", clearance["voices_cleared"])   # not a channel-wide clearance
         approval = next(a for a in clearance["voice_approvals"] if a["voice"] == "am_michael")
-        self.assertEqual(approval["projects"], ["why-bridges-look-different"])
+        self.assertEqual(approval["projects"], ["why-bridges-look-different", "gothic-cathedral-heights"])   # owner, 2026-11-07
         self.assertEqual(approval["voice_sha256"], registry["providers"]["kokoro"]["voices"]["am_michael"])
         sources = read(FILM / "research/sources.json")
         self.assertEqual(nar.validate(n, sources, registry, project_id="why-bridges-look-different"), [])

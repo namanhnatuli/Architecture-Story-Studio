@@ -183,3 +183,13 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
   - `status: approved` ở đó chỉ nghĩa là agent đã kiểm giấy phép theo hồ sơ nguồn. Việc chủ kênh duyệt ảnh và ghi công vẫn là một mục riêng trong checklist duyệt cuối, agent không đánh dấu.
 - **Dấu vẽ lên ảnh hay bản vẽ** (vùng, mũi tên, tuyến) chỉ đặt ở nơi nguồn nói tới, và ghi "schematic". Khi nguồn chỉ tả một tuyến ("dọc lòng chính, giằng trụ giao cánh"), vẽ đúng tuyến đó, không tự thêm hình dạng.
 - **Duyệt theo chương:** khi cách làm hình thay đổi, render và giao từng chương đã làm lại (`chapter --chapter Cn --preset internal_720p`). Chỉ render lại cả phim khi chủ kênh đã duyệt các chương.
+
+## Bổ sung 2026-11-07 (phim Gothic, g-r9 và bản final 4K): kinh nghiệm chung
+- **Chi tiết đầy đủ ở `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` mục 27–28.** Điểm cần nhớ cho mọi phim sau:
+  - Mỗi vòng review có `review/REVIEW_<vòng>.md` (góp ý → đã làm → kiểm tra → cần quyết). Sửa cục bộ, giữ hướng; đổi mã shot thì sinh lại manifest chương và báo cáo.
+  - Ảnh phải khớp giai đoạn lời đang kể; "today" chưa đủ cho công trình đã được dựng lại. Nhãn chỉ bộ phận phải chấm đúng bộ phận (soi khung 1:1).
+  - Xem video thật bằng khung trích từ MP4 ghép. Một kiểm tra QA báo sai đáng ngờ thì tìm nguyên nhân trước (QA cũng có lỗi). Không nới ngưỡng.
+  - Chủ kênh quyết từng mục (claim, giọng và phát âm, ảnh và ghi công và công bố, lời kêu gọi). Chỉ ghi các mục được chọn. Ngoại lệ của một ngưỡng là quyết định của chủ kênh, ghi ở `project.json` (`variety_exception`); không tự miễn.
+  - Không có file tên FINAL trước khi duyệt; `final-assemble` ở preset nội bộ đặt tên theo `review_label`.
+  - Render: một Blender, không sửa engine hay chạy test gọi Blender khi đang render; benchmark 4K trước (3D khoảng 2,2 giây mỗi frame).
+  - Sau bản final: dọn file render thử và review cũ theo mục 28, giữ bản final, bản review đã duyệt và mọi hồ sơ trong git.
