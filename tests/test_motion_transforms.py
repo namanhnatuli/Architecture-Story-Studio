@@ -43,6 +43,11 @@ class TransformStepsTest(unittest.TestCase):
         self.assertAlmostEqual(at(p, "a", motion.LOC, 5.0)[2], 0.5, places=6)       # then moved with the group
         self.assertLess(at(p, "a", motion.LOC, 0.5)[2], -1.9)                       # came from below
 
+    def test_a_reveal_composed_with_a_move_still_marks_its_landing(self):
+        p = run([{"do": "REVEAL", "components": ["a"], "start_seconds": 1.0, "seconds": 1.0, "direction": "FROM_ABOVE", "distance": 2.0},
+                 {"do": "MOVE", "components": ["a", "b"], "start_seconds": 3.0, "seconds": 1.0, "offset": [0.0, 0.0, 0.5]}])
+        self.assertEqual(p.markers["reveal_0_landed"], p.frame(2.0))   # the Blender QA checks the landing at this marker
+
     def test_overlapping_motions_on_one_part_are_refused(self):
         with self.assertRaises(motion.PlanError):
             run([{"do": "MOVE", "components": ["a"], "start_seconds": 1.0, "seconds": 2.0, "offset": [0, 0, 1]},

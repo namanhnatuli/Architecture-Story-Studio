@@ -1,0 +1,129 @@
+{
+  "schema_version": 3,
+  "generated_by": "planner",
+  "planner_version": "1.0.0",
+  "building_type": "mixed",
+  "contexts": {
+    "floating": {
+      "building_type": "bridge",
+      "base": {
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/sites/site_bay_01.json"
+      },
+      "shared_components": [
+        "seabed",
+        "water"
+      ]
+    },
+    "district": {
+      "building_type": "bridge",
+      "base": {
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/sites/site_bay_district_01.json"
+      },
+      "shared_components": [
+        "seabed",
+        "shore",
+        "water"
+      ]
+    },
+    "floating_section": {
+      "building_type": "bridge",
+      "base": {
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/sites/site_bay_section_platform_a.json"
+      },
+      "shared_components": [
+        "seabed",
+        "water",
+        "water_cut",
+        "waterline"
+      ]
+    },
+    "open_sea": {
+      "building_type": "bridge",
+      "base": {
+        "builder": "architecture_asset",
+        "asset": "asset_library/architecture/sites/site_open_sea_01.json"
+      },
+      "shared_components": [
+        "seabed",
+        "water"
+      ]
+    }
+  },
+  "base": {
+    "builder": "architecture_asset",
+    "asset": "asset_library/architecture/sites/site_bay_01.json"
+  },
+  "shared_components": [
+    "seabed",
+    "water"
+  ],
+  "variants": [
+    {
+      "id": "floating_district",
+      "name": "Floating district (Design C)",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_district_01.json",
+      "context": "district"
+    },
+    {
+      "id": "clay_boat",
+      "name": "Solid block and hollow box of the same concrete",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_clay_boat_01.json",
+      "context": "floating_section"
+    },
+    {
+      "id": "floating_platform_section",
+      "name": "Floating platform, section through the middle",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_platform_a_section_01.json",
+      "context": "floating_section"
+    },
+    {
+      "id": "floating_platform_story",
+      "name": "Floating platform with a 100 t test load and four neighbours",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_platform_a_story_01.json",
+      "context": "floating"
+    },
+    {
+      "id": "floating_pair",
+      "name": "Two platforms with different loads",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_pair_b_01.json",
+      "context": "floating"
+    },
+    {
+      "id": "neighbourhood_both_moorings",
+      "name": "Neighbourhood with piles and mooring lines",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_neighbourhood_both_01.json",
+      "context": "floating"
+    },
+    {
+      "id": "floating_district_offshore",
+      "name": "The district at open sea (counterfactual)",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_district_offshore_01.json",
+      "context": "open_sea"
+    },
+    {
+      "id": "semi_submersible_module",
+      "name": "Semi-submersible module (schematic)",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_semi_sub_01.json",
+      "context": "floating"
+    },
+    {
+      "id": "floating_platform",
+      "name": "Floating platform (concrete pontoon with homes)",
+      "builder": "architecture_asset",
+      "asset": "asset_library/architecture/floating/floating_platform_a_01.json",
+      "context": "floating"
+    }
+  ],
+  "transitions": []
+}

@@ -1,0 +1,467 @@
+{
+  "blender": "5.2.2 LTS",
+  "preset": "internal_720p",
+  "summary": {
+    "passed": 76,
+    "failed": 0,
+    "total": 76
+  },
+  "results": [
+    {
+      "shot": "SC_008",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "52 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_008",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "87 animated objects x 150 frames, max error 3.66e-06"
+    },
+    {
+      "shot": "SC_008",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "9 objects (8 shared) unchanged on 150 frames"
+    },
+    {
+      "shot": "SC_008",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0 (16 push-in overlay objects excepted)"
+    },
+    {
+      "shot": "SC_008",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_008",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_008",
+      "check": "sequence_arrivals_land",
+      "status": "PASS",
+      "detail": "0 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+    },
+    {
+      "shot": "SC_008",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "35 visible parts as expected"
+    },
+    {
+      "shot": "SC_008",
+      "check": "sequence_views_framed",
+      "status": "PASS",
+      "detail": "2 views: camera exactly on each fit when settled, focus parts inside the frame (min margin 0.070)"
+    },
+    {
+      "shot": "SC_008",
+      "check": "overlays_screen_fixed",
+      "status": "PASS",
+      "detail": "15 annotation objects keep their frame position through 1 camera move(s) (max drift 1.5e-07)"
+    },
+    {
+      "shot": "SC_008",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.080 at floating_platform_section_hull_bottom@1; lowest point y=0.192 (label band 0.10); ortho_scale 53.245"
+    },
+    {
+      "shot": "SC_008",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "27 twins visible only mid-fade, never with their original or on frames 1/500"
+    },
+    {
+      "shot": "SC_008",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "step 1@134: 100% visible, 24.76% of frame; step 5@450: 100% visible, 15.15% of frame"
+    },
+    {
+      "shot": "SC_008",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 9.76e-09"
+    },
+    {
+      "shot": "SC_008",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "3 annotations, 15 objects"
+    },
+    {
+      "shot": "SC_008",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "2 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_008",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "3 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_008",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "3 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_009",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "52 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_009",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "77 animated objects x 73 frames, max error 3.00e-06"
+    },
+    {
+      "shot": "SC_009",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "8 objects (8 shared) unchanged on 73 frames"
+    },
+    {
+      "shot": "SC_009",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0 (16 push-in overlay objects excepted)"
+    },
+    {
+      "shot": "SC_009",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_009",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_009",
+      "check": "sequence_arrivals_land",
+      "status": "PASS",
+      "detail": "4 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+    },
+    {
+      "shot": "SC_009",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "40 visible parts as expected"
+    },
+    {
+      "shot": "SC_009",
+      "check": "sequence_views_framed",
+      "status": "PASS",
+      "detail": "2 views: camera exactly on each fit when settled, focus parts inside the frame (min margin 0.070)"
+    },
+    {
+      "shot": "SC_009",
+      "check": "overlays_screen_fixed",
+      "status": "PASS",
+      "detail": "15 annotation objects keep their frame position through 1 camera move(s) (max drift 1.2e-07)"
+    },
+    {
+      "shot": "SC_009",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.070 at floating_platform_section_hull_bottom@1; lowest point y=0.285 (label band 0.10); ortho_scale 46.512"
+    },
+    {
+      "shot": "SC_009",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "16 twins visible only mid-fade, never with their original or on frames 1/373"
+    },
+    {
+      "shot": "SC_009",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "step 3@269: 51% visible, 0.54% of frame"
+    },
+    {
+      "shot": "SC_009",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 5.41e-08"
+    },
+    {
+      "shot": "SC_009",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "3 annotations, 15 objects"
+    },
+    {
+      "shot": "SC_009",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "2 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_009",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "3 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_009",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "3 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_010",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "52 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_010",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "79 animated objects x 102 frames, max error 4.25e-06"
+    },
+    {
+      "shot": "SC_010",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "8 objects (8 shared) unchanged on 102 frames"
+    },
+    {
+      "shot": "SC_010",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0 (22 push-in overlay objects excepted)"
+    },
+    {
+      "shot": "SC_010",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_010",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_010",
+      "check": "sequence_arrivals_land",
+      "status": "PASS",
+      "detail": "0 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+    },
+    {
+      "shot": "SC_010",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "51 visible parts as expected"
+    },
+    {
+      "shot": "SC_010",
+      "check": "sequence_views_framed",
+      "status": "PASS",
+      "detail": "5 views: camera exactly on each fit when settled, focus parts inside the frame (min margin 0.060)"
+    },
+    {
+      "shot": "SC_010",
+      "check": "overlays_screen_fixed",
+      "status": "PASS",
+      "detail": "21 annotation objects keep their frame position through 4 camera move(s) (max drift 1.8e-07)"
+    },
+    {
+      "shot": "SC_010",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.120 at floating_platform_section_cut_bulkhead_x3@1; lowest point y=0.224 (label band 0.10); ortho_scale 14.605"
+    },
+    {
+      "shot": "SC_010",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "12 twins visible only mid-fade, never with their original or on frames 1/464"
+    },
+    {
+      "shot": "SC_010",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "step 4@180: 49% visible, 0.82% of frame; step 6@332: 82% visible, 0.88% of frame; step 7@410: 98% visible, 25.94% of frame"
+    },
+    {
+      "shot": "SC_010",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 1.12e-07"
+    },
+    {
+      "shot": "SC_010",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "4 annotations, 21 objects"
+    },
+    {
+      "shot": "SC_010",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "3 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_010",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_010",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "4 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "SC_011",
+      "check": "components_registered",
+      "status": "PASS",
+      "detail": "66 components, ownership + parenting OK"
+    },
+    {
+      "shot": "SC_011",
+      "check": "plan_matches_evaluated_keys",
+      "status": "PASS",
+      "detail": "106 animated objects x 97 frames, max error 1.08e-06"
+    },
+    {
+      "shot": "SC_011",
+      "check": "unanimated_parts_static",
+      "status": "PASS",
+      "detail": "2 objects (2 shared) unchanged on 97 frames"
+    },
+    {
+      "shot": "SC_011",
+      "check": "no_scale_change",
+      "status": "PASS",
+      "detail": "all world scales are 1.0"
+    },
+    {
+      "shot": "SC_011",
+      "check": "structure_clear_of_shared_at_rest",
+      "status": "PASS",
+      "detail": "0 member checks (roles ['rafters', 'ridge_beam']), no intersection with shared parts"
+    },
+    {
+      "shot": "SC_011",
+      "check": "covering_hides_structure",
+      "status": "PASS",
+      "detail": "0 gable-edge and wall-top samples, all under the covering"
+    },
+    {
+      "shot": "SC_011",
+      "check": "sequence_arrivals_land",
+      "status": "PASS",
+      "detail": "0 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+    },
+    {
+      "shot": "SC_011",
+      "check": "final_visibility",
+      "status": "PASS",
+      "detail": "36 visible parts as expected"
+    },
+    {
+      "shot": "SC_011",
+      "check": "sequence_views_framed",
+      "status": "PASS",
+      "detail": "1 views: camera exactly on each fit when settled, focus parts inside the frame (min margin 0.068)"
+    },
+    {
+      "shot": "SC_011",
+      "check": "camera_framing",
+      "status": "PASS",
+      "detail": "min margin 0.077 at floating_platform_story_block2_roof4@1; lowest point y=0.168 (label band 0.10); ortho_scale 56.422"
+    },
+    {
+      "shot": "SC_011",
+      "check": "fade_twins_exclusive",
+      "status": "PASS",
+      "detail": "30 twins visible only mid-fade, never with their original or on frames 1/521"
+    },
+    {
+      "shot": "SC_011",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "step 6@123: 99% visible, 0.73% of frame"
+    },
+    {
+      "shot": "SC_011",
+      "check": "framing_math_matches_blender",
+      "status": "PASS",
+      "detail": "max projection error 6.12e-08"
+    },
+    {
+      "shot": "SC_011",
+      "check": "annotation_objects",
+      "status": "PASS",
+      "detail": "3 annotations, 12 objects"
+    },
+    {
+      "shot": "SC_011",
+      "check": "annotation_anchors",
+      "status": "PASS",
+      "detail": "1 anchors attached to their own components; max projection error 0.0000"
+    },
+    {
+      "shot": "SC_011",
+      "check": "annotation_layout",
+      "status": "PASS",
+      "detail": "3 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+    },
+    {
+      "shot": "SC_011",
+      "check": "annotation_timing",
+      "status": "PASS",
+      "detail": "3 annotations hidden before/after and visible within their windows"
+    },
+    {
+      "shot": "ALL",
+      "check": "camera_identical_across_single_model_shots",
+      "status": "PASS",
+      "detail": "4 shots in 4 continuity group(s), one locked camera per group"
+    },
+    {
+      "shot": "SC_008",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 5ac52c55b27f2999"
+    },
+    {
+      "shot": "SC_009",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 7b2934fc0295f256"
+    },
+    {
+      "shot": "SC_010",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 ae01b1bd56f94e80"
+    },
+    {
+      "shot": "SC_011",
+      "check": "repeatable_build",
+      "status": "PASS",
+      "detail": "sha256 d8f19f8df443fe8e"
+    }
+  ]
+}

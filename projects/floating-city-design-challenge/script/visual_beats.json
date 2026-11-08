@@ -2623,7 +2623,7 @@
           "point": "BOTTOM",
           "text": "Floats ≈ 2.96 m deep",
           "sentence": 1,
-          "word": "deep",
+          "word": "floats",
           "until": 2
         },
         {
@@ -2718,13 +2718,6 @@
                 "concept": "platform_hull",
                 "local": [
                   "hull_wall_east"
-                ]
-              },
-              {
-                "concept": "building_block",
-                "local": [
-                  "block4_storey1",
-                  "block4_storey3"
                 ]
               },
               {
@@ -2924,13 +2917,6 @@
                 ]
               },
               {
-                "concept": "building_block",
-                "local": [
-                  "block4_storey1",
-                  "block4_storey3"
-                ]
-              },
-              {
                 "concept": "freeboard_marker"
               },
               {
@@ -2946,44 +2932,15 @@
           {
             "frame": [
               {
-                "concept": "platform_hull",
-                "local": [
-                  "hull_wall_east"
-                ]
-              },
-              {
                 "concept": "freeboard_marker"
               },
               {
                 "concept": "section_cut",
                 "local": [
                   "cut_wall_east",
-                  "cut_bulkhead_x3"
-                ]
-              },
-              {
-                "concept": "building_block",
-                "local": [
-                  "block4_storey1"
-                ]
-              },
-              {
-                "concept": "platform_hull",
-                "local": [
-                  "hull_ext_east"
-                ]
-              },
-              {
-                "concept": "section_cut",
-                "local": [
+                  "cut_bulkhead_x3",
                   "cut_ext_wall_east",
                   "cut_ext_bulkhead_x3"
-                ]
-              },
-              {
-                "concept": "bulkhead",
-                "local": [
-                  "hull_ext_bulkhead_x3"
                 ]
               }
             ],
@@ -2999,15 +2956,64 @@
             "frame": [
               {
                 "concept": "platform_hull",
+                "group": "hull"
+              },
+              {
+                "concept": "bulkhead",
+                "group": "bulkheads"
+              },
+              {
+                "concept": "deck"
+              },
+              {
+                "concept": "section_cut",
+                "group": "section_cut"
+              },
+              {
+                "concept": "section_cut",
+                "group": "hull_bottom_cut"
+              },
+              {
+                "concept": "platform_hull",
                 "local": [
-                  "hull_wall_east"
+                  "hull_ext_west",
+                  "hull_ext_east",
+                  "hull_ext_north"
                 ]
               },
               {
-                "concept": "building_block",
+                "concept": "bulkhead",
                 "local": [
-                  "block4_storey1",
-                  "block4_storey3"
+                  "hull_ext_bulkhead_x1",
+                  "hull_ext_bulkhead_x2",
+                  "hull_ext_bulkhead_x3"
+                ]
+              },
+              {
+                "concept": "section_cut",
+                "local": [
+                  "cut_ext_wall_west",
+                  "cut_ext_wall_east",
+                  "cut_ext_bulkhead_x1",
+                  "cut_ext_bulkhead_x2",
+                  "cut_ext_bulkhead_x3"
+                ]
+              }
+            ],
+            "margin": 0.06,
+            "at": {
+              "sentence": 1,
+              "word": "adds",
+              "offset": -0.8
+            },
+            "move_seconds": 1.6
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull",
+                "local": [
+                  "hull_wall_east"
                 ]
               },
               {
@@ -3025,9 +3031,73 @@
             "at": {
               "sentence": 2,
               "word": "brings",
-              "offset": -0.6
+              "offset": -0.8
             },
-            "move_seconds": 1.8
+            "move_seconds": 1.6
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull",
+                "group": "hull"
+              },
+              {
+                "concept": "bulkhead",
+                "group": "bulkheads"
+              },
+              {
+                "concept": "deck"
+              },
+              {
+                "concept": "section_cut",
+                "group": "section_cut"
+              },
+              {
+                "concept": "section_cut",
+                "group": "hull_bottom_cut"
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "block2_storey1",
+                  "block2_storey2",
+                  "block2_storey3",
+                  "block4_storey1",
+                  "block4_storey2",
+                  "block4_storey3"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "block2_roof2",
+                  "block2_roof3",
+                  "block4_roof2",
+                  "block4_roof3"
+                ]
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "block2_storey4",
+                  "block4_storey4"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "block2_roof4",
+                  "block4_roof4"
+                ]
+              }
+            ],
+            "margin": 0.07,
+            "at": {
+              "sentence": 3,
+              "word": "lighter",
+              "offset": -0.8
+            },
+            "move_seconds": 1.6
           }
         ],
         "steps": [

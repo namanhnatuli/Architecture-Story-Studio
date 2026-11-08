@@ -158,7 +158,8 @@ def bay(p):
     return comps
 
 
-FREEBOARD_MARKER_W, FREEBOARD_MARKER_H = 0.6, 2.0   # m; longer than any freeboard the story shows
+FREEBOARD_MARKER_W, FREEBOARD_MARKER_H = 1.0, 1.3   # m; longer than any freeboard the story shows (1.146 m), short
+                                                     # enough that the part above the water is most of it (glow QA)
 MARKER_Y = (-0.016, -0.006)                      # just behind the water's cut plate (CUT_Y), in front of the hull
 LOAD_DENSITY_T_M3, LOAD_HEIGHT_M = 2.4, 2.6
 

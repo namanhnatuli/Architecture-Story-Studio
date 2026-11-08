@@ -988,7 +988,8 @@ def _plan_transforms(plan, comp, moves, reveals, center, last):
             plan.key(comp.name, ROT, f, rot, frames[f])
         for st, sp, s, i, do in events:
             if f == min(last, plan.frame(sp)):
-                plan.markers[f"{do.lower()}_{i}_done"] = max(plan.markers.get(f"{do.lower()}_{i}_done", 0), f)
+                key = f"reveal_{i}_landed" if do == "REVEAL" else f"{do.lower()}_{i}_done"   # the name the QA reads
+                plan.markers[key] = max(plan.markers.get(key, 0), f)
 
 
 def plan_highlight_only(plan, cfg, defaults, names_for, where):

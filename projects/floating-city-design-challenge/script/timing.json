@@ -1,7 +1,7 @@
 {
   "schema": "timing/2",
   "mode": "PLANNED_AUDIO_LOCK",
-  "stage": "BEATS_LOCKED",
+  "stage": "SHOTS_SCHEDULED",
   "fps": 24,
   "pacing": {
     "sentence_pause_seconds": 0.4,
@@ -20,16 +20,25 @@
         {
           "index": 0,
           "text": "10,000 people, with homes, schools, a clinic, parks, and streets to walk along.",
-          "start": 0.0,
-          "end": 6.15
+          "start": 0.4,
+          "end": 6.55,
+          "rel_start": 0.0,
+          "rel_end": 6.15
         },
         {
           "index": 1,
           "text": "And not one of them is standing on land.",
-          "start": 6.55,
-          "end": 9.725
+          "start": 6.95,
+          "end": 10.125,
+          "rel_start": 6.55,
+          "rel_end": 9.725
         }
-      ]
+      ],
+      "shot": "SC_001",
+      "shots": [
+        "SC_001"
+      ],
+      "start_seconds": 0.4
     },
     {
       "id": "B02",
@@ -40,16 +49,25 @@
         {
           "index": 0,
           "text": "Could we design a city like this, one that floats, stays where we put it, and keeps working?",
-          "start": 0.0,
-          "end": 6.45
+          "start": 11.358333,
+          "end": 17.808333,
+          "rel_start": 0.0,
+          "rel_end": 6.45
         },
         {
           "index": 1,
           "text": "Let's treat it as a design problem, and solve it one step at a time.",
-          "start": 6.85,
-          "end": 11.975
+          "start": 18.208333,
+          "end": 23.333333,
+          "rel_start": 6.85,
+          "rel_end": 11.975
         }
-      ]
+      ],
+      "shot": "SC_002",
+      "shots": [
+        "SC_002"
+      ],
+      "start_seconds": 11.358333
     },
     {
       "id": "B03",
@@ -60,34 +78,49 @@
         {
           "index": 0,
           "text": "Floating neighborhoods are not science fiction.",
-          "start": 0.0,
-          "end": 3.175
+          "start": 24.566667,
+          "end": 27.741667,
+          "rel_start": 0.0,
+          "rel_end": 3.175
         },
         {
           "index": 1,
           "text": "In Amsterdam, a floating neighborhood called Schoonschip is home to 46 households, a little over 100 people.",
-          "start": 3.575,
-          "end": 12.6
+          "start": 28.141667,
+          "end": 37.166667,
+          "rel_start": 3.575,
+          "rel_end": 12.6
         },
         {
           "index": 2,
           "text": "Much larger designs exist on paper.",
-          "start": 13.0,
-          "end": 16.375
+          "start": 37.566667,
+          "end": 40.941667,
+          "rel_start": 13.0,
+          "rel_end": 16.375
         },
         {
           "index": 3,
           "text": "One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022,",
-          "start": 16.775,
-          "end": 24.25
+          "start": 41.341667,
+          "end": 48.816667,
+          "rel_start": 16.775,
+          "rel_end": 24.25
         },
         {
           "index": 4,
           "text": "and when we checked in November 2026, its architects still listed it as in design.",
-          "start": 24.65,
-          "end": 31.275
+          "start": 49.216667,
+          "end": 55.841667,
+          "rel_start": 24.65,
+          "rel_end": 31.275
         }
-      ]
+      ],
+      "shot": "SC_003",
+      "shots": [
+        "SC_003"
+      ],
+      "start_seconds": 24.566667
     },
     {
       "id": "B04",
@@ -98,16 +131,25 @@
         {
           "index": 0,
           "text": "So let's take our city apart,",
-          "start": 0.0,
-          "end": 2.425
+          "start": 57.066667,
+          "end": 59.491667,
+          "rel_start": 0.0,
+          "rel_end": 2.425
         },
         {
           "index": 1,
           "text": "and build it back, one problem at a time.",
-          "start": 2.825,
-          "end": 6.225
+          "start": 59.891667,
+          "end": 63.291667,
+          "rel_start": 2.825,
+          "rel_end": 6.225
         }
-      ]
+      ],
+      "shot": "SC_004",
+      "shots": [
+        "SC_004"
+      ],
+      "start_seconds": 57.066667
     },
     {
       "id": "B05",
@@ -118,28 +160,41 @@
         {
           "index": 0,
           "text": "Problem one: how does something this heavy float at all?",
-          "start": 0.0,
-          "end": 3.9
+          "start": 64.525,
+          "end": 68.425,
+          "rel_start": 0.0,
+          "rel_end": 3.9
         },
         {
           "index": 1,
           "text": "Take a block of concrete.",
-          "start": 4.3,
-          "end": 6.65
+          "start": 68.825,
+          "end": 71.175,
+          "rel_start": 4.3,
+          "rel_end": 6.65
         },
         {
           "index": 2,
           "text": "As a solid lump, it sinks: concrete is more than twice as dense as seawater.",
-          "start": 7.05,
-          "end": 12.9
+          "start": 71.575,
+          "end": 77.425,
+          "rel_start": 7.05,
+          "rel_end": 12.9
         },
         {
           "index": 3,
           "text": "Shape the same concrete into a hollow box, 40 meters on each side, and it floats.",
-          "start": 13.3,
-          "end": 19.575
+          "start": 77.825,
+          "end": 84.1,
+          "rel_start": 13.3,
+          "rel_end": 19.575
         }
-      ]
+      ],
+      "shot": "SC_005",
+      "shots": [
+        "SC_005"
+      ],
+      "start_seconds": 64.525
     },
     {
       "id": "B06",
@@ -150,16 +205,25 @@
         {
           "index": 0,
           "text": "It floats because it pushes water out of the way, and the water it pushes aside weighs as much as the platform.",
-          "start": 0.0,
-          "end": 7.625
+          "start": 85.316667,
+          "end": 92.941667,
+          "rel_start": 0.0,
+          "rel_end": 7.625
         },
         {
           "index": 1,
           "text": "Every ton we add needs roughly one more cubic meter of water pushed aside.",
-          "start": 8.025,
-          "end": 13.95
+          "start": 93.341667,
+          "end": 99.266667,
+          "rel_start": 8.025,
+          "rel_end": 13.95
         }
-      ]
+      ],
+      "shot": "SC_006",
+      "shots": [
+        "SC_006"
+      ],
+      "start_seconds": 85.316667
     },
     {
       "id": "B07",
@@ -170,28 +234,41 @@
         {
           "index": 0,
           "text": "Real floating homes work exactly this way.",
-          "start": 0.0,
-          "end": 3.525
+          "start": 100.483333,
+          "end": 104.008333,
+          "rel_start": 0.0,
+          "rel_end": 3.525
         },
         {
           "index": 1,
           "text": "The Schoonschip houses stand on concrete floats.",
-          "start": 3.925,
-          "end": 7.475
+          "start": 104.408333,
+          "end": 107.958333,
+          "rel_start": 3.925,
+          "rel_end": 7.475
         },
         {
           "index": 2,
           "text": "The heaviest weighs around 340 to 350 metric tons,",
-          "start": 7.875,
-          "end": 13.75
+          "start": 108.358333,
+          "end": 114.233333,
+          "rel_start": 7.875,
+          "rel_end": 13.75
         },
         {
           "index": 3,
           "text": "so it pushes aside roughly as many cubic meters of canal water: a cube about 7 meters on each side.",
-          "start": 14.15,
-          "end": 22.175
+          "start": 114.633333,
+          "end": 122.658333,
+          "rel_start": 14.15,
+          "rel_end": 22.175
         }
-      ]
+      ],
+      "shot": "SC_007",
+      "shots": [
+        "SC_007"
+      ],
+      "start_seconds": 100.483333
     },
     {
       "id": "B08",
@@ -202,22 +279,33 @@
         {
           "index": 0,
           "text": "Our first platform, in this illustrative design, carries four blocks of three-story homes.",
-          "start": 0.0,
-          "end": 6.35
+          "start": 123.858333,
+          "end": 130.208333,
+          "rel_start": 0.0,
+          "rel_end": 6.35
         },
         {
           "index": 1,
           "text": "Altogether it weighs about 4,800 tons, and floats about 3 meters deep.",
-          "start": 6.75,
-          "end": 13.45
+          "start": 130.608333,
+          "end": 137.308333,
+          "rel_start": 6.75,
+          "rel_end": 13.45
         },
         {
           "index": 2,
           "text": "And here's the surprise: more than half of that weight is the concrete hull itself.",
-          "start": 13.85,
-          "end": 19.625
+          "start": 137.708333,
+          "end": 143.483333,
+          "rel_start": 13.85,
+          "rel_end": 19.625
         }
-      ]
+      ],
+      "shot": "SC_008",
+      "shots": [
+        "SC_008"
+      ],
+      "start_seconds": 123.858333
     },
     {
       "id": "B09",
@@ -228,22 +316,33 @@
         {
           "index": 0,
           "text": "Now add a fourth story.",
-          "start": 0.0,
-          "end": 2.225
+          "start": 144.691667,
+          "end": 146.916667,
+          "rel_start": 0.0,
+          "rel_end": 2.225
         },
         {
           "index": 1,
           "text": "The platform settles about a third of a meter deeper,",
-          "start": 2.625,
-          "end": 6.625
+          "start": 147.316667,
+          "end": 151.316667,
+          "rel_start": 2.625,
+          "rel_end": 6.625
         },
         {
           "index": 2,
           "text": "and the freeboard, the part of the hull above the water, shrinks from about a meter to about 70 centimeters.",
-          "start": 7.025,
-          "end": 14.325
+          "start": 151.716667,
+          "end": 159.016667,
+          "rel_start": 7.025,
+          "rel_end": 14.325
         }
-      ]
+      ],
+      "shot": "SC_009",
+      "shots": [
+        "SC_009"
+      ],
+      "start_seconds": 144.691667
     },
     {
       "id": "B10",
@@ -254,28 +353,41 @@
         {
           "index": 0,
           "text": "One fix is to make the hull half a meter deeper.",
-          "start": 0.0,
-          "end": 4.05
+          "start": 160.233333,
+          "end": 164.283333,
+          "rel_start": 0.0,
+          "rel_end": 4.05
         },
         {
           "index": 1,
           "text": "That adds about 100 tons of concrete, 4% more,",
-          "start": 4.45,
-          "end": 9.425
+          "start": 164.683333,
+          "end": 169.658333,
+          "rel_start": 4.45,
+          "rel_end": 9.425
         },
         {
           "index": 2,
           "text": "and brings the freeboard back to about a meter and 15 centimeters.",
-          "start": 9.825,
-          "end": 14.775
+          "start": 170.058333,
+          "end": 175.008333,
+          "rel_start": 9.825,
+          "rel_end": 14.775
         },
         {
           "index": 3,
           "text": "Lighter buildings would be another way.",
-          "start": 15.175,
-          "end": 18.1
+          "start": 175.408333,
+          "end": 178.333333,
+          "rel_start": 15.175,
+          "rel_end": 18.1
         }
-      ]
+      ],
+      "shot": "SC_010",
+      "shots": [
+        "SC_010"
+      ],
+      "start_seconds": 160.233333
     },
     {
       "id": "B11",
@@ -286,28 +398,41 @@
         {
           "index": 0,
           "text": "Will it tip over?",
-          "start": 0.0,
-          "end": 1.9
+          "start": 179.566667,
+          "end": 181.466667,
+          "rel_start": 0.0,
+          "rel_end": 1.9
         },
         {
           "index": 1,
           "text": "Move 100 tons out toward the edge, and in this example the platform tilts by less than half a degree.",
-          "start": 2.3,
-          "end": 9.9
+          "start": 181.866667,
+          "end": 189.466667,
+          "rel_start": 2.3,
+          "rel_end": 9.9
         },
         {
           "index": 2,
           "text": "But a small tilt under a shifted load tells us very little about how it will move in waves.",
-          "start": 10.3,
-          "end": 17.025
+          "start": 189.866667,
+          "end": 196.591667,
+          "rel_start": 10.3,
+          "rel_end": 17.025
         },
         {
           "index": 3,
           "text": "Floating is only the first problem.",
-          "start": 17.425,
-          "end": 20.5
+          "start": 196.991667,
+          "end": 200.066667,
+          "rel_start": 17.425,
+          "rel_end": 20.5
         }
-      ]
+      ],
+      "shot": "SC_011",
+      "shots": [
+        "SC_011"
+      ],
+      "start_seconds": 179.566667
     },
     {
       "id": "B12",
@@ -318,22 +443,33 @@
         {
           "index": 0,
           "text": "Let's go back to the three-story version. A platform like this holds about 50 people.",
-          "start": 0.0,
-          "end": 6.225
+          "start": 201.275,
+          "end": 207.5,
+          "rel_start": 0.0,
+          "rel_end": 6.225
         },
         {
           "index": 1,
           "text": "For 10,000, we need a lot of them.",
-          "start": 6.625,
-          "end": 9.675
+          "start": 207.9,
+          "end": 210.95,
+          "rel_start": 6.625,
+          "rel_end": 9.675
         },
         {
           "index": 2,
           "text": "So why not simply join them all into one enormous slab?",
-          "start": 10.075,
-          "end": 14.175
+          "start": 211.35,
+          "end": 215.45,
+          "rel_start": 10.075,
+          "rel_end": 14.175
         }
-      ]
+      ],
+      "shot": "SC_012",
+      "shots": [
+        "SC_012"
+      ],
+      "start_seconds": 201.275
     },
     {
       "id": "B13",
@@ -344,34 +480,49 @@
         {
           "index": 0,
           "text": "Look at two identical platforms carrying different buildings, one with two stories and one with four.",
-          "start": 0.0,
-          "end": 7.05
+          "start": 216.65,
+          "end": 223.7,
+          "rel_start": 0.0,
+          "rel_end": 7.05
         },
         {
           "index": 1,
           "text": "Floating on their own, their decks would sit about 66 centimeters apart in height.",
-          "start": 7.45,
-          "end": 13.4
+          "start": 224.1,
+          "end": 230.05,
+          "rel_start": 7.45,
+          "rel_end": 13.4
         },
         {
           "index": 2,
           "text": "So different loads add a demand on whatever connects them.",
-          "start": 13.8,
-          "end": 18.225
+          "start": 230.45,
+          "end": 234.875,
+          "rel_start": 13.8,
+          "rel_end": 18.225
         },
         {
           "index": 3,
           "text": "In this design, the walkways between platforms are hinged, so they can follow the difference.",
-          "start": 18.625,
-          "end": 25.1
+          "start": 235.275,
+          "end": 241.75,
+          "rel_start": 18.625,
+          "rel_end": 25.1
         },
         {
           "index": 4,
           "text": "Adding ballast to even out the decks would be another option.",
-          "start": 25.5,
-          "end": 29.575
+          "start": 242.15,
+          "end": 246.225,
+          "rel_start": 25.5,
+          "rel_end": 29.575
         }
-      ]
+      ],
+      "shot": "SC_013",
+      "shots": [
+        "SC_013"
+      ],
+      "start_seconds": 216.65
     },
     {
       "id": "B14",
@@ -382,22 +533,33 @@
         {
           "index": 0,
           "text": "Connections are where engineers expect trouble.",
-          "start": 0.0,
-          "end": 3.475
+          "start": 247.441667,
+          "end": 250.916667,
+          "rel_start": 0.0,
+          "rel_end": 3.475
         },
         {
           "index": 1,
           "text": "A 2026 research agenda lists stress concentrations on connectors among the challenges of large floating developments.",
-          "start": 3.875,
-          "end": 13.125
+          "start": 251.316667,
+          "end": 260.566667,
+          "rel_start": 3.875,
+          "rel_end": 13.125
         },
         {
           "index": 2,
           "text": "One concept study links its modules flexibly, and spaces them far enough apart not to collide, because on flexible moorings they are expected to move sideways quite a lot.",
-          "start": 13.525,
-          "end": 26.125
+          "start": 260.966667,
+          "end": 273.566667,
+          "rel_start": 13.525,
+          "rel_end": 26.125
         }
-      ]
+      ],
+      "shot": "SC_014",
+      "shots": [
+        "SC_014"
+      ],
+      "start_seconds": 247.441667
     },
     {
       "id": "B15",
@@ -408,28 +570,41 @@
         {
           "index": 0,
           "text": "How many platforms would 10,000 people need?",
-          "start": 0.0,
-          "end": 3.675
+          "start": 274.775,
+          "end": 278.45,
+          "rel_start": 0.0,
+          "rel_end": 3.675
         },
         {
           "index": 1,
           "text": "Say each resident needs about 40 square meters of floor: thirty for their home, and ten for a share of schools, shops and services.",
-          "start": 4.075,
-          "end": 13.55
+          "start": 278.85,
+          "end": 288.325,
+          "rel_start": 4.075,
+          "rel_end": 13.55
         },
         {
           "index": 2,
           "text": "That's about thirty-three hectares of platform:",
-          "start": 13.95,
-          "end": 17.375
+          "start": 288.725,
+          "end": 292.15,
+          "rel_start": 13.95,
+          "rel_end": 17.375
         },
         {
           "index": 3,
           "text": "about 200 platforms like our first one, with hundreds of connections between them.",
-          "start": 17.775,
-          "end": 24.05
+          "start": 292.55,
+          "end": 298.825,
+          "rel_start": 17.775,
+          "rel_end": 24.05
         }
-      ]
+      ],
+      "shot": "SC_015",
+      "shots": [
+        "SC_015"
+      ],
+      "start_seconds": 274.775
     },
     {
       "id": "B16",
@@ -440,34 +615,49 @@
         {
           "index": 0,
           "text": "Bigger platforms mean fewer connections.",
-          "start": 0.0,
-          "end": 3.275
+          "start": 300.025,
+          "end": 303.3,
+          "rel_start": 0.0,
+          "rel_end": 3.275
         },
         {
           "index": 1,
           "text": "At 100 meters on a side, 34 would do,",
-          "start": 3.675,
-          "end": 8.0
+          "start": 303.7,
+          "end": 308.025,
+          "rel_start": 3.675,
+          "rel_end": 8.0
         },
         {
           "index": 2,
           "text": "but each would weigh about 30,000 tons, to build, launch and tow.",
-          "start": 8.4,
-          "end": 13.675
+          "start": 308.425,
+          "end": 313.7,
+          "rel_start": 8.4,
+          "rel_end": 13.675
         },
         {
           "index": 3,
           "text": "Even the Schoonschip floats were too big for the dry docks of traditional houseboat builders, and were cast on the quay instead.",
-          "start": 14.075,
-          "end": 22.325
+          "start": 314.1,
+          "end": 322.35,
+          "rel_start": 14.075,
+          "rel_end": 22.325
         },
         {
           "index": 4,
           "text": "Our district uses 60-meter platforms with three-story homes, 93 of them: a middle choice for this illustration, not an optimum.",
-          "start": 22.725,
-          "end": 32.75
+          "start": 322.75,
+          "end": 332.775,
+          "rel_start": 22.725,
+          "rel_end": 32.75
         }
-      ]
+      ],
+      "shot": "SC_016",
+      "shots": [
+        "SC_016"
+      ],
+      "start_seconds": 300.025
     },
     {
       "id": "B17",
@@ -478,16 +668,25 @@
         {
           "index": 0,
           "text": "And all of this sits on water that never keeps still.",
-          "start": 0.0,
-          "end": 3.8
+          "start": 333.983333,
+          "end": 337.783333,
+          "rel_start": 0.0,
+          "rel_end": 3.8
         },
         {
           "index": 1,
           "text": "Each platform rises and falls on its own, and every gap and hinge between them has to cope.",
-          "start": 4.2,
-          "end": 10.875
+          "start": 338.183333,
+          "end": 344.858333,
+          "rel_start": 4.2,
+          "rel_end": 10.875
         }
-      ]
+      ],
+      "shot": "SC_017",
+      "shots": [
+        "SC_017"
+      ],
+      "start_seconds": 333.983333
     },
     {
       "id": "B18",
@@ -498,22 +697,33 @@
         {
           "index": 0,
           "text": "People living on the water feel it.",
-          "start": 0.0,
-          "end": 2.75
+          "start": 346.066667,
+          "end": 348.816667,
+          "rel_start": 0.0,
+          "rel_end": 2.75
         },
         {
           "index": 1,
           "text": "Floating homes in the Netherlands can rock in storms, or when large cruise ships pass,",
-          "start": 3.15,
-          "end": 9.225
+          "start": 349.216667,
+          "end": 355.291667,
+          "rel_start": 3.15,
+          "rel_end": 9.225
         },
         {
           "index": 2,
           "text": "and one Amsterdam resident feels it most on her upper floor.",
-          "start": 9.625,
-          "end": 14.475
+          "start": 355.691667,
+          "end": 360.541667,
+          "rel_start": 9.625,
+          "rel_end": 14.475
         }
-      ]
+      ],
+      "shot": "SC_018",
+      "shots": [
+        "SC_018"
+      ],
+      "start_seconds": 346.066667
     },
     {
       "id": "B19",
@@ -524,16 +734,25 @@
         {
           "index": 0,
           "text": "Very large platforms don't only move. They bend,",
-          "start": 0.0,
-          "end": 4.25
+          "start": 361.775,
+          "end": 366.025,
+          "rel_start": 0.0,
+          "rel_end": 4.25
         },
         {
           "index": 1,
           "text": "and predicting exactly how is still an open research problem.",
-          "start": 4.65,
-          "end": 9.2
+          "start": 366.425,
+          "end": 370.975,
+          "rel_start": 4.65,
+          "rel_end": 9.2
         }
-      ]
+      ],
+      "shot": "SC_019",
+      "shots": [
+        "SC_019"
+      ],
+      "start_seconds": 361.775
     },
     {
       "id": "B20",
@@ -544,22 +763,33 @@
         {
           "index": 0,
           "text": "So the first fix is where you build.",
-          "start": 0.0,
-          "end": 2.925
+          "start": 372.191667,
+          "end": 375.116667,
+          "rel_start": 0.0,
+          "rel_end": 2.925
         },
         {
           "index": 1,
           "text": "A 2026 concept study looks for sea areas with limited fetch, near a gulf, a strait or an archipelago, where waves stay moderate.",
-          "start": 3.325,
-          "end": 13.75
+          "start": 375.516667,
+          "end": 385.941667,
+          "rel_start": 3.325,
+          "rel_end": 13.75
         },
         {
           "index": 2,
           "text": "That's why our city sits in a sheltered bay, connected to an existing city on shore.",
-          "start": 14.15,
-          "end": 20.475
+          "start": 386.341667,
+          "end": 392.666667,
+          "rel_start": 14.15,
+          "rel_end": 20.475
         }
-      ]
+      ],
+      "shot": "SC_020",
+      "shots": [
+        "SC_020"
+      ],
+      "start_seconds": 372.191667
     },
     {
       "id": "B21",
@@ -570,28 +800,41 @@
         {
           "index": 0,
           "text": "The second fix is the layout.",
-          "start": 0.0,
-          "end": 2.625
+          "start": 393.9,
+          "end": 396.525,
+          "rel_start": 0.0,
+          "rel_end": 2.625
         },
         {
           "index": 1,
           "text": "Following one concept study, homes go in the middle, and functions that can tolerate more motion form the outer ring.",
-          "start": 3.025,
-          "end": 11.425
+          "start": 396.925,
+          "end": 405.325,
+          "rel_start": 3.025,
+          "rel_end": 11.425
         },
         {
           "index": 2,
           "text": "Where the bay opens to the sea, a breakwater reduces the waves.",
-          "start": 11.825,
-          "end": 16.8
+          "start": 405.725,
+          "end": 410.7,
+          "rel_start": 11.825,
+          "rel_end": 16.8
         },
         {
           "index": 3,
           "text": "But a floating breakwater may not be enough against longer waves from the open sea, and how much wave energy passes behind one is still hard to predict.",
-          "start": 17.2,
-          "end": 28.125
+          "start": 411.1,
+          "end": 422.025,
+          "rel_start": 17.2,
+          "rel_end": 28.125
         }
-      ]
+      ],
+      "shot": "SC_021",
+      "shots": [
+        "SC_021"
+      ],
+      "start_seconds": 393.9
     },
     {
       "id": "B22",
@@ -602,16 +845,25 @@
         {
           "index": 0,
           "text": "Something also has to hold the city in place.",
-          "start": 0.0,
-          "end": 3.525
+          "start": 423.233333,
+          "end": 426.758333,
+          "rel_start": 0.0,
+          "rel_end": 3.525
         },
         {
           "index": 1,
           "text": "Floating homes in the Netherlands are fixed to the shore, often resting against steel poles.",
-          "start": 3.925,
-          "end": 10.175
+          "start": 427.158333,
+          "end": 433.408333,
+          "rel_start": 3.925,
+          "rel_end": 10.175
         }
-      ]
+      ],
+      "shot": "SC_022",
+      "shots": [
+        "SC_022"
+      ],
+      "start_seconds": 423.233333
     },
     {
       "id": "B23",
@@ -622,22 +874,33 @@
         {
           "index": 0,
           "text": "Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles.",
-          "start": 0.0,
-          "end": 7.85
+          "start": 434.608333,
+          "end": 442.458333,
+          "rel_start": 0.0,
+          "rel_end": 7.85
         },
         {
           "index": 1,
           "text": "In our scenario, the water level can change by about 2 meters,",
-          "start": 8.25,
-          "end": 13.075
+          "start": 442.858333,
+          "end": 447.683333,
+          "rel_start": 8.25,
+          "rel_end": 13.075
         },
         {
           "index": 2,
           "text": "so the bridges to shore need hinges: including changes in loading, the slope of a 25-meter bridge changes by about 3 degrees either way.",
-          "start": 13.475,
-          "end": 24.125
+          "start": 448.083333,
+          "end": 458.733333,
+          "rel_start": 13.475,
+          "rel_end": 24.125
         }
-      ]
+      ],
+      "shot": "SC_023",
+      "shots": [
+        "SC_023"
+      ],
+      "start_seconds": 434.608333
     },
     {
       "id": "B24",
@@ -648,22 +911,33 @@
         {
           "index": 0,
           "text": "Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed.",
-          "start": 0.0,
-          "end": 6.45
+          "start": 459.941667,
+          "end": 466.391667,
+          "rel_start": 0.0,
+          "rel_end": 6.45
         },
         {
           "index": 1,
           "text": "Deeper water means longer lines, deeper anchors, and higher costs.",
-          "start": 6.85,
-          "end": 12.025
+          "start": 466.791667,
+          "end": 471.966667,
+          "rel_start": 6.85,
+          "rel_end": 12.025
         },
         {
           "index": 2,
           "text": "The seabed itself shapes the design, and the bill.",
-          "start": 12.425,
-          "end": 16.1
+          "start": 472.366667,
+          "end": 476.041667,
+          "rel_start": 12.425,
+          "rel_end": 16.1
         }
-      ]
+      ],
+      "shot": "SC_024",
+      "shots": [
+        "SC_024"
+      ],
+      "start_seconds": 459.941667
     },
     {
       "id": "B25",
@@ -674,16 +948,25 @@
         {
           "index": 0,
           "text": "So it floats, and it stays put. But is it a city yet?",
-          "start": 0.0,
-          "end": 4.075
+          "start": 477.275,
+          "end": 481.35,
+          "rel_start": 0.0,
+          "rel_end": 4.075
         },
         {
           "index": 1,
           "text": "Fade out the buildings, and the city's other half appears.",
-          "start": 4.475,
-          "end": 8.7
+          "start": 481.75,
+          "end": 485.975,
+          "rel_start": 4.475,
+          "rel_end": 8.7
         }
-      ]
+      ],
+      "shot": "SC_025",
+      "shots": [
+        "SC_025"
+      ],
+      "start_seconds": 477.275
     },
     {
       "id": "B26",
@@ -694,22 +977,33 @@
         {
           "index": 0,
           "text": "Power first: at Schoonschip, 46 households share a single connection to the national grid,",
-          "start": 0.0,
-          "end": 6.95
+          "start": 487.191667,
+          "end": 494.141667,
+          "rel_start": 0.0,
+          "rel_end": 6.95
         },
         {
           "index": 1,
           "text": "with solar panels, a battery in every house, and a smart grid between them.",
-          "start": 7.35,
-          "end": 13.05
+          "start": 494.541667,
+          "end": 500.241667,
+          "rel_start": 7.35,
+          "rel_end": 13.05
         },
         {
           "index": 2,
           "text": "Floating doesn't mean off-grid.",
-          "start": 13.45,
-          "end": 16.075
+          "start": 500.641667,
+          "end": 503.266667,
+          "rel_start": 13.45,
+          "rel_end": 16.075
         }
-      ]
+      ],
+      "shot": "SC_026",
+      "shots": [
+        "SC_026"
+      ],
+      "start_seconds": 487.191667
     },
     {
       "id": "B27",
@@ -720,22 +1014,33 @@
         {
           "index": 0,
           "text": "Wastewater is separated there too: gray water from showers and washing machines, black water from toilets.",
-          "start": 0.0,
-          "end": 7.925
+          "start": 504.483333,
+          "end": 512.408333,
+          "rel_start": 0.0,
+          "rel_end": 7.925
         },
         {
           "index": 1,
           "text": "Connecting floating homes to sewers on land takes extra infrastructure, such as waterproof cables and pumps.",
-          "start": 8.325,
-          "end": 16.275
+          "start": 512.808333,
+          "end": 520.758333,
+          "rel_start": 8.325,
+          "rel_end": 16.275
         },
         {
           "index": 2,
           "text": "In our city, wastewater is pumped ashore along the bridges, and drinking water comes back the same way.",
-          "start": 16.675,
-          "end": 24.125
+          "start": 521.158333,
+          "end": 528.608333,
+          "rel_start": 16.675,
+          "rel_end": 24.125
         }
-      ]
+      ],
+      "shot": "SC_027",
+      "shots": [
+        "SC_027"
+      ],
+      "start_seconds": 504.483333
     },
     {
       "id": "B28",
@@ -746,22 +1051,33 @@
         {
           "index": 0,
           "text": "Transport, fire and medical services, and food all follow the same logic.",
-          "start": 0.0,
-          "end": 5.85
+          "start": 529.816667,
+          "end": 535.666667,
+          "rel_start": 0.0,
+          "rel_end": 5.85
         },
         {
           "index": 1,
           "text": "A large floating development has to connect sewage, power and roads to land, or develop alternatives of its own,",
-          "start": 6.25,
-          "end": 14.675
+          "start": 536.066667,
+          "end": 544.491667,
+          "rel_start": 6.25,
+          "rel_end": 14.675
         },
         {
           "index": 2,
           "text": "and our city connects.",
-          "start": 15.075,
-          "end": 17.175
+          "start": 544.891667,
+          "end": 546.991667,
+          "rel_start": 15.075,
+          "rel_end": 17.175
         }
-      ]
+      ],
+      "shot": "SC_028",
+      "shots": [
+        "SC_028"
+      ],
+      "start_seconds": 529.816667
     },
     {
       "id": "B29",
@@ -772,16 +1088,25 @@
         {
           "index": 0,
           "text": "Everything so far assumed sheltered water close to a city.",
-          "start": 0.0,
-          "end": 4.6
+          "start": 548.191667,
+          "end": 552.791667,
+          "rel_start": 0.0,
+          "rel_end": 4.6
         },
         {
           "index": 1,
           "text": "So what happens if we tow it out to sea?",
-          "start": 5.0,
-          "end": 8.05
+          "start": 553.191667,
+          "end": 556.241667,
+          "rel_start": 5.0,
+          "rel_end": 8.05
         }
-      ]
+      ],
+      "shot": "SC_029",
+      "shots": [
+        "SC_029"
+      ],
+      "start_seconds": 548.191667
     },
     {
       "id": "B30",
@@ -792,16 +1117,25 @@
         {
           "index": 0,
           "text": "Longer waves arrive, and a floating breakwater may not be enough against them.",
-          "start": 0.0,
-          "end": 5.575
+          "start": 557.441667,
+          "end": 563.016667,
+          "rel_start": 0.0,
+          "rel_end": 5.575
         },
         {
           "index": 1,
           "text": "Below the surface, the seabed drops away, so mooring lines get longer and anchors deeper.",
-          "start": 5.975,
-          "end": 12.725
+          "start": 563.416667,
+          "end": 570.166667,
+          "rel_start": 5.975,
+          "rel_end": 12.725
         }
-      ]
+      ],
+      "shot": "SC_030",
+      "shots": [
+        "SC_030"
+      ],
+      "start_seconds": 557.441667
     },
     {
       "id": "B31",
@@ -812,16 +1146,25 @@
         {
           "index": 0,
           "text": "Further from shore, cables, pipes and supply ships can still reach the city,",
-          "start": 0.0,
-          "end": 5.6
+          "start": 571.4,
+          "end": 577.0,
+          "rel_start": 0.0,
+          "rel_end": 5.6
         },
         {
           "index": 1,
           "text": "but every link becomes longer and more exposed.",
-          "start": 6.0,
-          "end": 9.65
+          "start": 577.4,
+          "end": 581.05,
+          "rel_start": 6.0,
+          "rel_end": 9.65
         }
-      ]
+      ],
+      "shot": "SC_031",
+      "shots": [
+        "SC_031"
+      ],
+      "start_seconds": 571.4
     },
     {
       "id": "B32",
@@ -832,22 +1175,33 @@
         {
           "index": 0,
           "text": "And if we also asked the city to supply itself, as one 2026 offshore concept does,",
-          "start": 0.0,
-          "end": 7.475
+          "start": 582.275,
+          "end": 589.75,
+          "rel_start": 0.0,
+          "rel_end": 7.475
         },
         {
           "index": 1,
           "text": "it would need its own systems for energy, water and food.",
-          "start": 7.875,
-          "end": 12.3
+          "start": 590.15,
+          "end": 594.575,
+          "rel_start": 7.875,
+          "rel_end": 12.3
         },
         {
           "index": 2,
           "text": "In that study, growing food alone accounts for nearly half of the city's estimated energy use.",
-          "start": 12.7,
-          "end": 19.45
+          "start": 594.975,
+          "end": 601.725,
+          "rel_start": 12.7,
+          "rel_end": 19.45
         }
-      ]
+      ],
+      "shot": "SC_032",
+      "shots": [
+        "SC_032"
+      ],
+      "start_seconds": 582.275
     },
     {
       "id": "B33",
@@ -858,22 +1212,33 @@
         {
           "index": 0,
           "text": "That study also uses a different kind of hull:",
-          "start": 0.0,
-          "end": 3.775
+          "start": 602.941667,
+          "end": 606.716667,
+          "rel_start": 0.0,
+          "rel_end": 3.775
         },
         {
           "index": 1,
           "text": "semi-submersible platforms, with the deck raised above the sea on columns, behind a floating barrier.",
-          "start": 4.175,
-          "end": 11.775
+          "start": 607.116667,
+          "end": 614.716667,
+          "rel_start": 4.175,
+          "rel_end": 11.775
         },
         {
           "index": 2,
           "text": "Offshore isn't the same city moved further out. It's a different design.",
-          "start": 12.175,
-          "end": 17.525
+          "start": 615.116667,
+          "end": 620.466667,
+          "rel_start": 12.175,
+          "rel_end": 17.525
         }
-      ]
+      ],
+      "shot": "SC_033",
+      "shots": [
+        "SC_033"
+      ],
+      "start_seconds": 602.941667
     },
     {
       "id": "B34",
@@ -884,22 +1249,33 @@
         {
           "index": 0,
           "text": "Some difficulties remain wherever we build.",
-          "start": 0.0,
-          "end": 3.55
+          "start": 621.691667,
+          "end": 625.241667,
+          "rel_start": 0.0,
+          "rel_end": 3.55
         },
         {
           "index": 1,
           "text": "Concrete in seawater needs watching: chlorides can corrode the steel reinforcement,",
-          "start": 3.95,
-          "end": 10.0
+          "start": 625.641667,
+          "end": 631.691667,
+          "rel_start": 3.95,
+          "rel_end": 10.0
         },
         {
           "index": 2,
           "text": "and, according to a 2026 study, there are no dedicated standards for floating cities yet.",
-          "start": 10.4,
-          "end": 17.375
+          "start": 632.091667,
+          "end": 639.066667,
+          "rel_start": 10.4,
+          "rel_end": 17.375
         }
-      ]
+      ],
+      "shot": "SC_034",
+      "shots": [
+        "SC_034"
+      ],
+      "start_seconds": 621.691667
     },
     {
       "id": "B35",
@@ -910,16 +1286,25 @@
         {
           "index": 0,
           "text": "Large floating developments change the light, shade and water movement beneath them, effects that researchers say still need study,",
-          "start": 0.0,
-          "end": 8.825
+          "start": 640.275,
+          "end": 649.1,
+          "rel_start": 0.0,
+          "rel_end": 8.825
         },
         {
           "index": 1,
           "text": "and they expect the impact on local ecology to be far larger than that of small developments.",
-          "start": 9.225,
-          "end": 15.95
+          "start": 649.5,
+          "end": 656.225,
+          "rel_start": 9.225,
+          "rel_end": 15.95
         }
-      ]
+      ],
+      "shot": "SC_035",
+      "shots": [
+        "SC_035"
+      ],
+      "start_seconds": 640.275
     },
     {
       "id": "B36",
@@ -930,22 +1315,33 @@
         {
           "index": 0,
           "text": "And who gets to use the water?",
-          "start": 0.0,
-          "end": 2.5
+          "start": 657.441667,
+          "end": 659.941667,
+          "rel_start": 0.0,
+          "rel_end": 2.5
         },
         {
           "index": 1,
           "text": "How districts like this fit into planning law is not yet known,",
-          "start": 2.9,
-          "end": 7.7
+          "start": 660.341667,
+          "end": 665.141667,
+          "rel_start": 2.9,
+          "rel_end": 7.7
         },
         {
           "index": 2,
           "text": "and researchers warn they could end up serving the wealthy, and fencing off water that used to be public.",
-          "start": 8.1,
-          "end": 15.05
+          "start": 665.541667,
+          "end": 672.491667,
+          "rel_start": 8.1,
+          "rel_end": 15.05
         }
-      ]
+      ],
+      "shot": "SC_036",
+      "shots": [
+        "SC_036"
+      ],
+      "start_seconds": 657.441667
     },
     {
       "id": "B37",
@@ -956,28 +1352,41 @@
         {
           "index": 0,
           "text": "And what would it cost?",
-          "start": 0.0,
-          "end": 1.975
+          "start": 673.691667,
+          "end": 675.666667,
+          "rel_start": 0.0,
+          "rel_end": 1.975
         },
         {
           "index": 1,
           "text": "We do not yet have a reliable cost estimate for this design. The one published framework we found is preliminary, and covers only flotation and energy.",
-          "start": 2.375,
-          "end": 13.325
+          "start": 676.066667,
+          "end": 687.016667,
+          "rel_start": 2.375,
+          "rel_end": 13.325
         },
         {
           "index": 2,
           "text": "Compared with land, floating structures can follow the water level, and can be moved or reused,",
-          "start": 13.725,
-          "end": 20.55
+          "start": 687.416667,
+          "end": 694.241667,
+          "rel_start": 13.725,
+          "rel_end": 20.55
         },
         {
           "index": 3,
           "text": "but they trade a fixed foundation for moorings, connections and ongoing maintenance.",
-          "start": 20.95,
-          "end": 26.725
+          "start": 694.641667,
+          "end": 700.416667,
+          "rel_start": 20.95,
+          "rel_end": 26.725
         }
-      ]
+      ],
+      "shot": "SC_037",
+      "shots": [
+        "SC_037"
+      ],
+      "start_seconds": 673.691667
     },
     {
       "id": "B38",
@@ -988,10 +1397,17 @@
         {
           "index": 0,
           "text": "From one platform to a district, every part we added answers a question we had to ask.",
-          "start": 0.0,
-          "end": 6.425
+          "start": 701.65,
+          "end": 708.075,
+          "rel_start": 0.0,
+          "rel_end": 6.425
         }
-      ]
+      ],
+      "shot": "SC_038",
+      "shots": [
+        "SC_038"
+      ],
+      "start_seconds": 701.65
     },
     {
       "id": "B39",
@@ -1002,16 +1418,25 @@
         {
           "index": 0,
           "text": "So, could we build an entire city that floats?",
-          "start": 0.0,
-          "end": 3.425
+          "start": 709.275,
+          "end": 712.7,
+          "rel_start": 0.0,
+          "rel_end": 3.425
         },
         {
           "index": 1,
           "text": "Small floating neighborhoods, connected to the shore in sheltered water, already exist.",
-          "start": 3.825,
-          "end": 10.15
+          "start": 713.1,
+          "end": 719.425,
+          "rel_start": 3.825,
+          "rel_end": 10.15
         }
-      ]
+      ],
+      "shot": "SC_039",
+      "shots": [
+        "SC_039"
+      ],
+      "start_seconds": 709.275
     },
     {
       "id": "B40",
@@ -1022,22 +1447,33 @@
         {
           "index": 0,
           "text": "A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the right conditions.",
-          "start": 0.0,
-          "end": 9.05
+          "start": 720.65,
+          "end": 729.7,
+          "rel_start": 0.0,
+          "rel_end": 9.05
         },
         {
           "index": 1,
           "text": "But how very large platforms bend, how their connections hold up, and what they would cost are still open questions.",
-          "start": 9.45,
-          "end": 17.425
+          "start": 730.1,
+          "end": 738.075,
+          "rel_start": 9.45,
+          "rel_end": 17.425
         },
         {
           "index": 2,
           "text": "And the one project of that size we checked is still listed as in design.",
-          "start": 17.825,
-          "end": 23.3
+          "start": 738.475,
+          "end": 743.95,
+          "rel_start": 17.825,
+          "rel_end": 23.3
         }
-      ]
+      ],
+      "shot": "SC_040",
+      "shots": [
+        "SC_040"
+      ],
+      "start_seconds": 720.65
     },
     {
       "id": "B41",
@@ -1048,10 +1484,17 @@
         {
           "index": 0,
           "text": "A city far out at sea, especially one that has to supply itself, remains much more speculative.",
-          "start": 0.0,
-          "end": 7.425
+          "start": 745.15,
+          "end": 752.575,
+          "rel_start": 0.0,
+          "rel_end": 7.425
         }
-      ]
+      ],
+      "shot": "SC_041",
+      "shots": [
+        "SC_041"
+      ],
+      "start_seconds": 745.15
     },
     {
       "id": "B42",
@@ -1062,16 +1505,25 @@
         {
           "index": 0,
           "text": "Our arithmetic shows what it takes for a platform to float.",
-          "start": 0.0,
-          "end": 4.125
+          "start": 753.775,
+          "end": 757.9,
+          "rel_start": 0.0,
+          "rel_end": 4.125
         },
         {
           "index": 1,
           "text": "Whether a whole district works depends on the site, and on every other system we added.",
-          "start": 4.525,
-          "end": 10.65
+          "start": 758.3,
+          "end": 764.425,
+          "rel_start": 4.525,
+          "rel_end": 10.65
         }
-      ]
+      ],
+      "shot": "SC_042",
+      "shots": [
+        "SC_042"
+      ],
+      "start_seconds": 753.775
     },
     {
       "id": "B43",
@@ -1082,22 +1534,33 @@
         {
           "index": 0,
           "text": "Which structure should we explain next?",
-          "start": 0.0,
-          "end": 2.875
+          "start": 765.65,
+          "end": 768.525,
+          "rel_start": 0.0,
+          "rel_end": 2.875
         },
         {
           "index": 1,
           "text": "Suggest a topic in the comments.",
-          "start": 3.275,
-          "end": 6.1
+          "start": 768.925,
+          "end": 771.75,
+          "rel_start": 3.275,
+          "rel_end": 6.1
         },
         {
           "index": 2,
           "text": "And if you enjoyed this film, please like it and subscribe.",
-          "start": 6.5,
-          "end": 10.8
+          "start": 772.15,
+          "end": 776.45,
+          "rel_start": 6.5,
+          "rel_end": 10.8
         }
-      ]
+      ],
+      "shot": "SC_043",
+      "shots": [
+        "SC_043"
+      ],
+      "start_seconds": 765.65
     },
     {
       "id": "B44",
@@ -1108,16 +1571,25 @@
         {
           "index": 0,
           "text": "Thank you for watching.",
-          "start": 0.0,
-          "end": 2.075
+          "start": 777.65,
+          "end": 779.725,
+          "rel_start": 0.0,
+          "rel_end": 2.075
         },
         {
           "index": 1,
           "text": "The sources are listed in the description.",
-          "start": 2.475,
-          "end": 5.7
+          "start": 780.125,
+          "end": 783.35,
+          "rel_start": 2.475,
+          "rel_end": 5.7
         }
-      ]
+      ],
+      "shot": "SC_044",
+      "shots": [
+        "SC_044"
+      ],
+      "start_seconds": 777.65
     }
   ],
   "lock_basis": {
@@ -1171,5 +1643,451 @@
     "asr_checked_sentences": 126,
     "asr_all_pass": true
   },
-  "beats_sha256": "56d378089bb731549f89e360d8138205f6f30db040eaa1e0eb90747e1ef725d7"
+  "beats_sha256": "56d378089bb731549f89e360d8138205f6f30db040eaa1e0eb90747e1ef725d7",
+  "shots": [
+    {
+      "id": "SC_001",
+      "start_frame": 0,
+      "frames": 263,
+      "start_seconds": 0.0,
+      "duration_seconds": 10.958333333333334,
+      "beat_ids": [
+        "B01"
+      ]
+    },
+    {
+      "id": "SC_002",
+      "start_frame": 263,
+      "frames": 317,
+      "start_seconds": 10.958333333333334,
+      "duration_seconds": 13.208333333333334,
+      "beat_ids": [
+        "B02"
+      ]
+    },
+    {
+      "id": "SC_003",
+      "start_frame": 580,
+      "frames": 780,
+      "start_seconds": 24.166666666666668,
+      "duration_seconds": 32.5,
+      "beat_ids": [
+        "B03"
+      ]
+    },
+    {
+      "id": "SC_004",
+      "start_frame": 1360,
+      "frames": 179,
+      "start_seconds": 56.666666666666664,
+      "duration_seconds": 7.458333333333333,
+      "beat_ids": [
+        "B04"
+      ]
+    },
+    {
+      "id": "SC_005",
+      "start_frame": 1539,
+      "frames": 499,
+      "start_seconds": 64.125,
+      "duration_seconds": 20.791666666666668,
+      "beat_ids": [
+        "B05"
+      ]
+    },
+    {
+      "id": "SC_006",
+      "start_frame": 2038,
+      "frames": 364,
+      "start_seconds": 84.91666666666667,
+      "duration_seconds": 15.166666666666666,
+      "beat_ids": [
+        "B06"
+      ]
+    },
+    {
+      "id": "SC_007",
+      "start_frame": 2402,
+      "frames": 561,
+      "start_seconds": 100.08333333333333,
+      "duration_seconds": 23.375,
+      "beat_ids": [
+        "B07"
+      ]
+    },
+    {
+      "id": "SC_008",
+      "start_frame": 2963,
+      "frames": 500,
+      "start_seconds": 123.45833333333333,
+      "duration_seconds": 20.833333333333332,
+      "beat_ids": [
+        "B08"
+      ]
+    },
+    {
+      "id": "SC_009",
+      "start_frame": 3463,
+      "frames": 373,
+      "start_seconds": 144.29166666666666,
+      "duration_seconds": 15.541666666666666,
+      "beat_ids": [
+        "B09"
+      ]
+    },
+    {
+      "id": "SC_010",
+      "start_frame": 3836,
+      "frames": 464,
+      "start_seconds": 159.83333333333334,
+      "duration_seconds": 19.333333333333332,
+      "beat_ids": [
+        "B10"
+      ]
+    },
+    {
+      "id": "SC_011",
+      "start_frame": 4300,
+      "frames": 521,
+      "start_seconds": 179.16666666666666,
+      "duration_seconds": 21.708333333333332,
+      "beat_ids": [
+        "B11"
+      ]
+    },
+    {
+      "id": "SC_012",
+      "start_frame": 4821,
+      "frames": 369,
+      "start_seconds": 200.875,
+      "duration_seconds": 15.375,
+      "beat_ids": [
+        "B12"
+      ]
+    },
+    {
+      "id": "SC_013",
+      "start_frame": 5190,
+      "frames": 739,
+      "start_seconds": 216.25,
+      "duration_seconds": 30.791666666666668,
+      "beat_ids": [
+        "B13"
+      ]
+    },
+    {
+      "id": "SC_014",
+      "start_frame": 5929,
+      "frames": 656,
+      "start_seconds": 247.04166666666666,
+      "duration_seconds": 27.333333333333332,
+      "beat_ids": [
+        "B14"
+      ]
+    },
+    {
+      "id": "SC_015",
+      "start_frame": 6585,
+      "frames": 606,
+      "start_seconds": 274.375,
+      "duration_seconds": 25.25,
+      "beat_ids": [
+        "B15"
+      ]
+    },
+    {
+      "id": "SC_016",
+      "start_frame": 7191,
+      "frames": 815,
+      "start_seconds": 299.625,
+      "duration_seconds": 33.958333333333336,
+      "beat_ids": [
+        "B16"
+      ]
+    },
+    {
+      "id": "SC_017",
+      "start_frame": 8006,
+      "frames": 290,
+      "start_seconds": 333.5833333333333,
+      "duration_seconds": 12.083333333333334,
+      "beat_ids": [
+        "B17"
+      ]
+    },
+    {
+      "id": "SC_018",
+      "start_frame": 8296,
+      "frames": 377,
+      "start_seconds": 345.6666666666667,
+      "duration_seconds": 15.708333333333334,
+      "beat_ids": [
+        "B18"
+      ]
+    },
+    {
+      "id": "SC_019",
+      "start_frame": 8673,
+      "frames": 250,
+      "start_seconds": 361.375,
+      "duration_seconds": 10.416666666666666,
+      "beat_ids": [
+        "B19"
+      ]
+    },
+    {
+      "id": "SC_020",
+      "start_frame": 8923,
+      "frames": 521,
+      "start_seconds": 371.7916666666667,
+      "duration_seconds": 21.708333333333332,
+      "beat_ids": [
+        "B20"
+      ]
+    },
+    {
+      "id": "SC_021",
+      "start_frame": 9444,
+      "frames": 704,
+      "start_seconds": 393.5,
+      "duration_seconds": 29.333333333333332,
+      "beat_ids": [
+        "B21"
+      ]
+    },
+    {
+      "id": "SC_022",
+      "start_frame": 10148,
+      "frames": 273,
+      "start_seconds": 422.8333333333333,
+      "duration_seconds": 11.375,
+      "beat_ids": [
+        "B22"
+      ]
+    },
+    {
+      "id": "SC_023",
+      "start_frame": 10421,
+      "frames": 608,
+      "start_seconds": 434.2083333333333,
+      "duration_seconds": 25.333333333333332,
+      "beat_ids": [
+        "B23"
+      ]
+    },
+    {
+      "id": "SC_024",
+      "start_frame": 11029,
+      "frames": 416,
+      "start_seconds": 459.5416666666667,
+      "duration_seconds": 17.333333333333332,
+      "beat_ids": [
+        "B24"
+      ]
+    },
+    {
+      "id": "SC_025",
+      "start_frame": 11445,
+      "frames": 238,
+      "start_seconds": 476.875,
+      "duration_seconds": 9.916666666666666,
+      "beat_ids": [
+        "B25"
+      ]
+    },
+    {
+      "id": "SC_026",
+      "start_frame": 11683,
+      "frames": 415,
+      "start_seconds": 486.7916666666667,
+      "duration_seconds": 17.291666666666668,
+      "beat_ids": [
+        "B26"
+      ]
+    },
+    {
+      "id": "SC_027",
+      "start_frame": 12098,
+      "frames": 608,
+      "start_seconds": 504.0833333333333,
+      "duration_seconds": 25.333333333333332,
+      "beat_ids": [
+        "B27"
+      ]
+    },
+    {
+      "id": "SC_028",
+      "start_frame": 12706,
+      "frames": 441,
+      "start_seconds": 529.4166666666666,
+      "duration_seconds": 18.375,
+      "beat_ids": [
+        "B28"
+      ]
+    },
+    {
+      "id": "SC_029",
+      "start_frame": 13147,
+      "frames": 222,
+      "start_seconds": 547.7916666666666,
+      "duration_seconds": 9.25,
+      "beat_ids": [
+        "B29"
+      ]
+    },
+    {
+      "id": "SC_030",
+      "start_frame": 13369,
+      "frames": 335,
+      "start_seconds": 557.0416666666666,
+      "duration_seconds": 13.958333333333334,
+      "beat_ids": [
+        "B30"
+      ]
+    },
+    {
+      "id": "SC_031",
+      "start_frame": 13704,
+      "frames": 261,
+      "start_seconds": 571.0,
+      "duration_seconds": 10.875,
+      "beat_ids": [
+        "B31"
+      ]
+    },
+    {
+      "id": "SC_032",
+      "start_frame": 13965,
+      "frames": 496,
+      "start_seconds": 581.875,
+      "duration_seconds": 20.666666666666668,
+      "beat_ids": [
+        "B32"
+      ]
+    },
+    {
+      "id": "SC_033",
+      "start_frame": 14461,
+      "frames": 450,
+      "start_seconds": 602.5416666666666,
+      "duration_seconds": 18.75,
+      "beat_ids": [
+        "B33"
+      ]
+    },
+    {
+      "id": "SC_034",
+      "start_frame": 14911,
+      "frames": 446,
+      "start_seconds": 621.2916666666666,
+      "duration_seconds": 18.583333333333332,
+      "beat_ids": [
+        "B34"
+      ]
+    },
+    {
+      "id": "SC_035",
+      "start_frame": 15357,
+      "frames": 412,
+      "start_seconds": 639.875,
+      "duration_seconds": 17.166666666666668,
+      "beat_ids": [
+        "B35"
+      ]
+    },
+    {
+      "id": "SC_036",
+      "start_frame": 15769,
+      "frames": 390,
+      "start_seconds": 657.0416666666666,
+      "duration_seconds": 16.25,
+      "beat_ids": [
+        "B36"
+      ]
+    },
+    {
+      "id": "SC_037",
+      "start_frame": 16159,
+      "frames": 671,
+      "start_seconds": 673.2916666666666,
+      "duration_seconds": 27.958333333333332,
+      "beat_ids": [
+        "B37"
+      ]
+    },
+    {
+      "id": "SC_038",
+      "start_frame": 16830,
+      "frames": 183,
+      "start_seconds": 701.25,
+      "duration_seconds": 7.625,
+      "beat_ids": [
+        "B38"
+      ]
+    },
+    {
+      "id": "SC_039",
+      "start_frame": 17013,
+      "frames": 273,
+      "start_seconds": 708.875,
+      "duration_seconds": 11.375,
+      "beat_ids": [
+        "B39"
+      ]
+    },
+    {
+      "id": "SC_040",
+      "start_frame": 17286,
+      "frames": 588,
+      "start_seconds": 720.25,
+      "duration_seconds": 24.5,
+      "beat_ids": [
+        "B40"
+      ]
+    },
+    {
+      "id": "SC_041",
+      "start_frame": 17874,
+      "frames": 207,
+      "start_seconds": 744.75,
+      "duration_seconds": 8.625,
+      "beat_ids": [
+        "B41"
+      ]
+    },
+    {
+      "id": "SC_042",
+      "start_frame": 18081,
+      "frames": 285,
+      "start_seconds": 753.375,
+      "duration_seconds": 11.875,
+      "beat_ids": [
+        "B42"
+      ]
+    },
+    {
+      "id": "SC_043",
+      "start_frame": 18366,
+      "frames": 288,
+      "start_seconds": 765.25,
+      "duration_seconds": 12.0,
+      "beat_ids": [
+        "B43"
+      ]
+    },
+    {
+      "id": "SC_044",
+      "start_frame": 18654,
+      "frames": 166,
+      "start_seconds": 777.25,
+      "duration_seconds": 6.916666666666667,
+      "beat_ids": [
+        "B44"
+      ]
+    }
+  ],
+  "total_frames": 18820,
+  "total_seconds": 784.1666666666666,
+  "storyboard_sha256": "fb262bdc99bc4a5c190bb9599360c22c9f49ea34303a0d4e97edf7e52635c756",
+  "plan_sha256": "d94e83d71b65a611a9698c5b7061f2593b1163625e75f73824f1435971227a24"
 }

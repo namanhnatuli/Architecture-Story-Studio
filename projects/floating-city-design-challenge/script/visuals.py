@@ -149,17 +149,15 @@ BUILDINGS3 = [part("building_block", [f"block{k}_storey{s}" for k in BLOCKS for 
 HULL_EXT = [part("platform_hull", ["hull_ext_west", "hull_ext_east", "hull_ext_north"]),
             part("bulkhead", [f"hull_ext_bulkhead_x{i}" for i in (1, 2, 3)]),
             part("section_cut", ["cut_ext_wall_west", "cut_ext_wall_east"] + [f"cut_ext_bulkhead_x{i}" for i in (1, 2, 3)])]
-HULL_EXT_EAST = [part("platform_hull", ["hull_ext_east"]), part("section_cut", ["cut_ext_wall_east", "cut_ext_bulkhead_x3"]),
-                 part("bulkhead", ["hull_ext_bulkhead_x3"])]
 BOTTOM = [part("platform_hull", ["hull_bottom"]), part("section_cut", ["cut_bottom"]), part("water_section", ["water_below"])]
 HULL = [grp("platform_hull", "hull"), {"concept": "bulkhead", "group": "bulkheads"}, {"concept": "deck"},
         grp("section_cut", "section_cut"), grp("section_cut", "hull_bottom_cut")]
 DISPLACED = [{"concept": "displaced_volume"}]
 MARKER = [{"concept": "freeboard_marker"}]
-EAST = [part("platform_hull", ["hull_wall_east"]), part("building_block", ["block4_storey1", "block4_storey3"]),
-        {"concept": "freeboard_marker"}, part("section_cut", ["cut_bulkhead_x3", "cut_wall_east"])]
-EAST_LOW = [part("platform_hull", ["hull_wall_east"]), {"concept": "freeboard_marker"},
-            part("section_cut", ["cut_wall_east", "cut_bulkhead_x3"]), part("building_block", ["block4_storey1"])]
+EAST = [part("platform_hull", ["hull_wall_east"]), {"concept": "freeboard_marker"},
+        part("section_cut", ["cut_bulkhead_x3", "cut_wall_east"])]   # close on the waterline at the east wall
+CORNER = [{"concept": "freeboard_marker"}, part("section_cut", ["cut_wall_east", "cut_bulkhead_x3", "cut_ext_wall_east",
+                                                                 "cut_ext_bulkhead_x3"])]   # the bottom corner as it deepens
 WHOLE_SECTION = HULL + BUILDINGS3
 SECTION_NOTE = "Illustrative design, section through the middle"
 
@@ -318,7 +316,7 @@ visual("B08", "SEQUENCE", "The first platform in section (three storeys): seen a
                      step("GHOST", BUILDINGS3, at(2, "half", -0.4), seconds=0.8, transparency=0.85),
                      glow(HULL, at(2, "concrete", -0.3), at(2, end=True, offset=-0.2)),
                      step("UNGHOST", BUILDINGS3, at(2, end=True, offset=-0.9), seconds=0.8)]),
-       annotations=[label("B08_draft", {"concept": "displaced_volume"}, f"Floats ≈ {m(STEPS[0]['draft_m'])} m deep", 1, "deep",
+       annotations=[label("B08_draft", {"concept": "displaced_volume"}, f"Floats ≈ {m(STEPS[0]['draft_m'])} m deep", 1, "floats",
                           until=2, point="BOTTOM"),
                     label("B08_hull", part("section_cut", "cut_wall_east"),
                           f"Hull: ≈ {round(100 * RES['design_A']['mid']['mass_t']['hull_concrete'] / RES['design_A']['mid']['mass_t']['total'])}% of the weight",
@@ -343,8 +341,10 @@ visual("B10", "SEQUENCE", "Same section: close on the bottom corner, the walls a
        "moves down; then the deck rises to the calculated freeboard 1.15 m", [SEC], "MEDIUM",
        sequence=seq("FLOAT_SECTION",
                     [view(EAST, margin=0.12),
-                     view(EAST_LOW + HULL_EXT_EAST, at(0, "deeper", -1.2), move=1.6, margin=0.1),
-                     view(EAST, at(2, "brings", -0.6), move=1.8, margin=0.12)],
+                     view(CORNER, at(0, "deeper", -1.2), move=1.6, margin=0.1),
+                     view(HULL + HULL_EXT, at(1, "adds", -0.8), move=1.6, margin=0.06),
+                     view(EAST, at(2, "brings", -0.8), move=1.6, margin=0.12),
+                     view(WHOLE_SECTION + STOREY4, at(3, "lighter", -0.8), move=1.6, margin=0.07)],
                     [step("MOVE", {"except": []}, 0, seconds=0, offset=[0.0, 0.0, -SINK]),
                      hide(HULL_EXT + DISPLACED),
                      step("MOVE", BOTTOM, at(0, "deeper", -0.4), seconds=1.6, offset=[0.0, 0.0, -EXT]),

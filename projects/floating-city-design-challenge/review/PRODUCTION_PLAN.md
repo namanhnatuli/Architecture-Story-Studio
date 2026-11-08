@@ -82,4 +82,12 @@
     - OSCILLATE phải có NOTE đúng nguyên văn nhãn chuyển động khái niệm suốt beat; riêng nhãn này được dài hơn giới hạn 52 ký tự.
   - Kết quả: `plan-visuals` thực thi được (44/44, 784 s), `validate-plan` đạt. Đánh giá planner 33/33 (thêm FLOAT-SEQ-03). 454 test đạt.
   - Cảnh báo còn lại (không chặn): khai báo intent khác gợi ý từ khóa ở sáu beat; xử lý khi review toàn phim.
-- **L5:** tiếp theo.
+- **L5: xong tới điểm dừng (2026-11-08).**
+  - `build-shots` (44 shot, 784 s; khóa âm thanh giữ nguyên). Kiểm Blender bốn shot SC_008–SC_011: 76/76.
+  - Đoạn thử B08–B11 (77,4 s, `internal_720p`) bằng `tools/excerpt.py`: QA tự động đạt (khung, cắt, âm lượng, Whisper WER 0, phụ đề).
+  - Agent đã xem lại video và sửa một nhãn hiện quá ngắn.
+  - Sửa thêm trong lúc dựng (có test):
+    - mốc `reveal_i_landed` được đặt cả khi REVEAL ghép với MOVE (trước đó kiểm Blender dừng vì thiếu mốc);
+    - nhóm camera đồng nhất tính cả hướng mở đầu riêng của SEQUENCE;
+    - vạch mạn khô 1,0 × 1,3 m để phần nổi trên nước đủ lớn cho kiểm "phần phát sáng nhìn thấy được".
+  - Gói duyệt: `review/EXCERPT_REVIEW_L5.md`. **Dừng chờ chủ kênh duyệt chất lượng hình** trước khi render phần còn lại.

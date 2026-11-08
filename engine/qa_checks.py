@@ -718,8 +718,10 @@ def run_all(project_dir, preset="preview", only=None):
         if ctx.cfg["template"] != "SIDE_BY_SIDE":
             opening = shot.get("camera_focus") or ((motion.sequence_views(ctx.cfg)[0]["focus"] or ())
                                                     if ctx.cfg["template"] == "SEQUENCE" else ())
+            v0 = motion.sequence_views(ctx.cfg)[0] if ctx.cfg["template"] == "SEQUENCE" else {}
+            turn = tuple(v0.get(k) for k in ("azimuth", "elevation", "margin"))   # a SEQUENCE may open on its own view
             group = (shot.get("scene_context"), tuple(templates.layout_slots(shot, states)[0][1]), shot.get("camera"),
-                     tuple(sorted(opening)), float(shot.get("camera_safe_band", 0.0)))
+                     tuple(sorted(opening)), float(shot.get("camera_safe_band", 0.0)), turn)
             cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale, group)
         elif ctx.camera_keys:
             ctx.scene.frame_set(1)
