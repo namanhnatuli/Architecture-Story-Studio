@@ -1,0 +1,32 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "site_bay_district_01",
+  "title": "Sheltered bay with the city's quay, seabed from 12 m to 25 m",
+  "family": "site",
+  "variant": "bay",
+  "units": "METRIC",
+  "generator": {
+    "name": "site.bay",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "site_width_m": 1400.0,
+    "site_length_m": 900.0,
+    "water_depth_m": 12.0,
+    "depth_far_m": 25.0,
+    "section": 0,
+    "hole_length_m": 0.0,
+    "hole_width_m": 0.0,
+    "shore": 1,
+    "quay_level_m": 2.0,
+    "land_depth_m": 160.0
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative bay of scenario SCN_FLOATCITY_COASTAL_01: the existing city's quay at y = 0, water 12 m deep there and 25 m at the far edge (the assumed range); still water."
+  },
+  "animation_support": [
+    "HOLD"
+  ]
+}

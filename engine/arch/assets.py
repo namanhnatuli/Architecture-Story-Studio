@@ -122,14 +122,62 @@ FAMILIES = {
                        "storey_height_m": num(2.6, 4.0, 3.0), "extension_m": num(0.0, 2.0, 0.0),
                        "section": num(0, 1, 0, integer=True), "water_depth_m": num(4, 60, 15.0)},
         },
+        "pair": {
+            "generator": floating.pair, "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane", "timber_light", "steel_dark"),
+            "animation": ("HOLD", "HIGHLIGHT", "SEQUENCE"),
+            "params": {"length_m": num(10, 120, 40.0), "width_m": num(10, 120, 40.0), "hull_depth_m": num(1.5, 10, 4.0),
+                       "gap_m": num(2, 40, 6.0), "draft_a_m": num(0.3, 9.5, 2.626), "draft_b_m": num(0.3, 9.5, 3.29),
+                       "storeys_a": num(0, 6, 2, integer=True), "storeys_b": num(0, 6, 4, integer=True),
+                       "building_cover": num(0.0, 0.8, 0.4), "water_depth_m": num(4, 60, 15.0)},
+        },
+        "neighbourhood": {
+            "generator": floating.neighbourhood,
+            "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane", "timber_light", "steel", "steel_dark",
+                          "utility_flex", "fender", "cable_dark"),
+            "animation": ("HOLD", "HIGHLIGHT", "SEQUENCE", "REPLACE_PARTS", "ASSEMBLE_IN"),
+            "replaceable_params": ("moorings",),
+            "params": {"length_m": num(10, 120, 40.0), "width_m": num(10, 120, 40.0), "hull_depth_m": num(1.5, 10, 4.0),
+                       "draft_m": num(0.3, 9.5, 2.958), "gap_m": num(2, 40, 6.0), "building_cover": num(0.0, 0.8, 0.4),
+                       "storeys_pattern": choice(("3", "3,2,4,3,3"), "3"), "moorings": choice(("piles", "lines"), "piles"),
+                       "line_reach_m": num(10, 200, 45.0), "water_depth_m": num(4, 60, 15.0)},
+        },
+        "clay_boat": {
+            "generator": floating.clay_boat, "materials": ("concrete", "concrete_deck", "section_poche", "water_cut"),
+            "animation": ("HOLD", "HIGHLIGHT", "SEQUENCE"),
+            "params": {"length_m": num(10, 120, 40.0), "width_m": num(10, 120, 40.0), "hull_depth_m": num(1.5, 10, 4.0),
+                       "draft_m": num(0.3, 9.5, 1.621), "slab_m": num(0.1, 0.6, 0.25), "wall_m": num(0.1, 0.6, 0.25),
+                       "bulkhead_m": num(0.1, 0.5, 0.2), "bulkhead_spacing_m": num(4, 30, 10.0), "building_cover": num(0.0, 0.8, 0.4),
+                       "storey_height_m": num(2.6, 4.0, 3.0), "water_depth_m": num(4, 60, 15.0),
+                       "block_side_m": num(2, 30, 10.35), "block_x_m": num(-200, 200, -45.0)},
+        },
+        "semi_sub": {
+            "generator": floating.semi_sub, "materials": ("concrete", "concrete_deck"), "animation": ("HOLD", "HIGHLIGHT"),
+            "params": {"length_m": num(20, 200, 60.0), "width_m": num(20, 200, 40.0), "pontoon_width_m": num(4, 40, 10.0),
+                       "pontoon_height_m": num(2, 20, 6.0), "pontoon_depth_m": num(2, 40, 12.0), "deck_level_m": num(4, 40, 15.0),
+                       "column_size_m": num(2, 20, 8.0), "water_depth_m": num(4, 60, 15.0)},
+        },
+        "district": {
+            "generator": floating.district,
+            "materials": ("concrete", "concrete_deck", "park_lawn", "plaster", "plaster_service", "roof_membrane", "roof_green",
+                          "timber", "timber_light", "steel", "steel_dark", "cable_dark", "utility_power", "utility_water",
+                          "utility_waste", "route_emergency"),
+            "animation": ("HOLD", "HIGHLIGHT", "SEQUENCE"),
+            "params": {"length_m": num(20, 120, 60.0), "width_m": num(20, 120, 60.0), "hull_depth_m": num(1.5, 10, 4.0),
+                       "draft_m": num(0.3, 9.5, 2.917), "gap_m": num(2, 40, 6.0), "building_cover": num(0.0, 0.8, 0.4),
+                       "storeys": num(1, 6, 3, integer=True), "shore_gap_m": num(5, 200, 30.0), "depth_near_m": num(4, 60, 12.0),
+                       "depth_far_m": num(4, 80, 25.0), "seabed_run_m": num(50, 3000, 900.0), "pile_rows": num(0, 9, 3, integer=True), "line_reach_m": num(10, 300, 60.0),
+                       "breakwater_offset_m": num(10, 300, 60.0), "bridges": num(0, 5, 3, integer=True),
+                       "offshore": num(0, 1, 0, integer=True), "quay_level_m": num(0.5, 6, 2.0)},
+        },
     },
     "site": {
         "bay": {
-            "generator": floating.bay, "materials": ("water", "water_cut", "seabed", "seabed_cut", "section_poche"),
+            "generator": floating.bay, "materials": ("water", "water_cut", "seabed", "seabed_cut", "section_poche", "earth_bank"),
             "animation": ("HOLD",),
             "params": {"site_width_m": num(40, 2000, 140.0), "site_length_m": num(40, 2000, 120.0),
                        "water_depth_m": num(4, 60, 15.0), "section": num(0, 1, 0, integer=True),
-                       "hole_length_m": num(0, 200, 0.0), "hole_width_m": num(0, 200, 0.0)},
+                       "hole_length_m": num(0, 200, 0.0), "hole_width_m": num(0, 200, 0.0), "shore": num(0, 1, 0, integer=True),
+                       "quay_level_m": num(0.5, 6, 2.0), "land_depth_m": num(10, 500, 120.0), "depth_far_m": num(0, 80, 0.0)},
         },
         "level_ground": {
             "generator": site.level_ground, "materials": ("stone_dark",), "animation": ("HOLD",),
@@ -335,6 +383,8 @@ def site_for(path):
     data, _ = load(path)
     if data.get("family") == "cathedral":
         return "asset_library/architecture/sites/site_level_ground.json"
+    if data.get("family") == "floating" and data.get("site"):   # the spec names its site
+        return data["site"]
     if data.get("family") == "floating":   # the bay drawn the same way (section or not) with this hull kept dry
         p = resolve_params(data["family"], data["variant"], data["parameters"])[0]
         for site in sorted((ROOT / "asset_library/architecture/sites").glob("*.json")):

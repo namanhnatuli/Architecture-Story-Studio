@@ -40,7 +40,17 @@
       "displaced_water",
       "highlight_gold",
       "seabed",
-      "seabed_cut"
+      "seabed_cut",
+      "plaster_service",
+      "roof_green",
+      "park_lawn",
+      "utility_flex",
+      "fender",
+      "cable_dark",
+      "utility_power",
+      "utility_water",
+      "utility_waste",
+      "route_emergency"
     ]
   },
   "materials": {
@@ -305,6 +315,71 @@
       "name": "Seabed in section",
       "color": "#8F8770",
       "roughness": 0.95
+    },
+    "plaster_service": {
+      "name": "Plaster, service buildings",
+      "color": "#D8C3A2",
+      "roughness": 0.85,
+      "detail": {
+        "scale": 2.0,
+        "variation": 0.04,
+        "bump": 0.01
+      }
+    },
+    "roof_green": {
+      "name": "Green roof (stylized)",
+      "color": "#93A77F",
+      "roughness": 0.9,
+      "detail": {
+        "scale": 2.5,
+        "variation": 0.08,
+        "bump": 0.02
+      }
+    },
+    "park_lawn": {
+      "name": "Park deck (lawn, stylized)",
+      "color": "#9DB08A",
+      "roughness": 0.9,
+      "detail": {
+        "scale": 3.0,
+        "variation": 0.08,
+        "bump": 0.02
+      }
+    },
+    "utility_flex": {
+      "name": "Flexible utility link",
+      "color": "#2F3A40",
+      "roughness": 0.6
+    },
+    "fender": {
+      "name": "Fender (rubber)",
+      "color": "#2A2A2A",
+      "roughness": 0.8
+    },
+    "cable_dark": {
+      "name": "Mooring line (dark, readable under water)",
+      "color": "#1F2A30",
+      "roughness": 0.35
+    },
+    "utility_power": {
+      "name": "Power network",
+      "color": "#C8962E",
+      "roughness": 0.5
+    },
+    "utility_water": {
+      "name": "Drinking water network",
+      "color": "#3F7FA8",
+      "roughness": 0.5
+    },
+    "utility_waste": {
+      "name": "Wastewater network",
+      "color": "#7A5C3E",
+      "roughness": 0.5
+    },
+    "route_emergency": {
+      "name": "Emergency route",
+      "color": "#B5523B",
+      "roughness": 0.6
     }
   }
 }

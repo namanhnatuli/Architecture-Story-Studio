@@ -33,7 +33,8 @@ SEMANTIC_TYPES = (
     # buildings (existing house builders use their own roles)
     "ROOF", "WALL", "FLOOR", "DECORATION",
     # floating structures (engine/arch/families/floating.py)
-    "HULL", "BULKHEAD", "BUILDING", "SECTION_CUT", "DISPLACED_VOLUME",
+    "HULL", "BULKHEAD", "BUILDING", "SECTION_CUT", "DISPLACED_VOLUME", "WALKWAY", "CONNECTOR", "UTILITY_LINE",
+    "MOORING_PILE", "MOORING_LINE", "ANCHOR", "BREAKWATER", "LINK_SPAN", "ACCESS_ROUTE",
 )
 ANIMATION_ROLES = ("EXPLODE", "HIGHLIGHT", "REPLACE", "STATIC")
 

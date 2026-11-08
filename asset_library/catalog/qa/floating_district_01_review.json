@@ -1,0 +1,69 @@
+{
+  "asset_id": "floating_district_01",
+  "signature": "395f64b401cbf286bad402452c13d72369d396b97da3822f53b5f249f58f070c",
+  "stats": {
+    "build_seconds": 0.109,
+    "objects": 690,
+    "asset_objects": 687,
+    "mesh_datablocks": 61,
+    "asset_mesh_datablocks": 58,
+    "evaluated_verts": 11344
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.161,
+    "objects": 690,
+    "asset_objects": 687,
+    "mesh_datablocks": 61,
+    "asset_mesh_datablocks": 58
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "690 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (140 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 395f64b401cbf286 twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "687 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_district_01/review/three_quarter.png",
+      "render_seconds": 0.734,
+      "build_seconds": 0.163
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_district_01/review/elevation.png",
+      "render_seconds": 0.312,
+      "build_seconds": 0.166
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_district_01/review/top.png",
+      "render_seconds": 0.56,
+      "build_seconds": 0.162
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_district_01/review/exploded.png",
+      "render_seconds": 0.618,
+      "build_seconds": 0.18
+    }
+  },
+  "process": {
+    "wall_seconds": 4.1,
+    "peak_rss_mb": 561.8,
+    "peak_memory_footprint_mb": 1967.6,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

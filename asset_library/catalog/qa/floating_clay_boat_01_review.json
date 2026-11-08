@@ -1,0 +1,69 @@
+{
+  "asset_id": "floating_clay_boat_01",
+  "signature": "c3cac3a53b933a06b3d0bff8bfa6061169a12f245ec9b86e13a6af961aa4f243",
+  "stats": {
+    "build_seconds": 0.052,
+    "objects": 27,
+    "asset_objects": 19,
+    "mesh_datablocks": 27,
+    "asset_mesh_datablocks": 19,
+    "evaluated_verts": 216
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.053,
+    "objects": 27,
+    "asset_objects": 19,
+    "mesh_datablocks": 27,
+    "asset_mesh_datablocks": 19
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "27 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (137 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 c3cac3a53b933a06 twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "19 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/three_quarter.png",
+      "render_seconds": 0.695,
+      "build_seconds": 0.054
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/elevation.png",
+      "render_seconds": 0.5,
+      "build_seconds": 0.054
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/top.png",
+      "render_seconds": 0.747,
+      "build_seconds": 0.069
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/exploded.png",
+      "render_seconds": 0.631,
+      "build_seconds": 0.054
+    }
+  },
+  "process": {
+    "wall_seconds": 3.5,
+    "peak_rss_mb": 505.3,
+    "peak_memory_footprint_mb": 1924.3,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

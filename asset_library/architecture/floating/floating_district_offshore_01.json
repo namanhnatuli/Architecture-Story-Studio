@@ -1,0 +1,33 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "floating_district_offshore_01",
+  "title": "The same district towed out to open sea (counterfactual)",
+  "family": "floating",
+  "variant": "district",
+  "units": "METRIC",
+  "generator": {
+    "name": "floating.district",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "draft_m": 2.917,
+    "offshore": 1,
+    "depth_near_m": 60.0,
+    "depth_far_m": 60.0,
+    "pile_rows": 0,
+    "line_reach_m": 150.0,
+    "shore_gap_m": 25.0
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Design D counterfactual: no bridges to land; mooring lines longer to a deeper seabed (conceptual, not sized).",
+    "draft_source": "projects/floating-city-design-challenge/analysis/results.json"
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "SEQUENCE"
+  ],
+  "site": "asset_library/architecture/sites/site_open_sea_01.json"
+}

@@ -1,0 +1,69 @@
+{
+  "asset_id": "floating_neighbourhood_lines_01",
+  "signature": "ca71ba2f5349e07b90fc4b5a5f56f9b4f913ecf1b1ca0c3b313daab89efb84fd",
+  "stats": {
+    "build_seconds": 0.057,
+    "objects": 62,
+    "asset_objects": 60,
+    "mesh_datablocks": 46,
+    "asset_mesh_datablocks": 44,
+    "evaluated_verts": 1296
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.06,
+    "objects": 62,
+    "asset_objects": 60,
+    "mesh_datablocks": 46,
+    "asset_mesh_datablocks": 44
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "62 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (140 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 ca71ba2f5349e07b twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "60 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_neighbourhood_lines_01/review/three_quarter.png",
+      "render_seconds": 0.871,
+      "build_seconds": 0.06
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_neighbourhood_lines_01/review/elevation.png",
+      "render_seconds": 0.814,
+      "build_seconds": 0.061
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_neighbourhood_lines_01/review/top.png",
+      "render_seconds": 0.487,
+      "build_seconds": 0.062
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_neighbourhood_lines_01/review/exploded.png",
+      "render_seconds": 0.812,
+      "build_seconds": 0.064
+    }
+  },
+  "process": {
+    "wall_seconds": 4.0,
+    "peak_rss_mb": 521.5,
+    "peak_memory_footprint_mb": 1934.5,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

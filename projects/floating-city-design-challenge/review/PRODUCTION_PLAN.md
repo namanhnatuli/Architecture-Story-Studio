@@ -44,4 +44,18 @@
   - Bộ đánh giá chép thêm `audio/narration_manifest.json` (mốc theo từ) khi dự án có. Thêm ca FLOAT-SEQ-01 (dương) và FLOAT-SEQ-02 (âm): 32/32.
   - Test: `tests/test_motion_transforms.py` (8).
   - **Còn mở:** hiển thị nhãn chuyển động khái niệm trên hình. NOTE giới hạn 52 ký tự, câu nhãn dài 63 ký tự; xử lý ở L4.
-- **L3:** tiếp theo.
+- **L3: xong (2026-11-08).**
+  - Biến thể mới trong `engine/arch/families/floating.py`:
+    - `pair` (B13): hai phao giống nhau, nhà 2 và 4 tầng, mỗi phao ở mớn nước tính sẵn (2,626 và 3,290 m), cầu đi bộ có khớp nối hai mép sàn lệch nhau 0,664 m;
+    - `neighbourhood`: năm phao hình chữ U quanh một bể nước nhỏ, khe, cầu đi bộ có khớp, ống mềm, đệm va; giữ bằng cọc (`moorings = piles`) hoặc dây neo có độ võng vẽ tay tới neo trên đáy (`lines`);
+    - `clay_boat` (B05): cùng lượng bê tông 1.108 m³ dưới dạng khối đặc cạnh 10,35 m nằm dưới đáy, cạnh thân phao rỗng nổi ở mớn 1,621 m (chỉ thân, mặt cắt);
+    - `semi_sub` (B33): sơ đồ phao bán chìm, hai phao ngầm, cột xuyên mặt nước, sàn cao;
+    - `district` (Design C): 93 phao 60 m (66 phao nhà ở trong, 27 phao dịch vụ ở hàng ngoài và hai sườn), cầu đi bộ giữa các phao, ba cầu dẫn 25 m có khớp về kè, cọc ở ba hàng nông, dây neo ở vòng sâu, đê chắn sóng phía biển, ba mạng hạ tầng (điện, nước, nước thải) tựa trên cầu đi bộ, bến thuyền cứu hộ, đường thoát hiểm. `offshore = 1` bỏ cầu dẫn và đường thoát hiểm.
+  - Site mới: `site_bay_district_01` (vịnh có kè, đáy dốc 12 → 25 m trên 900 m), `site_open_sea_01` (biển mở sâu 60 m). Cọc và neo của quận theo đúng đáy dốc của site (`seabed_run_m`); cọc cắm vào đáy 3 m, neo lún 0,3 m.
+  - Chín loại ngữ nghĩa mới (cầu đi bộ, mối nối, đường ống, cọc, dây neo, neo, đê, cầu dẫn, đường thoát hiểm), 10 vật liệu, 18 khái niệm trong từ vựng.
+  - Cho phép chồng có chủ ý: dây neo vào neo, cọc và neo vào đáy (`engine/arch/asset_scene.py`). Các loại này chỉ có ở họ nổi.
+  - Kiểm offline 5/5 cho cả chín spec. Blender (`asset-render --preset review`) 4/4 cho cả chín, đã xem ảnh ba phía, mặt đứng, mặt bằng, tách lớp. Catalog 26 asset.
+  - Neo và dây neo mang ghi chú "conceptual …, not sized"; độ võng dây là hình vẽ, không phải dây xích tính toán.
+  - Test: `tests/test_floating_family.py` (15): số bộ phận khớp `checks.expected_counts` cho mọi spec; mớn nước và bước sàn khớp `results.json`; khối đặc chứa đúng lượng bê tông của thân; cọc và neo theo đáy của site; quận ngoài khơi không có đường về bờ. Toàn bộ 438 test đạt; đánh giá planner 32/32.
+  - **Ghi chú cho L4:** ở khung nhìn toàn vịnh, cầu dẫn, dây neo và hạ tầng rất mảnh. Các beat nói về chúng (B27–B31) cần camera gần hoặc làm nổi bật.
+- **L4:** tiếp theo.

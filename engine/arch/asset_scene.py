@@ -48,6 +48,9 @@ ALLOWED_INTERSECT = {frozenset(p) for p in (
     # section plates and the displaced-water plate lie on the cut face of the parts they draw
     ("ROOF", "BUILDING"), ("SECTION_CUT", "HULL"), ("SECTION_CUT", "BULKHEAD"), ("SECTION_CUT", "DECK"),
     ("SECTION_CUT", "DISPLACED_VOLUME"), ("SECTION_CUT", "SECTION_CUT"),
+    ("MOORING_LINE", "ANCHOR"),   # the line is shackled into the anchor (both floating-only, conceptual)
+    ("MOORING_PILE", "GROUND"),   # piles are driven into the seabed
+    ("ANCHOR", "GROUND"),         # anchors are bedded into the seabed
 )} | {frozenset(("WATER", t)) for t in semantic.SEMANTIC_TYPES}
 CROPPED_VIEWS = ("elevation", "top")
 TOUCH = 0.03

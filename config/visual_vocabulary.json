@@ -655,6 +655,12 @@
       "where": {
         "section": {
           "max": 0
+        },
+        "shore": {
+          "max": 0
+        },
+        "water_depth_m": {
+          "max": 20
         }
       },
       "scene_context": "floating",
@@ -713,6 +719,167 @@
         "water"
       ],
       "label": "water"
+    },
+    "floating_pair": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "pair",
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Two platforms with different loads"
+    },
+    "floating_neighbourhood": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "neighbourhood",
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Floating neighbourhood (five platforms)"
+    },
+    "neighbourhood_on_piles": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "neighbourhood",
+      "where": {
+        "moorings": "piles"
+      },
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Neighbourhood held by piles"
+    },
+    "neighbourhood_on_lines": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "neighbourhood",
+      "where": {
+        "moorings": "lines"
+      },
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Neighbourhood held by mooring lines"
+    },
+    "clay_boat": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "clay_boat",
+      "site": "bay_section_site",
+      "scene_context": "floating_section",
+      "label": "Solid block and hollow box of the same concrete"
+    },
+    "semi_submersible_module": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "semi_sub",
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Semi-submersible module (schematic)"
+    },
+    "floating_district": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "district",
+      "where": {
+        "offshore": {
+          "max": 0
+        }
+      },
+      "site": "district_bay_site",
+      "scene_context": "district",
+      "label": "Floating district (Design C)"
+    },
+    "floating_district_offshore": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "district",
+      "where": {
+        "offshore": {
+          "min": 1
+        }
+      },
+      "site": "open_sea_site",
+      "scene_context": "open_sea",
+      "label": "The district at open sea (counterfactual)"
+    },
+    "district_bay_site": {
+      "kind": "site",
+      "family": "site",
+      "variant": "bay",
+      "where": {
+        "shore": {
+          "min": 1
+        }
+      },
+      "scene_context": "district",
+      "label": "Bay with the city's quay"
+    },
+    "open_sea_site": {
+      "kind": "site",
+      "family": "site",
+      "variant": "bay",
+      "where": {
+        "water_depth_m": {
+          "min": 40
+        }
+      },
+      "scene_context": "open_sea",
+      "label": "Open sea"
+    },
+    "walkway_connector": {
+      "kind": "component",
+      "roles": [
+        "walkway",
+        "connector"
+      ],
+      "label": "walkways and hinges"
+    },
+    "utility_line": {
+      "kind": "component",
+      "roles": [
+        "utility_line"
+      ],
+      "label": "utility lines"
+    },
+    "mooring_pile": {
+      "kind": "component",
+      "roles": [
+        "mooring_pile"
+      ],
+      "label": "mooring piles"
+    },
+    "mooring_line": {
+      "kind": "component",
+      "roles": [
+        "mooring_line"
+      ],
+      "label": "mooring lines"
+    },
+    "anchor": {
+      "kind": "component",
+      "roles": [
+        "anchor"
+      ],
+      "label": "anchors"
+    },
+    "breakwater": {
+      "kind": "component",
+      "roles": [
+        "breakwater"
+      ],
+      "label": "breakwater"
+    },
+    "link_span": {
+      "kind": "component",
+      "roles": [
+        "link_span"
+      ],
+      "label": "link-span bridges"
+    },
+    "access_route": {
+      "kind": "component",
+      "roles": [
+        "access_route"
+      ],
+      "label": "emergency routes"
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "floating_clay_boat_01",
+  "title": "The hull's concrete as a solid block and as a hollow box (section)",
+  "family": "floating",
+  "variant": "clay_boat",
+  "units": "METRIC",
+  "generator": {
+    "name": "floating.clay_boat",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "draft_m": 1.621,
+    "block_side_m": 10.35
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Same concrete (1108.0 m3): a solid cube of 10.35 m sinks; the 40 x 40 x 4 m box floats at 1.621 m (analysis clay_boat; CLM_002, CLM_101).",
+    "draft_source": "projects/floating-city-design-challenge/analysis/results.json"
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "SEQUENCE"
+  ],
+  "site": "asset_library/architecture/sites/site_bay_section_platform_a.json"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "floating_district_01",
+  "title": "District of 93 platforms in a sheltered bay (Design C)",
+  "family": "floating",
+  "variant": "district",
+  "units": "METRIC",
+  "generator": {
+    "name": "floating.district",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "draft_m": 2.917,
+    "shore_gap_m": 25.0
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Design C: 93 platforms of 60 m with three-storey buildings (draft 2.917 m from district_C); 66 home platforms inside, 27 service platforms on the seaward row and flanks; link-spans, piles in the shallow rows, conceptual mooring lines on the deep ring, a breakwater on the open side, utility spines (power, water, wastewater), boat landings, emergency routes. The link-spans are 25 m long (shore_gap_m), the bridge length of link_span.25_m_bridge in results.json.",
+    "draft_source": "projects/floating-city-design-challenge/analysis/results.json"
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "SEQUENCE"
+  ],
+  "site": "asset_library/architecture/sites/site_bay_district_01.json"
+}

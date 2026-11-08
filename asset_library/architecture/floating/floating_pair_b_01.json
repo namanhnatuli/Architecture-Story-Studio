@@ -1,0 +1,30 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "floating_pair_b_01",
+  "title": "Two identical platforms, two and four storeys, at their own drafts",
+  "family": "floating",
+  "variant": "pair",
+  "units": "METRIC",
+  "generator": {
+    "name": "floating.pair",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "draft_a_m": 2.626,
+    "draft_b_m": 3.29,
+    "storeys_a": 2,
+    "storeys_b": 4
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Drafts are the analysis values of two platforms floating independently (revisions.B_neighbours_2_vs_4_storeys): the decks differ by 0.664 m. It does not show what a rigid link would do.",
+    "draft_source": "projects/floating-city-design-challenge/analysis/results.json"
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "SEQUENCE"
+  ],
+  "site": "asset_library/architecture/sites/site_bay_01.json"
+}

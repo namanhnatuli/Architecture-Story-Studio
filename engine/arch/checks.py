@@ -26,7 +26,7 @@ def expected_counts(family, variant, p):
     if family == "site":
         if variant == "bay":   # section with a dry hull footprint: 3 water bodies, 2 cut plates, the waterline
             cut = bool(p["section"]) and p["hole_length_m"] > 0
-            return {"GROUND": 2, "WATER": 6} if cut else {"GROUND": 1, "WATER": 1}
+            return {"GROUND": 2, "WATER": 6} if cut else {"GROUND": 1 + int(bool(p["shore"])), "WATER": 1}
         return {"GROUND": 1} if variant == "level_ground" else {"GROUND": 2, "WATER": 1}
     if family == "floating" and variant == "platform":
         nx = int(round(p["length_m"] / p["bulkhead_spacing_m"])) - 1
@@ -39,6 +39,37 @@ def expected_counts(family, variant, p):
                "BUILDING": blocks * n, "ROOF": blocks * max(n - 1, 0)}
         if sec:
             out.update(SECTION_CUT=4 + nx + ((2 + nx) if ext else 0), DISPLACED_VOLUME=1, WATER=1)
+        return {k: v for k, v in out.items() if v}
+    if family == "floating" and variant == "clay_boat":
+        nx = int(round(p["length_m"] / p["bulkhead_spacing_m"])) - 1
+        ny = int(round(p["width_m"] / p["bulkhead_spacing_m"])) - 1
+        ny_kept = sum(1 for j in range(1, ny + 1) if -p["width_m"] / 2 + j * p["bulkhead_spacing_m"] > 0.5)
+        return {"HULL": 1 + 1 + 3, "BULKHEAD": nx + ny_kept, "DECK": 1, "SECTION_CUT": 1 + 4 + nx, "WATER": 1}
+    if family == "floating" and variant == "pair":
+        n_built = sum(1 for k in ("storeys_a", "storeys_b") if p[k] > 0)
+        return {k: v for k, v in {"HULL": 2, "DECK": 2, "BUILDING": n_built, "ROOF": n_built, "WALKWAY": 1, "CONNECTOR": 2}.items() if v}
+    if family == "floating" and variant == "neighbourhood":   # 5 platforms, 4 joints (2 along X with fenders)
+        out = {"HULL": 5, "DECK": 5, "BUILDING": 5, "ROOF": 5, "WALKWAY": 4, "UTILITY_LINE": 4, "CONNECTOR": 4 * 2 + 2 * 2}
+        if p["moorings"] == "piles":
+            out.update(MOORING_PILE=10, CONNECTOR=out["CONNECTOR"] + 10)
+        else:
+            out.update(MOORING_LINE=10, ANCHOR=10)
+        return out
+    if family == "floating" and variant == "semi_sub":
+        return {"HULL": 2, "COLUMN": 6, "DECK": 1}
+    if family == "floating" and variant == "district":
+        cols, rows, lagoon = 11, 9, {(c, r) for c in (4, 5, 6) for r in (4, 5)}
+        cells = {(c, r) for c in range(cols) for r in range(rows)} - lagoon
+        walks = sum(((c + 1, r) in cells) + ((c, r + 1) in cells) for c, r in cells)
+        piles = 2 * sum(1 for c, r in cells if r < p["pile_rows"])
+        deep = [(c, r) for c, r in cells if r >= p["pile_rows"] and (r == rows - 1 or c in (0, cols - 1))]
+        lines = sum((r == rows - 1) + (c in (0, cols - 1)) for c, r in deep)
+        pitch = p["length_m"] + p["gap_m"]
+        nseg = int((cols * pitch + 2 * pitch) // 64.0)
+        bridges = 0 if p["offshore"] else p["bridges"]
+        out = {"HULL": 93, "DECK": 93, "BUILDING": 93, "ROOF": 93, "WALKWAY": walks + 2, "MOORING_PILE": piles,
+               "MOORING_LINE": lines, "ANCHOR": lines, "BREAKWATER": nseg, "LINK_SPAN": bridges,
+               "CONNECTOR": bridges, "UTILITY_LINE": 3 * bridges + (9 if bridges else 0), "ACCESS_ROUTE": bridges}
         return {k: v for k, v in out.items() if v}
     if variant == "gothic_section":
         n, sides = p["bay_count"], 2

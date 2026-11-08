@@ -1,0 +1,28 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "site_open_sea_01",
+  "title": "Open sea, 60 m deep (counterfactual)",
+  "family": "site",
+  "variant": "bay",
+  "units": "METRIC",
+  "generator": {
+    "name": "site.bay",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "site_width_m": 1700.0,
+    "site_length_m": 1500.0,
+    "water_depth_m": 60.0,
+    "section": 0,
+    "hole_length_m": 0.0,
+    "hole_width_m": 0.0
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Counterfactual Design D: the district towed out to open water. Depth 60 m is a schematic choice for the comparison, not a site value."
+  },
+  "animation_support": [
+    "HOLD"
+  ]
+}

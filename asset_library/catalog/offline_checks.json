@@ -389,6 +389,168 @@
       "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
     }
   ],
+  "asset_library/architecture/floating/floating_clay_boat_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/clay_boat, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "19 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "BULKHEAD 4, DECK 1, HULL 5, SECTION_CUT 8, WATER 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_district_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/district, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "687 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ACCESS_ROUTE 3, ANCHOR 23, BREAKWATER 13, BUILDING 93, CONNECTOR 3, DECK 93, HULL 93, LINK_SPAN 3, MOORING_LINE 23, MOORING_PILE 66, ROOF 93, UTILITY_LINE 18, WALKWAY 163"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_district_offshore_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/district, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "606 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ANCHOR 29, BREAKWATER 13, BUILDING 93, DECK 93, HULL 93, MOORING_LINE 29, ROOF 93, WALKWAY 163"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_neighbourhood_lines_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/neighbourhood, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "60 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ANCHOR 10, BUILDING 5, CONNECTOR 12, DECK 5, HULL 5, MOORING_LINE 10, ROOF 5, UTILITY_LINE 4, WALKWAY 4"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_neighbourhood_piles_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/neighbourhood, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "60 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "BUILDING 5, CONNECTOR 22, DECK 5, HULL 5, MOORING_PILE 10, ROOF 5, UTILITY_LINE 4, WALKWAY 4"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_pair_b_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/pair, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "11 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "BUILDING 2, CONNECTOR 2, DECK 2, HULL 2, ROOF 2, WALKWAY 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
   "asset_library/architecture/floating/floating_platform_a_01.json": [
     {
       "check": "specification_valid",
@@ -443,6 +605,33 @@
       "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
     }
   ],
+  "asset_library/architecture/floating/floating_semi_sub_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/semi_sub, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "9 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "COLUMN 6, DECK 1, HULL 2"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
   "asset_library/architecture/sites/site_bay_01.json": [
     {
       "check": "specification_valid",
@@ -458,6 +647,33 @@
       "check": "expected_component_counts",
       "status": "PASS",
       "detail": "GROUND 1, WATER 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/sites/site_bay_district_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "site/bay, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "3 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "GROUND 2, WATER 1"
     },
     {
       "check": "no_floating_components",
@@ -512,6 +728,33 @@
       "check": "expected_component_counts",
       "status": "PASS",
       "detail": "GROUND 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/sites/site_open_sea_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "site/bay, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "2 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "GROUND 1, WATER 1"
     },
     {
       "check": "no_floating_components",

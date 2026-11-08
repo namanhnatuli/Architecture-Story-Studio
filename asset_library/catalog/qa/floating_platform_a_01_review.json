@@ -1,8 +1,8 @@
 {
   "asset_id": "floating_platform_a_01",
-  "signature": "414d2d63ec132fc43c39bae48d2193e1a53c07a5cb5e515aab87d8288b05cb31",
+  "signature": "34eff1926155612a0b55ec17e3c520af1a53ef0119cb756649f1cd78eb560682",
   "stats": {
-    "build_seconds": 0.048,
+    "build_seconds": 0.054,
     "objects": 49,
     "asset_objects": 47,
     "mesh_datablocks": 49,
@@ -10,7 +10,7 @@
     "evaluated_verts": 392
   },
   "rebuild_stats": {
-    "build_seconds": 0.052,
+    "build_seconds": 0.06,
     "objects": 49,
     "asset_objects": 47,
     "mesh_datablocks": 49,
@@ -25,12 +25,12 @@
     {
       "check": "bvh_no_unintended_intersections",
       "status": "PASS",
-      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (128 allowed type pairs)"
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (137 allowed type pairs)"
     },
     {
       "check": "reproducible_build",
       "status": "PASS",
-      "detail": "sha256 414d2d63ec132fc4 twice"
+      "detail": "sha256 34eff1926155612a twice"
     },
     {
       "check": "semantic_tags_match_plan",
@@ -41,29 +41,29 @@
   "views": {
     "three_quarter": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_01/review/three_quarter.png",
-      "render_seconds": 0.856,
-      "build_seconds": 0.053
+      "render_seconds": 0.883,
+      "build_seconds": 0.059
     },
     "elevation": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_01/review/elevation.png",
-      "render_seconds": 0.747,
-      "build_seconds": 0.051
+      "render_seconds": 0.782,
+      "build_seconds": 0.061
     },
     "top": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_01/review/top.png",
-      "render_seconds": 0.496,
-      "build_seconds": 0.064
+      "render_seconds": 0.489,
+      "build_seconds": 0.061
     },
     "exploded": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_01/review/exploded.png",
-      "render_seconds": 0.782,
-      "build_seconds": 0.052
+      "render_seconds": 0.828,
+      "build_seconds": 0.062
     }
   },
   "process": {
-    "wall_seconds": 3.8,
-    "peak_rss_mb": 521.1,
-    "peak_memory_footprint_mb": 1936.5,
+    "wall_seconds": 4.0,
+    "peak_rss_mb": 522.6,
+    "peak_memory_footprint_mb": 1936.9,
     "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
   }
 }
