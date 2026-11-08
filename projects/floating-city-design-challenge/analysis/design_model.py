@@ -161,15 +161,40 @@ def main():
     # 8c. design revisions the story uses
     deeper = platform(**dict(base, H=4.5), dead=hi)
     two, four = platform(**dict(base, storeys=2), dead=mid), platform(**dict(base, storeys=4), dead=mid)
+    # one continuous branch (owner review 2026-11-08): 3 storeys -> add a 4th -> deepen the hull, mid dead load throughout
+    four_deep = platform(**dict(base, storeys=4, H=4.5), dead=mid)
+    out["storey_branch"] = {
+        "dead_load_t_m2": mid,
+        "steps": [
+            {"step": "3 storeys, hull 4.0 m", "mass_t": A["mass_t"]["total"], "draft_m": A["draft_m"], "freeboard_m": A["freeboard_m"]},
+            {"step": "4 storeys, hull 4.0 m", "mass_t": four["mass_t"]["total"], "draft_m": four["draft_m"], "freeboard_m": four["freeboard_m"]},
+            {"step": "4 storeys, hull 4.5 m", "mass_t": four_deep["mass_t"]["total"], "draft_m": four_deep["draft_m"],
+             "freeboard_m": four_deep["freeboard_m"]}],
+        "extra_concrete_for_deeper_hull_t": round(four_deep["mass_t"]["hull_concrete"] - four["mass_t"]["hull_concrete"], 1),
+        "extra_concrete_share_of_hull": round((four_deep["mass_t"]["hull_concrete"] - four["mass_t"]["hull_concrete"]) / four["mass_t"]["hull_concrete"], 3),
+        "note": "Same dead load in every step; only the storeys, then the hull depth, change."}
     out["revisions"] = {
         "A_prime_deeper_hull_heavy_buildings": {"hull_depth_m": 4.5, "draft_m": deeper["draft_m"], "freeboard_m": deeper["freeboard_m"],
                                                 "vs_4m_hull_freeboard_m": out["design_A"]["dead_load_high"]["freeboard_m"],
                                                 "extra_concrete_t": round(deeper["mass_t"]["hull_concrete"] - out["design_A"]["dead_load_high"]["mass_t"]["hull_concrete"], 1)},
         "B_neighbours_2_vs_4_storeys": {"draft_2_storeys_m": two["draft_m"], "draft_4_storeys_m": four["draft_m"],
                                         "deck_level_step_m": round(four["draft_m"] - two["draft_m"], 3),
-                                        "note": "Same hulls, different buildings: the decks float at different heights, so a rigid "
-                                                "walkway between them would be forced; links must allow it (or ballast evens it out)."},
+                                        "note": "Two platforms floating independently. Once they are joined, the joint forces change "
+                                                "the equilibrium of both, so this step is not what a rigid link would see; it only shows "
+                                                "that different loads add a demand on the connection. The design chooses hinged walkways."},
     }
+    # 8d. district C at the chosen module size (standard residential modules only)
+    side = g["district_module_m"][0]
+    mod = platform(**dict(base, L=side, B=side), dead=mid)
+    n = math.ceil(deck_mid / (side * side))
+    out["district_C"] = {"module_m": side, "modules": n, "deck_area_m2": n * side * side,
+                         "module_mass_t": mod["mass_t"]["total"], "module_draft_m": mod["draft_m"],
+                         "residents_per_module": round(mod["gross_floor_area_m2"] / 40),
+                         "joints_max": trade[f"{side}m"]["shared_edges_in_grid_max"],
+                         "standard_modules_displacement_t": round(n * mod["mass_t"]["total"], -3),
+                         "excludes": ["service and port platforms", "breakwater", "link-span bridges", "moorings and piles",
+                                      "utility plants and networks"],
+                         "gfa_per_resident_m2": {"total": 40, **g["gross_floor_area_split_mid_m2"]}}
     # 9. published reference points (for scale only)
     busan_m2 = 15.5 * 4046.8564224                   # CLM_031 (acres -> m2)
     out["reference_points"] = {
@@ -255,6 +280,19 @@ def write_md(o):
              f"({o['link_span']['draft_swing_empty_to_full_m']} m):"]
     rows += [f"- Cầu {k.split('_')[0]} m: dốc tối đa khoảng {v['max_slope_deg_each_way']}° mỗi chiều."
              for k, v in o["link_span"].items() if k.endswith("_bridge")]
+    sb, dc = o["storey_branch"], o["district_C"]
+    rows += ["", "## 8. Nhánh thêm tầng (một nhánh liên tục, tải tĩnh nhà 0,6 t/m² sàn ở mọi bước)",
+             "| Bước | Khối lượng (t) | Mớn nước (m) | Mạn khô (m) |", "|---|---|---|---|"]
+    rows += [f"| {st['step']} | {st['mass_t']} | {st['draft_m']} | {st['freeboard_m']} |" for st in sb["steps"]]
+    rows += [f"", f"Thân sâu thêm 0,5 m tốn thêm {sb['extra_concrete_for_deeper_hull_t']} t bê tông "
+                  f"({round(sb['extra_concrete_share_of_hull'] * 100, 1)}% bê tông thân phao).", "",
+             f"## 9. Quận C với phao {dc['module_m']} m (chỉ các phao tiêu chuẩn)",
+             f"- {dc['modules']} phao, {round(dc['deck_area_m2'] / 1e4, 1)} ha, khoảng {dc['residents_per_module']} người mỗi phao, "
+             f"tới {dc['joints_max']} cạnh chung; mỗi phao khoảng {dc['module_mass_t']:,.0f} t (mớn nước {dc['module_draft_m']} m).",
+             f"- Lượng chiếm nước của các phao tiêu chuẩn: khoảng {dc['standard_modules_displacement_t']:,.0f} t. **Không gồm:** "
+             + ", ".join(dc["excludes"]) + ".",
+             f"- 40 m² sàn mỗi người = {dc['gfa_per_resident_m2']['homes']} m² nhà ở + {dc['gfa_per_resident_m2']['schools_clinic_shops_services']} m² "
+             "trường học, phòng khám, cửa hàng, dịch vụ (giả định)."]
     rv = o["revisions"]
     a2, b2 = rv["A_prime_deeper_hull_heavy_buildings"], rv["B_neighbours_2_vs_4_storeys"]
     rows += ["", "## 7. Các lần sửa thiết kế mà câu chuyện dùng",

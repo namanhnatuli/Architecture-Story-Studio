@@ -1,131 +1,101 @@
-# Storyboard sơ bộ (46 shot, 10:36)
+# Storyboard sơ bộ (revision c-r1)
 
-## Cảnh dùng chung (không dựng một cảnh mới cho mỗi câu)
+Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`script/story.py`) và `script/timing.json` (thời lượng đo từ audio). Một shot cho mỗi beat ở giai đoạn đọc kịch bản (SHnn = Bnn). Sửa ở `story.py` hoặc bảng `SHOTS` trong script này, rồi chạy lại; không sửa tay tệp này.
 
-| Cảnh | Nội dung | Shot dùng |
-|---|---|---|
-| **S1 `district_bay`** | Quận C hoàn chỉnh trong vịnh (nước, đáy biển, bờ, đê, neo, hạ tầng, nhà, phao) | SH01, SH03, SH23, SH25–SH29, SH32, SH38, SH39, SH41, SH43 |
-| **S2 `platform_section`** | Một phao, có mặt cắt (đã thử: prototype P1, P2) | SH05, SH06, SH08–SH10, SH37 |
-| **S3 `neighbourhood`** | Năm phao, khe, khớp, cọc (đã thử: prototype P3, P4) | SH13–SH15, SH19 |
-| **K `cards`** | Card 2D và sơ đồ của Studio | SH02, SH07, SH11, SH12, SH16, SH17, SH20–SH22, SH30, SH33–SH36, SH40, SH42, SH44, SH45 |
+**Cột:**
+- **Fam** là họ asset: A môi trường biển, B phao, C mối nối, D neo, E nhà, F hạ tầng, K card 2D.
+- **Cplx** là chi phí render (L/M/H); **Conf** là độ tin cậy của nội dung (H/M).
+- **Hạng** là hạng khả thi theo brief mục 15.
 
-## Quy ước cột
-- **Ev** (bằng chứng):
-  - CLM_xxx là claim trong `research/sources.json`;
-  - *calc* là `analysis/results.json`;
-  - *scn* là hợp đồng kịch bản.
-- **Fam** là họ asset (`BLENDER_ASSET_BLUEPRINT.md`):
-  - A môi trường biển, B phao, C mối nối, D neo, E nhà, F hạ tầng, K card.
-- **Cplx** là độ phức tạp render: L thấp, M trung bình, H cao.
-- **Conf** là độ tin cậy của nội dung: H cao, M trung bình.
-- **Chiến lược** là các chiến lược đã có trong planner (`planner/intents.py`). **NEW** đánh dấu năng lực còn thiếu (`PRODUCTION_FEASIBILITY.md`).
+## C1: Could We Actually Do This?
 
-## C1: Could We Actually Do This? (0:00–0:50)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH01 | 10,000 people, with homes, schools, a clinic, parks, and streets to walk along. And not one of them is… | Đây là gì? | — | A,B,E,F | Aerial cao, đẩy chậm | HOLD + PUSH_IN | Lời hứa: một thành phố | NOTE 'Illustrative design' | 11 s | H | H | Cảnh lớn; cần instancing | GENERATE_PROCEDURAL |
+| SH02 | Could we design a city like this, one that floats, stays where we put it, and keeps working? Let's treat… | Thiết kế được không? | — | A,B,E,F | Aerial, tiếp B01 | HOLD | Bài toán được đặt ra | — | 13 s | H | H | Dùng chung cảnh B01 | REUSE_EXISTING |
+| SH03 | Floating neighborhoods are not science fiction. In Amsterdam, a floating neighborhood called Schoonschip… | Đã có ai làm chưa? | 010, 011, 030, 031, 033, 057 | K | 2D | CARD theo từ | Ranh giới đã xây và đề xuất | 'built' / 'proposed 2022' / 'status checked Nov 2026: OCEANIX news page, BIG project page' | 35 s | L | M | Ảnh Schoonschip chờ quyết định giấy phép; tạm dùng sơ đồ | REUSE_EXISTING |
+| SH04 | So let's take our city apart, and build it back, one problem at a time. | Thành phố gồm những gì? | — | A–F | Three-quarter, lùi nhẹ | SEQUENCE: FADE_OUT theo nhóm | Thành phố là chồng hệ thống | tên từng hệ khi nó biến mất | 7 s | H | H | — | GENERATE_PROCEDURAL |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi người xem | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược / hoạt ảnh | Điều được lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH01 | B01 | "Ten thousand people… not one standing on land." | Đây là gì? Có thật không? | Quy mô | scn | A,B,E,F | toàn quận | Aerial cao, đẩy chậm | HOLD + PUSH_IN | Lời hứa: một thành phố | 12 s | NOTE "Illustrative design — not a real or proposed project" | H | H | Cảnh lớn, cần instancing |
-| SH02 | B02 | "One small floating neighbourhood exists. Bigger ones are plans." | Đã có ai làm chưa? | Tiền lệ và đề xuất | CLM_010, 011, 031, 033, 040 | K | thang quy mô: khoảng 100 người (đã xây), 12.000 (đề xuất, chưa được báo cáo là đã xây), ngưỡng 20 ha | 2D | CARD, phần tử theo từ | Ranh giới thật và đề xuất | 12 s | nhãn "built", "proposed", "status checked Nov 2026" | L | M | Không có ảnh có giấy phép (chưa tìm) |
-| SH03 | B03 | "We'll take it apart, and build it back one problem at a time." | Thành phố gồm những gì? | Các hệ | scn | A–F | đê → neo → hạ tầng → nhà → phao | Three-quarter, kéo lùi nhẹ | SEQUENCE: FADE_OUT theo nhóm, khớp lời | Thành phố là chồng hệ thống | 20 s | tên từng hệ khi nó biến mất | H | H | — |
-| SH04 | B04 | "Problem one: how does something this heavy float?" | — | Chuyển | — | B | một phao trống | Three-quarter gần | HOLD | Điểm bắt đầu | 6 s | — | L | H | Hơi tĩnh; giữ ngắn |
+## C2: The First Problem: Making Buildings Float
 
-## C2: The First Problem: Making Buildings Float (0:50–2:30)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH05 | Problem one: how does something this heavy float at all? Take a block of concrete. As a solid lump, it… | Bê tông nổi được à? | 002, 008, 101 | A,B | Mặt cắt ngang | SIDE_BY_SIDE; REVEAL | Hình dạng quyết định | 'same volume of concrete' | 21 s | M | H | Không hoạt ảnh 'chìm dần' | GENERATE_PROCEDURAL |
+| SH06 | It floats because it pushes water out of the way, and the water it pushes aside weighs as much as the… | Vì sao nổi? | 001, 102 | A,B,E | Mặt cắt chính diện (prototype P1) | HOLD_HIGHLIGHT | Khối nước bị chiếm chỗ | 'displaced water' | 15 s | M | H | Cần tham số mặt cắt | CREATE_SMALL_NEW_CAPABILITY |
+| SH07 | Real floating homes work exactly this way. The Schoonschip houses stand on concrete floats. The heaviest… | Ngoài đời thì sao? | 012, 013, 103 | K | 2D | CARD | Cỡ người thật | 'two builders' figures: 340–350 t' | 23 s | L | H | Sơ đồ, chưa có ảnh | REUSE_EXISTING |
+| SH08 | Our first platform, in this illustrative design, carries four blocks of three-story homes. Altogether it… | Cái gì nặng nhất? | 104 | B,E | Three-quarter | EXPLODE + thanh 2D | Bất ngờ: thân phao hơn nửa | 'illustrative' | 21 s | M | H | — | GENERATE_PROCEDURAL |
+| SH09 | Now add a fourth story. The platform settles about a third of a meter deeper, and the freeboard, the part… | Thêm tải thì sao? | 003, 105 | B,E | Cận thước mớn nước (P2b, P6) | REPLACE + SINK (mới) | Tải làm phao chìm | thước 1 m; mạn khô 1,04 → 0,71 m | 16 s | M | H | 33 cm không thấy ở khung rộng (P2) | CREATE_SMALL_NEW_CAPABILITY |
+| SH10 | One fix is to make the hull half a meter deeper. That adds about 100 tons of concrete, 4% more, and brings… | Sửa thế nào? | 105 | B | Cùng camera B09 | REVEAL phần thân thêm + RISE (mới) | Lần sửa có lý do | mạn khô 0,71 → 1,15 m; '+4% concrete' | 19 s | M | H | Cùng nhánh với B09 (một tải) | CREATE_SMALL_NEW_CAPABILITY |
+| SH11 | Will it tip over? Move 100 tons out toward the edge, and in this example the platform tilts by less than… | Có lật không? | 009, 106 | B | Ngang, three-quarter thấp | HOLD + nghiêng nhỏ (TILT, mới) | Nghiêng ít ≠ đứng yên trong sóng | 'illustrative' | 22 s | L | H | Không ký hiệu G, B, M | CREATE_SMALL_NEW_CAPABILITY |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược | Lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH05 | B05 | "Same concrete. One sinks, one floats." | Bê tông nổi được à? | Hình dạng | CLM_002, calc (1.108 m³; khối 10,35 m; hộp nổi 1,62 m) | A,B | khối đặc; hộp rỗng | ELEVATION mặt cắt | SIDE_BY_SIDE; REVEAL từ trên; khối đặc dừng ở đáy | Hình dạng quyết định | 14 s | "same volume of concrete" | M | H | Không hoạt ảnh "chìm dần"; REVEAL tới vị trí cuối |
-| SH06 | B06 | "It pushes aside its own weight in water." | Vì sao nổi? | Archimedes | CLM_001, calc (khoảng 4.850 t, khoảng 4.730 m³) | A,B,E | khối nước bị chiếm chỗ (vàng), đường nước | Mặt cắt chính diện (prototype P1) | HOLD_HIGHLIGHT: vàng sáng dần | Khối nước bị đẩy ra | 14 s | "displaced water", số minh họa | M | H | Đã thử: đọc được |
-| SH07 | B07 | "A real one: about 340 tonnes, about 340 cubic metres." | Ngoài đời thì sao? | Mốc thật | CLM_012, 013, calc (khối 7 m) | K | nhà trên phao; khối nước 7 m | 2D | CARD | Cỡ người thật | 12 s | "two builders' figures: 340–350 t" | L | H | Ảnh Schoonschip chưa có giấy phép; dùng sơ đồ |
-| SH08 | B08 | "Most of what it carries is itself." | Cái gì nặng nhất? | Phân bố khối lượng | calc (thân phao 55%) | B,E | thân phao, nhà, tải | Three-quarter | EXPLODE theo lớp + thanh 2D | Bất ngờ 1 | 12 s | % theo lớp, ghi *illustrative* | M | H | — |
-| SH09 | B09 | "Add a floor, and it sits deeper." | Thêm tải thì sao? | Mớn nước | CLM_003, calc (+33 cm/tầng) | B,E | tầng 4; thước mớn nước | Cận vạch mớn nước (prototype P2b) | REPLACE (3→4 tầng) + **NEW** `SINK` (hạ cả phao theo Δ tính sẵn) | Tải làm phao chìm | 14 s | thước 1 m, "+33 cm" | M | H | Ở khung toàn cảnh 33 cm không thấy (P2), nên phải cận cảnh |
-| SH10 | B10 | "Half a metre more hull buys the freeboard back." | Sửa thế nào? | Mạn khô | calc (0,69 → 1,13 m; +106 t) | B | thân 4 m và 4,5 m | ELEVATION | SIDE_BY_SIDE | Lần sửa A′ có lý do | 10 s | "freeboard" | L | H | — |
-| SH11 | B11 | "Push a hundred tonnes to the edge: it barely tilts." | Có lật không? | G, B, M; nghiêng | CLM_005, 006, 009, calc (0,42°) | K | G, B, M; khối 100 t | Sơ đồ mặt cắt | CARD (sơ đồ) | Phao rộng rất "cứng" | 14 s | "small angles only" | L | H | Sơ đồ rõ hơn 3D |
-| SH12 | B12 | "Stiff means it follows the water." | Vậy vấn đề là gì? | Ổn định khác tiện nghi | CLM_007 (suy luận, ghi rõ) | K | thân hẹp và phao rộng | 2D | CARD | Mở sang C4 | 10 s | "conceptual" | L | M | Không có số chuyển động |
+## C3: Why One Platform Isn't a City
 
-## C3: Why One Platform Isn't a City (2:30–3:52)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH12 | A platform like this holds about fifty people. For 10,000, we need a lot of them. So why not simply join… | Nhân bản được không? | 108 | B,E | Three-quarter | ASSEMBLE_IN | Khu hình thành | — | 13 s | M | H | — | GENERATE_PROCEDURAL |
+| SH13 | Look at two identical platforms carrying different buildings, one with two stories and one with four.… | Sao không nối cứng? | 107 | B,C,E | Mặt đứng | HIGHLIGHT_REPLACE_HIGHLIGHT | Chênh cao độ → cầu có khớp (một lựa chọn) | 'floating independently' | 31 s | M | H | Không tô đỏ, không vẽ gãy | GENERATE_PROCEDURAL |
+| SH14 | Connections are where engineers expect trouble. A 2026 research agenda lists stress concentrations on… | Mối nối trông ra sao? | 042, 056 | C,F | Cận | CLOSEUP_HIGHLIGHT | Khe, cầu có khớp, đường hạ tầng mềm | 'conceptual geometry' | 27 s | M | H | Không chọn cơ cấu cụ thể | GENERATE_PROCEDURAL |
+| SH15 | How many platforms would 10,000 people need? Say each resident needs about 40 square meters of floor:… | Bao nhiêu phao? | 124, 108 | K | 2D mặt bằng | CARD, chấm hiện dần | Quy mô mối nối | 'illustrative'; 40 m² = 30 + 10 | 25 s | L | H | — | REUSE_EXISTING |
+| SH16 | Bigger platforms mean fewer connections. At 100 meters on a side, 34 would do, but each would weigh about… | To hay nhiều? | 108, 014, 125 | K | 2D mặt bằng cùng tỉ lệ | CARD | Đánh đổi; chọn 60 m | khối lượng mỗi phao; 'not an optimum' | 32 s | L | H | — | REUSE_EXISTING |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược | Lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH13 | B13 | "Why not just weld them together?" | Nhân bản được không? | Module | scn | B,E | 5 phao | Three-quarter | ASSEMBLE_IN (REVEAL từng phao) | Khu hình thành | 12 s | — | M | H | — |
-| SH14 | B14 | "Different loads, different heights." | Vì sao không hàn? | Mớn nước khác nhau | calc (lệch 0,66 m) | B,C,E | cầu cứng → cầu có khớp | ELEVATION | HIGHLIGHT_REPLACE_HIGHLIGHT | Phải có khớp | 16 s | "deck levels differ ~0.66 m" | M | H | Không vẽ gãy; cầu cứng chỉ phát sáng đỏ |
-| SH15 | B15 | "Every joint is where stress gathers." | Mối nối trông ra sao? | Mối nối | CLM_042, 056, 015 | C,F | khe, cầu đi bộ, đường hạ tầng | Cận cảnh | CLOSEUP_HIGHLIGHT | Ba bộ phận của mối nối | 14 s | "conceptual geometry" | M | H | Không chọn cơ cấu cụ thể |
-| SH16 | B16 | "Ten thousand people: two hundred platforms, hundreds of joints." | Bao nhiêu phao? | Đếm | calc (209 phao, khoảng 390 mối nối) | K | lưới mặt bằng | 2D mặt bằng | CARD, chấm hiện dần | Quy mô mối nối | 14 s | số, *illustrative* | L | H | — |
-| SH17 | B17 | "Fewer joints, or easier pieces." | To hay nhiều? | Đánh đổi | calc, CLM_014, 053 | K | 40 m và 100 m cùng tỉ lệ | 2D mặt bằng | CARD SIDE_BY_SIDE | Không có đáp án chung | 16 s | khối lượng mỗi phao; "too big for traditional dry docks" | L | H | — |
-| SH18 | B18 | "…on water that will not keep still." | — | Chuyển | — | A,B | khu, gợn nước | Ngang mặt nước | HOLD | — | 10 s | — | L | H | Gợn nước tĩnh (texture) |
+## C4: The Water Never Stays Still
 
-## C4: The Water Never Stays Still (3:52–5:16)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH17 | And all of this sits on water that never keeps still. Each platform rises and falls on its own, and every… | Sóng thì sao? | — | A,B,C | Three-quarter thấp | CONCEPT_MOTION (mới) | Khe co giãn | 'Conceptual motion visualization — not a hydrodynamic simulation' | 12 s | M | M | Biên độ không mang nghĩa | CREATE_SMALL_NEW_CAPABILITY |
+| SH18 | People living on the water feel it. Floating homes in the Netherlands can rock in storms, or when large… | Người ở có thấy? | 022 | K,E | 2D + cận nhà | CARD | Chuyển động là chuyện con người | nguồn: Yale E360, 2021 | 16 s | L | H | — | REUSE_EXISTING |
+| SH19 | Very large platforms don't only move. They bend, and predicting exactly how is still an open research problem. | Phao lớn thì sao? | 053 | K | 2D mặt cắt | CARD, đường cong vẽ dần | Bài toán mở | 'exaggerated, conceptual' | 10 s | L | M | Không có số | REUSE_EXISTING |
+| SH20 | So the first fix is where you build. A 2026 concept study looks for sea areas with limited fetch, near a… | Giảm sóng thế nào? | 050, 121 | K | 2D bản đồ sơ đồ | CARD | Địa điểm là thiết kế | 'limited fetch' | 22 s | L | H | Không gắn địa danh thật | REUSE_EXISTING |
+| SH21 | The second fix is the layout. Following one concept study, homes go in the middle, and functions that can… | Bố cục ra sao? | 055, 051, 052 | A–F | Top → three-quarter | SEQUENCE | Tổ chức theo chuyển động | 'reduces waves — does not remove storm risk' | 29 s | H | H | — | GENERATE_PROCEDURAL |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược | Lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH19 | B19 | "Each platform moves on its own." | Chuyện gì xảy ra khi có sóng? | Chuyển động tương đối | CLM_042 | A,B,C | 5 phao, khe | Three-quarter thấp | **NEW** `CONCEPT_MOTION` (heave/pitch hình sin, tất định, lệch pha) | Khe co giãn | 18 s | **"Conceptual motion visualization — not a hydrodynamic simulation"** | M | M | Biên độ không mang nghĩa |
-| SH20 | B20 | "Even in an Amsterdam canal, residents feel it." | Người ở có thấy? | Tiện nghi | CLM_022 | K,E | tầng trên | 2D + cận nhà | CARD | Chuyển động là chuyện con người | 10 s | dẫn nguồn (Yale E360, 2021) | L | H | — |
-| SH21 | B21 | "Big platforms don't just move — they bend." | Phao lớn thì sao? | Hydro-elastic | CLM_053 | K | phao dài uốn | 2D mặt cắt | CARD, đường cong vẽ dần | Bài toán mở | 12 s | "exaggerated, conceptual; an open research problem" | L | M | Không có số |
-| SH22 | B22 | "The first fix is where you build." | Giảm sóng thế nào? | Địa điểm | CLM_050 | K | vịnh kín và vịnh hở | 2D bản đồ sơ đồ | CARD | Địa điểm là thiết kế | 14 s | "limited fetch" | L | H | Không gắn địa danh thật |
-| SH23 | B23 | "Homes inside, tougher functions outside, a breakwater where it's open." | Bố cục quận? | Bố cục, đê | CLM_055, 051, 052 | A–F | vòng trong/ngoài, đê | TOP → three-quarter | SEQUENCE: HIGHLIGHT vòng trong, REVEAL đê | Thành phố được tổ chức theo chuyển động | 24 s | "reduces waves — does not remove storm risk" | H | H | — |
-| SH24 | B24 | "…it still has to stay where we put it." | — | Chuyển | — | A | quận | Ngang mặt nước | HOLD | — | 6 s | — | L | H | Có thể gộp vào SH23 |
+## C5: Keeping the City in Place
 
-## C5: Keeping the City in Place (5:16–6:26)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH22 | Something also has to hold the city in place. Floating homes in the Netherlands are fixed to the shore,… | Cái gì giữ nó? | 020 | A,D | Three-quarter thấp (P4) | SEQUENCE: nước 2 bước, HIGHLIGHT cọc | Hệ neo vô hình | — | 11 s | H | H | Phải thấy mặt nước trước khi mờ | ADAPT_EXISTING |
+| SH23 | Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles. In… | Triều lên thì sao? | 041, 122, 109 | B,D,F | Mặt đứng | SEQUENCE + RISE/SINK (mới) | Vì sao cầu có khớp | '2 m range, assumed' | 23 s | M | H | — | CREATE_SMALL_NEW_CAPABILITY |
+| SH24 | Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed. Deeper water… | Xa bờ hơn? | 055, 054 | A,D | Dưới nước, ngang | REPLACE (cọc → dây) | Neo theo độ sâu | 'Conceptual mooring — not sized' | 17 s | H | H | Độ võng dây chỉ là hình vẽ; tương phản dây (P5) | GENERATE_PROCEDURAL |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược | Lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH25 | B25 | "Under the surface: what holds it." | Cái gì giữ nó? | Giữ vị trí | CLM_020 | A,D | mặt nước → làm mờ; cọc | Three-quarter thấp (prototype P4) | SEQUENCE: GHOST nước (2 bước), HIGHLIGHT cọc | Hệ neo vô hình | 16 s | — | M | H | Phải thấy mặt nước trước khi làm mờ |
-| SH26 | B26 | "Water rises and falls; the city rides up and down." | Triều lên thì sao? | Mực nước | CLM_041, calc (3° với cầu 25 m) | B,D,F | phao trượt theo cọc; khớp cầu | ELEVATION | **NEW** `SINK`/`RISE` (tịnh tiến z) + xoay cầu | Vì sao cầu có khớp | 16 s | dải 2 m *(assumed)* | M | H | Hoạt ảnh tịnh tiến là năng lực mới |
-| SH27 | B27 | "Deeper water: lines instead of piles, and the cost climbs." | Xa bờ hơn? | Neo theo độ sâu | CLM_054, 055 | A,D | dây, neo, đáy dốc | Dưới nước, ngang | REPLACE (cọc → dây) | Neo phụ thuộc đáy | 20 s | "conceptual; not sized" | M | H | Độ võng dây chỉ là hình vẽ |
-| SH28 | B28 | "And everything depends on the seabed." | — | Đáy biển | CLM_054 | A,D | vùng neo | Cận | CLOSEUP_HIGHLIGHT | — | 10 s | "requires site survey" | L | H | — |
-| SH28b | B28 | (chuyển) "Is it a city yet?" | — | — | — | A | quận | Three-quarter | HOLD | — | 8 s | — | L | H | — |
+## C6: A City Needs More Than Buildings
 
-## C6: A City Needs More Than Buildings (6:26–7:36)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH25 | So it floats, and it stays put. But is it a city yet? Fade out the buildings, and the city's other half… | Đã là thành phố chưa? | — | E,F | Three-quarter | SEQUENCE: GHOST nhà | Nửa còn lại của thành phố | — | 10 s | H | H | — | GENERATE_PROCEDURAL |
+| SH26 | Power first: at Schoonschip, 46 households share a single connection to the national grid, with solar… | Tự cung tự cấp? | 016 | K | 2D | CARD | 'Floating ≠ off-grid' | — | 17 s | L | H | — | REUSE_EXISTING |
+| SH27 | Wastewater is separated there too: gray water from showers and washing machines, black water from toilets.… | Nước thải đi đâu? | 017, 023, 123 | F | Cận một phao | CLOSEUP_HIGHLIGHT | Phụ thuộc vào bờ | — | 25 s | M | H | — | GENERATE_PROCEDURAL |
+| SH28 | Transport, fire and medical services, and food all follow the same logic. A large floating development has… | Cấp cứu, đi lại? | 043 | F | Three-quarter | SEQUENCE: HIGHLIGHT 3 mục | Mọi dịch vụ nối bờ | — | 18 s | H | H | Không khẳng định đạt quy chuẩn | GENERATE_PROCEDURAL |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược | Lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH29 | B29 | "Fade the buildings, and the real city appears." | Thành phố chạy bằng gì? | Mạng hạ tầng | CLM_043 | E,F | điện, nước, nước thải dọc cầu | Three-quarter | SEQUENCE: GHOST nhà, HIGHLIGHT từng mạng theo từ | Hệ thống tích hợp | 22 s | tên mạng | H | H | — |
-| SH30 | B30 | "Forty-six homes, one grid connection." | Có phải tự cung tự cấp? | Nối lưới | CLM_016 | K | 46 nhà → 1 cáp | 2D | CARD | "Floating ≠ off-grid" | 14 s | — | L | H | — |
-| SH31 | B31 | "Wastewater goes ashore — by pump." | Nước thải đi đâu? | Nước thải | CLM_017, 023 | F | ống xám/đen, bơm, cầu | Cận một phao | CLOSEUP_HIGHLIGHT | Phụ thuộc vào bờ | 16 s | "digester: planned pilot" nếu nhắc | M | H | — |
-| SH32 | B32 | "Boats, two ways out, food from land." | Cấp cứu, đi lại? | Dịch vụ | CLM_043, scn | F | bến, lối thoát, cầu | Three-quarter | SEQUENCE: HIGHLIGHT 3 mục | — | 18 s | — | M | H | Không khẳng định đạt quy chuẩn |
+## C7: What Would Actually Make This Difficult?
 
-## C7: What Would Actually Make This Difficult? (7:36–9:16)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH29 | Everything so far assumed sheltered water close to a city. So what happens if we tow it out to sea? | Ra khơi được không? | — | A,B | 3D biển mở, aerial thấp | HOLD | Bắt đầu phản thực tế | 'Counterfactual' | 9 s | M | H | Site biển mở mới | GENERATE_PROCEDURAL |
+| SH30 | Longer waves arrive, and a floating breakwater may not be enough against them. Below the surface, the… | Đê và neo còn đủ? | 051, 054 | A,D | Cùng cảnh, xuống dưới nước | SEQUENCE + CONCEPT_MOTION (sóng dài) | Sóng dài; dây dài ra | nhãn chuyển động khái niệm | 14 s | H | H | — | CREATE_SMALL_NEW_CAPABILITY |
+| SH31 | Further from shore, cables, pipes and supply ships can still reach the city, but every link becomes longer… | Còn nối bờ được? | 043, 051 | F | Cùng cảnh | HOLD_HIGHLIGHT | Liên kết dài và lộ hơn | — | 11 s | M | H | — | GENERATE_PROCEDURAL |
+| SH32 | And if we also asked the city to supply itself, as one 2026 offshore concept does, it would need its own… | Nếu phải tự chủ? | 058 | K | 2D | CARD | Một điều kiện thêm, không mặc định | 'one concept study's estimate' | 21 s | L | H | — | REUSE_EXISTING |
+| SH33 | That study also uses a different kind of hull: semi-submersible platforms, with the deck raised above the… | Thiết kế khác ra sao? | 062 | B | 3D cạnh nhau | SIDE_BY_SIDE | Một loại thân khác | 'concept study (2026)' | 19 s | M | H | Biến thể phao bán chìm (sơ đồ) | GENERATE_PROCEDURAL |
+| SH34 | Some difficulties remain wherever we build. Concrete in seawater needs watching: chlorides can corrode the… | Bảo trì? | 059 | B | Cận thân phao | CLOSEUP_HIGHLIGHT | Chi phí ẩn | 'no dedicated standards yet' | 19 s | L | H | Không vẽ hư hỏng | GENERATE_PROCEDURAL |
+| SH35 | Large floating developments change the light, shade and water movement beneath them, effects that… | Sinh thái? | 044 | A | Dưới nước | HOLD (bóng EEVEE) | Tác động vô hình | — | 17 s | M | M | Không mô phỏng ánh sáng | ADAPT_EXISTING |
+| SH36 | And who gets to use the water? How districts like this fit into planning law is not yet known, and… | Ai dùng mặt nước? | 045, 046 | E,F | Three-quarter | SIDE_BY_SIDE 2 biến thể | Câu hỏi phi kỹ thuật | — | 16 s | M | H | — | GENERATE_PROCEDURAL |
+| SH37 | And what would it cost? We do not yet have a reliable cost estimate for this design. The one published… | Bao nhiêu tiền? | 063, 041, 054, 042, 059 | K | 2D | CARD 2 cột | Kết luận cân bằng | 'no reliable cost estimate for this design' | 28 s | L | H | — | REUSE_EXISTING |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược | Lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH33 | B33 | "Now tow it out to sea." | Ra khơi được không? | Phản thực tế | scn | K | bản đồ, quận dời ra | 2D bản đồ | CARD | Bắt đầu D | 12 s | "counterfactual" | L | H | — |
-| SH34 | B34 | "Long swells pass a floating breakwater." | Đê còn đủ? | Sóng dài | CLM_051, 052 | K | mặt cắt đê, sóng dài | 2D | CARD | Giới hạn của đê | 14 s | "conceptual" | L | H | — |
-| SH35 | B35 | "Longer lines. No bridge. Everything on its own." | Còn gì đổi? | Neo, tự chủ | CLM_054, 043, 058 | K | dây dài, cầu biến mất | 2D | CARD | Chi phí và tự chủ | 16 s | — | L | H | — |
-| SH36 | B36 | "Offshore designs use a different kind of hull." | Thiết kế khác ra sao? | Phao bán chìm | CLM_062 | K/B | hộp và cột | 2D sơ đồ | CARD SIDE_BY_SIDE | "A different machine" | 12 s | "concept study (2026)" | L | H | — |
-| SH37 | B37 | "Concrete in seawater needs watching." | Bảo trì? | Ăn mòn | CLM_059 | B | mặt thân, vùng kiểm tra | Cận (S2) | CLOSEUP_HIGHLIGHT | Chi phí ẩn | 14 s | "no dedicated standards yet" | L | H | Không vẽ hư hỏng giả |
-| SH38 | B38 | "Shade on the seabed." | Sinh thái? | Bóng râm, dòng chảy | CLM_044 | A | bóng phao trên đáy | Dưới nước | HOLD (bóng EEVEE) | Tác động vô hình | 12 s | — | M | M | Chỉ minh họa bóng, không mô phỏng ánh sáng |
-| SH39 | B39 | "Who gets to use the water?" | Ai được lợi? | Quản trị, công bằng | CLM_045, 046 | E,F | mép có lối công cộng và mép rào | Three-quarter | SIDE_BY_SIDE 2 biến thể | Câu hỏi phi kỹ thuật | 12 s | — | M | H | — |
-| SH40 | B40 | "Not land minus the problems — different problems." | So với đất liền? | So sánh | CLM_041, 061 | K | bảng 2 cột | 2D | CARD | Kết luận cân bằng | 8 s | "no peer-reviewed cost basis" | L | H | — |
+## C8: Could We Really Build It?
 
-## C8: Could We Really Build It? (9:16–10:36)
+| Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SH38 | From one platform to a district, every part we added answers a question we had to ask. | Đi được bao xa? | — | A–F | DETAIL_THEN_OVERVIEW | SIDE_BY_SIDE + nhãn | So sánh cuối | mỗi hệ một nhãn | 8 s | H | H | Phao 40 m cạnh quận khoảng 600 m: cần khung cận trước | GENERATE_PROCEDURAL |
+| SH39 | So, could we build an entire city that floats? Small floating neighborhoods, connected to the shore in… | Kết luận 1? | 010, 011, 016 | K | 2D | CARD theo từ | Đã có thật | — | 11 s | L | H | — | REUSE_EXISTING |
+| SH40 | A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the… | Kết luận 2? | 121, 053, 042, 063, 033 | K | 2D | CARD theo từ | Có thể, có điều kiện | 'checked: OCEANIX Busan, Nov 2026' | 30 s | L | H | — | REUSE_EXISTING |
+| SH41 | A city far out at sea, especially one that has to supply itself, remains much more speculative. | Kết luận 3? | 051, 058, 062 | K | 2D | CARD theo từ | Còn suy đoán | — | 9 s | L | H | — | REUSE_EXISTING |
+| SH42 | Our arithmetic shows what it takes for a platform to float. Whether a whole district works depends on the… | Phép tính chứng minh gì? | 104, 121 | A–F | Aerial (dùng lại B01) | HOLD + PUSH_IN | Giới hạn của phép tính | — | 12 s | H | H | Dùng lại cảnh B01 | REUSE_EXISTING |
+| SH43 | Which structure should we explain next? Suggest a topic in the comments. And if you enjoyed this film,… | — | — | K | 2D | CARD icon tự vẽ | Lời kêu gọi | — | 12 s | L | H | — | REUSE_EXISTING |
+| SH44 | Thank you for watching. The sources are listed in the description. | — | — | K | 2D | CARD | Ghi công, công bố giọng AI | — | 7 s | L | H | — | REUSE_EXISTING |
 
-| Shot | Beat | Ý lời dẫn | Câu hỏi | Khái niệm | Ev | Fam | Mục tiêu | Camera | Chiến lược | Lộ ra | Dài | Chú thích | Cplx | Conf | Giới hạn |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH41 | B41 | "From one platform to a city: every part answers a question." | Đi được bao xa? | Tổng hợp | calc, scn | A–F | A cạnh C | DETAIL_THEN_OVERVIEW (A riêng, rồi cả hai) | SIDE_BY_SIDE + nhãn | So sánh cuối | 22 s | mỗi hệ một nhãn | H | H | 40 m cạnh khoảng 600 m: A rất nhỏ, cần khung cận trước |
-| SH42 | B42 | "Built. Plausible here. Speculative out there." | Kết luận? | Phán quyết 3 tầng | CLM_010, 011, 033, 042, 053, 051, 058 | K | 3 tầng | 2D | CARD, phần tử theo từ | Câu trả lời | 20 s | — | L | H | Card dài: phần tử phải hiện theo từ |
-| SH43 | B43 | "The hardest parts may not be the engineering." | — | Câu kết | — | A–F | quận, ánh chiều | Aerial | HOLD + PUSH_IN | — | 12 s | — | H | H | Dùng lại cảnh SH01 |
-| SH44 | B44 | Lời kêu gọi (≤ 60 từ) | — | — | — | K | icon tự vẽ | 2D | CARD | — | 20 s | — | L | H | — |
-| SH45 | — | Ghi công, công bố giọng AI | — | — | — | K | — | 2D | CARD | — | 6 s | — | L | H | — |
+## Tổng
 
-**Tổng thời lượng:** 636 s (10:36), trong mục tiêu 10–12 phút. Số đếm bằng script từ chính các bảng trên. Chia theo loại shot (chỉ họ K là 2D; shot có cả card và cận cảnh 3D tính là 3D):
+- **Thời lượng:** 13:05 (đo từ audio, gồm khoảng lặng đầu và cuối mỗi beat).
+- **3D:** 502 s (64%); **2D:** 282 s (36%).
+- **Theo hạng khả thi:** ADAPT_EXISTING 2; CREATE_SMALL_NEW_CAPABILITY 7; GENERATE_PROCEDURAL 18; REUSE_EXISTING 17.
+- **Chuỗi card 2D liền nhau dài nhất:** 3 (B39–B41).
+- **Aerial:** chỉ B01–B02 và B42 (dùng lại cùng cảnh).
 
-| Loại | Số shot | Thời lượng | Tỉ lệ |
-|---|---|---|---|
-| 3D | 29 | 412 s | 65% |
-| 2D | 17 | 224 s | 35% |
-
-## Đoạn tĩnh và chuyển động dư thừa (đã đánh dấu)
-- **SH04, SH18, SH24, SH28b** là HOLD ngắn để chuyển chương. Mỗi shot ≤ 10 s. Có thể gộp SH24 vào SH23 và SH28b vào SH29 khi lời dẫn thật đã đo.
-- **SH42** (card 20 s): nguy cơ tĩnh. Ba tầng phải hiện theo từ.
-- **SH43** dùng lại cảnh SH01 (cùng camera aerial, ánh chiều). Đây là shot aerial thứ hai và là cuối cùng. Phim không có quá hai aerial.
-- **Chuyển động sóng chỉ có ở SH19**, không lặp. SH34 là sơ đồ 2D.
-- **Chuỗi 2D liền nhau dài nhất** là SH33–SH36 (4 card, ngưỡng QA phim dài là 4). Nếu cần giảm, chuyển SH36 thành 3D (họ B có hai biến thể thân).
-
-## Mỗi hình đẩy câu chuyện thế nào (tóm tắt)
-- **C1:** lời hứa (thành phố), ranh giới thật và đề xuất, cam kết dựng lại.
-- **C2:** từ "sao lại nổi" qua "nặng ở đâu", "thêm tải thì sao", "sửa", "không lật" tới "nhưng bám theo nước".
-- **C3:** nhân bản sinh ra mối nối; đếm ra quy mô; đánh đổi to hay nhiều.
-- **C4:** sóng làm lộ mối nối và tiện nghi; lời giải là địa điểm và bố cục; đê có giới hạn.
-- **C5:** phần dưới nước lộ ra; mực nước giải thích khớp; độ sâu đổi cách neo.
-- **C6:** nhà lùi đi, hệ thống hiện ra; thành phố vẫn buộc vào bờ.
-- **C7:** dời ra khơi đổi cả loại kết cấu; ba câu hỏi còn lại ở mọi nơi.
-- **C8:** đặt điểm đầu cạnh điểm cuối; trả lời theo ba tầng.

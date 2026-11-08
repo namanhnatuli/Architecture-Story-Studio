@@ -264,6 +264,32 @@
     },
     "note": "Fewer, larger modules mean fewer connections but heavier units to build, launch and tow, and a larger share of the response becomes flexible (hydro-elastic, CLM_042/CLM_053). Counts only; no loads."
   },
+  "storey_branch": {
+    "dead_load_t_m2": 0.6,
+    "steps": [
+      {
+        "step": "3 storeys, hull 4.0 m",
+        "mass_t": 4851.2,
+        "draft_m": 2.958,
+        "freeboard_m": 1.042
+      },
+      {
+        "step": "4 storeys, hull 4.0 m",
+        "mass_t": 5395.2,
+        "draft_m": 3.29,
+        "freeboard_m": 0.71
+      },
+      {
+        "step": "4 storeys, hull 4.5 m",
+        "mass_t": 5500.8,
+        "draft_m": 3.354,
+        "freeboard_m": 1.146
+      }
+    ],
+    "extra_concrete_for_deeper_hull_t": 105.6,
+    "extra_concrete_share_of_hull": 0.04,
+    "note": "Same dead load in every step; only the storeys, then the hull depth, change."
+  },
   "revisions": {
     "A_prime_deeper_hull_heavy_buildings": {
       "hull_depth_m": 4.5,
@@ -276,7 +302,29 @@
       "draft_2_storeys_m": 2.626,
       "draft_4_storeys_m": 3.29,
       "deck_level_step_m": 0.664,
-      "note": "Same hulls, different buildings: the decks float at different heights, so a rigid walkway between them would be forced; links must allow it (or ballast evens it out)."
+      "note": "Two platforms floating independently. Once they are joined, the joint forces change the equilibrium of both, so this step is not what a rigid link would see; it only shows that different loads add a demand on the connection. The design chooses hinged walkways."
+    }
+  },
+  "district_C": {
+    "module_m": 60,
+    "modules": 93,
+    "deck_area_m2": 334800,
+    "module_mass_t": 10764.0,
+    "module_draft_m": 2.917,
+    "residents_per_module": 108,
+    "joints_max": 180,
+    "standard_modules_displacement_t": 1001000.0,
+    "excludes": [
+      "service and port platforms",
+      "breakwater",
+      "link-span bridges",
+      "moorings and piles",
+      "utility plants and networks"
+    ],
+    "gfa_per_resident_m2": {
+      "total": 40,
+      "homes": 30,
+      "schools_clinic_shops_services": 10
     }
   },
   "reference_points": {

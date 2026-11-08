@@ -299,7 +299,7 @@ def neighbourhood(gap=5.0, piles=True, alpha=1.0, lines=False):
                 box(f"bracket_{cx}_{sx}", cx + sx * (L / 2) - (0 if sx > 0 else 1.0), cx + sx * (L / 2) + (1.0 if sx > 0 else 0),
                     cy + sy * (B / 2 + 1.4) - 0.9, cy + sy * (B / 2 + 1.4) + 0.9, zt - 0.6, zt - 0.1, steel)
     if lines:
-        cab = mat("cable", "#3E4C56", 0.4)
+        cab = mat("cable", "#1F2A30", 0.35)   # c-r1: darker than water and seabed (owner review: P5 hard to read)
         for cx, cy in centres:
             for sy in (-1, 1):
                 fx, fy = cx, cy + sy * B / 2
@@ -310,11 +310,11 @@ def neighbourhood(gap=5.0, piles=True, alpha=1.0, lines=False):
                     x, y = fx + (ax - fx) * t, fy + (ay - fy) * t
                     z = (-T + 0.5) * (1 - t) + (-DEPTH) * t - 4.0 * math.sin(math.pi * t) * (1 - t)   # sagging line (drawn, not computed)
                     pts.append((x, y, max(z, -DEPTH)))
-                tube_path(f"line_{cx}_{sy}", pts, 0.25, cab)
-                box(f"anchor_{cx}_{sy}", ax - 1.2, ax + 1.2, ay - 1.2, ay + 1.2, -DEPTH - 0.3, -DEPTH + 0.8, mat("steel_dark", "#3E4C56", 0.5))
-    if alpha < 1.0:   # ghosted water: a faint volume plus a clearly visible surface, so the platforms still read as floating
+                tube_path(f"line_{cx}_{sy}", pts, 0.45, cab)
+                box(f"anchor_{cx}_{sy}", ax - 2.0, ax + 2.0, ay - 2.0, ay + 2.0, -DEPTH - 0.3, -DEPTH + 1.2, mat("anchor", "#1F2A30", 0.5))
+    if alpha < 1.0:   # ghosted water: a faint volume plus a visible surface, so the platforms still read as floating
         box("water_ghost", -200, 200, -150, 150, -DEPTH, -0.05, mat("water", C["water"], 0.15, alpha))
-        box("water_surface", -200, 200, -150, 150, -0.05, 0.0, mat("water_surface", "#5F8CA2", 0.1, 0.55))
+        box("water_surface", -200, 200, -150, 150, -0.05, 0.0, mat("water_surface", "#5F8CA2", 0.1, 0.4 if lines else 0.55))
     else:
         water_around(-200, 200, -150, 150, holes, alpha=alpha)
     seabed(-200, 200, -150, 150)
@@ -332,7 +332,7 @@ def shot_mooring_reveal_piles():
 
 
 def shot_mooring_reveal_lines():
-    neighbourhood(piles=False, alpha=0.3, lines=True)
+    neighbourhood(piles=False, alpha=0.15, lines=True)
     return dict(ortho=200, az=-30, el=14, target=(0, 0, -6))
 
 
@@ -345,6 +345,97 @@ def shot_load_compare_closeup():
     return dict(ortho=10, az=-90, el=2, target=(46.4, 0, -1.6))
 
 
+def text(name, body, x, z, size, color, y=-B / 2 - 3.0):
+    cu = bpy.data.curves.new(name, "FONT")
+    cu.body, cu.size, cu.align_x = body, size, "LEFT"
+    ob = bpy.data.objects.new(name, cu)
+    ob.location, ob.rotation_euler = (x, y, z), (math.radians(90), 0, 0)
+    ob.data.materials.append(mat(f"text_{color}", color, 0.9, 1.0, 0.6))
+    ob.visible_shadow = False   # labels in front of the model must not cast shadows on it
+    bpy.context.scene.collection.objects.link(ob)
+    return ob
+
+
+def show_between(ob, f0, f1, last):
+    """Visible from frame f0 to f1 (hide_render/hide_viewport keys)."""
+    for f, hidden in ((1, f0 > 1), (f0, False), (f1, True) if f1 <= last else (last, False)):
+        ob.hide_render = ob.hide_viewport = hidden
+        ob.keyframe_insert("hide_render", frame=f)
+        ob.keyframe_insert("hide_viewport", frame=f)
+
+
+def anim_add_storey_sink_fix(fps=24):
+    """P6 (owner review c-r0): one continuous branch from analysis/results.json storey_branch: 3 storeys -> a 4th arrives
+    -> the platform settles -> the hull grows 0.5 m -> the deck rises. Freeboards are the model's, not drawn guesses."""
+    br = RES["storey_branch"]["steps"]
+    f1, f2, f3 = (st["freeboard_m"] for st in br)
+    con, deck = mat("concrete", C["concrete"]), mat("deck", C["deck"], 0.85)
+    pl, roof, gold = mat("plaster", C["plaster"], 0.85), mat("roof", C["roof"], 0.7), mat("highlight", C["highlight"], 0.5, 1.0, 0.3)
+    root = bpy.data.objects.new("platform", None)
+    bpy.context.scene.collection.objects.link(root)
+
+    def child(ob):
+        ob.parent = root
+        return ob
+    # platform in local coordinates: deck top at z = 0, hull 4 m deep
+    child(box("hull", -L / 2, L / 2, -B / 2, B / 2, -4.0, -SLAB, con))
+    child(box("deck", -L / 2, L / 2, -B / 2, B / 2, -SLAB, 0.0, deck))
+    blocks = [(-14, -4, -15, -3), (2, 14, -15, -3), (-14, -4, 4, 15), (2, 14, 4, 15)]
+    for i, (x0, x1, y0, y1) in enumerate(blocks):
+        child(box(f"b{i}", x0, x1, y0, y1, 0.0, 9.0, pl))
+        r3 = child(box(f"b{i}_roof", x0 - 0.2, x1 + 0.2, y0 - 0.2, y1 + 0.2, 9.0, 9.3, roof))
+        r3.name = f"b{i}_roof3"
+        for k in (3.0, 6.0):
+            child(box(f"b{i}_band{k}", x0 - 0.05, x1 + 0.05, y0 - 0.05, y1 + 0.05, k - 0.08, k + 0.08, mat("line", C["line"], 0.9)))
+    T = lambda sec: int(round(sec * fps)) + 1   # noqa: E731
+    last = T(12.0)
+    for i in range(len(blocks)):   # the 3-storey roof goes when the 4th storey lands on it
+        show_between(bpy.data.objects[f"b{i}_roof3"], 1, T(2.7), last)
+    # the 4th storey: four blocks that land on the roofs between 1.5 s and 2.7 s
+    for i, (x0, x1, y0, y1) in enumerate(blocks):
+        st = child(box(f"b{i}_storey4", x0, x1, y0, y1, 9.3, 12.3, pl))
+        rf = child(box(f"b{i}_storey4_roof", x0 - 0.2, x1 + 0.2, y0 - 0.2, y1 + 0.2, 12.3, 12.6, roof))
+        for ob in (st, rf):
+            ob.location.z = 14.0
+            ob.keyframe_insert("location", frame=1)
+            ob.keyframe_insert("location", frame=T(1.5))
+            ob.location.z = 0.0
+            ob.keyframe_insert("location", frame=T(2.7))
+            show_between(ob, T(1.5), last + 1, last)
+    # the extra half metre of hull grows downward between 6.5 s and 8.0 s (gold while new)
+    ext = child(box("hull_extension", -L / 2, L / 2, -B / 2, B / 2, -0.5, 0.0, gold))
+    ext.location.z = -4.0
+    ext.scale.z = 0.001
+    ext.keyframe_insert("scale", frame=1)
+    ext.keyframe_insert("scale", frame=T(6.5))
+    ext.scale.z = 1.0
+    ext.keyframe_insert("scale", frame=T(8.0))
+    # platform height = freeboard (deck top above the still water)
+    for sec, fb in ((0.0, f1), (2.7, f1), (4.7, f2), (8.0, f2), (10.0, f3), (12.0, f3)):
+        root.location.z = fb
+        root.keyframe_insert("location", frame=T(sec))
+    # freeboard gauge beside the hull: a gold bar from the water to the deck
+    gauge = box("gauge", L / 2 + 0.6, L / 2 + 1.4, -B / 2 - 1.0, -B / 2 - 0.4, 0.0, 1.0, gold)
+    gauge.visible_shadow = False
+    for sec, fb in ((0.0, f1), (2.7, f1), (4.7, f2), (8.0, f2), (10.0, f3), (12.0, f3)):
+        gauge.scale.z = fb
+        gauge.keyframe_insert("scale", frame=T(sec))
+    ink = C["line"]
+    for name, body, a, b in (("l1", f"freeboard ≈ {f1:.2f} m", 0.0, 3.0), ("l2", f"freeboard ≈ {f2:.2f} m", 4.7, 8.5),
+                             ("l3", f"freeboard ≈ {f3:.2f} m", 10.0, 12.1)):
+        show_between(text(name, body, L / 2 + 1.9, 0.25, 0.75, ink), T(a), T(b), last)
+    show_between(text("c1", "+1 storey (same building load)", -2.5, -3.0, 0.8, ink), T(1.5), T(6.2), last)
+    show_between(text("c2", "hull +0.5 m  (+106 t concrete, +4%)", -2.5, -3.0, 0.8, ink), T(6.5), T(12.1), last)
+    text("note", "Concept prototype: illustrative, still water (analysis/results.json, storey_branch)", -2.5, -4.1, 0.45, ink)
+    box("waterline", -60, 60, -B / 2 - 0.3, -B / 2 - 0.2, -0.04, 0.04, mat("line", ink, 0.9))
+    box("water", -60, 60, -B / 2 - 0.1, 60, -DEPTH, 0.0, mat("water", C["water"], 0.15, 0.55))
+    bpy.context.scene.frame_start, bpy.context.scene.frame_end = 1, last
+    return dict(ortho=32, az=-90, el=2, target=(13, 0, 4.4))
+
+
+ANIMS = {"P6_add_storey_sink_fix": anim_add_storey_sink_fix}
+
+
 SHOTS = {"P1_design_A_cutaway": shot_design_a_cutaway, "P2_load_compare": shot_load_compare,
          "P2b_draft_marks_closeup": shot_load_compare_closeup,
          "P3_neighbourhood": shot_neighbourhood, "P4_mooring_piles_water_ghosted": shot_mooring_reveal_piles,
@@ -353,6 +444,20 @@ SHOTS = {"P1_design_A_cutaway": shot_design_a_cutaway, "P2_load_compare": shot_l
 
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
+    if "--anim" in argv:   # an animation test: PNG frames in renders/prototype/<name>/ (ffmpeg joins them)
+        name = argv[argv.index("--anim") + 1]
+        res = tuple(int(v) for v in (argv[argv.index("--res") + 1] if "--res" in argv else "960x540").split("x"))
+        bpy.ops.wm.read_factory_settings(use_empty=True)
+        _mats.clear()
+        cam = ANIMS[name]()
+        setup(res, cam["ortho"], cam["az"], cam["el"], cam["target"])
+        bpy.context.scene.render.fps = 24
+        out = OUT / name
+        out.mkdir(parents=True, exist_ok=True)
+        bpy.context.scene.render.filepath = str(out / "f_")
+        bpy.ops.render.render(animation=True)
+        print("WROTE", out)
+        return
     shots = [argv[argv.index("--shot") + 1]] if "--shot" in argv else list(SHOTS)
     res = tuple(int(v) for v in (argv[argv.index("--res") + 1] if "--res" in argv else "960x540").split("x"))
     OUT.mkdir(parents=True, exist_ok=True)

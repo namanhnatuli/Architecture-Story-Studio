@@ -1,143 +1,154 @@
-# Dàn ý kể chuyện (khoảng 10:36 theo storyboard)
+# Dàn ý kể chuyện (revision c-r1, sau review concept 2026-11-08)
 
-**Ghi chú chung:**
-- **Lời dẫn:** các câu tiếng Anh dưới đây là *ý lời dẫn*, chưa phải kịch bản. Kịch bản sẽ viết trong `script/story.py` sau khi chủ kênh duyệt concept.
-- **Mã claim:** mỗi ý có mã claim (`research/sources.json`), phép tính (`analysis/results.json`) hoặc giả định của kịch bản (`concept/scenario_contract.json`).
-- **Nhịp lặp lại:** *"We solved that — but now there's another problem."* Mỗi vòng lặp phải mang một hình mới, không chỉ một câu mới (xem phần rà soát biên tập ở cuối).
+- **Lời dẫn đầy đủ** ở `script/story.py`, sinh ra `script/narration.json`. Dàn ý này nói vì sao từng chương có mặt và mỗi ý dựa vào đâu:
+  - claim trong `research/sources.json`;
+  - phép tính trong `analysis/results.json` (*calc*);
+  - giả định trong `concept/scenario_contract.json` (*scn*).
+- **Thời lượng:** đo từ audio thật sau `lock-audio` (`review/SCRIPT_REVIEW.md`), không còn là ước lượng của storyboard.
+- **Nhịp:** *"We solved that — now there's another problem."* Mỗi vòng mang một hình mới.
 
-| Chương | Tiêu đề | Thời lượng | Thiết kế trên màn hình |
-|---|---|---|---|
-| C1 | Could We Actually Do This? | 0:00–0:50 | Quận C hoàn chỉnh → gỡ về một phao |
-| C2 | The First Problem: Making Buildings Float | 0:50–2:30 | A, A′ |
-| C3 | Why One Platform Isn't a City | 2:30–3:52 | B |
-| C4 | The Water Never Stays Still | 3:52–5:16 | B dưới sóng khái niệm → C (bố cục trong/ngoài) |
-| C5 | Keeping the City in Place | 5:16–6:26 | C, nước làm mờ, cọc và dây neo |
-| C6 | A City Needs More Than Buildings | 6:26–7:36 | C, nhà làm mờ, mạng hạ tầng |
-| C7 | What Would Actually Make This Difficult? | 7:36–9:16 | D (ngoài khơi) + bảo trì, sinh thái, quản trị |
-| C8 | Could We Really Build It? | 9:16–10:36 | A cạnh C; phán quyết; lời kêu gọi |
+## Sửa so với c-r0 (theo review concept của chủ kênh, 2026-11-08)
 
-## C1: Could We Actually Do This? (khoảng 50 giây)
-- **Móc mở:** quận nổi hoàn chỉnh trong một vịnh, nhìn từ trên cao. *"Ten thousand people. Homes, schools, a clinic, parks. And not one of them standing on land."*
-- **Câu hỏi:** *"Could we actually build a city like this? Not a render — a city that floats, stays put, and keeps working."* Câu này đặt ranh giới với các tầm nhìn không gắn địa điểm (CLM_047).
-- **Lời hứa bằng hình:** thành phố được gỡ từng lớp (đê, neo, hạ tầng, nhà, phao) cho tới khi còn **một phao trống**. *"To find out, we'll take it apart, and build it back one problem at a time."*
-- **Mốc có thật:** một dòng ngắn trên hình: một khu nổi khoảng 100 người đã có ở Amsterdam (CLM_010, CLM_011); đề xuất 12.000 người ở Busan **chưa được báo cáo là đã xây** (CLM_031, CLM_033).
-- **Chuyển:** *"Problem one: how does something this heavy float at all?"*
+| # | Vấn đề | Đã sửa |
+|---|---|---|
+| 1 | "Stiff means it follows the water" suy quá từ GM | Bỏ. Nay là: phao nghiêng rất ít **dưới tải dời chỗ minh họa này**, nhưng điều đó nói rất ít về cách nó chuyển động trong sóng. CLM_007 không dùng trong lời dẫn. |
+| 2 | 66 cm chênh mớn nước bị dùng để nói "cầu cứng sẽ gãy" | 66 cm là của **hai phao nổi độc lập**. Lời dẫn: tải khác nhau thêm một yêu cầu cho mối nối; thiết kế này chọn cầu có khớp; dằn là một cách khác. Hình không tô đỏ phương án nào. |
+| 3 | Ra khơi bị đánh đồng với tự cung tự cấp | Tách hai câu hỏi: (a) xa bờ làm kết nối, bảo trì và tiếp tế khó hơn (cáp, ống, tàu vẫn có thể); (b) **nếu chọn thêm** điều kiện tự chủ thì cần thêm hệ nào. |
+| 4 | SH09–SH10 đổi trường hợp giữa chừng | Một nhánh liên tục, tải tĩnh nhà 0,6 t/m² ở mọi bước: 3 tầng (mạn khô 1,04 m) → 4 tầng (0,71 m) → thân 4,5 m (1,15 m), thêm 106 t bê tông (4%). Quận dùng **một** cỡ phao: 60 m (93 phao). |
+| 5 | "No peer-reviewed cost basis" quá tuyệt đối; CLM_033 bị mở rộng thành kết luận toàn cầu | Lời dẫn: *"We do not yet have a reliable cost estimate for this design"* (CLM_063). Kết luận về quy mô chỉ nói về dự án đã kiểm (OCEANIX Busan), nêu nơi kiểm và ngày kiểm, và nói rõ không khảo sát toàn thế giới. |
+| 6 | Số minh họa bị đọc như thành phố vận hành được | 40 m² sàn mỗi người = 30 nhà ở + 10 trường học, phòng khám, cửa hàng, dịch vụ (giả định). Tổng khoảng 1 triệu tấn chỉ là các phao tiêu chuẩn (không gồm đê, cầu, phao dịch vụ, neo, hạ tầng). Độ dày thân phao chỉ là giả định để tính khối lượng. Câu kết: phép tính cho thấy yêu cầu nổi cơ bản; quận có khả thi hay không còn phụ thuộc địa điểm và thiết kế của mọi hệ khác. |
+| — | Mở phim "Not a render" | Thay bằng lời mời giải một bài toán thiết kế. |
+| — | C2 quá dày | Còn ba ý: nổi bằng cách nào → thêm tải thì sao → nổi được chưa đủ. Không có ký hiệu G, B, M. |
+| — | C7 có bốn card liền nhau | So sánh thân hộp với thân bán chìm thành 3D; thay đổi của hệ neo kể bằng cảnh dưới nước 3D. |
+| — | Thêm ảnh thật Schoonschip | Commons chỉ có ảnh CC BY-SA quanh khu vực (Studio chưa dùng ShareAlike), không có ảnh CC0, CC BY hay PD của Schoonschip. **Cần chủ kênh quyết** (`CONCEPT_REVIEW.md`). Tới lúc đó dùng sơ đồ tự vẽ có nhãn "Schoonschip, Amsterdam (schematic)". |
 
-## C2: The First Problem: Making Buildings Float (khoảng 100 giây)
-- **Clay boat:** khối bê tông đặc chìm; cùng lượng bê tông làm thành hộp rỗng thì nổi (CLM_002). *"Shape, not material, decides."*
-- **Archimedes:** cắt ngang dưới mực nước. Mảng vàng là khối nước bị chiếm chỗ (CLM_001). Mỗi tấn đòi khoảng một mét khối nước.
-- **Mốc có thật:** nhà nặng nhất ở Schoonschip, 340–350 t, đứng trên phao bê tông (CLM_012, CLM_013). Nó chiếm chỗ khoảng 340 m³ nước kênh, *"a cube of water about seven metres on each side"* (tính).
-- **Phao của chúng ta** (*illustrative*): khoảng 4.850 t, ngồi sâu khoảng 3 m. **Bất ngờ:** hơn một nửa là chính thân phao. *"Most of what this platform carries… is itself."*
-- **Tải tăng:** thêm một tầng, phao chìm thêm khoảng một gang tay (khoảng 33 cm, tính). Mạn khô của phương án nhà nặng mỏng đi.
-- **Sửa A′:** thân sâu hơn nửa mét (thêm khoảng 106 t, khoảng 4% bê tông thân phao) thì lấy lại mạn khô. Nhà giữ thấp tầng.
-- **Ổn định:** trọng tâm G, tâm nổi B, metacentre M (CLM_005). Phao rộng và nông rất khó lật trong nước lặng: dời 100 t ra mép, phao nghiêng chưa tới nửa độ (CLM_009, tính).
-  - Câu nhắc: *"only for small angles"* (CLM_006).
-- **Twist:** phao "cứng" thì bám theo mặt nước (CLM_007). *"Floating was the easy part. Staying comfortable is not."* Đây là cầu nối sang C4. Ở đây chỉ gieo câu hỏi.
-- **Chuyển:** *"But one platform is a few dozen homes. A city needs hundreds."* (khoảng 50 người mỗi phao, tính).
+## Chương
 
-## C3: Why One Platform Isn't a City (khoảng 80 giây)
-- **Nhân bản:** từ một phao thành năm. *"So why not weld them into one big slab?"*
-- **Tải khác nhau, mặt sàn lệch nhau:** nhà 2 tầng và nhà 4 tầng trên hai phao giống nhau làm mặt sàn lệch khoảng 66 cm (tính). Cầu cứng sẽ bị bẻ, nên phải có khớp mềm, hoặc dằn để cân mớn nước. Lựa chọn có giá.
-- **Mối nối là chỗ yếu được nêu tên** (CLM_042). Nghiên cứu nối mềm và giữ khoảng cách giữa các module (CLM_056).
-- **Đếm:** 10.000 người cần khoảng 200 phao 40 m và vài trăm mối nối (tính). **Phao to hay nhiều phao?** Phao 100 m chỉ cần khoảng 34 chiếc, nhưng mỗi chiếc khoảng 30.000 t. Ngay phao Schoonschip đã quá to cho ụ khô truyền thống (CLM_014).
-  - *"There's no free answer: fewer joints, or easier pieces."*
-- **Chuyển:** *"And all of this sits on water that will not keep still."*
+| Chương | Tiêu đề | Thiết kế trên màn hình |
+|---|---|---|
+| C1 | Could We Actually Do This? | Quận C hoàn chỉnh → gỡ về một phao |
+| C2 | The First Problem: Making Buildings Float | A (3 tầng → 4 tầng → thân sâu hơn) |
+| C3 | Why One Platform Isn't a City | B, rồi chọn cỡ phao cho quận |
+| C4 | The Water Never Stays Still | B dưới chuyển động khái niệm → bố cục C |
+| C5 | Keeping the City in Place | C, nước mờ dần, cọc và dây neo |
+| C6 | A City Needs More Than Buildings | C, nhà mờ dần, mạng hạ tầng |
+| C7 | What Would Actually Make This Difficult? | D (ngoài khơi, 3D) + bảo trì, sinh thái, quản trị, chi phí |
+| C8 | Could We Really Build It? | A cạnh C; phán quyết; lời kêu gọi |
 
-## C4: The Water Never Stays Still (khoảng 85 giây)
-- **Sóng khái niệm** (có nhãn *Conceptual motion visualization — not a hydrodynamic simulation*): các phao nhấp nhô lệch pha; khe co giãn; cầu mềm làm việc.
-- **Người ở cảm nhận:** ngay trong kênh Amsterdam, cư dân thấy nhà rung lắc khi bão và khi tàu lớn qua, nhất là tầng trên (CLM_022).
-- **Phao lớn còn uốn:** hydro-elastic. Đây là thách thức nghiên cứu còn mở (CLM_053).
-- **Lời giải thứ nhất là địa điểm:** chọn vùng nước kín, đà gió ngắn (CLM_050). Cho thấy cùng thành phố ở hai vịnh, một kín một hở (sơ đồ).
-- **Lời giải thứ hai là bố cục:** nhà ở vào trong, chức năng chịu được chuyển động ra ngoài (CLM_055). Thêm đê chắn ở phía hở, nhưng đê có giới hạn (CLM_051, CLM_052).
-- **Chuyển:** *"Calmer water helps. But a floating city still has to stay where we put it."*
+## C1: Could We Actually Do This?
+- **Móc mở:** quận nổi hoàn chỉnh (nhãn *Illustrative design*). Mười nghìn người, nhà, trường, phòng khám, công viên, không ai đứng trên đất liền.
+- **Lời mời:** *"Could we design a city like this — one that floats, stays put and keeps working? Let's treat it as a design problem, and solve it one step at a time."*
+- **Mốc có thật:**
+  - một khu nổi khoảng 100 người đã có ở Amsterdam (CLM_010, CLM_011);
+  - một đề xuất 12.000 người ở Busan, công bố năm 2022 (CLM_030, CLM_031). Trang của nhà phát triển và kiến trúc sư không có báo cáo khởi công khi chúng tôi kiểm vào tháng 11/2026 (CLM_033).
+- **Gỡ thành phố** về một phao trống.
 
-## C5: Keeping the City in Place (khoảng 70 giây)
-- **Lộ dưới nước:** mặt nước mờ dần (hai bước: thấy mặt nước, rồi làm mờ). Hiện cọc và dây neo.
-- **Nước lên xuống:** dải mực nước minh họa 2 m. Phao trượt theo cọc (CLM_020, CLM_041).
-  - Cầu nối bờ phải có khớp: khoảng 3° với cầu 25 m (tính).
-- **Sâu hơn thì khác:** ra chỗ nước sâu, cọc nhường chỗ cho dây neo dùng chung (CLM_055). Dây dài hơn, neo sâu hơn, chi phí tăng nhanh hơn độ sâu (CLM_054).
-- **Đáy biển quyết định** (CLM_054): phim không nêu loại neo hay kích cỡ.
-- **Chuyển:** *"Now it floats, and it stays. Is it a city yet?"*
+## C2: The First Problem: Making Buildings Float (ba ý)
+1. **Nổi bằng cách nào.**
+   - Cùng một lượng bê tông: đúc đặc thì chìm, làm hộp rỗng thì nổi (CLM_002; calc: 1.108 m³, khối 10,35 m, hộp nổi với mớn nước 1,62 m).
+   - Archimedes trên mặt cắt (CLM_001).
+   - Mốc thật: nhà nặng 340–350 t trên phao bê tông chiếm chỗ khoảng 340 m³ nước kênh (CLM_012, CLM_013, calc).
+   - Phao của chúng ta (*illustrative*): khoảng 4.850 t, ngồi sâu khoảng 3 m; hơn nửa là chính thân phao (calc).
+2. **Thêm tải thì sao.**
+   - Thêm tầng thứ tư: phao chìm thêm khoảng 33 cm, mạn khô từ khoảng 1,04 m xuống khoảng 0,71 m (CLM_003, calc).
+   - Sửa: thân sâu thêm nửa mét, tốn khoảng 106 t bê tông (4%); mạn khô về khoảng 1,15 m.
+   - Lựa chọn khác hợp lý: nhà nhẹ hơn.
+3. **Nổi được chưa đủ.**
+   - Dời 100 t ra gần mép, phao nghiêng chưa tới nửa độ trong trường hợp minh họa này (CLM_009, calc; góc nhỏ, CLM_006).
+   - *"But a small tilt under a shifted load tells us little about how it will move in waves."*
 
-## C6: A City Needs More Than Buildings (khoảng 70 giây)
-- **Nhà làm mờ, lộ mạng hạ tầng.** Chỉ kể sâu hai ví dụ:
-  1. **Điện:** một khu 46 hộ dùng chung **một** đầu nối lưới quốc gia; mỗi nhà có pin và lưới điện thông minh (CLM_016). Ở quy mô quận, đường cáp đi dọc cầu link-span.
-     - *"Floating doesn't mean off-grid."*
-  2. **Nước thải:** tách nước xám và nước đen, bơm về bờ (CLM_017, CLM_023). Dự án digester nổi chỉ được nhắc là kế hoạch.
-- **Một dòng cho phần còn lại:** nước sạch, giao thông (cầu, taxi nước), cứu hỏa và cấp cứu (hai lối ra, bến tàu), lương thực từ đất liền.
-  - Dẫn CLM_043: *connect to land, or develop off-grid alternatives.*
-- **Chuyển:** *"Everything so far assumed sheltered water near a city. What if we moved it?"*
+## C3: Why One Platform Isn't a City
+- **Năm phao.** Sao không hàn thành một tấm?
+- **Tải khác nhau.** Hai phao giống nhau, nhà 2 tầng và 4 tầng: nếu nổi độc lập, mặt sàn lệch khoảng 66 cm (calc). Tải khác nhau thêm một yêu cầu cho mối nối.
+  - Thiết kế này chọn cầu đi bộ có khớp để chấp nhận chênh cao độ; dằn để cân mớn nước là cách khác.
+  - Mối nối là chỗ tập trung ứng suất được nghiên cứu nêu tên (CLM_042). Nghiên cứu nối mềm và giữ khoảng cách giữa các module (CLM_056).
+- **Đếm.**
+  - Với 40 m² sàn mỗi người (nhà ở cộng phần dịch vụ), 10.000 người cần khoảng 33 ha mặt phao: khoảng 209 phao 40 m, hoặc 93 phao 60 m, hoặc 34 phao 100 m (calc).
+  - Phao to: ít mối nối, nhưng nặng khi đúc, hạ thủy và kéo; ngay phao Schoonschip đã quá to cho ụ khô truyền thống (CLM_014).
+  - **Quận của chúng ta dùng phao 60 m:** một lựa chọn ở giữa cho bản minh họa, không phải tối ưu.
 
-## C7: What Would Actually Make This Difficult? (khoảng 100 giây)
-- **Phản thực tế D:** kéo quận ra khơi (sơ đồ).
-  - Sóng dài đi qua đê nổi (CLM_051).
-  - Dây neo dài theo đáy sâu (CLM_054).
-  - Cầu biến mất, nên mọi thứ phải tự lo, và tự chủ rất tốn năng lượng (CLM_058).
-  - Nghiên cứu ngoài khơi chuyển sang một loại phao khác: bán chìm, trên cột (CLM_062).
-  - *"Offshore isn't the same city further out. It's a different machine."*
-- **Ba khó khăn không biến mất ở vịnh kín:**
-  1. **Bảo trì:** bê tông trong nước biển, cốt thép bị ăn mòn do clorua. Chưa có tiêu chuẩn chuyên cho thành phố nổi (CLM_059).
-  2. **Sinh thái:** bóng râm, dòng chảy, loài ngoại lai, bám bẩn. Ở quy mô lớn, tác động lớn hơn nhiều (CLM_044).
-  3. **Ai sở hữu mặt nước:** luật và quản trị chưa rõ (CLM_045). Nguy cơ phục vụ người giàu và rào mặt nước công cộng (CLM_046).
-- **So sánh trung thực với đất liền:**
-  - kết cấu nổi theo kịp mực nước và có thể dời đi, dùng lại (CLM_041);
-  - đổi lại phải có neo, mối nối và bảo trì liên tục.
-  - *"It's not land, minus the problems. It's a different set of problems."*
-- **Chi phí:** chưa có cơ sở chi phí có bình duyệt cho một thành phố nổi (CLM_061). Phim nói đúng điều đó, không nêu con số.
+## C4: The Water Never Stays Still
+- **Chuyển động khái niệm** (nhãn bắt buộc): các phao nhấp nhô lệch pha; khe và cầu có khớp làm việc.
+- **Người ở cảm nhận:** ngay trong kênh Amsterdam, cư dân thấy nhà rung khi bão và khi tàu lớn qua, rõ nhất ở tầng trên (CLM_022).
+- **Phao lớn còn uốn:** hydro-elastic là thách thức nghiên cứu còn mở (CLM_053).
+- **Lời giải thứ nhất là địa điểm:** vùng nước kín, đà gió ngắn (CLM_050).
+- **Lời giải thứ hai là bố cục:**
+  - nhà ở vòng trong, chức năng chịu được chuyển động lớn hơn ở vòng ngoài (CLM_055);
+  - đê chắn ở phía hở, có giới hạn (CLM_051, CLM_052).
 
-## C8: Could We Really Build It? (khoảng 80 giây, gồm lời kêu gọi)
-- **So sánh cuối:** phao A cạnh quận C, cùng camera, cùng tỉ lệ. Gắn nhãn cho từng hệ đã thêm và vấn đề nó trả lời.
-- **Phán quyết theo ba tầng:**
+## C5: Keeping the City in Place
+- Mặt nước mờ dần (hai bước), lộ cọc rồi dây neo.
+- Mực nước lên xuống (2 m, giả định): phao trượt theo cọc (CLM_020, CLM_041). Cầu nối bờ có khớp, dốc khoảng 3° với cầu 25 m (calc).
+- Nước sâu hơn: dây neo dùng chung thay cọc (CLM_055); dây dài hơn, neo sâu hơn, chi phí tăng nhanh hơn độ sâu (CLM_054).
+- Đáy biển quyết định (CLM_054). Không có loại hay cỡ neo.
+
+## C6: A City Needs More Than Buildings
+- Nhà mờ dần, lộ mạng hạ tầng.
+- **Điện:** 46 hộ, một đầu nối lưới; pin, lưới điện thông minh (CLM_016). *"Floating doesn't mean off-grid."*
+- **Nước thải:** tách nước xám và nước đen, bơm về bờ (CLM_017, CLM_023). Digester nổi chỉ là kế hoạch.
+- **Một dòng cho phần còn lại:** nước sạch, giao thông, cứu hỏa và cấp cứu (hai lối ra, bến tàu), lương thực từ đất liền (CLM_043, scn).
+
+## C7: What Would Actually Make This Difficult?
+- **Kéo quận ra khơi** (3D, mô hình nhỏ trên biển mở).
+  - Sóng dài qua đê nổi (CLM_051).
+  - Dưới nước, cùng cảnh: đáy sâu dần, dây neo dài ra (CLM_054).
+- **(a) Xa bờ:** kết nối, bảo trì và tiếp tế khó hơn. Cáp, ống và tàu vẫn có thể, nhưng dài hơn và lộ hơn (CLM_043).
+- **(b) Nếu chọn thêm điều kiện tự chủ**, như nghiên cứu ngoài khơi năm 2026 đã chọn: phải thêm năng lượng, nước, lương thực. Trong nghiên cứu đó, sản xuất lương thực chiếm gần nửa năng lượng (CLM_058).
+- **Thân phao khác** (3D, đặt cạnh nhau): nghiên cứu ngoài khơi dùng phao bán chìm trên cột, sau một đê nổi (CLM_062). *"Offshore isn't the same city moved further out."*
+- **Ba khó khăn ở mọi nơi:**
+  - bảo trì: ăn mòn cốt thép do clorua; chưa có tiêu chuẩn chuyên (CLM_059);
+  - sinh thái: bóng râm, dòng chảy, loài ngoại lai, bám bẩn (CLM_044);
+  - ai sở hữu mặt nước (CLM_045, CLM_046).
+- **Chi phí:** *"We do not yet have a reliable cost estimate for this design."* Khung chi phí công bố mới là sơ bộ, chỉ cho phần nổi và năng lượng (CLM_063).
+- **So với đất liền:** kết cấu nổi theo kịp mực nước và có thể dời đi (CLM_041), đổi lại phải có neo, mối nối và bảo trì liên tục.
+
+## C8: Could We Really Build It?
+- **So sánh cuối:** phao A cạnh quận C. Mỗi hệ một nhãn và câu hỏi nó trả lời.
+- **Phán quyết ba tầng:**
   1. **Đã có thật:** khu nổi khoảng 100 người, nối bờ, trong nước kín (CLM_010, CLM_011, CLM_016).
-  2. **Hợp lý trong điều kiện cụ thể:** một quận nổi nối bờ trong vịnh kín, xây theo pha. Mọi hệ cần thiết đều có tiền lệ hoặc có nghiên cứu, nhưng **chưa có quận 10.000 người nào được báo cáo là đã xây** (CLM_033). Những câu hỏi lớn nhất (hydro-elastic, mối nối, chi phí) vẫn còn mở (CLM_042, CLM_053, CLM_061).
-  3. **Còn suy đoán:** thành phố ngoài khơi tự chủ (CLM_051, CLM_058).
-- **Câu kết:**
-  - *"So, could we build an entire city that floats? Near a coast, in sheltered water, step by step — possibly."*
-  - *"Far out at sea, on its own — not yet, as far as anyone has shown."*
-  - *"And the hardest parts may not be the engineering at all."*
-- **Lời kêu gọi** (beat `framing`, ≤ 60 từ, không claim): mời gợi ý chủ đề trong bình luận, like, subscribe; icon tự vẽ (`config/production_defaults.json`).
+  2. **Có thể trong điều kiện cụ thể:** một quận nối bờ trong vịnh kín, xây theo pha. Mỗi hệ có tiền lệ hoặc nghiên cứu, nhưng hydro-elastic, mối nối và chi phí còn mở (CLM_042, CLM_053, CLM_063). Dự án quy mô này mà chúng tôi kiểm (OCEANIX Busan) không có báo cáo khởi công trên trang của nhà phát triển và kiến trúc sư, tháng 11/2026 (CLM_033). Chúng tôi không khảo sát mọi dự án trên thế giới.
+  3. **Còn suy đoán:** một thành phố ngoài khơi, nhất là nếu phải tự chủ (CLM_051, CLM_058).
+- **Câu kết:** *"Our arithmetic shows what it takes for a platform to float. Whether a whole district works depends on the site, and on every other system we've added."*
+- **Lời kêu gọi** (beat `framing`, ≤ 60 từ, không claim) và card ghi công.
 
-## Rà soát biên tập (brief mục 17)
+## Rà soát biên tập (brief mục 17, cập nhật c-r1)
 
 **1. Câu hỏi trung tâm có hấp dẫn ngay không?**
-Có. Hình một thành phố hoàn chỉnh cùng câu "not a render" đặt cược ngay từ đầu.
+Có. Hình thành phố cùng lời mời giải bài toán.
 
 **2. Luật chơi có dễ hiểu không?**
-Có. Một phao, một quy tắc (Archimedes). Mọi hệ thêm vào đều có một vấn đề đi trước.
+Có. Một phao, một quy tắc.
 
 **3. Mỗi vấn đề có dẫn logic sang vấn đề sau không?**
-Có. Chuỗi là: nổi → ổn định nhưng "cứng" → nhân lên → sóng → giữ vị trí → hoạt động như thành phố → dời ra khơi → phi kỹ thuật.
-- *Điểm yếu đã sửa:* bản nháp đầu đặt "ổn định" thành một chương riêng. Nó tạo một vòng "vấn đề → sửa" không có vấn đề thật, vì phao rộng không dễ lật. Giờ ổn định là một twist ngắn trong C2.
+Có: nổi → thêm tải → nổi chưa đủ → nhân lên → sóng → giữ vị trí → hoạt động như thành phố → dời ra khơi → phi kỹ thuật.
 
 **4. Mỗi lần sửa có lý do rõ không?**
-Có. Xem `DESIGN_EVOLUTION.md`. Chỗ dễ trượt là đê chắn: nó phải xuất hiện *sau* khi người xem đã thấy vịnh hở.
+Có. Nhánh thêm tầng nay liên tục, cùng một tải ở mọi bước.
 
 **5. Giải thích có dễ tiếp cận không?**
-Phần lớn có. Rủi ro là metacentre (C2). Giữ nó ở một hình và hai câu; không đọc công thức thành tiếng.
+Có. Không còn ký hiệu G, B, M; độ nghiêng kể bằng hình.
 
 **6. Có tránh được vòng lặp nhàm không?**
-- *Rủi ro:* C3–C6 có cùng nhịp "thêm hệ".
-- *Đã sửa:* mỗi chương đổi kiểu hình:
-  - C3 là đếm và so sánh;
-  - C4 là chuyển động khái niệm và so sánh hai vịnh;
-  - C5 là lộ dưới nước;
-  - C6 là làm mờ nhà, lộ mạng.
+Có. Mỗi chương đổi kiểu hình:
+- C3 là đếm;
+- C4 là chuyển động khái niệm và hai vịnh;
+- C5 là lộ dưới nước;
+- C6 là làm mờ nhà;
+- C7 là cảnh biển mở 3D.
 
-**7. Thành phố có tinh vi dần lên trên hình không?**
-Có: một phao → năm phao có khe và khớp → quận có vòng trong/ngoài, đê, neo, hạ tầng.
+**7. Thành phố có tinh vi dần lên không?**
+Có.
 
-**8. Có một bất ngờ thật không?**
+**8. Có bất ngờ thật không?**
 Có ba:
-- hơn nửa khối lượng là chính thân phao;
-- phao rộng khó lật, nhưng chính vì thế lại bám theo sóng;
-- thiết kế ven bờ không dời ra khơi được.
+- hơn nửa khối lượng là thân phao;
+- nửa mét thân phao lấy lại mạn khô với 4% bê tông;
+- ngoài khơi cần một loại thân phao khác.
 
-**9. Kết luận có trả lời câu hỏi mở đầu không?**
-Có, theo ba tầng. Không nói "hoàn toàn khả thi" hay "bất khả".
+**9. Kết luận có trả lời câu hỏi không?**
+Có, theo ba tầng, và nói rõ phép tính chứng minh được gì và không chứng minh được gì.
 
-**10. Người xem có hiểu kiến trúc nổi hơn không?**
+**10. Người xem có hiểu hơn không?**
 Có. Họ hiểu vì sao từng bộ phận tồn tại.
 
-**Chương yếu nhất:** C7. Nó có thể thành một danh sách vấn đề. Cách giữ: mở bằng phản thực tế có hình (D), rồi chỉ ba khó khăn, mỗi khó khăn một hình (mặt thân phao bị ăn mòn được kiểm tra; bóng râm trên đáy biển; bờ nước có hay không có lối đi công cộng). Nếu vẫn dài, cắt phần so sánh với đất liền xuống một câu.
-
-**Ý tưởng bị loại:** chương "Ổn định" riêng (lý do ở mục 3); chương "chi phí" có con số (không có cơ sở, CLM_061); cảnh bão phá phao (không có cơ sở, và vi phạm quy tắc).
+**Chương yếu nhất:** C7, dù đã sửa. Nếu lời dẫn đo được dài quá 110 giây, cắt phần so với đất liền xuống một câu.

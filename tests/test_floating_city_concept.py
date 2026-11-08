@@ -63,12 +63,17 @@ class ScenarioAndEvidenceTest(unittest.TestCase):
 
     def test_no_claim_is_approved_and_every_claim_is_classified(self):
         s = json.loads((P / "research" / "sources.json").read_text())
-        allowed = {"ESTABLISHED_FACT", "SPECULATIVE_PROPOSAL", "UNVERIFIED"}
+        external = {"ESTABLISHED_FACT", "SPECULATIVE_PROPOSAL", "UNVERIFIED"}
+        studio = {"CALCULATED_ESTIMATE": {"SRC_STUDIO_DESIGN_MODEL"}, "DESIGN_ASSUMPTION": {"SRC_STUDIO_SCENARIO"}}
         self.assertTrue(s["claims"])
         for c in s["claims"]:
             self.assertEqual(c["review_status"], "SOURCE_VERIFIED", c["id"])
-            self.assertIn(c["evidence_class"], allowed, c["id"])
             self.assertNotIn("editorial_approval", c)
+            if c["evidence_class"] in studio:   # the Studio's numbers and assumptions cite only the Studio's own files
+                self.assertEqual(set(c["source_ids"]), studio[c["evidence_class"]], c["id"])
+            else:
+                self.assertIn(c["evidence_class"], external, c["id"])
+                self.assertFalse(set(c["source_ids"]) & set(s["studio_sources"]), c["id"])
         oceanix = {c["id"]: c for c in s["claims"]}["CLM_033"]
         self.assertEqual(oceanix["evidence_class"], "UNVERIFIED")   # status of OCEANIX Busan is never stated as built
 

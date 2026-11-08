@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "title": "Could We Build an Entire City That Floats?",
+  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision c-r1)",
+  "voice": {
+    "provider": "kokoro",
+    "id": "kokoro_am_michael",
+    "mode": "preset",
+    "voice": "am_michael",
+    "selection": {
+      "voice": "am_michael",
+      "selected_by": "Studio default (config/production_defaults.json: the owner's narrator choice of 2026-10-30)",
+      "selected_on": "2026-11-08",
+      "basis": "production default; no new audition for this film",
+      "scope": "narrator of floating-city-design-challenge"
+    },
+    "language": "en-US",
+    "params": {
+      "speed": 1.0,
+      "seed": 0,
+      "lang_code": "a"
+    },
+    "license": {
+      "status": "LICENSE_REVIEW_REQUIRED",
+      "rights_class": "PUBLICATION_CLEARED",
+      "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
+      "components": [
+        {
+          "name": "Kokoro-82M weights (hexgrad/Kokoro-82M @ f3ff3571)",
+          "license": "Apache-2.0",
+          "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
+        },
+        {
+          "name": "Voice am_michael (voices/am_michael.pt)",
+          "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
+          "evidence": "VOICES.md SHA256 prefix 9a443b79 matches the local file (tools/kokoro_fetch_voices.py)"
+        },
+        {
+          "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
+          "license": "Apache-2.0",
+          "evidence": "installed package metadata"
+        },
+        {
+          "name": "espeak-ng 1.52.0 via espeakng-loader; phonemizer-fork 3.3.2 (OOD-word fallback)",
+          "license": "GPL-3.0-or-later",
+          "evidence": "local use only, never redistributed (audit section 3)"
+        },
+        {
+          "name": "Training data",
+          "license": "stated permissive / non-copyrighted, including synthetic audio from closed TTS providers",
+          "evidence": "model card; unresolved, audit section 5"
+        }
+      ],
+      "permitted_use": "internal review only until the owner approves am_michael for this project (config/tts_providers.json clearance.voice_approvals lists why-bridges-look-different and gothic-cathedral-heights only)",
+      "reviewed_on": "2026-11-08",
+      "reviewed_by": "agent technical check: same pinned model revision and voice hash as the audited am_michael (not legal advice)",
+      "owner_confirmation_for_this_film": "PENDING",
+      "decision": "PENDING: the owner's approvals of am_michael cover why-bridges-look-different and gothic-cathedral-heights only; a new approval for this project is on review/FINAL_APPROVAL_CHECKLIST.md"
+    },
+    "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
+    "pronunciation_review": {
+      "status": "PENDING",
+      "terms": [
+        "Schoonschip",
+        "Amsterdam",
+        "Busan",
+        "South Korea",
+        "hydro-elastic",
+        "semi-submersible",
+        "freeboard",
+        "ballast"
+      ],
+      "note": "No speech override yet. Schoonschip is Dutch; how Kokoro (American English) says it must be heard by the owner. An ASR pass proves nothing about pronunciation.",
+      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance"
+    }
+  },
+  "pacing": {
+    "sentence_pause_seconds": 0.4,
+    "beat_lead_in_seconds": 0.4,
+    "beat_tail_seconds": 0.8
+  },
+  "revision": {
+    "version": "c-r1",
+    "date": "2026-11-08",
+    "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+    "scope": "first full narration, after the owner's concept review of 2026-11-08 (six groups of corrections, concept/NARRATIVE_OUTLINE.md)",
+    "review_package": "review/SCRIPT_REVIEW.md",
+    "edits": [
+      {
+        "sentence": "B01.s0",
+        "draft": "Ten thousand people. / Homes, schools, a clinic, parks, and streets to walk along.",
+        "c-r1": "Ten thousand people, with homes, schools, a clinic, parks, and streets to walk along.",
+        "why": "Kokoro output of a 2-3-word sentence fell below the 1.5 words/s speech check (1.43 words/s, deterministic seed); merged with its neighbour instead of loosening the check"
+      },
+      {
+        "sentence": "B26.s0",
+        "draft": "Power first. / At Schoonschip, forty-six households share a single connection to the national grid,",
+        "c-r1": "Power first: at Schoonschip, forty-six households share a single connection to the national grid,",
+        "why": "same check, pre-emptively (2-word sentence)"
+      },
+      {
+        "sentence": "B28.s1",
+        "draft": "... or develop alternatives of its own. / Ours connects.",
+        "c-r1": "... or develop alternatives of its own, / and ours connects.",
+        "why": "same check, pre-emptively (2-word sentence)"
+      },
+      {
+        "sentence": "all",
+        "c-r1": "American spelling (meter, ton, story, neighborhood, gray) and digits for numbers of 100 and more, as in the Studio's other films; 'and ours connects' -> 'and our city connects'",
+        "why": "ASR check: Whisper writes American spelling and digits, so British spelling and spelled-out large numbers failed the word-error check although the speech was right; 'ours' was heard as 'hours'. Meaning unchanged."
+      }
+    ]
+  },
+  "beats": []
+}

@@ -31,7 +31,9 @@ Một phần mở rộng nổi **nối với bờ** của một thành phố ven
 | Lương thực | Từ đất liền như mọi quận khác; không đặt mục tiêu tự chủ | DESIGN_ASSUMPTION | Sản xuất lương thực tại chỗ chiếm gần nửa nhu cầu năng lượng của một concept tự chủ (CLM_058) |
 | Cấp cứu | Mỗi phao có hai lối độc lập ra bờ (cầu hoặc phao bên cạnh) và bến cho tàu cứu hỏa, cứu hộ; chỗ trú tại chỗ trên mỗi phao khu | DESIGN_ASSUMPTION | Không khẳng định đạt quy chuẩn phòng cháy nào |
 | Mục tiêu thiết kế | (1) mỗi pha dùng được độc lập; (2) nhà ở đặt nơi chuyển động nhỏ nhất (CLM_055); (3) mọi module, mối nối, phần neo đều kiểm tra và thay được; (4) hạ tầng nối bờ, bờ nước công cộng, không thành khu khép kín (CLM_046) | DESIGN_ASSUMPTION | Brief mục 2 và 8 |
-| Hình học module (cho phép tính) | Phao A 40 × 40 m, sâu 4 m, sàn và tường 0,25 m, vách ngăn mỗi 10 m dày 0,2 m; nhà phủ 40%, 3 tầng × 3 m; tải tĩnh nhà 0,4 / 0,6 / 0,9 t/m² sàn; tải thay đổi 0,25 t/m²; hoàn thiện mặt sàn 0,2 t/m²; 30 / 40 / 50 m² sàn mỗi cư dân | DESIGN_ASSUMPTION | Hợp lý cho một phác thảo concept và được cho thay đổi trong phép thử độ nhạy; **không** là số đo hay số quy chuẩn |
+| Hình học module (cho phép tính) | Phao A 40 × 40 m, sâu 4 m, sàn và tường 0,25 m, vách ngăn mỗi 10 m dày 0,2 m; nhà phủ 40%, 3 tầng × 3 m; tải tĩnh nhà 0,4 / 0,6 / 0,9 t/m² sàn; tải thay đổi 0,25 t/m²; hoàn thiện mặt sàn 0,2 t/m² | DESIGN_ASSUMPTION | Hợp lý cho một phác thảo concept, được cho thay đổi trong phép thử độ nhạy; **không** là số đo hay số quy chuẩn. Độ dày sàn, tường và vách chỉ dùng để ước khối lượng, không phải kết quả thiết kế kết cấu |
+| Diện tích sàn mỗi cư dân | 30 / 40 / 50 m²; phương án giữa 40 m² = 30 m² nhà ở + 10 m² trường học, phòng khám, cửa hàng, dịch vụ | DESIGN_ASSUMPTION | Không gồm nhà máy hạ tầng, phao cảng và phao dịch vụ, đê, cầu, neo |
+| Cỡ phao của quận | 60 × 60 m (93 phao cho khoảng 33 ha) | DESIGN_ASSUMPTION | Lựa chọn ở giữa cho bản minh họa (ít mối nối hơn phao 40 m, nhẹ hơn phao 100 m), không phải tối ưu đã tính |
 | Loại trừ | Ngoài khơi (chỉ là phản thực tế); chủ quyền và seasteading; nhà cao tầng; xe riêng; tự cung tự cấp; công nghiệp; mọi khẳng định về đủ an toàn kết cấu, neo, bão hay tiện nghi; con số chi phí | DESIGN_ASSUMPTION | Brief mục 5–7 |
 | Bất định | Khí tượng hải văn địa điểm; hydro-elastic (CLM_053); tải và mỏi mối nối (CLM_042, CLM_056); thiết kế neo và cọc (CLM_054); sinh thái (CLM_044); quản trị, sở hữu, bảo hiểm (CLM_045); chi phí (CLM_061) | UNVERIFIED | Mỗi mục được nêu tên trong phần kết luận của phim |
 
@@ -41,3 +43,4 @@ Một phần mở rộng nổi **nối với bờ** của một thành phố ven
 
 ## Lịch sử revision
 - `SCN_FLOATCITY_COASTAL_01` (2026-11-08): bản đầu, khóa cho buổi duyệt concept.
+- Cùng revision, làm rõ sau review concept của chủ kênh (2026-11-08): chốt cỡ phao của quận 60 m; định nghĩa diện tích sàn mỗi cư dân; ghi rõ độ dày thân phao chỉ để ước khối lượng. Không giá trị cũ nào đổi.

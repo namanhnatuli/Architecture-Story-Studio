@@ -1,7 +1,7 @@
 # Nghiên cứu kỹ thuật: thành phố nổi (giai đoạn concept)
 
 - **Kịch bản:** `SCN_FLOATCITY_COASTAL_01` (`concept/scenario_contract.json`).
-- **Nguồn và claim:** 14 nguồn, 47 claim, mọi trích dẫn khớp nguyên văn với bản tải về (`research/sources.json`, sinh bởi `research/build_sources.py`; URL và SHA256 trong `research/source_snapshots.json`). Không claim nào được duyệt biên tập.
+- **Nguồn và claim (c-r1):** 14 nguồn ngoài và 2 nguồn của Studio, 63 claim: 49 từ nguồn ngoài, 9 phép tính (CALCULATED_ESTIMATE), 5 giả định (DESIGN_ASSUMPTION). Mọi trích dẫn khớp nguyên văn với bản tải về (`research/sources.json`, sinh bởi `research/build_sources.py`; URL và SHA256 trong `research/source_snapshots.json`). Không claim nào được duyệt biên tập.
 - **Phép tính:** `analysis/design_model.py` → `analysis/results.json`, `analysis/RESULTS.md`. Mọi con số tính ra là CALCULATED_ESTIMATE cho một hộp bê tông lý tưởng trong nước lặng.
 - **Phân loại** (brief mục 16): ESTABLISHED_FACT, CALCULATED_ESTIMATE, DESIGN_ASSUMPTION, SPECULATIVE_PROPOSAL, UNVERIFIED. Mỗi mục dưới đây ghi rõ loại.
 
@@ -18,7 +18,7 @@
 
 **Kết luận về tiền lệ:**
 - Khu nổi khoảng 100 người trong nước kênh được che chắn đã có thật.
-- Quy mô 10.000 người mới là đề xuất. Chúng tôi không tìm thấy dự án quy mô đó được báo cáo là đã xây.
+- Quy mô 10.000 người mới là đề xuất. Dự án quy mô đó mà chúng tôi kiểm (OCEANIX Busan, trên trang của nhà phát triển và kiến trúc sư, 2026-11-08) không có báo cáo khởi công. Đây **không** phải khảo sát toàn thế giới: ví dụ Maldives Floating City (Ruzzo nêu là dự kiến 2027) chưa được kiểm.
 - Phim phải giữ ranh giới này ở mọi câu.
 
 ## 2. Nổi (buoyancy)
@@ -40,7 +40,7 @@
   - **Mạn khô:** khoảng 1,04 m (1,28–0,69 m).
   - **Bất ngờ đáng kể:** khoảng **55% khối lượng là chính thân phao bê tông**. Phần lớn thứ phao phải đỡ là chính nó.
   - **Độ nhạy:** thêm 100 t thì chìm thêm khoảng 6 cm. Thêm một tầng nhà (khoảng 544 t) thì chìm thêm khoảng 33 cm và trọng tâm lên khoảng 1 m.
-  - Mạn khô dưới 1 m ở phương án nặng gợi ý một lần sửa thiết kế: thân sâu hơn (thêm bê tông) hoặc nhà nhẹ hơn. Đây là một đánh đổi có lý do, dùng được trong chương 2.
+  - **Nhánh dùng trong phim (c-r1, một tải tĩnh 0,6 t/m² ở mọi bước, `RESULTS.md` §8):** 3 tầng, mạn khô 1,042 m → thêm tầng thứ tư, 0,710 m → giữ 4 tầng, thân 4,5 m, 1,146 m (thêm 105,6 t, 4,0% bê tông thân phao). Bản c-r0 đã ghép nhầm cặp 0,69 → 1,13 m của trường hợp "3 tầng tải nặng" vào chuỗi "thêm tầng"; đã sửa.
 - **Giới hạn:** cân bằng lực nổi **không** có nghĩa là an toàn. Nó không nói gì về ổn định, sóng, va chạm, ngập, mỏi hay bão.
 
 ## 3. Ổn định
@@ -51,13 +51,13 @@
   - với hộp sà lan, BM = B²/(12T).
   - Khái niệm metacentre chỉ đúng với góc nhỏ. Quá khoảng 10–15° phải dùng đường cong cánh tay đòn phục hồi GZ (CLM_006).
   - Dời một khối nặng w một khoảng d thì vật nghiêng góc θ với tan θ = w·d/(W·GM) (CLM_009).
-  - GM lớn làm tàu "cứng" khi lắc ngang, mô-men phục hồi lớn ngay ở góc nhỏ; GM nhỏ thì tàu lắc chậm. GM quá lớn có thể làm tàu ổn định quá mức (CLM_007, CLM_009).
+  - GM lớn làm tàu "cứng" khi lắc ngang, mô-men phục hồi lớn ngay ở góc nhỏ; GM nhỏ thì tàu lắc chậm. GM quá lớn có thể làm tàu ổn định quá mức (CLM_007, CLM_009). **CLM_007 không dùng trong lời dẫn** (xem dưới).
   - Thân bê tông đặt thấp làm đối trọng (CLM_021).
 - **CALCULATED_ESTIMATE (§2–3):**
   - Với phao A, BM khoảng 45 m, KG khoảng 4,4 m, GM khoảng 42 m (hộp lý tưởng).
   - Dời 100 t ra cách tâm 15 m thì phao nghiêng chưa tới nửa độ (khoảng 0,42°).
   - BM tăng theo bình phương bề rộng: rộng 10 m cho khoảng 2,8 m, 80 m cho khoảng 180 m.
-- **Ý nghĩa cho câu chuyện:** với phao rộng và nông, khó khăn **không** phải là bị lật trong nước lặng. Cái giá của "cứng" là phao bám theo mặt nước, nên câu hỏi chuyển sang sóng, tiện nghi và mối nối. Đây là khoảnh khắc "giải xong một vấn đề, lộ ra vấn đề khác".
+- **Ý nghĩa cho câu chuyện (sửa ở c-r1):** dưới tải dời chỗ minh họa, phao nghiêng rất ít. Nhưng GM chỉ mô tả mô-men phục hồi ở góc nghiêng nhỏ; nó **không** cho biết phao chuyển động thế nào trong sóng. Lời dẫn chỉ nói: *"a small tilt under a shifted load tells us very little about how it will move in waves."* Bản c-r0 viết "stiff means it follows the water"; câu đó suy quá mức từ GM và đã bỏ.
 - **Không được nói:** không có biên an toàn ổn định nào được tính hay được khẳng định. Chưa xét: ổn định góc lớn, ổn định khi hư hỏng theo quy chuẩn, mô-men gió, mặt thoáng chất lỏng trong két (TU Delft có phần "Free surfaces in tanks", chỉ nêu định tính), tải lệch tâm khi xây dựng.
 - **Khoang kín nước (CALCULATED_ESTIMATE §2):** vách ngăn chia phao thành 16 ô 10 × 10 m. Một ô ngập (tính giản lược, chỉ chìm đều) làm phao chìm thêm khoảng 0,2 m, mạn khô còn khoảng 0,85 m. Ô lệch tâm còn gây nghiêng; không kiểm theo quy tắc hư hỏng nào. Đây là lý do có vách ngăn, kể định tính.
 
@@ -79,7 +79,8 @@
 
 - **Bằng chứng:**
   - tập trung ứng suất ở mối nối là thách thức được nêu tên (CLM_042);
-  - nghiên cứu concept nối mềm các module và giữ khoảng cách để chúng không chạm nhau và không quá tải mối nối (CLM_056, SPECULATIVE_PROPOSAL);
+  - nghiên cứu concept nối mềm các module và giữ khoảng cách đủ để không va chạm, vì neo mềm cho phép dịch ngang khá lớn; chân vịt dự phòng để tránh va chạm và quá tải mối nối (CLM_056, SPECULATIVE_PROPOSAL; c-r1 sửa việc gán mục đích);
+  - chênh mớn nước 0,66 m (CLM_107) là của **hai phao nổi độc lập**. Khi nối cứng, cân bằng của cả hai đổi, nên phép tính không chứng minh mối nối cứng sẽ hỏng; nó chỉ cho thấy tải khác nhau thêm yêu cầu cho mối nối;
   - Schoonschip dùng cầu tàu chung mang hạ tầng (CLM_015).
 - **CALCULATED_ESTIMATE (§5, chỉ đếm):** cho khoảng 33 ha mặt phao,
   - phao 40 m: 209 phao, tới khoảng 390 cạnh chung;
@@ -112,9 +113,10 @@
   - nối hạ tầng với bờ hoặc làm hệ độc lập là thách thức được nêu (CLM_043); cần cáp và bơm đặc biệt (CLM_023);
   - ví dụ thật: một đầu nối lưới điện cho 46 hộ (CLM_016), tách nước thải (CLM_017), bơm nhiệt dùng nước kênh (CLM_018);
   - kịch bản nối bờ (điện, nước sạch, nước thải, lương thực) nên phim **không** nói thành phố tự cung tự cấp;
+  - ra khơi **không** tự động đồng nghĩa với tự chủ: cáp, ống và tàu tiếp tế vẫn có thể, nhưng dài và lộ hơn. Tự chủ là một điều kiện **chọn thêm** (Ruzzo chọn nó), kéo theo hệ năng lượng, nước, lương thực riêng;
   - cho một thành phố tự chủ, Ruzzo ước tính khoảng 470 GWh/năm cho 50.000 người, gần một nửa cho sản xuất lương thực tại chỗ (CLM_058). Chỉ là bối cảnh, không kể.
 - **Kinh tế:**
-  - không có cơ sở chi phí có bình duyệt cho thành phố nổi (CLM_061, Ruzzo: nguồn chi phí duy nhất không bình duyệt);
+  - Ruzzo 2026 đề xuất một khung đánh giá chi phí sơ bộ, chỉ cho phần nổi và năng lượng, và nêu rằng nguồn chi phí duy nhất họ biết là một báo cáo không bình duyệt (CLM_063). Phim nói: *"We do not yet have a reliable cost estimate for this design."* Câu "no peer-reviewed cost basis" của c-r0 quá tuyệt đối và đã bỏ;
   - chi phí neo theo độ sâu (CLM_054); nhân công chiếm 30–60% tổng chi phí ở các kết cấu nổi khác (Ruzzo, phần Methods; chưa vào sổ claim, không dùng trong phim);
   - ăn mòn cốt thép do clorua và chi phí sửa chữa (CLM_059);
   - phim không nêu con số chi phí.
@@ -140,7 +142,7 @@ Mô hình hiện tại không chứng nhận điều nào trong số này. Phim 
 ## 9. Câu hỏi chưa trả lời (cần làm trước khi viết kịch bản)
 
 1. **Nguồn gốc cho Aquapolis (CLM_060):** cần tìm, hoặc bỏ khỏi phim.
-2. **Ảnh Schoonschip có giấy phép kiểm được:** chưa tìm. Nếu không có, dùng sơ đồ tự vẽ có ghi chú.
+2. **Ảnh Schoonschip có giấy phép kiểm được:** đã tìm trên Commons qua API (2026-11-08). Không có ảnh PD, CC0 hay CC BY nào của Schoonschip. Ảnh khu Buiksloterham và Johan van Hasseltkanaal gần đó đều là CC BY-SA, và không rõ có cho thấy Schoonschip không. Năm ảnh CC0 tìm thấy là quảng trường Paardenbloemplein. Cần chủ kênh quyết (`CONCEPT_REVIEW.md`).
 3. **Nguồn kỹ thuật công khai cho ứng xử phao bê tông nhà nổi:** NPR 7250 hoặc hướng dẫn SBR-CURnet không truy cập được (trả phí), nên **không** dẫn.
 4. **Một nguồn sơ cấp cho tình trạng OCEANIX Busan:** thông cáo của thành phố Busan không mở được. Phim nói "theo những gì chúng tôi tìm được, tính tới tháng 11/2026".
 5. **Bộ dữ liệu sóng thực cho một vịnh ví dụ:** chỉ cần nếu chủ kênh muốn gắn kịch bản với một địa điểm có thật. Hiện tại kịch bản cố ý không gắn địa danh.

@@ -1,23 +1,24 @@
 # Current project status
 
-## Concept đang làm: `floating-city-design-challenge` (2026-11-08, nhánh `concept-floating-city-design-challenge`)
+## Concept đang làm: `floating-city-design-challenge` (nhánh `concept-floating-city-design-challenge`)
 
-- **Trạng thái: gói concept xong, chờ chủ kênh duyệt.** Không có kịch bản, lời dẫn hay asset sản xuất; không claim nào được duyệt.
-- **Bắt đầu đọc:** `projects/floating-city-design-challenge/concept/CONCEPT_REVIEW.md`.
-- **Nội dung gói:**
-  - ba hướng kể có bảng điểm; đề xuất C → A + D;
-  - hợp đồng kịch bản `SCN_FLOATCITY_COASTAL_01` (JSON và bản đọc);
-  - nghiên cứu kỹ thuật: 14 nguồn, 48 claim khớp nguyên văn;
-  - mô hình tính minh bạch (`analysis/design_model.py`) và test;
-  - tiến hóa thiết kế, dàn ý, storyboard (46 shot, 10:36);
-  - bản thiết kế asset, khả thi sản xuất;
-  - 6 still prototype (`renders/prototype/`, ngoài git).
-- **Việc của chủ kênh:** năm quyết định ở cuối `CONCEPT_REVIEW.md`.
-- **Năng lực engine còn thiếu cho phim này:**
-  - họ asset `floating` và site `bay`;
-  - mặt cắt;
-  - bước `SINK`/`RISE`;
-  - `CONCEPT_MOTION` có nhãn bắt buộc.
+- **Trạng thái (2026-11-08): kịch bản c-r1 chờ chủ kênh đọc và nghe.**
+  - Đã sửa theo review concept của chủ kênh (sáu nhóm; `review/REVIEW_C_R1.md`).
+  - Lời dẫn hoàn chỉnh: 44 beat, 127 câu.
+  - Audio nội bộ Kokoro `am_michael`; ASR 127/127; timing khóa: **13:05**.
+  - Chưa có asset sản xuất hay card. Không claim nào được duyệt.
+- **Bắt đầu đọc:** `projects/floating-city-design-challenge/review/SCRIPT_REVIEW.md` và bản nghe thử `output/floating-city-design-challenge_narration_preview_c-r1.m4a` (ngoài git). Tổng quan ở `concept/CONCEPT_REVIEW.md`.
+- **Việc của chủ kênh:** năm quyết định ở `review/SCRIPT_REVIEW_NOTES.md`:
+  - thời lượng;
+  - phát âm "Schoonschip";
+  - giấy phép ảnh Schoonschip;
+  - giọng cho dự án;
+  - duyệt claim khi chốt kịch bản.
+- **Sau khi kịch bản được duyệt:**
+  - dựng họ asset `floating` và site `bay`;
+  - thêm năng lực mặt cắt, SINK/RISE, TILT, CONCEPT_MOTION;
+  - đoạn thử có lời dẫn cho chuỗi "thêm tải → chìm → sửa thân".
+  - Prototype P6 đã thử chuỗi này không lời.
 
 ## `gothic-cathedral-heights` (nhánh `episode-gothic-cathedral-heights`)
 

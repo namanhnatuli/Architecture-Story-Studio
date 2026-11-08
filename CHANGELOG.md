@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.11.1 — 2026-11-08 — Phim thành phố nổi c-r1: sửa sau review concept, lời dẫn hoàn chỉnh
+- **Theo review concept của chủ kênh** (sáu nhóm sửa, `projects/floating-city-design-challenge/review/REVIEW_C_R1.md`):
+  - bỏ câu suy chuyển động trong sóng từ GM;
+  - 66 cm chênh mớn nước chỉ là của hai phao nổi độc lập;
+  - ra khơi không đồng nghĩa tự chủ;
+  - một nhánh số liên tục (mạn khô 1,042 → 0,710 → 1,146 m) và một cỡ phao cho quận (60 m, 93 phao);
+  - chi phí: "no reliable cost estimate for this design";
+  - tình trạng OCEANIX chỉ nói về dự án đã kiểm;
+  - định nghĩa 40 m² sàn mỗi người;
+  - tổng chỉ tính các phao tiêu chuẩn.
+- **Lời dẫn hoàn chỉnh** `script/story.py`: 44 beat, 127 câu.
+  - Số tính và giả định của Studio cũng là claim: CALCULATED_ESTIMATE dẫn `analysis/RESULTS.md`, DESIGN_ASSUMPTION dẫn `concept/SCENARIO_CONTRACT.md`, khớp nguyên văn như nguồn ngoài.
+  - 16 nguồn, 63 claim.
+- **Audio nội bộ và timing:** ASR 127/127; `lock-audio` 13:05. Ba câu quá ngắn bị kiểm tra tốc độ đọc từ chối nên được gộp; chính tả Mỹ và chữ số cho số ≥ 100 để Whisper khớp. Không nới ngưỡng nào.
+- **Agent tự sửa:** claim CLM_056 đã gán nhầm mục đích của chân vịt dự phòng cho khoảng cách giữa module.
+- **Storyboard sinh từ timing thật** (`concept/build_storyboard.py`).
+- **Prototype:** P5 dễ đọc hơn; P6 là hoạt ảnh "thêm tầng → chìm → thân sâu hơn" theo đúng nhánh số.
+- **Ảnh Schoonschip:** Commons không có ảnh PD, CC0 hay CC BY; chờ chủ kênh quyết.
+
 ## 0.11.0 — 2026-11-08 — Concept phim mới: "Could We Build an Entire City That Floats?"
 - **Dự án concept mới `projects/floating-city-design-challenge`** (nhánh `concept-floating-city-design-challenge`). Đây là giai đoạn tiền sản xuất, không có kịch bản hay render sản xuất. Dừng ở buổi duyệt concept của chủ kênh.
 - **Nghiên cứu:**

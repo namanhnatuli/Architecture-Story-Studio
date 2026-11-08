@@ -1,0 +1,756 @@
+{
+  "schema": "narrative_beats/1",
+  "project_id": "floating-city-design-challenge",
+  "title": "Could We Build an Entire City That Floats?",
+  "status": "INTERNAL_REVIEW_DRAFT",
+  "timing_mode": "AUDIO_LOCKED",
+  "publication": {
+    "restriction": "INTERNAL_ONLY",
+    "reason": "Revision c-r1: script review stage; claims source-verified, not editorially approved."
+  },
+  "beats": [
+    {
+      "beat_id": "B01",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "INTRODUCE_ARCHITECTURE",
+      "claim_ids": [],
+      "narration": "10,000 people, with homes, schools, a clinic, parks, and streets to walk along. And not one of them is standing on land.",
+      "visual_goal": "Establishing aerial of the finished illustrative district in a sheltered bay; NOTE 'Illustrative design'",
+      "required_concepts": [
+        "floating_district",
+        "bay_site"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B02",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "Could we design a city like this, one that floats, stays where we put it, and keeps working? Let's treat it as a design problem, and solve it one step at a time.",
+      "visual_goal": "Slow push-in on the district; no claim on screen",
+      "required_concepts": [
+        "floating_district",
+        "bay_site"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B03",
+      "chapter": "C1",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_010",
+        "CLM_011",
+        "CLM_030",
+        "CLM_031",
+        "CLM_033",
+        "CLM_057"
+      ],
+      "narration": "Floating neighborhoods are not science fiction. In Amsterdam, a floating neighborhood called Schoonschip is home to 46 households, a little over 100 people. Much larger designs exist on paper. One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022. When we checked the developer's and the architects' websites in November 2026, neither reported that construction had begun.",
+      "visual_goal": "Scale card: Schoonschip (built, ~100 people; schematic unless a licensed photo is approved), OCEANIX Busan (proposed 2022; 'status checked Nov 2026: OCEANIX news page, BIG project page')",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B04",
+      "chapter": "C1",
+      "kind": "framing",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [],
+      "narration": "So let's take our city apart, and build it back, one problem at a time.",
+      "visual_goal": "The district comes apart layer by layer (breakwater, moorings, utilities, buildings, platforms) until one empty platform remains",
+      "required_concepts": [
+        "floating_district",
+        "bay_site"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "SEQUENCE"
+    },
+    {
+      "beat_id": "B05",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_002",
+        "CLM_008",
+        "CLM_101"
+      ],
+      "narration": "Problem one: how does something this heavy float at all? Take a block of concrete. As a solid lump, it sinks: concrete is more than twice as dense as seawater. Shape the same concrete into a hollow box, 40 meters on each side, and it floats.",
+      "visual_goal": "Section: the hull's concrete as a solid block on the seabed beside the same concrete as a floating box (draft from analysis)",
+      "required_concepts": [
+        "floating_platform",
+        "platform_hull",
+        "bulkhead",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "COMPARE_SIDE_BY_SIDE"
+    },
+    {
+      "beat_id": "B06",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_001",
+        "CLM_102"
+      ],
+      "narration": "It floats because it pushes water out of the way, and the water it pushes aside weighs as much as the platform. Every ton we add needs roughly one more cubic meter of water pushed aside.",
+      "visual_goal": "Cutaway below the waterline: the displaced volume glows (prototype P1)",
+      "required_concepts": [
+        "floating_platform",
+        "platform_hull",
+        "bulkhead",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B07",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_012",
+        "CLM_013",
+        "CLM_103"
+      ],
+      "narration": "Real floating homes work exactly this way. The Schoonschip houses stand on concrete floats. The heaviest weighs around 340 to 350 metric tons, so it pushes aside roughly as many cubic meters of canal water: a cube about 7 meters on each side.",
+      "visual_goal": "House on its float beside a 7 m cube of water (schematic, labelled; 'two builders' figures')",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B08",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_104"
+      ],
+      "narration": "Our first platform, in this illustrative design, carries four blocks of three-story homes. Altogether it weighs about 4,800 tons, and floats about 3 meters deep. And here's the surprise: more than half of that weight is the concrete hull itself.",
+      "visual_goal": "Layers lift apart (homes, deck finishes, hull) with their share of the mass; label 'illustrative'",
+      "required_concepts": [
+        "floating_platform",
+        "platform_hull",
+        "bulkhead",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "EXPLODE"
+    },
+    {
+      "beat_id": "B09",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_003",
+        "CLM_105"
+      ],
+      "narration": "Now add a fourth story. The platform settles about a third of a meter deeper, and the freeboard, the part of the hull above the water, shrinks from about a meter to about 70 centimeters.",
+      "visual_goal": "Close-up of the draft gauge: the fourth storey arrives, the platform sinks by the calculated amount (prototype P2b; new SINK step)",
+      "required_concepts": [
+        "floating_platform",
+        "platform_hull",
+        "bulkhead",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B10",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_105"
+      ],
+      "narration": "One fix is to make the hull half a meter deeper. That adds about 100 tons of concrete, 4% more, and brings the freeboard back to about a meter and 15 centimeters. Lighter buildings would be another way.",
+      "visual_goal": "Same camera: the extra half metre of hull appears below, the deck rises to the calculated freeboard (same branch as B09)",
+      "required_concepts": [
+        "floating_platform",
+        "platform_hull",
+        "bulkhead",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B11",
+      "chapter": "C2",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_009",
+        "CLM_106"
+      ],
+      "narration": "Will it tip over? Move 100 tons out toward the edge, and in this example the platform tilts by less than half a degree. But a small tilt under a shifted load tells us very little about how it will move in waves. Floating is only the first problem.",
+      "visual_goal": "A 100 t load slides to the edge; the platform tilts by the calculated small angle (no G, B, M symbols)",
+      "required_concepts": [
+        "floating_platform",
+        "platform_hull",
+        "bulkhead",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B12",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_108"
+      ],
+      "narration": "A platform like this holds about fifty people. For 10,000, we need a lot of them. So why not simply join them all into one enormous slab?",
+      "visual_goal": "Five platforms arrive around a small basin",
+      "required_concepts": [
+        "floating_platform",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "ASSEMBLE_IN"
+    },
+    {
+      "beat_id": "B13",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_107"
+      ],
+      "narration": "Look at two identical platforms carrying different buildings, one with two stories and one with four. Floating on their own, their decks would sit about 66 centimeters apart in height. So different loads add a demand on whatever connects them. In this design, the walkways between platforms are hinged, so they can follow the difference. Adding ballast to even out the decks would be another option.",
+      "visual_goal": "Side elevation: two decks at different heights; a hinged walkway spans them (no part shown as failing)",
+      "required_concepts": [
+        "floating_platform",
+        "walkway_connector"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HIGHLIGHT_REPLACE_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B14",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": [
+        "CLM_042",
+        "CLM_056"
+      ],
+      "narration": "Connections are where engineers expect trouble. A 2026 research agenda lists stress concentrations on connectors among the challenges of large floating developments. One concept study links its modules flexibly, and spaces them far enough apart not to collide, because on flexible moorings they are expected to move sideways quite a lot.",
+      "visual_goal": "Close-up of a joint: gap, hinged walkway, flexible utility link (conceptual geometry)",
+      "required_concepts": [
+        "walkway_connector",
+        "utility_line"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CLOSEUP_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B15",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_124",
+        "CLM_108"
+      ],
+      "narration": "How many platforms would 10,000 people need? Say each resident needs about 40 square meters of floor: thirty for their home, and ten for a share of schools, shops and services. That's about thirty-three hectares of platform: about 200 platforms like our first one, with hundreds of connections between them.",
+      "visual_goal": "Plan grid: dots appear to ~209 platforms; joints counted (label 'illustrative')",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B16",
+      "chapter": "C3",
+      "kind": "fact",
+      "narrative_intent": "COMPARE_VARIANTS",
+      "claim_ids": [
+        "CLM_108",
+        "CLM_014",
+        "CLM_125"
+      ],
+      "narration": "Bigger platforms mean fewer connections. At 100 meters on a side, 34 would do, but each would weigh about 30,000 tons, to build, launch and tow. Even the Schoonschip floats were too big for the dry docks of traditional houseboat builders, and were cast on the quay instead. Our district uses 60-meter platforms, 93 of them: a middle choice for this illustration, not an optimum.",
+      "visual_goal": "Same-scale plans: 40 m, 60 m, 100 m modules with counts and masses",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B17",
+      "chapter": "C4",
+      "kind": "framing",
+      "narrative_intent": "EXPLAIN_CAUSE_EFFECT",
+      "claim_ids": [],
+      "narration": "And all of this sits on water that never keeps still. Each platform rises and falls on its own, and every gap and hinge between them has to cope.",
+      "visual_goal": "Five platforms move out of phase; gaps open and close; label 'Conceptual motion visualization — not a hydrodynamic simulation' (new CONCEPT_MOTION) | required label: 'Conceptual motion visualization — not a hydrodynamic simulation'",
+      "required_concepts": [
+        "floating_platform",
+        "walkway_connector"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B18",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_022"
+      ],
+      "narration": "People living on the water feel it. Floating homes in the Netherlands can rock in storms, or when large cruise ships pass, and one Amsterdam resident feels it most on her upper floor.",
+      "visual_goal": "Floating home section; upper floor marked; source line (Yale E360, 2021)",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B19",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [
+        "CLM_053"
+      ],
+      "narration": "Very large platforms don't only move. They bend, and predicting exactly how is still an open research problem.",
+      "visual_goal": "Long platform drawn flexing; 'exaggerated, conceptual'",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B20",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_050",
+        "CLM_121"
+      ],
+      "narration": "So the first fix is where you build. A 2026 concept study looks for sea areas with limited fetch, near a gulf, a strait or an archipelago, where waves stay moderate. That's why our city sits in a sheltered bay, connected to an existing city on shore.",
+      "visual_goal": "Two schematic bays: sheltered vs open; the district placed in the sheltered one",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B21",
+      "chapter": "C4",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_055",
+        "CLM_051",
+        "CLM_052"
+      ],
+      "narration": "The second fix is the layout. Following one concept study, homes go in the middle, and functions that can tolerate more motion form the outer ring. Where the bay opens to the sea, a breakwater reduces the waves. But a floating breakwater may not be enough against longer waves from the open sea, and how much wave energy passes behind one is still hard to predict.",
+      "visual_goal": "Top view to three-quarter: inner homes glow, outer ring, breakwater arrives on the open side; NOTE 'reduces waves, does not remove storm risk'",
+      "required_concepts": [
+        "floating_district",
+        "bay_site",
+        "breakwater"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "SEQUENCE"
+    },
+    {
+      "beat_id": "B22",
+      "chapter": "C5",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": [
+        "CLM_020"
+      ],
+      "narration": "Something also has to hold the city in place. Floating homes in the Netherlands are fixed to the shore, often resting against steel poles.",
+      "visual_goal": "Water surface visible, then ghosted in a second step; piles glow (prototype P4)",
+      "required_concepts": [
+        "mooring_pile",
+        "floating_platform",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "SEQUENCE"
+    },
+    {
+      "beat_id": "B23",
+      "chapter": "C5",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_CAUSE_EFFECT",
+      "claim_ids": [
+        "CLM_041",
+        "CLM_122",
+        "CLM_109"
+      ],
+      "narration": "Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles. In our scenario, the water level can change by about 2 meters, so the bridges to shore need hinges: on a 25-meter bridge, the slope changes by about 3 degrees either way.",
+      "visual_goal": "Elevation: water rises, platform slides up its piles, the link-span turns on its shore hinge (new RISE/SINK step); '2 m range, assumed'",
+      "required_concepts": [
+        "mooring_pile",
+        "link_span",
+        "floating_platform"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "SEQUENCE"
+    },
+    {
+      "beat_id": "B24",
+      "chapter": "C5",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_DESIGN_CHANGE",
+      "claim_ids": [
+        "CLM_055",
+        "CLM_054"
+      ],
+      "narration": "Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed. Deeper water means longer lines, deeper anchors, and higher costs. The seabed itself shapes the design, and the bill.",
+      "visual_goal": "Underwater, water ghosted: piles replaced by mooring lines toward deeper seabed; NOTE 'Conceptual mooring — not sized'",
+      "required_concepts": [
+        "mooring_line",
+        "anchor",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "REPLACE"
+    },
+    {
+      "beat_id": "B25",
+      "chapter": "C6",
+      "kind": "framing",
+      "narrative_intent": "EXPLAIN_STRUCTURE",
+      "claim_ids": [],
+      "narration": "So it floats, and it stays put. But is it a city yet? Fade out the buildings, and the city's other half appears.",
+      "visual_goal": "Buildings ghost; utility networks appear along the bridges",
+      "required_concepts": [
+        "floating_district",
+        "bay_site",
+        "utility_line"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "SEQUENCE"
+    },
+    {
+      "beat_id": "B26",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_016"
+      ],
+      "narration": "Power first: at Schoonschip, 46 households share a single connection to the national grid, with solar panels, a battery in every house, and a smart grid between them. Floating doesn't mean off-grid.",
+      "visual_goal": "Many homes, one cable to shore (schematic)",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B27",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": [
+        "CLM_017",
+        "CLM_023",
+        "CLM_123"
+      ],
+      "narration": "Wastewater is separated there too: gray water from showers and washing machines, black water from toilets. Connecting floating homes to sewers on land takes extra infrastructure, such as waterproof cables and pumps. In our city, wastewater is pumped ashore along the bridges, and drinking water comes back the same way.",
+      "visual_goal": "One platform: grey and black lines, a pump, the line along the bridge",
+      "required_concepts": [
+        "utility_line",
+        "link_span"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CLOSEUP_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B28",
+      "chapter": "C6",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": [
+        "CLM_043"
+      ],
+      "narration": "Transport, fire and medical services, and food all follow the same logic. A large floating development has to connect sewage, power and roads to land, or develop alternatives of its own, and our city connects.",
+      "visual_goal": "Boat landings, two routes to land from each platform, rescue-boat berth glow in turn",
+      "required_concepts": [
+        "floating_district",
+        "bay_site",
+        "access_route"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "SEQUENCE"
+    },
+    {
+      "beat_id": "B29",
+      "chapter": "C7",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "Everything so far assumed sheltered water close to a city. So what happens if we tow it out to sea?",
+      "visual_goal": "Small 3D district on an open sea (counterfactual); label 'Counterfactual'",
+      "required_concepts": [
+        "floating_district",
+        "open_sea_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B30",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_CAUSE_EFFECT",
+      "claim_ids": [
+        "CLM_051",
+        "CLM_054"
+      ],
+      "narration": "Longer waves arrive, and a floating breakwater may not be enough against them. Below the surface, the seabed drops away, so mooring lines get longer and anchors deeper.",
+      "visual_goal": "Same open-sea scene: long conceptual swell passes the breakwater (labelled); water ghosts, lines lengthen to a deeper seabed | required label: 'Conceptual motion visualization — not a hydrodynamic simulation'",
+      "required_concepts": [
+        "breakwater",
+        "mooring_line",
+        "open_sea_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "SEQUENCE"
+    },
+    {
+      "beat_id": "B31",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_CAUSE_EFFECT",
+      "claim_ids": [
+        "CLM_043",
+        "CLM_051"
+      ],
+      "narration": "Further from shore, cables, pipes and supply ships can still reach the city, but every link becomes longer and more exposed.",
+      "visual_goal": "The links to shore stretch across open water and glow",
+      "required_concepts": [
+        "utility_line",
+        "open_sea_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B32",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "EXPLAIN_CAUSE_EFFECT",
+      "claim_ids": [
+        "CLM_058"
+      ],
+      "narration": "And if we also asked the city to supply itself, as one 2026 offshore concept does, it would need its own systems for energy, water and food. In that study, growing food alone accounts for nearly half of the city's estimated energy use.",
+      "visual_goal": "An added condition: three systems appear; 'one concept study's estimate'",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B33",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "COMPARE_VARIANTS",
+      "claim_ids": [
+        "CLM_062"
+      ],
+      "narration": "That study also uses a different kind of hull: semi-submersible platforms, with the deck raised above the sea on columns, behind a floating barrier. Offshore isn't the same city moved further out. It's a different design.",
+      "visual_goal": "3D: our box pontoon beside a column-stabilised module (schematic, labelled 'concept study')",
+      "required_concepts": [
+        "floating_platform",
+        "semi_submersible_module"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "COMPARE_SIDE_BY_SIDE"
+    },
+    {
+      "beat_id": "B34",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_COMPONENT",
+      "claim_ids": [
+        "CLM_059"
+      ],
+      "narration": "Some difficulties remain wherever we build. Concrete in seawater needs watching: chlorides can corrode the steel reinforcement, and, according to a 2026 study, there are no dedicated standards for floating cities yet.",
+      "visual_goal": "Hull surface, inspection zone glows (no damage shown)",
+      "required_concepts": [
+        "platform_hull"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "CLOSEUP_HIGHLIGHT"
+    },
+    {
+      "beat_id": "B35",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_044"
+      ],
+      "narration": "Large floating developments change the light, shade and water movement beneath them, effects that researchers say still need study, and they expect the impact on local ecology to be far larger than that of small developments.",
+      "visual_goal": "Underwater view: the district's shadow on the seabed (EEVEE shadow, illustrative)",
+      "required_concepts": [
+        "floating_district",
+        "bay_site"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B36",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [
+        "CLM_045",
+        "CLM_046"
+      ],
+      "narration": "And who gets to use the water? How districts like this fit into planning law is not yet known, and researchers warn they could end up serving the wealthy, and fencing off water that used to be public.",
+      "visual_goal": "Two waterfront edges: public path vs fenced edge",
+      "required_concepts": [
+        "floating_platform",
+        "access_route"
+      ],
+      "expected_complexity": "MEDIUM",
+      "strategy": "COMPARE_SIDE_BY_SIDE"
+    },
+    {
+      "beat_id": "B37",
+      "chapter": "C7",
+      "kind": "fact",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_063",
+        "CLM_041",
+        "CLM_054",
+        "CLM_042",
+        "CLM_059"
+      ],
+      "narration": "And what would it cost? We do not yet have a reliable cost estimate for this design. The one published framework we found is preliminary, and covers only flotation and energy. Compared with land, floating structures can follow the water level, and can be moved or reused, but they trade a fixed foundation for moorings, connections and ongoing maintenance.",
+      "visual_goal": "Two columns: what floating gives, what it costs (no numbers)",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B38",
+      "chapter": "C8",
+      "kind": "framing",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [],
+      "narration": "From one platform to a district, every part we added answers a question we had to ask.",
+      "visual_goal": "Platform A alone, then beside district C; one label per added system",
+      "required_concepts": [
+        "floating_platform",
+        "floating_district"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "DETAIL_THEN_OVERVIEW"
+    },
+    {
+      "beat_id": "B39",
+      "chapter": "C8",
+      "kind": "fact",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_010",
+        "CLM_011",
+        "CLM_016"
+      ],
+      "narration": "So, could we build an entire city that floats? Small floating neighborhoods, connected to the shore in sheltered water, already exist.",
+      "visual_goal": "Verdict tier 1 of 3 (elements appear with the words)",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B40",
+      "chapter": "C8",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_121",
+        "CLM_053",
+        "CLM_042",
+        "CLM_063",
+        "CLM_033"
+      ],
+      "narration": "A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the right conditions. But how very large platforms bend, how their connections hold up, and what they would cost are still open questions. And the one project of that size we checked had not been reported as under construction when we looked. We didn't survey every project in the world.",
+      "visual_goal": "Verdict tier 2 of 3",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B41",
+      "chapter": "C8",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_051",
+        "CLM_058",
+        "CLM_062"
+      ],
+      "narration": "A city far out at sea, especially one that has to supply itself, remains much more speculative.",
+      "visual_goal": "Verdict tier 3 of 3",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B42",
+      "chapter": "C8",
+      "kind": "interpretation",
+      "narrative_intent": "SUMMARIZE_DIFFERENCES",
+      "claim_ids": [
+        "CLM_104",
+        "CLM_121"
+      ],
+      "narration": "Our arithmetic shows what it takes for a platform to float. Whether a whole district works depends on the site, and on every other system we added.",
+      "visual_goal": "Closing aerial of the district (re-uses the opening scene)",
+      "required_concepts": [
+        "floating_district",
+        "bay_site"
+      ],
+      "expected_complexity": "HIGH",
+      "strategy": "HOLD"
+    },
+    {
+      "beat_id": "B43",
+      "chapter": "C8",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "Which structure should we explain next? Suggest a topic in the comments. And if you enjoyed this film, please like it and subscribe.",
+      "visual_goal": "Closing call to action with self-drawn icons (comment, like, subscribe, bell) as each is asked; no platform logo or trademark",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    },
+    {
+      "beat_id": "B44",
+      "chapter": "C8",
+      "kind": "framing",
+      "narrative_intent": "SHOW_CONTEXT",
+      "claim_ids": [],
+      "narration": "Thank you for watching. The sources are listed in the description.",
+      "visual_goal": "Credits; AI-voice disclosure; 'Models are illustrative, not engineering designs'",
+      "required_concepts": [],
+      "expected_complexity": "LOW",
+      "strategy": "CARD"
+    }
+  ]
+}

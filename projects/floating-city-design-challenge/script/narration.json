@@ -1,0 +1,662 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "title": "Could We Build an Entire City That Floats?",
+  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision c-r1)",
+  "voice": {
+    "provider": "kokoro",
+    "id": "kokoro_am_michael",
+    "mode": "preset",
+    "voice": "am_michael",
+    "selection": {
+      "voice": "am_michael",
+      "selected_by": "Studio default (config/production_defaults.json: the owner's narrator choice of 2026-10-30)",
+      "selected_on": "2026-11-08",
+      "basis": "production default; no new audition for this film",
+      "scope": "narrator of floating-city-design-challenge"
+    },
+    "language": "en-US",
+    "params": {
+      "speed": 1.0,
+      "seed": 0,
+      "lang_code": "a"
+    },
+    "license": {
+      "status": "LICENSE_REVIEW_REQUIRED",
+      "rights_class": "PUBLICATION_CLEARED",
+      "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
+      "components": [
+        {
+          "name": "Kokoro-82M weights (hexgrad/Kokoro-82M @ f3ff3571)",
+          "license": "Apache-2.0",
+          "evidence": "model card + repo metadata; kokoro-v1_0.pth SHA256 496dba11... equals the model-card hash"
+        },
+        {
+          "name": "Voice am_michael (voices/am_michael.pt)",
+          "license": "Apache-2.0 (repository licence; no separate per-voice licence)",
+          "evidence": "VOICES.md SHA256 prefix 9a443b79 matches the local file (tools/kokoro_fetch_voices.py)"
+        },
+        {
+          "name": "kokoro 0.9.4 / misaki 0.9.4 (inference, G2P)",
+          "license": "Apache-2.0",
+          "evidence": "installed package metadata"
+        },
+        {
+          "name": "espeak-ng 1.52.0 via espeakng-loader; phonemizer-fork 3.3.2 (OOD-word fallback)",
+          "license": "GPL-3.0-or-later",
+          "evidence": "local use only, never redistributed (audit section 3)"
+        },
+        {
+          "name": "Training data",
+          "license": "stated permissive / non-copyrighted, including synthetic audio from closed TTS providers",
+          "evidence": "model card; unresolved, audit section 5"
+        }
+      ],
+      "permitted_use": "internal review only until the owner approves am_michael for this project (config/tts_providers.json clearance.voice_approvals lists why-bridges-look-different and gothic-cathedral-heights only)",
+      "reviewed_on": "2026-11-08",
+      "reviewed_by": "agent technical check: same pinned model revision and voice hash as the audited am_michael (not legal advice)",
+      "owner_confirmation_for_this_film": "PENDING",
+      "decision": "PENDING: the owner's approvals of am_michael cover why-bridges-look-different and gothic-cathedral-heights only; a new approval for this project is on review/FINAL_APPROVAL_CHECKLIST.md"
+    },
+    "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
+    "pronunciation_review": {
+      "status": "PENDING",
+      "terms": [
+        "Schoonschip",
+        "Amsterdam",
+        "Busan",
+        "South Korea",
+        "hydro-elastic",
+        "semi-submersible",
+        "freeboard",
+        "ballast"
+      ],
+      "note": "No speech override yet. Schoonschip is Dutch; how Kokoro (American English) says it must be heard by the owner. An ASR pass proves nothing about pronunciation.",
+      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance"
+    }
+  },
+  "pacing": {
+    "sentence_pause_seconds": 0.4,
+    "beat_lead_in_seconds": 0.4,
+    "beat_tail_seconds": 0.8
+  },
+  "revision": {
+    "version": "c-r1",
+    "date": "2026-11-08",
+    "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
+    "scope": "first full narration, after the owner's concept review of 2026-11-08 (six groups of corrections, concept/NARRATIVE_OUTLINE.md)",
+    "review_package": "review/SCRIPT_REVIEW.md",
+    "edits": [
+      {
+        "sentence": "B01.s0",
+        "draft": "Ten thousand people. / Homes, schools, a clinic, parks, and streets to walk along.",
+        "c-r1": "Ten thousand people, with homes, schools, a clinic, parks, and streets to walk along.",
+        "why": "Kokoro output of a 2-3-word sentence fell below the 1.5 words/s speech check (1.43 words/s, deterministic seed); merged with its neighbour instead of loosening the check"
+      },
+      {
+        "sentence": "B26.s0",
+        "draft": "Power first. / At Schoonschip, forty-six households share a single connection to the national grid,",
+        "c-r1": "Power first: at Schoonschip, forty-six households share a single connection to the national grid,",
+        "why": "same check, pre-emptively (2-word sentence)"
+      },
+      {
+        "sentence": "B28.s1",
+        "draft": "... or develop alternatives of its own. / Ours connects.",
+        "c-r1": "... or develop alternatives of its own, / and ours connects.",
+        "why": "same check, pre-emptively (2-word sentence)"
+      },
+      {
+        "sentence": "all",
+        "c-r1": "American spelling (meter, ton, story, neighborhood, gray) and digits for numbers of 100 and more, as in the Studio's other films; 'and ours connects' -> 'and our city connects'",
+        "why": "ASR check: Whisper writes American spelling and digits, so British spelling and spelled-out large numbers failed the word-error check although the speech was right; 'ours' was heard as 'hours'. Meaning unchanged."
+      }
+    ]
+  },
+  "beats": [
+    {
+      "id": "B01",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "10,000 people, with homes, schools, a clinic, parks, and streets to walk along.",
+        "And not one of them is standing on land."
+      ]
+    },
+    {
+      "id": "B02",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Could we design a city like this, one that floats, stays where we put it, and keeps working?",
+        "Let's treat it as a design problem, and solve it one step at a time."
+      ]
+    },
+    {
+      "id": "B03",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_010",
+        "CLM_011",
+        "CLM_030",
+        "CLM_031",
+        "CLM_033",
+        "CLM_057"
+      ],
+      "sentences": [
+        "Floating neighborhoods are not science fiction.",
+        "In Amsterdam, a floating neighborhood called Schoonschip is home to 46 households, a little over 100 people.",
+        "Much larger designs exist on paper.",
+        "One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022.",
+        "When we checked the developer's and the architects' websites in November 2026, neither reported that construction had begun."
+      ]
+    },
+    {
+      "id": "B04",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "So let's take our city apart,",
+        "and build it back, one problem at a time."
+      ]
+    },
+    {
+      "id": "B05",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_002",
+        "CLM_008",
+        "CLM_101"
+      ],
+      "sentences": [
+        "Problem one: how does something this heavy float at all?",
+        "Take a block of concrete.",
+        "As a solid lump, it sinks: concrete is more than twice as dense as seawater.",
+        "Shape the same concrete into a hollow box, 40 meters on each side, and it floats."
+      ]
+    },
+    {
+      "id": "B06",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_001",
+        "CLM_102"
+      ],
+      "sentences": [
+        "It floats because it pushes water out of the way, and the water it pushes aside weighs as much as the platform.",
+        "Every ton we add needs roughly one more cubic meter of water pushed aside."
+      ]
+    },
+    {
+      "id": "B07",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_012",
+        "CLM_013",
+        "CLM_103"
+      ],
+      "sentences": [
+        "Real floating homes work exactly this way.",
+        "The Schoonschip houses stand on concrete floats.",
+        "The heaviest weighs around 340 to 350 metric tons,",
+        "so it pushes aside roughly as many cubic meters of canal water: a cube about 7 meters on each side."
+      ]
+    },
+    {
+      "id": "B08",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_104"
+      ],
+      "sentences": [
+        "Our first platform, in this illustrative design, carries four blocks of three-story homes.",
+        "Altogether it weighs about 4,800 tons, and floats about 3 meters deep.",
+        "And here's the surprise: more than half of that weight is the concrete hull itself."
+      ]
+    },
+    {
+      "id": "B09",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_003",
+        "CLM_105"
+      ],
+      "sentences": [
+        "Now add a fourth story.",
+        "The platform settles about a third of a meter deeper,",
+        "and the freeboard, the part of the hull above the water, shrinks from about a meter to about 70 centimeters."
+      ]
+    },
+    {
+      "id": "B10",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_105"
+      ],
+      "sentences": [
+        "One fix is to make the hull half a meter deeper.",
+        "That adds about 100 tons of concrete, 4% more,",
+        "and brings the freeboard back to about a meter and 15 centimeters.",
+        "Lighter buildings would be another way."
+      ]
+    },
+    {
+      "id": "B11",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_009",
+        "CLM_106"
+      ],
+      "sentences": [
+        "Will it tip over?",
+        "Move 100 tons out toward the edge, and in this example the platform tilts by less than half a degree.",
+        "But a small tilt under a shifted load tells us very little about how it will move in waves.",
+        "Floating is only the first problem."
+      ]
+    },
+    {
+      "id": "B12",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_108"
+      ],
+      "sentences": [
+        "A platform like this holds about fifty people.",
+        "For 10,000, we need a lot of them.",
+        "So why not simply join them all into one enormous slab?"
+      ]
+    },
+    {
+      "id": "B13",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_107"
+      ],
+      "sentences": [
+        "Look at two identical platforms carrying different buildings, one with two stories and one with four.",
+        "Floating on their own, their decks would sit about 66 centimeters apart in height.",
+        "So different loads add a demand on whatever connects them.",
+        "In this design, the walkways between platforms are hinged, so they can follow the difference.",
+        "Adding ballast to even out the decks would be another option."
+      ]
+    },
+    {
+      "id": "B14",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_042",
+        "CLM_056"
+      ],
+      "sentences": [
+        "Connections are where engineers expect trouble.",
+        "A 2026 research agenda lists stress concentrations on connectors among the challenges of large floating developments.",
+        "One concept study links its modules flexibly, and spaces them far enough apart not to collide, because on flexible moorings they are expected to move sideways quite a lot."
+      ]
+    },
+    {
+      "id": "B15",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_124",
+        "CLM_108"
+      ],
+      "sentences": [
+        "How many platforms would 10,000 people need?",
+        "Say each resident needs about 40 square meters of floor: thirty for their home, and ten for a share of schools, shops and services.",
+        "That's about thirty-three hectares of platform:",
+        "about 200 platforms like our first one, with hundreds of connections between them."
+      ]
+    },
+    {
+      "id": "B16",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_108",
+        "CLM_014",
+        "CLM_125"
+      ],
+      "sentences": [
+        "Bigger platforms mean fewer connections.",
+        "At 100 meters on a side, 34 would do,",
+        "but each would weigh about 30,000 tons, to build, launch and tow.",
+        "Even the Schoonschip floats were too big for the dry docks of traditional houseboat builders, and were cast on the quay instead.",
+        "Our district uses 60-meter platforms, 93 of them: a middle choice for this illustration, not an optimum."
+      ]
+    },
+    {
+      "id": "B17",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "And all of this sits on water that never keeps still.",
+        "Each platform rises and falls on its own, and every gap and hinge between them has to cope."
+      ]
+    },
+    {
+      "id": "B18",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_022"
+      ],
+      "sentences": [
+        "People living on the water feel it.",
+        "Floating homes in the Netherlands can rock in storms, or when large cruise ships pass,",
+        "and one Amsterdam resident feels it most on her upper floor."
+      ]
+    },
+    {
+      "id": "B19",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_053"
+      ],
+      "sentences": [
+        "Very large platforms don't only move. They bend,",
+        "and predicting exactly how is still an open research problem."
+      ]
+    },
+    {
+      "id": "B20",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_050",
+        "CLM_121"
+      ],
+      "sentences": [
+        "So the first fix is where you build.",
+        "A 2026 concept study looks for sea areas with limited fetch, near a gulf, a strait or an archipelago, where waves stay moderate.",
+        "That's why our city sits in a sheltered bay, connected to an existing city on shore."
+      ]
+    },
+    {
+      "id": "B21",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_055",
+        "CLM_051",
+        "CLM_052"
+      ],
+      "sentences": [
+        "The second fix is the layout.",
+        "Following one concept study, homes go in the middle, and functions that can tolerate more motion form the outer ring.",
+        "Where the bay opens to the sea, a breakwater reduces the waves.",
+        "But a floating breakwater may not be enough against longer waves from the open sea, and how much wave energy passes behind one is still hard to predict."
+      ]
+    },
+    {
+      "id": "B22",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_020"
+      ],
+      "sentences": [
+        "Something also has to hold the city in place.",
+        "Floating homes in the Netherlands are fixed to the shore, often resting against steel poles."
+      ]
+    },
+    {
+      "id": "B23",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_041",
+        "CLM_122",
+        "CLM_109"
+      ],
+      "sentences": [
+        "Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles.",
+        "In our scenario, the water level can change by about 2 meters,",
+        "so the bridges to shore need hinges: on a 25-meter bridge, the slope changes by about 3 degrees either way."
+      ]
+    },
+    {
+      "id": "B24",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_055",
+        "CLM_054"
+      ],
+      "sentences": [
+        "Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed.",
+        "Deeper water means longer lines, deeper anchors, and higher costs.",
+        "The seabed itself shapes the design, and the bill."
+      ]
+    },
+    {
+      "id": "B25",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "So it floats, and it stays put. But is it a city yet?",
+        "Fade out the buildings, and the city's other half appears."
+      ]
+    },
+    {
+      "id": "B26",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_016"
+      ],
+      "sentences": [
+        "Power first: at Schoonschip, 46 households share a single connection to the national grid,",
+        "with solar panels, a battery in every house, and a smart grid between them.",
+        "Floating doesn't mean off-grid."
+      ]
+    },
+    {
+      "id": "B27",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_017",
+        "CLM_023",
+        "CLM_123"
+      ],
+      "sentences": [
+        "Wastewater is separated there too: gray water from showers and washing machines, black water from toilets.",
+        "Connecting floating homes to sewers on land takes extra infrastructure, such as waterproof cables and pumps.",
+        "In our city, wastewater is pumped ashore along the bridges, and drinking water comes back the same way."
+      ]
+    },
+    {
+      "id": "B28",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_043"
+      ],
+      "sentences": [
+        "Transport, fire and medical services, and food all follow the same logic.",
+        "A large floating development has to connect sewage, power and roads to land, or develop alternatives of its own,",
+        "and our city connects."
+      ]
+    },
+    {
+      "id": "B29",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Everything so far assumed sheltered water close to a city.",
+        "So what happens if we tow it out to sea?"
+      ]
+    },
+    {
+      "id": "B30",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_051",
+        "CLM_054"
+      ],
+      "sentences": [
+        "Longer waves arrive, and a floating breakwater may not be enough against them.",
+        "Below the surface, the seabed drops away, so mooring lines get longer and anchors deeper."
+      ]
+    },
+    {
+      "id": "B31",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_043",
+        "CLM_051"
+      ],
+      "sentences": [
+        "Further from shore, cables, pipes and supply ships can still reach the city,",
+        "but every link becomes longer and more exposed."
+      ]
+    },
+    {
+      "id": "B32",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_058"
+      ],
+      "sentences": [
+        "And if we also asked the city to supply itself, as one 2026 offshore concept does,",
+        "it would need its own systems for energy, water and food.",
+        "In that study, growing food alone accounts for nearly half of the city's estimated energy use."
+      ]
+    },
+    {
+      "id": "B33",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_062"
+      ],
+      "sentences": [
+        "That study also uses a different kind of hull:",
+        "semi-submersible platforms, with the deck raised above the sea on columns, behind a floating barrier.",
+        "Offshore isn't the same city moved further out. It's a different design."
+      ]
+    },
+    {
+      "id": "B34",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_059"
+      ],
+      "sentences": [
+        "Some difficulties remain wherever we build.",
+        "Concrete in seawater needs watching: chlorides can corrode the steel reinforcement,",
+        "and, according to a 2026 study, there are no dedicated standards for floating cities yet."
+      ]
+    },
+    {
+      "id": "B35",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_044"
+      ],
+      "sentences": [
+        "Large floating developments change the light, shade and water movement beneath them, effects that researchers say still need study,",
+        "and they expect the impact on local ecology to be far larger than that of small developments."
+      ]
+    },
+    {
+      "id": "B36",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_045",
+        "CLM_046"
+      ],
+      "sentences": [
+        "And who gets to use the water?",
+        "How districts like this fit into planning law is not yet known,",
+        "and researchers warn they could end up serving the wealthy, and fencing off water that used to be public."
+      ]
+    },
+    {
+      "id": "B37",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_063",
+        "CLM_041",
+        "CLM_054",
+        "CLM_042",
+        "CLM_059"
+      ],
+      "sentences": [
+        "And what would it cost?",
+        "We do not yet have a reliable cost estimate for this design. The one published framework we found is preliminary, and covers only flotation and energy.",
+        "Compared with land, floating structures can follow the water level, and can be moved or reused,",
+        "but they trade a fixed foundation for moorings, connections and ongoing maintenance."
+      ]
+    },
+    {
+      "id": "B38",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "From one platform to a district, every part we added answers a question we had to ask."
+      ]
+    },
+    {
+      "id": "B39",
+      "kind": "fact",
+      "claim_ids": [
+        "CLM_010",
+        "CLM_011",
+        "CLM_016"
+      ],
+      "sentences": [
+        "So, could we build an entire city that floats?",
+        "Small floating neighborhoods, connected to the shore in sheltered water, already exist."
+      ]
+    },
+    {
+      "id": "B40",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_121",
+        "CLM_053",
+        "CLM_042",
+        "CLM_063",
+        "CLM_033"
+      ],
+      "sentences": [
+        "A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the right conditions.",
+        "But how very large platforms bend, how their connections hold up, and what they would cost are still open questions.",
+        "And the one project of that size we checked had not been reported as under construction when we looked.",
+        "We didn't survey every project in the world."
+      ]
+    },
+    {
+      "id": "B41",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_051",
+        "CLM_058",
+        "CLM_062"
+      ],
+      "sentences": [
+        "A city far out at sea, especially one that has to supply itself, remains much more speculative."
+      ]
+    },
+    {
+      "id": "B42",
+      "kind": "interpretation",
+      "claim_ids": [
+        "CLM_104",
+        "CLM_121"
+      ],
+      "sentences": [
+        "Our arithmetic shows what it takes for a platform to float.",
+        "Whether a whole district works depends on the site, and on every other system we added."
+      ]
+    },
+    {
+      "id": "B43",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Which structure should we explain next?",
+        "Suggest a topic in the comments.",
+        "And if you enjoyed this film, please like it and subscribe."
+      ]
+    },
+    {
+      "id": "B44",
+      "kind": "framing",
+      "claim_ids": [],
+      "sentences": [
+        "Thank you for watching.",
+        "The sources are listed in the description."
+      ]
+    }
+  ]
+}

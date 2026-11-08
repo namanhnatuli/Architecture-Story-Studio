@@ -20,7 +20,11 @@
 | **P2b `draft_marks_closeup`** | Thước mớn nước cận cảnh | **Đạt một phần.** Thước 1 m và đường nước đọc được. Cần thêm nhãn số và một vạch "trước/sau" khi làm bằng `SINK` thật (SH09). |
 | **P3 `neighbourhood`** | Ba phao nối nhau (Design B rút gọn): khe, cầu đi bộ, cọc | **Đạt.** Khe, cầu đi bộ và cọc ở góc đọc rõ từ góc three-quarter. Đường hạ tầng dưới sàn không thấy được, nên phải có shot cận (SH15). |
 | **P4 `mooring_piles_water_ghosted`** | Lộ hệ neo dưới mặt nước (Reveal 4) | **Đạt sau khi sửa.** Lần đầu, nước làm mờ quá nên phao trông như sàn đặt trên cột, tức là gợi ý sai rằng cọc đỡ phao. Đã sửa bằng một tấm mặt nước rõ, khối nước mờ nhẹ. Bài học: làm mờ hai bước (thấy mặt nước, rồi làm mờ) là bắt buộc. |
-| **P5 `mooring_lines_water_ghosted`** | Dây neo và neo ở đáy | **Đạt một phần.** Dây và neo thấy được nhưng nhạt sau mặt nước. Bản sản xuất cần HIGHLIGHT dây khi lộ ra. Mép khối nước hiện ở góc trên: site cần rộng hơn hoặc mép mờ dần. |
+| **P5 `mooring_lines_water_ghosted`** | Dây neo và neo ở đáy | **c-r0: đạt một phần** (dây nhạt sau mặt nước, review của chủ kênh). **c-r1: đạt.** Dây và neo đậm hơn (#1F2A30), dây dày gấp gần đôi, neo to hơn, nước trong hơn (thể tích 0,15, mặt nước 0,4). Bản sản xuất vẫn nên hiện từng hệ theo lời dẫn (mặt nước → làm mờ → dây sáng lên). |
+
+| **P6 `add_storey_sink_fix`** (hoạt ảnh 12 s, 288 khung, 960 × 540, không lời) | Đoạn thử review c-r0 đề nghị: thêm tải → phao chìm → sửa thân, một nhánh số liên tục | **Đạt cho tính liên tục số liệu; đạt một phần cho hình.** Thước vàng và nhãn đọc được: mạn khô 1,04 → 0,71 → 1,15 m (`analysis/results.json` → `storey_branch`). Tầng 4 đặt xuống, phao hạ, phần thân thêm 0,5 m mọc ra rồi sàn nâng lên. Lỗi đã sửa trong lúc làm: chữ bị cắt ở mép, khung quá rộng, chữ đổ bóng lên mặt nhà, mái tầng 3 thành dải tối. Còn lại: phần thân thêm chỉ thấy như một dải vàng mảnh ở đáy khung; bản sản xuất nên dùng mặt cắt (SH06) cho bước này. Tệp: `renders/prototype/P6_add_storey_sink_fix_PROTOTYPE_INTERNAL_REVIEW.mp4`. |
+
+Đoạn thử **có lời dẫn trên asset thật** (`tools/excerpt.py`) chưa làm: AGENTS.md không cho dựng asset mới trước khi kịch bản được duyệt. P6 là hoạt ảnh prototype độc lập, chỉ để kiểm số liệu và khả năng đọc.
 
 ## Câu hỏi khả thi và câu trả lời
 
@@ -33,6 +37,6 @@
 | Có cần mô phỏng chất lỏng không? | Không. Chưa thử hoạt ảnh sóng khái niệm. Brief chỉ cho một thử nghiệm hoạt ảnh "nếu cần", và với concept thì không cần: năng lực `CONCEPT_MOTION` được đánh giá trên giấy (`PRODUCTION_FEASIBILITY.md`). |
 
 ## Chưa kiểm
-- Bất kỳ hoạt ảnh nào: SINK, RISE, CONCEPT_MOTION, SEQUENCE trên họ mới.
+- Hoạt ảnh trong engine: SINK, RISE, TILT, CONCEPT_MOTION, SEQUENCE trên họ mới. P6 chỉ là keyframe trong prototype.
 - Cảnh quận C đầy đủ: khoảng 50–200 phao, đê, mạng hạ tầng. Chưa có benchmark 4K.
 - Chú thích của Studio trên các cảnh này.

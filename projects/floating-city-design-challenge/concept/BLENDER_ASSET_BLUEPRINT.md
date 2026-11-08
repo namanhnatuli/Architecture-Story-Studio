@@ -102,6 +102,7 @@ Thêm loại mới vào `SEMANTIC_TYPES` là thay đổi nhỏ. Mỗi loại m�
   - Không cửa sổ chi tiết, không nội thất, không người.
   - Biến thể bằng tham số (số tầng, kích thước, mái), không bằng mô hình tay.
   - Số tầng đổi phải khớp với mớn nước tính sẵn (B).
+  - **Phân biệt chức năng** (review c-r0): nhà ở, trường, phòng khám, chợ và dịch vụ, bến khác nhau bằng hình khối (dài/vuông, mái xanh/phẳng, sân) và một màu nhấn nhạt. Không gian công cộng (quảng trường, bờ đi bộ, công viên) là thành phần riêng (`public_space_*`, loại `DECK` với `meta.use`). Khối nhà lặp lại chỉ chấp nhận ở greybox.
 - **Độ khó:** S. **Dùng lại:** cao.
 
 ## Họ F: hạ tầng
@@ -128,7 +129,7 @@ Dùng `engine/diagram.py` có sẵn (text, arrow, rect, line, circle, polygon, i
 | Làm mờ vật che | SEQUENCE.GHOST (có sẵn); sửa bố cục tự động của planner (`planner/repair.py`, M5.5) áp được cho loại mới khi có mục tiêu tầm nhìn |
 | Mặt cắt | tham số `section_plane` của bộ sinh (mới, nhỏ); cách giống mô hình mặt cắt nhà thờ |
 | So sánh phiên bản | REPLACE_PARTS, SIDE_BY_SIDE, DETAIL_THEN_OVERVIEW (có sẵn) |
-| Hoạt ảnh thay đổi liên quan | REVEAL (có sẵn); **mới:** `SINK`/`RISE` (tịnh tiến z một nhóm theo Δ tính sẵn), `CONCEPT_MOTION` (dao động hình sin tất định, lệch pha theo module, có nhãn bắt buộc) |
+| Hoạt ảnh thay đổi liên quan | REVEAL (có sẵn); **mới:** `SINK`/`RISE` (tịnh tiến z một nhóm theo Δ tính sẵn; đã thử bằng prototype P6), `TILT` (góc nhỏ tính sẵn), `CONCEPT_MOTION` (dao động hình sin tất định, lệch pha theo module, có nhãn bắt buộc) |
 | Gắn chú thích | `planner/annotations.py`, COMPONENT_LABEL (có sẵn) |
 | Kiểm tra tầm nhìn | `verify-visibility` (Blender ray cast, có sẵn); thêm mục tiêu cho loại mới |
 

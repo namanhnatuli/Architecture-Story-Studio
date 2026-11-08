@@ -55,6 +55,20 @@ Dải mực nước 2.0 m (giả định) cộng dao động mớn nước khi p
 - Cầu 25 m: dốc tối đa khoảng 2.8° mỗi chiều.
 - Cầu 40 m: dốc tối đa khoảng 1.7° mỗi chiều.
 
+## 8. Nhánh thêm tầng (một nhánh liên tục, tải tĩnh nhà 0,6 t/m² sàn ở mọi bước)
+| Bước | Khối lượng (t) | Mớn nước (m) | Mạn khô (m) |
+|---|---|---|---|
+| 3 storeys, hull 4.0 m | 4851.2 | 2.958 | 1.042 |
+| 4 storeys, hull 4.0 m | 5395.2 | 3.29 | 0.71 |
+| 4 storeys, hull 4.5 m | 5500.8 | 3.354 | 1.146 |
+
+Thân sâu thêm 0,5 m tốn thêm 105.6 t bê tông (4.0% bê tông thân phao).
+
+## 9. Quận C với phao 60 m (chỉ các phao tiêu chuẩn)
+- 93 phao, 33.5 ha, khoảng 108 người mỗi phao, tới 180 cạnh chung; mỗi phao khoảng 10,764 t (mớn nước 2.917 m).
+- Lượng chiếm nước của các phao tiêu chuẩn: khoảng 1,001,000 t. **Không gồm:** service and port platforms, breakwater, link-span bridges, moorings and piles, utility plants and networks.
+- 40 m² sàn mỗi người = 30 m² nhà ở + 10 m² trường học, phòng khám, cửa hàng, dịch vụ (giả định).
+
 ## 7. Các lần sửa thiết kế mà câu chuyện dùng
 - A′: thân sâu 4,5 m với nhà nặng (0,9 t/m²): thêm 105.6 t bê tông, mớn nước 3.374 m, mạn khô 1.126 m (thân 4 m: 0.691 m).
 - B: hai phao giống nhau, nhà 2 tầng và 4 tầng: mớn nước 2.626 m và 3.29 m; mặt sàn lệch nhau 0.664 m.

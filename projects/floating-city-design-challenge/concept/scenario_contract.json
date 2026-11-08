@@ -13,28 +13,203 @@
     "UNVERIFIED": "not confirmed from a primary source"
   },
   "fields": {
-    "scenario_type": {"value": "Shore-connected floating extension of an existing coastal city, built in phases from one platform to a neighbourhood to a district.", "class": "DESIGN_ASSUMPTION", "basis": "Owner's preferred starting hypothesis; the only scale with built precedents nearby in kind (CLM_010, CLM_020). Studies place even large concepts in sheltered, limited-fetch water (CLM_050)."},
-    "proposed_population": {"value": 10000, "unit": "residents", "class": "DESIGN_ASSUMPTION", "basis": "Scenario target given in the brief, reached in three phases (A: one platform, B: neighbourhood, C: district). Not a requirement of any real project. For scale: Schoonschip has a little more than 100 residents (CLM_011); OCEANIX Busan was proposed for 12,000 residents and visitors (CLM_031)."},
-    "site_type": {"value": "Sheltered bay or harbour basin with limited fetch: headlands or existing coastal structures block ocean swell; only short, locally generated waves reach the site in normal conditions.", "class": "DESIGN_ASSUMPTION", "basis": "CLM_050 (concept study's ideal site), CLM_048 (site selection criteria), CLM_051 (floating breakwaters may not stop long waves)."},
-    "distance_from_shore": {"value": [0, 800], "unit": "m", "class": "DESIGN_ASSUMPTION", "basis": "The first platform touches the quay; the district reaches up to about 0.8 km out, within walking distance and reach of link-span bridges (CLM_031 uses link-span bridges to land). Chosen for the story, not from a site study."},
-    "water_depth": {"value": [12, 25], "unit": "m", "class": "DESIGN_ASSUMPTION", "basis": "Deep enough below a ~3 m draft for clearance at low water; shallow enough that the first phases can be held by piles. Deeper water means longer lines and deeper anchors at rising cost (CLM_054). Site survey required."},
-    "water_density": {"value": 1025, "unit": "kg/m3", "class": "ESTABLISHED_FACT", "basis": "Design value used in TU Delft offshore course material (CLM_004). A textbook gives 1,030 kg/m3 for sea water at 0 °C (CLM_008); the 0.5% difference does not change any conclusion."},
-    "gravity": {"value": 9.81, "unit": "m/s2", "class": "ESTABLISHED_FACT", "basis": "CLM_004"},
-    "representative_waves": {"value": "Fetch-limited wind sea inside the basin; ocean swell excluded by site choice. No design wave height or period is fixed at concept stage.", "class": "DESIGN_ASSUMPTION", "basis": "Wave heights and periods must come from site metocean data. The film shows motion only as 'Conceptual motion visualization — not a hydrodynamic simulation' and never quotes amplitudes."},
-    "wind_and_storm": {"value": "The region has occasional severe storms with strong winds and raised water levels (storm surge). The design must keep people safe through them; it is not assumed that nothing is damaged.", "class": "DESIGN_ASSUMPTION", "basis": "Brief section 6.6; residents feel motion in storms even in sheltered Amsterdam (CLM_022). No return period or wind speed is chosen at concept stage."},
-    "tidal_and_water_level_range": {"value": 2.0, "unit": "m", "class": "DESIGN_ASSUMPTION", "basis": "Illustrative range of water level (tide plus surge allowance) used only to show why platforms slide on piles and why shore bridges must hinge (analysis: link-span slope). Floating structures follow water level (CLM_041)."},
-    "seabed": {"value": "Soft sediment (sand or clay) of unknown thickness over firmer ground; suitable for driven piles and embedded anchors, subject to a geotechnical survey.", "class": "DESIGN_ASSUMPTION", "basis": "Mooring cost depends mainly on bathymetry and seabed (CLM_054). The film names no anchor type as sized."},
-    "connection_to_shore": {"value": "Hinged link-span bridges for pedestrians, bicycles and light service and emergency vehicles; utility lines run along them. Water taxis and ferries between platforms.", "class": "DESIGN_ASSUMPTION", "basis": "CLM_031 (link-span bridges in the Busan proposal), CLM_023 (waterproof cables and pumps to land), CLM_015 (jetty carrying infrastructure)."},
-    "construction_technology": {"value": "Reinforced-concrete pontoon hulls with internal watertight compartments, cast in a dock or on a quay and towed to site; low-rise buildings with light timber or steel frames on top.", "class": "DESIGN_ASSUMPTION", "basis": "Precedent: Schoonschip concrete floats built on the quay and towed (CLM_012, CLM_014); concrete hull as counterweight (CLM_021)."},
-    "materials": {"value": {"hull": "reinforced concrete, 2,400 kg/m3 reference density (CLM_008)", "buildings": "timber or light steel frame, low-rise (2–4 storeys) to keep the centre of gravity low", "connectors": "steel, inspectable and replaceable"}, "class": "DESIGN_ASSUMPTION", "basis": "Chloride-induced corrosion of reinforcement in sea water (CLM_059) is a maintenance driver for concrete hulls."},
-    "available_external_energy": {"value": "Grid connection to the city through the link-span bridges; rooftop solar and batteries on the platforms reduce, but do not replace, grid supply.", "class": "DESIGN_ASSUMPTION", "basis": "Precedent: Schoonschip has solar, batteries and one shared grid connection (CLM_016). The film does not claim self-sufficiency."},
-    "water_supply": {"value": "Drinking water from the city mains along the bridges; rainwater collection for non-potable use. No desalination in the base case.", "class": "DESIGN_ASSUMPTION", "basis": "Shore-connected scenario (CLM_043: connect to land or develop off-grid alternatives)."},
-    "wastewater": {"value": "Grey and black water collected separately and pumped to treatment on land.", "class": "DESIGN_ASSUMPTION", "basis": "CLM_017 (separation at Schoonschip), CLM_023 (pumps to municipal services)."},
-    "food_supply": {"value": "From land, as for any city district. No food autonomy target.", "class": "DESIGN_ASSUMPTION", "basis": "Local food production dominates the energy demand of an autonomous concept (CLM_058); the scenario avoids that requirement."},
-    "emergency_access": {"value": "Every platform has two independent routes to land (bridge or neighbouring platform) and a landing for fire and rescue boats; shelter-in-place spaces on each neighbourhood platform.", "class": "DESIGN_ASSUMPTION", "basis": "Brief section 6.6–6.7; no fire code is claimed as met."},
-    "design_objectives": {"value": ["House 10,000 residents in phases, each phase usable on its own.", "Keep homes where motion is smallest; put services and open space where larger motion is tolerated (CLM_055).", "Every module, connector and mooring element inspectable and replaceable.", "Shore-connected utilities, public access to the waterfront, no gated enclave (CLM_046)."], "class": "DESIGN_ASSUMPTION", "basis": "Brief sections 2 and 8."},
-    "module_geometry_assumptions": {"value": {"platform_A_m": [40, 40], "hull_depth_m": 4.0, "slab_thickness_m": 0.25, "wall_thickness_m": 0.25, "bulkhead_spacing_m": 10.0, "bulkhead_thickness_m": 0.2, "building_cover_fraction": 0.4, "storeys": 3, "storey_height_m": 3.0, "building_dead_load_t_per_m2_floor": [0.4, 0.6, 0.9], "variable_load_t_per_m2": 0.25, "deck_finishes_t_per_m2": 0.2, "gross_floor_area_per_resident_m2": [30, 40, 50]}, "class": "DESIGN_ASSUMPTION", "basis": "Chosen to be plausible for a concept sketch and varied in the sensitivity runs; none is a measured or code value. Concept only — no structural design."},
-    "explicit_exclusions": {"value": ["open-ocean or offshore siting (shown only as a counterfactual, Design D)", "sovereignty, seasteading or tax-haven concepts", "high-rise towers", "private cars on the platforms", "self-sufficiency in energy, water or food", "industrial uses", "any claim of structural, mooring, storm or comfort adequacy", "construction cost figures"], "class": "DESIGN_ASSUMPTION", "basis": "Brief sections 5–7."},
-    "uncertainties": {"value": ["site metocean conditions (waves, storms, surge)", "hydro-elastic response of large platforms (CLM_053)", "connector loads and fatigue (CLM_042, CLM_056)", "mooring and pile design (CLM_054)", "ecological effects of shade and hard surfaces (CLM_044)", "governance, ownership, insurance (CLM_045)", "cost and affordability (no peer-reviewed cost basis; CLM_061)"], "class": "UNVERIFIED", "basis": "Each is named in the film's verdict as unresolved at concept stage."}
-  }
+    "scenario_type": {
+      "value": "Shore-connected floating extension of an existing coastal city, built in phases from one platform to a neighbourhood to a district.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Owner's preferred starting hypothesis; the only scale with built precedents nearby in kind (CLM_010, CLM_020). Studies place even large concepts in sheltered, limited-fetch water (CLM_050)."
+    },
+    "proposed_population": {
+      "value": 10000,
+      "unit": "residents",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Scenario target given in the brief, reached in three phases (A: one platform, B: neighbourhood, C: district). Not a requirement of any real project. For scale: Schoonschip has a little more than 100 residents (CLM_011); OCEANIX Busan was proposed for 12,000 residents and visitors (CLM_031)."
+    },
+    "site_type": {
+      "value": "Sheltered bay or harbour basin with limited fetch: headlands or existing coastal structures block ocean swell; only short, locally generated waves reach the site in normal conditions.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "CLM_050 (concept study's ideal site), CLM_048 (site selection criteria), CLM_051 (floating breakwaters may not stop long waves)."
+    },
+    "distance_from_shore": {
+      "value": [
+        0,
+        800
+      ],
+      "unit": "m",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "The first platform touches the quay; the district reaches up to about 0.8 km out, within walking distance and reach of link-span bridges (CLM_031 uses link-span bridges to land). Chosen for the story, not from a site study."
+    },
+    "water_depth": {
+      "value": [
+        12,
+        25
+      ],
+      "unit": "m",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Deep enough below a ~3 m draft for clearance at low water; shallow enough that the first phases can be held by piles. Deeper water means longer lines and deeper anchors at rising cost (CLM_054). Site survey required."
+    },
+    "water_density": {
+      "value": 1025,
+      "unit": "kg/m3",
+      "class": "ESTABLISHED_FACT",
+      "basis": "Design value used in TU Delft offshore course material (CLM_004). A textbook gives 1,030 kg/m3 for sea water at 0 °C (CLM_008); the 0.5% difference does not change any conclusion."
+    },
+    "gravity": {
+      "value": 9.81,
+      "unit": "m/s2",
+      "class": "ESTABLISHED_FACT",
+      "basis": "CLM_004"
+    },
+    "representative_waves": {
+      "value": "Fetch-limited wind sea inside the basin; ocean swell excluded by site choice. No design wave height or period is fixed at concept stage.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Wave heights and periods must come from site metocean data. The film shows motion only as 'Conceptual motion visualization — not a hydrodynamic simulation' and never quotes amplitudes."
+    },
+    "wind_and_storm": {
+      "value": "The region has occasional severe storms with strong winds and raised water levels (storm surge). The design must keep people safe through them; it is not assumed that nothing is damaged.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Brief section 6.6; residents feel motion in storms even in sheltered Amsterdam (CLM_022). No return period or wind speed is chosen at concept stage."
+    },
+    "tidal_and_water_level_range": {
+      "value": 2.0,
+      "unit": "m",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Illustrative range of water level (tide plus surge allowance) used only to show why platforms slide on piles and why shore bridges must hinge (analysis: link-span slope). Floating structures follow water level (CLM_041)."
+    },
+    "seabed": {
+      "value": "Soft sediment (sand or clay) of unknown thickness over firmer ground; suitable for driven piles and embedded anchors, subject to a geotechnical survey.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Mooring cost depends mainly on bathymetry and seabed (CLM_054). The film names no anchor type as sized."
+    },
+    "connection_to_shore": {
+      "value": "Hinged link-span bridges for pedestrians, bicycles and light service and emergency vehicles; utility lines run along them. Water taxis and ferries between platforms.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "CLM_031 (link-span bridges in the Busan proposal), CLM_023 (waterproof cables and pumps to land), CLM_015 (jetty carrying infrastructure)."
+    },
+    "construction_technology": {
+      "value": "Reinforced-concrete pontoon hulls with internal watertight compartments, cast in a dock or on a quay and towed to site; low-rise buildings with light timber or steel frames on top.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Precedent: Schoonschip concrete floats built on the quay and towed (CLM_012, CLM_014); concrete hull as counterweight (CLM_021)."
+    },
+    "materials": {
+      "value": {
+        "hull": "reinforced concrete, 2,400 kg/m3 reference density (CLM_008)",
+        "buildings": "timber or light steel frame, low-rise (2–4 storeys) to keep the centre of gravity low",
+        "connectors": "steel, inspectable and replaceable"
+      },
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Chloride-induced corrosion of reinforcement in sea water (CLM_059) is a maintenance driver for concrete hulls."
+    },
+    "available_external_energy": {
+      "value": "Grid connection to the city through the link-span bridges; rooftop solar and batteries on the platforms reduce, but do not replace, grid supply.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Precedent: Schoonschip has solar, batteries and one shared grid connection (CLM_016). The film does not claim self-sufficiency."
+    },
+    "water_supply": {
+      "value": "Drinking water from the city mains along the bridges; rainwater collection for non-potable use. No desalination in the base case.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Shore-connected scenario (CLM_043: connect to land or develop off-grid alternatives)."
+    },
+    "wastewater": {
+      "value": "Grey and black water collected separately and pumped to treatment on land.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "CLM_017 (separation at Schoonschip), CLM_023 (pumps to municipal services)."
+    },
+    "food_supply": {
+      "value": "From land, as for any city district. No food autonomy target.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Local food production dominates the energy demand of an autonomous concept (CLM_058); the scenario avoids that requirement."
+    },
+    "emergency_access": {
+      "value": "Every platform has two independent routes to land (bridge or neighbouring platform) and a landing for fire and rescue boats; shelter-in-place spaces on each neighbourhood platform.",
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Brief section 6.6–6.7; no fire code is claimed as met."
+    },
+    "design_objectives": {
+      "value": [
+        "House 10,000 residents in phases, each phase usable on its own.",
+        "Keep homes where motion is smallest; put services and open space where larger motion is tolerated (CLM_055).",
+        "Every module, connector and mooring element inspectable and replaceable.",
+        "Shore-connected utilities, public access to the waterfront, no gated enclave (CLM_046)."
+      ],
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Brief sections 2 and 8."
+    },
+    "module_geometry_assumptions": {
+      "value": {
+        "platform_A_m": [
+          40,
+          40
+        ],
+        "hull_depth_m": 4.0,
+        "slab_thickness_m": 0.25,
+        "wall_thickness_m": 0.25,
+        "bulkhead_spacing_m": 10.0,
+        "bulkhead_thickness_m": 0.2,
+        "building_cover_fraction": 0.4,
+        "storeys": 3,
+        "storey_height_m": 3.0,
+        "building_dead_load_t_per_m2_floor": [
+          0.4,
+          0.6,
+          0.9
+        ],
+        "variable_load_t_per_m2": 0.25,
+        "deck_finishes_t_per_m2": 0.2,
+        "gross_floor_area_per_resident_m2": [
+          30,
+          40,
+          50
+        ],
+        "district_module_m": [
+          60,
+          60
+        ],
+        "gross_floor_area_split_mid_m2": {
+          "homes": 30,
+          "schools_clinic_shops_services": 10
+        }
+      },
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Chosen to be plausible for a concept sketch and varied in the sensitivity runs; none is a measured or code value. Concept only: no structural design. Slab, wall and bulkhead thicknesses only serve the mass estimate; they are not a structural result. Gross floor area per resident (30/40/50 m2) counts homes plus a share of schools, clinic, shops and services (mid case: 30 + 10); it excludes utility plants, port and service platforms, breakwaters, bridges and moorings. The district uses 60 m modules: a middle choice between many small and few large modules for the illustration, not an optimum (concept/DESIGN_EVOLUTION.md)."
+    },
+    "explicit_exclusions": {
+      "value": [
+        "open-ocean or offshore siting (shown only as a counterfactual, Design D)",
+        "sovereignty, seasteading or tax-haven concepts",
+        "high-rise towers",
+        "private cars on the platforms",
+        "self-sufficiency in energy, water or food",
+        "industrial uses",
+        "any claim of structural, mooring, storm or comfort adequacy",
+        "construction cost figures"
+      ],
+      "class": "DESIGN_ASSUMPTION",
+      "basis": "Brief sections 5–7."
+    },
+    "uncertainties": {
+      "value": [
+        "site metocean conditions (waves, storms, surge)",
+        "hydro-elastic response of large platforms (CLM_053)",
+        "connector loads and fatigue (CLM_042, CLM_056)",
+        "mooring and pile design (CLM_054)",
+        "ecological effects of shade and hard surfaces (CLM_044)",
+        "governance, ownership, insurance (CLM_045)",
+        "cost and affordability (no peer-reviewed cost basis; CLM_061)"
+      ],
+      "class": "UNVERIFIED",
+      "basis": "Each is named in the film's verdict as unresolved at concept stage."
+    }
+  },
+  "revision_history": [
+    {
+      "rev": "SCN_FLOATCITY_COASTAL_01",
+      "date": "2026-11-08",
+      "change": "first version"
+    },
+    {
+      "rev": "SCN_FLOATCITY_COASTAL_01 (clarification, same values)",
+      "date": "2026-11-08",
+      "change": "after the owner's concept review: district module size fixed at 60 m; gross floor area per resident defined (homes + services share); thicknesses marked as mass assumptions. No existing value changed."
+    }
+  ]
 }
