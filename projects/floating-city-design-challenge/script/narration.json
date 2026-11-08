@@ -22,7 +22,7 @@
       "lang_code": "a"
     },
     "license": {
-      "status": "LICENSE_REVIEW_REQUIRED",
+      "status": "APPROVED",
       "rights_class": "PUBLICATION_CLEARED",
       "audit": "docs/licensing/KOKORO_LICENSE_AUDIT.md",
       "components": [
@@ -52,15 +52,23 @@
           "evidence": "model card; unresolved, audit section 5"
         }
       ],
-      "permitted_use": "internal review only until the owner approves am_michael for this project (config/tts_providers.json clearance.voice_approvals lists why-bridges-look-different and gothic-cathedral-heights only)",
+      "permitted_use": "Public YouTube release of floating-city-design-challenge (monetization included), under the owner's am_michael voice approval for this project (config/tts_providers.json clearance.voice_approvals)",
       "reviewed_on": "2026-11-08",
       "reviewed_by": "agent technical check: same pinned model revision and voice hash as the audited am_michael (not legal advice)",
-      "owner_confirmation_for_this_film": "PENDING",
-      "decision": "PENDING: the owner's approvals of am_michael cover why-bridges-look-different and gothic-cathedral-heights only; a new approval for this project is on review/FINAL_APPROVAL_CHECKLIST.md"
+      "owner_confirmation_for_this_film": "CONFIRMED",
+      "decision": "APPROVED by the channel owner on 2026-11-08 for this documentary (voice am_michael, Kokoro-82M @ f3ff3571); the agent records the owner's words and approves nothing itself",
+      "approved_by": "Tran Nam Anh (channel owner)",
+      "approved_on": "2026-11-08",
+      "basis": "config/tts_providers.json providers.kokoro.clearance.voice_approvals (am_michael, floating-city-design-challenge)",
+      "owner_confirmation": {
+        "by": "Tran Nam Anh (channel owner)",
+        "on": "2026-11-08",
+        "evidence": "in-session instruction 'tôi duyệt giọng am_michael và Phát âm \"Schoonschip\"' (2026-11-08), after review/SCRIPT_REVIEW.md c-r2 and the narration preview c-r2"
+      }
     },
     "pace_note": "speed 1.0 for the whole narration, uniform, never per beat (American G2P, lang_code a).",
     "pronunciation_review": {
-      "status": "PENDING",
+      "status": "ACCEPTED_BY_OWNER",
       "terms": [
         "Schoonschip",
         "Amsterdam",
@@ -71,8 +79,15 @@
         "freeboard",
         "ballast"
       ],
-      "note": "No speech override yet. Schoonschip is Dutch; how Kokoro (American English) says it must be heard by the owner. An ASR pass proves nothing about pronunciation.",
-      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance"
+      "note": "Current audio accepted by the owner. The agent did not listen and records no listening session of its own; ASR heard 'Schoenskip/scoonskip', which proves nothing about pronunciation.",
+      "invalidation": "any change of the narration audio (audio_revision = narration hash) voids an acceptance",
+      "accepted_by": "Tran Nam Anh (channel owner)",
+      "accepted_on": "2026-11-08",
+      "audio_revision": "976bb7c21a9c18489ef9ca8e233a2eab47e932dcf981cb50631a3e803a9afe8b",
+      "terms_accepted": [
+        "Schoonschip"
+      ],
+      "basis": "in-session instruction 'tôi duyệt giọng am_michael và Phát âm \"Schoonschip\"' (2026-11-08). Schoonschip was the only pronunciation put to the owner for decision (review/SCRIPT_REVIEW_NOTES.md); the other listed terms were not raised separately. No speech override; the current Kokoro reading is accepted as it is."
     }
   },
   "pacing": {

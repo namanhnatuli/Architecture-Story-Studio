@@ -1,0 +1,52 @@
+{
+  "schema": "owner_approvals/1",
+  "project": "floating-city-design-challenge",
+  "owner": "Tran Nam Anh (channel owner)",
+  "recorded_by": "agent (records the owner's decision; approves nothing itself)",
+  "decisions": [
+    {
+      "id": "APP-VOICE",
+      "subject": "Kokoro-82M @ f3ff3571, voice am_michael, for this film",
+      "scope": "floating-city-design-challenge",
+      "source_revision": {
+        "voice_sha256": "9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37"
+      },
+      "decision": "APPROVED for public YouTube release incl. potential monetization",
+      "date": "2026-11-08",
+      "evidence": "owner instruction in session, 2026-11-08: 'tôi duyệt giọng am_michael và Phát âm \"Schoonschip\"', after review/SCRIPT_REVIEW.md (c-r2) and the c-r2 narration preview",
+      "applicable_publication": "public YouTube release",
+      "conditions": "disclose AI-generated narration; third-party licences unchanged (Apache-2.0; GPL fallback local only)",
+      "invalidation": "different voice hash, model revision or project",
+      "records": [
+        "config/tts_providers.json providers.kokoro.clearance.voice_approvals",
+        "script/narration.json voice.license (APPROVED, owner_confirmation_for_this_film CONFIRMED)"
+      ]
+    },
+    {
+      "id": "APP-PRONUNCIATION",
+      "subject": "pronunciation of 'Schoonschip' in the current narration audio (no speech override)",
+      "scope": "current audio revision (c-r2)",
+      "source_revision": {
+        "narration_revision": "c-r2",
+        "narration_sha256": "976bb7c21a9c18489ef9ca8e233a2eab47e932dcf981cb50631a3e803a9afe8b"
+      },
+      "decision": "ACCEPTED_BY_OWNER (the owner's words name 'Schoonschip', the only pronunciation put to the owner; the agent did not listen and records no listening session of its own)",
+      "date": "2026-11-08",
+      "evidence": "owner instruction in session, 2026-11-08: 'tôi duyệt giọng am_michael và Phát âm \"Schoonschip\"', after review/SCRIPT_REVIEW.md (c-r2) and the c-r2 narration preview",
+      "applicable_publication": "public YouTube release",
+      "conditions": "audio unchanged",
+      "invalidation": "any narration audio change (narration hash)",
+      "records": [
+        "script/narration.json voice.pronunciation_review"
+      ]
+    },
+    {
+      "id": "NOTE-NOT-RECORDED",
+      "subject": "what this record does not contain",
+      "scope": "floating-city-design-challenge",
+      "decision": "NOT RECORDED: locking script c-r2, the editorial approval of the claims, images and credits, AI disclosure wording, publication. The c-r2 review proposed locking c-r2 and approving 50 claims after two claim fixes; the owner's own approval in that message named the voice and the pronunciation only.",
+      "date": "2026-11-08",
+      "evidence": "owner instruction in session, 2026-11-08: 'tôi duyệt giọng am_michael và Phát âm \"Schoonschip\"', after review/SCRIPT_REVIEW.md (c-r2) and the c-r2 narration preview"
+    }
+  ]
+}
