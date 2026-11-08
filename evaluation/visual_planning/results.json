@@ -1,7 +1,7 @@
 {
  "dataset": "M5.5 evaluation dataset for planner/ (python3 tools/cli.py evaluate-planning). Each case edits a temporary copy of a project; narration or concept edits are SYNTHETIC test inputs, not factual content. The planner never reads this file.",
- "cases": 32,
- "passed": 32,
+ "cases": 33,
+ "passed": 33,
  "dimensions": {
   "narrative_relevance": {
    "passed": 32,
@@ -16,8 +16,8 @@
    "checks": 25
   },
   "animation_suitability": {
-   "passed": 19,
-   "checks": 19
+   "passed": 21,
+   "checks": 21
   },
   "camera_readability": {
    "passed": 5,
@@ -50,8 +50,8 @@
    "cases": 14
   },
   "negative": {
-   "passed": 9,
-   "cases": 9
+   "passed": 10,
+   "cases": 10
   },
   "ambiguous": {
    "passed": 3,
@@ -68,8 +68,8 @@
    "cases": 24
   },
   "floating": {
-   "passed": 2,
-   "cases": 2
+   "passed": 3,
+   "cases": 3
   },
   "roof": {
    "passed": 6,
@@ -1027,6 +1027,27 @@
      "check": "mentions",
      "ok": true,
      "detail": "report mentions 'motion_label'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "FLOAT-SEQ-03",
+   "kind": "negative",
+   "family": "floating",
+   "title": "Conceptual motion with the label but no on-screen NOTE is refused: the label must be seen for the whole beat",
+   "checks": [
+    {
+     "dimension": "animation_suitability",
+     "check": "status",
+     "ok": true,
+     "detail": "status INVALID_REQUEST (want INVALID_REQUEST)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'NOTE'"
     }
    ],
    "ok": true

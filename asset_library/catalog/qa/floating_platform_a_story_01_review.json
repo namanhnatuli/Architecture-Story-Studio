@@ -1,0 +1,69 @@
+{
+  "asset_id": "floating_platform_a_story_01",
+  "signature": "991288e6b0bf29ac9be2ce814a3ad9da0d05263d572247282c565ef221237919",
+  "stats": {
+    "build_seconds": 0.057,
+    "objects": 66,
+    "asset_objects": 64,
+    "mesh_datablocks": 54,
+    "asset_mesh_datablocks": 52,
+    "evaluated_verts": 720
+  },
+  "rebuild_stats": {
+    "build_seconds": 0.063,
+    "objects": 66,
+    "asset_objects": 64,
+    "mesh_datablocks": 54,
+    "asset_mesh_datablocks": 52
+  },
+  "results": [
+    {
+      "check": "bvh_connected_to_ground",
+      "status": "PASS",
+      "detail": "66 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+    },
+    {
+      "check": "bvh_no_unintended_intersections",
+      "status": "PASS",
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (142 allowed type pairs)"
+    },
+    {
+      "check": "reproducible_build",
+      "status": "PASS",
+      "detail": "sha256 991288e6b0bf29ac twice"
+    },
+    {
+      "check": "semantic_tags_match_plan",
+      "status": "PASS",
+      "detail": "64 objects tagged with type/material/group/layer"
+    }
+  ],
+  "views": {
+    "three_quarter": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/three_quarter.png",
+      "render_seconds": 0.881,
+      "build_seconds": 0.063
+    },
+    "elevation": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/elevation.png",
+      "render_seconds": 0.836,
+      "build_seconds": 0.063
+    },
+    "top": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/top.png",
+      "render_seconds": 0.498,
+      "build_seconds": 0.063
+    },
+    "exploded": {
+      "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/exploded.png",
+      "render_seconds": 0.825,
+      "build_seconds": 0.064
+    }
+  },
+  "process": {
+    "wall_seconds": 4.0,
+    "peak_rss_mb": 522.4,
+    "peak_memory_footprint_mb": 1936.8,
+    "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+  }
+}

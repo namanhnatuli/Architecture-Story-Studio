@@ -114,13 +114,15 @@ FAMILIES = {
             "generator": floating.platform,
             "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane", "section_poche", "highlight_gold",
                           "displaced_water", "water_cut"),
-            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SEQUENCE"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SEQUENCE", "SIDE_BY_SIDE"),
             "params": {"length_m": num(10, 120, 40.0), "width_m": num(10, 120, 40.0), "hull_depth_m": num(1.5, 10, 4.0),
                        "draft_m": num(0.3, 9.5, 2.958), "slab_m": num(0.1, 0.6, 0.25), "wall_m": num(0.1, 0.6, 0.25),
                        "bulkhead_m": num(0.1, 0.5, 0.2), "bulkhead_spacing_m": num(4, 30, 10.0),
                        "building_cover": num(0.0, 0.8, 0.4), "storeys": num(0, 6, 3, integer=True),
                        "storey_height_m": num(2.6, 4.0, 3.0), "extension_m": num(0.0, 2.0, 0.0),
-                       "section": num(0, 1, 0, integer=True), "water_depth_m": num(4, 60, 15.0)},
+                       "section": num(0, 1, 0, integer=True), "water_depth_m": num(4, 60, 15.0),
+                       "test_load": num(0, 1, 0, integer=True), "test_load_t": num(10, 500, 100.0),
+                       "neighbours": num(0, 1, 0, integer=True), "neighbour_gap_m": num(2, 40, 6.0)},
         },
         "pair": {
             "generator": floating.pair, "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane", "timber_light", "steel_dark"),
@@ -138,7 +140,7 @@ FAMILIES = {
             "replaceable_params": ("moorings",),
             "params": {"length_m": num(10, 120, 40.0), "width_m": num(10, 120, 40.0), "hull_depth_m": num(1.5, 10, 4.0),
                        "draft_m": num(0.3, 9.5, 2.958), "gap_m": num(2, 40, 6.0), "building_cover": num(0.0, 0.8, 0.4),
-                       "storeys_pattern": choice(("3", "3,2,4,3,3"), "3"), "moorings": choice(("piles", "lines"), "piles"),
+                       "storeys_pattern": choice(("3", "3,2,4,3,3"), "3"), "moorings": choice(("piles", "lines", "both"), "piles"),
                        "line_reach_m": num(10, 200, 45.0), "water_depth_m": num(4, 60, 15.0)},
         },
         "clay_boat": {
@@ -151,10 +153,12 @@ FAMILIES = {
                        "block_side_m": num(2, 30, 10.35), "block_x_m": num(-200, 200, -45.0)},
         },
         "semi_sub": {
-            "generator": floating.semi_sub, "materials": ("concrete", "concrete_deck"), "animation": ("HOLD", "HIGHLIGHT"),
+            "generator": floating.semi_sub, "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane"),
+            "animation": ("HOLD", "HIGHLIGHT", "SIDE_BY_SIDE", "SEQUENCE"),
             "params": {"length_m": num(20, 200, 60.0), "width_m": num(20, 200, 40.0), "pontoon_width_m": num(4, 40, 10.0),
                        "pontoon_height_m": num(2, 20, 6.0), "pontoon_depth_m": num(2, 40, 12.0), "deck_level_m": num(4, 40, 15.0),
-                       "column_size_m": num(2, 20, 8.0), "water_depth_m": num(4, 60, 15.0)},
+                       "column_size_m": num(2, 20, 8.0), "water_depth_m": num(4, 60, 15.0),
+                       "compare_box": num(0, 1, 0, integer=True)},
         },
         "district": {
             "generator": floating.district,
@@ -167,7 +171,8 @@ FAMILIES = {
                        "storeys": num(1, 6, 3, integer=True), "shore_gap_m": num(5, 200, 30.0), "depth_near_m": num(4, 60, 12.0),
                        "depth_far_m": num(4, 80, 25.0), "seabed_run_m": num(50, 3000, 900.0), "pile_rows": num(0, 9, 3, integer=True), "line_reach_m": num(10, 300, 60.0),
                        "breakwater_offset_m": num(10, 300, 60.0), "bridges": num(0, 5, 3, integer=True),
-                       "offshore": num(0, 1, 0, integer=True), "quay_level_m": num(0.5, 6, 2.0)},
+                       "offshore": num(0, 1, 0, integer=True), "quay_level_m": num(0.5, 6, 2.0),
+                       "shore_link_m": num(0, 1500, 0.0)},
         },
     },
     "site": {
@@ -232,6 +237,9 @@ def compatibility_errors(family, variant, p):
     """Cross-parameter geometry checks (beyond single-parameter ranges)."""
     if family == "floating" and variant == "platform":
         return floating.compatibility_errors(p)
+    if family == "floating" and variant == "semi_sub":
+        bottom = p["pontoon_depth_m"] + p["pontoon_height_m"]
+        return [f"the pontoons reach {bottom} m, below the seabed at {p['water_depth_m']} m"] if bottom >= p["water_depth_m"] else []
     if family != "bridge":
         return []
     errors = []

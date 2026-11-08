@@ -1,4 +1,4 @@
-"""Authoring source of "Could We Build an Entire City That Floats?" (revision c-r1, script review stage).
+"""Authoring source of "Could We Build an Entire City That Floats?" (revision c-r2, locked by the owner).
 
     python3 projects/floating-city-design-challenge/script/story.py
 
@@ -14,9 +14,10 @@ Revision c-r2 (owner review of c-r1, 2026-11-08): B03/B40 shorter on the status 
 page lists it "In Design"); B12 goes back to the three-story design before scaling up; B23 names the loading behind
 the bridge slope; B15-B16 become one evolving diagram.
 
-Script review stage (docs/production/NEW_DOCUMENTARY_PLAYBOOK.md, "Khi chủ kênh muốn đọc kịch bản trước"): the visual
-fields name the strategy and the concepts the shot needs; the floating asset family does not exist yet, so
-plan-visuals is expected to report NEW_ASSET_REQUIRED for the 3D beats. Cards are not drawn yet.
+The owner locked c-r2 and approved its claims (2026-11-08, review/OWNER_APPROVALS.json): the sentences below are
+locked and must not change. Production layer L4 (review/PRODUCTION_PLAN.md): the visuals of every beat live in
+script/visuals.py (3D SEQUENCE steps timed by the narration's words, 2D cards) and override the brief visual fields
+written here at the script stage.
 """
 import json
 from pathlib import Path
@@ -348,18 +349,20 @@ def main():
     doc = {"schema": "narrative_beats/1", "project_id": "floating-city-design-challenge",
            "title": "Could We Build an Entire City That Floats?", "status": "INTERNAL_REVIEW_DRAFT", "timing_mode": "AUDIO_LOCKED",
            "publication": {"restriction": "INTERNAL_ONLY",
-                           "reason": "Revision c-r1: script review stage; claims source-verified, not editorially approved."},
+                           "reason": "Revision c-r2, locked by the owner with its claims approved (2026-11-08); visuals in "
+                                     "internal production, not approved for publication."},
            "beats": []}
+    from visuals import VISUALS   # production layer L4: the visuals of every beat
+    missing = [b["id"] for b in BEATS if b["id"] not in VISUALS]
+    if missing:
+        raise SystemExit(f"no visual in script/visuals.py for {missing}")
     for b in BEATS:
-        v = dict(b["visual"])
+        v = dict(VISUALS[b["id"]])
         entry = {"beat_id": b["id"], "chapter": b["chapter"], "kind": b["kind"], "narrative_intent": b["intent"],
                  "claim_ids": b["claims"], "narration": " ".join(b["sentences"]),
                  "visual_goal": v.pop("visual_goal"), "required_concepts": v.pop("required_concepts"),
                  "expected_complexity": v.pop("expected_complexity")}
-        if v.get("strategy"):
-            entry["strategy"] = v["strategy"]
-        if v.get("label"):   # required on-screen label, inserted by the CONCEPT_MOTION capability (longer than a NOTE)
-            entry["visual_goal"] += f" | required label: '{v['label']}'"
+        entry.update(v)
         doc["beats"].append(entry)
     (HERE / "visual_beats.json").write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
     chapters = {"schema": "chapters/1", "project_id": "floating-city-design-challenge",

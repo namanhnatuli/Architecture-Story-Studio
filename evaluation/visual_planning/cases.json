@@ -1170,6 +1170,127 @@
           "motion_label"
         ]
       }
+    },
+    {
+      "family": "floating",
+      "project": "projects/floating-city-design-challenge",
+      "beat": "B09",
+      "keep_beats": [
+        "B09"
+      ],
+      "id": "FLOAT-SEQ-03",
+      "kind": "negative",
+      "title": "Conceptual motion with the label but no on-screen NOTE is refused: the label must be seen for the whole beat",
+      "edits": [
+        {
+          "beat": "B09",
+          "set": {
+            "strategy": "SEQUENCE",
+            "required_concepts": [
+              "floating_platform_section"
+            ],
+            "sequence": {
+              "camera": "ELEVATION",
+              "views": [
+                {
+                  "frame": null
+                }
+              ],
+              "steps": [
+                {
+                  "do": "FADE_OUT",
+                  "targets": [
+                    {
+                      "concept": "building_block",
+                      "local": [
+                        "block2_storey4",
+                        "block4_storey4"
+                      ]
+                    },
+                    {
+                      "concept": "high_roof",
+                      "local": [
+                        "block2_roof4",
+                        "block4_roof4"
+                      ]
+                    }
+                  ],
+                  "at": 0,
+                  "seconds": 0
+                },
+                {
+                  "do": "REVEAL",
+                  "targets": [
+                    {
+                      "concept": "building_block",
+                      "local": [
+                        "block2_storey4",
+                        "block4_storey4"
+                      ]
+                    },
+                    {
+                      "concept": "high_roof",
+                      "local": [
+                        "block2_roof4",
+                        "block4_roof4"
+                      ]
+                    }
+                  ],
+                  "at": {
+                    "sentence": 0,
+                    "word": "fourth"
+                  },
+                  "seconds": 1.2,
+                  "direction": "FROM_ABOVE",
+                  "distance": 6.0
+                },
+                {
+                  "do": "MOVE",
+                  "targets": {
+                    "except": []
+                  },
+                  "at": {
+                    "sentence": 1,
+                    "word": "settles"
+                  },
+                  "seconds": 1.5,
+                  "offset": [
+                    0.0,
+                    0.0,
+                    -0.332
+                  ]
+                },
+                {
+                  "do": "OSCILLATE",
+                  "targets": {
+                    "except": []
+                  },
+                  "at": {
+                    "sentence": 2,
+                    "word": "freeboard"
+                  },
+                  "seconds": 4.0,
+                  "axis": "X",
+                  "pivot": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "motion_label": "Conceptual motion visualization — not a hydrodynamic simulation",
+            "annotations": []
+          }
+        }
+      ],
+      "status_dimension": "animation_suitability",
+      "expect": {
+        "status": "INVALID_REQUEST",
+        "mentions": [
+          "NOTE"
+        ]
+      }
     }
   ]
 }

@@ -452,12 +452,39 @@
     {
       "check": "components_valid",
       "status": "PASS",
-      "detail": "606 components, ids unique, types known"
+      "detail": "609 components, ids unique, types known"
     },
     {
       "check": "expected_component_counts",
       "status": "PASS",
-      "detail": "ANCHOR 29, BREAKWATER 13, BUILDING 93, DECK 93, HULL 93, MOORING_LINE 29, ROOF 93, WALKWAY 163"
+      "detail": "ANCHOR 29, BREAKWATER 13, BUILDING 93, DECK 93, HULL 93, MOORING_LINE 29, ROOF 93, UTILITY_LINE 3, WALKWAY 163"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_neighbourhood_both_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/neighbourhood, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "80 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ANCHOR 10, BUILDING 5, CONNECTOR 22, DECK 5, HULL 5, MOORING_LINE 10, MOORING_PILE 10, ROOF 5, UTILITY_LINE 4, WALKWAY 4"
     },
     {
       "check": "no_floating_components",
@@ -560,12 +587,12 @@
     {
       "check": "components_valid",
       "status": "PASS",
-      "detail": "47 components, ids unique, types known"
+      "detail": "32 components, ids unique, types known"
     },
     {
       "check": "expected_component_counts",
       "status": "PASS",
-      "detail": "BUILDING 16, BULKHEAD 9, DECK 1, HULL 9, ROOF 12"
+      "detail": "BUILDING 12, BULKHEAD 6, DECK 1, HULL 5, ROOF 8"
     },
     {
       "check": "no_floating_components",
@@ -587,12 +614,39 @@
     {
       "check": "components_valid",
       "status": "PASS",
-      "detail": "43 components, ids unique, types known"
+      "detail": "44 components, ids unique, types known"
     },
     {
       "check": "expected_component_counts",
       "status": "PASS",
-      "detail": "BUILDING 8, BULKHEAD 7, DECK 1, DISPLACED_VOLUME 1, HULL 7, ROOF 6, SECTION_CUT 12, WATER 1"
+      "detail": "BUILDING 8, BULKHEAD 7, DECK 1, DISPLACED_VOLUME 1, HULL 7, MARKER 1, ROOF 6, SECTION_CUT 12, WATER 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_platform_a_story_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/platform, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "64 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "BUILDING 20, BULKHEAD 9, DECK 5, HULL 13, LOAD 1, ROOF 16"
     },
     {
       "check": "no_floating_components",
@@ -614,12 +668,12 @@
     {
       "check": "components_valid",
       "status": "PASS",
-      "detail": "9 components, ids unique, types known"
+      "detail": "13 components, ids unique, types known"
     },
     {
       "check": "expected_component_counts",
       "status": "PASS",
-      "detail": "COLUMN 6, DECK 1, HULL 2"
+      "detail": "BUILDING 1, COLUMN 6, DECK 2, HULL 3, ROOF 1"
     },
     {
       "check": "no_floating_components",

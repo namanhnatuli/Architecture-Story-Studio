@@ -21,7 +21,7 @@ import hashlib
 import json
 import math
 
-from engine import annotation_layout as AL, framing, templates
+from engine import annotation_layout as AL, framing, motion, templates
 from planner import mapper, timing as T, vocabulary as V, visibility as VIS
 
 TYPES = ("COMPONENT_LABEL", "CALLOUT", "LOAD_ARROW", "REACTION_ARROW", "THRUST_ARROW", "CONCEPTUAL_LOAD_PATH",
@@ -63,15 +63,17 @@ def needs_claim(a):
     return a.get("type") in AL.FORCE_TYPES or bool(a.get("force"))
 
 
-def validate_spec(doc, sources, vocab):
-    """Contract errors in the beats' annotations (empty when valid)."""
+def validate_spec(doc, sources, vocab, sentence_counts=None):
+    """Contract errors in the beats' annotations (empty when valid). sentence_counts {beat_id: n}: the beat's sentences
+    as the locked timing counts them (script/timing.json, one per narration sentence item, which may end in a comma);
+    without it the narration text is split at . ? !"""
     errors, seen = [], set()
     claims = {c["id"]: c for c in (sources or {}).get("claims", [])}
     narrated = set()
     for b in doc.get("beats", []):
         bid = b.get("beat_id")
         narrated |= set(b.get("claim_ids", []))
-        n_sent = len(T.split_sentences(b.get("narration", "")))
+        n_sent = (sentence_counts or {}).get(bid) or len(T.split_sentences(b.get("narration", "")))
         for a in b.get("annotations", []) or []:
             aid = a.get("id")
             where = f"beat {bid} annotation {aid}"
@@ -117,7 +119,8 @@ def validate_spec(doc, sources, vocab):
                 errors.append(f"{where}: NOTE position must be one of {NOTE_POSITIONS}")
             if kind in ("COMPONENT_LABEL", "CALLOUT", "HIGHLIGHT_REGION", "NOTE") and not (text or "").strip():
                 errors.append(f"{where}: {kind} needs text")
-            if text and limit and len(text) > limit:
+            if text and limit and len(text) > limit and not (kind == "NOTE" and text == motion.CONCEPT_MOTION_LABEL):
+                # the concept-motion label is the brief's fixed wording (longer than a NOTE): allowed verbatim only
                 errors.append(f"{where}: text longer than {limit} characters")
             if kind == "LOAD_ARROW" and a.get("direction", "DOWN") != "DOWN":
                 errors.append(f"{where}: a LOAD_ARROW points DOWN (gravity load); got {a.get('direction')!r}")

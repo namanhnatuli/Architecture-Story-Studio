@@ -16,6 +16,8 @@
     "REGION": "#3B3A36",
     "tag": "#4C4A44"
   },
+  "colour_terms": ["gray water", "grey water", "greywater", "graywater", "black water", "blackwater"],
+  "colour_terms_note": "Technical terms that contain a colour word but name no colour on screen (planner/consistency.py COLOUR rule).",
   "color_names": {"LOAD": ["orange"], "REACTION": ["blue"], "COMPRESSION": ["red", "crimson"], "TENSION": ["teal", "green"],
                   "REGION": ["grey", "gray"], "highlight": ["gold", "yellow", "glowing"], "text": ["black"]},
   "arrow": {"length": 0.085, "shaft": 0.0065, "head_length": 0.024, "head_width": 0.024, "gap": 0.006, "spread": 0.6,

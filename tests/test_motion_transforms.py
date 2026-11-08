@@ -65,6 +65,20 @@ class TransformStepsTest(unittest.TestCase):
         self.assertGreater(peak, 0.2)
         self.assertLessEqual(peak, 0.3 + 1e-6)
 
+    def test_an_instant_move_at_the_start_holds_from_the_first_frame(self):
+        p = run([{"do": "MOVE", "components": ["a", "b"], "start_seconds": 0.0, "seconds": 0, "offset": [0.0, 0.0, -0.332]},
+                 {"do": "MOVE", "components": ["b"], "start_seconds": 8.0, "seconds": 1.0, "offset": [0.0, 0.0, -0.5]}])
+        for t in (0.0, 1.0, 4.0, 7.9):
+            self.assertAlmostEqual(at(p, "a", motion.LOC, t)[2], -0.332, places=6)
+            self.assertAlmostEqual(at(p, "b", motion.LOC, t)[2], -0.332, places=6)
+        self.assertAlmostEqual(at(p, "b", motion.LOC, 9.5)[2], -0.832, places=6)
+
+    def test_a_part_holds_exactly_still_until_its_next_move(self):
+        p = run([{"do": "MOVE", "components": ["a"], "start_seconds": 0.0, "seconds": 0, "offset": [0.0, 0.0, -0.332]},
+                 {"do": "MOVE", "components": ["a"], "start_seconds": 10.605, "seconds": 1.8, "offset": [0.0, 0.0, 0.436]}])
+        values = {round(p.sample("a", motion.LOC, f)[2], 9) for f in range(1, p.frame(10.605))}
+        self.assertEqual(values, {-0.332})
+
     def test_missing_offset_or_pivot_is_refused(self):
         for step in ({"do": "MOVE", "components": ["a"], "start_seconds": 1.0},
                      {"do": "ROTATE", "components": ["a"], "start_seconds": 1.0, "degrees": 5.0},

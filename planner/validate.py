@@ -291,11 +291,13 @@ def annotation_errors(plan, project_dir, doc, sources, vocab, root=ROOT):
     annotated = any(b.get("annotations") for b in doc["beats"])
     if annotated and plan["inputs"].get("annotation_style_sha256") != AN.style_hash(style):
         errors.append("plan is stale: config/annotation_style.json changed since plan-visuals")
-    errors += [f"annotations: {e}" for e in AN.validate_spec(doc, sources, vocab)]
     try:
         offsets = T.sentence_offsets(doc, p, cfg["timing"])
     except Exception as e:   # noqa: BLE001
-        return errors + [f"sentence timing cannot be derived: {e}"]
+        return errors + [f"annotations: {e}" for e in AN.validate_spec(doc, sources, vocab)] + \
+            [f"sentence timing cannot be derived: {e}"]
+    counts = {bid: len(spans) for bid, spans in offsets.items()} if doc.get("timing_mode") == "AUDIO_LOCKED" else None
+    errors += [f"annotations: {e}" for e in AN.validate_spec(doc, sources, vocab, counts)]
     presets = CAM.style_presets(root)
     states, fps = plan["states"], plan["fps"]
     beats = {b["beat_id"]: b for b in doc["beats"]}
@@ -352,7 +354,7 @@ def annotation_errors(plan, project_dir, doc, sources, vocab, root=ROOT):
         for a in beat.get("annotations", []):
             if a["id"] not in placed and a["id"] not in failed:
                 errors.append(f"beat {bid}: annotation {a['id']} is neither placed nor reported as failed")
-    rows = consistency.check_plan(plan, doc, offsets, style)
+    rows = consistency.check_plan(plan, doc, offsets, style, T.sentence_texts(doc, p))
     if rows != (plan.get("consistency") or {}).get("rows", rows if not rows else None):
         errors.append("stored narration/visual consistency differs from a recomputation")
     for r in rows:

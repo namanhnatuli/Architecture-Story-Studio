@@ -99,6 +99,38 @@
         "elevation_degrees": 7.0,
         "margin": 0.11,
         "note": "A church section open at the front (near y = 0): low enough to read the arches, buttresses and the inner face of the far wall."
+      },
+      "FLOAT_AERIAL": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -62.0,
+        "elevation_degrees": 32.0,
+        "margin": 0.05,
+        "note": "Floating family: the district from above at an angle, so the platform grid, the lagoon and the links to the quay read together."
+      },
+      "FLOAT_THREE_QUARTER": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -58.0,
+        "elevation_degrees": 20.0,
+        "margin": 0.07,
+        "note": "Floating family: a low three-quarter view of platforms on the water (decks, gaps, walkways, the hull's side above the waterline)."
+      },
+      "FLOAT_SECTION": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -90.0,
+        "elevation_degrees": 2.0,
+        "margin": 0.06,
+        "hide_ground": true,
+        "backdrop": "#EDEBE5",
+        "note": "Floating family: the cut face at y = 0 square on (hull, compartments, water in section, the waterline). No environment ground: seen edge-on it would add a line at the waterline."
+      },
+      "FLOAT_UNDERWATER": {
+        "type": "ORTHOGRAPHIC",
+        "azimuth_degrees": -58.0,
+        "elevation_degrees": 16.0,
+        "margin": 0.07,
+        "hide_ground": true,
+        "backdrop": "#EDEBE5",
+        "note": "Floating family: a low three-quarter view for shots that ghost the water to show moorings and the seabed. No environment ground: it lies just below the water surface and would hide everything under it."
       }
     }
   },

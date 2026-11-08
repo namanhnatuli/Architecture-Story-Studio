@@ -947,7 +947,7 @@ def _plan_transforms(plan, comp, moves, reveals, center, last):
                 f = 0.0 if t <= st else 1.0 if t >= sp else ease(s["easing"], (t - st) / (sp - st))
                 loc = _add(loc, _mul(direction, float(s["distance"]) * (1.0 - f)))
                 continue
-            if t <= st:
+            if t < st or (t <= st and sp > st):   # an instant MOVE (seconds 0, at the start) holds from its moment
                 break
             f = 1.0 if sp <= st or t >= sp else ease(s.get("easing", "SMOOTH"), (t - st) / (sp - st))
             if do == "MOVE":
@@ -968,8 +968,10 @@ def _plan_transforms(plan, comp, moves, reveals, center, last):
         return loc, tuple(rot)
 
     frames = {1: "LINEAR", last: "LINEAR"}
+    begins = {}   # an event's first key holds the state at its exact start (a frame rounds up to 1/48 s past it)
     for st, sp, s, i, do in events:
         f0, f1 = max(1, plan.frame(st)), min(last, plan.frame(sp))
+        begins[f0] = min(begins.get(f0, st), st)
         if do in ("REVEAL", "MOVE"):
             frames[f0] = s.get("easing", "SMOOTH")
             frames.setdefault(f1, "LINEAR")
@@ -979,7 +981,8 @@ def _plan_transforms(plan, comp, moves, reveals, center, last):
             frames[f1] = "LINEAR"
     rotates = any(do in ("ROTATE", "OSCILLATE") for *_, do in events)
     for f in sorted(frames):
-        loc, rot = state((f - 1) / plan.fps)
+        t = (f - 1) / plan.fps
+        loc, rot = state(min(t, begins[f]) if f in begins and t > begins[f] else t)
         plan.key(comp.name, LOC, f, loc, frames[f])
         if rotates:
             plan.key(comp.name, ROT, f, rot, frames[f])

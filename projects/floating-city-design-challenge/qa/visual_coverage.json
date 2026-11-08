@@ -1,6 +1,6 @@
 {
   "project_id": "floating-city-design-challenge",
-  "executable": false,
+  "executable": true,
   "visibility_summary": {
     "shots_assessed": 0,
     "target_rows": 0,
@@ -15,34 +15,31 @@
     {
       "beat_id": "B01",
       "visual_intent": "INTRODUCE_ARCHITECTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 10.925,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_001"
+      ],
+      "planned_seconds": 10.958,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -51,34 +48,31 @@
     {
       "beat_id": "B02",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 13.175,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_002"
+      ],
+      "planned_seconds": 13.208,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -87,22 +81,24 @@
     {
       "beat_id": "B03",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 32.475,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_003"
+      ],
+      "planned_seconds": 32.5,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -111,34 +107,31 @@
     {
       "beat_id": "B04",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 7.425,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_004"
+      ],
+      "planned_seconds": 7.458,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -147,48 +140,31 @@
     {
       "beat_id": "B05",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 20.775,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "platform_hull",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bulkhead",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "clay_boat",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_clay_boat_01",
+          "explanation": "floating_clay_boat_01 (validated, ILLUSTRATIVE) matches floating/clay_boat"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_005"
+      ],
+      "planned_seconds": 20.792,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -197,48 +173,31 @@
     {
       "beat_id": "B06",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 15.15,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "platform_hull",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bulkhead",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_platform_section",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_platform_a_section_01",
+          "explanation": "floating_platform_a_section_01 (validated, ILLUSTRATIVE) matches floating/platform with {'section': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_006"
+      ],
+      "planned_seconds": 15.167,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -247,22 +206,24 @@
     {
       "beat_id": "B07",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 23.375,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_007"
+      ],
+      "planned_seconds": 23.375,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -271,48 +232,31 @@
     {
       "beat_id": "B08",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 20.825,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "platform_hull",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bulkhead",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_platform_section",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_platform_a_section_01",
+          "explanation": "floating_platform_a_section_01 (validated, ILLUSTRATIVE) matches floating/platform with {'section': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_008"
+      ],
+      "planned_seconds": 20.833,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -321,48 +265,31 @@
     {
       "beat_id": "B09",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 15.525,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "platform_hull",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bulkhead",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_platform_section",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_platform_a_section_01",
+          "explanation": "floating_platform_a_section_01 (validated, ILLUSTRATIVE) matches floating/platform with {'section': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_009"
+      ],
+      "planned_seconds": 15.542,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -371,48 +298,31 @@
     {
       "beat_id": "B10",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 19.3,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "platform_hull",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bulkhead",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_platform_section",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_platform_a_section_01",
+          "explanation": "floating_platform_a_section_01 (validated, ILLUSTRATIVE) matches floating/platform with {'section': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_010"
+      ],
+      "planned_seconds": 19.333,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -421,48 +331,31 @@
     {
       "beat_id": "B11",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 21.7,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "platform_hull",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bulkhead",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bulkhead' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_platform_story",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_platform_a_story_01",
+          "explanation": "floating_platform_a_story_01 (not in catalog, ILLUSTRATIVE) matches floating/platform with {'section': {'max': 0}, 'test_load': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_011"
+      ],
+      "planned_seconds": 21.708,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -471,34 +364,31 @@
     {
       "beat_id": "B12",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 15.375,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_platform_story",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_platform_a_story_01",
+          "explanation": "floating_platform_a_story_01 (not in catalog, ILLUSTRATIVE) matches floating/platform with {'section': {'max': 0}, 'test_load': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_012"
+      ],
+      "planned_seconds": 15.375,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -507,34 +397,31 @@
     {
       "beat_id": "B13",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 30.775,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'walkway_connector' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "walkway_connector",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'walkway_connector' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_pair",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_pair_b_01",
+          "explanation": "floating_pair_b_01 (validated, ILLUSTRATIVE) matches floating/pair"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_013"
+      ],
+      "planned_seconds": 30.792,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -543,34 +430,31 @@
     {
       "beat_id": "B14",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 27.325,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'walkway_connector' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "walkway_connector",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'walkway_connector' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "utility_line",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "neighbourhood_both_moorings",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_neighbourhood_both_01",
+          "explanation": "floating_neighbourhood_both_01 (not in catalog, ILLUSTRATIVE) matches floating/neighbourhood with {'moorings': 'both'}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_014"
+      ],
+      "planned_seconds": 27.333,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -579,22 +463,24 @@
     {
       "beat_id": "B15",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 25.25,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_015"
+      ],
+      "planned_seconds": 25.25,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -603,23 +489,26 @@
     {
       "beat_id": "B16",
       "visual_intent": "COMPARE_VARIANTS",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 33.95,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
-        "intent cross-check: declared COMPARE_VARIANTS, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']",
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "intent cross-check: declared COMPARE_VARIANTS, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']"
       ],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_016"
+      ],
+      "planned_seconds": 33.958,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -628,35 +517,33 @@
     {
       "beat_id": "B17",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 12.075,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
-        "intent cross-check: declared EXPLAIN_CAUSE_EFFECT, narration cues suggest ['SHOW_CONTEXT']",
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'walkway_connector' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+        "intent cross-check: declared EXPLAIN_CAUSE_EFFECT, narration cues suggest ['SHOW_CONTEXT']"
       ],
-      "explanation": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
+      ],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "walkway_connector",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'walkway_connector' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "neighbourhood_both_moorings",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_neighbourhood_both_01",
+          "explanation": "floating_neighbourhood_both_01 (not in catalog, ILLUSTRATIVE) matches floating/neighbourhood with {'moorings': 'both'}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_017"
+      ],
+      "planned_seconds": 12.083,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -665,22 +552,24 @@
     {
       "beat_id": "B18",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 15.675,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_018"
+      ],
+      "planned_seconds": 15.708,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -689,22 +578,24 @@
     {
       "beat_id": "B19",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 10.4,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_019"
+      ],
+      "planned_seconds": 10.417,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -713,22 +604,24 @@
     {
       "beat_id": "B20",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 21.675,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_020"
+      ],
+      "planned_seconds": 21.708,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -737,41 +630,31 @@
     {
       "beat_id": "B21",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 29.325,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'breakwater' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "breakwater",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'breakwater' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_021"
+      ],
+      "planned_seconds": 29.333,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -780,41 +663,31 @@
     {
       "beat_id": "B22",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 11.375,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'mooring_pile' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "mooring_pile",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'mooring_pile' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "neighbourhood_both_moorings",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_neighbourhood_both_01",
+          "explanation": "floating_neighbourhood_both_01 (not in catalog, ILLUSTRATIVE) matches floating/neighbourhood with {'moorings': 'both'}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_022"
+      ],
+      "planned_seconds": 11.375,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -823,42 +696,26 @@
     {
       "beat_id": "B23",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 25.325,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
-        "intent cross-check: declared EXPLAIN_CAUSE_EFFECT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']",
-        "'mooring_pile' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'link_span' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+        "intent cross-check: declared EXPLAIN_CAUSE_EFFECT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']"
       ],
-      "explanation": [],
-      "assets": [
-        {
-          "concept": "mooring_pile",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'mooring_pile' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "link_span",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'link_span' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        }
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
+      "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_023"
+      ],
+      "planned_seconds": 25.333,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -867,41 +724,31 @@
     {
       "beat_id": "B24",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 17.3,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'mooring_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'anchor' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "mooring_line",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'mooring_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "anchor",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'anchor' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "neighbourhood_both_moorings",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_neighbourhood_both_01",
+          "explanation": "floating_neighbourhood_both_01 (not in catalog, ILLUSTRATIVE) matches floating/neighbourhood with {'moorings': 'both'}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_024"
+      ],
+      "planned_seconds": 17.333,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -910,41 +757,31 @@
     {
       "beat_id": "B25",
       "visual_intent": "EXPLAIN_STRUCTURE",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 9.9,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "utility_line",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_025"
+      ],
+      "planned_seconds": 9.917,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -953,22 +790,24 @@
     {
       "beat_id": "B26",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 17.275,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_026"
+      ],
+      "planned_seconds": 17.292,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -977,34 +816,31 @@
     {
       "beat_id": "B27",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 25.325,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'link_span' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "utility_line",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "link_span",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'link_span' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_district",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_027"
+      ],
+      "planned_seconds": 25.333,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1013,41 +849,31 @@
     {
       "beat_id": "B28",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 18.375,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'access_route' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "access_route",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'access_route' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_028"
+      ],
+      "planned_seconds": 18.375,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1056,34 +882,31 @@
     {
       "beat_id": "B29",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 9.25,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'open_sea_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "open_sea_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'open_sea_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_district_offshore",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_offshore_01",
+          "explanation": "floating_district_offshore_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_029"
+      ],
+      "planned_seconds": 9.25,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1092,41 +915,31 @@
     {
       "beat_id": "B30",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 13.925,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'breakwater' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'mooring_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'open_sea_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "breakwater",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'breakwater' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "mooring_line",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'mooring_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "open_sea_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'open_sea_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_district_offshore",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_offshore_01",
+          "explanation": "floating_district_offshore_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_030"
+      ],
+      "planned_seconds": 13.958,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1135,34 +948,31 @@
     {
       "beat_id": "B31",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 10.85,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'open_sea_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "utility_line",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'utility_line' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "open_sea_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'open_sea_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_district_offshore",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_offshore_01",
+          "explanation": "floating_district_offshore_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'min': 1}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_031"
+      ],
+      "planned_seconds": 10.875,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1171,22 +981,24 @@
     {
       "beat_id": "B32",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 20.65,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No supplied 2D card; force arrows on 3D models are semantic annotations (M6) [FORCE_DIAGRAM: Use intent EXPLAIN_LOAD_PATH with beat annotations (planner/annotations.py), or supply a card]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No supplied 2D card; force arrows on 3D models are semantic annotations (M6) [FORCE_DIAGRAM: Use intent EXPLAIN_LOAD_PATH with beat annotations (planner/annotations.py), or supply a card]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_032"
+      ],
+      "planned_seconds": 20.667,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1195,34 +1007,31 @@
     {
       "beat_id": "B33",
       "visual_intent": "COMPARE_VARIANTS",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 18.725,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'semi_submersible_module' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
           "concept": "semi_submersible_module",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'semi_submersible_module' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_semi_sub_01",
+          "explanation": "floating_semi_sub_01 (validated, ILLUSTRATIVE) matches floating/semi_sub"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_033"
+      ],
+      "planned_seconds": 18.75,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1231,27 +1040,31 @@
     {
       "beat_id": "B34",
       "visual_intent": "SHOW_COMPONENT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 18.575,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "platform_hull",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'platform_hull' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "concept": "floating_platform",
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_platform_a_01",
+          "explanation": "floating_platform_a_01 (validated, ILLUSTRATIVE) matches floating/platform with {'section': {'max': 0}, 'test_load': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_034"
+      ],
+      "planned_seconds": 18.583,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1260,35 +1073,33 @@
     {
       "beat_id": "B35",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 17.15,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
-        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']",
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+        "intent cross-check: declared SHOW_CONTEXT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']"
       ],
-      "explanation": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
+      ],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_035"
+      ],
+      "planned_seconds": 17.167,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1297,34 +1108,24 @@
     {
       "beat_id": "B36",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 16.25,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'access_route' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
-      "explanation": [],
-      "assets": [
-        {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "access_route",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'access_route' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        }
-      ],
+      "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_036"
+      ],
+      "planned_seconds": 16.25,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1333,23 +1134,26 @@
     {
       "beat_id": "B37",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 27.925,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
-        "intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['COMPARE_VARIANTS']",
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['COMPARE_VARIANTS']"
       ],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_037"
+      ],
+      "planned_seconds": 27.958,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1358,34 +1162,31 @@
     {
       "beat_id": "B38",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": null,
-      "status": "MISSING_ASSET",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 7.625,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+      "issues": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
       ],
-      "explanation": [],
       "assets": [
         {
-          "concept": "floating_platform",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_038"
+      ],
+      "planned_seconds": 7.625,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1394,22 +1195,24 @@
     {
       "beat_id": "B39",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 11.35,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_039"
+      ],
+      "planned_seconds": 11.375,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1418,22 +1221,24 @@
     {
       "beat_id": "B40",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 24.5,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_040"
+      ],
+      "planned_seconds": 24.5,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1442,22 +1247,24 @@
     {
       "beat_id": "B41",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "CARD",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 8.625,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_041"
+      ],
+      "planned_seconds": 8.625,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1466,35 +1273,33 @@
     {
       "beat_id": "B42",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "strategy": null,
-      "status": "MISSING_ASSET",
-      "evidence_status": "INTERNAL_PREVIEW",
+      "strategy": "SEQUENCE",
+      "status": "COVERED",
+      "evidence_status": "APPROVED",
       "expected_seconds": 11.85,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
-        "intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT']",
-        "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
-        "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+        "intent cross-check: declared SUMMARIZE_DIFFERENCES, narration cues suggest ['SHOW_CONTEXT']"
       ],
-      "explanation": [],
+      "explanation": [
+        "SEQUENCE: One model, steps timed to the narration: the camera eases from one framing to the next (same preset), parts ghost, fade out, arrive and glow in turn (beat 'sequence')"
+      ],
       "assets": [
         {
           "concept": "floating_district",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'floating_district' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
-        },
-        {
-          "concept": "bay_site",
-          "status": "UNKNOWN_CONCEPT",
-          "asset_id": null,
-          "explanation": "'bay_site' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts"
+          "status": "REUSE_EXISTING",
+          "asset_id": "floating_district_01",
+          "explanation": "floating_district_01 (validated, ILLUSTRATIVE) matches floating/district with {'offshore': {'max': 0}}"
         }
       ],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "SEQUENCE"
+      ],
+      "shot_ids": [
+        "SC_042"
+      ],
+      "planned_seconds": 11.875,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1503,22 +1308,24 @@
     {
       "beat_id": "B43",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
+      "strategy": "CARD",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 12.0,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_043"
+      ],
+      "planned_seconds": 12.0,
       "readable": {},
       "visual_repairs": [],
       "composition": [],
@@ -1527,22 +1334,24 @@
     {
       "beat_id": "B44",
       "visual_intent": "SHOW_CONTEXT",
-      "strategy": null,
-      "status": "MISSING_TEMPLATE",
+      "strategy": "CARD",
+      "status": "COVERED",
       "evidence_status": "FRAMING",
       "expected_seconds": 6.9,
       "timing_source": "AUDIO_LOCKED",
-      "issues": [
-        "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
-      ],
+      "issues": [],
       "explanation": [
-        "CARD rejected (MISSING_TEMPLATE): No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
+        "CARD: 2D card (text/arrows) supplied by the beat"
       ],
       "assets": [],
       "semantic_targets": [],
-      "templates": [],
-      "shot_ids": [],
-      "planned_seconds": 0,
+      "templates": [
+        "MOTION_GRAPHICS"
+      ],
+      "shot_ids": [
+        "SC_044"
+      ],
+      "planned_seconds": 6.917,
       "readable": {},
       "visual_repairs": [],
       "composition": [],

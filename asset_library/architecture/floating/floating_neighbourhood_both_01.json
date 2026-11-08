@@ -1,0 +1,31 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "floating_neighbourhood_both_01",
+  "title": "Floating neighbourhood with piles and mooring lines (the story swaps one for the other)",
+  "family": "floating",
+  "variant": "neighbourhood",
+  "units": "METRIC",
+  "generator": {
+    "name": "floating.neighbourhood",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "draft_m": 2.958,
+    "moorings": "both",
+    "storeys_pattern": "3"
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Design B: five 40 m platforms (three-storey homes, draft from design_A.mid), gaps, hinged walkways, flexible utility links. Moorings are conceptual: piles, or mooring lines with a drawn sag and anchors that are not sized. Both mooring systems are built so that one shot can fade the piles out and bring the lines in (B24); the story never shows both at once.",
+    "draft_source": "projects/floating-city-design-challenge/analysis/results.json"
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "SEQUENCE",
+    "REPLACE_PARTS",
+    "ASSEMBLE_IN"
+  ],
+  "site": "asset_library/architecture/sites/site_bay_01.json"
+}

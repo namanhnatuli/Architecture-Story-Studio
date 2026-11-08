@@ -86,9 +86,23 @@ def platform(p):
         comps.append(_c("displaced_volume", "DISPLACED_VOLUME", "displaced_water", "displaced",
                         _box(-L / 2, L / 2, dy0, dy1, zb, 0.0), 3,
                         meta={"note": "the outer hull below the waterline: L x B x draft of water pushed aside"}))
+        mx0, mx1 = L / 2, L / 2 + FREEBOARD_MARKER_W
+        comps.append(_c("freeboard_marker", "MARKER", "highlight_gold", "freeboard",
+                        _box(mx0, mx1, MARKER_Y[0], MARKER_Y[1], zt - FREEBOARD_MARKER_H, zt), 3,
+                        meta={"note": "moves with the hull; the water's cut plate hides it below the waterline, so the "
+                                      "part that shows is the freeboard"}))
         depth = p["water_depth_m"]
         comps.append(_c("water_below", "WATER", "water_cut", "water_below",
                         _box(-L / 2, L / 2, cy0, cy1, -depth - 1.0, zb), 0, animation=("STATIC",)))   # stays behind the seabed cut while the platform moves
+    if p.get("test_load") and not section:   # B11: a 100 t load the story slides toward the edge (a street crossing)
+        side = round((p["test_load_t"] / LOAD_DENSITY_T_M3 / LOAD_HEIGHT_M) ** 0.5, 3)
+        comps.append(_c("test_load", "LOAD", "highlight_gold", "load", _box(-side / 2, side / 2, -side / 2, side / 2, zt, zt + LOAD_HEIGHT_M), 3,
+                        meta={"mass_t": p["test_load_t"], "note": "a concrete block of this mass, for the tilt example"}))
+    if p.get("neighbours") and not section:   # B12: four copies arrive around a small basin (the neighbourhood's U)
+        pitch_x, pitch_y = L + p["neighbour_gap_m"], B + p["neighbour_gap_m"]
+        for k, (i, j) in enumerate([ij for ij in NEIGHBOURHOOD if ij != (0, 0)], 1):
+            comps += _platform_set(f"neighbour{k}", L, B, H, T, p["building_cover"], 3, i * pitch_x, j * pitch_y,
+                                   group=f"neighbour{k}")
     for k, (x0, x1, ya, yb) in enumerate(block_layout(L, B, p["building_cover"]), 1):
         if section and yb <= 0.0:
             continue
@@ -143,6 +157,10 @@ def bay(p):
     comps.append(_c("waterline", "WATER", "section_poche", "waterline", _box(-W / 2, W / 2, cy0 - 0.02, cy0, -0.04, 0.04), 2, ("STATIC",)))
     return comps
 
+
+FREEBOARD_MARKER_W, FREEBOARD_MARKER_H = 0.6, 2.0   # m; longer than any freeboard the story shows
+MARKER_Y = (-0.016, -0.006)                      # just behind the water's cut plate (CUT_Y), in front of the hull
+LOAD_DENSITY_T_M3, LOAD_HEIGHT_M = 2.4, 2.6
 
 EXPLODE_LIFT = {"BUILDING": 14.0, "ROOF": 14.0, "DECK": 8.0, "BULKHEAD": 4.0}   # metres up; the hull shell stays
 
@@ -267,7 +285,7 @@ def neighbourhood(p):
             comps.append(_c(f"joint{n}_utility", "UTILITY_LINE", "utility_flex", f"joint{n}",
                             _bar((x + 3.0, y0, zt - 0.6), (x + 3.0, y1, zt - 0.6), 0.5, 0.5), 3))
     depth = p["water_depth_m"]
-    if p["moorings"] == "piles":
+    if p["moorings"] in ("piles", "both"):
         for k, (i, j) in enumerate(NEIGHBOURHOOD, 1):
             cx, cy = centres[(i, j)]
             for s, (sx, sy) in enumerate(((-1, -1), (1, 1)), 1):
@@ -277,7 +295,7 @@ def neighbourhood(p):
                 comps.append(_c(f"platform{k}_pile{s}_guide", "CONNECTOR", "steel_dark", "piles",
                                 _box(min(px, cx + sx * L / 2.0) - (0.0 if sx > 0 else 0.0), max(px, cx + sx * L / 2.0),
                                      py - 0.9, py + 0.9, zt - 0.6, zt - 0.1), 4))
-    else:
+    if p["moorings"] in ("lines", "both"):   # both: the story swaps piles for lines (B24)
         for k, (i, j) in enumerate(NEIGHBOURHOOD, 1):
             cx, cy = centres[(i, j)]
             for s, sy in enumerate((-1, 1), 1):
@@ -307,7 +325,7 @@ def clay_boat(p):
              _c("solid_block_cut", "SECTION_CUT", "section_poche", "solid_block",
                 _box(bx - side / 2, bx + side / 2, -0.06, -0.05, -depth, -depth + side), 1)]
     hull = platform(dict(p, storeys=0, extension_m=0.0, section=1))
-    return comps + [c for c in hull if c.type not in ("BUILDING", "ROOF", "DISPLACED_VOLUME")]
+    return comps + [c for c in hull if c.type not in ("BUILDING", "ROOF", "DISPLACED_VOLUME", "MARKER")]
 
 
 def semi_sub(p):
@@ -324,7 +342,12 @@ def semi_sub(p):
             comps.append(_c(f"column{s}_{q}", "COLUMN", "concrete", "columns",
                             P.cylinder_z(col / 2.0, deck_z + depth_p, 20, (x, cy, (deck_z - depth_p) / 2.0)), 1))
     comps.append(_c("deck", "DECK", "concrete_deck", "deck", _box(-L / 2, L / 2, -B / 2, B / 2, deck_z, deck_z + 1.0), 2))
+    if p.get("compare_box"):   # B33: our first platform (Design A, three storeys, at its draft) beside it, for comparison
+        comps += _platform_set("box", 40.0, 40.0, 4.0, COMPARE_BOX_DRAFT, 0.4, 3, -(L / 2 + 20.0 + 25.0), 0.0, group="box")
     return comps
+
+
+COMPARE_BOX_DRAFT = 2.958   # analysis/results.json design_A.mid.draft_m (tests check it)
 
 
 # ---------------------------------------------------------------- the district (Design C) and its counterfactual
@@ -436,6 +459,16 @@ def district(p):
                 z = zt + WALK_TOP_M + 0.3 - 0.002   # resting on the planks (2 mm contact, under the 4 mm penetration limit)
                 comps.append(_c(f"spine_{net}_r{r}", "UTILITY_LINE", mat, f"utility_{net}",
                                 _bar((xa, y, z), (xb, y, z), 0.6, 0.6), 4, meta={"network": net}))
+    if p["offshore"] and p["shore_link_m"] > 0:   # B31: cables and pipes to a shore beyond the frame, on the seabed
+        cx, cy = pos[(DISTRICT_COLS // 2, 0)]
+        ys, depth = cy - B / 2.0 - 0.5, seabed(cy - B / 2.0)
+        for u, (mat, dx) in enumerate((("utility_power", -2.5), ("utility_water", 0.0), ("utility_waste", 2.5)), 1):
+            net = ("power", "water", "wastewater")[u - 1]
+            x = cx + dx
+            riser = _bar((x, ys, zt), (x, ys, -depth + 0.3), 0.6, 0.6)
+            run = _bar((x, ys + 0.3, -depth + 0.3), (x, ys - p["shore_link_m"], -depth + 0.3), 0.6, 0.6)
+            comps.append(_c(f"shore_link_{net}", "UTILITY_LINE", mat, f"utility_{net}", P.merge(riser, run), 4,
+                            meta={"network": net, "note": "to a shore beyond the frame; not routed or sized"}))
     for k, c in enumerate((0, DISTRICT_COLS - 1), 1):   # boat landings on the flanks, emergency routes to the bridges
         cx, cy = pos[(c, 4)]
         side = -1 if c == 0 else 1

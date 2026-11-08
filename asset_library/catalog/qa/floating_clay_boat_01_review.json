@@ -2,7 +2,7 @@
   "asset_id": "floating_clay_boat_01",
   "signature": "c3cac3a53b933a06b3d0bff8bfa6061169a12f245ec9b86e13a6af961aa4f243",
   "stats": {
-    "build_seconds": 0.052,
+    "build_seconds": 0.05,
     "objects": 27,
     "asset_objects": 19,
     "mesh_datablocks": 27,
@@ -25,7 +25,7 @@
     {
       "check": "bvh_no_unintended_intersections",
       "status": "PASS",
-      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (137 allowed type pairs)"
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (142 allowed type pairs)"
     },
     {
       "check": "reproducible_build",
@@ -41,29 +41,29 @@
   "views": {
     "three_quarter": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/three_quarter.png",
-      "render_seconds": 0.695,
+      "render_seconds": 0.69,
       "build_seconds": 0.054
     },
     "elevation": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/elevation.png",
-      "render_seconds": 0.5,
-      "build_seconds": 0.054
+      "render_seconds": 0.446,
+      "build_seconds": 0.057
     },
     "top": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/top.png",
-      "render_seconds": 0.747,
-      "build_seconds": 0.069
+      "render_seconds": 0.756,
+      "build_seconds": 0.056
     },
     "exploded": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_clay_boat_01/review/exploded.png",
-      "render_seconds": 0.631,
-      "build_seconds": 0.054
+      "render_seconds": 0.634,
+      "build_seconds": 0.058
     }
   },
   "process": {
     "wall_seconds": 3.5,
-    "peak_rss_mb": 505.3,
-    "peak_memory_footprint_mb": 1924.3,
+    "peak_rss_mb": 504.3,
+    "peak_memory_footprint_mb": 1923.6,
     "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
   }
 }

@@ -1,0 +1,103 @@
+"""Floating-city production layer L4 (projects/floating-city-design-challenge/script/visuals.py): every amount the 3D
+shots move or turn comes from analysis/results.json, conceptual motion is labelled on screen, the locked narration is
+untouched; and the planner rules this layer needed (sentence counts from the locked timing, colour words inside
+technical terms, the on-screen motion label)."""
+import importlib
+import json
+import sys
+import unittest
+from pathlib import Path
+
+from engine import motion
+from planner import annotations as AN, consistency, vocabulary as V
+
+ROOT = Path(__file__).resolve().parents[1]
+P = ROOT / "projects" / "floating-city-design-challenge"
+
+
+def load_visuals():
+    sys.path.insert(0, str(P / "script"))
+    try:
+        return importlib.import_module("visuals")
+    finally:
+        sys.path.remove(str(P / "script"))
+
+
+def steps_of(v):
+    return (v.get("sequence") or {}).get("steps") or []
+
+
+@unittest.skipUnless((P / "script" / "visuals.py").is_file(), "floating-city production layer not present")
+class VisualsTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.V = load_visuals()
+        cls.res = json.loads((P / "analysis/results.json").read_text())
+
+    def test_every_beat_has_a_visual(self):
+        beats = json.loads((P / "script/narration.json").read_text())["beats"]
+        self.assertEqual(sorted(self.V.VISUALS), sorted(b["id"] for b in beats))
+
+    def test_sink_and_rise_are_the_calculated_branch(self):
+        st = self.res["storey_branch"]["steps"]
+        self.assertAlmostEqual(self.V.SINK, st[0]["freeboard_m"] - st[1]["freeboard_m"], places=6)
+        # the deeper hull: its bottom goes down by the extension, then the platform floats up to the new freeboard
+        self.assertAlmostEqual(-self.V.SINK - self.V.EXT + self.V.RISE, -(st[2]["draft_m"] - st[0]["draft_m"]), places=6)
+        self.assertAlmostEqual(st[0]["freeboard_m"] - self.V.SINK + self.V.RISE, st[2]["freeboard_m"], places=6)
+        moves = [s["offset"][2] for s in steps_of(self.V.VISUALS["B09"]) if s["do"] == "MOVE"]
+        self.assertEqual(moves, [-self.V.SINK])
+        moves = [s["offset"][2] for s in steps_of(self.V.VISUALS["B10"]) if s["do"] == "MOVE"]
+        self.assertEqual(moves, [-self.V.SINK, -self.V.EXT, self.V.RISE])
+
+    def test_tilt_is_the_calculated_list(self):
+        rot = [s for s in steps_of(self.V.VISUALS["B11"]) if s["do"] == "ROTATE"]
+        self.assertEqual([s["degrees"] for s in rot], [self.res["list_example"]["list_deg"]])
+        load = [s for s in steps_of(self.V.VISUALS["B11"]) if s["do"] == "MOVE" and s["offset"][0]]
+        self.assertEqual(load[0]["offset"], [self.res["list_example"]["d_m"], 0.0, 0.0])
+
+    def test_conceptual_motion_is_labelled_on_screen_for_the_whole_beat(self):
+        for bid, v in self.V.VISUALS.items():
+            if any(s["do"] == "OSCILLATE" for s in steps_of(v)):
+                self.assertEqual(v.get("motion_label"), motion.CONCEPT_MOTION_LABEL, bid)
+                notes = [a for a in v.get("annotations", []) if a["type"] == "NOTE" and a["text"] == motion.CONCEPT_MOTION_LABEL]
+                self.assertTrue(notes and notes[0]["sentence"] == 0 and "until" not in notes[0] and "word" not in notes[0], bid)
+
+    def test_moorings_and_joints_are_marked_conceptual(self):
+        texts = {bid: " ".join(a.get("text", "") for a in v.get("annotations", [])) for bid, v in self.V.VISUALS.items()}
+        self.assertIn("not sized", texts["B14"])
+        self.assertIn("not sized", texts["B24"])
+
+    def test_no_photograph_of_schoonschip(self):
+        for bid, v in self.V.VISUALS.items():
+            for e in (v.get("graphic") or {}).get("elements", []):
+                self.assertNotEqual(e["kind"], "image", bid)
+
+
+class PlannerRulesTest(unittest.TestCase):
+    def test_sentence_counts_follow_the_locked_timing(self):
+        doc = {"beats": [{"beat_id": "B1", "narration": "One. Two, three, four.", "claim_ids": [],
+                          "annotations": [{"id": "n", "type": "NOTE", "text": "x", "sentence": 2}]}]}
+        self.assertTrue(AN.validate_spec(doc, {"claims": []}, V.Vocabulary()))                  # 2 sentences by punctuation
+        self.assertEqual(AN.validate_spec(doc, {"claims": []}, V.Vocabulary(), {"B1": 3}), [])   # 3 narration items
+
+    def test_motion_label_may_exceed_the_note_length_only_verbatim(self):
+        def doc(text):
+            return {"beats": [{"beat_id": "B1", "narration": "One.", "claim_ids": [],
+                               "annotations": [{"id": "n", "type": "NOTE", "text": text, "sentence": 0}]}]}
+        self.assertEqual(AN.validate_spec(doc(motion.CONCEPT_MOTION_LABEL), {"claims": []}, V.Vocabulary()), [])
+        self.assertTrue(AN.validate_spec(doc(motion.CONCEPT_MOTION_LABEL + " (approx.)"), {"claims": []}, V.Vocabulary()))
+
+    def test_colour_words_inside_technical_terms_name_no_colour(self):
+        style = json.loads((ROOT / "config/annotation_style.json").read_text())
+        plan = {"shots": [{"shot_id": "S1", "beat_id": "B1", "template": "HOLD", "timing": {"beat_offset_seconds": 0.0, "duration_seconds": 5.0},
+                           "annotations": {"items": []}, "shot": {"animation": {"template": "HOLD"}}}]}
+        doc = {"beats": [{"beat_id": "B1", "narration": "Gray water from showers, black water from toilets."}]}
+        rows = consistency.check_plan(plan, doc, {"B1": [(0.0, 5.0)]}, style)
+        self.assertFalse([r for r in rows if r["rule"] == "COLOUR"])
+        doc = {"beats": [{"beat_id": "B1", "narration": "The gray band shows the hull."}]}
+        rows = consistency.check_plan(plan, doc, {"B1": [(0.0, 5.0)]}, style)
+        self.assertTrue([r for r in rows if r["rule"] == "COLOUR" and r["verdict"] == "CONTRADICTION"])
+
+
+if __name__ == "__main__":
+    unittest.main()

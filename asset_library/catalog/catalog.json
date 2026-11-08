@@ -1,6 +1,6 @@
 {
   "schema": "asset_catalog/1",
-  "generated_utc": "2026-11-08T15:16:58.560607+00:00",
+  "generated_utc": "2026-11-08T15:57:19.048594+00:00",
   "generator_version": "1.0.0",
   "assets": [
     {
@@ -1693,7 +1693,7 @@
             },
             "signature": "c3cac3a53b933a06b3d0bff8bfa6061169a12f245ec9b86e13a6af961aa4f243",
             "stats": {
-              "build_seconds": 0.052,
+              "build_seconds": 0.05,
               "objects": 27,
               "asset_objects": 19,
               "mesh_datablocks": 27,
@@ -1702,22 +1702,22 @@
             },
             "process": {
               "wall_seconds": 3.5,
-              "peak_rss_mb": 505.3,
-              "peak_memory_footprint_mb": 1924.3,
+              "peak_rss_mb": 504.3,
+              "peak_memory_footprint_mb": 1923.6,
               "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
             },
             "views": {
               "three_quarter": {
-                "render_seconds": 0.695
+                "render_seconds": 0.69
               },
               "elevation": {
-                "render_seconds": 0.5
+                "render_seconds": 0.446
               },
               "top": {
-                "render_seconds": 0.747
+                "render_seconds": 0.756
               },
               "exploded": {
-                "render_seconds": 0.631
+                "render_seconds": 0.634
               }
             }
           }
@@ -1799,7 +1799,8 @@
         "breakwater_offset_m": 60.0,
         "bridges": 3,
         "offshore": 0,
-        "quay_level_m": 2.0
+        "quay_level_m": 2.0,
+        "shore_link_m": 0.0
       },
       "materials": {
         "keys": [
@@ -1897,17 +1898,17 @@
       },
       "source_config": {
         "path": "asset_library/architecture/floating/floating_district_offshore_01.json",
-        "sha256": "823ba11cd8739b131d601b600e2a8d74207ca89aecb669bfafb6e2d9d60b4c6e"
+        "sha256": "e12421e5fb5ea2cfc620c77af12abe65808c81a70c20524f4e4415f32e091e4b"
       },
       "units": "METRIC",
       "accuracy": "ILLUSTRATIVE",
       "provenance": {
-        "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Design D counterfactual: no bridges to land; mooring lines longer to a deeper seabed (conceptual, not sized).",
+        "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Design D counterfactual: no bridges to land; mooring lines longer to a deeper seabed (conceptual, not sized). Three cables and pipes (power, water, wastewater) run 700 m along the seabed toward a shore beyond the frame (not routed or sized).",
         "draft_source": "projects/floating-city-design-challenge/analysis/results.json"
       },
       "geometry": {
-        "components": 606,
-        "unique_meshes": 15,
+        "components": 609,
+        "unique_meshes": 18,
         "by_type": {
           "ANCHOR": 29,
           "BREAKWATER": 13,
@@ -1916,14 +1917,15 @@
           "HULL": 93,
           "MOORING_LINE": 29,
           "ROOF": 93,
+          "UTILITY_LINE": 3,
           "WALKWAY": 163
         },
-        "verts": 9312,
-        "faces": 6984,
+        "verts": 9360,
+        "faces": 7020,
         "bbox": [
           [
             -512.3,
-            25.0,
+            -675.5,
             -60.3
           ],
           [
@@ -1934,7 +1936,7 @@
         ],
         "dimensions_m": [
           1024.6,
-          740.3,
+          1440.8,
           70.683
         ]
       },
@@ -1955,7 +1957,8 @@
         "breakwater_offset_m": 60.0,
         "bridges": 3,
         "offshore": 1,
-        "quay_level_m": 2.0
+        "quay_level_m": 2.0,
+        "shore_link_m": 700.0
       },
       "materials": {
         "keys": [
@@ -1968,7 +1971,10 @@
           "roof_membrane",
           "steel_dark",
           "timber",
-          "timber_light"
+          "timber_light",
+          "utility_power",
+          "utility_waste",
+          "utility_water"
         ],
         "library": "asset_library/materials/stylized_materials.json",
         "library_sha256": "bfc79a4bd442ff89825c34d4ff70957a72acc420fdecbe243fbaa029088f3472",
@@ -2003,33 +2009,181 @@
               "reproducible_build": "PASS",
               "semantic_tags_match_plan": "PASS"
             },
-            "signature": "1272b7cd7308435e1a8aabdcd31b282b754684f55a8f4ba580d2aa3d41315fe4",
+            "signature": "90170193049ce075ebbf1d0b911d95ff896494608e4c88f12443d209869db824",
             "stats": {
-              "build_seconds": 0.099,
-              "objects": 608,
-              "asset_objects": 606,
-              "mesh_datablocks": 17,
-              "asset_mesh_datablocks": 15,
-              "evaluated_verts": 9328
+              "build_seconds": 0.103,
+              "objects": 611,
+              "asset_objects": 609,
+              "mesh_datablocks": 20,
+              "asset_mesh_datablocks": 18,
+              "evaluated_verts": 9376
             },
             "process": {
               "wall_seconds": 4.3,
-              "peak_rss_mb": 554.9,
-              "peak_memory_footprint_mb": 1947.9,
+              "peak_rss_mb": 557.2,
+              "peak_memory_footprint_mb": 1920.7,
               "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
             },
             "views": {
               "three_quarter": {
-                "render_seconds": 0.859
+                "render_seconds": 0.805
               },
               "elevation": {
-                "render_seconds": 0.431
+                "render_seconds": 0.407
               },
               "top": {
-                "render_seconds": 0.612
+                "render_seconds": 0.605
               },
               "exploded": {
-                "render_seconds": 0.728
+                "render_seconds": 0.737
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "floating_neighbourhood_both_01",
+      "title": "Floating neighbourhood with piles and mooring lines (the story swaps one for the other)",
+      "family": "floating",
+      "variant": "neighbourhood",
+      "generator": {
+        "name": "floating.neighbourhood",
+        "version": "1.0.0",
+        "module": "engine/arch/families/floating.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/floating/floating_neighbourhood_both_01.json",
+        "sha256": "494a28878f25aca71637288ff24ace8e00fcf1f70357ab757d929dddbfad419d"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Design B: five 40 m platforms (three-storey homes, draft from design_A.mid), gaps, hinged walkways, flexible utility links. Moorings are conceptual: piles, or mooring lines with a drawn sag and anchors that are not sized. Both mooring systems are built so that one shot can fade the piles out and bring the lines in (B24); the story never shows both at once.",
+        "draft_source": "projects/floating-city-design-challenge/analysis/results.json"
+      },
+      "geometry": {
+        "components": 80,
+        "unique_meshes": 64,
+        "by_type": {
+          "ANCHOR": 10,
+          "BUILDING": 5,
+          "CONNECTOR": 22,
+          "DECK": 5,
+          "HULL": 5,
+          "MOORING_LINE": 10,
+          "MOORING_PILE": 10,
+          "ROOF": 5,
+          "UTILITY_LINE": 4,
+          "WALKWAY": 4
+        },
+        "verts": 1680,
+        "faces": 1200,
+        "bbox": [
+          [
+            -68.0,
+            -67.0,
+            -16.5
+          ],
+          [
+            68.0,
+            113.0,
+            10.342
+          ]
+        ],
+        "dimensions_m": [
+          136.0,
+          180.0,
+          26.842
+        ]
+      },
+      "resolved_parameters": {
+        "length_m": 40.0,
+        "width_m": 40.0,
+        "hull_depth_m": 4.0,
+        "draft_m": 2.958,
+        "gap_m": 6.0,
+        "building_cover": 0.4,
+        "storeys_pattern": "3",
+        "moorings": "both",
+        "line_reach_m": 45.0,
+        "water_depth_m": 15.0
+      },
+      "materials": {
+        "keys": [
+          "cable_dark",
+          "concrete",
+          "concrete_deck",
+          "fender",
+          "plaster",
+          "roof_membrane",
+          "steel",
+          "steel_dark",
+          "timber_light",
+          "utility_flex"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "bfc79a4bd442ff89825c34d4ff70957a72acc420fdecbe243fbaa029088f3472",
+        "external_textures": []
+      },
+      "animation_support": [
+        "HOLD",
+        "HIGHLIGHT",
+        "SEQUENCE",
+        "REPLACE_PARTS",
+        "ASSEMBLE_IN"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/floating/previews/floating_neighbourhood_both_01/review/elevation.jpg",
+          "asset_library/architecture/floating/previews/floating_neighbourhood_both_01/review/exploded.jpg",
+          "asset_library/architecture/floating/previews/floating_neighbourhood_both_01/review/three_quarter.jpg",
+          "asset_library/architecture/floating/previews/floating_neighbourhood_both_01/review/top.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "8c506a14e7382d43c2f655f75620a8ed5067aae554482f557b81f1d807515a8c",
+            "stats": {
+              "build_seconds": 0.061,
+              "objects": 82,
+              "asset_objects": 80,
+              "mesh_datablocks": 66,
+              "asset_mesh_datablocks": 64,
+              "evaluated_verts": 1696
+            },
+            "process": {
+              "wall_seconds": 4.1,
+              "peak_rss_mb": 534.4,
+              "peak_memory_footprint_mb": 1948.4,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.883
+              },
+              "elevation": {
+                "render_seconds": 0.828
+              },
+              "top": {
+                "render_seconds": 0.495
+              },
+              "exploded": {
+                "render_seconds": 0.833
               }
             }
           }
@@ -2477,42 +2631,42 @@
       },
       "source_config": {
         "path": "asset_library/architecture/floating/floating_platform_a_01.json",
-        "sha256": "2f6e1b66a06defd00680af0022339ae5a4159b0afae5b038465b8dd294d62ce6"
+        "sha256": "0420dfcb0f64523e9fdae0ed1a6218caa95f04e0e9d37cee8840f0ae2e10c973"
       },
       "units": "METRIC",
       "accuracy": "ILLUSTRATIVE",
       "provenance": {
-        "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon. draft_m 2.958 is the three-storey case of analysis/results.json (design_A.mid); the fourth storey and the 0.5 m hull extension are parts the story reveals, and their sinking and rising are applied as SEQUENCE MOVE steps with the offsets of analysis/results.json (storey_branch). Not an engineering design; wall and slab thicknesses only serve the mass estimate.",
+        "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon with three-storey homes at its calculated draft (draft_m 2.958, analysis/results.json design_A.mid). The story's fourth storey and deeper hull are shown on floating_platform_a_section_01 and floating_platform_a_story_01. Not an engineering design; wall and slab thicknesses only serve the mass estimate.",
         "draft_source": "projects/floating-city-design-challenge/analysis/results.json design_A.mid.draft_m"
       },
       "geometry": {
-        "components": 47,
-        "unique_meshes": 47,
+        "components": 32,
+        "unique_meshes": 32,
         "by_type": {
-          "BUILDING": 16,
-          "BULKHEAD": 9,
+          "BUILDING": 12,
+          "BULKHEAD": 6,
           "DECK": 1,
-          "HULL": 9,
-          "ROOF": 12
+          "HULL": 5,
+          "ROOF": 8
         },
-        "verts": 376,
-        "faces": 282,
+        "verts": 256,
+        "faces": 192,
         "bbox": [
           [
             -20.0,
             -20.0,
-            -3.458
+            -2.958
           ],
           [
             20.0,
             20.0,
-            13.342
+            10.342
           ]
         ],
         "dimensions_m": [
           40.0,
           40.0,
-          16.8
+          13.3
         ]
       },
       "resolved_parameters": {
@@ -2525,11 +2679,15 @@
         "bulkhead_m": 0.2,
         "bulkhead_spacing_m": 10.0,
         "building_cover": 0.4,
-        "storeys": 4,
+        "storeys": 3,
         "storey_height_m": 3.0,
-        "extension_m": 0.5,
+        "extension_m": 0.0,
         "section": 0,
-        "water_depth_m": 15.0
+        "water_depth_m": 15.0,
+        "test_load": 0,
+        "test_load_t": 100.0,
+        "neighbours": 0,
+        "neighbour_gap_m": 6.0
       },
       "materials": {
         "keys": [
@@ -2543,10 +2701,11 @@
         "external_textures": []
       },
       "animation_support": [
-        "HOLD",
-        "HIGHLIGHT",
         "EXPLODED_VIEW",
-        "SEQUENCE"
+        "HIGHLIGHT",
+        "HOLD",
+        "SEQUENCE",
+        "SIDE_BY_SIDE"
       ],
       "previews": {
         "review": [
@@ -2572,33 +2731,33 @@
               "reproducible_build": "PASS",
               "semantic_tags_match_plan": "PASS"
             },
-            "signature": "34eff1926155612a0b55ec17e3c520af1a53ef0119cb756649f1cd78eb560682",
+            "signature": "4a3d4feb78e31aa40b0e4414a1e60bd00ea3206d34fb90ee3b4e859a01a42514",
             "stats": {
-              "build_seconds": 0.054,
-              "objects": 49,
-              "asset_objects": 47,
-              "mesh_datablocks": 49,
-              "asset_mesh_datablocks": 47,
-              "evaluated_verts": 392
+              "build_seconds": 0.051,
+              "objects": 34,
+              "asset_objects": 32,
+              "mesh_datablocks": 34,
+              "asset_mesh_datablocks": 32,
+              "evaluated_verts": 272
             },
             "process": {
-              "wall_seconds": 4.0,
-              "peak_rss_mb": 522.6,
-              "peak_memory_footprint_mb": 1936.9,
+              "wall_seconds": 3.9,
+              "peak_rss_mb": 511.0,
+              "peak_memory_footprint_mb": 1925.6,
               "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
             },
             "views": {
               "three_quarter": {
-                "render_seconds": 0.883
+                "render_seconds": 0.879
               },
               "elevation": {
-                "render_seconds": 0.782
+                "render_seconds": 0.761
               },
               "top": {
-                "render_seconds": 0.489
+                "render_seconds": 0.486
               },
               "exploded": {
-                "render_seconds": 0.828
+                "render_seconds": 0.805
               }
             }
           }
@@ -2626,20 +2785,21 @@
         "draft_source": "projects/floating-city-design-challenge/analysis/results.json design_A.mid.draft_m"
       },
       "geometry": {
-        "components": 43,
-        "unique_meshes": 43,
+        "components": 44,
+        "unique_meshes": 44,
         "by_type": {
           "BUILDING": 8,
           "BULKHEAD": 7,
           "DECK": 1,
           "DISPLACED_VOLUME": 1,
           "HULL": 7,
+          "MARKER": 1,
           "ROOF": 6,
           "SECTION_CUT": 12,
           "WATER": 1
         },
-        "verts": 344,
-        "faces": 258,
+        "verts": 352,
+        "faces": 264,
         "bbox": [
           [
             -20.0,
@@ -2647,13 +2807,13 @@
             -16.0
           ],
           [
-            20.0,
+            20.6,
             20.0,
             13.342
           ]
         ],
         "dimensions_m": [
-          40.0,
+          40.6,
           20.04,
           29.342
         ]
@@ -2672,7 +2832,11 @@
         "storey_height_m": 3.0,
         "extension_m": 0.5,
         "section": 1,
-        "water_depth_m": 15.0
+        "water_depth_m": 15.0,
+        "test_load": 0,
+        "test_load_t": 100.0,
+        "neighbours": 0,
+        "neighbour_gap_m": 6.0
       },
       "materials": {
         "keys": [
@@ -2719,33 +2883,179 @@
               "reproducible_build": "PASS",
               "semantic_tags_match_plan": "PASS"
             },
-            "signature": "a6bab6afdbfce6e62899d58da247743981b81351454de29f9a76e8658fcfb3d3",
+            "signature": "fd5ccfdfdc4051dfcf79f846d3b3303905aafd3e1c88596bf0eebc899f86ee24",
             "stats": {
-              "build_seconds": 0.047,
-              "objects": 51,
-              "asset_objects": 43,
-              "mesh_datablocks": 51,
-              "asset_mesh_datablocks": 43,
-              "evaluated_verts": 408
+              "build_seconds": 0.054,
+              "objects": 52,
+              "asset_objects": 44,
+              "mesh_datablocks": 52,
+              "asset_mesh_datablocks": 44,
+              "evaluated_verts": 416
             },
             "process": {
               "wall_seconds": 3.6,
-              "peak_rss_mb": 521.4,
-              "peak_memory_footprint_mb": 1938.9,
+              "peak_rss_mb": 522.4,
+              "peak_memory_footprint_mb": 1939.9,
               "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
             },
             "views": {
               "three_quarter": {
-                "render_seconds": 0.72
+                "render_seconds": 0.698
               },
               "elevation": {
-                "render_seconds": 0.505
+                "render_seconds": 0.543
               },
               "top": {
-                "render_seconds": 0.786
+                "render_seconds": 0.781
               },
               "exploded": {
-                "render_seconds": 0.642
+                "render_seconds": 0.641
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "floating_platform_a_story_01",
+      "title": "Floating platform (Design A) with a 100 t test load and four neighbours",
+      "family": "floating",
+      "variant": "platform",
+      "generator": {
+        "name": "floating.platform",
+        "version": "1.0.0",
+        "module": "engine/arch/families/floating.py"
+      },
+      "source_config": {
+        "path": "asset_library/architecture/floating/floating_platform_a_story_01.json",
+        "sha256": "8d9ece100a97a90ea17b1d32cf368fde10e1e66d1972f42f98e6060f8c7d5bae"
+      },
+      "units": "METRIC",
+      "accuracy": "ILLUSTRATIVE",
+      "provenance": {
+        "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon. draft_m 2.958 is the three-storey case of analysis/results.json (design_A.mid); the fourth storey and the 0.5 m hull extension are parts the story reveals, and their sinking and rising are applied as SEQUENCE MOVE steps with the offsets of analysis/results.json (storey_branch). Not an engineering design; wall and slab thicknesses only serve the mass estimate. With a 100 t concrete block on the deck, which the story moves 15 m toward the edge (list_example in results.json: 100 t, 15 m, about 0.42 degrees). Four three-storey copies stand around a small basin (6 m gaps) for B12, where they arrive.",
+        "draft_source": "projects/floating-city-design-challenge/analysis/results.json design_A.mid.draft_m"
+      },
+      "geometry": {
+        "components": 64,
+        "unique_meshes": 52,
+        "by_type": {
+          "BUILDING": 20,
+          "BULKHEAD": 9,
+          "DECK": 5,
+          "HULL": 13,
+          "LOAD": 1,
+          "ROOF": 16
+        },
+        "verts": 704,
+        "faces": 528,
+        "bbox": [
+          [
+            -66.0,
+            -20.0,
+            -3.458
+          ],
+          [
+            66.0,
+            66.0,
+            13.342
+          ]
+        ],
+        "dimensions_m": [
+          132.0,
+          86.0,
+          16.8
+        ]
+      },
+      "resolved_parameters": {
+        "length_m": 40.0,
+        "width_m": 40.0,
+        "hull_depth_m": 4.0,
+        "draft_m": 2.958,
+        "slab_m": 0.25,
+        "wall_m": 0.25,
+        "bulkhead_m": 0.2,
+        "bulkhead_spacing_m": 10.0,
+        "building_cover": 0.4,
+        "storeys": 4,
+        "storey_height_m": 3.0,
+        "extension_m": 0.5,
+        "section": 0,
+        "water_depth_m": 15.0,
+        "test_load": 1,
+        "test_load_t": 100.0,
+        "neighbours": 1,
+        "neighbour_gap_m": 6.0
+      },
+      "materials": {
+        "keys": [
+          "concrete",
+          "concrete_deck",
+          "highlight_gold",
+          "plaster",
+          "roof_membrane"
+        ],
+        "library": "asset_library/materials/stylized_materials.json",
+        "library_sha256": "bfc79a4bd442ff89825c34d4ff70957a72acc420fdecbe243fbaa029088f3472",
+        "external_textures": []
+      },
+      "animation_support": [
+        "EXPLODED_VIEW",
+        "HIGHLIGHT",
+        "HOLD",
+        "SEQUENCE"
+      ],
+      "previews": {
+        "review": [
+          "asset_library/architecture/floating/previews/floating_platform_a_story_01/review/elevation.jpg",
+          "asset_library/architecture/floating/previews/floating_platform_a_story_01/review/exploded.jpg",
+          "asset_library/architecture/floating/previews/floating_platform_a_story_01/review/three_quarter.jpg",
+          "asset_library/architecture/floating/previews/floating_platform_a_story_01/review/top.jpg"
+        ]
+      },
+      "validation": {
+        "offline": {
+          "specification_valid": "PASS",
+          "components_valid": "PASS",
+          "expected_component_counts": "PASS",
+          "no_floating_components": "PASS",
+          "no_major_intersections": "PASS"
+        },
+        "blender": {
+          "review": {
+            "checks": {
+              "bvh_connected_to_ground": "PASS",
+              "bvh_no_unintended_intersections": "PASS",
+              "reproducible_build": "PASS",
+              "semantic_tags_match_plan": "PASS"
+            },
+            "signature": "991288e6b0bf29ac9be2ce814a3ad9da0d05263d572247282c565ef221237919",
+            "stats": {
+              "build_seconds": 0.057,
+              "objects": 66,
+              "asset_objects": 64,
+              "mesh_datablocks": 54,
+              "asset_mesh_datablocks": 52,
+              "evaluated_verts": 720
+            },
+            "process": {
+              "wall_seconds": 4.0,
+              "peak_rss_mb": 522.4,
+              "peak_memory_footprint_mb": 1936.8,
+              "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
+            },
+            "views": {
+              "three_quarter": {
+                "render_seconds": 0.881
+              },
+              "elevation": {
+                "render_seconds": 0.836
+              },
+              "top": {
+                "render_seconds": 0.498
+              },
+              "exploded": {
+                "render_seconds": 0.825
               }
             }
           }
@@ -2754,7 +3064,7 @@
     },
     {
       "asset_id": "floating_semi_sub_01",
-      "title": "Semi-submersible module (schematic of the 2026 concept study's type)",
+      "title": "Semi-submersible module (schematic of the 2026 concept study type) beside our box pontoon",
       "family": "floating",
       "variant": "semi_sub",
       "generator": {
@@ -2764,63 +3074,70 @@
       },
       "source_config": {
         "path": "asset_library/architecture/floating/floating_semi_sub_01.json",
-        "sha256": "98ecfe2025b3ac1df43bc7d82b033ac3ced4e49debec03b5883bbf7f1d6326ab"
+        "sha256": "348567521bd58e72392784eaf13f3cbcfa3d9eb5fe7401c8eb733ad0dabc9242"
       },
       "units": "METRIC",
       "accuracy": "ILLUSTRATIVE",
       "provenance": {
-        "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Schematic only (CLM_062): pontoons under water, columns through the surface, a raised deck; proportions chosen for legibility, not from the study."
+        "basis": "Illustrative archetype for projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01); not an engineering design. Schematic only (CLM_062): pontoons under water, columns through the surface, a raised deck; proportions chosen for legibility and to stay above the 15 m seabed of the bay site, not from the study. Beside it, our first platform (Design A, three storeys, draft 2.958 m from analysis/results.json) for the comparison of B33."
       },
       "geometry": {
-        "components": 9,
-        "unique_meshes": 9,
+        "components": 13,
+        "unique_meshes": 13,
         "by_type": {
+          "BUILDING": 1,
           "COLUMN": 6,
-          "DECK": 1,
-          "HULL": 2
+          "DECK": 2,
+          "HULL": 3,
+          "ROOF": 1
         },
-        "verts": 264,
-        "faces": 150,
+        "verts": 344,
+        "faces": 210,
         "bbox": [
           [
-            -30.0,
+            -95.0,
             -20.0,
-            -18.0
+            -10.0
           ],
           [
             30.0,
             20.0,
-            16.0
+            13.0
           ]
         ],
         "dimensions_m": [
-          60.0,
+          125.0,
           40.0,
-          34.0
+          23.0
         ]
       },
       "resolved_parameters": {
         "length_m": 60.0,
         "width_m": 40.0,
         "pontoon_width_m": 10.0,
-        "pontoon_height_m": 6.0,
-        "pontoon_depth_m": 12.0,
-        "deck_level_m": 15.0,
+        "pontoon_height_m": 4.0,
+        "pontoon_depth_m": 6.0,
+        "deck_level_m": 12.0,
         "column_size_m": 8.0,
-        "water_depth_m": 15.0
+        "water_depth_m": 15.0,
+        "compare_box": 1
       },
       "materials": {
         "keys": [
           "concrete",
-          "concrete_deck"
+          "concrete_deck",
+          "plaster",
+          "roof_membrane"
         ],
         "library": "asset_library/materials/stylized_materials.json",
         "library_sha256": "bfc79a4bd442ff89825c34d4ff70957a72acc420fdecbe243fbaa029088f3472",
         "external_textures": []
       },
       "animation_support": [
+        "HIGHLIGHT",
         "HOLD",
-        "HIGHLIGHT"
+        "SEQUENCE",
+        "SIDE_BY_SIDE"
       ],
       "previews": {
         "review": [
@@ -2846,33 +3163,33 @@
               "reproducible_build": "PASS",
               "semantic_tags_match_plan": "PASS"
             },
-            "signature": "757571e89dddbaa66acb11fc6117c86c2a23fdd6eb717e8806873c98fbccab7f",
+            "signature": "154231a3db6a98adf6e17b03285e1f263c502a56db87039bbb0b595b93ea4e27",
             "stats": {
-              "build_seconds": 0.051,
-              "objects": 11,
-              "asset_objects": 9,
-              "mesh_datablocks": 11,
-              "asset_mesh_datablocks": 9,
-              "evaluated_verts": 280
+              "build_seconds": 0.054,
+              "objects": 15,
+              "asset_objects": 13,
+              "mesh_datablocks": 15,
+              "asset_mesh_datablocks": 13,
+              "evaluated_verts": 360
             },
             "process": {
-              "wall_seconds": 3.8,
-              "peak_rss_mb": 497.2,
-              "peak_memory_footprint_mb": 1913.9,
+              "wall_seconds": 3.9,
+              "peak_rss_mb": 503.2,
+              "peak_memory_footprint_mb": 1919.8,
               "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
             },
             "views": {
               "three_quarter": {
-                "render_seconds": 0.863
+                "render_seconds": 0.901
               },
               "elevation": {
-                "render_seconds": 0.747
+                "render_seconds": 0.772
               },
               "top": {
-                "render_seconds": 0.47
+                "render_seconds": 0.481
               },
               "exploded": {
-                "render_seconds": 0.798
+                "render_seconds": 0.806
               }
             }
           }

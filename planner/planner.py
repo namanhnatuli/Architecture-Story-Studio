@@ -572,10 +572,18 @@ def build_strategy(name, ctx):
                     cues.append({"at_seconds": round(out["start_seconds"] + i * lag + float(s.get("seconds", 1.2)), 4),
                                  "kind": s["sound"], "step": k})
             steps.append(out)
-        if any(st["do"] == "OSCILLATE" for st in steps) and beat.get("motion_label") != motion.CONCEPT_MOTION_LABEL:
-            # conceptual motion never reads as a simulation: the beat must carry the exact label (shown on screen)
-            raise StrategyRejected("INVALID_REQUEST", "OSCILLATE needs the beat's motion_label "
-                                   f"'{motion.CONCEPT_MOTION_LABEL}'")
+        if any(st["do"] == "OSCILLATE" for st in steps):
+            # conceptual motion never reads as a simulation: the beat carries the exact label and shows it on screen
+            # (a NOTE with that text, from the beat's first sentence, never withdrawn)
+            if beat.get("motion_label") != motion.CONCEPT_MOTION_LABEL:
+                raise StrategyRejected("INVALID_REQUEST", "OSCILLATE needs the beat's motion_label "
+                                       f"'{motion.CONCEPT_MOTION_LABEL}'")
+            shown = [a for a in beat.get("annotations") or [] if a.get("type") == "NOTE"
+                     and a.get("text") == motion.CONCEPT_MOTION_LABEL and a.get("sentence", 0) == 0
+                     and not a.get("word") and a.get("until") is None]
+            if not shown:
+                raise StrategyRejected("INVALID_REQUEST", "OSCILLATE needs a NOTE annotation with the motion_label text "
+                                       "on screen for the whole beat (sentence 0, no word, no until)")
         focus0, focus1 = views[0]["focus"], views[-1]["focus"]
 
         def make_seq(n):
@@ -952,7 +960,9 @@ def _plan_pass(project_dir, root, vocab, excluded):
     root, project_dir = Path(root), Path(project_dir)
     doc, sources, default_vocab, cfg = load_inputs(project_dir, root)
     vocab = vocab or default_vocab
-    errors = B.validate(doc, sources) + V.validate(vocab) + annotations.validate_spec(doc, sources, vocab)
+    counts = {bid: len(spans) for bid, spans in T.sentence_offsets(doc, project_dir, cfg["timing"]).items()} \
+        if doc.get("timing_mode") == "AUDIO_LOCKED" and (project_dir / "script/timing.json").is_file() else None
+    errors = B.validate(doc, sources) + V.validate(vocab) + annotations.validate_spec(doc, sources, vocab, counts)
     errors += [f"beat {b['beat_id']}: {b['narrative_intent']} needs annotations (what the viewer must see is the "
                "load path, not only the model)" for b in doc["beats"]
                if intents.INTENTS.get(b["narrative_intent"], {}).get("needs_annotations") and not b.get("annotations")]
@@ -1182,7 +1192,8 @@ def _plan_pass(project_dir, root, vocab, excluded):
                                 "(proxy geometry or few samples): verify in Blender (verify-visibility)")
     _annotate(doc, plan_shots, coverage, model, vocab, sources, offsets, windows, presets, fps, caption_top, warnings,
               word_times=word_times)
-    checks = consistency.check_plan({"shots": plan_shots}, doc, offsets, AL.load_style(root / "config/annotation_style.json"))
+    checks = consistency.check_plan({"shots": plan_shots}, doc, offsets, AL.load_style(root / "config/annotation_style.json"),
+                                    T.sentence_texts(doc, project_dir))
     cov_by = {c["beat_id"]: c for c in coverage}
     for r in checks:   # M6: narration that contradicts the picture blocks the plan (fail closed)
         if r["verdict"] == "CONTRADICTION":

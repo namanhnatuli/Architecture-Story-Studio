@@ -77,8 +77,9 @@ def _glowing(ps, t0, t1):
     return start < t1 and end > t0
 
 
-def check_plan(plan, doc, offsets, style):
-    """Rows for every sentence that triggers a rule: {beat_id, sentence, text, rule, verdict, detail}."""
+def check_plan(plan, doc, offsets, style, sentence_texts=None):
+    """Rows for every sentence that triggers a rule: {beat_id, sentence, text, rule, verdict, detail}. sentence_texts
+    {beat_id: [text]}: the sentences as the locked timing lists them, so each text meets its own time span."""
     from planner import timing as T
     colours = _colour_words(style)
     colour_re = r"\b(" + "|".join(sorted(map(re.escape, colours), key=len, reverse=True)) + r")\b" if colours else None
@@ -88,7 +89,7 @@ def check_plan(plan, doc, offsets, style):
         shots = [ps for ps in plan["shots"] if ps["beat_id"] == bid]
         if not shots:
             continue
-        sentences = T.split_sentences(beat["narration"])
+        sentences = (sentence_texts or {}).get(bid) or T.split_sentences(beat["narration"])
         for k, text in enumerate(sentences):
             span = offsets[bid][k] if k < len(offsets.get(bid, [])) else (0.0, 1e9)
             win = _windows(shots, span)
@@ -119,7 +120,11 @@ def check_plan(plan, doc, offsets, style):
                     row("DEICTIC", "CONTRADICTION", "the sentence points at a component, but nothing is highlighted "
                         "or annotated while it is spoken")
             if colour_re:
-                for m in re.finditer(colour_re, low):
+                # a colour word inside a technical term ("gray water", "black water") names no colour on screen
+                plain = low
+                for term in style.get("colour_terms") or ():
+                    plain = re.sub(r"\b" + re.escape(term.lower()) + r"\b", " " * len(term), plain)
+                for m in re.finditer(colour_re, plain):
                     key = colours[m.group(1)]
                     shown = set()
                     for ps, t0, t1 in win:

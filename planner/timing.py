@@ -69,6 +69,15 @@ def sentence_offsets(doc, project_dir, cfg):
     return out
 
 
+def sentence_texts(doc, project_dir):
+    """{beat_id: [sentence text, ...]} as the locked timing lists them (one per narration sentence item, which may end
+    in a comma); None when the beats are not AUDIO_LOCKED (the narration text is then split at . ? !)."""
+    tpath = Path(project_dir) / "script" / "timing.json"
+    if doc.get("timing_mode") != "AUDIO_LOCKED" or not tpath.is_file():
+        return None
+    return {b["id"]: [s["text"] for s in b.get("sentences", [])] for b in json.loads(tpath.read_text()).get("beats", [])}
+
+
 def norm_word(text):
     return re.sub(r"[^a-z0-9']", "", text.lower().replace("’", "'"))
 

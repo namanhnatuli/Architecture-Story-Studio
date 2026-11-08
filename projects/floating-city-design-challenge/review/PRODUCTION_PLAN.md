@@ -58,4 +58,28 @@
   - Neo và dây neo mang ghi chú "conceptual …, not sized"; độ võng dây là hình vẽ, không phải dây xích tính toán.
   - Test: `tests/test_floating_family.py` (15): số bộ phận khớp `checks.expected_counts` cho mọi spec; mớn nước và bước sàn khớp `results.json`; khối đặc chứa đúng lượng bê tông của thân; cọc và neo theo đáy của site; quận ngoài khơi không có đường về bờ. Toàn bộ 438 test đạt; đánh giá planner 32/32.
   - **Ghi chú cho L4:** ở khung nhìn toàn vịnh, cầu dẫn, dây neo và hạ tầng rất mảnh. Các beat nói về chúng (B27–B31) cần camera gần hoặc làm nổi bật.
-- **L4:** tiếp theo.
+- **L4: xong (2026-11-08).**
+  - Hình của 44 beat nằm ở `script/visuals.py` (cảnh 3D: bước SEQUENCE theo từ của lời dẫn; 17 card) và `script/cards.py` (công cụ vẽ card). `story.py` chỉ ghép vào `visual_beats.json`; lời dẫn không đổi một byte (`narration.json` so khớp trước và sau).
+  - Mọi độ dịch và góc lấy từ `analysis/results.json`: chìm 0,332 m (B09); đáy hạ 0,5 m rồi nổi lên 0,436 m tới mạn khô 1,146 m (B10); tải 100 t dời 15 m, nghiêng 0,421° (B11).
+  - Asset bổ sung:
+    - vạch mạn khô vàng trên mặt cắt (phần nổi trên nước chính là mạn khô, như prototype P6);
+    - phao 3D có khối tải 100 t và bốn phao lân cận (B11–B12, `floating_platform_a_story_01`);
+    - khu có cả cọc và dây neo để B24 đổi cọc sang dây (`floating_neighbourhood_both_01`);
+    - mô-đun bán chìm đặt cạnh phao hộp 40 m (B33);
+    - cáp và ống trên đáy biển về phía bờ ngoài khung (B31, quận ngoài khơi).
+  - `floating_platform_a_01` trở lại đúng Design A (3 tầng, không phần thân thêm) vì B33–B34 dùng nó nguyên trạng.
+  - Bốn preset camera của họ nổi (`FLOAT_AERIAL`, `FLOAT_THREE_QUARTER`, `FLOAT_SECTION`, `FLOAT_UNDERWATER`); hai preset sau ẩn mặt đất môi trường (nó nằm ngay dưới mặt nước).
+  - Thay đổi so với storyboard đã duyệt, cần chủ kênh biết:
+    - B23 thành card mặt đứng đúng góc dốc (nước, phao trên cọc, cầu dẫn 25 m quay quanh khớp bờ). Lý do: site không có nước nâng hạ được; nếu chỉ nâng phao thì phao nhô khỏi nước.
+    - B36 thành card hai mép nước (công cộng / rào riêng): không có asset rào.
+    - B33 là một cảnh SEQUENCE (phao hộp, rồi mô-đun bán chìm hiện lên cạnh), không phải SIDE_BY_SIDE: site 320 m làm hai mô hình quá nhỏ để đọc.
+    - B11 dùng phao ở trạng thái cuối B10 (4 tầng, thân sâu), đúng hướng "B12 làm mờ tầng 4 và phần thân thêm". Góc nghiêng 0,42° được tính cho bản 3 tầng; bản 4 tầng thân 4,5 m cho khoảng 0,44°. Cả hai đều "khoảng 0,4°" và "dưới nửa độ" như lời dẫn.
+  - Sửa engine và planner (có test):
+    - MOVE tức thời ở đầu shot giữ ngay từ khung 1;
+    - khóa đầu mỗi bước lấy đúng trạng thái tại thời điểm bắt đầu (trước đây bộ phận trôi khoảng 0,05 mm suốt đoạn giữ, làm hỏng nhãn bám bộ phận);
+    - bộ kiểm chú thích và bộ kiểm lời–hình đếm câu theo `timing.json` (câu kết bằng dấu phẩy là một câu riêng);
+    - "gray water", "black water" là thuật ngữ, không phải tên màu (`config/annotation_style.json` → `colour_terms`);
+    - OSCILLATE phải có NOTE đúng nguyên văn nhãn chuyển động khái niệm suốt beat; riêng nhãn này được dài hơn giới hạn 52 ký tự.
+  - Kết quả: `plan-visuals` thực thi được (44/44, 784 s), `validate-plan` đạt. Đánh giá planner 33/33 (thêm FLOAT-SEQ-03). 454 test đạt.
+  - Cảnh báo còn lại (không chặn): khai báo intent khác gợi ý từ khóa ở sáu beat; xử lý khi review toàn phim.
+- **L5:** tiếp theo.

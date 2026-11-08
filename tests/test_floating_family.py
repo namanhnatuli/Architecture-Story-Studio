@@ -36,7 +36,7 @@ class PlatformTest(unittest.TestCase):
         comps = floating.platform(params(section=1))
         for c in comps:
             lo, _ = semantic.union_bbox([c])
-            if c.type not in ("SECTION_CUT", "DISPLACED_VOLUME", "WATER"):
+            if c.type not in ("SECTION_CUT", "DISPLACED_VOLUME", "WATER", "MARKER"):   # plates and the marker sit on the cut
                 self.assertGreaterEqual(lo[1], -1e-9, c.id)
         types = {c.type for c in comps}
         self.assertTrue({"SECTION_CUT", "DISPLACED_VOLUME", "WATER"} <= types)
@@ -200,6 +200,58 @@ class LibraryVariantsTest(unittest.TestCase):
         self.assertTrue({"MOORING_LINE", "ANCHOR"} <= types)
         self.assertFalse(types & {"LINK_SPAN", "ACCESS_ROUTE", "MOORING_PILE"})
         self.assertEqual(data["site"], "asset_library/architecture/sites/site_open_sea_01.json")
+
+
+class StoryPartsTest(unittest.TestCase):
+    """Parts added for the story's shots (production layer L4)."""
+
+    def setUp(self):
+        self.res = json.loads(RESULTS.read_text())
+
+    def test_freeboard_marker_shows_the_freeboard_above_the_water(self):
+        p = params(section=1)
+        comps = {c.id: c for c in floating.platform(p)}
+        (x0, y0, z0), (x1, y1, z1) = semantic.union_bbox([comps["freeboard_marker"]])
+        self.assertAlmostEqual(z1, p["hull_depth_m"] - p["draft_m"], places=6)          # level with the deck
+        self.assertGreater(z1 - z0, max(s["freeboard_m"] for s in self.res["storey_branch"]["steps"]))   # reaches below the water in every state
+        self.assertLess(y1, 0.0)                                                      # on the cut face
+        self.assertGreater(y0, floating.CUT_Y[1])                                     # behind the water's cut plate
+        self.assertAlmostEqual(x0, p["length_m"] / 2, places=6)                       # against the hull's side
+
+    def test_story_platform_has_the_tilt_examples_load_and_four_neighbours(self):
+        data, p = spec("floating_platform_a_story_01")
+        comps = floating.platform(p)
+        load = next(c for c in comps if c.type == "LOAD")
+        (x0, y0, z0), (x1, y1, z1) = semantic.union_bbox([load])
+        self.assertAlmostEqual((x1 - x0) * (y1 - y0) * (z1 - z0) * floating.LOAD_DENSITY_T_M3, self.res["list_example"]["w_t"], delta=0.5)
+        moved = (x0 + self.res["list_example"]["d_m"], x1 + self.res["list_example"]["d_m"])
+        for c in comps:   # the 15 m slide runs along the street: it never meets a building
+            if c.type == "BUILDING" and c.group.startswith("storey"):
+                (bx0, by0, _), (bx1, by1, _) = semantic.union_bbox([c])
+                self.assertFalse(moved[0] < bx1 and moved[1] > bx0 and y0 < by1 and y1 > by0, c.id)
+        self.assertEqual({c.group for c in comps if c.group.startswith("neighbour")}, {f"neighbour{k}" for k in (1, 2, 3, 4)})
+
+    def test_neighbourhood_with_both_moorings(self):
+        _, p = spec("floating_neighbourhood_both_01")
+        types = [c.type for c in floating.neighbourhood(p)]
+        self.assertEqual((types.count("MOORING_PILE"), types.count("MOORING_LINE"), types.count("ANCHOR")), (10, 10, 10))
+
+    def test_semi_sub_stays_above_the_seabed_beside_design_a(self):
+        data, p = spec("floating_semi_sub_01")
+        comps = floating.semi_sub(p)
+        for c in comps:
+            self.assertGreater(semantic.union_bbox([c])[0][2], -p["water_depth_m"], c.id)
+        self.assertEqual(floating.COMPARE_BOX_DRAFT, self.res["design_A"]["mid"]["draft_m"])
+        self.assertTrue(assets.compatibility_errors("floating", "semi_sub", dict(p, pontoon_depth_m=12.0, pontoon_height_m=6.0)))
+
+    def test_offshore_district_has_links_to_a_distant_shore_on_the_seabed(self):
+        data, p = spec("floating_district_offshore_01")
+        links = [c for c in floating.district(p) if c.id.startswith("shore_link_")]
+        self.assertEqual({c.meta["network"] for c in links}, {"power", "water", "wastewater"})
+        for c in links:
+            (x0, y0, z0), _ = semantic.union_bbox([c])
+            self.assertAlmostEqual(z0, -p["depth_far_m"], places=6)   # lying on the seabed
+            self.assertLess(y0, -p["shore_link_m"] + p["shore_gap_m"] + 1.0)
 
 if __name__ == "__main__":
     unittest.main()

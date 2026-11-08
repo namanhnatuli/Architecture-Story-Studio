@@ -19,22 +19,23 @@
     "bulkhead_m": 0.2,
     "bulkhead_spacing_m": 10.0,
     "building_cover": 0.4,
-    "storeys": 4,
+    "storeys": 3,
     "storey_height_m": 3.0,
-    "extension_m": 0.5,
+    "extension_m": 0.0,
     "water_depth_m": 15.0,
     "section": 0
   },
   "visual_style": "premium_stylized",
   "accuracy": "ILLUSTRATIVE",
   "provenance": {
-    "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon. draft_m 2.958 is the three-storey case of analysis/results.json (design_A.mid); the fourth storey and the 0.5 m hull extension are parts the story reveals, and their sinking and rising are applied as SEQUENCE MOVE steps with the offsets of analysis/results.json (storey_branch). Not an engineering design; wall and slab thicknesses only serve the mass estimate.",
+    "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon with three-storey homes at its calculated draft (draft_m 2.958, analysis/results.json design_A.mid). The story's fourth storey and deeper hull are shown on floating_platform_a_section_01 and floating_platform_a_story_01. Not an engineering design; wall and slab thicknesses only serve the mass estimate.",
     "draft_source": "projects/floating-city-design-challenge/analysis/results.json design_A.mid.draft_m"
   },
   "animation_support": [
-    "HOLD",
-    "HIGHLIGHT",
     "EXPLODED_VIEW",
-    "SEQUENCE"
+    "HIGHLIGHT",
+    "HOLD",
+    "SEQUENCE",
+    "SIDE_BY_SIDE"
   ]
 }

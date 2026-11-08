@@ -629,6 +629,9 @@
       "where": {
         "section": {
           "max": 0
+        },
+        "test_load": {
+          "max": 0
         }
       },
       "site": "bay_site",
@@ -880,6 +883,56 @@
         "access_route"
       ],
       "label": "emergency routes"
+    },
+    "test_load": {
+      "kind": "component",
+      "roles": [
+        "load"
+      ],
+      "label": "100 t load",
+      "description": "Floating family: a concrete block of a stated mass that the story slides toward the platform's edge (tilt example)."
+    },
+    "freeboard_marker": {
+      "kind": "component",
+      "roles": [
+        "marker"
+      ],
+      "label": "freeboard",
+      "description": "Floating family, section: a gold bar on the hull's side; the water's cut plate hides it below the waterline, so the part that shows is the freeboard."
+    },
+    "neighbourhood_both_moorings": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "neighbourhood",
+      "where": {
+        "moorings": "both"
+      },
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Neighbourhood with piles and mooring lines"
+    },
+    "floating_platform_story": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "platform",
+      "where": {
+        "section": {
+          "max": 0
+        },
+        "test_load": {
+          "min": 1
+        }
+      },
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Floating platform with a 100 t test load and four neighbours"
+    },
+    "column": {
+      "kind": "component",
+      "roles": [
+        "column"
+      ],
+      "label": "columns"
     }
   }
 }

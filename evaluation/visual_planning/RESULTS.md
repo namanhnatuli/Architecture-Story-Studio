@@ -1,13 +1,13 @@
 # Visual-planning evaluation (M5.5)
 
-32/32 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
+33/33 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
 
 | Dimension | Checks passed |
 |---|---|
 | narrative_relevance | 32/32 |
 | asset_selection | 9/9 |
 | target_selection | 25/25 |
-| animation_suitability | 19/19 |
+| animation_suitability | 21/21 |
 | camera_readability | 5/5 |
 | target_visibility | 9/9 |
 | timing_feasibility | 2/2 |
@@ -18,14 +18,14 @@
 | Kind | Cases passed |
 |---|---|
 | positive | 14/14 |
-| negative | 9/9 |
+| negative | 10/10 |
 | ambiguous | 3/3 |
 | missing_capability | 6/6 |
 
 | Family | Cases passed |
 |---|---|
 | bridge | 24/24 |
-| floating | 2/2 |
+| floating | 3/3 |
 | roof | 6/6 |
 
 ## Cases
@@ -173,3 +173,6 @@
 - **FLOAT-SEQ-02** (negative, floating) Conceptual motion (OSCILLATE) without the mandatory label is refused, never shown as if simulated: **PASS**
   - ok [animation_suitability] status INVALID_REQUEST (want INVALID_REQUEST)
   - ok [animation_suitability] report mentions 'motion_label'
+- **FLOAT-SEQ-03** (negative, floating) Conceptual motion with the label but no on-screen NOTE is refused: the label must be seen for the whole beat: **PASS**
+  - ok [animation_suitability] status INVALID_REQUEST (want INVALID_REQUEST)
+  - ok [animation_suitability] report mentions 'NOTE'
