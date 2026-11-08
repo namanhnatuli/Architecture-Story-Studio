@@ -61,14 +61,25 @@ class ScenarioAndEvidenceTest(unittest.TestCase):
             self.assertTrue(f.get("basis"), name)
         self.assertEqual(c["fields"]["proposed_population"]["class"], "DESIGN_ASSUMPTION")
 
-    def test_no_claim_is_approved_and_every_claim_is_classified(self):
+    def test_only_the_owners_approval_approves_claims_and_every_claim_is_classified(self):
         s = json.loads((P / "research" / "sources.json").read_text())
+        approval = json.loads((P / "research" / "editorial_approval.json").read_text())
+        narration = json.loads((P / "script" / "narration.json").read_text())
+        used = {c for b in narration["beats"] for c in b["claim_ids"]}
+        self.assertEqual(set(approval["claims"]), used)                       # exactly the narrated claims
+        self.assertEqual(approval["narration_revision"], narration["revision"]["version"])
+        for c in s["claims"]:
+            approved = c["review_status"] == "EDITORIALLY_APPROVED"
+            self.assertEqual(approved, c["id"] in approval["claims"], c["id"])
+            if approved:
+                self.assertEqual(c["editorial_approval"]["approved_by"], "Tran Nam Anh (channel owner)")
         external = {"ESTABLISHED_FACT", "SPECULATIVE_PROPOSAL", "UNVERIFIED"}
         studio = {"CALCULATED_ESTIMATE": {"SRC_STUDIO_DESIGN_MODEL"}, "DESIGN_ASSUMPTION": {"SRC_STUDIO_SCENARIO"}}
         self.assertTrue(s["claims"])
         for c in s["claims"]:
-            self.assertEqual(c["review_status"], "SOURCE_VERIFIED", c["id"])
-            self.assertNotIn("editorial_approval", c)
+            if c["id"] not in approval["claims"]:
+                self.assertEqual(c["review_status"], "SOURCE_VERIFIED", c["id"])
+                self.assertNotIn("editorial_approval", c)
             if c["evidence_class"] in studio:   # the Studio's numbers and assumptions cite only the Studio's own files
                 self.assertEqual(set(c["source_ids"]), studio[c["evidence_class"]], c["id"])
             else:

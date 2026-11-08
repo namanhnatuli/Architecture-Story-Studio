@@ -447,14 +447,42 @@ CLAIMS += [
 ]
 
 
+def apply_owner_approval(out):
+    """The owner's editorial decision (research/editorial_approval.json, a human record never written by this script) is
+    applied on top: only for the same narration revision and only to claims whose text is unchanged since."""
+    import hashlib
+    path = Path(out).parent / "editorial_approval.json"
+    approval = json.loads(path.read_text()) if path.is_file() else None
+    revision = json.loads((HERE.parent / "script/narration.template.json").read_text())["revision"]["version"]
+    if approval and approval.get("narration_revision") != revision:
+        print(f"editorial approval of narration {approval.get('narration_revision')} does not cover {revision}: NOT applied")
+        return None
+    if approval:
+        texts_sha = approval.get("claims_text_sha256", {})
+        for c in CLAIMS:
+            if c["id"] not in approval["claims"]:
+                continue
+            if texts_sha.get(c["id"]) != hashlib.sha256(c["text"].encode()).hexdigest():
+                print(f"{c['id']}: claim text changed since the approval; approval NOT applied")
+                continue
+            c["review_status"] = "EDITORIALLY_APPROVED"
+            c["caveat"] = f"Editorially approved {approval['approved_on']} for narration {approval['narration_revision']}."
+            c["editorial_approval"] = {k: approval[k] for k in ("approved_by", "approved_on", "narration_revision", "basis")}
+    return approval
+
+
 def main(out):
+    approval = apply_owner_approval(out)
     ids = [c["id"] for c in CLAIMS]
     assert len(ids) == len(set(ids)), "duplicate claim id"
     known = {s["id"] for s in SOURCES}
     for c in CLAIMS:
         assert set(c["source_ids"]) <= known, c["id"]
-    doc = {"note": "Floating-city concept evidence registry (concept stage). Excerpts verified verbatim against research/snapshots/ "
-                   "by research/build_sources.py. Nothing here is editorially approved.",
+    doc = {"note": "Floating-city evidence registry. Excerpts verified verbatim against research/snapshots/ (and the Studio's own "
+                   "analysis/RESULTS.md and concept/SCENARIO_CONTRACT.md) by research/build_sources.py. "
+                   + (f"{sum(c['review_status'] == 'EDITORIALLY_APPROVED' for c in CLAIMS)} narrated claims editorially approved by "
+                      f"{approval['approved_by']} on {approval['approved_on']} for narration {approval['narration_revision']}."
+                      if approval else "Nothing here is editorially approved."),
            "evidence_classes": ["ESTABLISHED_FACT", "CALCULATED_ESTIMATE", "DESIGN_ASSUMPTION", "SPECULATIVE_PROPOSAL", "UNVERIFIED"],
            "studio_sources": ["SRC_STUDIO_DESIGN_MODEL", "SRC_STUDIO_SCENARIO"],
            "sources": SOURCES, "claims": CLAIMS}

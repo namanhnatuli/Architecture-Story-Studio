@@ -41,12 +41,65 @@
       ]
     },
     {
+      "id": "APP-SCRIPT-LOCK",
+      "subject": "narration c-r2 (44 beats, 126 sentences, 13:03 measured)",
+      "scope": "floating-city-design-challenge",
+      "source_revision": {
+        "narration_revision": "c-r2",
+        "narration_sha256": "976bb7c21a9c18489ef9ca8e233a2eab47e932dcf981cb50631a3e803a9afe8b"
+      },
+      "decision": "LOCKED: the owner chose 'Chốt c-r2 + duyệt 50 claim'",
+      "date": "2026-11-08",
+      "evidence": "owner's answers in session, 2026-11-08, to the agent's three questions",
+      "conditions": "length kept at about 13 minutes (owner's c-r1 review)",
+      "invalidation": "any change of the narration text or audio (narration hash) needs a new lock",
+      "records": [
+        "script/narration.template.json status/revision"
+      ]
+    },
+    {
+      "id": "APP-CLAIMS",
+      "subject": "the 50 claims cited by the c-r2 narration (after CLM_012 and CLM_022 were narrowed, commit 3749b8d)",
+      "scope": "floating-city-design-challenge",
+      "source_revision": {
+        "narration_revision": "c-r2",
+        "narration_sha256": "976bb7c21a9c18489ef9ca8e233a2eab47e932dcf981cb50631a3e803a9afe8b",
+        "record": "research/editorial_approval.json (claims_text_sha256)"
+      },
+      "decision": "EDITORIALLY_APPROVED",
+      "date": "2026-11-08",
+      "evidence": "owner's answers in session, 2026-11-08, to the agent's three questions",
+      "conditions": "Studio calculations (CALCULATED_ESTIMATE) and scenario assumptions (DESIGN_ASSUMPTION) stay labelled illustrative; not a certified engineering design",
+      "invalidation": "a changed claim text or another narration revision",
+      "records": [
+        "research/editorial_approval.json",
+        "research/sources.json review_status",
+        "project.json factual_review"
+      ]
+    },
+    {
+      "id": "DEC-B18-KEEP",
+      "subject": "B18 'one Amsterdam resident feels it most on her upper floor'",
+      "scope": "narration c-r2",
+      "decision": "KEEP as written (the owner chose 'Giữ nguyên'); CLM_022 carries the source's scope and tense",
+      "date": "2026-11-08",
+      "evidence": "owner's answers in session, 2026-11-08, to the agent's three questions"
+    },
+    {
+      "id": "REQ-START-PRODUCTION",
+      "subject": "start of production after the script lock",
+      "scope": "floating-city-design-challenge",
+      "decision": "START NOW (the owner chose 'Bắt đầu ngay'): floating asset family, bay site, section, SINK/RISE, TILT, CONCEPT_MOTION, then a narrated excerpt 'add load -> sink -> fix hull' for the owner's review before the whole film",
+      "date": "2026-11-08",
+      "evidence": "owner's answers in session, 2026-11-08, to the agent's three questions"
+    },
+    {
       "id": "NOTE-NOT-RECORDED",
       "subject": "what this record does not contain",
       "scope": "floating-city-design-challenge",
-      "decision": "NOT RECORDED: locking script c-r2, the editorial approval of the claims, images and credits, AI disclosure wording, publication. The c-r2 review proposed locking c-r2 and approving 50 claims after two claim fixes; the owner's own approval in that message named the voice and the pronunciation only.",
+      "decision": "NOT RECORDED: images and credits, AI-disclosure wording, the closing call to action on screen, the publication profile, publication",
       "date": "2026-11-08",
-      "evidence": "owner instruction in session, 2026-11-08: 'tôi duyệt giọng am_michael và Phát âm \"Schoonschip\"', after review/SCRIPT_REVIEW.md (c-r2) and the c-r2 narration preview"
+      "evidence": "—"
     }
   ]
 }
