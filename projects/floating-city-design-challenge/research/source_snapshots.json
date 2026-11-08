@@ -1,0 +1,161 @@
+{
+  "note": "Source downloads used to verify research/sources.json. Files are not committed (third-party copyright); re-download into research/snapshots/ (git-ignored), compare SHA256, re-extract text (research/html2text.py for HTML; pdftotext -layout for PDF; BIG page: embedded JSON text blocks), then run research/build_sources.py. A different SHA256 means the excerpts must be re-checked.",
+  "snapshots": [
+    {
+      "source_id": "SRC_SM_SCHOONSCHIP",
+      "url": "https://www.spaceandmatter.nl/project/schoonschip",
+      "file": "web/schoonschip_spaceandmatter.html",
+      "bytes": 31272,
+      "sha256": "4689d1dae2b0b448d14d3d516021642cc5e91c9bbf0f131a07b60fe0754c6a19",
+      "downloaded": "2026-11-08",
+      "text": "web/schoonschip_spaceandmatter.txt"
+    },
+    {
+      "source_id": "SRC_SCHOONSCHIP_ORG",
+      "url": "https://schoonschipamsterdam.org/en/",
+      "file": "web/schoonschip_org.html",
+      "bytes": 239474,
+      "sha256": "23d4aa0ea0523d7f3f4948210acf60483247b20b45ecb0b1a3b4e3f19513e6b4",
+      "downloaded": "2026-11-08",
+      "text": "web/schoonschip_org.txt"
+    },
+    {
+      "source_id": "SRC_STEDENBOUW_FLOATS_2019",
+      "url": "https://stedenbouw.nl/en/?p=2869",
+      "file": "web/stedenbouw_2869.html",
+      "bytes": 326149,
+      "sha256": "59c78c2479d69b148bb1c04e05bc286d2431ef57f7f07d67e4ac8472aa2f414f",
+      "downloaded": "2026-11-08",
+      "text": "web/stedenbouw_2869.txt"
+    },
+    {
+      "source_id": "SRC_STEDENBOUW_LAUNCH_2019",
+      "url": "https://stedenbouw.nl/en/?p=2852",
+      "file": "web/stedenbouw_2852.html",
+      "bytes": 329353,
+      "sha256": "1e86c5490a543ef5ebc51897682542761b84674dced2473030b76c770b345e0d",
+      "downloaded": "2026-11-08",
+      "text": "web/stedenbouw_2852.txt"
+    },
+    {
+      "source_id": "SRC_YALE_E360_2021",
+      "url": "https://e360.yale.edu/features/the-dutch-flock-to-floating-homes-embracing-a-wetter-future",
+      "file": "web/yale_e360_floating_homes.html",
+      "bytes": 55914,
+      "sha256": "87d0a05c0b4a28cc1a9148eabddcf68d5df27a98e3619af52b4d8a53427300fe",
+      "downloaded": "2026-11-08",
+      "text": "web/yale_e360_floating_homes.txt"
+    },
+    {
+      "source_id": "SRC_BIG_OCEANIX_BUSAN",
+      "url": "https://big.dk/projects/oceanix-busan-4711",
+      "file": "web/oceanix_big.html",
+      "bytes": 479223,
+      "sha256": "17638de9d0ceb278042276d77e830c0eb635beeedc2cb29e77707daabfcc2216",
+      "downloaded": "2026-11-08",
+      "text": "web/oceanix_big_textblocks.txt"
+    },
+    {
+      "source_id": "SRC_OCEANIX_NEWS",
+      "url": "https://oceanix.com/news/",
+      "file": "web/oceanix_news.html",
+      "bytes": 119768,
+      "sha256": "420181da09ffd3ef625d3d71eb587865c4c341e0072bacace06d69b0364216e3",
+      "downloaded": "2026-11-08",
+      "text": "web/oceanix_news.txt"
+    },
+    {
+      "source_id": "SRC_NCOMMS_2026_TEN_QUESTIONS",
+      "url": "https://www.nature.com/articles/s41467-026-77492-2",
+      "file": "web/nature_ten_questions_2026.html",
+      "bytes": 293405,
+      "sha256": "45ff8756cd8970a02c62b7c15e5659d5356fb553ef4d208003766aa2071c6e6d",
+      "downloaded": "2026-11-08",
+      "text": "web/nature_ten_questions_2026.txt"
+    },
+    {
+      "source_id": "SRC_CEE_2026_RUZZO",
+      "url": "https://www.nature.com/articles/s43247-026-03218-3",
+      "file": "web/nature_floating_city_planning_2026.html",
+      "bytes": 464663,
+      "sha256": "7916f9d64a3a161f4e5958235f9d5e114fe143a9b721248db2d489fc544cd09f",
+      "downloaded": "2026-11-08",
+      "text": "web/nature_floating_city_planning_2026.txt"
+    },
+    {
+      "source_id": "SRC_OPENSTAX_UP1_14_4",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy",
+      "file": "web/openstax_up1_14_4.html",
+      "bytes": 314671,
+      "sha256": "06c2abb6373b0e8efbf1927241e67d08550d25f7f1da70659fb72a23093bb635",
+      "downloaded": "2026-11-08",
+      "text": "web/openstax_up1_14_4.txt"
+    },
+    {
+      "source_id": "SRC_TUDELFT_OHM_HYDROSTATICS",
+      "url": "https://ocw.tudelft.nl/wp-content/uploads/1.OffshoreHydromech1_IntroHydrostaticsStability.pdf",
+      "file": "web/tudelft_offshore_hydromech_intro_hydrostatics.pdf",
+      "bytes": 1931305,
+      "sha256": "798e0167ec0611bfaf9e32a8726b8d75071af3e117cc7705eb8d8eff1a198b47",
+      "downloaded": "2026-11-08",
+      "text": "web/tudelft_offshore_hydromech_intro_hydrostatics.txt"
+    },
+    {
+      "source_id": "SRC_TUDELFT_OHM_STABILITY",
+      "url": "https://ocw.tudelft.nl/wp-content/uploads/2.OffshoreHydromech1_FloatingStability.pdf",
+      "file": "web/tudelft_offshore_hydromech_floating_stability.pdf",
+      "bytes": 1405786,
+      "sha256": "60be25e8c770c67f37b1f43bee80f191f16ccbbc245b5f3a659a7e74ae975942",
+      "downloaded": "2026-11-08",
+      "text": "web/tudelft_offshore_hydromech_floating_stability.txt"
+    },
+    {
+      "source_id": "SRC_MIT_13012_READING3",
+      "url": "https://web.mit.edu/13.012/www/handouts/2003/Reading3.pdf",
+      "file": "web/mit_13012_reading3.pdf",
+      "bytes": 245300,
+      "sha256": "f6ed1c6f05d90caea2046f926630f8820d241bc5eac9f0c47d559711c695597c",
+      "downloaded": "2026-11-08",
+      "text": "web/mit_13012_reading3.txt"
+    },
+    {
+      "source_id": "SRC_OPENSTAX_UP1_14_1",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+      "file": "web/openstax_up1_14_1.html",
+      "bytes": 406958,
+      "sha256": "b4c7c0677748bc127f2a2b532535e4929ca0ae2f11ff6d57304b12f6447ab6ef",
+      "downloaded": "2026-11-08",
+      "text": "web/openstax_up1_14_1.txt"
+    }
+  ],
+  "not_used": [
+    {
+      "url": "https://unhabitat.org/news/27-apr-2022/un-habitat-and-partners-unveil-oceanix-busan-the-worlds-first-prototype-floating",
+      "reason": "HTTP 403 to automated access on 2026-11-08; not read and no archived copy used. The BIG project page reports the same unveiling."
+    },
+    {
+      "url": "https://js.big.dk/projects/oceanix-busan-4711",
+      "reason": "connection failed on 2026-11-08; the same project page was read at https://big.dk/projects/oceanix-busan-4711"
+    },
+    {
+      "url": "https://www.busan.go.kr/eng/bsnews01/1512891",
+      "reason": "connection failed on 2026-11-08; not read"
+    },
+    {
+      "url": "https://doi.org/10.1016/j.proeng.2011.07.007 (Wang & Tay 2011, Very large floating structures: applications, research and development, Procedia Engineering 14)",
+      "reason": "HTTP 403 on the publisher's PDF on 2026-11-08; not read. Wanted for VLFS precedents (Mega-Float) and hydroelasticity."
+    },
+    {
+      "url": "https://www.usna.edu/NAOE/_files/documents/Courses/EN400/EN400_Course_Notes_Summer_2020.pdf",
+      "reason": "connection timed out on 2026-11-08; not read. TU Delft and MIT course material used instead."
+    },
+    {
+      "url": "https://www.studiomatrx.org/guides/oceanix-city",
+      "reason": "seen only as a search snippet (July 2026, 'agreement signed; not yet built'); secondary commentary, not read or cited."
+    },
+    {
+      "url": "Bikker, Fishman & Wang (2024) preprint, worldwide mapping of floating urban development potential (2.6 billion people)",
+      "reason": "cited by the Nature Communications comment; the preprint was not read, so the figure is not used."
+    }
+  ]
+}

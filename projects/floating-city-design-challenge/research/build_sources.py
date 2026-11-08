@@ -1,0 +1,372 @@
+"""Build research/sources.json for the floating-city concept (python3 research/build_sources.py research/sources.json).
+
+Every excerpt is matched verbatim (whitespace-normalised) against the downloaded source text in research/snapshots/
+(git-ignored; URLs and SHA256 in research/source_snapshots.json). Concept stage: nothing here is editorially
+approved. Each claim carries `evidence_class` (concept brief, section 16):
+
+  ESTABLISHED_FACT      what a source reports about the physical world or a built project
+  SPECULATIVE_PROPOSAL  what a developer or a research concept proposes (not demonstrated performance)
+  UNVERIFIED            a status we could not confirm from a primary source (worded as such)
+
+CALCULATED_ESTIMATE and DESIGN_ASSUMPTION live in analysis/ and concept/scenario_contract.json, never here.
+"""
+import json
+import os
+import re
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+S = Path(os.environ.get("FLOATING_SOURCE_SNAPSHOTS", HERE / "snapshots"))
+TEXT = {
+    "SRC_SM_SCHOONSCHIP": "web/schoonschip_spaceandmatter.txt",
+    "SRC_SCHOONSCHIP_ORG": "web/schoonschip_org.txt",
+    "SRC_STEDENBOUW_FLOATS_2019": "web/stedenbouw_2869.txt",
+    "SRC_STEDENBOUW_LAUNCH_2019": "web/stedenbouw_2852.txt",
+    "SRC_YALE_E360_2021": "web/yale_e360_floating_homes.txt",
+    "SRC_BIG_OCEANIX_BUSAN": "web/oceanix_big_textblocks.txt",
+    "SRC_OCEANIX_NEWS": "web/oceanix_news.txt",
+    "SRC_NCOMMS_2026_TEN_QUESTIONS": "web/nature_ten_questions_2026.txt",
+    "SRC_CEE_2026_RUZZO": "web/nature_floating_city_planning_2026.txt",
+    "SRC_OPENSTAX_UP1_14_4": "web/openstax_up1_14_4.txt",
+    "SRC_OPENSTAX_UP1_14_1": "web/openstax_up1_14_1.txt",
+    "SRC_TUDELFT_OHM_HYDROSTATICS": "web/tudelft_offshore_hydromech_intro_hydrostatics.txt",
+    "SRC_TUDELFT_OHM_STABILITY": "web/tudelft_offshore_hydromech_floating_stability.txt",
+    "SRC_MIT_13012_READING3": "web/mit_13012_reading3.txt",
+}
+texts = {k: (S / v).read_text(encoding="utf-8") for k, v in TEXT.items()}
+
+
+def _pat(word):
+    out = ""
+    for ch in word:
+        if ch in "'’‘":
+            out += "['’‘]"
+        elif ch in '"“”':
+            out += '["“”]'
+        elif ch in "-–—":
+            out += "[-–—]"
+        else:
+            out += re.escape(ch)
+    return out
+
+
+def find(src, excerpt):
+    """The source's own wording of the excerpt, whitespace-normalised (SystemExit when absent)."""
+    m = re.search(r"\s+".join(_pat(w) for w in excerpt.split()), texts[src])
+    if not m:
+        raise SystemExit(f"NOT FOUND in {src}: {excerpt[:90]}")
+    return re.sub(r"\s+", " ", m.group(0))
+
+
+HTML = ("HTML downloaded 2026-11-08; text extracted with research/html2text.py (scripts/styles stripped, entities "
+        "unescaped, whitespace collapsed); every excerpt matched verbatim.")
+PDF = "PDF downloaded 2026-11-08; text extracted with pdftotext -layout; every excerpt matched verbatim (whitespace-normalised)."
+CITE = "Quoted for research/citation only."
+SOURCES = [
+    {"id": "SRC_SM_SCHOONSCHIP", "title": "Schoonschip: A sustainable floating community (project page)",
+     "publisher": "Space&Matter (urban planning of Schoonschip)", "kind": "architect's project page (primary for the project, promotional)",
+     "url": "https://www.spaceandmatter.nl/project/schoonschip", "accessed": "2026-11-08", "verification": HTML,
+     "notes": "Gives 'Officially finished in 2021'; the residents' site says the houses were finalised in 2020. Both are quoted.",
+     "license": CITE},
+    {"id": "SRC_SCHOONSCHIP_ORG", "title": "Schoonschip Amsterdam (residents' foundation website, English pages)",
+     "publisher": "Stichting Schoonschip", "kind": "community's own website (primary for how the neighbourhood works; self-description)",
+     "url": "https://schoonschipamsterdam.org/en/", "accessed": "2026-11-08", "verification": HTML,
+     "notes": "Some statements are plans ('in the nearby future'); those are not used as completed facts.", "license": CITE},
+    {"id": "SRC_STEDENBOUW_FLOATS_2019", "title": "Schoonschip | Concrete floats form the foundation of project Schoonschip",
+     "publisher": "Stedenbouw (Dutch construction trade magazine), interview with Hercules Floating Concrete", "edition": "2019-07-16",
+     "kind": "trade press", "url": "https://stedenbouw.nl/en/residential-and-commercial-construction/clean-ship-concrete-floats-form-the-foundation-of-project-clean-ship/",
+     "accessed": "2026-11-08", "verification": HTML, "license": CITE},
+    {"id": "SRC_STEDENBOUW_LAUNCH_2019", "title": "Europe's most sustainable floating neighborhood is in Amsterdam North",
+     "publisher": "Stedenbouw (Dutch construction trade magazine), interview with Bouwbedrijf van Middendorp and Dutch Lotus",
+     "edition": "2019-07-16", "kind": "trade press",
+     "url": "https://stedenbouw.nl/en/residential-and-commercial-construction/in-law-amsterdam/", "accessed": "2026-11-08",
+     "verification": HTML, "notes": "Gives the heaviest home as 350,000 kg; the floats article gives 340 tons. Both are quoted.",
+     "license": CITE},
+    {"id": "SRC_YALE_E360_2021", "title": "The Dutch Flock to Floating Homes, Embracing a Wetter Future",
+     "publisher": "Yale Environment 360 (Yale School of the Environment)", "edition": "2021-12-07", "kind": "environmental journalism",
+     "url": "https://e360.yale.edu/features/the-dutch-flock-to-floating-homes-embracing-a-wetter-future", "accessed": "2026-11-08",
+     "verification": HTML, "notes": "General statements about Dutch floating homes; the 65 m poles refer to another designer's homes, not Schoonschip.",
+     "license": CITE},
+    {"id": "SRC_BIG_OCEANIX_BUSAN", "title": "OCEANIX Busan (project page)", "publisher": "BIG – Bjarke Ingels Group",
+     "kind": "architect's project page (design proposal; promotional)", "url": "https://big.dk/projects/oceanix-busan-4711",
+     "accessed": "2026-11-08",
+     "verification": "HTML downloaded 2026-11-08; the project text sits in the page's embedded JSON text blocks, extracted to "
+                     "oceanix_big_textblocks.txt; every excerpt matched verbatim.",
+     "notes": "Describes a proposed design. Performance statements are proposals, not demonstrated results.", "license": CITE},
+    {"id": "SRC_OCEANIX_NEWS", "title": "OCEANIX news page (list of articles and coverage)", "publisher": "OCEANIX",
+     "kind": "developer's news list (used only to check project status)", "url": "https://oceanix.com/news/", "accessed": "2026-11-08",
+     "verification": HTML, "notes": "Page footer reads 'Copyright 2024'; the list has no construction report. Absence of a report is not proof that nothing happened.",
+     "license": CITE},
+    {"id": "SRC_NCOMMS_2026_TEN_QUESTIONS", "title": "Ten critical questions for scaling up floating developments",
+     "publisher": "Nature Communications 17 (Comment), E. A. MacAfee, T. J. Bouma, M. A. van den Brink, J. van der Zanden, C. Weiler, F. Spaargaren, R. de Graaf-van Dinther, O. Waals",
+     "edition": "published online 2026-09-03; DOI 10.1038/s41467-026-77492-2", "kind": "peer-reviewed journal comment (open access, CC BY 4.0)",
+     "url": "https://www.nature.com/articles/s41467-026-77492-2", "accessed": "2026-11-08", "verification": HTML,
+     "notes": "A research agenda (questions), not a design or a measurement. Its 2.6-billion-people figure comes from a 2024 preprint and is not used.",
+     "license": "CC BY 4.0 (article); quoted for research/citation."},
+    {"id": "SRC_CEE_2026_RUZZO", "title": "Rethinking and comprehensive planning of the floating city concept",
+     "publisher": "Communications Earth & Environment 7, 196; C. Ruzzo, M. L. Cacurri, F. Arena", "edition": "published 2026-01-23; DOI 10.1038/s43247-026-03218-3",
+     "kind": "peer-reviewed research article (open access, CC BY-NC-ND 4.0); a concept study with simplified estimates",
+     "url": "https://www.nature.com/articles/s43247-026-03218-3", "accessed": "2026-11-08", "verification": HTML,
+     "notes": "A 50,000-inhabitant satellite (offshore) concept. Its solar-energy sentence is internally inconsistent (68 MW, 3.6–5.4 GWh/yr, 16.3–24.5%) and is not used. Its statement that OCEANIX Busan was 'expected to be completed within 2025' is a forecast quoted from others.",
+     "license": "CC BY-NC-ND 4.0 (article); quoted for research/citation."},
+    {"id": "SRC_OPENSTAX_UP1_14_4", "title": "University Physics Volume 1, 14.4 Archimedes' Principle and Buoyancy",
+     "publisher": "OpenStax (Rice University)", "kind": "open university textbook", "accessed": "2026-11-08",
+     "url": "https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy", "verification": HTML,
+     "license": CITE},
+    {"id": "SRC_OPENSTAX_UP1_14_1", "title": "University Physics Volume 1, 14.1 Fluids, Density, and Pressure (Tables 14.1 and 14.2)",
+     "publisher": "OpenStax (Rice University)", "kind": "open university textbook", "accessed": "2026-11-08",
+     "url": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+     "verification": HTML + " The tables render each value twice (MathML and text), e.g. '2.40×1032.40×103'; excerpts keep that form.",
+     "license": "CC BY-NC-SA 4.0 (textbook); quoted for research/citation only."},
+    {"id": "SRC_TUDELFT_OHM_HYDROSTATICS", "title": "Offshore Hydromechanics, Module 1, part 1: Introduction, hydrostatics and stability (lecture slides)",
+     "publisher": "TU Delft OpenCourseWare (P. de Jong)", "kind": "university lecture slides (offshore engineering)",
+     "url": "https://ocw.tudelft.nl/wp-content/uploads/1.OffshoreHydromech1_IntroHydrostaticsStability.pdf", "accessed": "2026-11-08",
+     "verification": PDF, "license": CITE},
+    {"id": "SRC_TUDELFT_OHM_STABILITY", "title": "Offshore Hydromechanics, Module 1, part 2: Hydrostatics and stability (lecture slides)",
+     "publisher": "TU Delft OpenCourseWare (P. de Jong)", "kind": "university lecture slides (offshore engineering)",
+     "url": "https://ocw.tudelft.nl/wp-content/uploads/2.OffshoreHydromech1_FloatingStability.pdf", "accessed": "2026-11-08",
+     "verification": PDF, "license": CITE},
+    {"id": "SRC_MIT_13012_READING3", "title": "13.012 Hydrodynamics for Ocean Engineers, Reading #3 (hydrostatics and stability), v2.2",
+     "publisher": "Massachusetts Institute of Technology (course handout, 2003)", "kind": "university course handout",
+     "url": "https://web.mit.edu/13.012/www/handouts/2003/Reading3.pdf", "accessed": "2026-11-08", "verification": PDF, "license": CITE},
+]
+
+
+def claim(cid, cls, text, evidence, applies, visual, assumptions="", confidence="high"):
+    ev = [{"source_id": s, "locator": loc, "excerpt": find(s, ex)} for s, loc, ex in evidence]
+    return {"id": cid, "text": text, "evidence_class": cls, "source_ids": sorted({e["source_id"] for e in ev}),
+            "review_status": "SOURCE_VERIFIED", "confidence": confidence, "evidence": ev,
+            "assumptions": assumptions or "None beyond the quoted wording.", "applies_to": applies, "components": [],
+            "intended_visual": visual,
+            "scope": "qualitative; illustrative models; no loads, stresses, motions, mooring forces or safety margins beyond quoted facts",
+            "caveat": "Concept stage: not editorially approved."}
+
+
+F, P, U = "ESTABLISHED_FACT", "SPECULATIVE_PROPOSAL", "UNVERIFIED"
+SM, ORG, FL, LA, Y = "SRC_SM_SCHOONSCHIP", "SRC_SCHOONSCHIP_ORG", "SRC_STEDENBOUW_FLOATS_2019", "SRC_STEDENBOUW_LAUNCH_2019", "SRC_YALE_E360_2021"
+BIG, NC, RZ = "SRC_BIG_OCEANIX_BUSAN", "SRC_NCOMMS_2026_TEN_QUESTIONS", "SRC_CEE_2026_RUZZO"
+OS, TH, TS, MIT = "SRC_OPENSTAX_UP1_14_4", "SRC_TUDELFT_OHM_HYDROSTATICS", "SRC_TUDELFT_OHM_STABILITY", "SRC_MIT_13012_READING3"
+CLAIMS = [
+    # ---- physics: floating
+    claim("CLM_001", F, "A floating object is pushed up by a force equal to the weight of the water it displaces (Archimedes' principle).",
+          [(OS, "14.4, Archimedes' Principle box", "The buoyant force on an object equals the weight of the fluid it displaces."),
+           (TH, "Hydrostatics slide", "The weight of an floating body is equal to the weight of the fluid it displaces")],
+          ["physics"], "Platform cutaway: displaced-water volume drawn under the waterline"),
+    claim("CLM_002", F, "Shape decides whether something floats: a lump of clay sinks, the same clay shaped like a boat floats, and so do steel ships.",
+          [(OS, "Density and Archimedes' Principle", "If you drop a lump of clay in water, it will sink. But if you mold the same lump of clay into the shape of a boat, it will float."),
+           (OS, "Density and Archimedes' Principle", "The same is true of steel ships.")],
+          ["physics"], "Solid block sinks; same material as a hollow hull floats"),
+    claim("CLM_003", F, "A loaded vessel sits deeper in the water than the same vessel unloaded.",
+          [(OS, "Figure 14.22 discussion", "the unloaded ship has a lower density and less of it is submerged compared with the same ship when loaded")],
+          ["physics"], "Same platform, more load, waterline rises up the hull"),
+    claim("CLM_004", F, "Offshore engineering course material uses a seawater density of 1025 kg per cubic metre and g = 9.81 m/s² for displacement.",
+          [(TH, "Hydrostatics, displacement slide", "Density [kg/m3] 1025"), (TH, "Hydrostatics, displacement slide", "Gravity accel. [m/s2] 9.81")],
+          ["physics"], "None on screen (input of analysis/design_model.py)",
+          assumptions="Seawater density varies with temperature and salinity; 1025 kg/m3 is the course's reference value, used as the scenario's design value."),
+    claim("CLM_008", F, "Reference densities: concrete about 2,400 kg/m³, fresh water at 20 °C about 998 kg/m³, sea water at 0 °C about 1,030 kg/m³.",
+          [("SRC_OPENSTAX_UP1_14_1", "Table 14.1", "Concrete 2.40×1032.40×103"),
+           ("SRC_OPENSTAX_UP1_14_1", "Table 14.2", "Water (20°C)(20°C) 9.982×1029.982×102"),
+           ("SRC_OPENSTAX_UP1_14_1", "Table 14.2", "Sea water (0°C)(0°C) 1.030×1031.030×103")],
+          ["physics"], "None on screen (inputs of analysis/design_model.py)",
+          assumptions="Textbook reference values; real concrete mixes and sea water vary. The scenario uses 1025 kg/m3 for sea water (CLM_004) and 1000 kg/m3 for canal water (rounded)."),
+    claim("CLM_005", F, "Initial stability is described by the metacentric height GM = KB + BM − KG: the centre of buoyancy, the metacentre and the centre of gravity, measured from the keel.",
+          [(TS, "Floating stability, metacenter height slide", "GM = KB + BM - KG"),
+           (TS, "slide 10, initial stability", "For small heeling angles (<5 to 10 degrees):")],
+          ["physics"], "Section: G, B and M marked on the platform; G rises when buildings are added",
+          assumptions="Slide 10 gives BM = It/∇ for small angles and slide 15 gives It = LB³/12 for a rectangular waterplane "
+                      "(stacked formulas, not matchable as text; read on the PDF). For a box barge this gives BM = B²/(12T), "
+                      "used in analysis/design_model.py."),
+    claim("CLM_009", F, "Moving a weight sideways on a floating body makes it list until the shifted centre of gravity is balanced: for small angles GM = w·d / (W·tan θ). A vessel can also be excessively stable.",
+          [(MIT, "inclining experiment", "Take a vessel floating on the free surface and place a weight directly over the center of gravity. The ship will settle slightly deeper into the water but not roll."),
+           (MIT, "after the formula", "where w is the mass of the weight (lbs), d is the distance (inches) the weight is moved, W is the displacement of the vessel (lbs) and tan θ is the tangent of the roll (list) angle."),
+           (MIT, "after the formula", "Larger values can make a ship excessively stable.")],
+          ["physics"], "A load moves to the platform edge; the platform tilts slightly (angle from analysis/design_model.py, labelled illustrative)",
+          assumptions="Ship-design guidance; the film uses the relation, not the ship GM rule of thumb (3–5% of beam)."),
+    claim("CLM_006", F, "The metacentre idea holds only for small angles; beyond about 10 to 15 degrees of heel engineers need the full righting-arm (GZ) curve.",
+          [(MIT, "VII. Metacenter", "The concept of the metacenter is only really valid for small angles of motion."),
+           (TS, "Floating stability, large angles", "For large heeling angles (> 10 to 15 degrees)"),
+           (TS, "Floating stability, large angles", "Need of more accurate description: GZ curve")],
+          ["physics"], "Card: 'small angles only' caveat beside the GM diagram"),
+    claim("CLM_007", F, "A large metacentric height makes a vessel 'stiff' in roll, with a large righting moment for small roll angles; a small metacentric height lets it roll slowly.",
+          [(MIT, "Metacentric height", "If the metacentric height is large, then the vessel is considered to be “stiff” in roll – indicating that there will be a large righting moment as a result of small roll angles. In contrast, if the metacentric height is small then the ship rolls slowly due to a smaller righting arm.")],
+          ["physics"], "Two sections side by side: wide platform (stiff) vs narrow hull",
+          assumptions="The source describes ships. The film may only say that more stability is not the same as more comfort; no motion numbers."),
+    # ---- the built precedent: Schoonschip
+    claim("CLM_010", F, "Schoonschip in Amsterdam is a floating neighbourhood of 46 households on 30 water plots; its houses were finished in 2020 and the neighbourhood was officially finished in 2021.",
+          [(SM, "project text", "Officially finished in 2021, the neighborhood comprises 30 water plots with 46 unique homes"),
+           (ORG, "home page", "we live with 46 households, on 30 arks."),
+           (ORG, "timeline", "In the year 2020 all floating houses at Schoonschip were finalised.")],
+          ["schoonschip"], "Real-world anchor card (photo only if licensed; otherwise a captioned schematic)",
+          assumptions="The two sources give 2020 (houses finalised) and 2021 (officially finished); the film says 'finished in 2020–2021' or names both."),
+    claim("CLM_011", F, "Schoonschip is home to a little more than 100 residents.",
+          [(ORG, "about", "Schoonschip offers a place of residence for 46 households and a bit more than 100 residents, in all ages.")],
+          ["schoonschip"], "Scale comparison: about 100 residents vs the 10,000-person scenario"),
+    claim("CLM_012", F, "Each Schoonschip home sits on a concrete float built of double-reinforced concrete floors and walls.",
+          [(FL, "paragraph 1", "Every new home, ark or office on the water starts with a concrete hull."),
+           (FL, "paragraph 2", "The floats consist of double-reinforced concrete floors and walls, on which the contracting parties built the homes."),
+           (LA, "Van der Zande quote", "At the base of each home are a concrete float and a wood-frame construction structure")],
+          ["schoonschip"], "Exploded view: house lifted off its concrete float"),
+    claim("CLM_013", F, "The heaviest Schoonschip home weighs about 340 to 350 tonnes (two builders' figures).",
+          [(FL, "last paragraph", "The heaviest house - with a total weight of 340 tons - was placed in the water in early May."),
+           (LA, "launch paragraph", "the heaviest home weighs 350,000 kilograms")],
+          ["schoonschip"], "Number card beside the float; displaced-water cube (analysis/design_model.py)",
+          assumptions="Two sources, two values; the film says 'about 340 to 350 tonnes' and does not pick one."),
+    claim("CLM_014", F, "The Schoonschip homes were built on the quay, launched and towed to their plots in the canal; their floats were too big and heavy for the dry docks of traditional ark builders.",
+          [(LA, "Van Selm quote", "We chose to build all the water homes on the quay and then launch them"),
+           (FL, "Gieskens quote", "In fact, due to their size and weight, the floats did not fit in the dry docks of traditional ark builders."),
+           (LA, "launch paragraph", "On May 11, all the water homes sailed to their final destination")],
+          ["schoonschip"], "Construction logistics card"),
+    claim("CLM_015", F, "A shared 'smart jetty' connects all Schoonschip homes and carries the neighbourhood's technical infrastructure.",
+          [(SM, "project text", "The smart jetty, connecting all homes, fosters both technical infrastructure and community interaction")],
+          ["schoonschip"], "Jetty in section: walkway above, utility lines below"),
+    claim("CLM_016", F, "Schoonschip's 46 households share one connection to the national grid; every house has solar panels, a battery and a link to a shared smart grid.",
+          [(ORG, "energy", "We generate our own electricity with photovoltaic solar panels."),
+           (ORG, "energy", "Each house has a big battery that stores temporary surpluses."),
+           (ORG, "energy", "All the houses are connected to our smartgrid."),
+           (ORG, "energy", "With 46 households we have only one connection to the national energy grid.")],
+          ["schoonschip"], "Utility diagram: many homes, one cable to shore"),
+    claim("CLM_017", F, "Schoonschip separates grey water from black water; turning the black water into energy in a floating digester was described as a planned pilot.",
+          [(ORG, "water", "We have separate streams for the disposal of grey water (from the shower, washing machine and so on) and black water (from the toilets)."),
+           (ORG, "water", "In a pilot in cooperation with Waternet in the nearby future the black water will be transposed to a floating processor (a digester)")],
+          ["schoonschip"], "Two coloured pipes leaving a home",
+          assumptions="The digester is a plan on the residents' site; the film must not present it as operating."),
+    claim("CLM_018", F, "Most Schoonschip homes heat and cool with heat pumps that draw on the canal water, through collectors built into the bottom of the floats.",
+          [(ORG, "energy", "The pumps extract warmth from the water in the canal"),
+           (FL, "Gieskens quote", "The heat pump collector and all source pipes are integrated into the bottom of our floats.")],
+          ["schoonschip"], "Cutaway: pipes in the float bottom"),
+    # ---- floating homes in general (Dutch practice)
+    claim("CLM_020", F, "Dutch floating homes are usually fixed in place, often against steel poles, and connected to the sewer and power grid on land.",
+          [(Y, "paragraph on houseboats", "Unlike houseboats, which can easily be unmoored and relocated, floating homes are fixed to the shore, often resting on steel poles, and are usually connected to the local sewer system and power grid.")],
+          ["floating_homes_nl"], "Mooring poles beside a floating home; water level moves, home slides"),
+    claim("CLM_021", F, "Instead of a basement, a Dutch floating home has a concrete hull that acts as a counterweight and keeps it stable.",
+          [(Y, "paragraph on construction", "instead of a basement, they have a concrete hull that acts as a counterweight, allowing them to remain stable in the water.")],
+          ["floating_homes_nl"], "Section: heavy hull low, light house above"),
+    claim("CLM_022", F, "Residents feel floating homes move in storms and in the wakes of large ships, most on upper floors.",
+          [(Y, "paragraph on motion", "Severe wind and rainstorms, or even the passing of large cruise ships, can make the buildings rock."),
+           (Y, "resident quote", "stormy weather made her think twice before venturing up to her third-floor kitchen, where she felt the movement the most.")],
+          ["floating_homes_nl"], "Conceptual motion visualization (labelled), no amplitudes"),
+    claim("CLM_023", F, "Connecting floating homes to the grid and sewer needs extra infrastructure, such as waterproof cables and pumps.",
+          [(Y, "paragraph on infrastructure", "Floating homes also require extra infrastructure and work to connect to the electricity grid and sewer system, with special waterproof cords and pumps needed to link to municipal services on higher ground.")],
+          ["floating_homes_nl"], "Shore connection detail"),
+    # ---- the proposal: OCEANIX Busan
+    claim("CLM_030", P, "OCEANIX Busan, designed by BIG with SAMOO, was unveiled at the United Nations in April 2022 as a prototype for a floating community.",
+          [(BIG, "text block 1", "prototype for a resilient and sustainable floating community. The project was unveiled at the Second UN Roundtable on Sustainable Floating Cities at The United Nations in April 2022")],
+          ["oceanix_busan"], "Card: 'proposal (2022)' label; no promotional render as evidence"),
+    claim("CLM_031", P, "As designed, OCEANIX Busan's interconnected platforms total 15.5 acres for a community of 12,000 people, in three neighbourhoods for living, research and lodging, linked to land by link-span bridges around a sheltered lagoon.",
+          [(BIG, "text block 3", "Located off the coast of Busan, the interconnected platforms total 15.5 acres for a community of 12,000 people. Each neighborhood is designed to serve a specific purpose – living, research, and lodging."),
+           (BIG, "text block 3", "The floating platforms connect to land with link-span bridges, framing the sheltered blue lagoon")],
+          ["oceanix_busan"], "Schematic plan (Studio drawing, labelled 'as proposed')",
+          assumptions="Design figures; 12,000 is 'residents and visitors' elsewhere on the same page."),
+    claim("CLM_032", P, "OCEANIX Busan's designers say its systems will generate all of its operational energy on site from floating and rooftop solar panels.",
+          [(BIG, "text block 4", "These interconnected systems will generate 100% of the required operational energy on site through floating and rooftop photovoltaic panels.")],
+          ["oceanix_busan"], "Quoted as a design claim, never as a result"),
+    claim("CLM_033", U, "We found no official report that construction of OCEANIX Busan has started: the developer's news page lists plans and press coverage (latest footer 2024), and a 2026 study still described it as expected, with a 2025 completion date that has passed.",
+          [(RZ, "Introduction", "Oceanix Busan (South Korea) and Maldives Floating City (Maldives) are the most mature projects, expected to be completed within 2025 and 2027, respectively."),
+           ("SRC_OCEANIX_NEWS", "news list", "South Korea hopes to build sustainable floating city by 2025")],
+          ["oceanix_busan"], "Card: 'Status (checked Nov 2026): not reported as built'",
+          assumptions="Absence of a report is not proof; the film says 'as far as we could find' and dates the check.", confidence="medium"),
+    # ---- research agenda (Nature Communications 2026)
+    claim("CLM_040", F, "Researchers define large-scale floating developments as one platform or several linked platforms of at least 20 hectares.",
+          [(NC, "introduction", "We define large-scale floating developments as an individual large platform or multiple linked platforms comprising at least 20 hectares")],
+          ["research"], "Scale bar: Schoonschip, OCEANIX Busan (proposed), 20 ha threshold, scenario"),
+    claim("CLM_041", F, "Floating structures can follow changing water levels and can be relocated or repurposed, which land reclamation cannot.",
+          [(NC, "introduction", "floating structures can adapt to fluctuating water levels, they can be easily decommissioned, relocated, or repurposed")],
+          ["research"], "Tide/water level rises, platform rises with it"),
+    claim("CLM_042", F, "Large floating developments face a complex hydro-elastic response, stress concentrations at connectors and high global environmental loads; reducing global and mooring loads, for example with dissipative floating breakwaters, is a key need.",
+          [(NC, "question 4", "Large floating developments encounter novel design challenges such as a complex hydro-elastic motion response, stress concentrations on connectors, and high global environmental loads."),
+           (NC, "question 4", "Key enablers are innovations that reduce global and mooring loads (e.g., dissipative floating breakwaters)")],
+          ["research"], "Connectors highlighted between modules; breakwater appears"),
+    claim("CLM_043", F, "Large floating developments must connect sewage, power cables and roads to land, or develop off-grid alternatives.",
+          [(NC, "question 4", "Civil engineers and urban designers will also face challenges in connecting civil infrastructure, such as sewage, power cables, and roads, to land or developing off-grid alternatives.")],
+          ["research"], "Utility network reveal: shore links vs on-platform systems"),
+    claim("CLM_044", F, "Large floating developments will affect local ecology far more than small ones: light, shade and water flow change, and non-native species, corrosion, waste and biofouling need study.",
+          [(NC, "question 5", "Any large-scale floating development will impact local ecology far more than current small-scale developments."),
+           (NC, "question 5", "changes to light, shade, and hydrodynamics require further study, as do colonization by non-native species, corrosion, management of waste, and prevention of biofouling.")],
+          ["research"], "Shadow under the platform on the seabed"),
+    claim("CLM_045", F, "How large floating developments fit existing spatial policy, legislation and regulation is not yet known.",
+          [(NC, "question 6", "Governance of large-scale floating developments is highly complex."),
+           (NC, "question 6", "it is not yet known how and to what extent large floating developments can be integrated into existing spatial policy, legislation, and regulations")],
+          ["research"], "Card"),
+    claim("CLM_046", F, "Floating urbanisation risks serving the wealthy and enclosing water that used to be common public space.",
+          [(NC, "question 9", "inequalities by catering to the needs of the wealthy, relying on exploitative supply chains, displacing or leaving behind marginalized groups, or causing enclosure of water which has previously been common public space.")],
+          ["research"], "Card"),
+    claim("CLM_047", F, "Utopian floating-city visions often lack attention to the challenges of a specific place.",
+          [(NC, "introduction", "they often lack attention to context-specific challenges")],
+          ["research"], "Opening: the shiny render is questioned"),
+    claim("CLM_048", F, "Choosing a site for a floating development means weighing competition for space, distance from land, cost, social acceptance and governance, not only water depth, waves and wind.",
+          [(NC, "question 2", "environmental conditions like water depth, wave height, and wind."),
+           (NC, "question 2", "location selection should also take into account issues such as competition for space, distance from land, financial feasibility, social acceptance and readiness, and governance.")],
+          ["research"], "Site-selection map (schematic)"),
+    # ---- concept study (Communications Earth & Environment 2026)
+    claim("CLM_050", P, "A 2026 floating-city concept study places its city ideally in a limited-fetch sea area, near a gulf, strait or archipelago, for moderate waves and water depth and an easier link to the mainland.",
+          [(RZ, "Results, first paragraph", "The ideal installation site would be a limited-fetch sea area in the exclusive economic zones (EEZ) of a coastal/island state, e.g., in proximity of a gulf, a strait, or an archipelago, to draw on moderate wave action and water depth, and facilitate the connection with the mainland.")],
+          ["ruzzo_2026"], "Site comparison: sheltered bay vs open sea"),
+    claim("CLM_051", F, "Floating breakwaters may not be enough against the longer waves of exposed sea areas, from storms or long swells.",
+          [(RZ, "Discussion, resilience", "floating breakwaters may not be sufficient to adequately mitigate the longer waves typically occurring in exposed sea areas, due to local storms or long-transmitting swells.")],
+          ["ruzzo_2026"], "Open-ocean counterfactual: long swell passes a floating breakwater (conceptual, labelled)",
+          assumptions="From the study's simplified preliminary assessment; the film says 'may not be enough', never 'cannot'."),
+    claim("CLM_052", F, "Predicting how much wave energy passes a floating breakwater is complex and partly unresolved.",
+          [(RZ, "Discussion, resilience", "Being the characterization of the wave transmission behind a floating breakwater a complex and partly unresolved task")],
+          ["ruzzo_2026"], "Card"),
+    claim("CLM_053", F, "Describing how very large floating structures bend and flex in waves (hydro-elasticity) is complex and partly an open challenge; common linear software neglects or simplifies non-linear effects such as connector behaviour under large displacements.",
+          [(RZ, "Discussion", "The representation of the hydro-elastic dynamic behavior of such Very Large Floating Structures (VLFSs) is a complex and partially open challenge."),
+           (RZ, "Methods, recommended analyses", "they neglect or simplify the nonlinear forces, and thus cannot represent accurately some key aspects, including connection behavior under large displacements")],
+          ["ruzzo_2026"], "Card: what the film's animation is not"),
+    claim("CLM_054", F, "Mooring cost depends mainly on water depth and seabed: deeper water means longer lines and deeper anchors, with costs that rise faster than the depth.",
+          [(RZ, "Methods, cost", "The mooring system cost depends mainly on the bathymetry of the installation site and on the seabed properties."),
+           (RZ, "Methods, cost", "larger water depths imply longer mooring lines and deeper anchors, with subsequent nonlinear cost increases for material and installation.")],
+          ["ruzzo_2026"], "Underwater reveal: lines lengthen as the seabed drops"),
+    claim("CLM_055", P, "The study proposes redundant, compliant moorings (shared catenary or taut lines) for its inner modules, and puts residential modules inside, behind modules where larger motions are tolerated.",
+          [(RZ, "Discussion", "The mooring system of the internal modules is conceived as redundant and compliant, made up of shared catenary and/or taut lines."),
+           (RZ, "Discussion", "the residential modules are placed internally, being further protected by the special ones, where larger motions and accelerations are tolerated.")],
+          ["ruzzo_2026"], "Design C layout logic: homes inside, service modules outside"),
+    claim("CLM_056", P, "In the study's layout, platforms are flexibly connected and kept apart so that modules do not touch and their connections are not overloaded.",
+          [(RZ, "Results", "juxtaposed at a certain distance (~30 m) and flexibly connected between each other."),
+           (RZ, "Discussion", "to avoid contacts between modules and overloading in their connections.")],
+          ["ruzzo_2026"], "Connector close-up: gap + flexible link (conceptual)"),
+    claim("CLM_062", P, "For its offshore city the 2026 concept study uses semi-submersible inner modules on compliant moorings, with the deck raised above the sea on columns, behind a moored floating barrier.",
+          [(RZ, "Results", "The inner city modules are compliantly-moored, semi-submersible floaters, with the deck raised above the sea level by interconnected slenderer floating elements (columns)."),
+           (RZ, "Results", "The floating city is made up of two main modular components: the external protection barrier, and the inner urban conglomerate.")],
+          ["ruzzo_2026"], "Design D: the box pontoon is replaced by a column-stabilised hull (schematic, labelled 'concept study')"),
+    claim("CLM_057", P, "The study's 50,000-inhabitant concept uses square functional modules about 300 m on a side, each for about 3,000 people, sixteen of them in all.",
+          [(RZ, "Results", "The functional modules are square, with ~300 m-long sides"),
+           (RZ, "Results", "for a total of ~1500 inhabitants"),
+           (RZ, "Results", "The 50,000-inhabitants sample city is made up of sixteen square functional modules")],
+          ["ruzzo_2026"], "Scale comparison only (analysis/design_model.py derives the deck area per person)",
+          assumptions="~1500 inhabitants per triangular module, two per square module (Results)."),
+    claim("CLM_058", P, "The study estimates its 50,000-person city would use about 470 GWh of final energy a year under conservative hypotheses, nearly half of it for local food production.",
+          [(RZ, "Results", "The estimated total floating city final energy consumption under conservative hypotheses is ~470.3 GWh/yr."),
+           (RZ, "Results", "Food production is the most energy-intensive activity (~47.5%)")],
+          ["ruzzo_2026"], "Not planned for narration; context for the autonomy discussion",
+          assumptions="Depends on the study's autonomy goal (local food and water); not a requirement of the Studio scenario."),
+    claim("CLM_059", F, "Reinforced concrete in seawater suffers chloride-induced corrosion of the steel bars, which can compromise safety and need expensive repairs; dedicated standards for floating cities are currently absent.",
+          [(RZ, "Methods, cost", "the steel bars are subject to chloride-induced corrosion, which may compromise the structural safety and require expensive repairs during the life cycle of the structure"),
+           (RZ, "Methods, cost", "the current absence of dedicated standards and recommendations in the regulatory framework")],
+          ["ruzzo_2026"], "Maintenance chapter: inspection of the hull"),
+    claim("CLM_060", F, "A floating city prototype designed by Kikutake was built for the Okinawa International Ocean Exhibition in 1975 and dismissed in 2000.",
+          [(RZ, "Introduction", "designed by Kikutake for the Okinawa International Ocean Exhibition (Japan, 1975) and dismissed in 2000.")],
+          ["history"], "Timeline card (no photo unless licensed)", confidence="medium",
+          assumptions="Single secondary mention in a 2026 article; a primary source should be added before narration."),
+    claim("CLM_061", F, "Published information on floating-city projects is scarce, often not justified and sometimes contradictory, because the most mature concepts are proprietary.",
+          [(RZ, "Introduction", "the available information are scarce, often not adequately justified, and sometimes contradictory. This is because the most mature concepts are proprietary, while few peer-reviewed research articles on the topic are available.")],
+          ["research"], "Card: why the film builds its own transparent scenario"),
+]
+
+
+def main(out):
+    ids = [c["id"] for c in CLAIMS]
+    assert len(ids) == len(set(ids)), "duplicate claim id"
+    known = {s["id"] for s in SOURCES}
+    for c in CLAIMS:
+        assert set(c["source_ids"]) <= known, c["id"]
+    doc = {"note": "Floating-city concept evidence registry (concept stage). Excerpts verified verbatim against research/snapshots/ "
+                   "by research/build_sources.py. Nothing here is editorially approved.",
+           "evidence_classes": ["ESTABLISHED_FACT", "CALCULATED_ESTIMATE", "DESIGN_ASSUMPTION", "SPECULATIVE_PROPOSAL", "UNVERIFIED"],
+           "sources": SOURCES, "claims": CLAIMS}
+    Path(out).write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"WROTE {out}: {len(SOURCES)} sources, {len(CLAIMS)} claims, all excerpts verbatim")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1] if len(sys.argv) > 1 else HERE / "sources.json")

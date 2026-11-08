@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.11.0 — 2026-11-08 — Concept phim mới: "Could We Build an Entire City That Floats?"
+- **Dự án concept mới `projects/floating-city-design-challenge`** (nhánh `concept-floating-city-design-challenge`). Đây là giai đoạn tiền sản xuất, không có kịch bản hay render sản xuất. Dừng ở buổi duyệt concept của chủ kênh.
+- **Nghiên cứu:**
+  - 14 nguồn, 48 claim, mọi trích dẫn khớp nguyên văn với bản tải về (`research/build_sources.py`).
+  - Mỗi claim có `evidence_class` (ESTABLISHED_FACT, SPECULATIVE_PROPOSAL, UNVERIFIED).
+  - Nguồn chặn tải hoặc không đọc được ghi ở `not_used`; không dùng bản lưu trữ để lách.
+- **Hợp đồng kịch bản máy đọc** (`concept/scenario_contract.json`): mỗi giá trị có loại và căn cứ.
+- **Mô hình tính minh bạch** (`analysis/design_model.py`, stdlib):
+  - tính lực nổi, mớn nước, khoang, GM góc nhỏ, độ nhạy, quy mô, đánh đổi kích thước phao, dốc cầu;
+  - nêu rõ những gì mô hình không chứng nhận.
+- **Prototype hình độc lập** (`prototype/floating_prototype.py`): mặt cắt Archimedes, so sánh tải, khu ba phao, lộ cọc và dây neo dưới nước. Lỗi tìm thấy và bài học ghi ở `concept/PROTOTYPE_REPORT.md`.
+- **Test:** `tests/test_floating_city_concept.py` (7 test).
+- **`PROJECT_STATUS.md`:** cập nhật trạng thái hiện tại của cả ba dự án.
+
 ## 0.10.7 — 2026-11-07 — Phim Gothic: duyệt của chủ kênh, bản final 4K, kinh nghiệm chung
 - **Chủ kênh duyệt bản g-r9 để render final 4K** và chọn bốn nhóm: 54 claim; giọng `am_michael` và phát âm; ảnh, ghi công và công bố AI; lời kêu gọi cuối và ngoại lệ chương 8. Agent ghi đúng các mục được chọn: `research/editorial_approval.json`, `config/tts_providers.json` (giọng cho dự án), `voice.license`, `voice.pronunciation_review`, `script/pronunciation.json`, `review/OWNER_APPROVALS.json`. Profile `PUBLICATION_CANDIDATE`; `final-gate` đạt.
 - **`variety_exception` trong `project.json`** (`pipeline/chapters.py`): một chuỗi cùng loại hình dài hơn ngưỡng chung chỉ khi chủ kênh ghi quyết định; báo cáo QA nêu rõ. Ngưỡng chung 4 không đổi.

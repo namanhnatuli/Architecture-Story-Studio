@@ -1,23 +1,30 @@
 # Current project status
 
-## Phim đang làm: `gothic-cathedral-heights` (2026-11-06, nhánh `episode-gothic-cathedral-heights`)
+## Concept đang làm: `floating-city-design-challenge` (2026-11-08, nhánh `concept-floating-city-design-challenge`)
 
-- **Trạng thái: chờ chủ kênh xem đoạn thử g-r4 (vòm gân và trụ chống bay, 1:18).**
-  - Chủ kênh nhận xét bản g-r3 vẫn là bản dựng sơ bộ và đề nghị một đoạn thử 60–90 giây để duyệt chất lượng hình trước khi áp cho cả phim. Chưa có gì được duyệt.
-  - Chưa render 4K, chưa có ảnh thật, chưa đăng.
-- **Đoạn thử:** `projects/gothic-cathedral-heights/output/pilot/gothic_cathedral_heights_PILOT_G_R4_INTERNAL_REVIEW_720p.mp4` (có tiếng đá) và `…_no_sfx.mp4`, kèm `.en.srt` (ngoài git). Ghi chú: `projects/gothic-cathedral-heights/review/PILOT_REVIEW_G_R4.md`.
-- **Bản g-r3 đầy đủ** (`output/gothic_cathedral_heights_G_R3_INTERNAL_REVIEW_720p.mp4`, 15:23) vẫn còn, nhưng **không còn khớp với kế hoạch hình hiện tại**:
-  - B12, B13, B16, B17 đã chuyển sang shot `SEQUENCE`;
-  - engine và `config/visual_style.json` đổi, nên cả 47 shot phải render lại khi làm bản đầy đủ tiếp theo.
-- **Mới trong pipeline** (dùng lại được):
-  - shot `SEQUENCE` (camera chuyển giữa các khung, bộ phận mờ đi, hiện ra, phát sáng theo từ của lời dẫn);
-  - mặt vòm chia dải (`web_courses`), hai gân chéo riêng;
-  - preset `CATHEDRAL_VAULT_BELOW`, `CATHEDRAL_TRANSVERSE`;
-  - âm thanh tổng hợp (`pipeline/sound.py`) và công cụ ghép đoạn trích `tools/excerpt.py`.
-- **Revision lời dẫn vẫn là g-r3:** 10 chương, 46 beat, 136 câu, 1.964 từ. Lời dẫn và timing không đổi.
-- **Nghiên cứu và lời dẫn:** như g-r3. 35 nguồn, 56 claim `SOURCE_VERIFIED`, phim dùng 53. Giọng `am_michael` chưa được duyệt cho dự án này; 6 mục phát âm đang `PENDING_LISTENING_REVIEW`. Agent không phải kỹ sư kết cấu.
-- **Việc của chủ kênh:** xem đoạn thử (cả hai bản), trả lời mục "Cần bạn quyết định" trong `PILOT_REVIEW_G_R4.md`. Các quyết định của g-r3 trong `review/SCRIPT_REVIEW_NOTES.md` vẫn đang chờ.
-- **Làm tiếp:** `python3 tools/episode.py status --project gothic-cathedral-heights`. Lưu ý: lệnh này còn đọc báo cáo của bản g-r3 đầy đủ.
+- **Trạng thái: gói concept xong, chờ chủ kênh duyệt.** Không có kịch bản, lời dẫn hay asset sản xuất; không claim nào được duyệt.
+- **Bắt đầu đọc:** `projects/floating-city-design-challenge/concept/CONCEPT_REVIEW.md`.
+- **Nội dung gói:**
+  - ba hướng kể có bảng điểm; đề xuất C → A + D;
+  - hợp đồng kịch bản `SCN_FLOATCITY_COASTAL_01` (JSON và bản đọc);
+  - nghiên cứu kỹ thuật: 14 nguồn, 48 claim khớp nguyên văn;
+  - mô hình tính minh bạch (`analysis/design_model.py`) và test;
+  - tiến hóa thiết kế, dàn ý, storyboard (46 shot, 10:36);
+  - bản thiết kế asset, khả thi sản xuất;
+  - 6 still prototype (`renders/prototype/`, ngoài git).
+- **Việc của chủ kênh:** năm quyết định ở cuối `CONCEPT_REVIEW.md`.
+- **Năng lực engine còn thiếu cho phim này:**
+  - họ asset `floating` và site `bay`;
+  - mặt cắt;
+  - bước `SINK`/`RISE`;
+  - `CONCEPT_MOTION` có nhãn bắt buộc.
+
+## `gothic-cathedral-heights` (nhánh `episode-gothic-cathedral-heights`)
+
+- **PUBLICATION_READY** (2026-11-07): bản final 4K `output/gothic_cathedral_heights_FINAL_4K_2160p.mp4` (15:23) đạt mọi gate.
+- Đã dọn file render thử và review cũ (`docs/production/CLEANUP_REPORT.md`).
+- Description, đề xuất title và thumbnail để A/B test, tags, phụ đề: `review/YOUTUBE_DESCRIPTION.md`, `review/PUBLISHING_AB_TEST.md`, `review/YOUTUBE_TAGS.md`.
+- Đăng là quyết định của chủ kênh.
 
 ---
 
