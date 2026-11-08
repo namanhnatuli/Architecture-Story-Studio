@@ -977,6 +977,31 @@
       "caveat": "Concept stage: not editorially approved."
     },
     {
+      "id": "CLM_034",
+      "text": "When checked on 8 November 2026, the architects' (BIG) project page listed OCEANIX Busan's status as 'In Design'.",
+      "evidence_class": "ESTABLISHED_FACT",
+      "source_ids": [
+        "SRC_BIG_OCEANIX_BUSAN"
+      ],
+      "review_status": "SOURCE_VERIFIED",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source_id": "SRC_BIG_OCEANIX_BUSAN",
+          "locator": "project facts (page text)",
+          "excerpt": "Status In Design"
+        }
+      ],
+      "assumptions": "A status label on the architects' website on the date checked; BIG's other labels include 'In Construction' and 'Completed'. It says nothing about other projects worldwide.",
+      "applies_to": [
+        "oceanix_busan"
+      ],
+      "components": [],
+      "intended_visual": "Card line: 'Architects' project page, Nov 2026: In Design'",
+      "scope": "qualitative; illustrative models; no loads, stresses, motions, mooring forces or safety margins beyond quoted facts",
+      "caveat": "Concept stage: not editorially approved."
+    },
+    {
       "id": "CLM_040",
       "text": "Researchers define large-scale floating developments as one platform or several linked platforms of at least 20 hectares.",
       "evidence_class": "ESTABLISHED_FACT",
@@ -1328,7 +1353,7 @@
     },
     {
       "id": "CLM_054",
-      "text": "Mooring cost depends mainly on water depth and seabed: deeper water means longer lines and deeper anchors, with costs that rise faster than the depth.",
+      "text": "Mooring cost depends mainly on water depth and seabed properties: deeper water means longer mooring lines and deeper anchors, with non-linear increases in material and installation cost.",
       "evidence_class": "ESTABLISHED_FACT",
       "source_ids": [
         "SRC_CEE_2026_RUZZO"
@@ -1823,7 +1848,7 @@
     },
     {
       "id": "CLM_108",
-      "text": "At 40 m² of floor per resident, 10,000 people need about 33 ha of platform: about 209 platforms 40 m wide (about 48 people each), 93 at 60 m, or 34 at 100 m, each of the last weighing about 30,000 t.",
+      "text": "At 40 m² of floor per resident and with three-story homes, a 40 m platform holds about 48 people (64 with four stories); 10,000 people need about 33 ha of platform: about 209 platforms 40 m wide, 93 at 60 m, or 34 at 100 m, each of the last weighing about 30,000 t.",
       "evidence_class": "CALCULATED_ESTIMATE",
       "source_ids": [
         "SRC_STUDIO_DESIGN_MODEL"
@@ -1835,6 +1860,11 @@
           "source_id": "SRC_STUDIO_DESIGN_MODEL",
           "locator": "§4 table",
           "excerpt": "| 40 | 33.3 ha | 33.3 | 209 | 48 |"
+        },
+        {
+          "source_id": "SRC_STUDIO_DESIGN_MODEL",
+          "locator": "§6b",
+          "excerpt": "Phao 40 m: 3 tầng 48 người, 4 tầng 64 người"
         },
         {
           "source_id": "SRC_STUDIO_DESIGN_MODEL",
@@ -1858,7 +1888,7 @@
     },
     {
       "id": "CLM_109",
-      "text": "With a 2 m water-level range, the slope of a 25 m hinged bridge to shore changes by about 3 degrees either way.",
+      "text": "With the scenario's 2 m water-level range plus the change of draft between an empty and a fully loaded platform (about 0.44 m), and the shore hinge set at the middle of that combined range, the slope of a 25 m bridge changes by about 3 degrees (2.8) either way; for the water level alone it would be about 2.3 degrees.",
       "evidence_class": "CALCULATED_ESTIMATE",
       "source_ids": [
         "SRC_STUDIO_DESIGN_MODEL"
@@ -1869,15 +1899,25 @@
         {
           "source_id": "SRC_STUDIO_DESIGN_MODEL",
           "locator": "§6",
+          "excerpt": "Dải mực nước 2.0 m (giả định) cộng dao động mớn nước khi phao rỗng và đầy (0.439 m); khớp trên bờ đặt ở giữa dải tổng:"
+        },
+        {
+          "source_id": "SRC_STUDIO_DESIGN_MODEL",
+          "locator": "§6",
           "excerpt": "Cầu 25 m: dốc tối đa khoảng 2.8° mỗi chiều."
+        },
+        {
+          "source_id": "SRC_STUDIO_DESIGN_MODEL",
+          "locator": "§6",
+          "excerpt": "Cầu 25 m, chỉ mực nước: dốc tối đa khoảng 2.3° mỗi chiều."
         }
       ],
-      "assumptions": "Illustrative: an idealised concrete box in still water under the scenario's assumptions; not a design result.",
+      "assumptions": "Illustrative: an idealised concrete box in still water under the scenario's assumptions; not a design result. c-r2 (owner review): the narration names the loading and the screen shows the hinge-height assumption.",
       "applies_to": [
         "scenario"
       ],
       "components": [],
-      "intended_visual": "SH26",
+      "intended_visual": "SH23",
       "scope": "qualitative; illustrative models; no loads, stresses, motions, mooring forces or safety margins beyond quoted facts",
       "caveat": "Concept stage: not editorially approved."
     },
@@ -1993,7 +2033,7 @@
     },
     {
       "id": "CLM_125",
-      "text": "The illustrative district uses 60 m platforms, 93 of them: a middle choice, not an optimum.",
+      "text": "The illustrative district uses 60 m platforms with three-story homes (the original design, not the four-story branch), 93 of them: a middle choice, not an optimum.",
       "evidence_class": "DESIGN_ASSUMPTION",
       "source_ids": [
         "SRC_STUDIO_SCENARIO"
@@ -2004,7 +2044,7 @@
         {
           "source_id": "SRC_STUDIO_SCENARIO",
           "locator": "fields table",
-          "excerpt": "| Cỡ phao của quận | 60 × 60 m (93 phao cho khoảng 33 ha) | DESIGN_ASSUMPTION | Lựa chọn ở giữa cho bản minh họa (ít mối nối hơn phao 40 m, nhẹ hơn phao 100 m), không phải tối ưu đã tính |"
+          "excerpt": "| Cỡ phao của quận | 60 × 60 m (93 phao cho khoảng 33 ha), nhà 3 tầng | DESIGN_ASSUMPTION | Lựa chọn ở giữa cho bản minh họa (ít mối nối hơn phao 40 m, nhẹ hơn phao 100 m), không phải tối ưu đã tính |"
         }
       ],
       "assumptions": "None beyond the quoted wording.",

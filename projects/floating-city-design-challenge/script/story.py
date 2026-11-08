@@ -10,6 +10,10 @@ research/sources.json:
   - the scenario contract, concept/SCENARIO_CONTRACT.md (DESIGN_ASSUMPTION, CLM_121-125).
 Numbers from the Studio's calculation are always said as illustrative ("in this illustrative design", "about").
 
+Revision c-r2 (owner review of c-r1, 2026-11-08): B03/B40 shorter on the status of OCEANIX Busan (the architects'
+page lists it "In Design"); B12 goes back to the three-story design before scaling up; B23 names the loading behind
+the bridge slope; B15-B16 become one evolving diagram.
+
 Script review stage (docs/production/NEW_DOCUMENTARY_PLAYBOOK.md, "Khi chủ kênh muốn đọc kịch bản trước"): the visual
 fields name the strategy and the concepts the shot needs; the floating asset family does not exist yet, so
 plan-visuals is expected to report NEW_ASSET_REQUIRED for the 3D beats. Cards are not drawn yet.
@@ -58,11 +62,11 @@ beat("C1", "B03", "fact", "SHOW_CONTEXT", [
     "Floating neighborhoods are not science fiction.",
     "In Amsterdam, a floating neighborhood called Schoonschip is home to 46 households, a little over 100 people.",
     "Much larger designs exist on paper.",
-    "One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022.",
-    "When we checked the developer's and the architects' websites in November 2026, neither reported that construction had begun."],
-    claims=["CLM_010", "CLM_011", "CLM_030", "CLM_031", "CLM_033", "CLM_057"],
+    "One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022,",
+    "and when we checked in November 2026, its architects still listed it as in design."],
+    claims=["CLM_010", "CLM_011", "CLM_030", "CLM_031", "CLM_034", "CLM_057"],
     strategy="CARD", goal="Scale card: Schoonschip (built, ~100 people; schematic unless a licensed photo is approved), "
-                         "OCEANIX Busan (proposed 2022; 'status checked Nov 2026: OCEANIX news page, BIG project page')",
+                         "OCEANIX Busan (proposed 2022; 'architects' project page, Nov 2026: In Design')",
     complexity="LOW")
 beat("C1", "B04", "framing", "EXPLAIN_STRUCTURE", [
     "So let's take our city apart,",
@@ -125,11 +129,12 @@ beat("C2", "B11", "fact", "EXPLAIN_STRUCTURE", [
 
 # C3 ----------------------------------------------------------------------------------------------------------------
 beat("C3", "B12", "fact", "EXPLAIN_DESIGN_CHANGE", [
-    "A platform like this holds about fifty people.",
+    "Let's go back to the three-story version. A platform like this holds about 50 people.",
     "For 10,000, we need a lot of them.",
     "So why not simply join them all into one enormous slab?"],
     claims=["CLM_108"],
-    strategy="ASSEMBLE_IN", goal="Five platforms arrive around a small basin", concepts=["floating_platform", "bay_site"])
+    strategy="ASSEMBLE_IN", goal="The platform returns to three stories and its original hull (the fourth story and the extra hull "
+                                 "fade), then copies of it arrive around a small basin", concepts=["floating_platform", "bay_site"])
 beat("C3", "B13", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "Look at two identical platforms carrying different buildings, one with two stories and one with four.",
     "Floating on their own, their decks would sit about 66 centimeters apart in height.",
@@ -152,15 +157,17 @@ beat("C3", "B15", "fact", "SHOW_CONTEXT", [
     "That's about thirty-three hectares of platform:",
     "about 200 platforms like our first one, with hundreds of connections between them."],
     claims=["CLM_124", "CLM_108"],
-    strategy="CARD", goal="Plan grid: dots appear to ~209 platforms; joints counted (label 'illustrative')", complexity="LOW")
+    strategy="CARD", goal="One plan diagram (continues into B16): 40 m cells appear until ~33 ha are covered; the joints between "
+                          "cells light up as they are counted (label 'illustrative')", complexity="LOW")
 beat("C3", "B16", "fact", "COMPARE_VARIANTS", [
     "Bigger platforms mean fewer connections.",
     "At 100 meters on a side, 34 would do,",
     "but each would weigh about 30,000 tons, to build, launch and tow.",
     "Even the Schoonschip floats were too big for the dry docks of traditional houseboat builders, and were cast on the quay instead.",
-    "Our district uses 60-meter platforms, 93 of them: a middle choice for this illustration, not an optimum."],
+    "Our district uses 60-meter platforms with three-story homes, 93 of them: a middle choice for this illustration, not an optimum."],
     claims=["CLM_108", "CLM_014", "CLM_125"],
-    strategy="CARD", goal="Same-scale plans: 40 m, 60 m, 100 m modules with counts and masses", complexity="LOW")
+    strategy="CARD", goal="Same diagram as B15: the cells regroup into 100 m modules (fewer joints, mass per module shown), "
+                          "then settle on 60 m; no second table", complexity="LOW")
 
 # C4 ----------------------------------------------------------------------------------------------------------------
 beat("C4", "B17", "framing", "EXPLAIN_CAUSE_EFFECT", [
@@ -204,10 +211,10 @@ beat("C5", "B22", "fact", "SHOW_COMPONENT", [
 beat("C5", "B23", "fact", "EXPLAIN_CAUSE_EFFECT", [
     "Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles.",
     "In our scenario, the water level can change by about 2 meters,",
-    "so the bridges to shore need hinges: on a 25-meter bridge, the slope changes by about 3 degrees either way."],
+    "so the bridges to shore need hinges: including changes in loading, the slope of a 25-meter bridge changes by about 3 degrees either way."],
     claims=["CLM_041", "CLM_122", "CLM_109"],
     strategy="SEQUENCE", goal="Elevation: water rises, platform slides up its piles, the link-span turns on its shore hinge "
-                              "(new RISE/SINK step); '2 m range, assumed'", concepts=["mooring_pile", "link_span", "floating_platform"])
+                              "(new RISE/SINK step); on screen: '2 m water level + loading, assumed; shore hinge at mid-range'", concepts=["mooring_pile", "link_span", "floating_platform"])
 beat("C5", "B24", "fact", "EXPLAIN_DESIGN_CHANGE", [
     "Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed.",
     "Deeper water means longer lines, deeper anchors, and higher costs.",
@@ -309,9 +316,8 @@ beat("C8", "B39", "fact", "SUMMARIZE_DIFFERENCES", [
 beat("C8", "B40", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the right conditions.",
     "But how very large platforms bend, how their connections hold up, and what they would cost are still open questions.",
-    "And the one project of that size we checked had not been reported as under construction when we looked.",
-    "We didn't survey every project in the world."],
-    claims=["CLM_121", "CLM_053", "CLM_042", "CLM_063", "CLM_033"],
+    "And the one project of that size we checked is still listed as in design."],
+    claims=["CLM_121", "CLM_053", "CLM_042", "CLM_063", "CLM_034"],
     strategy="CARD", goal="Verdict tier 2 of 3", complexity="LOW")
 beat("C8", "B41", "interpretation", "SUMMARIZE_DIFFERENCES", [
     "A city far out at sea, especially one that has to supply itself, remains much more speculative."],

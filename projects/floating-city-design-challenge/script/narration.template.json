@@ -2,7 +2,7 @@
   "schema_version": 1,
   "language": "en",
   "title": "Could We Build an Entire City That Floats?",
-  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision c-r1)",
+  "status": "SCRIPT_REVIEW_DRAFT - claims source-verified, not editorially approved (revision c-r2)",
   "voice": {
     "provider": "kokoro",
     "id": "kokoro_am_michael",
@@ -81,10 +81,10 @@
     "beat_tail_seconds": 0.8
   },
   "revision": {
-    "version": "c-r1",
+    "version": "c-r2",
     "date": "2026-11-08",
     "status": "SOURCE_VERIFIED_PENDING_EDITORIAL",
-    "scope": "first full narration, after the owner's concept review of 2026-11-08 (six groups of corrections, concept/NARRATIVE_OUTLINE.md)",
+    "scope": "owner review of c-r1 (2026-11-08): three corrections and two pacing notes; structure and length kept",
     "review_package": "review/SCRIPT_REVIEW.md",
     "edits": [
       {
@@ -109,6 +109,36 @@
         "sentence": "all",
         "c-r1": "American spelling (meter, ton, story, neighborhood, gray) and digits for numbers of 100 and more, as in the Studio's other films; 'and ours connects' -> 'and our city connects'",
         "why": "ASR check: Whisper writes American spelling and digits, so British spelling and spelled-out large numbers failed the word-error check although the speech was right; 'ours' was heard as 'hours'. Meaning unchanged."
+      },
+      {
+        "sentence": "B03.s3-s4",
+        "c-r1": "One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022. / When we checked the developer's and the architects' websites in November 2026, neither reported that construction had begun.",
+        "c-r2": "One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022, / and when we checked in November 2026, its architects still listed it as in design.",
+        "why": "owner: the research process made the opening read like a report; the architects' page lists the status 'In Design' (CLM_034)"
+      },
+      {
+        "sentence": "B12.s0",
+        "c-r1": "A platform like this holds about fifty people.",
+        "c-r2": "Let's go back to the three-story version. A platform like this holds about 50 people.",
+        "why": "owner: B09-B10 end at four stories; the count (48) and the district are three-story"
+      },
+      {
+        "sentence": "B16.s4",
+        "c-r1": "Our district uses 60-meter platforms, 93 of them: ...",
+        "c-r2": "Our district uses 60-meter platforms with three-story homes, 93 of them: ...",
+        "why": "same"
+      },
+      {
+        "sentence": "B23.s2",
+        "c-r1": "... on a 25-meter bridge, the slope changes by about 3 degrees either way.",
+        "c-r2": "... including changes in loading, the slope of a 25-meter bridge changes by about 3 degrees either way.",
+        "why": "owner: 2.8 degrees includes the 0.44 m loading change and a mid-range hinge; water level alone gives 2.3 (CLM_109)"
+      },
+      {
+        "sentence": "B40.s2-s3",
+        "c-r1": "And the one project of that size we checked had not been reported as under construction when we looked. / We didn't survey every project in the world.",
+        "c-r2": "And the one project of that size we checked is still listed as in design.",
+        "why": "owner: shorter; the scope of the check stays in the notes and in CLM_034"
       }
     ]
   },

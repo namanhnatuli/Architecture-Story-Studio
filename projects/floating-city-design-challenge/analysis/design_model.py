@@ -143,6 +143,9 @@ def main():
             "displacement_range_t_by_dead_load": [round(n * out["design_A"]["dead_load_low"]["mass_t"]["total"], -3),
                                                   round(n * out["design_A"]["dead_load_high"]["mass_t"]["total"], -3)]}
     out["city_scale"] = city
+    # 8a. residents per platform by storeys (40 m2 of floor per resident): the district goes back to three storeys
+    out["residents_by_storeys"] = {f"{side}m_{st}_storeys": round(platform(**dict(base, L=side, B=side, storeys=st), dead=mid)["gross_floor_area_m2"] / 40)
+                                   for side in (40, 60) for st in (3, 4)}
     # 8b. big or many: module size vs number of modules and connections for the mid case (40 m2 GFA per resident)
     deck_mid = city["40_m2_per_resident"]["deck_area_m2"]
     trade = {}
@@ -217,7 +220,11 @@ def main():
                         for lb in (15, 25, 40)}
     out["link_span"]["water_level_range_m"] = rng
     out["link_span"]["draft_swing_empty_to_full_m"] = round(draft_swing, 3)
-    out["link_span"]["note"] = "Shore hinge set at mid-range; platform end follows the water. Accessibility limits are not checked."
+    out["link_span"]["water_level_only"] = {f"{lb}_m_bridge": {"max_slope_deg_each_way": round(math.degrees(math.atan((rng / 2) / lb)), 1)}
+                                            for lb in (15, 25, 40)}
+    out["link_span"]["hinge_assumption"] = ("Shore hinge at the middle of the combined range (water level plus loading), so the "
+                                            "bridge tilts the same amount up and down.")
+    out["link_span"]["note"] = "Platform end follows the water and the loading. Accessibility limits are not checked."
     (HERE / "results.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     write_md(out)
     print(f"WROTE {HERE / 'results.json'} and RESULTS.md: Design A draft {A['draft_m']} m, freeboard {A['freeboard_m']} m, "
@@ -277,9 +284,17 @@ def write_md(o):
     rows += ["", "Chỉ là phép đếm, không có tải trọng. Phao to: ít mối nối nhưng nặng khi đúc, hạ thủy và kéo, và phần phản ứng "
                  "uốn theo sóng lớn hơn (CLM_042, CLM_053).", "",
              "## 6. Cầu nối bờ", f"Dải mực nước {o['link_span']['water_level_range_m']} m (giả định) cộng dao động mớn nước khi phao rỗng và đầy "
-             f"({o['link_span']['draft_swing_empty_to_full_m']} m):"]
+             f"({o['link_span']['draft_swing_empty_to_full_m']} m); khớp trên bờ đặt ở giữa dải tổng:"]
     rows += [f"- Cầu {k.split('_')[0]} m: dốc tối đa khoảng {v['max_slope_deg_each_way']}° mỗi chiều."
              for k, v in o["link_span"].items() if k.endswith("_bridge")]
+    rows += ["", "Chỉ tính dải mực nước (không tính thay đổi tải), khớp ở giữa dải:"]
+    rows += [f"- Cầu {k.split('_')[0]} m, chỉ mực nước: dốc tối đa khoảng {v['max_slope_deg_each_way']}° mỗi chiều."
+             for k, v in o["link_span"]["water_level_only"].items()]
+    rs = o["residents_by_storeys"]
+    rows += ["", "## 6b. Số người mỗi phao theo số tầng (40 m² sàn mỗi người)",
+             f"- Phao 40 m: 3 tầng {rs['40m_3_storeys']} người, 4 tầng {rs['40m_4_storeys']} người; "
+             f"phao 60 m: 3 tầng {rs['60m_3_storeys']} người, 4 tầng {rs['60m_4_storeys']} người. "
+             "Quận dùng nhà 3 tầng (phương án gốc), không dùng phương án 4 tầng của nhánh sửa."]
     sb, dc = o["storey_branch"], o["district_C"]
     rows += ["", "## 8. Nhánh thêm tầng (một nhánh liên tục, tải tĩnh nhà 0,6 t/m² sàn ở mọi bước)",
              "| Bước | Khối lượng (t) | Mớn nước (m) | Mạn khô (m) |", "|---|---|---|---|"]

@@ -2,23 +2,22 @@
 
 ## Concept đang làm: `floating-city-design-challenge` (nhánh `concept-floating-city-design-challenge`)
 
-- **Trạng thái (2026-11-08): kịch bản c-r1 chờ chủ kênh đọc và nghe.**
-  - Đã sửa theo review concept của chủ kênh (sáu nhóm; `review/REVIEW_C_R1.md`).
-  - Lời dẫn hoàn chỉnh: 44 beat, 127 câu.
-  - Audio nội bộ Kokoro `am_michael`; ASR 127/127; timing khóa: **13:05**.
+- **Trạng thái (2026-11-08): kịch bản c-r2 chờ chủ kênh chốt.**
+  - c-r1: sửa theo review concept. c-r2: ba điểm của review c-r1 (B23 điều kiện tải, CLM_054, quay về bản 3 tầng) cùng nhịp B03/B40 và B15–B16 (`review/REVIEW_C_R2.md`).
+  - Lời dẫn: 44 beat, 126 câu.
+  - Audio nội bộ Kokoro `am_michael`; ASR 126/126; timing khóa: **13:03**.
   - Chưa có asset sản xuất hay card. Không claim nào được duyệt.
-- **Bắt đầu đọc:** `projects/floating-city-design-challenge/review/SCRIPT_REVIEW.md` và bản nghe thử `output/floating-city-design-challenge_narration_preview_c-r1.m4a` (ngoài git). Tổng quan ở `concept/CONCEPT_REVIEW.md`.
-- **Việc của chủ kênh:** năm quyết định ở `review/SCRIPT_REVIEW_NOTES.md`:
-  - thời lượng;
+- **Bắt đầu đọc:** `projects/floating-city-design-challenge/review/SCRIPT_REVIEW.md` và bản nghe thử `output/floating-city-design-challenge_narration_preview_c-r2.m4a` (ngoài git).
+- **Làm theo hướng chủ kênh nêu:** giữ khoảng 13 phút; tạm dùng sơ đồ Schoonschip, tìm cơ hội xin phép ảnh đúng công trình.
+- **Việc của chủ kênh:**
   - phát âm "Schoonschip";
-  - giấy phép ảnh Schoonschip;
   - giọng cho dự án;
-  - duyệt claim khi chốt kịch bản.
-- **Sau khi kịch bản được duyệt:**
+  - chốt kịch bản;
+  - duyệt claim.
+- **Sau khi chốt kịch bản:**
   - dựng họ asset `floating` và site `bay`;
-  - thêm năng lực mặt cắt, SINK/RISE, TILT, CONCEPT_MOTION;
-  - đoạn thử có lời dẫn cho chuỗi "thêm tải → chìm → sửa thân".
-  - Prototype P6 đã thử chuỗi này không lời.
+  - thêm các năng lực mặt cắt, SINK/RISE, TILT, CONCEPT_MOTION;
+  - đoạn thử có lời dẫn cho chuỗi "thêm tải → chìm → sửa thân". Prototype P6 (mặt cắt, không lời) đã thử chuỗi này.
 
 ## `gothic-cathedral-heights` (nhánh `episode-gothic-cathedral-heights`)
 

@@ -50,10 +50,18 @@ Phao càng rộng so với mớn nước thì BM càng lớn: ổn định ban �
 Chỉ là phép đếm, không có tải trọng. Phao to: ít mối nối nhưng nặng khi đúc, hạ thủy và kéo, và phần phản ứng uốn theo sóng lớn hơn (CLM_042, CLM_053).
 
 ## 6. Cầu nối bờ
-Dải mực nước 2.0 m (giả định) cộng dao động mớn nước khi phao rỗng và đầy (0.439 m):
+Dải mực nước 2.0 m (giả định) cộng dao động mớn nước khi phao rỗng và đầy (0.439 m); khớp trên bờ đặt ở giữa dải tổng:
 - Cầu 15 m: dốc tối đa khoảng 4.6° mỗi chiều.
 - Cầu 25 m: dốc tối đa khoảng 2.8° mỗi chiều.
 - Cầu 40 m: dốc tối đa khoảng 1.7° mỗi chiều.
+
+Chỉ tính dải mực nước (không tính thay đổi tải), khớp ở giữa dải:
+- Cầu 15 m, chỉ mực nước: dốc tối đa khoảng 3.8° mỗi chiều.
+- Cầu 25 m, chỉ mực nước: dốc tối đa khoảng 2.3° mỗi chiều.
+- Cầu 40 m, chỉ mực nước: dốc tối đa khoảng 1.4° mỗi chiều.
+
+## 6b. Số người mỗi phao theo số tầng (40 m² sàn mỗi người)
+- Phao 40 m: 3 tầng 48 người, 4 tầng 64 người; phao 60 m: 3 tầng 108 người, 4 tầng 144 người. Quận dùng nhà 3 tầng (phương án gốc), không dùng phương án 4 tầng của nhánh sửa.
 
 ## 8. Nhánh thêm tầng (một nhánh liên tục, tải tĩnh nhà 0,6 t/m² sàn ở mọi bước)
 | Bước | Khối lượng (t) | Mớn nước (m) | Mạn khô (m) |

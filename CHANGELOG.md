@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.11.2 — 2026-11-08 — Phim thành phố nổi c-r2: ba điểm sau review c-r1
+- **B23 (dốc cầu nối bờ):** lời dẫn nêu "including changes in loading". CLM_109 nêu đủ cả dải mực nước 2 m, thay đổi mớn nước khoảng 0,44 m và khớp ở giữa dải (±2,8°). Mô hình in thêm phép tính chỉ với mực nước (±2,3°).
+- **CLM_054:** thay "costs that rise faster than the depth" bằng "non-linear increases in material and installation cost", đúng lời nguồn.
+- **B12 và B16:** quay về bản 3 tầng trước khi nhân phao; quận dùng phao 60 m với nhà 3 tầng. Mô hình in số người theo số tầng (48, 64 và 108).
+- **Nhịp:**
+  - B03/B40 dùng trạng thái "In Design" trên trang kiến trúc sư (claim mới CLM_034), thay cho câu dài về quy trình kiểm tra;
+  - B15–B16 là một sơ đồ liên tục.
+- **Audio:** ASR 126/126; timing 13:03.
+- **Prototype P6** làm lại dạng mặt cắt, đường nước cố định, vách nối dài tô vàng; nhãn "same load per m² of floor".
+
 ## 0.11.1 — 2026-11-08 — Phim thành phố nổi c-r1: sửa sau review concept, lời dẫn hoàn chỉnh
 - **Theo review concept của chủ kênh** (sáu nhóm sửa, `projects/floating-city-design-challenge/review/REVIEW_C_R1.md`):
   - bỏ câu suy chuyển động trong sóng từ GM;

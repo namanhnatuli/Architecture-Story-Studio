@@ -14,12 +14,12 @@
   "duration_seconds": 0.0,
   "executable": false,
   "inputs": {
-    "beats_sha256": "b4c23ef22ec198d727322ba56b6b0cdad1031fdab808c26b798d8c874aaea98a",
-    "sources_sha256": "8c0c0337b15ec7d770c31123594b311685485c0d1db6d6a31a4051d96473f530",
+    "beats_sha256": "356407e4581e7613b5607ae82bb02236de86f2d0a35c409476b90766eb79c185",
+    "sources_sha256": "7ad0c5115025a8e6eee13279f8f24d75831b3046a18af88beefe3b4b4fe61458",
     "vocabulary_sha256": "241a3f86bf04a696ffadee2abfb31c5a379729ea8249c72eead3ce5fd10682e1",
     "planning_config_sha256": "ea13b5a8b921f9ad936b3ba8c2f3f2eb408d4b1ce1ef822b5e8833177475a3b2",
     "assets": {},
-    "timing_sha256": "236e9e54718bfc8fbecd608656c215f8b9fd55f03494d81a45235885b1617567"
+    "timing_sha256": "56d378089bb731549f89e360d8138205f6f30db040eaa1e0eb90747e1ef725d7"
   },
   "family": null,
   "states": {
@@ -193,14 +193,14 @@
     {
       "beat_id": "B03",
       "visual_intent": "SHOW_CONTEXT",
-      "narration": "Floating neighborhoods are not science fiction. In Amsterdam, a floating neighborhood called Schoonschip is home to 46 households, a little over 100 people. Much larger designs exist on paper. One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022. When we checked the developer's and the architects' websites in November 2026, neither reported that construction had begun.",
+      "narration": "Floating neighborhoods are not science fiction. In Amsterdam, a floating neighborhood called Schoonschip is home to 46 households, a little over 100 people. Much larger designs exist on paper. One, for 12,000 people off the coast of Busan in South Korea, was unveiled in 2022, and when we checked in November 2026, its architects still listed it as in design.",
       "status": "MISSING_TEMPLATE",
       "strategy": null,
       "assets": [],
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 34.775,
+      "expected_seconds": 32.475,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"
@@ -541,7 +541,7 @@
     {
       "beat_id": "B12",
       "visual_intent": "EXPLAIN_DESIGN_CHANGE",
-      "narration": "A platform like this holds about fifty people. For 10,000, we need a lot of them. So why not simply join them all into one enormous slab?",
+      "narration": "Let's go back to the three-story version. A platform like this holds about 50 people. For 10,000, we need a lot of them. So why not simply join them all into one enormous slab?",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -561,7 +561,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 12.675,
+      "expected_seconds": 15.375,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "'floating_platform' is not in config/visual_vocabulary.json; add it (with family/variant or roles) or use one of the known concepts",
@@ -657,14 +657,14 @@
     {
       "beat_id": "B16",
       "visual_intent": "COMPARE_VARIANTS",
-      "narration": "Bigger platforms mean fewer connections. At 100 meters on a side, 34 would do, but each would weigh about 30,000 tons, to build, launch and tow. Even the Schoonschip floats were too big for the dry docks of traditional houseboat builders, and were cast on the quay instead. Our district uses 60-meter platforms, 93 of them: a middle choice for this illustration, not an optimum.",
+      "narration": "Bigger platforms mean fewer connections. At 100 meters on a side, 34 would do, but each would weigh about 30,000 tons, to build, launch and tow. Even the Schoonschip floats were too big for the dry docks of traditional houseboat builders, and were cast on the quay instead. Our district uses 60-meter platforms with three-story homes, 93 of them: a middle choice for this illustration, not an optimum.",
       "status": "MISSING_TEMPLATE",
       "strategy": null,
       "assets": [],
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 32.425,
+      "expected_seconds": 33.95,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared COMPARE_VARIANTS, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']",
@@ -849,7 +849,7 @@
     {
       "beat_id": "B23",
       "visual_intent": "EXPLAIN_CAUSE_EFFECT",
-      "narration": "Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles. In our scenario, the water level can change by about 2 meters, so the bridges to shore need hinges: on a 25-meter bridge, the slope changes by about 3 degrees either way.",
+      "narration": "Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles. In our scenario, the water level can change by about 2 meters, so the bridges to shore need hinges: including changes in loading, the slope of a 25-meter bridge changes by about 3 degrees either way.",
       "status": "MISSING_ASSET",
       "strategy": null,
       "assets": [
@@ -875,7 +875,7 @@
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 23.35,
+      "expected_seconds": 25.325,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "intent cross-check: declared EXPLAIN_CAUSE_EFFECT, narration cues suggest ['EXPLAIN_DESIGN_CHANGE']",
@@ -1376,14 +1376,14 @@
     {
       "beat_id": "B40",
       "visual_intent": "SUMMARIZE_DIFFERENCES",
-      "narration": "A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the right conditions. But how very large platforms bend, how their connections hold up, and what they would cost are still open questions. And the one project of that size we checked had not been reported as under construction when we looked. We didn't survey every project in the world.",
+      "narration": "A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the right conditions. But how very large platforms bend, how their connections hold up, and what they would cost are still open questions. And the one project of that size we checked is still listed as in design.",
       "status": "MISSING_TEMPLATE",
       "strategy": null,
       "assets": [],
       "semantic_targets": [],
       "templates": [],
       "shot_ids": [],
-      "expected_seconds": 29.825,
+      "expected_seconds": 24.5,
       "timing_source": "AUDIO_LOCKED",
       "issues": [
         "No map or sourced-imagery renderer; only self-made 2D cards (engine/diagram.py) [MAP_OR_IMAGERY: Supply a MOTION_GRAPHICS card spec in the beat, or add a map/image card template (~1-2 days)]"

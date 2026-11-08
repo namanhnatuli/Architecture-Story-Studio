@@ -100,7 +100,7 @@
   - pha A–B: cọc ở nước nông, phao trượt lên xuống theo cọc;
   - pha C: phần xa bờ hơn dùng dây neo, vì độ sâu 12–25 m là DESIGN_ASSUMPTION.
   - Không định cỡ neo, không chọn loại neo như đã tính.
-- **CALCULATED_ESTIMATE (§6):** dải mực nước 2 m (giả định) cộng dao động mớn nước khi phao rỗng và đầy (khoảng 0,44 m) cho dốc tối đa của cầu nối bờ khoảng 4,6° với cầu 15 m, 2,8° với cầu 25 m, 1,7° với cầu 40 m. Đây là lý do cầu phải có khớp. Giới hạn tiếp cận cho người khuyết tật không được kiểm.
+- **CALCULATED_ESTIMATE (§6):** dải mực nước 2 m (giả định) cộng dao động mớn nước khi phao rỗng và đầy (khoảng 0,44 m), khớp trên bờ đặt ở giữa dải tổng, cho dốc tối đa của cầu nối bờ khoảng 4,6° với cầu 15 m, 2,8° với cầu 25 m, 1,7° với cầu 40 m. Chỉ tính mực nước: 3,8°, 2,3° và 1,4°. Lời dẫn nói "including changes in loading" (c-r2). Giới hạn tiếp cận cho người khuyết tật không được kiểm.
 
 ## 7. Bão, hạ tầng, kinh tế, môi trường
 

@@ -230,6 +230,12 @@
       ]
     }
   },
+  "residents_by_storeys": {
+    "40m_3_storeys": 48,
+    "40m_4_storeys": 64,
+    "60m_3_storeys": 108,
+    "60m_4_storeys": 144
+  },
   "module_size_tradeoff": {
     "deck_area_m2": 333333,
     "by_side": {
@@ -360,6 +366,18 @@
     },
     "water_level_range_m": 2.0,
     "draft_swing_empty_to_full_m": 0.439,
-    "note": "Shore hinge set at mid-range; platform end follows the water. Accessibility limits are not checked."
+    "water_level_only": {
+      "15_m_bridge": {
+        "max_slope_deg_each_way": 3.8
+      },
+      "25_m_bridge": {
+        "max_slope_deg_each_way": 2.3
+      },
+      "40_m_bridge": {
+        "max_slope_deg_each_way": 1.4
+      }
+    },
+    "hinge_assumption": "Shore hinge at the middle of the combined range (water level plus loading), so the bridge tilts the same amount up and down.",
+    "note": "Platform end follows the water and the loading. Accessibility limits are not checked."
   }
 }

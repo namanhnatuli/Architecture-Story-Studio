@@ -1,4 +1,4 @@
-# Storyboard sơ bộ (revision c-r1)
+# Storyboard sơ bộ (revision c-r2)
 
 Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`script/story.py`) và `script/timing.json` (thời lượng đo từ audio). Một shot cho mỗi beat ở giai đoạn đọc kịch bản (SHnn = Bnn). Sửa ở `story.py` hoặc bảng `SHOTS` trong script này, rồi chạy lại; không sửa tay tệp này.
 
@@ -13,7 +13,7 @@ Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`scrip
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | SH01 | 10,000 people, with homes, schools, a clinic, parks, and streets to walk along. And not one of them is… | Đây là gì? | — | A,B,E,F | Aerial cao, đẩy chậm | HOLD + PUSH_IN | Lời hứa: một thành phố | NOTE 'Illustrative design' | 11 s | H | H | Cảnh lớn; cần instancing | GENERATE_PROCEDURAL |
 | SH02 | Could we design a city like this, one that floats, stays where we put it, and keeps working? Let's treat… | Thiết kế được không? | — | A,B,E,F | Aerial, tiếp B01 | HOLD | Bài toán được đặt ra | — | 13 s | H | H | Dùng chung cảnh B01 | REUSE_EXISTING |
-| SH03 | Floating neighborhoods are not science fiction. In Amsterdam, a floating neighborhood called Schoonschip… | Đã có ai làm chưa? | 010, 011, 030, 031, 033, 057 | K | 2D | CARD theo từ | Ranh giới đã xây và đề xuất | 'built' / 'proposed 2022' / 'status checked Nov 2026: OCEANIX news page, BIG project page' | 35 s | L | M | Ảnh Schoonschip chờ quyết định giấy phép; tạm dùng sơ đồ | REUSE_EXISTING |
+| SH03 | Floating neighborhoods are not science fiction. In Amsterdam, a floating neighborhood called Schoonschip… | Đã có ai làm chưa? | 010, 011, 030, 031, 034, 057 | K | 2D | CARD theo từ | Ranh giới đã xây và đề xuất | 'built' / 'proposed 2022' / 'architects' project page, Nov 2026: In Design' | 32 s | L | M | Ảnh Schoonschip chờ quyết định giấy phép; tạm dùng sơ đồ | REUSE_EXISTING |
 | SH04 | So let's take our city apart, and build it back, one problem at a time. | Thành phố gồm những gì? | — | A–F | Three-quarter, lùi nhẹ | SEQUENCE: FADE_OUT theo nhóm | Thành phố là chồng hệ thống | tên từng hệ khi nó biến mất | 7 s | H | H | — | GENERATE_PROCEDURAL |
 
 ## C2: The First Problem: Making Buildings Float
@@ -32,11 +32,11 @@ Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`scrip
 
 | Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SH12 | A platform like this holds about fifty people. For 10,000, we need a lot of them. So why not simply join… | Nhân bản được không? | 108 | B,E | Three-quarter | ASSEMBLE_IN | Khu hình thành | — | 13 s | M | H | — | GENERATE_PROCEDURAL |
+| SH12 | Let's go back to the three-story version. A platform like this holds about 50 people. For 10,000, we need… | Nhân bản được không? | 108 | B,E | Three-quarter | FADE_OUT tầng 4 và phần thân thêm, rồi ASSEMBLE_IN | Quay về bản 3 tầng, khu hình thành | 'three-story version' | 15 s | M | H | Phải thấy rõ là quay về bản gốc | GENERATE_PROCEDURAL |
 | SH13 | Look at two identical platforms carrying different buildings, one with two stories and one with four.… | Sao không nối cứng? | 107 | B,C,E | Mặt đứng | HIGHLIGHT_REPLACE_HIGHLIGHT | Chênh cao độ → cầu có khớp (một lựa chọn) | 'floating independently' | 31 s | M | H | Không tô đỏ, không vẽ gãy | GENERATE_PROCEDURAL |
 | SH14 | Connections are where engineers expect trouble. A 2026 research agenda lists stress concentrations on… | Mối nối trông ra sao? | 042, 056 | C,F | Cận | CLOSEUP_HIGHLIGHT | Khe, cầu có khớp, đường hạ tầng mềm | 'conceptual geometry' | 27 s | M | H | Không chọn cơ cấu cụ thể | GENERATE_PROCEDURAL |
-| SH15 | How many platforms would 10,000 people need? Say each resident needs about 40 square meters of floor:… | Bao nhiêu phao? | 124, 108 | K | 2D mặt bằng | CARD, chấm hiện dần | Quy mô mối nối | 'illustrative'; 40 m² = 30 + 10 | 25 s | L | H | — | REUSE_EXISTING |
-| SH16 | Bigger platforms mean fewer connections. At 100 meters on a side, 34 would do, but each would weigh about… | To hay nhiều? | 108, 014, 125 | K | 2D mặt bằng cùng tỉ lệ | CARD | Đánh đổi; chọn 60 m | khối lượng mỗi phao; 'not an optimum' | 32 s | L | H | — | REUSE_EXISTING |
+| SH15 | How many platforms would 10,000 people need? Say each resident needs about 40 square meters of floor:… | Bao nhiêu phao? | 124, 108 | K | 2D mặt bằng (một sơ đồ, nối sang B16) | CARD: ô phao hiện dần, mối nối sáng lên khi đếm | Quy mô mối nối | 'illustrative'; 40 m² = 30 + 10 | 25 s | L | H | Không thành bảng số | REUSE_EXISTING |
+| SH16 | Bigger platforms mean fewer connections. At 100 meters on a side, 34 would do, but each would weigh about… | To hay nhiều? | 108, 014, 125 | K | Cùng sơ đồ B15 | CARD: ô gộp thành phao 100 m, rồi về 60 m | Đánh đổi; chọn 60 m, 3 tầng | khối lượng mỗi phao; 'not an optimum' | 34 s | L | H | Câu ụ khô là chỗ cắt đầu tiên nếu cần | REUSE_EXISTING |
 
 ## C4: The Water Never Stays Still
 
@@ -53,7 +53,7 @@ Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`scrip
 | Shot | Lời dẫn (rút gọn) | Câu hỏi | Claim | Fam | Camera | Hoạt ảnh | Lộ ra | Chú thích | Dài | Cplx | Conf | Giới hạn | Hạng |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | SH22 | Something also has to hold the city in place. Floating homes in the Netherlands are fixed to the shore,… | Cái gì giữ nó? | 020 | A,D | Three-quarter thấp (P4) | SEQUENCE: nước 2 bước, HIGHLIGHT cọc | Hệ neo vô hình | — | 11 s | H | H | Phải thấy mặt nước trước khi mờ | ADAPT_EXISTING |
-| SH23 | Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles. In… | Triều lên thì sao? | 041, 122, 109 | B,D,F | Mặt đứng | SEQUENCE + RISE/SINK (mới) | Vì sao cầu có khớp | '2 m range, assumed' | 23 s | M | H | — | CREATE_SMALL_NEW_CAPABILITY |
+| SH23 | Water levels rise and fall, and a floating platform rises and falls with them, sliding along its poles. In… | Triều lên thì sao? | 041, 122, 109 | B,D,F | Mặt đứng | SEQUENCE + RISE/SINK (mới) | Vì sao cầu có khớp | '2 m water level + loading, assumed; shore hinge at mid-range' | 25 s | M | H | — | CREATE_SMALL_NEW_CAPABILITY |
 | SH24 | Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed. Deeper water… | Xa bờ hơn? | 055, 054 | A,D | Dưới nước, ngang | REPLACE (cọc → dây) | Neo theo độ sâu | 'Conceptual mooring — not sized' | 17 s | H | H | Độ võng dây chỉ là hình vẽ; tương phản dây (P5) | GENERATE_PROCEDURAL |
 
 ## C6: A City Needs More Than Buildings
@@ -85,7 +85,7 @@ Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`scrip
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | SH38 | From one platform to a district, every part we added answers a question we had to ask. | Đi được bao xa? | — | A–F | DETAIL_THEN_OVERVIEW | SIDE_BY_SIDE + nhãn | So sánh cuối | mỗi hệ một nhãn | 8 s | H | H | Phao 40 m cạnh quận khoảng 600 m: cần khung cận trước | GENERATE_PROCEDURAL |
 | SH39 | So, could we build an entire city that floats? Small floating neighborhoods, connected to the shore in… | Kết luận 1? | 010, 011, 016 | K | 2D | CARD theo từ | Đã có thật | — | 11 s | L | H | — | REUSE_EXISTING |
-| SH40 | A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the… | Kết luận 2? | 121, 053, 042, 063, 033 | K | 2D | CARD theo từ | Có thể, có điều kiện | 'checked: OCEANIX Busan, Nov 2026' | 30 s | L | H | — | REUSE_EXISTING |
+| SH40 | A connected district for 10,000 people, in a sheltered bay, built step by step, may be possible under the… | Kết luận 2? | 121, 053, 042, 063, 034 | K | 2D | CARD theo từ | Có thể, có điều kiện | 'OCEANIX Busan: In Design (architects' page, Nov 2026)' | 24 s | L | H | — | REUSE_EXISTING |
 | SH41 | A city far out at sea, especially one that has to supply itself, remains much more speculative. | Kết luận 3? | 051, 058, 062 | K | 2D | CARD theo từ | Còn suy đoán | — | 9 s | L | H | — | REUSE_EXISTING |
 | SH42 | Our arithmetic shows what it takes for a platform to float. Whether a whole district works depends on the… | Phép tính chứng minh gì? | 104, 121 | A–F | Aerial (dùng lại B01) | HOLD + PUSH_IN | Giới hạn của phép tính | — | 12 s | H | H | Dùng lại cảnh B01 | REUSE_EXISTING |
 | SH43 | Which structure should we explain next? Suggest a topic in the comments. And if you enjoyed this film,… | — | — | K | 2D | CARD icon tự vẽ | Lời kêu gọi | — | 12 s | L | H | — | REUSE_EXISTING |
@@ -93,8 +93,8 @@ Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`scrip
 
 ## Tổng
 
-- **Thời lượng:** 13:05 (đo từ audio, gồm khoảng lặng đầu và cuối mỗi beat).
-- **3D:** 502 s (64%); **2D:** 282 s (36%).
+- **Thời lượng:** 13:03 (đo từ audio, gồm khoảng lặng đầu và cuối mỗi beat).
+- **3D:** 507 s (65%); **2D:** 276 s (35%).
 - **Theo hạng khả thi:** ADAPT_EXISTING 2; CREATE_SMALL_NEW_CAPABILITY 7; GENERATE_PROCEDURAL 18; REUSE_EXISTING 17.
 - **Chuỗi card 2D liền nhau dài nhất:** 3 (B39–B41).
 - **Aerial:** chỉ B01–B02 và B42 (dùng lại cùng cảnh).

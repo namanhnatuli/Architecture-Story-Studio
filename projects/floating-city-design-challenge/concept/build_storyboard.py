@@ -19,7 +19,7 @@ R, AD, GP, NEW, EXT = "REUSE_EXISTING", "ADAPT_EXISTING", "GENERATE_PROCEDURAL",
 SHOTS = {
     "B01": ("Đây là gì?", "A,B,E,F", "Aerial cao, đẩy chậm", "HOLD + PUSH_IN", "Lời hứa: một thành phố", "NOTE 'Illustrative design'", "H", "H", "Cảnh lớn; cần instancing", GP),
     "B02": ("Thiết kế được không?", "A,B,E,F", "Aerial, tiếp B01", "HOLD", "Bài toán được đặt ra", "—", "H", "H", "Dùng chung cảnh B01", R),
-    "B03": ("Đã có ai làm chưa?", "K", "2D", "CARD theo từ", "Ranh giới đã xây và đề xuất", "'built' / 'proposed 2022' / 'status checked Nov 2026: OCEANIX news page, BIG project page'", "L", "M", "Ảnh Schoonschip chờ quyết định giấy phép; tạm dùng sơ đồ", R),
+    "B03": ("Đã có ai làm chưa?", "K", "2D", "CARD theo từ", "Ranh giới đã xây và đề xuất", "'built' / 'proposed 2022' / 'architects' project page, Nov 2026: In Design'", "L", "M", "Ảnh Schoonschip chờ quyết định giấy phép; tạm dùng sơ đồ", R),
     "B04": ("Thành phố gồm những gì?", "A–F", "Three-quarter, lùi nhẹ", "SEQUENCE: FADE_OUT theo nhóm", "Thành phố là chồng hệ thống", "tên từng hệ khi nó biến mất", "H", "H", "—", GP),
     "B05": ("Bê tông nổi được à?", "A,B", "Mặt cắt ngang", "SIDE_BY_SIDE; REVEAL", "Hình dạng quyết định", "'same volume of concrete'", "M", "H", "Không hoạt ảnh 'chìm dần'", GP),
     "B06": ("Vì sao nổi?", "A,B,E", "Mặt cắt chính diện (prototype P1)", "HOLD_HIGHLIGHT", "Khối nước bị chiếm chỗ", "'displaced water'", "M", "H", "Cần tham số mặt cắt", NEW),
@@ -28,18 +28,18 @@ SHOTS = {
     "B09": ("Thêm tải thì sao?", "B,E", "Cận thước mớn nước (P2b, P6)", "REPLACE + SINK (mới)", "Tải làm phao chìm", "thước 1 m; mạn khô 1,04 → 0,71 m", "M", "H", "33 cm không thấy ở khung rộng (P2)", NEW),
     "B10": ("Sửa thế nào?", "B", "Cùng camera B09", "REVEAL phần thân thêm + RISE (mới)", "Lần sửa có lý do", "mạn khô 0,71 → 1,15 m; '+4% concrete'", "M", "H", "Cùng nhánh với B09 (một tải)", NEW),
     "B11": ("Có lật không?", "B", "Ngang, three-quarter thấp", "HOLD + nghiêng nhỏ (TILT, mới)", "Nghiêng ít ≠ đứng yên trong sóng", "'illustrative'", "L", "H", "Không ký hiệu G, B, M", NEW),
-    "B12": ("Nhân bản được không?", "B,E", "Three-quarter", "ASSEMBLE_IN", "Khu hình thành", "—", "M", "H", "—", GP),
+    "B12": ("Nhân bản được không?", "B,E", "Three-quarter", "FADE_OUT tầng 4 và phần thân thêm, rồi ASSEMBLE_IN", "Quay về bản 3 tầng, khu hình thành", "'three-story version'", "M", "H", "Phải thấy rõ là quay về bản gốc", GP),
     "B13": ("Sao không nối cứng?", "B,C,E", "Mặt đứng", "HIGHLIGHT_REPLACE_HIGHLIGHT", "Chênh cao độ → cầu có khớp (một lựa chọn)", "'floating independently'", "M", "H", "Không tô đỏ, không vẽ gãy", GP),
     "B14": ("Mối nối trông ra sao?", "C,F", "Cận", "CLOSEUP_HIGHLIGHT", "Khe, cầu có khớp, đường hạ tầng mềm", "'conceptual geometry'", "M", "H", "Không chọn cơ cấu cụ thể", GP),
-    "B15": ("Bao nhiêu phao?", "K", "2D mặt bằng", "CARD, chấm hiện dần", "Quy mô mối nối", "'illustrative'; 40 m² = 30 + 10", "L", "H", "—", R),
-    "B16": ("To hay nhiều?", "K", "2D mặt bằng cùng tỉ lệ", "CARD", "Đánh đổi; chọn 60 m", "khối lượng mỗi phao; 'not an optimum'", "L", "H", "—", R),
+    "B15": ("Bao nhiêu phao?", "K", "2D mặt bằng (một sơ đồ, nối sang B16)", "CARD: ô phao hiện dần, mối nối sáng lên khi đếm", "Quy mô mối nối", "'illustrative'; 40 m² = 30 + 10", "L", "H", "Không thành bảng số", R),
+    "B16": ("To hay nhiều?", "K", "Cùng sơ đồ B15", "CARD: ô gộp thành phao 100 m, rồi về 60 m", "Đánh đổi; chọn 60 m, 3 tầng", "khối lượng mỗi phao; 'not an optimum'", "L", "H", "Câu ụ khô là chỗ cắt đầu tiên nếu cần", R),
     "B17": ("Sóng thì sao?", "A,B,C", "Three-quarter thấp", "CONCEPT_MOTION (mới)", "Khe co giãn", "'Conceptual motion visualization — not a hydrodynamic simulation'", "M", "M", "Biên độ không mang nghĩa", NEW),
     "B18": ("Người ở có thấy?", "K,E", "2D + cận nhà", "CARD", "Chuyển động là chuyện con người", "nguồn: Yale E360, 2021", "L", "H", "—", R),
     "B19": ("Phao lớn thì sao?", "K", "2D mặt cắt", "CARD, đường cong vẽ dần", "Bài toán mở", "'exaggerated, conceptual'", "L", "M", "Không có số", R),
     "B20": ("Giảm sóng thế nào?", "K", "2D bản đồ sơ đồ", "CARD", "Địa điểm là thiết kế", "'limited fetch'", "L", "H", "Không gắn địa danh thật", R),
     "B21": ("Bố cục ra sao?", "A–F", "Top → three-quarter", "SEQUENCE", "Tổ chức theo chuyển động", "'reduces waves — does not remove storm risk'", "H", "H", "—", GP),
     "B22": ("Cái gì giữ nó?", "A,D", "Three-quarter thấp (P4)", "SEQUENCE: nước 2 bước, HIGHLIGHT cọc", "Hệ neo vô hình", "—", "H", "H", "Phải thấy mặt nước trước khi mờ", AD),
-    "B23": ("Triều lên thì sao?", "B,D,F", "Mặt đứng", "SEQUENCE + RISE/SINK (mới)", "Vì sao cầu có khớp", "'2 m range, assumed'", "M", "H", "—", NEW),
+    "B23": ("Triều lên thì sao?", "B,D,F", "Mặt đứng", "SEQUENCE + RISE/SINK (mới)", "Vì sao cầu có khớp", "'2 m water level + loading, assumed; shore hinge at mid-range'", "M", "H", "—", NEW),
     "B24": ("Xa bờ hơn?", "A,D", "Dưới nước, ngang", "REPLACE (cọc → dây)", "Neo theo độ sâu", "'Conceptual mooring — not sized'", "H", "H", "Độ võng dây chỉ là hình vẽ; tương phản dây (P5)", GP),
     "B25": ("Đã là thành phố chưa?", "E,F", "Three-quarter", "SEQUENCE: GHOST nhà", "Nửa còn lại của thành phố", "—", "H", "H", "—", GP),
     "B26": ("Tự cung tự cấp?", "K", "2D", "CARD", "'Floating ≠ off-grid'", "—", "L", "H", "—", R),
@@ -56,7 +56,7 @@ SHOTS = {
     "B37": ("Bao nhiêu tiền?", "K", "2D", "CARD 2 cột", "Kết luận cân bằng", "'no reliable cost estimate for this design'", "L", "H", "—", R),
     "B38": ("Đi được bao xa?", "A–F", "DETAIL_THEN_OVERVIEW", "SIDE_BY_SIDE + nhãn", "So sánh cuối", "mỗi hệ một nhãn", "H", "H", "Phao 40 m cạnh quận khoảng 600 m: cần khung cận trước", GP),
     "B39": ("Kết luận 1?", "K", "2D", "CARD theo từ", "Đã có thật", "—", "L", "H", "—", R),
-    "B40": ("Kết luận 2?", "K", "2D", "CARD theo từ", "Có thể, có điều kiện", "'checked: OCEANIX Busan, Nov 2026'", "L", "H", "—", R),
+    "B40": ("Kết luận 2?", "K", "2D", "CARD theo từ", "Có thể, có điều kiện", "'OCEANIX Busan: In Design (architects' page, Nov 2026)'", "L", "H", "—", R),
     "B41": ("Kết luận 3?", "K", "2D", "CARD theo từ", "Còn suy đoán", "—", "L", "H", "—", R),
     "B42": ("Phép tính chứng minh gì?", "A–F", "Aerial (dùng lại B01)", "HOLD + PUSH_IN", "Giới hạn của phép tính", "—", "H", "H", "Dùng lại cảnh B01", R),
     "B43": ("—", "K", "2D", "CARD icon tự vẽ", "Lời kêu gọi", "—", "L", "H", "—", R),
@@ -79,7 +79,7 @@ def main():
     missing = sorted(set(beats) ^ set(SHOTS))
     if missing:
         raise SystemExit(f"storyboard and script disagree on beats: {missing}")
-    rows = ["# Storyboard sơ bộ (revision c-r1)", "",
+    rows = ["# Storyboard sơ bộ (revision c-r2)", "",
             "Sinh bởi `concept/build_storyboard.py` từ `script/visual_beats.json` (`script/story.py`) và "
             + ("`script/timing.json` (thời lượng đo từ audio)." if source == "audio" else "ước lượng 2,3 từ mỗi giây (chưa có audio).")
             + " Một shot cho mỗi beat ở giai đoạn đọc kịch bản (SHnn = Bnn). Sửa ở `story.py` hoặc bảng `SHOTS` trong script này, "

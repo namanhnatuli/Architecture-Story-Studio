@@ -1,4 +1,4 @@
-# Dàn ý kể chuyện (revision c-r1, sau review concept 2026-11-08)
+# Dàn ý kể chuyện (revision c-r2; c-r1 sau review concept, c-r2 sau review c-r1, 2026-11-08)
 
 - **Lời dẫn đầy đủ** ở `script/story.py`, sinh ra `script/narration.json`. Dàn ý này nói vì sao từng chương có mặt và mỗi ý dựa vào đâu:
   - claim trong `research/sources.json`;
@@ -40,7 +40,7 @@
 - **Lời mời:** *"Could we design a city like this — one that floats, stays put and keeps working? Let's treat it as a design problem, and solve it one step at a time."*
 - **Mốc có thật:**
   - một khu nổi khoảng 100 người đã có ở Amsterdam (CLM_010, CLM_011);
-  - một đề xuất 12.000 người ở Busan, công bố năm 2022 (CLM_030, CLM_031). Trang của nhà phát triển và kiến trúc sư không có báo cáo khởi công khi chúng tôi kiểm vào tháng 11/2026 (CLM_033).
+  - một đề xuất 12.000 người ở Busan, công bố năm 2022 (CLM_030, CLM_031). Trang của kiến trúc sư vẫn ghi "In Design" khi kiểm vào tháng 11/2026 (CLM_034, c-r2). Phạm vi kiểm tra để ở ghi chú, không đọc thành tiếng.
 - **Gỡ thành phố** về một phao trống.
 
 ## C2: The First Problem: Making Buildings Float (ba ý)
@@ -58,6 +58,7 @@
    - *"But a small tilt under a shifted load tells us little about how it will move in waves."*
 
 ## C3: Why One Platform Isn't a City
+- **Quay về bản 3 tầng** (c-r2): số người (khoảng 50 mỗi phao 40 m) và cả quận đều dùng nhà 3 tầng, không phải bản 4 tầng của nhánh sửa ở C2.
 - **Năm phao.** Sao không hàn thành một tấm?
 - **Tải khác nhau.** Hai phao giống nhau, nhà 2 tầng và 4 tầng: nếu nổi độc lập, mặt sàn lệch khoảng 66 cm (calc). Tải khác nhau thêm một yêu cầu cho mối nối.
   - Thiết kế này chọn cầu đi bộ có khớp để chấp nhận chênh cao độ; dằn để cân mớn nước là cách khác.
@@ -65,7 +66,8 @@
 - **Đếm.**
   - Với 40 m² sàn mỗi người (nhà ở cộng phần dịch vụ), 10.000 người cần khoảng 33 ha mặt phao: khoảng 209 phao 40 m, hoặc 93 phao 60 m, hoặc 34 phao 100 m (calc).
   - Phao to: ít mối nối, nhưng nặng khi đúc, hạ thủy và kéo; ngay phao Schoonschip đã quá to cho ụ khô truyền thống (CLM_014).
-  - **Quận của chúng ta dùng phao 60 m:** một lựa chọn ở giữa cho bản minh họa, không phải tối ưu.
+  - **Quận của chúng ta dùng phao 60 m với nhà 3 tầng:** một lựa chọn ở giữa cho bản minh họa, không phải tối ưu.
+  - B15–B16 là một sơ đồ liên tục (c-r2), không phải hai bảng số.
 
 ## C4: The Water Never Stays Still
 - **Chuyển động khái niệm** (nhãn bắt buộc): các phao nhấp nhô lệch pha; khe và cầu có khớp làm việc.
@@ -78,7 +80,7 @@
 
 ## C5: Keeping the City in Place
 - Mặt nước mờ dần (hai bước), lộ cọc rồi dây neo.
-- Mực nước lên xuống (2 m, giả định): phao trượt theo cọc (CLM_020, CLM_041). Cầu nối bờ có khớp, dốc khoảng 3° với cầu 25 m (calc).
+- Mực nước lên xuống (2 m, giả định): phao trượt theo cọc (CLM_020, CLM_041). Cầu nối bờ có khớp: tính cả thay đổi tải, dốc khoảng 3° (±2,8°) với cầu 25 m; chỉ tính mực nước thì khoảng 2,3°; khớp ở giữa dải (CLM_109, c-r2).
 - Nước sâu hơn: dây neo dùng chung thay cọc (CLM_055); dây dài hơn, neo sâu hơn, chi phí tăng nhanh hơn độ sâu (CLM_054).
 - Đáy biển quyết định (CLM_054). Không có loại hay cỡ neo.
 
@@ -106,7 +108,7 @@
 - **So sánh cuối:** phao A cạnh quận C. Mỗi hệ một nhãn và câu hỏi nó trả lời.
 - **Phán quyết ba tầng:**
   1. **Đã có thật:** khu nổi khoảng 100 người, nối bờ, trong nước kín (CLM_010, CLM_011, CLM_016).
-  2. **Có thể trong điều kiện cụ thể:** một quận nối bờ trong vịnh kín, xây theo pha. Mỗi hệ có tiền lệ hoặc nghiên cứu, nhưng hydro-elastic, mối nối và chi phí còn mở (CLM_042, CLM_053, CLM_063). Dự án quy mô này mà chúng tôi kiểm (OCEANIX Busan) không có báo cáo khởi công trên trang của nhà phát triển và kiến trúc sư, tháng 11/2026 (CLM_033). Chúng tôi không khảo sát mọi dự án trên thế giới.
+  2. **Có thể trong điều kiện cụ thể:** một quận nối bờ trong vịnh kín, xây theo pha. Mỗi hệ có tiền lệ hoặc nghiên cứu, nhưng hydro-elastic, mối nối và chi phí còn mở (CLM_042, CLM_053, CLM_063). Dự án quy mô này mà chúng tôi kiểm (OCEANIX Busan) vẫn được kiến trúc sư ghi "In Design" (CLM_034, tháng 11/2026).
   3. **Còn suy đoán:** một thành phố ngoài khơi, nhất là nếu phải tự chủ (CLM_051, CLM_058).
 - **Câu kết:** *"Our arithmetic shows what it takes for a platform to float. Whether a whole district works depends on the site, and on every other system we've added."*
 - **Lời kêu gọi** (beat `framing`, ≤ 60 từ, không claim) và card ghi công.

@@ -1,14 +1,14 @@
 # Duyệt concept và kịch bản: "Could We Build an Entire City That Floats?"
 
 - **Dự án:** `floating-city-design-challenge`, nhánh `concept-floating-city-design-challenge`.
-- **Revision:** c-r1, 2026-11-08, sau review concept của chủ kênh.
-- **Trạng thái:** **kịch bản c-r1 chờ chủ kênh đọc và nghe.**
-  - Có lời dẫn hoàn chỉnh, audio nội bộ, timing đo từ audio (13:05).
+- **Revision:** c-r2, 2026-11-08: c-r1 sau review concept, c-r2 sau review c-r1 của chủ kênh.
+- **Trạng thái:** **kịch bản c-r2 chờ chủ kênh chốt.**
+  - Có lời dẫn hoàn chỉnh, audio nội bộ, timing đo từ audio (13:03).
   - Chưa có asset sản xuất hay card. Không claim nào được duyệt.
 - **Bắt đầu đọc:**
   1. `review/SCRIPT_REVIEW.md`: đúng các câu đã đọc, mốc thời gian, claim, các quyết định cần bạn;
-  2. bản nghe thử `output/floating-city-design-challenge_narration_preview_c-r1.m4a` (ngoài git);
-  3. `review/REVIEW_C_R1.md`: góp ý → đã làm → kiểm tra.
+  2. bản nghe thử `output/floating-city-design-challenge_narration_preview_c-r2.m4a` (ngoài git);
+  3. `review/REVIEW_C_R2.md` và `review/REVIEW_C_R1.md`: góp ý → đã làm → kiểm tra.
 
 ## Gói tài liệu
 
@@ -16,12 +16,12 @@
 |---|---|
 | A. Ba hướng kể và đề xuất | `concept/CONCEPT_OPTIONS.md` |
 | B. Hợp đồng kịch bản | `concept/SCENARIO_CONTRACT.md`, `concept/scenario_contract.json` |
-| C. Nghiên cứu kỹ thuật | `concept/ENGINEERING_RESEARCH.md`; `research/sources.json` (16 nguồn, 63 claim, khớp nguyên văn); `research/source_snapshots.json` |
+| C. Nghiên cứu kỹ thuật | `concept/ENGINEERING_RESEARCH.md`; `research/sources.json` (16 nguồn, 64 claim, khớp nguyên văn); `research/source_snapshots.json` |
 | Mô hình tính | `analysis/design_model.py` → `analysis/results.json`, `analysis/RESULTS.md`; test `tests/test_floating_city_concept.py` |
 | D. Tiến hóa thiết kế | `concept/DESIGN_EVOLUTION.md` |
 | E. Dàn ý | `concept/NARRATIVE_OUTLINE.md` |
 | **Lời dẫn** | `script/story.py` → `script/narration.json`, `visual_beats.json`, `chapters.json`; `script/timing.json` (khóa từ audio) |
-| F. Storyboard | `concept/VISUAL_STORYBOARD.md` (44 shot, 13:05; sinh bởi `concept/build_storyboard.py`) |
+| F. Storyboard | `concept/VISUAL_STORYBOARD.md` (44 shot, 13:03; sinh bởi `concept/build_storyboard.py`) |
 | G. Asset thủ tục | `concept/BLENDER_ASSET_BLUEPRINT.md` |
 | H. Khả thi sản xuất | `concept/PRODUCTION_FEASIBILITY.md` |
 | I. Prototype | `concept/PROTOTYPE_REPORT.md`; `renders/prototype/` (git bỏ qua), gồm hoạt ảnh P6 |
@@ -38,7 +38,7 @@
 - Một quận 10.000 người nối bờ trong vịnh kín, phao 60 m.
 - Thử đặt ngoài khơi.
 
-Review concept của chủ kênh giữ cấu trúc này và yêu cầu sáu nhóm sửa; tất cả đã làm (`review/REVIEW_C_R1.md`).
+Review concept của chủ kênh giữ cấu trúc này và yêu cầu sáu nhóm sửa (c-r1). Review c-r1 yêu cầu ba điểm nữa (c-r2). Tất cả đã làm (`review/REVIEW_C_R1.md`, `review/REVIEW_C_R2.md`).
 
 ## Người xem sẽ học được gì
 1. Vì sao một khối bê tông hàng nghìn tấn nổi: mỗi tấn đòi khoảng một mét khối nước.
@@ -54,26 +54,29 @@ Review concept của chủ kênh giữ cấu trúc này và yêu cầu sáu nhó
 
 | Loại | Số claim | Ví dụ |
 |---|---|---|
-| ESTABLISHED_FACT | 39 | Archimedes; Schoonschip (46 hộ, phao bê tông, nhà 340–350 t, một đầu nối lưới); nhà nổi Hà Lan tựa cọc, rung khi bão; các câu hỏi mở được nghiên cứu nêu tên |
+| ESTABLISHED_FACT | 40 | Archimedes; Schoonschip (46 hộ, phao bê tông, nhà 340–350 t, một đầu nối lưới); nhà nổi Hà Lan tựa cọc, rung khi bão; các câu hỏi mở được nghiên cứu nêu tên |
 | CALCULATED_ESTIMATE | 9 | Mớn nước khoảng 3 m; 55% là thân phao; mạn khô 1,04 → 0,71 → 1,15 m; nghiêng khoảng 0,4°; 66 cm (hai phao nổi độc lập); khoảng 209 phao 40 m, 93 phao 60 m hoặc 34 phao 100 m; dốc cầu khoảng 3° |
 | DESIGN_ASSUMPTION | 5 | 10.000 cư dân, vịnh kín, nối bờ; dải mực nước 2 m; 40 m² = 30 + 10; phao 60 m |
 | SPECULATIVE_PROPOSAL | 9 | OCEANIX Busan; concept 50.000 người ngoài khơi của Ruzzo 2026 |
-| UNVERIFIED | 1 | Tình trạng OCEANIX Busan, chỉ cho dự án đã kiểm và ngày kiểm |
+| UNVERIFIED | 1 | Báo cáo khởi công OCEANIX Busan (không tìm thấy; không còn được lời dẫn dùng). Lời dẫn dùng CLM_034: trang kiến trúc sư ghi "In Design" (tháng 11/2026) |
 
 ## Đã sẵn sàng cho sản xuất chưa?
 **Chưa.** Thứ tự:
-1. **Chủ kênh đọc và nghe kịch bản c-r1**, quyết các mục dưới.
+1. **Chủ kênh chốt kịch bản c-r2**, quyết các mục dưới.
 2. **Sửa kịch bản** theo quyết định (nếu cắt, chạy lại `narrate` → `lock-audio`).
 3. **Dựng họ asset `floating` và site `bay`**, cùng các năng lực nhỏ: mặt cắt, SINK/RISE, TILT, CONCEPT_MOTION có nhãn; site biển mở; nhà theo chức năng.
 4. **Đoạn thử có lời dẫn** trên asset thật cho chuỗi "thêm tải → chìm → sửa thân" (`tools/excerpt.py`), để chủ kênh duyệt chất lượng hình trước khi làm cả phim.
 5. **Benchmark một shot cảnh quận ở 4K**, rồi theo playbook.
 
 ## Cần chủ kênh quyết
-1. **Thời lượng 13:05:** giữ (trong 8–15 phút) hay cắt về khoảng 11 phút (danh sách chỗ cắt trong `review/SCRIPT_REVIEW_NOTES.md`)?
-2. **Phát âm "Schoonschip":** giữ cách đọc tiếng Anh hóa, thêm override sau khi nghe, hay nhắc ít hơn?
-3. **Ảnh Schoonschip:** cho phép CC BY-SA, xin phép, hay giữ sơ đồ?
-4. **Giọng `am_michael` cho dự án này.**
-5. **Duyệt claim** mà phim dùng, khi kịch bản đã chốt.
+- **Theo hướng bạn đã nêu** (agent làm theo, không ghi là duyệt):
+  - giữ thời lượng gần 13 phút;
+  - tạm dùng sơ đồ Schoonschip và tìm cơ hội xin phép ảnh đúng công trình.
+- **Còn chờ bạn:**
+  1. **Phát âm "Schoonschip":** giữ cách đọc tiếng Anh hóa, thêm override sau khi nghe, hay nhắc ít hơn?
+  2. **Giọng `am_michael` cho dự án này.**
+  3. **Chốt kịch bản c-r2.**
+  4. **Duyệt claim** mà phim dùng.
 
 ## Định nghĩa hoàn thành (brief mục 21)
 
@@ -83,9 +86,9 @@ Review concept của chủ kênh giữ cấu trúc này và yêu cầu sáu nhó
 | 3 | Giả định rõ ràng | Xong (có test; làm rõ ở c-r1, không đổi giá trị) |
 | 4 | Nguồn tin cậy | Xong (14 nguồn ngoài, 49 claim ngoài; 7 nguồn không mở được hoặc không đọc, ghi ở `not_used`) |
 | 5 | Thay đổi thiết kế có lý do | Xong; nhánh số liên tục ở c-r1 |
-| 6 | Dàn ý 10–12 phút | Lời dẫn hoàn chỉnh **13:05** đo từ audio; trong 8–15, chờ quyết định |
+| 6 | Dàn ý 10–12 phút | Lời dẫn hoàn chỉnh **13:03** đo từ audio; trong 8–15; chủ kênh nghiêng về giữ |
 | 7–8 | Storyboard có hình lộ ra; mỗi cảnh có chiến lược khả thi | Xong (44 shot, mỗi shot một hạng khả thi) |
 | 9 | Bản thiết kế asset | Xong |
 | 10 | Giới hạn và claim bất định | Xong |
-| 11 | Prototype qua kiểm tra hình | P1, P3, P4, P5 đạt; P2 cho thấy phải cận cảnh; P6 (hoạt ảnh) đạt cho số liệu, đạt một phần cho hình |
-| 12 | Sẵn sàng cho buổi duyệt | **Có**: duyệt kịch bản c-r1 |
+| 11 | Prototype qua kiểm tra hình | P1, P3, P4, P5 đạt; P2 cho thấy phải cận cảnh; P6 (hoạt ảnh, mặt cắt ở c-r2) đạt cho số liệu, đọc được cơ chế; phần thêm 0,5 m còn nhỏ trong khung |
+| 12 | Sẵn sàng cho buổi duyệt | **Có**: chốt kịch bản c-r2 |

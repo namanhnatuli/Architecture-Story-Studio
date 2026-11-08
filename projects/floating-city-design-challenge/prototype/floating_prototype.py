@@ -365,72 +365,91 @@ def show_between(ob, f0, f1, last):
 
 
 def anim_add_storey_sink_fix(fps=24):
-    """P6 (owner review c-r0): one continuous branch from analysis/results.json storey_branch: 3 storeys -> a 4th arrives
-    -> the platform settles -> the hull grows 0.5 m -> the deck rises. Freeboards are the model's, not drawn guesses."""
+    """P6 (c-r2, owner review of c-r1): a section through the middle (y = 0) with the waterline fixed. One continuous
+    branch from analysis/results.json storey_branch: 3 stories -> a 4th lands -> the platform settles -> the hull
+    walls grow 0.5 m and the bottom moves down (gold) -> the deck rises. Freeboards are the model's."""
     br = RES["storey_branch"]["steps"]
     f1, f2, f3 = (st["freeboard_m"] for st in br)
     con, deck = mat("concrete", C["concrete"]), mat("deck", C["deck"], 0.85)
     pl, roof, gold = mat("plaster", C["plaster"], 0.85), mat("roof", C["roof"], 0.7), mat("highlight", C["highlight"], 0.5, 1.0, 0.3)
+    dark, ink = mat("poche", "#4A4642", 0.9), C["line"]
+    T = lambda sec: int(round(sec * fps)) + 1   # noqa: E731
+    last = T(12.0)
     root = bpy.data.objects.new("platform", None)
     bpy.context.scene.collection.objects.link(root)
 
     def child(ob):
         ob.parent = root
         return ob
-    # platform in local coordinates: deck top at z = 0, hull 4 m deep
-    child(box("hull", -L / 2, L / 2, -B / 2, B / 2, -4.0, -SLAB, con))
-    child(box("deck", -L / 2, L / 2, -B / 2, B / 2, -SLAB, 0.0, deck))
-    blocks = [(-14, -4, -15, -3), (2, 14, -15, -3), (-14, -4, 4, 15), (2, 14, 4, 15)]
+
+    def cut(name, x0, x1, z0, z1, m=dark):   # section plate on the cut face (y = 0)
+        return child(box(name, x0, x1, -0.04, -0.02, z0, z1, m))
+    # half platform (y >= 0) in local coordinates: deck top at z = 0, hull 4 m deep, walls and bulkheads every 10 m
+    H0, Y1 = 4.0, B / 2
+    bottom = [child(box("bottom", -L / 2, L / 2, 0.0, Y1, -H0, -H0 + SLAB, con)), cut("bottom_cut", -L / 2, L / 2, -H0, -H0 + SLAB)]
+    child(box("top", -L / 2, L / 2, 0.0, Y1, -SLAB, 0.0, deck))
+    cut("top_cut", -L / 2, L / 2, -SLAB, 0.0)
+    child(box("back", -L / 2, L / 2, Y1 - WALL, Y1, -H0, 0.0, con))
+    walls = [(-L / 2, -L / 2 + WALL), (L / 2 - WALL, L / 2)] + [(-L / 2 + k * SPACING - BH / 2, -L / 2 + k * SPACING + BH / 2) for k in (1, 2, 3)]
+    for k, (x0, x1) in enumerate(walls):
+        child(box(f"wall{k}", x0, x1, 0.0, Y1, -H0, 0.0, con))
+        cut(f"wall{k}_cut", x0, x1, -H0, 0.0)
+        ext = cut(f"wall{k}_ext", x0, x1, -0.5, 0.0, gold)            # the added half metre of wall, gold in section
+        ext.location.z = -H0
+        ext.scale.z = 0.001
+        ext.keyframe_insert("scale", frame=1)
+        ext.keyframe_insert("scale", frame=T(6.5))
+        ext.scale.z = 1.0
+        ext.keyframe_insert("scale", frame=T(8.0))
+    for ob in bottom:   # the bottom moves down with the new walls
+        ob.keyframe_insert("location", frame=1)
+        ob.keyframe_insert("location", frame=T(6.5))
+        ob.location.z -= 0.5
+        ob.keyframe_insert("location", frame=T(8.0))
+    blocks = [(-14, -4, 4, 15), (2, 14, 4, 15)]   # the blocks behind the section plane
     for i, (x0, x1, y0, y1) in enumerate(blocks):
         child(box(f"b{i}", x0, x1, y0, y1, 0.0, 9.0, pl))
-        r3 = child(box(f"b{i}_roof", x0 - 0.2, x1 + 0.2, y0 - 0.2, y1 + 0.2, 9.0, 9.3, roof))
-        r3.name = f"b{i}_roof3"
+        r3 = child(box(f"b{i}_roof3", x0 - 0.2, x1 + 0.2, y0 - 0.2, y1 + 0.2, 9.0, 9.3, roof))
+        show_between(r3, 1, T(2.7), last)
         for k in (3.0, 6.0):
-            child(box(f"b{i}_band{k}", x0 - 0.05, x1 + 0.05, y0 - 0.05, y1 + 0.05, k - 0.08, k + 0.08, mat("line", C["line"], 0.9)))
-    T = lambda sec: int(round(sec * fps)) + 1   # noqa: E731
-    last = T(12.0)
-    for i in range(len(blocks)):   # the 3-storey roof goes when the 4th storey lands on it
-        show_between(bpy.data.objects[f"b{i}_roof3"], 1, T(2.7), last)
-    # the 4th storey: four blocks that land on the roofs between 1.5 s and 2.7 s
-    for i, (x0, x1, y0, y1) in enumerate(blocks):
-        st = child(box(f"b{i}_storey4", x0, x1, y0, y1, 9.3, 12.3, pl))
-        rf = child(box(f"b{i}_storey4_roof", x0 - 0.2, x1 + 0.2, y0 - 0.2, y1 + 0.2, 12.3, 12.6, roof))
-        for ob in (st, rf):
+            child(box(f"b{i}_band{k}", x0 - 0.05, x1 + 0.05, y0 - 0.05, y1 + 0.05, k - 0.08, k + 0.08, mat("line", ink, 0.9)))
+        for nm, z0, z1, m in ((f"b{i}_s4", 9.0, 12.0, pl), (f"b{i}_s4_roof", 12.0, 12.3, roof)):
+            ob = child(box(nm, x0 - (0.2 if "roof" in nm else 0), x1 + (0.2 if "roof" in nm else 0), y0, y1, z0, z1, m))
             ob.location.z = 14.0
             ob.keyframe_insert("location", frame=1)
             ob.keyframe_insert("location", frame=T(1.5))
             ob.location.z = 0.0
             ob.keyframe_insert("location", frame=T(2.7))
             show_between(ob, T(1.5), last + 1, last)
-    # the extra half metre of hull grows downward between 6.5 s and 8.0 s (gold while new)
-    ext = child(box("hull_extension", -L / 2, L / 2, -B / 2, B / 2, -0.5, 0.0, gold))
-    ext.location.z = -4.0
-    ext.scale.z = 0.001
-    ext.keyframe_insert("scale", frame=1)
-    ext.keyframe_insert("scale", frame=T(6.5))
-    ext.scale.z = 1.0
-    ext.keyframe_insert("scale", frame=T(8.0))
-    # platform height = freeboard (deck top above the still water)
-    for sec, fb in ((0.0, f1), (2.7, f1), (4.7, f2), (8.0, f2), (10.0, f3), (12.0, f3)):
+    keys = ((0.0, f1, H0), (2.7, f1, H0), (4.7, f2, H0), (6.5, f2, H0), (8.0, f2, H0 + 0.5), (10.0, f3, H0 + 0.5), (12.0, f3, H0 + 0.5))
+    for sec, fb, _ in keys:
         root.location.z = fb
         root.keyframe_insert("location", frame=T(sec))
-    # freeboard gauge beside the hull: a gold bar from the water to the deck
-    gauge = box("gauge", L / 2 + 0.6, L / 2 + 1.4, -B / 2 - 1.0, -B / 2 - 0.4, 0.0, 1.0, gold)
+    # water: outside the hull and below its bottom only (the hull keeps water out); the waterline never moves
+    wm, wcut = mat("water", C["water"], 0.15), mat("water_cut", "#5F8CA2", 0.9)
+    for nm, x0, x1 in (("w_left", -60, -L / 2), ("w_right", L / 2, 60)):
+        box(nm, x0, x1, 0.0, 60, -DEPTH, 0.0, wm)
+        box(nm + "_cut", x0, x1, -0.04, -0.02, -DEPTH, 0.0, wcut)
+    box("w_back", -L / 2, L / 2, Y1, 60, -DEPTH, 0.0, wm)
+    under = box("w_under", -L / 2, L / 2, -0.04, Y1, 0.0, DEPTH, wcut)   # mesh 0..DEPTH, origin on the seabed:
+    under.location.z = -DEPTH                                               # its top follows the hull bottom
+    for sec, fb, h in keys:
+        under.scale.z = (DEPTH + fb - h) / DEPTH
+        under.keyframe_insert("scale", frame=T(sec))
+    box("waterline", -60, 60, -0.12, -0.08, -0.04, 0.04, mat("line", ink, 0.9))
+    gauge = box("gauge", L / 2 + 0.6, L / 2 + 1.4, -1.0, -0.5, 0.0, 1.0, gold)
     gauge.visible_shadow = False
-    for sec, fb in ((0.0, f1), (2.7, f1), (4.7, f2), (8.0, f2), (10.0, f3), (12.0, f3)):
+    for sec, fb, _ in keys:
         gauge.scale.z = fb
         gauge.keyframe_insert("scale", frame=T(sec))
-    ink = C["line"]
     for name, body, a, b in (("l1", f"freeboard ≈ {f1:.2f} m", 0.0, 3.0), ("l2", f"freeboard ≈ {f2:.2f} m", 4.7, 8.5),
                              ("l3", f"freeboard ≈ {f3:.2f} m", 10.0, 12.1)):
-        show_between(text(name, body, L / 2 + 1.9, 0.25, 0.75, ink), T(a), T(b), last)
-    show_between(text("c1", "+1 storey (same building load)", -2.5, -3.0, 0.8, ink), T(1.5), T(6.2), last)
-    show_between(text("c2", "hull +0.5 m  (+106 t concrete, +4%)", -2.5, -3.0, 0.8, ink), T(6.5), T(12.1), last)
-    text("note", "Concept prototype: illustrative, still water (analysis/results.json, storey_branch)", -2.5, -4.1, 0.45, ink)
-    box("waterline", -60, 60, -B / 2 - 0.3, -B / 2 - 0.2, -0.04, 0.04, mat("line", ink, 0.9))
-    box("water", -60, 60, -B / 2 - 0.1, 60, -DEPTH, 0.0, mat("water", C["water"], 0.15, 0.55))
+        show_between(text(name, body, L / 2 + 1.9, 0.25, 0.75, ink, y=-1.2), T(a), T(b), last)
+    show_between(text("c1", "+1 story (same load per m² of floor)", -2.5, -6.4, 0.8, ink, y=-1.2), T(1.5), T(6.2), last)
+    show_between(text("c2", "hull walls +0.5 m  (+106 t concrete, +4%)", -2.5, -6.4, 0.8, ink, y=-1.2), T(6.5), T(12.1), last)
+    text("note", "Concept prototype: section, still water, illustrative (analysis/results.json, storey_branch)", -2.5, -7.4, 0.45, ink, y=-1.2)
     bpy.context.scene.frame_start, bpy.context.scene.frame_end = 1, last
-    return dict(ortho=32, az=-90, el=2, target=(13, 0, 4.4))
+    return dict(ortho=38, az=-90, el=1, target=(13, 0, 2.8))
 
 
 ANIMS = {"P6_add_storey_sink_fix": anim_add_storey_sink_fix}

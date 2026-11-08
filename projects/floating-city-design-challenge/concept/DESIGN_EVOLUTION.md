@@ -1,4 +1,4 @@
-# Tiến hóa thiết kế: A → B → C (và phản thực tế D), revision c-r1
+# Tiến hóa thiết kế: A → B → C (và phản thực tế D), revision c-r2
 
 **Quy tắc chung:**
 - Mỗi thay đổi trả lời một vấn đề đã được chỉ ra trên hình **trước** khi thay đổi xuất hiện.
@@ -23,19 +23,19 @@
 
 | | |
 |---|---|
-| **Hình** | Năm phao 40 m quanh một bể nhỏ, cầu đi bộ có khớp qua các khe, cọc ở góc. Khoảng 50 người mỗi phao (CLM_108). |
+| **Hình** | **Quay về bản 3 tầng, thân 4 m** (c-r2: nhánh sửa ở A chỉ để giải thích tải). Năm phao 40 m quanh một bể nhỏ, cầu đi bộ có khớp qua các khe, cọc ở góc. Khoảng 50 người mỗi phao (48 với 3 tầng; 64 nếu 4 tầng; CLM_108). |
 | **Câu hỏi** | Sao không nối tất cả thành một tấm? |
 | **Tải khác nhau** | Hai phao giống nhau, nhà 2 tầng và 4 tầng, **nếu nổi độc lập** thì mặt sàn lệch khoảng 0,66 m (CLM_107). Khi nối cứng, lực ở mối nối làm đổi cân bằng của cả hai, nên phép tính này **không** chứng minh mối nối cứng sẽ hỏng. Nó chỉ cho thấy tải khác nhau thêm một yêu cầu cho mối nối. Thiết kế này chọn cầu đi bộ có khớp; dằn để cân mớn nước là cách khác. Hình không tô đỏ phương án nào. |
 | **Chuyển động tương đối** | Chuyển động khái niệm có nhãn bắt buộc. Mối nối là nơi tập trung ứng suất (CLM_042). Nghiên cứu nối mềm và giữ khoảng cách đủ để không va chạm, vì neo mềm cho phép dịch ngang khá lớn; chân vịt dự phòng để tránh va chạm và quá tải mối nối (CLM_056). |
 | **Hạ tầng qua khe** | Ống mềm, cáp chống nước, bơm (CLM_023); tiền lệ Schoonschip: một đầu nối lưới cho cả khu (CLM_016). |
-| **Giữ vị trí** | Cọc, phao trượt theo mực nước (CLM_020, CLM_041); dải 2 m (giả định, CLM_122) buộc cầu nối bờ có khớp: khoảng 3° với cầu 25 m (CLM_109). |
+| **Giữ vị trí** | Cọc, phao trượt theo mực nước (CLM_020, CLM_041); dải 2 m (giả định, CLM_122) cộng thay đổi mớn nước theo tải (khoảng 0,44 m) buộc cầu nối bờ có khớp: khoảng 3° (±2,8°) với cầu 25 m, khớp ở giữa dải; chỉ mực nước thì khoảng 2,3° (CLM_109). |
 
 ## Design C: quận nổi được che chắn (10.000 cư dân)
 
 | | |
 |---|---|
 | **Diện tích** | 40 m² sàn mỗi cư dân, gồm 30 m² nhà ở và 10 m² trường học, phòng khám, cửa hàng, dịch vụ (CLM_124). Nhà 3 tầng phủ 40%, nên cần khoảng 33 ha mặt phao. |
-| **Phao to hay nhiều phao** | Cho cùng khoảng 33 ha (CLM_108): phao 40 m là 209 phao (tới khoảng 390 mối nối); phao 100 m là 34 phao (khoảng 60 mối nối, mỗi phao khoảng 30.000 t). Phao Schoonschip đã quá to cho ụ khô truyền thống (CLM_014). **Quận dùng phao 60 m: 93 phao, tới 180 mối nối, mỗi phao khoảng 10.800 t, khoảng 108 người** (CLM_125). Đây là lựa chọn ở giữa cho bản minh họa, không phải tối ưu. |
+| **Phao to hay nhiều phao** | Cho cùng khoảng 33 ha (CLM_108): phao 40 m là 209 phao (tới khoảng 390 mối nối); phao 100 m là 34 phao (khoảng 60 mối nối, mỗi phao khoảng 30.000 t). Phao Schoonschip đã quá to cho ụ khô truyền thống (CLM_014). **Quận dùng phao 60 m với nhà 3 tầng: 93 phao, tới 180 mối nối, mỗi phao khoảng 10.800 t, khoảng 108 người** (CLM_125). Đây là lựa chọn ở giữa cho bản minh họa, không phải tối ưu. |
 | **Bố cục** | Nhà ở vòng trong; chức năng chịu được chuyển động lớn hơn ở vòng ngoài, như nghiên cứu đề xuất (CLM_055). Đê chắn ở phía mở ra biển, có giới hạn (CLM_051, CLM_052). |
 | **Neo theo độ sâu** | Cọc ở phần nông; dây neo dùng chung ở phần sâu (CLM_055). Sâu hơn thì dây dài hơn, neo sâu hơn, chi phí cao hơn (CLM_054). Không định cỡ. |
 | **Buộc vào đất liền** | Điện, nước, nước thải, lương thực qua cầu (CLM_043, CLM_123). Hai lối ra cho mỗi phao, bến tàu cứu hộ. |
