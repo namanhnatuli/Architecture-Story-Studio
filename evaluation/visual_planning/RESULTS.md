@@ -1,30 +1,31 @@
 # Visual-planning evaluation (M5.5)
 
-30/30 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
+32/32 cases pass. Small curated dataset: it checks that these cases behave as specified; it is not evidence of unrestricted natural-language understanding.
 
 | Dimension | Checks passed |
 |---|---|
-| narrative_relevance | 31/31 |
+| narrative_relevance | 32/32 |
 | asset_selection | 9/9 |
 | target_selection | 25/25 |
-| animation_suitability | 16/16 |
+| animation_suitability | 19/19 |
 | camera_readability | 5/5 |
 | target_visibility | 9/9 |
 | timing_feasibility | 2/2 |
 | evidence_compatibility | 5/5 |
 | visual_continuity | 5/5 |
-| cross_family_reuse | 2/2 |
+| cross_family_reuse | 3/3 |
 
 | Kind | Cases passed |
 |---|---|
-| positive | 13/13 |
-| negative | 8/8 |
+| positive | 14/14 |
+| negative | 9/9 |
 | ambiguous | 3/3 |
 | missing_capability | 6/6 |
 
 | Family | Cases passed |
 |---|---|
 | bridge | 24/24 |
+| floating | 2/2 |
 | roof | 6/6 |
 
 ## Cases
@@ -166,3 +167,9 @@
 - **SEQ-NEG-01** (missing_capability, bridge) A SEQUENCE on an asset that does not declare it is refused (MISSING_TEMPLATE), never faked with a hold: **PASS**
   - ok [animation_suitability] status MISSING_TEMPLATE (want MISSING_TEMPLATE)
   - ok [animation_suitability] report mentions 'does not support SEQUENCE'
+- **FLOAT-SEQ-01** (positive, floating) A floating platform in section sinks by a calculated amount: SEQUENCE with REVEAL and MOVE on the same parts: **PASS**
+  - ok [animation_suitability] status COVERED (want COVERED)
+  - ok [narrative_relevance] strategy SEQUENCE (want ['SEQUENCE'])
+- **FLOAT-SEQ-02** (negative, floating) Conceptual motion (OSCILLATE) without the mandatory label is refused, never shown as if simulated: **PASS**
+  - ok [animation_suitability] status INVALID_REQUEST (want INVALID_REQUEST)
+  - ok [animation_suitability] report mentions 'motion_label'

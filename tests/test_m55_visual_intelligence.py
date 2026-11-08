@@ -352,7 +352,7 @@ class EvaluationSuiteTest(unittest.TestCase):
         s = evaluate.run()
         self.assertEqual(s["passed"], s["cases"])
         self.assertEqual(set(s["by_kind"]), {"positive", "negative", "ambiguous", "missing_capability"})
-        self.assertEqual(set(s["by_family"]), {"bridge", "roof"})
+        self.assertEqual(set(s["by_family"]), {"bridge", "roof", "floating"})   # floating: SEQUENCE MOVE / OSCILLATE label (2026-11-08)
         self.assertTrue(all(v["checks"] > 0 for v in s["dimensions"].values()))
 
     def test_checker_detects_a_wrong_expectation(self):

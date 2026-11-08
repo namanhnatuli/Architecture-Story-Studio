@@ -32,6 +32,10 @@ def _copy_project(src, tmp):
         if (Path(src) / sub).is_dir():
             shutil.copytree(Path(src) / sub, dst / sub)
     shutil.copy(Path(src) / "project.json", dst / "project.json")
+    manifest = Path(src) / "audio" / "narration_manifest.json"   # word timestamps of an AUDIO_LOCKED project (no audio)
+    if manifest.is_file():
+        (dst / "audio").mkdir(parents=True, exist_ok=True)
+        shutil.copy(manifest, dst / "audio" / "narration_manifest.json")
     return dst
 
 

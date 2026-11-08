@@ -34,4 +34,14 @@
   - Kiểm offline 5/5 cho cả bốn spec. Blender (`asset-render --preset review`) 4/4 cho cả hai phao, đã xem ảnh: ba phía, mặt đứng mặt cắt, tách lớp.
   - Cho phép chồng có chủ ý (ROOF, BUILDING) và tấm mặt cắt nằm trên mặt cắt của phần nó vẽ (`engine/arch/asset_scene.py`). Các cặp này chỉ có ở họ nổi.
   - Test: `tests/test_floating_family.py` (7). Toàn bộ test đạt; đánh giá planner 30/30.
-- **L2:** tiếp theo.
+- **L2: xong (2026-11-08).**
+  - Bước SEQUENCE mới trong `engine/motion.py`:
+    - `MOVE`: tịnh tiến nhóm theo độ dịch tính sẵn;
+    - `ROTATE`: xoay nhỏ quanh một trục qua pivot, góc ≤ 45°;
+    - `OSCILLATE`: nhấp nhô hình sin với nghiêng tùy chọn, mờ vào và ra, trở về vị trí nghỉ.
+  - Các bước được ghép với REVEAL trên cùng bộ phận theo thứ tự thời gian. Hai chuyển động chồng thời gian trên một bộ phận bị từ chối. Bộ phận chỉ có REVEAL vẫn đi đúng đường cũ.
+  - Planner từ chối OSCILLATE nếu beat không mang `motion_label` đúng chữ "Conceptual motion visualization — not a hydrodynamic simulation". `{"except": []}` nghĩa là cả công trình.
+  - Bộ đánh giá chép thêm `audio/narration_manifest.json` (mốc theo từ) khi dự án có. Thêm ca FLOAT-SEQ-01 (dương) và FLOAT-SEQ-02 (âm): 32/32.
+  - Test: `tests/test_motion_transforms.py` (8).
+  - **Còn mở:** hiển thị nhãn chuyển động khái niệm trên hình. NOTE giới hạn 52 ký tự, câu nhãn dài 63 ký tự; xử lý ở L4.
+- **L3:** tiếp theo.

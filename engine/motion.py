@@ -640,7 +640,17 @@ STEP_DEFAULTS = {
                "stagger_seconds": 0.0, "easing": "EASE_OUT", "fade_end": 0.6, "sound": None},
     "HIGHLIGHT": {"components": None, "start_seconds": None, "rise_seconds": 0.3, "hold_seconds": 1.0,
                   "fall_seconds": 0.4, "strength": 0.6, "tint": 0.0},
+    # floating family: the parts move as a rigid group by amounts a project has calculated (never tuned to look right)
+    "MOVE": {"components": None, "start_seconds": None, "seconds": 1.5, "offset": None, "easing": "SMOOTH"},
+    "ROTATE": {"components": None, "start_seconds": None, "seconds": 1.5, "axis": "X", "degrees": None, "pivot": None,
+               "easing": "SMOOTH"},
+    # conceptual motion only: a sine heave (and optional tilt) with a fade-in and fade-out; the planner requires the
+    # beat to carry the label "Conceptual motion visualization — not a hydrodynamic simulation"
+    "OSCILLATE": {"components": None, "start_seconds": None, "seconds": 6.0, "amplitude_m": 0.3, "period_seconds": 3.0,
+                  "phase_degrees": 0.0, "tilt_degrees": 0.0, "axis": "X", "pivot": None, "fade_seconds": 0.8},
 }
+TRANSFORM_STEPS = ("MOVE", "ROTATE", "OSCILLATE")
+CONCEPT_MOTION_LABEL = "Conceptual motion visualization — not a hydrodynamic simulation"
 SOUNDS = (None, "STONE", "STONE_HEAVY")
 SEQUENCE_TRANSPARENCY_EPS = 1e-6
 
@@ -661,6 +671,28 @@ def sequence_steps(cfg, where="SEQUENCE"):
                 _number(c, key, w)
         if c["do"] == "GHOST":
             _number(c, "transparency", w, positive=True, maximum=0.95)
+        if c["do"] in TRANSFORM_STEPS:
+            vec = lambda key: isinstance(c.get(key), (list, tuple)) and len(c[key]) == 3 and all(   # noqa: E731
+                isinstance(v, (int, float)) and not isinstance(v, bool) for v in c[key])
+            if c["do"] == "MOVE" and not vec("offset"):
+                raise PlanError(f"{w}: MOVE needs offset [dx, dy, dz] in metres")
+            if c["do"] in ("ROTATE", "OSCILLATE"):
+                if c["axis"] not in ("X", "Y", "Z"):
+                    raise PlanError(f"{w}: axis must be X, Y or Z")
+                if not vec("pivot"):
+                    raise PlanError(f"{w}: {c['do']} needs pivot [x, y, z] in metres")
+            if c["do"] == "ROTATE":
+                d = c.get("degrees")
+                if isinstance(d, bool) or not isinstance(d, (int, float)) or abs(d) > 45:
+                    raise PlanError(f"{w}: ROTATE needs degrees within +/-45")
+            if c["do"] == "OSCILLATE":
+                _number(c, "amplitude_m", w, maximum=5.0)
+                _number(c, "period_seconds", w, positive=True)
+                _number(c, "fade_seconds", w)
+                if abs(c["tilt_degrees"]) > 10:
+                    raise PlanError(f"{w}: OSCILLATE tilt_degrees within +/-10")
+            if c["seconds"] <= 0 and (c["do"] != "MOVE" or c["start_seconds"] > 0):
+                raise PlanError(f"{w}: a {c['do']} needs seconds > 0 (an instant MOVE only at the start of the shot)")
         if c["do"] == "HIGHLIGHT":
             _number(c, "strength", w, positive=True, maximum=1.0)
             _number(c, "tint", w, maximum=1.0)
@@ -774,9 +806,14 @@ def plan_sequence(plan, components, cfg, camera):
         if unknown:
             raise PlanError(f"SEQUENCE.steps[{i}] ({s['do']}): {unknown} are not parts of the shown state")
     # transparency: per part, a timeline of (frame0, frame1, target) segments that must not overlap
-    segments, reveals, pulses = {}, [], {}
+    segments, reveals, pulses, transforms = {}, [], {}, {}
     for i, s in enumerate(steps):
         t0 = s["start_seconds"]
+        if s["do"] in TRANSFORM_STEPS:
+            for cid in s["components"]:
+                transforms.setdefault(cid, []).append((t0, t0 + s["seconds"], s, i))
+            end = max(end, t0 + s["seconds"])
+            continue
         if s["do"] == "HIGHLIGHT":
             t3 = t0 + s["rise_seconds"] + s["hold_seconds"] + s["fall_seconds"]
             for cid in s["components"]:
@@ -827,6 +864,12 @@ def plan_sequence(plan, components, cfg, camera):
                 plan.key(n, HIDE, f, 1.0 if hidden else 0.0, "CONSTANT")
                 previous = hidden
     center = centroid([components[cid] for cid, *_ in reveals]) if reveals else (0.0, 0.0, 0.0)
+    if len({cid for cid, *_ in reveals}) != len(reveals):
+        raise PlanError("SEQUENCE: a part arrives twice; fade it out and back in instead")
+    for cid in transforms:   # parts that also move: their REVEAL is composed with the moves below
+        _plan_transforms(plan, components[cid], transforms[cid],
+                         [(st, sp, s, i) for c2, st, sp, s, i in reveals if c2 == cid], center, last)
+    reveals = [r for r in reveals if r[0] not in transforms]
     for cid, start, stop, s, i in reveals:
         comp = components[cid]
         direction = resolve_direction(s["direction"], comp, center)
@@ -871,6 +914,78 @@ def plan_sequence(plan, components, cfg, camera):
         plan.key(n, HIGHLIGHT, last, 0.0)
     plan.markers.setdefault("middle", (plan.frame_count + 1) // 2)
     return plan
+
+
+def _rotate_about(p, pivot, axis, radians):
+    """Point p turned by `radians` about the axis through `pivot` parallel to X, Y or Z."""
+    x, y, z = (p[k] - pivot[k] for k in range(3))
+    c, s = math.cos(radians), math.sin(radians)
+    if axis == "X":
+        x, y, z = x, y * c - z * s, y * s + z * c
+    elif axis == "Y":
+        x, y, z = x * c + z * s, y, -x * s + z * c
+    else:
+        x, y, z = x * c - y * s, x * s + y * c, z
+    return (x + pivot[0], y + pivot[1], z + pivot[2])
+
+
+def _plan_transforms(plan, comp, moves, reveals, center, last):
+    """Location (and rotation) keys of one part under MOVE / ROTATE / OSCILLATE steps, composed in time order with
+    an optional REVEAL. Events on one part must not overlap; each starts from where the previous one left the part."""
+    events = sorted([(st, sp, s, i, "REVEAL") for st, sp, s, i in reveals] + [(st, sp, s, i, s["do"]) for st, sp, s, i in moves],
+                    key=lambda e: e[0])
+    for a, b in zip(events, events[1:]):
+        if b[0] < a[1] - 1e-9:
+            raise PlanError(f"SEQUENCE.steps[{b[3]}] ({b[4]}): {comp.id} is still moving from steps[{a[3]}] ({a[4]})")
+    axis_index = {"X": 0, "Y": 1, "Z": 2}
+
+    def state(t):
+        loc, rot = tuple(comp.location), list(comp.rotation)
+        for st, sp, s, i, do in events:
+            if do == "REVEAL":
+                direction = resolve_direction(s["direction"], comp, center)
+                f = 0.0 if t <= st else 1.0 if t >= sp else ease(s["easing"], (t - st) / (sp - st))
+                loc = _add(loc, _mul(direction, float(s["distance"]) * (1.0 - f)))
+                continue
+            if t <= st:
+                break
+            f = 1.0 if sp <= st or t >= sp else ease(s.get("easing", "SMOOTH"), (t - st) / (sp - st))
+            if do == "MOVE":
+                loc = _add(loc, _mul(tuple(float(v) for v in s["offset"]), f))
+            elif do == "ROTATE":
+                r = math.radians(float(s["degrees"])) * f
+                loc = _rotate_about(loc, s["pivot"], s["axis"], r)
+                rot[axis_index[s["axis"]]] += r
+            else:   # OSCILLATE: heave and tilt with a fade at both ends, back to rest at the end
+                u = min(t, sp) - st
+                env = min(1.0, u / s["fade_seconds"], max(0.0, (sp - st - u)) / s["fade_seconds"]) if s["fade_seconds"] > 0 else 1.0
+                phase = 2 * math.pi * u / s["period_seconds"] + math.radians(s["phase_degrees"])
+                loc = _add(loc, (0.0, 0.0, s["amplitude_m"] * math.sin(phase) * env))
+                r = math.radians(s["tilt_degrees"]) * math.sin(phase + math.pi / 2) * env
+                if r:
+                    loc = _rotate_about(loc, s["pivot"], s["axis"], r)
+                    rot[axis_index[s["axis"]]] += r
+        return loc, tuple(rot)
+
+    frames = {1: "LINEAR", last: "LINEAR"}
+    for st, sp, s, i, do in events:
+        f0, f1 = max(1, plan.frame(st)), min(last, plan.frame(sp))
+        if do in ("REVEAL", "MOVE"):
+            frames[f0] = s.get("easing", "SMOOTH")
+            frames.setdefault(f1, "LINEAR")
+        else:   # rotations and oscillations follow their path: a key every second frame
+            for f in range(f0, f1 + 1, 2):
+                frames[f] = "LINEAR"
+            frames[f1] = "LINEAR"
+    rotates = any(do in ("ROTATE", "OSCILLATE") for *_, do in events)
+    for f in sorted(frames):
+        loc, rot = state((f - 1) / plan.fps)
+        plan.key(comp.name, LOC, f, loc, frames[f])
+        if rotates:
+            plan.key(comp.name, ROT, f, rot, frames[f])
+        for st, sp, s, i, do in events:
+            if f == min(last, plan.frame(sp)):
+                plan.markers[f"{do.lower()}_{i}_done"] = max(plan.markers.get(f"{do.lower()}_{i}_done", 0), f)
 
 
 def plan_highlight_only(plan, cfg, defaults, names_for, where):

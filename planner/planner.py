@@ -533,7 +533,7 @@ def build_strategy(name, ctx):
 
         def ids(refs, where):
             if isinstance(refs, dict) and "except" in refs:   # every part of the structure but these (never the site)
-                keep = set(ids(refs["except"], where))
+                keep = set(ids(refs["except"], where)) if refs["except"] else set()   # except []: the whole structure
                 return sorted(p["id"] for p in parts if p["id"] not in keep and p["id"] not in shared)
             try:   # in the order the refs name them (a staggered arrival follows it)
                 out = list(dict.fromkeys(i for t in mapper.resolve_targets(refs, parts, model.vocab, sid)
@@ -572,6 +572,10 @@ def build_strategy(name, ctx):
                     cues.append({"at_seconds": round(out["start_seconds"] + i * lag + float(s.get("seconds", 1.2)), 4),
                                  "kind": s["sound"], "step": k})
             steps.append(out)
+        if any(st["do"] == "OSCILLATE" for st in steps) and beat.get("motion_label") != motion.CONCEPT_MOTION_LABEL:
+            # conceptual motion never reads as a simulation: the beat must carry the exact label (shown on screen)
+            raise StrategyRejected("INVALID_REQUEST", "OSCILLATE needs the beat's motion_label "
+                                   f"'{motion.CONCEPT_MOTION_LABEL}'")
         focus0, focus1 = views[0]["focus"], views[-1]["focus"]
 
         def make_seq(n):

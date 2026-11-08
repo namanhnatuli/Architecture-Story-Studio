@@ -1,11 +1,11 @@
 {
  "dataset": "M5.5 evaluation dataset for planner/ (python3 tools/cli.py evaluate-planning). Each case edits a temporary copy of a project; narration or concept edits are SYNTHETIC test inputs, not factual content. The planner never reads this file.",
- "cases": 30,
- "passed": 30,
+ "cases": 32,
+ "passed": 32,
  "dimensions": {
   "narrative_relevance": {
-   "passed": 31,
-   "checks": 31
+   "passed": 32,
+   "checks": 32
   },
   "asset_selection": {
    "passed": 9,
@@ -16,8 +16,8 @@
    "checks": 25
   },
   "animation_suitability": {
-   "passed": 16,
-   "checks": 16
+   "passed": 19,
+   "checks": 19
   },
   "camera_readability": {
    "passed": 5,
@@ -40,18 +40,18 @@
    "checks": 5
   },
   "cross_family_reuse": {
-   "passed": 2,
-   "checks": 2
+   "passed": 3,
+   "checks": 3
   }
  },
  "by_kind": {
   "positive": {
-   "passed": 13,
-   "cases": 13
+   "passed": 14,
+   "cases": 14
   },
   "negative": {
-   "passed": 8,
-   "cases": 8
+   "passed": 9,
+   "cases": 9
   },
   "ambiguous": {
    "passed": 3,
@@ -66,6 +66,10 @@
   "bridge": {
    "passed": 24,
    "cases": 24
+  },
+  "floating": {
+   "passed": 2,
+   "cases": 2
   },
   "roof": {
    "passed": 6,
@@ -981,6 +985,48 @@
      "check": "mentions",
      "ok": true,
      "detail": "report mentions 'does not support SEQUENCE'"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "FLOAT-SEQ-01",
+   "kind": "positive",
+   "family": "floating",
+   "title": "A floating platform in section sinks by a calculated amount: SEQUENCE with REVEAL and MOVE on the same parts",
+   "checks": [
+    {
+     "dimension": "animation_suitability",
+     "check": "status",
+     "ok": true,
+     "detail": "status COVERED (want COVERED)"
+    },
+    {
+     "dimension": "narrative_relevance",
+     "check": "strategy",
+     "ok": true,
+     "detail": "strategy SEQUENCE (want ['SEQUENCE'])"
+    }
+   ],
+   "ok": true
+  },
+  {
+   "id": "FLOAT-SEQ-02",
+   "kind": "negative",
+   "family": "floating",
+   "title": "Conceptual motion (OSCILLATE) without the mandatory label is refused, never shown as if simulated",
+   "checks": [
+    {
+     "dimension": "animation_suitability",
+     "check": "status",
+     "ok": true,
+     "detail": "status INVALID_REQUEST (want INVALID_REQUEST)"
+    },
+    {
+     "dimension": "animation_suitability",
+     "check": "mentions",
+     "ok": true,
+     "detail": "report mentions 'motion_label'"
     }
    ],
    "ok": true
