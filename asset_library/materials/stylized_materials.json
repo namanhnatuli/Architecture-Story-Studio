@@ -31,6 +31,16 @@
     ],
     "roof": [
       "roof_lead"
+    ],
+    "floating": [
+      "plaster",
+      "roof_membrane",
+      "section_poche",
+      "water_cut",
+      "displaced_water",
+      "highlight_gold",
+      "seabed",
+      "seabed_cut"
     ]
   },
   "materials": {
@@ -240,6 +250,61 @@
         "variation": 0.05,
         "bump": 0.02
       }
+    },
+    "plaster": {
+      "name": "Plaster render (stylized)",
+      "color": "#E5DCCB",
+      "roughness": 0.85,
+      "detail": {
+        "scale": 2.0,
+        "variation": 0.04,
+        "bump": 0.01
+      }
+    },
+    "roof_membrane": {
+      "name": "Flat roof membrane (stylized)",
+      "color": "#657887",
+      "roughness": 0.7,
+      "detail": {
+        "scale": 2.0,
+        "variation": 0.05,
+        "bump": 0.0
+      }
+    },
+    "section_poche": {
+      "name": "Section cut (drawing poché)",
+      "color": "#4A4642",
+      "roughness": 0.9
+    },
+    "water_cut": {
+      "name": "Water in section",
+      "color": "#5F8CA2",
+      "roughness": 0.6
+    },
+    "displaced_water": {
+      "name": "Displaced water (section highlight)",
+      "color": "#C9A45A",
+      "roughness": 0.6
+    },
+    "highlight_gold": {
+      "name": "Added part in section (highlight)",
+      "color": "#D9A441",
+      "roughness": 0.5
+    },
+    "seabed": {
+      "name": "Seabed (stylized)",
+      "color": "#B7AE90",
+      "roughness": 0.95,
+      "detail": {
+        "scale": 3.0,
+        "variation": 0.06,
+        "bump": 0.04
+      }
+    },
+    "seabed_cut": {
+      "name": "Seabed in section",
+      "color": "#8F8770",
+      "roughness": 0.95
     }
   }
 }

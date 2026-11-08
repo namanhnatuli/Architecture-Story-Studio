@@ -24,7 +24,22 @@ ALLOWED_OVERLAP = {frozenset(p) for p in (("WATER", t) for t in semantic.SEMANTI
 def expected_counts(family, variant, p):
     """Component counts implied by the parameters."""
     if family == "site":
+        if variant == "bay":   # section with a dry hull footprint: 3 water bodies, 2 cut plates, the waterline
+            cut = bool(p["section"]) and p["hole_length_m"] > 0
+            return {"GROUND": 2, "WATER": 6} if cut else {"GROUND": 1, "WATER": 1}
         return {"GROUND": 1} if variant == "level_ground" else {"GROUND": 2, "WATER": 1}
+    if family == "floating" and variant == "platform":
+        nx = int(round(p["length_m"] / p["bulkhead_spacing_m"])) - 1
+        ny = int(round(p["width_m"] / p["bulkhead_spacing_m"])) - 1
+        ext, n, sec = p["extension_m"] > 0, p["storeys"], bool(p["section"])
+        walls = 3 if sec else 4
+        blocks = 2 if sec else 4                      # a section keeps the two blocks behind the cut
+        ny_kept = sum(1 for j in range(1, ny + 1) if -p["width_m"] / 2 + j * p["bulkhead_spacing_m"] > 0.5) if sec else ny
+        out = {"HULL": 1 + walls + (walls if ext else 0), "BULKHEAD": nx + ny_kept + (nx if ext else 0), "DECK": 1,
+               "BUILDING": blocks * n, "ROOF": blocks * max(n - 1, 0)}
+        if sec:
+            out.update(SECTION_CUT=4 + nx + ((2 + nx) if ext else 0), DISPLACED_VOLUME=1, WATER=1)
+        return {k: v for k, v in out.items() if v}
     if variant == "gothic_section":
         n, sides = p["bay_count"], 2
         return {"FLOOR": 1, "NAVE_PIER": sides * (n + 1), "WALL": 4 * sides * n, "CLERESTORY_WINDOW": sides * n, "AISLE_WINDOW": sides * n,

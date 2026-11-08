@@ -1,0 +1,28 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "site_bay_section_platform_a",
+  "title": "Sheltered bay in section, dry footprint of platform A",
+  "family": "site",
+  "variant": "bay",
+  "units": "METRIC",
+  "generator": {
+    "name": "site.bay",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "site_width_m": 140.0,
+    "site_length_m": 120.0,
+    "water_depth_m": 15.0,
+    "section": 1,
+    "hole_length_m": 40.0,
+    "hole_width_m": 40.0
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative sheltered bay of scenario SCN_FLOATCITY_COASTAL_01 (water depth 15 m, within the assumed 12-25 m); still water, no waves."
+  },
+  "animation_support": [
+    "HOLD"
+  ]
+}

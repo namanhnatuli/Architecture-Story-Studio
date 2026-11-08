@@ -44,6 +44,10 @@ ALLOWED_INTERSECT = {frozenset(p) for p in (
     ("FLYING_BUTTRESS", "PIER_BUTTRESS"), ("PINNACLE", "PIER_BUTTRESS"), ("BARREL_VAULT", "WALL"), ("BARREL_VAULT", "THICK_WALL"),
     ("SHALLOW_BUTTRESS", "THICK_WALL"), ("PIER_BUTTRESS", "WALL"), ("WALL", "WALL"), ("WALL", "NAVE_PIER"),
     ("CLERESTORY_WINDOW", "WALL"), ("AISLE_WINDOW", "WALL"), ("SMALL_WINDOW", "THICK_WALL"),
+    # floating family: a lower roof cap hides inside the storey the story adds above it (BUILDING is floating-only);
+    # section plates and the displaced-water plate lie on the cut face of the parts they draw
+    ("ROOF", "BUILDING"), ("SECTION_CUT", "HULL"), ("SECTION_CUT", "BULKHEAD"), ("SECTION_CUT", "DECK"),
+    ("SECTION_CUT", "DISPLACED_VOLUME"), ("SECTION_CUT", "SECTION_CUT"),
 )} | {frozenset(("WATER", t)) for t in semantic.SEMANTIC_TYPES}
 CROPPED_VIEWS = ("elevation", "top")
 TOUCH = 0.03

@@ -1,0 +1,40 @@
+{
+  "schema": "architecture_asset/1",
+  "asset_id": "floating_platform_a_section_01",
+  "title": "Floating platform A, section through the middle",
+  "family": "floating",
+  "variant": "platform",
+  "units": "METRIC",
+  "generator": {
+    "name": "floating.platform",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "length_m": 40.0,
+    "width_m": 40.0,
+    "hull_depth_m": 4.0,
+    "draft_m": 2.958,
+    "slab_m": 0.25,
+    "wall_m": 0.25,
+    "bulkhead_m": 0.2,
+    "bulkhead_spacing_m": 10.0,
+    "building_cover": 0.4,
+    "storeys": 4,
+    "storey_height_m": 3.0,
+    "extension_m": 0.5,
+    "water_depth_m": 15.0,
+    "section": 1
+  },
+  "visual_style": "premium_stylized",
+  "accuracy": "ILLUSTRATIVE",
+  "provenance": {
+    "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon. draft_m 2.958 is the three-storey case of analysis/results.json (design_A.mid); the fourth storey and the 0.5 m hull extension are parts the story reveals, and their sinking and rising are applied as SEQUENCE MOVE steps with the offsets of analysis/results.json (storey_branch). Not an engineering design; wall and slab thicknesses only serve the mass estimate.",
+    "draft_source": "projects/floating-city-design-challenge/analysis/results.json design_A.mid.draft_m"
+  },
+  "animation_support": [
+    "HOLD",
+    "HIGHLIGHT",
+    "EXPLODED_VIEW",
+    "SEQUENCE"
+  ]
+}

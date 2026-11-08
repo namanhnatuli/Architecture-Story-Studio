@@ -1,4 +1,340 @@
 {
+  "asset_library/architecture/bridges/bridge_cable_stayed_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/cable_stayed, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "47 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "DECK 23, PIER 2, PYLON 2, STAY_CABLE 20"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 71.980 m (spec 72.0), deck top [6.0] (spec 6.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "main span 40.0 m, pylons 11.0 m above the deck, flattest stay 29.4 deg (FHWA: not less than about 22)"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/bridges/bridge_cantilever_truss_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/cantilever, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "29 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ABUTMENT 2, ANCHOR_ARM 4, BEARING 1, BRACING 4, CANTILEVER_ARM 4, DECK 5, FLOOR_BEAM 5, PIER 2, SUSPENDED_SPAN 2"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 72.000 m (spec 72.0), deck top [6.0] (spec 6.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "anchor arms 14.0 m, cantilever arms 11.0 m, suspended span 22.0 m; depth 3.5 -> 9.0 (piers) -> 4.0 m"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/bridges/bridge_steel_truss_pratt_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/steel_truss, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "29 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ABUTMENT 2, BEARING 2, DECK 2, END_POST 4, FLOOR_BEAM 2, JOINT 4, PIER 1, TRUSS_CHORD 4, TRUSS_DIAGONAL 4, TRUSS_VERTICAL 4"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 24.000 m (spec 24.0), deck top [5.0] (spec 5.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "span 11.15 m, depth 2.2 m (span/depth 5.1), diagonals at 50 deg"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/bridges/bridge_steel_truss_warren_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/steel_truss, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "25 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ABUTMENT 2, BEARING 2, DECK 2, END_POST 4, FLOOR_BEAM 2, JOINT 4, PIER 1, TRUSS_CHORD 4, TRUSS_DIAGONAL 4"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 24.000 m (spec 24.0), deck top [5.0] (spec 5.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "span 11.15 m, depth 2.2 m (span/depth 5.1), diagonals at 50 deg"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/bridges/bridge_stone_arch_03.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/stone_arch, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "49 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ABUTMENT 2, COPING 2, DECK 1, KEYSTONE 3, PARAPET 2, PIER 2, SPANDREL 1, VOUSSOIR 36"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 24.100 m (spec 24.0), deck top [5.0] (spec 5.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "semicircular rise/span 0.50; 6.13 m arches; 0.53 m fill over the crown"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/bridges/bridge_stone_arch_05.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/stone_arch, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "57 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ABUTMENT 2, COPING 2, DECK 1, KEYSTONE 5, PARAPET 2, PIER 4, SPANDREL 1, VOUSSOIR 40"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 24.100 m (spec 24.0), deck top [5.0] (spec 5.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "semicircular rise/span 0.50; 3.28 m arches; 2.06 m fill over the crown"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/bridges/bridge_suspension_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/suspension, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "14 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "ANCHORAGE 2, DECK 1, FLOOR_BEAM 1, HANGER 2, MAIN_CABLE 2, PIER 2, STIFFENING_TRUSS 2, TOWER 2"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 72.000 m (spec 72.0), deck top [6.0] (spec 6.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "main span 44.0 m, sag 4.84 m (sag/span 0.11), cable 1.81 m above the deck at mid-span, towers 7.0 m above the deck"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/bridges/bridge_timber_beam_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "bridge/timber_beam, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "20 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "CAP_BEAM 5, PLANK 4, RAILING 2, STRINGER 4, SUPPORT 5"
+    },
+    {
+      "check": "dimensions",
+      "status": "PASS",
+      "detail": "overall length 24.000 m (spec 24.0), deck top [5.0] (spec 5.0)"
+    },
+    {
+      "check": "rests_on_ground",
+      "status": "PASS",
+      "detail": "lowest point z=-0.380 (ground -0.38)"
+    },
+    {
+      "check": "proportions",
+      "status": "PASS",
+      "detail": "bent spacing 5.83 m, span/depth 12.7 (illustrative limit 20)"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
   "asset_library/architecture/cathedrals/cathedral_gothic_section_01.json": [
     {
       "check": "specification_valid",
@@ -14,6 +350,222 @@
       "check": "expected_component_counts",
       "status": "PASS",
       "detail": "AISLE_ROOF 2, AISLE_VAULT 6, AISLE_WINDOW 6, CLERESTORY_WINDOW 6, FLOOR 1, FLYING_BUTTRESS 8, NAVE_PIER 8, PIER_BUTTRESS 8, PINNACLE 8, RIB 10, ROOF 1, VAULT_WEB 60, WALL 24"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/cathedrals/cathedral_romanesque_section_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "cathedral/romanesque_section, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "31 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "BARREL_VAULT 3, FLOOR 1, ROOF 1, SHALLOW_BUTTRESS 8, SMALL_WINDOW 6, THICK_WALL 6, WALL 6"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_platform_a_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/platform, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "47 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "BUILDING 16, BULKHEAD 9, DECK 1, HULL 9, ROOF 12"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/floating/floating_platform_a_section_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "floating/platform, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "43 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "BUILDING 8, BULKHEAD 7, DECK 1, DISPLACED_VOLUME 1, HULL 7, ROOF 6, SECTION_CUT 12, WATER 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/sites/site_bay_01.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "site/bay, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "2 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "GROUND 1, WATER 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/sites/site_bay_section_platform_a.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "site/bay, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "8 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "GROUND 2, WATER 6"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/sites/site_level_ground.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "site/level_ground, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "1 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "GROUND 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/sites/site_river_crossing_24.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "site/river_crossing, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "3 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "GROUND 2, WATER 1"
+    },
+    {
+      "check": "no_floating_components",
+      "status": "PASS",
+      "detail": "every component connects to the ground through touching parts"
+    },
+    {
+      "check": "no_major_intersections",
+      "status": "PASS",
+      "detail": "no overlapping masonry/timber/deck masses (designed joints touch)"
+    }
+  ],
+  "asset_library/architecture/sites/site_river_crossing_72.json": [
+    {
+      "check": "specification_valid",
+      "status": "PASS",
+      "detail": "site/river_crossing, accuracy ILLUSTRATIVE"
+    },
+    {
+      "check": "components_valid",
+      "status": "PASS",
+      "detail": "3 components, ids unique, types known"
+    },
+    {
+      "check": "expected_component_counts",
+      "status": "PASS",
+      "detail": "GROUND 2, WATER 1"
     },
     {
       "check": "no_floating_components",

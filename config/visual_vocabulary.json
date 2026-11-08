@@ -621,6 +621,98 @@
         "small_window"
       ],
       "label": "small windows"
+    },
+    "floating_platform": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "platform",
+      "where": {
+        "section": {
+          "max": 0
+        }
+      },
+      "site": "bay_site",
+      "scene_context": "floating",
+      "label": "Floating platform (concrete pontoon with homes)"
+    },
+    "floating_platform_section": {
+      "kind": "architecture",
+      "family": "floating",
+      "variant": "platform",
+      "where": {
+        "section": {
+          "min": 1
+        }
+      },
+      "site": "bay_section_site",
+      "scene_context": "floating_section",
+      "label": "Floating platform, section through the middle"
+    },
+    "bay_site": {
+      "kind": "site",
+      "family": "site",
+      "variant": "bay",
+      "where": {
+        "section": {
+          "max": 0
+        }
+      },
+      "scene_context": "floating",
+      "label": "Sheltered bay (still water over a seabed)"
+    },
+    "bay_section_site": {
+      "kind": "site",
+      "family": "site",
+      "variant": "bay",
+      "where": {
+        "section": {
+          "min": 1
+        }
+      },
+      "scene_context": "floating_section",
+      "label": "Sheltered bay in section"
+    },
+    "platform_hull": {
+      "kind": "component",
+      "roles": [
+        "hull"
+      ],
+      "label": "hull"
+    },
+    "bulkhead": {
+      "kind": "component",
+      "roles": [
+        "bulkhead"
+      ],
+      "label": "bulkheads (watertight compartments)"
+    },
+    "building_block": {
+      "kind": "component",
+      "roles": [
+        "building"
+      ],
+      "label": "buildings"
+    },
+    "section_cut": {
+      "kind": "component",
+      "roles": [
+        "section_cut"
+      ],
+      "label": "section cut"
+    },
+    "displaced_volume": {
+      "kind": "component",
+      "roles": [
+        "displaced_volume"
+      ],
+      "label": "displaced water"
+    },
+    "water_section": {
+      "kind": "component",
+      "roles": [
+        "water"
+      ],
+      "label": "water"
     }
   }
 }

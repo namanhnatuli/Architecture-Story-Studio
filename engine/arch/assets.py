@@ -10,7 +10,7 @@ from pathlib import Path
 
 from engine.arch import GENERATOR_VERSION
 from engine.arch import semantic
-from engine.arch.families import bridge, cathedral, site
+from engine.arch.families import bridge, cathedral, floating, site
 
 ROOT = Path(__file__).resolve().parents[2]
 ACCURACY_LEVELS = ("ILLUSTRATIVE", "REFERENCE_BASED", "HISTORICALLY_VERIFIED")
@@ -108,7 +108,29 @@ FAMILIES = {
                        "buttress_width_m": num(0.8, 3.0, 1.6), "roof_rise_m": num(2, 10, 4.5)},
         },
     },
+    # Floating structures (projects/floating-city-design-challenge): the draft comes from the project's calculation
+    "floating": {
+        "platform": {
+            "generator": floating.platform,
+            "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane", "section_poche", "highlight_gold",
+                          "displaced_water", "water_cut"),
+            "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SEQUENCE"),
+            "params": {"length_m": num(10, 120, 40.0), "width_m": num(10, 120, 40.0), "hull_depth_m": num(1.5, 10, 4.0),
+                       "draft_m": num(0.3, 9.5, 2.958), "slab_m": num(0.1, 0.6, 0.25), "wall_m": num(0.1, 0.6, 0.25),
+                       "bulkhead_m": num(0.1, 0.5, 0.2), "bulkhead_spacing_m": num(4, 30, 10.0),
+                       "building_cover": num(0.0, 0.8, 0.4), "storeys": num(0, 6, 3, integer=True),
+                       "storey_height_m": num(2.6, 4.0, 3.0), "extension_m": num(0.0, 2.0, 0.0),
+                       "section": num(0, 1, 0, integer=True), "water_depth_m": num(4, 60, 15.0)},
+        },
+    },
     "site": {
+        "bay": {
+            "generator": floating.bay, "materials": ("water", "water_cut", "seabed", "seabed_cut", "section_poche"),
+            "animation": ("HOLD",),
+            "params": {"site_width_m": num(40, 2000, 140.0), "site_length_m": num(40, 2000, 120.0),
+                       "water_depth_m": num(4, 60, 15.0), "section": num(0, 1, 0, integer=True),
+                       "hole_length_m": num(0, 200, 0.0), "hole_width_m": num(0, 200, 0.0)},
+        },
         "level_ground": {
             "generator": site.level_ground, "materials": ("stone_dark",), "animation": ("HOLD",),
             "params": {"site_width_m": num(10, 120, 64.0), "site_length_m": num(10, 120, 36.0), "front_margin_m": num(0, 20, 3.0)},
@@ -160,6 +182,8 @@ def resolve_params(family, variant, given):
 
 def compatibility_errors(family, variant, p):
     """Cross-parameter geometry checks (beyond single-parameter ranges)."""
+    if family == "floating" and variant == "platform":
+        return floating.compatibility_errors(p)
     if family != "bridge":
         return []
     errors = []
@@ -311,6 +335,18 @@ def site_for(path):
     data, _ = load(path)
     if data.get("family") == "cathedral":
         return "asset_library/architecture/sites/site_level_ground.json"
+    if data.get("family") == "floating":   # the bay drawn the same way (section or not) with this hull kept dry
+        p = resolve_params(data["family"], data["variant"], data["parameters"])[0]
+        for site in sorted((ROOT / "asset_library/architecture/sites").glob("*.json")):
+            s, _ = load(site)
+            if s["variant"] != "bay":
+                continue
+            sp = resolve_params(s["family"], s["variant"], s["parameters"])[0]
+            same_cut = sp["section"] == p["section"]
+            hole_ok = not p["section"] or (abs(sp["hole_length_m"] - p["length_m"]) < 1e-6 and abs(sp["hole_width_m"] - p["width_m"]) < 1e-6)
+            if same_cut and hole_ok and abs(sp["water_depth_m"] - p["water_depth_m"]) < 1e-6:
+                return str(site.relative_to(ROOT))
+        return None
     if data.get("family") != "bridge":
         return None
     p = resolve_params(data["family"], data["variant"], data["parameters"])[0]
@@ -354,6 +390,8 @@ EXPLODE_PRESETS = {("bridge", "timber_beam"): "timber_beam", ("bridge", "stone_a
 
 def explode_offsets(spec_data, comps):
     """{component id: (dx, dy, dz)} recommended for an exploded view of this asset."""
+    if spec_data["family"] == "floating":
+        return floating.explode_offsets(comps)
     key = EXPLODE_PRESETS.get((spec_data["family"], spec_data["variant"]))
     return bridge.explode_offsets(key, comps) if key else {}
 

@@ -32,6 +32,8 @@ SEMANTIC_TYPES = (
     "AISLE_WINDOW", "SMALL_WINDOW", "FLYING_BUTTRESS", "PIER_BUTTRESS", "PINNACLE", "AISLE_ROOF",
     # buildings (existing house builders use their own roles)
     "ROOF", "WALL", "FLOOR", "DECORATION",
+    # floating structures (engine/arch/families/floating.py)
+    "HULL", "BULKHEAD", "BUILDING", "SECTION_CUT", "DISPLACED_VOLUME",
 )
 ANIMATION_ROLES = ("EXPLODE", "HIGHLIGHT", "REPLACE", "STATIC")
 
