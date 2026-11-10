@@ -50,7 +50,15 @@
       "utility_power",
       "utility_water",
       "utility_waste",
-      "route_emergency"
+      "route_emergency",
+      "window_dark",
+      "paving",
+      "plaster_school",
+      "roof_school",
+      "plaster_clinic",
+      "roof_clinic",
+      "court_play",
+      "tree"
     ]
   },
   "materials": {
@@ -380,6 +388,46 @@
       "name": "Emergency route",
       "color": "#B5523B",
       "roughness": 0.6
+    },
+    "window_dark": {
+      "name": "Windows, doors and floor lines (dark glazing)",
+      "color": "#46525B",
+      "roughness": 0.35
+    },
+    "paving": {
+      "name": "Deck paving (streets on a platform)",
+      "color": "#D4CEC1",
+      "roughness": 0.85
+    },
+    "plaster_school": {
+      "name": "School walls",
+      "color": "#E9D5B4",
+      "roughness": 0.85
+    },
+    "roof_school": {
+      "name": "School roof",
+      "color": "#B87A4B",
+      "roughness": 0.8
+    },
+    "plaster_clinic": {
+      "name": "Clinic walls",
+      "color": "#F1EFEA",
+      "roughness": 0.8
+    },
+    "roof_clinic": {
+      "name": "Clinic roof",
+      "color": "#5E9A96",
+      "roughness": 0.75
+    },
+    "court_play": {
+      "name": "Play court and play structures",
+      "color": "#D08B52",
+      "roughness": 0.8
+    },
+    "tree": {
+      "name": "Trees (stylised)",
+      "color": "#6E8F55",
+      "roughness": 0.9
     }
   }
 }

@@ -133,7 +133,9 @@ def platform_parts(cells, kinds=("hull", "deck", "buildings", "roofs")):
 
 HOMES = [grp("building_block", "homes"), grp("high_roof", "homes")]
 SERVICES = [grp("building_block", "services"), grp("high_roof", "services")]
-BUILDINGS_ALL = [{"concept": "building_block"}, {"concept": "high_roof"}]
+FACADES = [part("facade_detail", [f"{cell(c, r)}_facade" for c, r, _ in CELLS])]
+BUILDINGS_ALL = [{"concept": "building_block"}, {"concept": "high_roof"}] + FACADES
+GROUND_DETAIL = [{"concept": "facade_detail"}]   # facades, paving, lawns, trees, play courts
 MOORINGS = [{"concept": "mooring_pile"}, {"concept": "mooring_line"}, {"concept": "anchor"}]
 UTILITIES = [{"concept": "utility_line"}]
 WATER_SITE = [{"concept": "water_section"}]
@@ -143,46 +145,69 @@ ALL_HULLS = [{"concept": "platform_hull"}]
 # ---------------------------------------------------------------- the platform in section (B06, B08-B10)
 SEC = "floating_platform_section"
 BLOCKS = (2, 4)   # the two blocks behind the cut
-STOREY4 = [part("building_block", [f"block{k}_storey4" for k in BLOCKS]), part("high_roof", [f"block{k}_roof4" for k in BLOCKS])]
-BUILDINGS3 = [part("building_block", [f"block{k}_storey{s}" for k in BLOCKS for s in (1, 2, 3)]),
-              part("high_roof", [f"block{k}_roof{s}" for k in BLOCKS for s in (2, 3)])]
+
+
+def storeys(blocks, levels, prefix=""):
+    """A storey's walls, windows and (from the second up) its roof cap."""
+    return [part("building_block", [f"{prefix}block{k}_storey{s}" for k in blocks for s in levels]),
+            part("facade_detail", [f"{prefix}block{k}_storey{s}_windows" for k in blocks for s in levels])] + \
+        ([part("high_roof", [f"{prefix}block{k}_roof{s}" for k in blocks for s in levels if s >= 2])] if any(s >= 2 for s in levels) else [])
+
+
+STOREY4 = storeys(BLOCKS, (4,))
+BUILDINGS3 = storeys(BLOCKS, (1, 2, 3))
+FRONT_HALF = [grp(c, "front_half") for c in ("platform_hull", "bulkhead", "deck", "building_block", "high_roof", "facade_detail")]
+FRONT_WATER = [grp("water_section", "front_water"), grp("ground", "front_water")]
+SITE_WATERLINE = [grp("water_section", "waterline")]   # the site's line on the cut: it would cross the uncut water
+FRONT_CUT = [grp(c, "front_half") for c in ("platform_hull", "bulkhead", "deck")] + storeys((1, 3), (1, 2, 3), "front_")   # B08
 HULL_EXT = [part("platform_hull", ["hull_ext_west", "hull_ext_east", "hull_ext_north"]),
             part("bulkhead", [f"hull_ext_bulkhead_x{i}" for i in (1, 2, 3)]),
             part("section_cut", ["cut_ext_wall_west", "cut_ext_wall_east"] + [f"cut_ext_bulkhead_x{i}" for i in (1, 2, 3)])]
 BOTTOM = [part("platform_hull", ["hull_bottom"]), part("section_cut", ["cut_bottom"]), part("water_section", ["water_below"])]
-HULL = [grp("platform_hull", "hull"), {"concept": "bulkhead", "group": "bulkheads"}, {"concept": "deck"},
+HULL = [grp("platform_hull", "hull"), {"concept": "bulkhead", "group": "bulkheads"}, {"concept": "deck", "group": "deck"},
         grp("section_cut", "section_cut"), grp("section_cut", "hull_bottom_cut")]
 DISPLACED = [{"concept": "displaced_volume"}]
 MARKER = [{"concept": "freeboard_marker"}]
-EAST = [part("platform_hull", ["hull_wall_east"]), {"concept": "freeboard_marker"},
+DRAFT_DIM = [part("freeboard_marker", ["draft_dim"])]
+DECK_REF = [part("freeboard_marker", ["deck_ref"])]
+BOTTOM_REF = [part("freeboard_marker", ["bottom_ref"])]
+MARKS = DRAFT_DIM + DECK_REF + BOTTOM_REF
+SECTION_ONLY = FRONT_HALF + FRONT_WATER   # what a beat that opens on the section hides
+EAST = [part("platform_hull", ["hull_wall_east"]), part("freeboard_marker", ["freeboard_marker"]),
         part("section_cut", ["cut_bulkhead_x3", "cut_wall_east"])]   # close on the waterline at the east wall
-CORNER = [{"concept": "freeboard_marker"}, part("section_cut", ["cut_wall_east", "cut_bulkhead_x3", "cut_ext_wall_east",
-                                                                 "cut_ext_bulkhead_x3"])]   # the bottom corner as it deepens
+CORNER = [part("section_cut", ["cut_wall_east", "cut_bulkhead_x2", "cut_ext_wall_east", "cut_ext_bulkhead_x3"]),
+          part("building_block", ["block4_storey1"])]   # the east half of the hull, bottom to deck, as it deepens
 WHOLE_SECTION = HULL + BUILDINGS3
+WHOLE_PLATFORM = HULL + BUILDINGS3 + FRONT_HALF
 SECTION_NOTE = "Illustrative design, section through the middle"
 
 # ---------------------------------------------------------------- the platform in 3D, with its load and neighbours (B11-B12)
 STORY = "floating_platform_story"
 ALL_BLOCKS = (1, 2, 3, 4)
-NEIGHBOURS = [grp(c, f"neighbour{k}") for k in (1, 2, 3, 4) for c in ("platform_hull", "deck", "building_block", "high_roof")]
-STORY_STOREY4 = [part("building_block", [f"block{k}_storey4" for k in ALL_BLOCKS]),
-                 part("high_roof", [f"block{k}_roof4" for k in ALL_BLOCKS])]
+NEIGHBOURS = [grp(c, f"neighbour{k}") for k in (1, 2, 3, 4)
+              for c in ("platform_hull", "deck", "building_block", "high_roof", "facade_detail")]
+STORY_STOREY4 = storeys(ALL_BLOCKS, (4,))
 STORY_EXT = [grp("platform_hull", "hull_extension"), grp("bulkhead", "hull_extension")]
-FRONT = [part("building_block", [f"block{k}_storey{s}" for k in (1, 3) for s in (1, 2, 3, 4)]),
-         part("high_roof", [f"block{k}_roof{s}" for k in (1, 3) for s in (2, 3, 4)])]
+FRONT_OUT = [part("building_block", [f"block{k}_storey{s}" for k in (1, 3) for s in (1, 2, 3, 4)]),
+             part("facade_detail", [f"block{k}_storey{s}_windows" for k in (1, 3) for s in (1, 2, 3, 4)]),
+             part("high_roof", [f"block{k}_roof4" for k in (1, 3)])]   # the front blocks (their top caps; inner caps go first)
+FRONT_INNER_ROOFS = [part("high_roof", [f"block{k}_roof{s}" for k in (1, 3) for s in (2, 3)])]   # caps inside the storeys
 LOAD = [{"concept": "test_load"}]
-CENTRE_PLATFORM = [grp("platform_hull", "hull"), {"concept": "deck", "group": "deck"},
-                   part("building_block", [f"block{k}_storey{s}" for k in ALL_BLOCKS for s in (1, 2, 3)])]
+LOAD_PATH = [part("freeboard_marker", ["load_path"])]
+LEVEL_REF = [part("freeboard_marker", ["level_ref"])]
+CENTRE_PLATFORM = [grp("platform_hull", "hull"), {"concept": "deck", "group": "deck"}] + storeys(ALL_BLOCKS, (1, 2, 3))
+TILT_SHOWN = RES["list_example_shown_state"]   # the state B11 shows: four storeys, hull 4.5 m
 
 
 def story_start(with_load=True):
     """The end of B10 in 3D: four storeys, the hull 0.5 m deeper, freeboard 1.15 m (relative to the model, built at
-    the three-storey draft: bottom down by 0.5 - 0.104, everything else up by 0.104)."""
+    the three-storey draft: bottom down by 0.5 - 0.104, everything else up by 0.104). The level reference stays."""
     out = [step("MOVE", [part("platform_hull", ["hull_bottom"])], 0, seconds=0, offset=[0.0, 0.0, round(NET_UP - EXT, 3)]),
-           step("MOVE", {"except": [part("platform_hull", ["hull_bottom"])] + NEIGHBOURS}, 0, seconds=0, offset=[0.0, 0.0, NET_UP]),
+           step("MOVE", {"except": [part("platform_hull", ["hull_bottom"])] + NEIGHBOURS + LEVEL_REF}, 0, seconds=0,
+                offset=[0.0, 0.0, NET_UP]),
            hide(NEIGHBOURS)]
     if not with_load:
-        out.append(hide(LOAD))
+        out.append(hide(LOAD + LOAD_PATH + LEVEL_REF))
     return out
 
 
@@ -190,7 +215,8 @@ def story_start(with_load=True):
 HOOD = "neighbourhood_both_moorings"
 PILES = [{"concept": "mooring_pile"}, grp("walkway_connector", "piles")]
 LINES = [{"concept": "mooring_line"}, {"concept": "anchor"}]
-HOOD_PLATFORMS = [grp(c, f"platform{k}") for k in range(1, 6) for c in ("platform_hull", "deck", "building_block", "high_roof")]
+HOOD_PLATFORMS = [grp(c, f"platform{k}") for k in range(1, 6)
+                  for c in ("platform_hull", "deck", "building_block", "high_roof", "facade_detail")]
 
 
 def joint(n):
@@ -243,7 +269,7 @@ visual("B04", "SEQUENCE", "The district comes apart system by system (breakwater
                      step("FADE_OUT", MOORINGS, at(0, "take", 0.4), seconds=0.8),
                      step("FADE_OUT", UTILITIES + [{"concept": "access_route"}, grp("walkway_connector", "landings")], at(0, "apart"), seconds=0.8),
                      step("FADE_OUT", [{"concept": "link_span"}, grp("walkway_connector", "linkspans")], at(0, "apart", 0.4), seconds=0.8),
-                     step("FADE_OUT", BUILDINGS_ALL, at(1, "build"), seconds=0.9),
+                     step("FADE_OUT", BUILDINGS_ALL + GROUND_DETAIL, at(1, "build"), seconds=0.9),
                      step("FADE_OUT", [grp("walkway_connector", "walkways")], at(1, "build", 0.3), seconds=0.8),
                      step("FADE_OUT", platform_parts(OTHERS, ("hull", "deck")), at(1, "back", 0.2), seconds=1.2)]))
 
@@ -268,10 +294,10 @@ visual("B05", "SEQUENCE", "Section: a block holding the hull's concrete appears 
                     label("B05_box", part("platform_hull", "hull_wall_east"), "Same concrete, hollow", 3, "box", point="TOP"),
                     note("B05_note", f"Hull only, 40 m box: draft ≈ {m(cb['hollow_box_draft_hull_only_m'])} m", 3, word="floats")])
 
-visual("B06", "SEQUENCE", "Section of the first platform (three storeys): the water the hull pushes aside lights up below the "
-       "waterline", [SEC], "MEDIUM",
+visual("B06", "SEQUENCE", "Section of the first platform (three storeys): the outline of the hull below the waterline, the "
+       "water it pushes aside, lights up", [SEC], "MEDIUM",
        sequence=seq("FLOAT_SECTION", [view(WHOLE_SECTION, margin=0.07)],
-                    [hide(STOREY4 + HULL_EXT + MARKER + DISPLACED),
+                    [hide(SECTION_ONLY + STOREY4 + HULL_EXT + DISPLACED + MARKER),
                      step("FADE_IN", DISPLACED, at(0, "pushes", -0.2), seconds=0.8),
                      glow(DISPLACED, at(0, "aside", -0.2), at(1, end=True))]),
        annotations=[label("B06_water", {"concept": "displaced_volume"}, "Water pushed aside", 0, "aside", point="BOTTOM"),
@@ -304,77 +330,89 @@ c.text("1.8 m figures", 0.86, GL - 0.03, 0.018, 3, color=MUTED, word="side")
 visual("B07", "CARD", "Schematic section of a floating home on its concrete float; '340–350 t'; the water it pushes aside "
        "as a cube about 7 m on each side, two 1.8 m figures for scale", [], "LOW", graphic=c.spec())
 
-visual("B08", "SEQUENCE", "The first platform in section (three storeys): seen at an angle, then square on; the draft reads "
-       "against the water; the buildings ghost and the concrete hull lights up: more than half of the weight", [SEC], "MEDIUM",
+visual("B08", "SEQUENCE", "The whole first platform (four blocks of three storeys) at an angle; its front half and the water "
+       "in front are taken away to show the cut; square on, the draft is drawn as a dimension; the buildings ghost and the "
+       "concrete hull lights up: more than half of the weight", [SEC], "MEDIUM",
        sequence=seq("FLOAT_SECTION",
-                    [view(WHOLE_SECTION, azimuth=-62.0, elevation=16.0, margin=0.08),
-                     view(WHOLE_SECTION, at(1, "altogether", -0.3), move=2.6, margin=0.07)],
-                    [hide(STOREY4 + HULL_EXT + MARKER + DISPLACED),
-                     glow(BUILDINGS3, at(0, "blocks", -0.3), at(1, "altogether")),
-                     step("FADE_IN", DISPLACED, at(1, "floats", -0.3), seconds=0.8),
-                     step("FADE_OUT", DISPLACED, at(2, "surprise", -0.3), seconds=0.6),
-                     step("GHOST", BUILDINGS3, at(2, "half", -0.4), seconds=0.8, transparency=0.85),
+                    [view(WHOLE_PLATFORM, azimuth=-62.0, elevation=16.0, margin=0.08),
+                     view(WHOLE_SECTION, at(1, "altogether", -0.2), move=2.4, margin=0.07)],
+                    [hide(STOREY4 + storeys((1, 3), (4,), "front_") + HULL_EXT + MARKER + DISPLACED + SITE_WATERLINE),
+                     glow(BUILDINGS3 + storeys((1, 3), (1, 2, 3), "front_"), at(0, "blocks", -0.3), at(0, end=True, offset=-0.3)),
+                     step("FADE_OUT", FRONT_CUT + FRONT_WATER, at(0, end=True, offset=0.1), seconds=1.0),
+                     step("FADE_IN", SITE_WATERLINE, at(0, end=True, offset=0.6), seconds=0.5),
+                     step("FADE_IN", DRAFT_DIM, at(1, "floats", -0.2), seconds=0.6),
+                     step("FADE_OUT", DRAFT_DIM, at(2, "surprise", -0.4), seconds=0.5),
+                     step("GHOST", BUILDINGS3, at(2, "half", -0.4), seconds=0.8, transparency=0.8),
                      glow(HULL, at(2, "concrete", -0.3), at(2, end=True, offset=-0.2)),
                      step("UNGHOST", BUILDINGS3, at(2, end=True, offset=-0.9), seconds=0.8)]),
-       annotations=[label("B08_draft", {"concept": "displaced_volume"}, f"Floats ≈ {m(STEPS[0]['draft_m'])} m deep", 1, "floats",
-                          until=2, point="BOTTOM"),
+       annotations=[note("B08_cut", "Cut through the middle", 1, position="TOP_LEFT"),
+                    label("B08_draft", part("freeboard_marker", "draft_dim"), f"Draft ≈ {m(STEPS[0]['draft_m'])} m", 1, "floats",
+                          until=2, point="LEFT"),
                     label("B08_hull", part("section_cut", "cut_wall_east"),
                           f"Hull: ≈ {round(100 * RES['design_A']['mid']['mass_t']['hull_concrete'] / RES['design_A']['mid']['mass_t']['total'])}% of the weight",
                           2, "concrete", point="RIGHT"),
                     note("B08_note", SECTION_NOTE, 0, position="TOP_RIGHT")])
 
-visual("B09", "SEQUENCE", "Square-on section: a fourth storey arrives; the platform settles by the calculated 0.33 m; the "
-       "gold freeboard bar (above the water) shrinks from 1.04 to 0.71 m, close on the east wall", [SEC], "MEDIUM",
+visual("B09", "SEQUENCE", "Square-on section: a fourth storey is set down (the whole section in view); the camera moves close "
+       "to the east wall and stops; a dashed line keeps the deck's first level; the platform settles by the calculated 0.33 m "
+       "and the freeboard dimension (waterline to deck) shrinks from 1.04 to 0.71 m", [SEC], "MEDIUM",
        sequence=seq("FLOAT_SECTION",
-                    [view(WHOLE_SECTION, margin=0.07), view(EAST, at(1, "platform", -0.4), move=2.0, margin=0.12)],
-                    [hide(STOREY4 + HULL_EXT + DISPLACED),
-                     step("REVEAL", STOREY4, at(0, "fourth", -0.3), seconds=1.2, direction="FROM_ABOVE", distance=6.0),
-                     step("MOVE", {"except": []}, at(1, "settles", -0.2), seconds=1.8, offset=[0.0, 0.0, -SINK]),
-                     glow(MARKER, at(2, "freeboard", -0.2), at(2, end=True, offset=-0.1))]),
-       annotations=[label("B09_fb0", {"concept": "freeboard_marker"}, f"Freeboard ≈ {m(STEPS[0]['freeboard_m'])} m", 0,
+                    [view(WHOLE_SECTION, margin=0.07), view(EAST, at(1, "the", -0.7), move=1.4, margin=0.12)],
+                    [hide(SECTION_ONLY + STOREY4 + HULL_EXT + DISPLACED + DRAFT_DIM + DECK_REF + BOTTOM_REF),
+                     step("REVEAL", STOREY4, at(0, "fourth", -0.3), seconds=1.2, direction="FROM_ABOVE", distance=6.0, sound="STONE"),
+                     step("FADE_IN", DECK_REF, at(1, "settles", -0.3), seconds=0.5),
+                     step("MOVE", {"except": DECK_REF + BOTTOM_REF}, at(1, "about", -0.1), seconds=1.8, offset=[0.0, 0.0, -SINK]),
+                     step("FADE_OUT", DECK_REF, at(2, end=True, offset=-0.9), seconds=0.6)]),
+       annotations=[label("B09_fb0", part("freeboard_marker", "freeboard_marker"), f"Freeboard ≈ {m(STEPS[0]['freeboard_m'])} m", 0,
                           until=1, point="RIGHT"),
-                    label("B09_fb1", {"concept": "freeboard_marker"}, f"Freeboard ≈ {m(STEPS[1]['freeboard_m'])} m", 2,
-                          "shrinks", point="RIGHT"),
+                    label("B09_before", part("freeboard_marker", "deck_ref"), "Deck before", 1, "meter", point="TOP_LEFT"),
+                    label("B09_fb1", part("freeboard_marker", "freeboard_marker"),
+                          f"Freeboard: {m(STEPS[0]['freeboard_m'])} → {m(STEPS[1]['freeboard_m'])} m", 2, "shrinks", point="RIGHT"),
                     note("B09_note", "+1 story, same load per m² of floor", 0, word="fourth")])
 
-visual("B10", "SEQUENCE", "Same section: close on the bottom corner, the walls and bulkheads grow 0.5 m (gold) as the bottom "
-       "moves down; then the deck rises to the calculated freeboard 1.15 m", [SEC], "MEDIUM",
+visual("B10", "SEQUENCE", "Two framings only, the camera still while anything changes: the east half of the section from deck "
+       "to bottom while the bottom moves down 0.5 m and the walls and bulkheads grow with it (gold; the old bottom dashed for "
+       "a while); then close on the waterline while the platform floats up to a freeboard of 1.15 m (the previous deck level "
+       "dashed)", [SEC], "MEDIUM",
        sequence=seq("FLOAT_SECTION",
                     [view(EAST, margin=0.12),
-                     view(CORNER, at(0, "deeper", -1.2), move=1.6, margin=0.1),
-                     view(HULL + HULL_EXT, at(1, "adds", -0.8), move=1.6, margin=0.06),
-                     view(EAST, at(2, "brings", -0.8), move=1.6, margin=0.12),
-                     view(WHOLE_SECTION + STOREY4, at(3, "lighter", -0.8), move=1.6, margin=0.07)],
+                     view(CORNER, 0.2, move=1.6, margin=0.07),
+                     view(EAST, at(1, end=True, offset=-0.6), move=1.3, margin=0.12)],
                     [step("MOVE", {"except": []}, 0, seconds=0, offset=[0.0, 0.0, -SINK]),
-                     hide(HULL_EXT + DISPLACED),
-                     step("MOVE", BOTTOM, at(0, "deeper", -0.4), seconds=1.6, offset=[0.0, 0.0, -EXT]),
-                     step("FADE_IN", HULL_EXT, at(0, "deeper", -0.4), seconds=1.4),
-                     glow(HULL_EXT, at(1, "adds", -0.2), at(1, end=True)),
-                     step("MOVE", {"except": []}, at(2, "brings", -0.1), seconds=1.8, offset=[0.0, 0.0, RISE]),
-                     glow(MARKER, at(2, "meter", -0.2), at(2, end=True, offset=0.2)),
-                     glow(BUILDINGS3 + STOREY4, at(3, "lighter", -0.2), at(3, end=True, offset=0.3))]),
-       annotations=[label("B10_fb0", {"concept": "freeboard_marker"}, f"Freeboard ≈ {m(STEPS[1]['freeboard_m'])} m", 0,
+                     hide(SECTION_ONLY + HULL_EXT + DISPLACED + DRAFT_DIM + DECK_REF + BOTTOM_REF),
+                     step("FADE_IN", BOTTOM_REF, at(0, "half", -0.2), seconds=0.5),
+                     step("MOVE", BOTTOM, at(0, "deeper", -0.3), seconds=1.6, offset=[0.0, 0.0, -EXT]),
+                     step("REVEAL", HULL_EXT, at(0, "deeper", -0.3), seconds=1.6, direction="FROM_ABOVE", distance=EXT,
+                          fade_end=0.3, easing="SMOOTH", sound="STONE_HEAVY"),
+                     step("FADE_OUT", BOTTOM_REF, at(1, end=True, offset=-0.6), seconds=0.6),
+                     step("FADE_IN", DECK_REF, at(2, "and", -0.2), seconds=0.4),
+                     step("MOVE", {"except": DECK_REF + BOTTOM_REF}, at(2, "brings", -0.1), seconds=1.8, offset=[0.0, 0.0, RISE])]),
+       annotations=[label("B10_fb0", part("freeboard_marker", "freeboard_marker"), f"Freeboard ≈ {m(STEPS[1]['freeboard_m'])} m", 0,
                           until=1, point="RIGHT"),
                     label("B10_ext", part("section_cut", "cut_ext_wall_east"),
                           f"+{m(EXT)} m hull: ≈ {RES['storey_branch']['extra_concrete_for_deeper_hull_t']:.0f} t (+{round(100 * RES['storey_branch']['extra_concrete_share_of_hull'])}%)",
                           1, "adds", until=2, point="RIGHT"),
-                    label("B10_fb1", {"concept": "freeboard_marker"}, f"Freeboard ≈ {m(STEPS[2]['freeboard_m'])} m", 2,
-                          "centimeters", point="RIGHT"),
+                    label("B10_fb1", part("freeboard_marker", "freeboard_marker"),
+                          f"Freeboard: {m(STEPS[1]['freeboard_m'])} → {m(STEPS[2]['freeboard_m'])} m", 2, "centimeters", point="RIGHT"),
                     note("B10_note", "Or: lighter buildings", 3, word="lighter")])
 
-visual("B11", "SEQUENCE", "The same platform whole (four storeys, deeper hull), seen square on: the front buildings ghost, a "
-       "100 t block slides 15 m toward the edge, and the platform tilts by the calculated angle (true scale, barely visible)",
-       [STORY], "MEDIUM",
+visual("B11", "SEQUENCE", "The same platform whole (four storeys, deeper hull), seen square on: the front buildings are taken "
+       "away (inner roof caps first, so nothing shows through); a dashed level line and the deck's outline stay put; a 100 t "
+       "block slides 15 m along a drawn arrow toward the edge, and the platform tilts by the angle calculated for this state "
+       "(true scale)", [STORY], "MEDIUM",
        sequence=seq("FLOAT_SECTION",
                     [view(CENTRE_PLATFORM + STORY_STOREY4, elevation=12.0, margin=0.08)],
                     story_start(with_load=True) + [
-                        step("GHOST", FRONT, at(0, "tip", -0.4), seconds=0.8, transparency=0.85),
-                        step("MOVE", LOAD, at(1, "move", -0.2), seconds=2.2, offset=[LOAD_SHIFT, 0.0, 0.0]),
-                        step("ROTATE", {"except": NEIGHBOURS}, at(1, "tilts", -0.3), seconds=2.0, axis="Y", degrees=TILT,
-                             pivot=[0.0, 0.0, 0.0]),
-                        glow(LOAD, at(1, "tons", -0.2), at(1, "example"))]),
-       annotations=[label("B11_load", {"concept": "test_load"}, f"{RES['list_example']['w_t']} t", 1, "tons", until=2, point="TOP"),
-                    note("B11_tilt", f"{RES['list_example']['w_t']} t moved {LOAD_SHIFT} m: tilt ≈ {m(round(TILT, 1))}° (true scale)", 1,
+                        hide(FRONT_INNER_ROOFS + LOAD_PATH + LEVEL_REF),
+                        step("FADE_OUT", FRONT_OUT, at(0, "tip", -0.4), seconds=1.0),
+                        step("FADE_IN", LEVEL_REF, at(1, "move", -0.6), seconds=0.6),
+                        step("FADE_IN", LOAD_PATH, at(1, "move", -0.4), seconds=0.6),
+                        step("MOVE", LOAD, at(1, "tons", -0.2), seconds=2.2, offset=[LOAD_SHIFT, 0.0, 0.0]),
+                        step("ROTATE", {"except": NEIGHBOURS + LEVEL_REF}, at(1, "tilts", -0.3), seconds=2.0, axis="Y",
+                             degrees=TILT_SHOWN["list_deg"], pivot=[0.0, 0.0, 0.0])]),
+       annotations=[label("B11_load", {"concept": "test_load"}, f"{RES['list_example']['w_t']} t", 1, "move", until=2, point="TOP"),
+                    label("B11_path", part("freeboard_marker", "load_path"), f"{LOAD_SHIFT} m", 1, "edge", until=2, point="BOTTOM"),
+                    note("B11_tilt", f"{TILT_SHOWN['w_t']} t moved {TILT_SHOWN['d_m']} m: tilt ≈ {m(round(TILT_SHOWN['list_deg'], 1))}° (true scale)", 1,
                          word="tilts"),
                     note("B11_note", "Illustrative design", 0, position="TOP_RIGHT")])
 
@@ -389,10 +427,11 @@ visual("B12", "SEQUENCE", "Back to the three-storey design: the fourth storey fa
                         step("FADE_OUT", STORY_EXT, at(0, "story", -0.2), seconds=0.6),
                         step("MOVE", [part("platform_hull", ["hull_bottom"])], at(0, "version", 0.3), seconds=1.2,
                              offset=[0.0, 0.0, round(EXT - NET_UP, 3)]),
-                        step("MOVE", {"except": [part("platform_hull", ["hull_bottom"])] + NEIGHBOURS}, at(0, "version", 0.3),
+                        step("MOVE", {"except": [part("platform_hull", ["hull_bottom"])] + NEIGHBOURS + LEVEL_REF}, at(0, "version", 0.3),
                              seconds=1.2, offset=[0.0, 0.0, -NET_UP]),
-                        step("REVEAL", NEIGHBOURS, at(1, "lot", -0.3), seconds=1.8, direction="OUTWARD", distance=40.0,
-                             stagger_seconds=0.25)]),
+                    ] + [step("REVEAL", [grp(c, f"neighbour{k}") for c in ("platform_hull", "deck", "building_block", "high_roof",
+                                                                            "facade_detail")],
+                              at(1, "lot", -0.3 + 0.3 * (k - 1)), seconds=1.8, direction="OUTWARD", distance=40.0) for k in (1, 2, 3, 4)]),
        annotations=[note("B12_people", f"3 stories: about {per_platform} residents per platform", 0, word="people")])
 
 pair = RES["revisions"]["B_neighbours_2_vs_4_storeys"]
@@ -528,7 +567,8 @@ visual("B17", "SEQUENCE", "Five platforms rise, fall and tilt out of step; the g
        motion_label=CONCEPT_MOTION_LABEL,
        sequence=seq("FLOAT_THREE_QUARTER", [view(HOOD_PLATFORMS, margin=0.06)],
                     [hide(PILES + LINES)] +
-                    [step("OSCILLATE", [grp(cc, f"platform{k}") for cc in ("platform_hull", "deck", "building_block", "high_roof")]
+                    [step("OSCILLATE", [grp(cc, f"platform{k}") for cc in ("platform_hull", "deck", "building_block", "high_roof",
+                                                                          "facade_detail")]
                           + [r for n in OWN_JOINTS[k] for r in joint(n)], 0.3, seconds=round(d17 - 0.6, 2), amplitude_m=0.3,
                           period_seconds=5.5, phase_degrees=PHASE[k], tilt_degrees=0.8, axis=TILT_AXIS[k],
                           pivot=[CENTRES[k][0], CENTRES[k][1], 0.0], fade_seconds=1.2) for k in range(1, 6)]),
@@ -788,7 +828,7 @@ c.text("Autonomy is an extra choice, not a consequence of floating", 0.5, 0.8, 0
 visual("B32", "CARD", "An added condition: three systems (energy, water, food) appear; a bar shows food production as "
        "nearly half of the study's estimated energy use; 'one concept study's estimate'", [], "LOW", graphic=c.spec())
 
-BOX = [grp(c, "box") for c in ("platform_hull", "deck", "building_block", "high_roof")]
+BOX = [grp(c, "box") for c in ("platform_hull", "deck", "building_block", "high_roof", "facade_detail")]
 SEMI = {"except": BOX}
 visual("B33", "SEQUENCE", "Our box pontoon, then beside it a semi-submersible module rises into place: pontoons under the "
        "water (ghosted), columns through the surface, the deck raised above the sea (schematic of a 2026 concept study)",

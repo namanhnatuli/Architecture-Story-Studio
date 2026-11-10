@@ -1,0 +1,117 @@
+{
+  "schema": "asset_candidates/1",
+  "status": "TRIAL_ONLY",
+  "note": "Candidates tried on one platform (review/SAND3D_TRIAL.md); none is in a shot of the film. Before any use: owner decision, assets/manifest.json entry with status approved, the attribution in the description and the credits.",
+  "dataset": {
+    "id": "Sandflow/sand3d-objaverse",
+    "url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse",
+    "revision": "92dd5858c177734782734c20f20b2de522b229bf",
+    "license": "CC-BY-4.0 (dataset); per object source licence below",
+    "checked": "2026-11-10"
+  },
+  "library": {
+    "id": "sand3d",
+    "url": "https://github.com/Sandflow-ai/sand3d",
+    "license": "Apache-2.0",
+    "used": false,
+    "note": "not installed: the USD files were imported directly; the package supports Python >=3.11,<3.14 (not 3.12), the Studio CLI runs 3.14"
+  },
+  "items": [
+    {
+      "role": "picnic_table",
+      "id": "objaverse-b45645a4a0a14277aff6ec9ef4212a6a",
+      "file": "usda/0001/objaverse-b45645a4a0a14277aff6ec9ef4212a6a.usda",
+      "url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/92dd5858c177734782734c20f20b2de522b229bf/usda/0001/objaverse-b45645a4a0a14277aff6ec9ef4212a6a.usda",
+      "sha256": "bb11f20e92805c025c6261bcaac4da389937c52799cc341d9764d2281fc57e84",
+      "bytes": 31610,
+      "license": "CC-BY-4.0",
+      "source": "objaverse",
+      "source_asset_id": "objaverse:b45645a4a0a14277aff6ec9ef4212a6a",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Picnic table low poly\" by mehigh, https://sketchfab.com/3d-models/b45645a4a0a14277aff6ec9ef4212a6a, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "credit_required": "Keep the attribution text (title, author, Sketchfab URL, licence, modified) and link the licence; say the Studio changed its materials",
+      "f_score": 0.9976289409726543,
+      "sand3d_version": "1.5.0",
+      "size_m": [
+        1.8,
+        1.27,
+        0.56
+      ],
+      "verts": 160,
+      "intended_scene": "close shots of parks and school yards (none planned yet)"
+    },
+    {
+      "role": "street_lamp",
+      "id": "objaverse-ae2ab36567f44048b468e1a6d78d03c9",
+      "file": "usda/0008/objaverse-ae2ab36567f44048b468e1a6d78d03c9.usda",
+      "url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/92dd5858c177734782734c20f20b2de522b229bf/usda/0008/objaverse-ae2ab36567f44048b468e1a6d78d03c9.usda",
+      "sha256": "aab9028d5a6560ad55931fb4ffd585d3fb440fee8e200735e1979b248d0bec18",
+      "bytes": 436040,
+      "license": "CC-BY-4.0",
+      "source": "objaverse",
+      "source_asset_id": "objaverse:ae2ab36567f44048b468e1a6d78d03c9",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Street Lamp\" by xz317, https://sketchfab.com/3d-models/ae2ab36567f44048b468e1a6d78d03c9, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "credit_required": "Keep the attribution text (title, author, Sketchfab URL, licence, modified) and link the licence; say the Studio changed its materials",
+      "f_score": 0.9998734398226009,
+      "sand3d_version": "1.5.0",
+      "size_m": [
+        3.82,
+        3.85,
+        5.98
+      ],
+      "verts": 1424,
+      "intended_scene": "close shots of parks and school yards (none planned yet)"
+    },
+    {
+      "role": "playset",
+      "id": "objaverse-a8c74bd736604214ab1236ff754072e6",
+      "file": "usda/0002/objaverse-a8c74bd736604214ab1236ff754072e6.usda",
+      "url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/92dd5858c177734782734c20f20b2de522b229bf/usda/0002/objaverse-a8c74bd736604214ab1236ff754072e6.usda",
+      "sha256": "fd765766cbc0a3d06445d454dcde0ab45d13bbe09938dba92047a5a33622ccc6",
+      "bytes": 613859,
+      "license": "CC-BY-4.0",
+      "source": "objaverse",
+      "source_asset_id": "objaverse:a8c74bd736604214ab1236ff754072e6",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Willow's Playset\" by paesol, https://sketchfab.com/3d-models/a8c74bd736604214ab1236ff754072e6, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "credit_required": "Keep the attribution text (title, author, Sketchfab URL, licence, modified) and link the licence; say the Studio changed its materials",
+      "f_score": 0.9659733538530627,
+      "sand3d_version": "1.5.0",
+      "size_m": [
+        4.0,
+        3.75,
+        3.05
+      ],
+      "verts": 2872,
+      "intended_scene": "close shots of parks and school yards (none planned yet)"
+    },
+    {
+      "role": "bench",
+      "id": "objaverse-ec6317d80f6444d693c30379afd716bf",
+      "file": "usda/0001/objaverse-ec6317d80f6444d693c30379afd716bf.usda",
+      "url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/92dd5858c177734782734c20f20b2de522b229bf/usda/0001/objaverse-ec6317d80f6444d693c30379afd716bf.usda",
+      "sha256": "605488b32aa1d3ce43666b3e1b172daae0a484088f662e4be8eb73abee01da55",
+      "bytes": 30688,
+      "license": "CC-BY-4.0",
+      "source": "objaverse",
+      "source_asset_id": "objaverse:ec6317d80f6444d693c30379afd716bf",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Simple Park Bench un-textured\" by LlamaGalaxy57, https://sketchfab.com/3d-models/ec6317d80f6444d693c30379afd716bf, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "credit_required": "Keep the attribution text (title, author, Sketchfab URL, licence, modified) and link the licence; say the Studio changed its materials",
+      "f_score": 0.9969551368821337,
+      "sand3d_version": "1.5.0",
+      "size_m": [
+        1.5,
+        0.73,
+        0.95
+      ],
+      "verts": 186,
+      "intended_scene": "close shots of parks and school yards (none planned yet)"
+    }
+  ]
+}

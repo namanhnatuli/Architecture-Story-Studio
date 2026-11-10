@@ -2,34 +2,34 @@
   "blender": "5.2.2 LTS",
   "preset": "internal_720p",
   "summary": {
-    "passed": 76,
+    "passed": 73,
     "failed": 0,
-    "total": 76
+    "total": 73
   },
   "results": [
     {
       "shot": "SC_008",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "52 components, ownership + parenting OK"
+      "detail": "98 components, ownership + parenting OK"
     },
     {
       "shot": "SC_008",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "87 animated objects x 150 frames, max error 3.66e-06"
+      "detail": "184 animated objects x 150 frames, max error 3.71e-06"
     },
     {
       "shot": "SC_008",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "9 objects (8 shared) unchanged on 150 frames"
+      "detail": "8 objects (7 shared) unchanged on 150 frames"
     },
     {
       "shot": "SC_008",
       "check": "no_scale_change",
       "status": "PASS",
-      "detail": "all world scales are 1.0 (16 push-in overlay objects excepted)"
+      "detail": "all world scales are 1.0 (19 push-in overlay objects excepted)"
     },
     {
       "shot": "SC_008",
@@ -47,13 +47,13 @@
       "shot": "SC_008",
       "check": "sequence_arrivals_land",
       "status": "PASS",
-      "detail": "0 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+      "detail": "0 arriving parts land exactly at rest or where the shot's moves put them (tol 1e-05), unseen before they arrive"
     },
     {
       "shot": "SC_008",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "35 visible parts as expected"
+      "detail": "41 visible parts as expected"
     },
     {
       "shot": "SC_008",
@@ -65,37 +65,37 @@
       "shot": "SC_008",
       "check": "overlays_screen_fixed",
       "status": "PASS",
-      "detail": "15 annotation objects keep their frame position through 1 camera move(s) (max drift 1.5e-07)"
+      "detail": "18 annotation objects keep their frame position through 1 camera move(s) (max drift 1.8e-07)"
     },
     {
       "shot": "SC_008",
       "check": "camera_framing",
       "status": "PASS",
-      "detail": "min margin 0.080 at floating_platform_section_hull_bottom@1; lowest point y=0.192 (label band 0.10); ortho_scale 53.245"
+      "detail": "min margin 0.080 at floating_platform_section_hull_bottom@1; lowest point y=0.187 (label band 0.10); ortho_scale 64.401"
     },
     {
       "shot": "SC_008",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "27 twins visible only mid-fade, never with their original or on frames 1/500"
+      "detail": "74 twins visible only mid-fade, never with their original or on frames 1/500"
     },
     {
       "shot": "SC_008",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "step 1@134: 100% visible, 24.76% of frame; step 5@450: 100% visible, 15.15% of frame"
+      "detail": "step 1@126: 100% visible, 27.85% of frame; step 7@450: 100% visible, 15.15% of frame"
     },
     {
       "shot": "SC_008",
       "check": "framing_math_matches_blender",
       "status": "PASS",
-      "detail": "max projection error 9.76e-09"
+      "detail": "max projection error 2.67e-08"
     },
     {
       "shot": "SC_008",
       "check": "annotation_objects",
       "status": "PASS",
-      "detail": "3 annotations, 15 objects"
+      "detail": "4 annotations, 18 objects"
     },
     {
       "shot": "SC_008",
@@ -107,37 +107,37 @@
       "shot": "SC_008",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "3 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
     },
     {
       "shot": "SC_008",
       "check": "annotation_timing",
       "status": "PASS",
-      "detail": "3 annotations hidden before/after and visible within their windows"
+      "detail": "4 annotations hidden before/after and visible within their windows"
     },
     {
       "shot": "SC_009",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "52 components, ownership + parenting OK"
+      "detail": "98 components, ownership + parenting OK"
     },
     {
       "shot": "SC_009",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "77 animated objects x 73 frames, max error 3.00e-06"
+      "detail": "169 animated objects x 74 frames, max error 2.39e-06"
     },
     {
       "shot": "SC_009",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "8 objects (8 shared) unchanged on 73 frames"
+      "detail": "8 objects (8 shared) unchanged on 74 frames"
     },
     {
       "shot": "SC_009",
       "check": "no_scale_change",
       "status": "PASS",
-      "detail": "all world scales are 1.0 (16 push-in overlay objects excepted)"
+      "detail": "all world scales are 1.0 (22 push-in overlay objects excepted)"
     },
     {
       "shot": "SC_009",
@@ -155,13 +155,13 @@
       "shot": "SC_009",
       "check": "sequence_arrivals_land",
       "status": "PASS",
-      "detail": "4 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+      "detail": "6 arriving parts land exactly at rest or where the shot's moves put them (tol 1e-05), unseen before they arrive"
     },
     {
       "shot": "SC_009",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "40 visible parts as expected"
+      "detail": "48 visible parts as expected"
     },
     {
       "shot": "SC_009",
@@ -173,7 +173,7 @@
       "shot": "SC_009",
       "check": "overlays_screen_fixed",
       "status": "PASS",
-      "detail": "15 annotation objects keep their frame position through 1 camera move(s) (max drift 1.2e-07)"
+      "detail": "21 annotation objects keep their frame position through 1 camera move(s) (max drift 1.2e-07)"
     },
     {
       "shot": "SC_009",
@@ -185,13 +185,7 @@
       "shot": "SC_009",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "16 twins visible only mid-fade, never with their original or on frames 1/373"
-    },
-    {
-      "shot": "SC_009",
-      "check": "highlight_targets_visible",
-      "status": "PASS",
-      "detail": "step 3@269: 51% visible, 0.54% of frame"
+      "detail": "56 twins visible only mid-fade, never with their original or on frames 1/373"
     },
     {
       "shot": "SC_009",
@@ -203,43 +197,43 @@
       "shot": "SC_009",
       "check": "annotation_objects",
       "status": "PASS",
-      "detail": "3 annotations, 15 objects"
+      "detail": "4 annotations, 21 objects"
     },
     {
       "shot": "SC_009",
       "check": "annotation_anchors",
       "status": "PASS",
-      "detail": "2 anchors attached to their own components; max projection error 0.0000"
+      "detail": "3 anchors attached to their own components; max projection error 0.0000"
     },
     {
       "shot": "SC_009",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "3 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
     },
     {
       "shot": "SC_009",
       "check": "annotation_timing",
       "status": "PASS",
-      "detail": "3 annotations hidden before/after and visible within their windows"
+      "detail": "4 annotations hidden before/after and visible within their windows"
     },
     {
       "shot": "SC_010",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "52 components, ownership + parenting OK"
+      "detail": "98 components, ownership + parenting OK"
     },
     {
       "shot": "SC_010",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "79 animated objects x 102 frames, max error 4.25e-06"
+      "detail": "163 animated objects x 82 frames, max error 9.28e-07"
     },
     {
       "shot": "SC_010",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "8 objects (8 shared) unchanged on 102 frames"
+      "detail": "8 objects (8 shared) unchanged on 82 frames"
     },
     {
       "shot": "SC_010",
@@ -263,25 +257,25 @@
       "shot": "SC_010",
       "check": "sequence_arrivals_land",
       "status": "PASS",
-      "detail": "0 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+      "detail": "11 arriving parts land exactly at rest or where the shot's moves put them (tol 1e-05), unseen before they arrive"
     },
     {
       "shot": "SC_010",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "51 visible parts as expected"
+      "detail": "60 visible parts as expected"
     },
     {
       "shot": "SC_010",
       "check": "sequence_views_framed",
       "status": "PASS",
-      "detail": "5 views: camera exactly on each fit when settled, focus parts inside the frame (min margin 0.060)"
+      "detail": "3 views: camera exactly on each fit when settled, focus parts inside the frame (min margin 0.070)"
     },
     {
       "shot": "SC_010",
       "check": "overlays_screen_fixed",
       "status": "PASS",
-      "detail": "21 annotation objects keep their frame position through 4 camera move(s) (max drift 1.8e-07)"
+      "detail": "21 annotation objects keep their frame position through 2 camera move(s) (max drift 1.8e-07)"
     },
     {
       "shot": "SC_010",
@@ -293,13 +287,7 @@
       "shot": "SC_010",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "12 twins visible only mid-fade, never with their original or on frames 1/464"
-    },
-    {
-      "shot": "SC_010",
-      "check": "highlight_targets_visible",
-      "status": "PASS",
-      "detail": "step 4@180: 49% visible, 0.82% of frame; step 6@332: 82% visible, 0.88% of frame; step 7@410: 98% visible, 25.94% of frame"
+      "detail": "50 twins visible only mid-fade, never with their original or on frames 1/464"
     },
     {
       "shot": "SC_010",
@@ -335,19 +323,19 @@
       "shot": "SC_011",
       "check": "components_registered",
       "status": "PASS",
-      "detail": "66 components, ownership + parenting OK"
+      "detail": "93 components, ownership + parenting OK"
     },
     {
       "shot": "SC_011",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "106 animated objects x 97 frames, max error 1.08e-06"
+      "detail": "157 animated objects x 105 frames, max error 1.27e-06"
     },
     {
       "shot": "SC_011",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "2 objects (2 shared) unchanged on 97 frames"
+      "detail": "2 objects (2 shared) unchanged on 105 frames"
     },
     {
       "shot": "SC_011",
@@ -371,13 +359,13 @@
       "shot": "SC_011",
       "check": "sequence_arrivals_land",
       "status": "PASS",
-      "detail": "0 arriving parts land exactly at rest (tol 1e-05), unseen before they arrive"
+      "detail": "0 arriving parts land exactly at rest or where the shot's moves put them (tol 1e-05), unseen before they arrive"
     },
     {
       "shot": "SC_011",
       "check": "final_visibility",
       "status": "PASS",
-      "detail": "36 visible parts as expected"
+      "detail": "47 visible parts as expected"
     },
     {
       "shot": "SC_011",
@@ -395,13 +383,7 @@
       "shot": "SC_011",
       "check": "fade_twins_exclusive",
       "status": "PASS",
-      "detail": "30 twins visible only mid-fade, never with their original or on frames 1/521"
-    },
-    {
-      "shot": "SC_011",
-      "check": "highlight_targets_visible",
-      "status": "PASS",
-      "detail": "step 6@123: 99% visible, 0.73% of frame"
+      "detail": "48 twins visible only mid-fade, never with their original or on frames 1/521"
     },
     {
       "shot": "SC_011",
@@ -413,25 +395,25 @@
       "shot": "SC_011",
       "check": "annotation_objects",
       "status": "PASS",
-      "detail": "3 annotations, 12 objects"
+      "detail": "4 annotations, 18 objects"
     },
     {
       "shot": "SC_011",
       "check": "annotation_anchors",
       "status": "PASS",
-      "detail": "1 anchors attached to their own components; max projection error 0.0000"
+      "detail": "2 anchors attached to their own components; max projection error 0.0000"
     },
     {
       "shot": "SC_011",
       "check": "annotation_layout",
       "status": "PASS",
-      "detail": "3 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
+      "detail": "4 texts fit their plates (real widths), safe area and subtitle zone respected, arrows uniform; smallest text 21.6 px at internal_720p"
     },
     {
       "shot": "SC_011",
       "check": "annotation_timing",
       "status": "PASS",
-      "detail": "3 annotations hidden before/after and visible within their windows"
+      "detail": "4 annotations hidden before/after and visible within their windows"
     },
     {
       "shot": "ALL",
@@ -443,25 +425,25 @@
       "shot": "SC_008",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 5ac52c55b27f2999"
+      "detail": "sha256 fc59ade1daac6092"
     },
     {
       "shot": "SC_009",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 7b2934fc0295f256"
+      "detail": "sha256 d5672e265f6660cb"
     },
     {
       "shot": "SC_010",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 ae01b1bd56f94e80"
+      "detail": "sha256 9a9fe63b1c22c3c2"
     },
     {
       "shot": "SC_011",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 d8f19f8df443fe8e"
+      "detail": "sha256 f188f646658c160a"
     }
   ]
 }

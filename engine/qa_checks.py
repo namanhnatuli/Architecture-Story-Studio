@@ -361,11 +361,17 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
         for i, step in enumerate(motion.sequence_steps(ctx.cfg)):
             if step["do"] != "REVEAL":
                 continue
-            ctx.scene.frame_set(plan.markers[f"reveal_{i}_landed"])
+            f_landed = plan.markers[f"reveal_{i}_landed"]
+            ctx.scene.frame_set(f_landed)
             for cid in step["components"]:
                 o = ctx.objects[templates.object_name("main", cid)]
                 landed += 1
-                if not (_visible(o) and _close(tuple(o.location), comps[o.name].location, TRANSFORM_TOL)
+                # at rest, or where the shot's earlier MOVE steps put the part (a part may arrive on a platform that
+                # has already sunk); the plan composes both, motion tests check the composition
+                moved = any(st["do"] in motion.TRANSFORM_STEPS and cid in st["components"]
+                            for st in motion.sequence_steps(ctx.cfg))
+                target = plan.sample(o.name, motion.LOC, f_landed) if moved else comps[o.name].location
+                if not (_visible(o) and _close(tuple(o.location), tuple(target), TRANSFORM_TOL)
                         and float(o.get("ass_transparency", 0.0)) == 0.0):
                     issues.append(f"step {i}: {o.name} not landed, opaque and visible")
             before = plan.frame(step["start_seconds"]) - 1   # the frame before its arrival starts
@@ -374,7 +380,8 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
                 issues += [f"step {i}: {cid} visible before it arrives (frame {before})" for cid in step["components"]
                            if _visible(ctx.objects[templates.object_name("main", cid)])]
         report.add(sid, "sequence_arrivals_land", not issues, "; ".join(issues[:5]) or
-                   f"{landed} arriving parts land exactly at rest (tol {TRANSFORM_TOL}), unseen before they arrive")
+                   f"{landed} arriving parts land exactly at rest or where the shot's moves put them (tol {TRANSFORM_TOL}), "
+                   "unseen before they arrive")
 
     # 6. Final visibility is exactly the expected design.
     ctx.scene.frame_set(last)

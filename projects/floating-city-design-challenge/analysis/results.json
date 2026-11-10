@@ -296,6 +296,15 @@
     "extra_concrete_share_of_hull": 0.04,
     "note": "Same dead load in every step; only the storeys, then the hull depth, change."
   },
+  "list_example_shown_state": {
+    "state": "4 storeys, hull 4.5 m (end of the storey branch)",
+    "w_t": 100,
+    "d_m": 15,
+    "W_t": 5500.8,
+    "GM_m": 35.66,
+    "list_deg": 0.438,
+    "note": "The film's B11 shows this state; list_example is the three-storey case. Both are about 0.4 degrees and below half a degree."
+  },
   "revisions": {
     "A_prime_deeper_hull_heavy_buildings": {
       "hull_depth_m": 4.5,
@@ -332,6 +341,25 @@
       "homes": 30,
       "schools_clinic_shops_services": 10
     }
+  },
+  "district_C_allocation": {
+    "modules": {
+      "home": 66,
+      "mixed": 6,
+      "service": 21
+    },
+    "module_gross_floor_area_m2": 4320.0,
+    "mixed_home_share": 0.667,
+    "homes_m2": 302400,
+    "services_m2": 99360,
+    "residents_at_homes_m2_each": 10080,
+    "services_m2_per_resident": 9.86,
+    "service_types": {
+      "school": 3,
+      "clinic": 1,
+      "community_shops_offices": 17
+    },
+    "note": "Illustrative allocation: 66 home modules alone give 9,504 residents at 30 m2 each; six mixed modules on the flanks near the shore (shops and services below, homes on the two upper floors) bring it to about 10,000 with about 10 m2 of services each. Parks are the open decks (60 percent of every deck), not extra modules."
   },
   "reference_points": {
     "oceanix_busan_proposed": {

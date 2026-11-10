@@ -1,69 +1,69 @@
 {
   "asset_id": "floating_platform_a_story_01",
-  "signature": "991288e6b0bf29ac9be2ce814a3ad9da0d05263d572247282c565ef221237919",
+  "signature": "8472b1a68b23856375733e5359b43b76334adee2f94a948baccb74c3235fa468",
   "stats": {
-    "build_seconds": 0.057,
-    "objects": 66,
-    "asset_objects": 64,
-    "mesh_datablocks": 54,
-    "asset_mesh_datablocks": 52,
-    "evaluated_verts": 720
+    "build_seconds": 0.086,
+    "objects": 93,
+    "asset_objects": 91,
+    "mesh_datablocks": 75,
+    "asset_mesh_datablocks": 73,
+    "evaluated_verts": 8774
   },
   "rebuild_stats": {
-    "build_seconds": 0.063,
-    "objects": 66,
-    "asset_objects": 64,
-    "mesh_datablocks": 54,
-    "asset_mesh_datablocks": 52
+    "build_seconds": 0.081,
+    "objects": 93,
+    "asset_objects": 91,
+    "mesh_datablocks": 75,
+    "asset_mesh_datablocks": 73
   },
   "results": [
     {
       "check": "bvh_connected_to_ground",
       "status": "PASS",
-      "detail": "66 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
+      "detail": "93 objects reach the ground through touching evaluated meshes (tolerance 0.03 m)"
     },
     {
       "check": "bvh_no_unintended_intersections",
       "status": "PASS",
-      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (142 allowed type pairs)"
+      "detail": "no part penetrates another by more than 4 mm outside the designed framing list (145 allowed type pairs)"
     },
     {
       "check": "reproducible_build",
       "status": "PASS",
-      "detail": "sha256 991288e6b0bf29ac twice"
+      "detail": "sha256 8472b1a68b238563 twice"
     },
     {
       "check": "semantic_tags_match_plan",
       "status": "PASS",
-      "detail": "64 objects tagged with type/material/group/layer"
+      "detail": "91 objects tagged with type/material/group/layer"
     }
   ],
   "views": {
     "three_quarter": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/three_quarter.png",
-      "render_seconds": 0.881,
-      "build_seconds": 0.063
+      "render_seconds": 0.913,
+      "build_seconds": 0.08
     },
     "elevation": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/elevation.png",
-      "render_seconds": 0.836,
-      "build_seconds": 0.063
+      "render_seconds": 0.849,
+      "build_seconds": 0.084
     },
     "top": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/top.png",
-      "render_seconds": 0.498,
-      "build_seconds": 0.063
+      "render_seconds": 0.496,
+      "build_seconds": 0.081
     },
     "exploded": {
       "file": "/Users/trananh/Work/Projects/Architecture-Story-Studio/asset_library/architecture/floating/previews/floating_platform_a_story_01/review/exploded.png",
-      "render_seconds": 0.825,
-      "build_seconds": 0.064
+      "render_seconds": 0.823,
+      "build_seconds": 0.081
     }
   },
   "process": {
-    "wall_seconds": 4.0,
-    "peak_rss_mb": 522.4,
-    "peak_memory_footprint_mb": 1936.8,
+    "wall_seconds": 4.3,
+    "peak_rss_mb": 538.6,
+    "peak_memory_footprint_mb": 1891.9,
     "measured_with": "/usr/bin/time -l on the whole Blender process (macOS)"
   }
 }

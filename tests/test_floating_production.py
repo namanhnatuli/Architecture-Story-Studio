@@ -49,11 +49,29 @@ class VisualsTest(unittest.TestCase):
         moves = [s["offset"][2] for s in steps_of(self.V.VISUALS["B10"]) if s["do"] == "MOVE"]
         self.assertEqual(moves, [-self.V.SINK, -self.V.EXT, self.V.RISE])
 
-    def test_tilt_is_the_calculated_list(self):
+    def test_tilt_is_the_list_calculated_for_the_state_shown(self):
         rot = [s for s in steps_of(self.V.VISUALS["B11"]) if s["do"] == "ROTATE"]
-        self.assertEqual([s["degrees"] for s in rot], [self.res["list_example"]["list_deg"]])
+        shown = self.res["list_example_shown_state"]
+        self.assertIn("4 storeys, hull 4.5 m", shown["state"])        # B11 shows the end of B10
+        self.assertEqual([s["degrees"] for s in rot], [shown["list_deg"]])
+        self.assertTrue(0.35 <= shown["list_deg"] < 0.5 and 0.35 <= self.res["list_example"]["list_deg"] < 0.5)   # "about 0.4"
         load = [s for s in steps_of(self.V.VISUALS["B11"]) if s["do"] == "MOVE" and s["offset"][0]]
         self.assertEqual(load[0]["offset"], [self.res["list_example"]["d_m"], 0.0, 0.0])
+
+    def test_the_camera_is_still_whenever_the_platform_moves_or_grows(self):
+        """Owner review of the L5 excerpt: frame first, then sink; B10 keeps two framings."""
+        plan = json.loads((P / "storyboard/visual_plan.json").read_text())
+        for bid in ("B09", "B10"):
+            anim = next(s for s in plan["shots"] if s["beat_id"] == bid)["shot"]["animation"]
+            cams = [(v["start_seconds"], v["start_seconds"] + v["move_seconds"]) for v in anim["views"][1:]]
+            changes = [(st["start_seconds"], st["start_seconds"] + st["seconds"]) for st in anim["steps"]
+                       if st["do"] in ("MOVE", "REVEAL") and st["seconds"] > 0]
+            self.assertTrue(changes, bid)
+            for c0, c1 in cams:
+                for m0, m1 in changes:
+                    self.assertFalse(c0 < m1 and m0 < c1, f"{bid}: camera {c0:.2f}-{c1:.2f} while {m0:.2f}-{m1:.2f}")
+            if bid == "B10":
+                self.assertEqual(len({tuple(v["focus"] or ()) for v in anim["views"]}), 2)   # two framings
 
     def test_conceptual_motion_is_labelled_on_screen_for_the_whole_beat(self):
         for bid, v in self.V.VISUALS.items():

@@ -51,6 +51,9 @@ ALLOWED_INTERSECT = {frozenset(p) for p in (
     ("MOORING_LINE", "ANCHOR"),   # the line is shackled into the anchor (both floating-only, conceptual)
     ("MOORING_PILE", "GROUND"),   # piles are driven into the seabed
     ("ANCHOR", "GROUND"),         # anchors are bedded into the seabed
+    # a section's marks (reference levels, dimensions) lie on the cut plane, inside the half in front of the cut, which
+    # the story shows only before it removes that half (MARKER is floating-only)
+    ("MARKER", "HULL"), ("MARKER", "DECK"), ("MARKER", "BULKHEAD"),
 )} | {frozenset(("WATER", t)) for t in semantic.SEMANTIC_TYPES}
 CROPPED_VIEWS = ("elevation", "top")
 TOUCH = 0.03

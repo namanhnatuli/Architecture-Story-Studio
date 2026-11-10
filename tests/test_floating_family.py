@@ -253,5 +253,73 @@ class StoryPartsTest(unittest.TestCase):
             self.assertAlmostEqual(z0, -p["depth_far_m"], places=6)   # lying on the seabed
             self.assertLess(y0, -p["shore_link_m"] + p["shore_gap_m"] + 1.0)
 
+
+class UsesAndDetailTest(unittest.TestCase):
+    """Owner review of the L5 excerpt: readable storeys, entrances, public buildings, and an allocation that houses the
+    scenario's 10,000 people, without changing any platform's load."""
+
+    def setUp(self):
+        self.res = json.loads(RESULTS.read_text())
+
+    def test_every_use_covers_the_same_floor_area(self):
+        for use in ("home", "mixed", "school", "clinic", "community"):
+            for orient in ("x", "y"):
+                rects = floating.use_layout(use, 60.0, 60.0, 0.4, orient)
+                area = sum((x1 - x0) * (y1 - y0) for x0, x1, y0, y1 in rects)
+                self.assertAlmostEqual(area, 0.4 * 3600.0, places=6, msg=use)
+                for x0, x1, y0, y1 in rects:   # on the deck, clear of the 1.2 m where walkways land
+                    self.assertTrue(-28.8 <= x0 < x1 <= 28.8 and -28.8 <= y0 < y1 <= 28.8, use)
+
+    def test_district_allocation_is_the_calculated_one(self):
+        al = self.res["district_C_allocation"]
+        uses = [u for _, _, u in floating.district_cells()]
+        self.assertEqual(uses.count("home"), al["modules"]["home"])
+        self.assertEqual(uses.count("mixed"), al["modules"]["mixed"])
+        self.assertEqual(uses.count("school"), al["service_types"]["school"])
+        self.assertEqual(uses.count("clinic"), al["service_types"]["clinic"])
+        self.assertEqual(uses.count("community"), al["service_types"]["community_shops_offices"])
+        self.assertGreaterEqual(al["residents_at_homes_m2_each"], 10000)
+        self.assertTrue(floating.PARKS <= {(c, r) for c, r, u in floating.district_cells() if u == "home"})
+
+    def test_every_platform_has_facades_and_paving(self):
+        _, p = spec("floating_district_01")
+        comps = floating.district(p)
+        ids = {c.id for c in comps}
+        for c, r, use in floating.district_cells():
+            for k in ("facade", "paths"):
+                self.assertIn(f"m{c:02d}{r}_{k}", ids)
+            if use == "school":
+                self.assertIn(f"m{c:02d}{r}_playground", ids)
+        self.assertEqual(sum(c.id.endswith("_trees") for c in comps), len(floating.PARKS))
+
+    def test_storeys_carry_their_windows(self):
+        comps = {c.id: c for c in floating.platform(params(storeys=4, section=1))}
+        for k in (2, 4):
+            for s in (1, 2, 3, 4):
+                w = comps[f"block{k}_storey{s}_windows"]
+                self.assertEqual((w.type, w.group), ("DECORATION", f"storey_{s}"))
+
+    def test_section_with_front_half_shows_the_whole_platform_before_the_cut(self):
+        data, p = spec("floating_platform_a_section_01")
+        comps = {c.id: c for c in floating.platform(p)}
+        front = [c for c in comps.values() if c.group == "front_half"]
+        self.assertTrue(any(c.type == "BUILDING" for c in front) and any(c.type == "HULL" for c in front))
+        for c in front:
+            self.assertLessEqual(semantic.union_bbox([c])[1][1], 1e-9, c.id)    # all of it in front of the cut
+        for cid in ("front_water_west", "front_water_east", "front_water_south", "front_seabed", "draft_dim", "deck_ref",
+                    "bottom_ref", "freeboard_marker", "displaced_volume"):
+            self.assertIn(cid, comps)
+        (x0, y0, z0), (x1, y1, z1) = semantic.union_bbox([comps["draft_dim"]])
+        self.assertAlmostEqual(z1 - z0, p["draft_m"], places=6)                  # waterline to the bottom
+        self.assertLess(y1, floating.CUT_Y[0])                                    # drawn in front of the water
+
+    def test_story_platform_draws_the_load_path_and_a_level_reference(self):
+        data, p = spec("floating_platform_a_story_01")
+        comps = {c.id: c for c in floating.platform(p)}
+        (x0, _, _), (x1, _, _) = semantic.union_bbox([comps["load_path"]])
+        load = semantic.union_bbox([comps["test_load"]])
+        self.assertAlmostEqual(x1, load[1][0] + self.res["list_example"]["d_m"], places=6)   # the arrow ends where the load stops
+        self.assertEqual(comps["level_ref"].animation, ("STATIC",))
+
 if __name__ == "__main__":
     unittest.main()

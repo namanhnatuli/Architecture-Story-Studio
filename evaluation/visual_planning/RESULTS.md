@@ -167,7 +167,7 @@
 - **SEQ-NEG-01** (missing_capability, bridge) A SEQUENCE on an asset that does not declare it is refused (MISSING_TEMPLATE), never faked with a hold: **PASS**
   - ok [animation_suitability] status MISSING_TEMPLATE (want MISSING_TEMPLATE)
   - ok [animation_suitability] report mentions 'does not support SEQUENCE'
-- **FLOAT-SEQ-01** (positive, floating) A floating platform in section sinks by a calculated amount: SEQUENCE with REVEAL and MOVE on the same parts: **PASS**
+- **FLOAT-SEQ-01** (positive, floating) A floating platform in section sinks by a calculated amount: SEQUENCE with REVEAL and MOVE on the same parts (the beat's own labels are left out: the case is about the steps): **PASS**
   - ok [animation_suitability] status COVERED (want COVERED)
   - ok [narrative_relevance] strategy SEQUENCE (want ['SEQUENCE'])
 - **FLOAT-SEQ-02** (negative, floating) Conceptual motion (OSCILLATE) without the mandatory label is refused, never shown as if simulated: **PASS**

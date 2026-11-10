@@ -113,7 +113,7 @@ FAMILIES = {
         "platform": {
             "generator": floating.platform,
             "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane", "section_poche", "highlight_gold",
-                          "displaced_water", "water_cut"),
+                          "displaced_water", "water_cut", "water", "seabed", "window_dark", "paving", "park_lawn", "tree"),
             "animation": ("HOLD", "HIGHLIGHT", "EXPLODED_VIEW", "SEQUENCE", "SIDE_BY_SIDE"),
             "params": {"length_m": num(10, 120, 40.0), "width_m": num(10, 120, 40.0), "hull_depth_m": num(1.5, 10, 4.0),
                        "draft_m": num(0.3, 9.5, 2.958), "slab_m": num(0.1, 0.6, 0.25), "wall_m": num(0.1, 0.6, 0.25),
@@ -122,7 +122,9 @@ FAMILIES = {
                        "storey_height_m": num(2.6, 4.0, 3.0), "extension_m": num(0.0, 2.0, 0.0),
                        "section": num(0, 1, 0, integer=True), "water_depth_m": num(4, 60, 15.0),
                        "test_load": num(0, 1, 0, integer=True), "test_load_t": num(10, 500, 100.0),
-                       "neighbours": num(0, 1, 0, integer=True), "neighbour_gap_m": num(2, 40, 6.0)},
+                       "neighbours": num(0, 1, 0, integer=True), "neighbour_gap_m": num(2, 40, 6.0),
+                       "test_load_shift_m": num(1, 30, 15.0), "front_half": num(0, 1, 0, integer=True),
+                       "front_width_m": num(40, 400, 160.0), "front_depth_m": num(10, 300, 60.0)},
         },
         "pair": {
             "generator": floating.pair, "materials": ("concrete", "concrete_deck", "plaster", "roof_membrane", "timber_light", "steel_dark"),

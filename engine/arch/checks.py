@@ -37,14 +37,26 @@ def expected_counts(family, variant, p):
         ny_kept = sum(1 for j in range(1, ny + 1) if -p["width_m"] / 2 + j * p["bulkhead_spacing_m"] > 0.5) if sec else ny
         out = {"HULL": 1 + walls + (walls if ext else 0), "BULKHEAD": nx + ny_kept + (nx if ext else 0), "DECK": 1,
                "BUILDING": blocks * n, "ROOF": blocks * max(n - 1, 0)}
-        if sec:
-            out.update(SECTION_CUT=4 + nx + ((2 + nx) if ext else 0), DISPLACED_VOLUME=1, WATER=1, MARKER=1)
+        out["DECORATION"] = blocks * n + (0 if sec else 1)   # each storey's windows; the paving (whole platform only)
+        if sec:   # plates on the cut; the drawing's marks: draft and freeboard dimensions, two dashed reference lines
+            out.update(SECTION_CUT=4 + nx + ((2 + nx) if ext else 0), DISPLACED_VOLUME=1, WATER=1, MARKER=4)
+            if p["front_half"]:   # the half in front of the cut: bottom, three walls, bulkheads, deck, two blocks; water and seabed
+                ny_front = sum(1 for j in range(1, ny + 1) if -p["width_m"] / 2 + 0.5 < -p["width_m"] / 2 + j * p["bulkhead_spacing_m"] < -0.5)
+                out["HULL"] += 4
+                out["BULKHEAD"] += nx + ny_front
+                out["DECK"] += 1
+                out["BUILDING"] += 2 * n
+                out["ROOF"] += 2 * max(n - 1, 0)
+                out["DECORATION"] += 2 * n
+                out["WATER"] += 3
+                out["GROUND"] = 1
         else:
-            if p["test_load"]:
-                out["LOAD"] = 1
-            if p["neighbours"]:   # four three-storey copies: hull, deck, buildings, roofs each
+            if p["test_load"]:   # the load, its path, the level reference
+                out.update(LOAD=1, MARKER=2)
+            if p["neighbours"]:   # four three-storey copies: hull, deck, buildings, roofs, facades, paving
                 for t in ("HULL", "DECK", "BUILDING", "ROOF"):
                     out[t] += 4
+                out["DECORATION"] += 8
         return {k: v for k, v in out.items() if v}
     if family == "floating" and variant == "clay_boat":
         nx = int(round(p["length_m"] / p["bulkhead_spacing_m"])) - 1
@@ -53,9 +65,11 @@ def expected_counts(family, variant, p):
         return {"HULL": 1 + 1 + 3, "BULKHEAD": nx + ny_kept, "DECK": 1, "SECTION_CUT": 1 + 4 + nx, "WATER": 1}
     if family == "floating" and variant == "pair":
         n_built = sum(1 for k in ("storeys_a", "storeys_b") if p[k] > 0)
-        return {k: v for k, v in {"HULL": 2, "DECK": 2, "BUILDING": n_built, "ROOF": n_built, "WALKWAY": 1, "CONNECTOR": 2}.items() if v}
+        return {k: v for k, v in {"HULL": 2, "DECK": 2, "BUILDING": n_built, "ROOF": n_built, "DECORATION": 2 * n_built,
+                                  "WALKWAY": 1, "CONNECTOR": 2}.items() if v}
     if family == "floating" and variant == "neighbourhood":   # 5 platforms, 4 joints (2 along X with fenders)
-        out = {"HULL": 5, "DECK": 5, "BUILDING": 5, "ROOF": 5, "WALKWAY": 4, "UTILITY_LINE": 4, "CONNECTOR": 4 * 2 + 2 * 2}
+        out = {"HULL": 5, "DECK": 5, "BUILDING": 5, "ROOF": 5, "DECORATION": 10, "WALKWAY": 4, "UTILITY_LINE": 4,
+               "CONNECTOR": 4 * 2 + 2 * 2}
         if p["moorings"] in ("piles", "both"):
             out.update(MOORING_PILE=10, CONNECTOR=out["CONNECTOR"] + 10)
         if p["moorings"] in ("lines", "both"):
@@ -63,7 +77,8 @@ def expected_counts(family, variant, p):
         return out
     if family == "floating" and variant == "semi_sub":
         box = 1 if p["compare_box"] else 0
-        return {k: v for k, v in {"HULL": 2 + box, "COLUMN": 6, "DECK": 1 + box, "BUILDING": box, "ROOF": box}.items() if v}
+        return {k: v for k, v in {"HULL": 2 + box, "COLUMN": 6, "DECK": 1 + box, "BUILDING": box, "ROOF": box,
+                                  "DECORATION": 2 * box}.items() if v}
     if family == "floating" and variant == "district":
         cols, rows, lagoon = 11, 9, {(c, r) for c in (4, 5, 6) for r in (4, 5)}
         cells = {(c, r) for c in range(cols) for r in range(rows)} - lagoon
@@ -74,7 +89,9 @@ def expected_counts(family, variant, p):
         pitch = p["length_m"] + p["gap_m"]
         nseg = int((cols * pitch + 2 * pitch) // 64.0)
         bridges = 0 if p["offshore"] else p["bridges"]
-        out = {"HULL": 93, "DECK": 93, "BUILDING": 93, "ROOF": 93, "WALKWAY": walks + 2, "MOORING_PILE": piles,
+        schools, parks = 3, 10   # district_C_allocation: three schools (a playground each); lawn and trees round the lagoon
+        out = {"HULL": 93, "DECK": 93, "BUILDING": 93, "ROOF": 93, "DECORATION": 93 * 2 + schools + 2 * parks,
+               "WALKWAY": walks + 2, "MOORING_PILE": piles,
                "MOORING_LINE": lines, "ANCHOR": lines, "BREAKWATER": nseg, "LINK_SPAN": bridges,
                "CONNECTOR": bridges, "UTILITY_LINE": 3 * bridges + (9 if bridges else 0) + (3 if p["offshore"] and p["shore_link_m"] > 0 else 0),
                "ACCESS_ROUTE": bridges}

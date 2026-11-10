@@ -23,12 +23,15 @@
     "storey_height_m": 3.0,
     "extension_m": 0.5,
     "water_depth_m": 15.0,
-    "section": 1
+    "section": 1,
+    "front_half": 1,
+    "front_width_m": 140.0,
+    "front_depth_m": 60.0
   },
   "visual_style": "premium_stylized",
   "accuracy": "ILLUSTRATIVE",
   "provenance": {
-    "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon. draft_m 2.958 is the three-storey case of analysis/results.json (design_A.mid); the fourth storey and the 0.5 m hull extension are parts the story reveals, and their sinking and rising are applied as SEQUENCE MOVE steps with the offsets of analysis/results.json (storey_branch). Not an engineering design; wall and slab thicknesses only serve the mass estimate.",
+    "basis": "Illustrative archetype of Design A in projects/floating-city-design-challenge (scenario SCN_FLOATCITY_COASTAL_01): an idealised concrete box pontoon. draft_m 2.958 is the three-storey case of analysis/results.json (design_A.mid); the fourth storey and the 0.5 m hull extension are parts the story reveals, and their sinking and rising are applied as SEQUENCE MOVE steps with the offsets of analysis/results.json (storey_branch). Not an engineering design; wall and slab thicknesses only serve the mass estimate. The half in front of the cut, with the water and seabed in front of it, is built too so that the story can show the whole platform and then remove that half (B08); the section's marks (draft and freeboard dimensions, the outline of the water pushed aside, dashed reference levels) are drawing aids, not structure.",
     "draft_source": "projects/floating-city-design-challenge/analysis/results.json design_A.mid.draft_m"
   },
   "animation_support": [

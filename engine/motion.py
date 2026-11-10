@@ -968,10 +968,12 @@ def _plan_transforms(plan, comp, moves, reveals, center, last):
         return loc, tuple(rot)
 
     frames = {1: "LINEAR", last: "LINEAR"}
-    begins = {}   # an event's first key holds the state at its exact start (a frame rounds up to 1/48 s past it)
-    for st, sp, s, i, do in events:
+    begins, ends = {}, {}   # an event's first key holds the state at its exact start, its last key the state at its
+    for st, sp, s, i, do in events:    # exact end (frames round to 1/48 s around them; parts must not drift while they wait)
         f0, f1 = max(1, plan.frame(st)), min(last, plan.frame(sp))
         begins[f0] = min(begins.get(f0, st), st)
+        if do in ("REVEAL", "MOVE"):
+            ends[f1] = max(ends.get(f1, sp), sp)
         if do in ("REVEAL", "MOVE"):
             frames[f0] = s.get("easing", "SMOOTH")
             frames.setdefault(f1, "LINEAR")
@@ -982,7 +984,11 @@ def _plan_transforms(plan, comp, moves, reveals, center, last):
     rotates = any(do in ("ROTATE", "OSCILLATE") for *_, do in events)
     for f in sorted(frames):
         t = (f - 1) / plan.fps
-        loc, rot = state(min(t, begins[f]) if f in begins and t > begins[f] else t)
+        if f in ends and t < ends[f]:
+            t = ends[f]
+        if f in begins and t > begins[f]:
+            t = begins[f]
+        loc, rot = state(t)
         plan.key(comp.name, LOC, f, loc, frames[f])
         if rotates:
             plan.key(comp.name, ROT, f, rot, frames[f])

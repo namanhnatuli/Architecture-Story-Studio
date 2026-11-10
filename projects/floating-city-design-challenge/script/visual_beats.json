@@ -1369,6 +1369,107 @@
               },
               {
                 "concept": "high_roof"
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m000_facade",
+                  "m001_facade",
+                  "m002_facade",
+                  "m003_facade",
+                  "m004_facade",
+                  "m005_facade",
+                  "m006_facade",
+                  "m007_facade",
+                  "m008_facade",
+                  "m010_facade",
+                  "m011_facade",
+                  "m012_facade",
+                  "m013_facade",
+                  "m014_facade",
+                  "m015_facade",
+                  "m016_facade",
+                  "m017_facade",
+                  "m018_facade",
+                  "m020_facade",
+                  "m021_facade",
+                  "m022_facade",
+                  "m023_facade",
+                  "m024_facade",
+                  "m025_facade",
+                  "m026_facade",
+                  "m027_facade",
+                  "m028_facade",
+                  "m030_facade",
+                  "m031_facade",
+                  "m032_facade",
+                  "m033_facade",
+                  "m034_facade",
+                  "m035_facade",
+                  "m036_facade",
+                  "m037_facade",
+                  "m038_facade",
+                  "m040_facade",
+                  "m041_facade",
+                  "m042_facade",
+                  "m043_facade",
+                  "m046_facade",
+                  "m047_facade",
+                  "m048_facade",
+                  "m050_facade",
+                  "m051_facade",
+                  "m052_facade",
+                  "m053_facade",
+                  "m056_facade",
+                  "m057_facade",
+                  "m058_facade",
+                  "m060_facade",
+                  "m061_facade",
+                  "m062_facade",
+                  "m063_facade",
+                  "m066_facade",
+                  "m067_facade",
+                  "m068_facade",
+                  "m070_facade",
+                  "m071_facade",
+                  "m072_facade",
+                  "m073_facade",
+                  "m074_facade",
+                  "m075_facade",
+                  "m076_facade",
+                  "m077_facade",
+                  "m078_facade",
+                  "m080_facade",
+                  "m081_facade",
+                  "m082_facade",
+                  "m083_facade",
+                  "m084_facade",
+                  "m085_facade",
+                  "m086_facade",
+                  "m087_facade",
+                  "m088_facade",
+                  "m090_facade",
+                  "m091_facade",
+                  "m092_facade",
+                  "m093_facade",
+                  "m094_facade",
+                  "m095_facade",
+                  "m096_facade",
+                  "m097_facade",
+                  "m098_facade",
+                  "m100_facade",
+                  "m101_facade",
+                  "m102_facade",
+                  "m103_facade",
+                  "m104_facade",
+                  "m105_facade",
+                  "m106_facade",
+                  "m107_facade",
+                  "m108_facade"
+                ]
+              },
+              {
+                "concept": "facade_detail"
               }
             ],
             "at": {
@@ -1853,7 +1954,7 @@
         "CLM_102"
       ],
       "narration": "It floats because it pushes water out of the way, and the water it pushes aside weighs as much as the platform. Every ton we add needs roughly one more cubic meter of water pushed aside.",
-      "visual_goal": "Section of the first platform (three storeys): the water the hull pushes aside lights up below the waterline",
+      "visual_goal": "Section of the first platform (three storeys): the outline of the hull below the waterline, the water it pushes aside, lights up",
       "required_concepts": [
         "floating_platform_section"
       ],
@@ -1873,7 +1974,8 @@
                 "group": "bulkheads"
               },
               {
-                "concept": "deck"
+                "concept": "deck",
+                "group": "deck"
               },
               {
                 "concept": "section_cut",
@@ -1895,6 +1997,17 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
                 "concept": "high_roof",
                 "local": [
                   "block2_roof2",
@@ -1912,10 +2025,49 @@
             "do": "FADE_OUT",
             "targets": [
               {
+                "concept": "platform_hull",
+                "group": "front_half"
+              },
+              {
+                "concept": "bulkhead",
+                "group": "front_half"
+              },
+              {
+                "concept": "deck",
+                "group": "front_half"
+              },
+              {
+                "concept": "building_block",
+                "group": "front_half"
+              },
+              {
+                "concept": "high_roof",
+                "group": "front_half"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "front_half"
+              },
+              {
+                "concept": "water_section",
+                "group": "front_water"
+              },
+              {
+                "concept": "ground",
+                "group": "front_water"
+              },
+              {
                 "concept": "building_block",
                 "local": [
                   "block2_storey4",
                   "block4_storey4"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey4_windows",
+                  "block4_storey4_windows"
                 ]
               },
               {
@@ -1952,10 +2104,10 @@
                 ]
               },
               {
-                "concept": "freeboard_marker"
+                "concept": "displaced_volume"
               },
               {
-                "concept": "displaced_volume"
+                "concept": "freeboard_marker"
               }
             ],
             "at": 0,
@@ -2288,7 +2440,7 @@
         "CLM_104"
       ],
       "narration": "Our first platform, in this illustrative design, carries four blocks of three-story homes. Altogether it weighs about 4,800 tons, and floats about 3 meters deep. And here's the surprise: more than half of that weight is the concrete hull itself.",
-      "visual_goal": "The first platform in section (three storeys): seen at an angle, then square on; the draft reads against the water; the buildings ghost and the concrete hull lights up: more than half of the weight",
+      "visual_goal": "The whole first platform (four blocks of three storeys) at an angle; its front half and the water in front are taken away to show the cut; square on, the draft is drawn as a dimension; the buildings ghost and the concrete hull lights up: more than half of the weight",
       "required_concepts": [
         "floating_platform_section"
       ],
@@ -2308,7 +2460,8 @@
                 "group": "bulkheads"
               },
               {
-                "concept": "deck"
+                "concept": "deck",
+                "group": "deck"
               },
               {
                 "concept": "section_cut",
@@ -2330,6 +2483,17 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
                 "concept": "high_roof",
                 "local": [
                   "block2_roof2",
@@ -2337,6 +2501,30 @@
                   "block4_roof2",
                   "block4_roof3"
                 ]
+              },
+              {
+                "concept": "platform_hull",
+                "group": "front_half"
+              },
+              {
+                "concept": "bulkhead",
+                "group": "front_half"
+              },
+              {
+                "concept": "deck",
+                "group": "front_half"
+              },
+              {
+                "concept": "building_block",
+                "group": "front_half"
+              },
+              {
+                "concept": "high_roof",
+                "group": "front_half"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "front_half"
               }
             ],
             "azimuth": -62.0,
@@ -2354,7 +2542,8 @@
                 "group": "bulkheads"
               },
               {
-                "concept": "deck"
+                "concept": "deck",
+                "group": "deck"
               },
               {
                 "concept": "section_cut",
@@ -2376,6 +2565,17 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
                 "concept": "high_roof",
                 "local": [
                   "block2_roof2",
@@ -2389,9 +2589,9 @@
             "at": {
               "sentence": 1,
               "word": "altogether",
-              "offset": -0.3
+              "offset": -0.2
             },
-            "move_seconds": 2.6
+            "move_seconds": 2.4
           }
         ],
         "steps": [
@@ -2406,10 +2606,38 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey4_windows",
+                  "block4_storey4_windows"
+                ]
+              },
+              {
                 "concept": "high_roof",
                 "local": [
                   "block2_roof4",
                   "block4_roof4"
+                ]
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "front_block1_storey4",
+                  "front_block3_storey4"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "front_block1_storey4_windows",
+                  "front_block3_storey4_windows"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "front_block1_roof4",
+                  "front_block3_roof4"
                 ]
               },
               {
@@ -2443,6 +2671,10 @@
               },
               {
                 "concept": "displaced_volume"
+              },
+              {
+                "concept": "water_section",
+                "group": "waterline"
               }
             ],
             "at": 0,
@@ -2463,12 +2695,54 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
                 "concept": "high_roof",
                 "local": [
                   "block2_roof2",
                   "block2_roof3",
                   "block4_roof2",
                   "block4_roof3"
+                ]
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "front_block1_storey1",
+                  "front_block1_storey2",
+                  "front_block1_storey3",
+                  "front_block3_storey1",
+                  "front_block3_storey2",
+                  "front_block3_storey3"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "front_block1_storey1_windows",
+                  "front_block1_storey2_windows",
+                  "front_block1_storey3_windows",
+                  "front_block3_storey1_windows",
+                  "front_block3_storey2_windows",
+                  "front_block3_storey3_windows"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "front_block1_roof2",
+                  "front_block1_roof3",
+                  "front_block3_roof2",
+                  "front_block3_roof3"
                 ]
               }
             ],
@@ -2478,39 +2752,123 @@
               "offset": -0.3
             },
             "until": {
-              "sentence": 1,
-              "word": "altogether"
+              "sentence": 0,
+              "end": true,
+              "offset": -0.3
             },
             "strength": 1.0,
             "tint": 0.6
           },
           {
+            "do": "FADE_OUT",
+            "targets": [
+              {
+                "concept": "platform_hull",
+                "group": "front_half"
+              },
+              {
+                "concept": "bulkhead",
+                "group": "front_half"
+              },
+              {
+                "concept": "deck",
+                "group": "front_half"
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "front_block1_storey1",
+                  "front_block1_storey2",
+                  "front_block1_storey3",
+                  "front_block3_storey1",
+                  "front_block3_storey2",
+                  "front_block3_storey3"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "front_block1_storey1_windows",
+                  "front_block1_storey2_windows",
+                  "front_block1_storey3_windows",
+                  "front_block3_storey1_windows",
+                  "front_block3_storey2_windows",
+                  "front_block3_storey3_windows"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "front_block1_roof2",
+                  "front_block1_roof3",
+                  "front_block3_roof2",
+                  "front_block3_roof3"
+                ]
+              },
+              {
+                "concept": "water_section",
+                "group": "front_water"
+              },
+              {
+                "concept": "ground",
+                "group": "front_water"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "end": true,
+              "offset": 0.1
+            },
+            "seconds": 1.0
+          },
+          {
             "do": "FADE_IN",
             "targets": [
               {
-                "concept": "displaced_volume"
+                "concept": "water_section",
+                "group": "waterline"
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "end": true,
+              "offset": 0.6
+            },
+            "seconds": 0.5
+          },
+          {
+            "do": "FADE_IN",
+            "targets": [
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "draft_dim"
+                ]
               }
             ],
             "at": {
               "sentence": 1,
               "word": "floats",
-              "offset": -0.3
+              "offset": -0.2
             },
-            "seconds": 0.8
+            "seconds": 0.6
           },
           {
             "do": "FADE_OUT",
             "targets": [
               {
-                "concept": "displaced_volume"
+                "concept": "freeboard_marker",
+                "local": [
+                  "draft_dim"
+                ]
               }
             ],
             "at": {
               "sentence": 2,
               "word": "surprise",
-              "offset": -0.3
+              "offset": -0.4
             },
-            "seconds": 0.6
+            "seconds": 0.5
           },
           {
             "do": "GHOST",
@@ -2524,6 +2882,17 @@
                   "block4_storey1",
                   "block4_storey2",
                   "block4_storey3"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
                 ]
               },
               {
@@ -2542,7 +2911,7 @@
               "offset": -0.4
             },
             "seconds": 0.8,
-            "transparency": 0.85
+            "transparency": 0.8
           },
           {
             "do": "HIGHLIGHT",
@@ -2556,7 +2925,8 @@
                 "group": "bulkheads"
               },
               {
-                "concept": "deck"
+                "concept": "deck",
+                "group": "deck"
               },
               {
                 "concept": "section_cut",
@@ -2595,6 +2965,17 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
                 "concept": "high_roof",
                 "local": [
                   "block2_roof2",
@@ -2615,13 +2996,23 @@
       },
       "annotations": [
         {
+          "id": "B08_cut",
+          "type": "NOTE",
+          "text": "Cut through the middle",
+          "sentence": 1,
+          "position": "TOP_LEFT"
+        },
+        {
           "id": "B08_draft",
           "type": "COMPONENT_LABEL",
           "target": {
-            "concept": "displaced_volume"
+            "concept": "freeboard_marker",
+            "local": [
+              "draft_dim"
+            ]
           },
-          "point": "BOTTOM",
-          "text": "Floats ≈ 2.96 m deep",
+          "point": "LEFT",
+          "text": "Draft ≈ 2.96 m",
           "sentence": 1,
           "word": "floats",
           "until": 2
@@ -2659,7 +3050,7 @@
         "CLM_105"
       ],
       "narration": "Now add a fourth story. The platform settles about a third of a meter deeper, and the freeboard, the part of the hull above the water, shrinks from about a meter to about 70 centimeters.",
-      "visual_goal": "Square-on section: a fourth storey arrives; the platform settles by the calculated 0.33 m; the gold freeboard bar (above the water) shrinks from 1.04 to 0.71 m, close on the east wall",
+      "visual_goal": "Square-on section: a fourth storey is set down (the whole section in view); the camera moves close to the east wall and stops; a dashed line keeps the deck's first level; the platform settles by the calculated 0.33 m and the freeboard dimension (waterline to deck) shrinks from 1.04 to 0.71 m",
       "required_concepts": [
         "floating_platform_section"
       ],
@@ -2679,7 +3070,8 @@
                 "group": "bulkheads"
               },
               {
-                "concept": "deck"
+                "concept": "deck",
+                "group": "deck"
               },
               {
                 "concept": "section_cut",
@@ -2698,6 +3090,17 @@
                   "block4_storey1",
                   "block4_storey2",
                   "block4_storey3"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
                 ]
               },
               {
@@ -2721,7 +3124,10 @@
                 ]
               },
               {
-                "concept": "freeboard_marker"
+                "concept": "freeboard_marker",
+                "local": [
+                  "freeboard_marker"
+                ]
               },
               {
                 "concept": "section_cut",
@@ -2734,10 +3140,10 @@
             "margin": 0.12,
             "at": {
               "sentence": 1,
-              "word": "platform",
-              "offset": -0.4
+              "word": "the",
+              "offset": -0.7
             },
-            "move_seconds": 2.0
+            "move_seconds": 1.4
           }
         ],
         "steps": [
@@ -2745,10 +3151,49 @@
             "do": "FADE_OUT",
             "targets": [
               {
+                "concept": "platform_hull",
+                "group": "front_half"
+              },
+              {
+                "concept": "bulkhead",
+                "group": "front_half"
+              },
+              {
+                "concept": "deck",
+                "group": "front_half"
+              },
+              {
+                "concept": "building_block",
+                "group": "front_half"
+              },
+              {
+                "concept": "high_roof",
+                "group": "front_half"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "front_half"
+              },
+              {
+                "concept": "water_section",
+                "group": "front_water"
+              },
+              {
+                "concept": "ground",
+                "group": "front_water"
+              },
+              {
                 "concept": "building_block",
                 "local": [
                   "block2_storey4",
                   "block4_storey4"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey4_windows",
+                  "block4_storey4_windows"
                 ]
               },
               {
@@ -2786,6 +3231,24 @@
               },
               {
                 "concept": "displaced_volume"
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "draft_dim"
+                ]
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "deck_ref"
+                ]
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "bottom_ref"
+                ]
               }
             ],
             "at": 0,
@@ -2799,6 +3262,13 @@
                 "local": [
                   "block2_storey4",
                   "block4_storey4"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block2_storey4_windows",
+                  "block4_storey4_windows"
                 ]
               },
               {
@@ -2816,17 +3286,48 @@
             },
             "seconds": 1.2,
             "direction": "FROM_ABOVE",
-            "distance": 6.0
+            "distance": 6.0,
+            "sound": "STONE"
+          },
+          {
+            "do": "FADE_IN",
+            "targets": [
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "deck_ref"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "settles",
+              "offset": -0.3
+            },
+            "seconds": 0.5
           },
           {
             "do": "MOVE",
             "targets": {
-              "except": []
+              "except": [
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "deck_ref"
+                  ]
+                },
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "bottom_ref"
+                  ]
+                }
+              ]
             },
             "at": {
               "sentence": 1,
-              "word": "settles",
-              "offset": -0.2
+              "word": "about",
+              "offset": -0.1
             },
             "seconds": 1.8,
             "offset": [
@@ -2836,24 +3337,21 @@
             ]
           },
           {
-            "do": "HIGHLIGHT",
+            "do": "FADE_OUT",
             "targets": [
               {
-                "concept": "freeboard_marker"
+                "concept": "freeboard_marker",
+                "local": [
+                  "deck_ref"
+                ]
               }
             ],
             "at": {
               "sentence": 2,
-              "word": "freeboard",
-              "offset": -0.2
-            },
-            "until": {
-              "sentence": 2,
               "end": true,
-              "offset": -0.1
+              "offset": -0.9
             },
-            "strength": 1.0,
-            "tint": 0.6
+            "seconds": 0.6
           }
         ]
       },
@@ -2862,7 +3360,10 @@
           "id": "B09_fb0",
           "type": "COMPONENT_LABEL",
           "target": {
-            "concept": "freeboard_marker"
+            "concept": "freeboard_marker",
+            "local": [
+              "freeboard_marker"
+            ]
           },
           "point": "RIGHT",
           "text": "Freeboard ≈ 1.04 m",
@@ -2870,13 +3371,30 @@
           "until": 1
         },
         {
+          "id": "B09_before",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "freeboard_marker",
+            "local": [
+              "deck_ref"
+            ]
+          },
+          "point": "TOP_LEFT",
+          "text": "Deck before",
+          "sentence": 1,
+          "word": "meter"
+        },
+        {
           "id": "B09_fb1",
           "type": "COMPONENT_LABEL",
           "target": {
-            "concept": "freeboard_marker"
+            "concept": "freeboard_marker",
+            "local": [
+              "freeboard_marker"
+            ]
           },
           "point": "RIGHT",
-          "text": "Freeboard ≈ 0.71 m",
+          "text": "Freeboard: 1.04 → 0.71 m",
           "sentence": 2,
           "word": "shrinks"
         },
@@ -2899,7 +3417,7 @@
         "CLM_105"
       ],
       "narration": "One fix is to make the hull half a meter deeper. That adds about 100 tons of concrete, 4% more, and brings the freeboard back to about a meter and 15 centimeters. Lighter buildings would be another way.",
-      "visual_goal": "Same section: close on the bottom corner, the walls and bulkheads grow 0.5 m (gold) as the bottom moves down; then the deck rises to the calculated freeboard 1.15 m",
+      "visual_goal": "Two framings only, the camera still while anything changes: the east half of the section from deck to bottom while the bottom moves down 0.5 m and the walls and bulkheads grow with it (gold; the old bottom dashed for a while); then close on the waterline while the platform floats up to a freeboard of 1.15 m (the previous deck level dashed)",
       "required_concepts": [
         "floating_platform_section"
       ],
@@ -2917,7 +3435,10 @@
                 ]
               },
               {
-                "concept": "freeboard_marker"
+                "concept": "freeboard_marker",
+                "local": [
+                  "freeboard_marker"
+                ]
               },
               {
                 "concept": "section_cut",
@@ -2932,80 +3453,23 @@
           {
             "frame": [
               {
-                "concept": "freeboard_marker"
-              },
-              {
                 "concept": "section_cut",
                 "local": [
                   "cut_wall_east",
-                  "cut_bulkhead_x3",
+                  "cut_bulkhead_x2",
                   "cut_ext_wall_east",
                   "cut_ext_bulkhead_x3"
                 ]
-              }
-            ],
-            "margin": 0.1,
-            "at": {
-              "sentence": 0,
-              "word": "deeper",
-              "offset": -1.2
-            },
-            "move_seconds": 1.6
-          },
-          {
-            "frame": [
-              {
-                "concept": "platform_hull",
-                "group": "hull"
               },
               {
-                "concept": "bulkhead",
-                "group": "bulkheads"
-              },
-              {
-                "concept": "deck"
-              },
-              {
-                "concept": "section_cut",
-                "group": "section_cut"
-              },
-              {
-                "concept": "section_cut",
-                "group": "hull_bottom_cut"
-              },
-              {
-                "concept": "platform_hull",
+                "concept": "building_block",
                 "local": [
-                  "hull_ext_west",
-                  "hull_ext_east",
-                  "hull_ext_north"
-                ]
-              },
-              {
-                "concept": "bulkhead",
-                "local": [
-                  "hull_ext_bulkhead_x1",
-                  "hull_ext_bulkhead_x2",
-                  "hull_ext_bulkhead_x3"
-                ]
-              },
-              {
-                "concept": "section_cut",
-                "local": [
-                  "cut_ext_wall_west",
-                  "cut_ext_wall_east",
-                  "cut_ext_bulkhead_x1",
-                  "cut_ext_bulkhead_x2",
-                  "cut_ext_bulkhead_x3"
+                  "block4_storey1"
                 ]
               }
             ],
-            "margin": 0.06,
-            "at": {
-              "sentence": 1,
-              "word": "adds",
-              "offset": -0.8
-            },
+            "margin": 0.07,
+            "at": 0.2,
             "move_seconds": 1.6
           },
           {
@@ -3017,7 +3481,10 @@
                 ]
               },
               {
-                "concept": "freeboard_marker"
+                "concept": "freeboard_marker",
+                "local": [
+                  "freeboard_marker"
+                ]
               },
               {
                 "concept": "section_cut",
@@ -3029,75 +3496,11 @@
             ],
             "margin": 0.12,
             "at": {
-              "sentence": 2,
-              "word": "brings",
-              "offset": -0.8
+              "sentence": 1,
+              "end": true,
+              "offset": -0.6
             },
-            "move_seconds": 1.6
-          },
-          {
-            "frame": [
-              {
-                "concept": "platform_hull",
-                "group": "hull"
-              },
-              {
-                "concept": "bulkhead",
-                "group": "bulkheads"
-              },
-              {
-                "concept": "deck"
-              },
-              {
-                "concept": "section_cut",
-                "group": "section_cut"
-              },
-              {
-                "concept": "section_cut",
-                "group": "hull_bottom_cut"
-              },
-              {
-                "concept": "building_block",
-                "local": [
-                  "block2_storey1",
-                  "block2_storey2",
-                  "block2_storey3",
-                  "block4_storey1",
-                  "block4_storey2",
-                  "block4_storey3"
-                ]
-              },
-              {
-                "concept": "high_roof",
-                "local": [
-                  "block2_roof2",
-                  "block2_roof3",
-                  "block4_roof2",
-                  "block4_roof3"
-                ]
-              },
-              {
-                "concept": "building_block",
-                "local": [
-                  "block2_storey4",
-                  "block4_storey4"
-                ]
-              },
-              {
-                "concept": "high_roof",
-                "local": [
-                  "block2_roof4",
-                  "block4_roof4"
-                ]
-              }
-            ],
-            "margin": 0.07,
-            "at": {
-              "sentence": 3,
-              "word": "lighter",
-              "offset": -0.8
-            },
-            "move_seconds": 1.6
+            "move_seconds": 1.3
           }
         ],
         "steps": [
@@ -3117,6 +3520,38 @@
           {
             "do": "FADE_OUT",
             "targets": [
+              {
+                "concept": "platform_hull",
+                "group": "front_half"
+              },
+              {
+                "concept": "bulkhead",
+                "group": "front_half"
+              },
+              {
+                "concept": "deck",
+                "group": "front_half"
+              },
+              {
+                "concept": "building_block",
+                "group": "front_half"
+              },
+              {
+                "concept": "high_roof",
+                "group": "front_half"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "front_half"
+              },
+              {
+                "concept": "water_section",
+                "group": "front_water"
+              },
+              {
+                "concept": "ground",
+                "group": "front_water"
+              },
               {
                 "concept": "platform_hull",
                 "local": [
@@ -3145,10 +3580,45 @@
               },
               {
                 "concept": "displaced_volume"
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "draft_dim"
+                ]
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "deck_ref"
+                ]
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "bottom_ref"
+                ]
               }
             ],
             "at": 0,
             "seconds": 0
+          },
+          {
+            "do": "FADE_IN",
+            "targets": [
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "bottom_ref"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "half",
+              "offset": -0.2
+            },
+            "seconds": 0.5
           },
           {
             "do": "MOVE",
@@ -3175,7 +3645,7 @@
             "at": {
               "sentence": 0,
               "word": "deeper",
-              "offset": -0.4
+              "offset": -0.3
             },
             "seconds": 1.6,
             "offset": [
@@ -3185,7 +3655,7 @@
             ]
           },
           {
-            "do": "FADE_IN",
+            "do": "REVEAL",
             "targets": [
               {
                 "concept": "platform_hull",
@@ -3217,56 +3687,66 @@
             "at": {
               "sentence": 0,
               "word": "deeper",
-              "offset": -0.4
+              "offset": -0.3
             },
-            "seconds": 1.4
+            "seconds": 1.6,
+            "direction": "FROM_ABOVE",
+            "distance": 0.5,
+            "fade_end": 0.3,
+            "easing": "SMOOTH",
+            "sound": "STONE_HEAVY"
           },
           {
-            "do": "HIGHLIGHT",
+            "do": "FADE_OUT",
             "targets": [
               {
-                "concept": "platform_hull",
+                "concept": "freeboard_marker",
                 "local": [
-                  "hull_ext_west",
-                  "hull_ext_east",
-                  "hull_ext_north"
-                ]
-              },
-              {
-                "concept": "bulkhead",
-                "local": [
-                  "hull_ext_bulkhead_x1",
-                  "hull_ext_bulkhead_x2",
-                  "hull_ext_bulkhead_x3"
-                ]
-              },
-              {
-                "concept": "section_cut",
-                "local": [
-                  "cut_ext_wall_west",
-                  "cut_ext_wall_east",
-                  "cut_ext_bulkhead_x1",
-                  "cut_ext_bulkhead_x2",
-                  "cut_ext_bulkhead_x3"
+                  "bottom_ref"
                 ]
               }
             ],
             "at": {
               "sentence": 1,
-              "word": "adds",
+              "end": true,
+              "offset": -0.6
+            },
+            "seconds": 0.6
+          },
+          {
+            "do": "FADE_IN",
+            "targets": [
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "deck_ref"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 2,
+              "word": "and",
               "offset": -0.2
             },
-            "until": {
-              "sentence": 1,
-              "end": true
-            },
-            "strength": 1.0,
-            "tint": 0.6
+            "seconds": 0.4
           },
           {
             "do": "MOVE",
             "targets": {
-              "except": []
+              "except": [
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "deck_ref"
+                  ]
+                },
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "bottom_ref"
+                  ]
+                }
+              ]
             },
             "at": {
               "sentence": 2,
@@ -3279,77 +3759,6 @@
               0.0,
               0.436
             ]
-          },
-          {
-            "do": "HIGHLIGHT",
-            "targets": [
-              {
-                "concept": "freeboard_marker"
-              }
-            ],
-            "at": {
-              "sentence": 2,
-              "word": "meter",
-              "offset": -0.2
-            },
-            "until": {
-              "sentence": 2,
-              "end": true,
-              "offset": 0.2
-            },
-            "strength": 1.0,
-            "tint": 0.6
-          },
-          {
-            "do": "HIGHLIGHT",
-            "targets": [
-              {
-                "concept": "building_block",
-                "local": [
-                  "block2_storey1",
-                  "block2_storey2",
-                  "block2_storey3",
-                  "block4_storey1",
-                  "block4_storey2",
-                  "block4_storey3"
-                ]
-              },
-              {
-                "concept": "high_roof",
-                "local": [
-                  "block2_roof2",
-                  "block2_roof3",
-                  "block4_roof2",
-                  "block4_roof3"
-                ]
-              },
-              {
-                "concept": "building_block",
-                "local": [
-                  "block2_storey4",
-                  "block4_storey4"
-                ]
-              },
-              {
-                "concept": "high_roof",
-                "local": [
-                  "block2_roof4",
-                  "block4_roof4"
-                ]
-              }
-            ],
-            "at": {
-              "sentence": 3,
-              "word": "lighter",
-              "offset": -0.2
-            },
-            "until": {
-              "sentence": 3,
-              "end": true,
-              "offset": 0.3
-            },
-            "strength": 1.0,
-            "tint": 0.6
           }
         ]
       },
@@ -3358,7 +3767,10 @@
           "id": "B10_fb0",
           "type": "COMPONENT_LABEL",
           "target": {
-            "concept": "freeboard_marker"
+            "concept": "freeboard_marker",
+            "local": [
+              "freeboard_marker"
+            ]
           },
           "point": "RIGHT",
           "text": "Freeboard ≈ 0.71 m",
@@ -3384,10 +3796,13 @@
           "id": "B10_fb1",
           "type": "COMPONENT_LABEL",
           "target": {
-            "concept": "freeboard_marker"
+            "concept": "freeboard_marker",
+            "local": [
+              "freeboard_marker"
+            ]
           },
           "point": "RIGHT",
-          "text": "Freeboard ≈ 1.15 m",
+          "text": "Freeboard: 0.71 → 1.15 m",
           "sentence": 2,
           "word": "centimeters"
         },
@@ -3411,7 +3826,7 @@
         "CLM_106"
       ],
       "narration": "Will it tip over? Move 100 tons out toward the edge, and in this example the platform tilts by less than half a degree. But a small tilt under a shifted load tells us very little about how it will move in waves. Floating is only the first problem.",
-      "visual_goal": "The same platform whole (four storeys, deeper hull), seen square on: the front buildings ghost, a 100 t block slides 15 m toward the edge, and the platform tilts by the calculated angle (true scale, barely visible)",
+      "visual_goal": "The same platform whole (four storeys, deeper hull), seen square on: the front buildings are taken away (inner roof caps first, so nothing shows through); a dashed level line and the deck's outline stay put; a 100 t block slides 15 m along a drawn arrow toward the edge, and the platform tilts by the angle calculated for this state (true scale)",
       "required_concepts": [
         "floating_platform_story"
       ],
@@ -3448,12 +3863,51 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block1_storey1_windows",
+                  "block1_storey2_windows",
+                  "block1_storey3_windows",
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block3_storey1_windows",
+                  "block3_storey2_windows",
+                  "block3_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "block1_roof2",
+                  "block1_roof3",
+                  "block2_roof2",
+                  "block2_roof3",
+                  "block3_roof2",
+                  "block3_roof3",
+                  "block4_roof2",
+                  "block4_roof3"
+                ]
+              },
+              {
                 "concept": "building_block",
                 "local": [
                   "block1_storey4",
                   "block2_storey4",
                   "block3_storey4",
                   "block4_storey4"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block1_storey4_windows",
+                  "block2_storey4_windows",
+                  "block3_storey4_windows",
+                  "block4_storey4_windows"
                 ]
               },
               {
@@ -3516,6 +3970,10 @@
                   "group": "neighbour1"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour1"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour2"
                 },
@@ -3532,6 +3990,10 @@
                   "group": "neighbour2"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour2"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour3"
                 },
@@ -3548,6 +4010,10 @@
                   "group": "neighbour3"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour3"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour4"
                 },
@@ -3562,6 +4028,16 @@
                 {
                   "concept": "high_roof",
                   "group": "neighbour4"
+                },
+                {
+                  "concept": "facade_detail",
+                  "group": "neighbour4"
+                },
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "level_ref"
+                  ]
                 }
               ]
             },
@@ -3593,6 +4069,10 @@
                 "group": "neighbour1"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour1"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour2"
               },
@@ -3609,6 +4089,10 @@
                 "group": "neighbour2"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour2"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour3"
               },
@@ -3625,6 +4109,10 @@
                 "group": "neighbour3"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour3"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour4"
               },
@@ -3638,6 +4126,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "neighbour4"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "neighbour4"
               }
             ],
@@ -3645,7 +4137,35 @@
             "seconds": 0
           },
           {
-            "do": "GHOST",
+            "do": "FADE_OUT",
+            "targets": [
+              {
+                "concept": "high_roof",
+                "local": [
+                  "block1_roof2",
+                  "block1_roof3",
+                  "block3_roof2",
+                  "block3_roof3"
+                ]
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "load_path"
+                ]
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "level_ref"
+                ]
+              }
+            ],
+            "at": 0,
+            "seconds": 0
+          },
+          {
+            "do": "FADE_OUT",
             "targets": [
               {
                 "concept": "building_block",
@@ -3661,13 +4181,22 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block1_storey1_windows",
+                  "block1_storey2_windows",
+                  "block1_storey3_windows",
+                  "block1_storey4_windows",
+                  "block3_storey1_windows",
+                  "block3_storey2_windows",
+                  "block3_storey3_windows",
+                  "block3_storey4_windows"
+                ]
+              },
+              {
                 "concept": "high_roof",
                 "local": [
-                  "block1_roof2",
-                  "block1_roof3",
                   "block1_roof4",
-                  "block3_roof2",
-                  "block3_roof3",
                   "block3_roof4"
                 ]
               }
@@ -3677,8 +4206,41 @@
               "word": "tip",
               "offset": -0.4
             },
-            "seconds": 0.8,
-            "transparency": 0.85
+            "seconds": 1.0
+          },
+          {
+            "do": "FADE_IN",
+            "targets": [
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "level_ref"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "move",
+              "offset": -0.6
+            },
+            "seconds": 0.6
+          },
+          {
+            "do": "FADE_IN",
+            "targets": [
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "load_path"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "move",
+              "offset": -0.4
+            },
+            "seconds": 0.6
           },
           {
             "do": "MOVE",
@@ -3689,7 +4251,7 @@
             ],
             "at": {
               "sentence": 1,
-              "word": "move",
+              "word": "tons",
               "offset": -0.2
             },
             "seconds": 2.2,
@@ -3720,6 +4282,10 @@
                   "group": "neighbour1"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour1"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour2"
                 },
@@ -3736,6 +4302,10 @@
                   "group": "neighbour2"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour2"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour3"
                 },
@@ -3752,6 +4322,10 @@
                   "group": "neighbour3"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour3"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour4"
                 },
@@ -3766,6 +4340,16 @@
                 {
                   "concept": "high_roof",
                   "group": "neighbour4"
+                },
+                {
+                  "concept": "facade_detail",
+                  "group": "neighbour4"
+                },
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "level_ref"
+                  ]
                 }
               ]
             },
@@ -3776,31 +4360,12 @@
             },
             "seconds": 2.0,
             "axis": "Y",
-            "degrees": 0.421,
+            "degrees": 0.438,
             "pivot": [
               0.0,
               0.0,
               0.0
             ]
-          },
-          {
-            "do": "HIGHLIGHT",
-            "targets": [
-              {
-                "concept": "test_load"
-              }
-            ],
-            "at": {
-              "sentence": 1,
-              "word": "tons",
-              "offset": -0.2
-            },
-            "until": {
-              "sentence": 1,
-              "word": "example"
-            },
-            "strength": 1.0,
-            "tint": 0.6
           }
         ]
       },
@@ -3814,7 +4379,22 @@
           "point": "TOP",
           "text": "100 t",
           "sentence": 1,
-          "word": "tons",
+          "word": "move",
+          "until": 2
+        },
+        {
+          "id": "B11_path",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "freeboard_marker",
+            "local": [
+              "load_path"
+            ]
+          },
+          "point": "BOTTOM",
+          "text": "15 m",
+          "sentence": 1,
+          "word": "edge",
           "until": 2
         },
         {
@@ -3880,12 +4460,51 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block1_storey1_windows",
+                  "block1_storey2_windows",
+                  "block1_storey3_windows",
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block3_storey1_windows",
+                  "block3_storey2_windows",
+                  "block3_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "block1_roof2",
+                  "block1_roof3",
+                  "block2_roof2",
+                  "block2_roof3",
+                  "block3_roof2",
+                  "block3_roof3",
+                  "block4_roof2",
+                  "block4_roof3"
+                ]
+              },
+              {
                 "concept": "building_block",
                 "local": [
                   "block1_storey4",
                   "block2_storey4",
                   "block3_storey4",
                   "block4_storey4"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block1_storey4_windows",
+                  "block2_storey4_windows",
+                  "block3_storey4_windows",
+                  "block4_storey4_windows"
                 ]
               },
               {
@@ -3928,6 +4547,36 @@
                 ]
               },
               {
+                "concept": "facade_detail",
+                "local": [
+                  "block1_storey1_windows",
+                  "block1_storey2_windows",
+                  "block1_storey3_windows",
+                  "block2_storey1_windows",
+                  "block2_storey2_windows",
+                  "block2_storey3_windows",
+                  "block3_storey1_windows",
+                  "block3_storey2_windows",
+                  "block3_storey3_windows",
+                  "block4_storey1_windows",
+                  "block4_storey2_windows",
+                  "block4_storey3_windows"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "block1_roof2",
+                  "block1_roof3",
+                  "block2_roof2",
+                  "block2_roof3",
+                  "block3_roof2",
+                  "block3_roof3",
+                  "block4_roof2",
+                  "block4_roof3"
+                ]
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour1"
               },
@@ -3944,6 +4593,10 @@
                 "group": "neighbour1"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour1"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour2"
               },
@@ -3960,6 +4613,10 @@
                 "group": "neighbour2"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour2"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour3"
               },
@@ -3973,6 +4630,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "neighbour3"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "neighbour3"
               },
               {
@@ -3989,6 +4650,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "neighbour4"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "neighbour4"
               }
             ],
@@ -4047,6 +4712,10 @@
                   "group": "neighbour1"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour1"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour2"
                 },
@@ -4063,6 +4732,10 @@
                   "group": "neighbour2"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour2"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour3"
                 },
@@ -4079,6 +4752,10 @@
                   "group": "neighbour3"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour3"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour4"
                 },
@@ -4093,6 +4770,16 @@
                 {
                   "concept": "high_roof",
                   "group": "neighbour4"
+                },
+                {
+                  "concept": "facade_detail",
+                  "group": "neighbour4"
+                },
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "level_ref"
+                  ]
                 }
               ]
             },
@@ -4124,6 +4811,10 @@
                 "group": "neighbour1"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour1"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour2"
               },
@@ -4140,6 +4831,10 @@
                 "group": "neighbour2"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour2"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour3"
               },
@@ -4156,6 +4851,10 @@
                 "group": "neighbour3"
               },
               {
+                "concept": "facade_detail",
+                "group": "neighbour3"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "neighbour4"
               },
@@ -4169,6 +4868,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "neighbour4"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "neighbour4"
               }
             ],
@@ -4180,6 +4883,18 @@
             "targets": [
               {
                 "concept": "test_load"
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "load_path"
+                ]
+              },
+              {
+                "concept": "freeboard_marker",
+                "local": [
+                  "level_ref"
+                ]
               }
             ],
             "at": 0,
@@ -4195,6 +4910,15 @@
                   "block2_storey4",
                   "block3_storey4",
                   "block4_storey4"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "block1_storey4_windows",
+                  "block2_storey4_windows",
+                  "block3_storey4_windows",
+                  "block4_storey4_windows"
                 ]
               },
               {
@@ -4282,6 +5006,10 @@
                   "group": "neighbour1"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour1"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour2"
                 },
@@ -4298,6 +5026,10 @@
                   "group": "neighbour2"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour2"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour3"
                 },
@@ -4314,6 +5046,10 @@
                   "group": "neighbour3"
                 },
                 {
+                  "concept": "facade_detail",
+                  "group": "neighbour3"
+                },
+                {
                   "concept": "platform_hull",
                   "group": "neighbour4"
                 },
@@ -4328,6 +5064,16 @@
                 {
                   "concept": "high_roof",
                   "group": "neighbour4"
+                },
+                {
+                  "concept": "facade_detail",
+                  "group": "neighbour4"
+                },
+                {
+                  "concept": "freeboard_marker",
+                  "local": [
+                    "level_ref"
+                  ]
                 }
               ]
             },
@@ -4363,52 +5109,8 @@
                 "group": "neighbour1"
               },
               {
-                "concept": "platform_hull",
-                "group": "neighbour2"
-              },
-              {
-                "concept": "deck",
-                "group": "neighbour2"
-              },
-              {
-                "concept": "building_block",
-                "group": "neighbour2"
-              },
-              {
-                "concept": "high_roof",
-                "group": "neighbour2"
-              },
-              {
-                "concept": "platform_hull",
-                "group": "neighbour3"
-              },
-              {
-                "concept": "deck",
-                "group": "neighbour3"
-              },
-              {
-                "concept": "building_block",
-                "group": "neighbour3"
-              },
-              {
-                "concept": "high_roof",
-                "group": "neighbour3"
-              },
-              {
-                "concept": "platform_hull",
-                "group": "neighbour4"
-              },
-              {
-                "concept": "deck",
-                "group": "neighbour4"
-              },
-              {
-                "concept": "building_block",
-                "group": "neighbour4"
-              },
-              {
-                "concept": "high_roof",
-                "group": "neighbour4"
+                "concept": "facade_detail",
+                "group": "neighbour1"
               }
             ],
             "at": {
@@ -4418,8 +5120,105 @@
             },
             "seconds": 1.8,
             "direction": "OUTWARD",
-            "distance": 40.0,
-            "stagger_seconds": 0.25
+            "distance": 40.0
+          },
+          {
+            "do": "REVEAL",
+            "targets": [
+              {
+                "concept": "platform_hull",
+                "group": "neighbour2"
+              },
+              {
+                "concept": "deck",
+                "group": "neighbour2"
+              },
+              {
+                "concept": "building_block",
+                "group": "neighbour2"
+              },
+              {
+                "concept": "high_roof",
+                "group": "neighbour2"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "neighbour2"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "lot"
+            },
+            "seconds": 1.8,
+            "direction": "OUTWARD",
+            "distance": 40.0
+          },
+          {
+            "do": "REVEAL",
+            "targets": [
+              {
+                "concept": "platform_hull",
+                "group": "neighbour3"
+              },
+              {
+                "concept": "deck",
+                "group": "neighbour3"
+              },
+              {
+                "concept": "building_block",
+                "group": "neighbour3"
+              },
+              {
+                "concept": "high_roof",
+                "group": "neighbour3"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "neighbour3"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "lot",
+              "offset": 0.3
+            },
+            "seconds": 1.8,
+            "direction": "OUTWARD",
+            "distance": 40.0
+          },
+          {
+            "do": "REVEAL",
+            "targets": [
+              {
+                "concept": "platform_hull",
+                "group": "neighbour4"
+              },
+              {
+                "concept": "deck",
+                "group": "neighbour4"
+              },
+              {
+                "concept": "building_block",
+                "group": "neighbour4"
+              },
+              {
+                "concept": "high_roof",
+                "group": "neighbour4"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "neighbour4"
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "lot",
+              "offset": 0.5999999999999999
+            },
+            "seconds": 1.8,
+            "direction": "OUTWARD",
+            "distance": 40.0
           }
         ]
       },
@@ -15443,6 +16242,10 @@
                 "group": "platform1"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform1"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "platform2"
               },
@@ -15459,6 +16262,10 @@
                 "group": "platform2"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform2"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "platform3"
               },
@@ -15475,6 +16282,10 @@
                 "group": "platform3"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform3"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "platform4"
               },
@@ -15488,6 +16299,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "platform4"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "platform4"
               },
               {
@@ -15504,6 +16319,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "platform5"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "platform5"
               }
             ],
@@ -15551,6 +16370,10 @@
                 "group": "platform1"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform1"
+              },
+              {
                 "concept": "walkway_connector",
                 "group": "joint1"
               },
@@ -15591,6 +16414,10 @@
               {
                 "concept": "high_roof",
                 "group": "platform2"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "platform2"
               }
             ],
             "at": 0.3,
@@ -15624,6 +16451,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "platform3"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "platform3"
               },
               {
@@ -15669,6 +16500,10 @@
                 "group": "platform4"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform4"
+              },
+              {
                 "concept": "walkway_connector",
                 "group": "joint3"
               },
@@ -15708,6 +16543,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "platform5"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "platform5"
               },
               {
@@ -19970,6 +20809,10 @@
                 "group": "platform1"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform1"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "platform2"
               },
@@ -19986,6 +20829,10 @@
                 "group": "platform2"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform2"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "platform3"
               },
@@ -20002,6 +20849,10 @@
                 "group": "platform3"
               },
               {
+                "concept": "facade_detail",
+                "group": "platform3"
+              },
+              {
                 "concept": "platform_hull",
                 "group": "platform4"
               },
@@ -20015,6 +20866,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "platform4"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "platform4"
               },
               {
@@ -20031,6 +20886,10 @@
               },
               {
                 "concept": "high_roof",
+                "group": "platform5"
+              },
+              {
+                "concept": "facade_detail",
                 "group": "platform5"
               },
               {
@@ -20276,6 +21135,104 @@
               },
               {
                 "concept": "high_roof"
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m000_facade",
+                  "m001_facade",
+                  "m002_facade",
+                  "m003_facade",
+                  "m004_facade",
+                  "m005_facade",
+                  "m006_facade",
+                  "m007_facade",
+                  "m008_facade",
+                  "m010_facade",
+                  "m011_facade",
+                  "m012_facade",
+                  "m013_facade",
+                  "m014_facade",
+                  "m015_facade",
+                  "m016_facade",
+                  "m017_facade",
+                  "m018_facade",
+                  "m020_facade",
+                  "m021_facade",
+                  "m022_facade",
+                  "m023_facade",
+                  "m024_facade",
+                  "m025_facade",
+                  "m026_facade",
+                  "m027_facade",
+                  "m028_facade",
+                  "m030_facade",
+                  "m031_facade",
+                  "m032_facade",
+                  "m033_facade",
+                  "m034_facade",
+                  "m035_facade",
+                  "m036_facade",
+                  "m037_facade",
+                  "m038_facade",
+                  "m040_facade",
+                  "m041_facade",
+                  "m042_facade",
+                  "m043_facade",
+                  "m046_facade",
+                  "m047_facade",
+                  "m048_facade",
+                  "m050_facade",
+                  "m051_facade",
+                  "m052_facade",
+                  "m053_facade",
+                  "m056_facade",
+                  "m057_facade",
+                  "m058_facade",
+                  "m060_facade",
+                  "m061_facade",
+                  "m062_facade",
+                  "m063_facade",
+                  "m066_facade",
+                  "m067_facade",
+                  "m068_facade",
+                  "m070_facade",
+                  "m071_facade",
+                  "m072_facade",
+                  "m073_facade",
+                  "m074_facade",
+                  "m075_facade",
+                  "m076_facade",
+                  "m077_facade",
+                  "m078_facade",
+                  "m080_facade",
+                  "m081_facade",
+                  "m082_facade",
+                  "m083_facade",
+                  "m084_facade",
+                  "m085_facade",
+                  "m086_facade",
+                  "m087_facade",
+                  "m088_facade",
+                  "m090_facade",
+                  "m091_facade",
+                  "m092_facade",
+                  "m093_facade",
+                  "m094_facade",
+                  "m095_facade",
+                  "m096_facade",
+                  "m097_facade",
+                  "m098_facade",
+                  "m100_facade",
+                  "m101_facade",
+                  "m102_facade",
+                  "m103_facade",
+                  "m104_facade",
+                  "m105_facade",
+                  "m106_facade",
+                  "m107_facade",
+                  "m108_facade"
+                ]
               }
             ],
             "at": {
@@ -23949,6 +24906,10 @@
               {
                 "concept": "high_roof",
                 "group": "box"
+              },
+              {
+                "concept": "facade_detail",
+                "group": "box"
               }
             ],
             "margin": 0.2,
@@ -23987,6 +24948,10 @@
                 },
                 {
                   "concept": "high_roof",
+                  "group": "box"
+                },
+                {
+                  "concept": "facade_detail",
                   "group": "box"
                 }
               ]
@@ -24047,6 +25012,10 @@
                 },
                 {
                   "concept": "high_roof",
+                  "group": "box"
+                },
+                {
+                  "concept": "facade_detail",
                   "group": "box"
                 }
               ]

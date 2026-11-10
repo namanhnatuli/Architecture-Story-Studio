@@ -1,0 +1,227 @@
+{
+  "utc": "2026-11-10T16:40:30.848741+00:00",
+  "label": "EXCERPT_LOAD_SINK_FIX_R2",
+  "preset": "internal_720p",
+  "shots": [
+    "SC_008",
+    "SC_009",
+    "SC_010",
+    "SC_011"
+  ],
+  "render": {
+    "SC_008": "cached",
+    "SC_009": "cached",
+    "SC_010": "rendered",
+    "SC_011": "cached"
+  },
+  "runs": [
+    [
+      "SC_008",
+      "SC_009",
+      "SC_010",
+      "SC_011"
+    ]
+  ],
+  "excerpt_joins": [],
+  "frames": 1858,
+  "seconds": 77.417,
+  "cuts": [
+    {
+      "cut": "SC_008->SC_009",
+      "mode": "match",
+      "ssim": 0.99967,
+      "ok": true
+    },
+    {
+      "cut": "SC_009->SC_010",
+      "mode": "match",
+      "ssim": 0.99998,
+      "ok": true
+    },
+    {
+      "cut": "SC_010->SC_011",
+      "mode": "hard",
+      "ssim": 0.69864,
+      "ok": true
+    }
+  ],
+  "offsets_seconds": {
+    "SC_008": 0.0,
+    "SC_009": 20.833333333333332,
+    "SC_010": 36.375,
+    "SC_011": 55.708333333333336
+  },
+  "sound_cues": [
+    {
+      "at_seconds": 23.0733,
+      "kind": "STONE",
+      "step": 1,
+      "shot": "SC_009"
+    },
+    {
+      "at_seconds": 40.975,
+      "kind": "STONE_HEAVY",
+      "step": 4,
+      "shot": "SC_010"
+    }
+  ],
+  "mix": {
+    "cues": 2,
+    "narration_peak": 19788,
+    "effect_peak": 4970.5,
+    "under_narration_db": 14.0,
+    "clipped_samples": 0
+  },
+  "sound_design": {
+    "schema": "sound_design/1",
+    "note": "Sound effects synthesised in the project (pipeline/sound.py): a stone part set in place. Levels are relative to the narration's peak; the whole mix is then loudness-normalised. An agent cannot listen: the owner decides whether they help.",
+    "under_narration_db": 14.0,
+    "lead_seconds": 0.03,
+    "variants": 3,
+    "kinds": {
+      "STONE": {
+        "seconds": 0.45,
+        "relative_db": 0.0,
+        "thump_hz": 72.0,
+        "thump_start_hz": 110.0,
+        "thump_decay": 0.07,
+        "thump_gain": 1.0,
+        "click_decay": 0.018,
+        "click_lowpass_hz": 3200.0,
+        "click_highpass_hz": 700.0,
+        "click_gain": 0.55,
+        "body": [
+          [
+            430.0,
+            0.05,
+            0.22
+          ],
+          [
+            780.0,
+            0.035,
+            0.14
+          ],
+          [
+            1350.0,
+            0.02,
+            0.08
+          ]
+        ]
+      },
+      "STONE_HEAVY": {
+        "seconds": 0.8,
+        "relative_db": 2.0,
+        "thump_hz": 52.0,
+        "thump_start_hz": 85.0,
+        "thump_decay": 0.13,
+        "thump_gain": 1.0,
+        "click_decay": 0.025,
+        "click_lowpass_hz": 2400.0,
+        "click_highpass_hz": 500.0,
+        "click_gain": 0.45,
+        "body": [
+          [
+            300.0,
+            0.09,
+            0.25
+          ],
+          [
+            560.0,
+            0.06,
+            0.15
+          ],
+          [
+            1020.0,
+            0.03,
+            0.08
+          ]
+        ]
+      }
+    }
+  },
+  "subtitle_stats": {
+    "cues": 19,
+    "sentences": 14,
+    "max_line": 42,
+    "lines_over_42": 0,
+    "two_line_cues": 10,
+    "aligned_boundaries": 5,
+    "sentence_fallbacks": 0,
+    "max_cps": 17.1
+  },
+  "subtitle_warnings": [
+    "cue 8 (B09.s2): 17.1 characters/s (> 17.0)"
+  ],
+  "files": {
+    "with_sfx": {
+      "file": "output/pilot/floating_city_design_challenge_EXCERPT_LOAD_SINK_FIX_R2_INTERNAL_REVIEW_720p.mp4",
+      "subtitles": "output/pilot/floating_city_design_challenge_EXCERPT_LOAD_SINK_FIX_R2_INTERNAL_REVIEW_720p.en.srt",
+      "seconds": 77.417,
+      "frames": 1858,
+      "loudness": {
+        "integrated_lufs": -16.5,
+        "true_peak_dbtp": -1.4
+      },
+      "size_bytes": 4732340
+    },
+    "_no_sfx": {
+      "file": "output/pilot/floating_city_design_challenge_EXCERPT_LOAD_SINK_FIX_R2_INTERNAL_REVIEW_720p_no_sfx.mp4",
+      "subtitles": "output/pilot/floating_city_design_challenge_EXCERPT_LOAD_SINK_FIX_R2_INTERNAL_REVIEW_720p_no_sfx.en.srt",
+      "seconds": 77.417,
+      "frames": 1858,
+      "loudness": {
+        "integrated_lufs": -16.5,
+        "true_peak_dbtp": -1.4
+      },
+      "size_bytes": 4716596
+    }
+  },
+  "intelligibility": {
+    "status": "RUN",
+    "model": "openai/whisper-large-v3-turbo",
+    "rows": {
+      "SC_008": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "Our first platform in this illustrative design carries four blocks of three-story homes. Altogether, it weighs about 4,800 tons and floats about three meters deep. And here's the surprise, more than half of that weight is the concrete hull itself."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "Our first platform in this illustrative design carries four blocks of three-story homes. Altogether, it weighs about 4,800 tons and floats about three meters deep. And here's the surprise, more than half of that weight is the concrete hull itself."
+        }
+      },
+      "SC_009": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "Now add a fourth story. The platform settles about a third of a meter deeper, and the freeboard, the part of the hull above the water, shrinks from about a meter to about 70 centimeters."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "Now add a fourth story. The platform settles about a third of a meter deeper, and the freeboard, the part of the hull above the water, shrinks from about a meter to about 70 centimeters."
+        }
+      },
+      "SC_010": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "One fix is to make the hull half a meter deeper. That adds about 100 tons of concrete, 4% more, and brings the freeboard back to about a meter and 15 centimeters. Lighter buildings would be another way."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "One fix is to make the hull half a meter deeper. That adds about 100 tons of concrete, 4% more, and brings the freeboard back to about a meter and 15 centimeters. Lighter buildings would be another way."
+        }
+      },
+      "SC_011": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "Will it tip over? Move 100 tons out toward the edge, and in this example the platform tilts by less than half a degree. But a small tilt under a shifted load tells us very little about how it will move in waves. Floating is only the first problem."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "Will it tip over? Move 100 tons out toward the edge, and in this example the platform tilts by less than half a degree. But a small tilt under a shifted load tells us very little about how it will move in waves. Floating is only the first problem."
+        }
+      }
+    },
+    "worse": []
+  },
+  "problems": []
+}

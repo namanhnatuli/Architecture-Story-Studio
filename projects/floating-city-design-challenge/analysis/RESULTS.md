@@ -77,6 +77,13 @@ Thân sâu thêm 0,5 m tốn thêm 105.6 t bê tông (4.0% bê tông thân phao)
 - Lượng chiếm nước của các phao tiêu chuẩn: khoảng 1,001,000 t. **Không gồm:** service and port platforms, breakwater, link-span bridges, moorings and piles, utility plants and networks.
 - 40 m² sàn mỗi người = 30 m² nhà ở + 10 m² trường học, phòng khám, cửa hàng, dịch vụ (giả định).
 
+## 10. Phân bổ 93 phao của quận (minh họa)
+- 66 phao nhà ở, 6 phao hỗn hợp (tầng trệt dịch vụ, hai tầng trên nhà ở), 21 phao dịch vụ (3 trường học, 1 phòng khám, 17 nhà cộng đồng, cửa hàng, văn phòng). Mọi phao cùng diện tích chiếm đất, số tầng và tải, nên cùng mớn nước.
+- Nhà ở 302,400 m² → khoảng 10,080 người ở mức 30 m²/người; dịch vụ 99,360 m², khoảng 9.86 m² mỗi người. Công viên là phần sàn trống (60% mỗi phao).
+
+## 11. Góc nghiêng của trạng thái mà B11 chiếu
+- 4 storeys, hull 4.5 m (end of the storey branch): dời 100 t ra cách tâm 15 m → nghiêng khoảng 0.438° (bản 3 tầng: 0.421°).
+
 ## 7. Các lần sửa thiết kế mà câu chuyện dùng
 - A′: thân sâu 4,5 m với nhà nặng (0,9 t/m²): thêm 105.6 t bê tông, mớn nước 3.374 m, mạn khô 1.126 m (thân 4 m: 0.691 m).
 - B: hai phao giống nhau, nhà 2 tầng và 4 tầng: mớn nước 2.626 m và 3.29 m; mặt sàn lệch nhau 0.664 m.

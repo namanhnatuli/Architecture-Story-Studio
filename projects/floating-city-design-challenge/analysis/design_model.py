@@ -176,6 +176,13 @@ def main():
         "extra_concrete_for_deeper_hull_t": round(four_deep["mass_t"]["hull_concrete"] - four["mass_t"]["hull_concrete"], 1),
         "extra_concrete_share_of_hull": round((four_deep["mass_t"]["hull_concrete"] - four["mass_t"]["hull_concrete"]) / four["mass_t"]["hull_concrete"], 3),
         "note": "Same dead load in every step; only the storeys, then the hull depth, change."}
+    # 8b'. the same small-angle list for the state the story shows while it tilts (B11: four storeys, hull 4.5 m)
+    W4 = four_deep["mass_t"]["total"]
+    out["list_example_shown_state"] = {"state": "4 storeys, hull 4.5 m (end of the storey branch)", "w_t": 100, "d_m": 15,
+                                       "W_t": W4, "GM_m": four_deep["GM_m"],
+                                       "list_deg": round(list_angle_deg(100, 15, W4, four_deep["GM_m"]), 3),
+                                       "note": "The film's B11 shows this state; list_example is the three-storey case. Both are "
+                                               "about 0.4 degrees and below half a degree."}
     out["revisions"] = {
         "A_prime_deeper_hull_heavy_buildings": {"hull_depth_m": 4.5, "draft_m": deeper["draft_m"], "freeboard_m": deeper["freeboard_m"],
                                                 "vs_4m_hull_freeboard_m": out["design_A"]["dead_load_high"]["freeboard_m"],
@@ -198,6 +205,23 @@ def main():
                          "excludes": ["service and port platforms", "breakwater", "link-span bridges", "moorings and piles",
                                       "utility plants and networks"],
                          "gfa_per_resident_m2": {"total": 40, **g["gross_floor_area_split_mid_m2"]}}
+    # 8e. how the district's 93 modules are used (illustrative allocation, owner review of the L5 excerpt): every module
+    # keeps the same footprint, storeys and loads, so every module floats at the same draft; only the use changes
+    split = g["gross_floor_area_split_mid_m2"]
+    gfa = mod["gross_floor_area_m2"]
+    alloc = {"home": 66, "mixed": 6, "service": n - 66 - 6}
+    mixed_home_share = (base["storeys"] - 1) / base["storeys"]   # mixed: shops and services on the ground floor, homes above
+    homes_m2 = alloc["home"] * gfa + alloc["mixed"] * gfa * mixed_home_share
+    services_m2 = alloc["service"] * gfa + alloc["mixed"] * gfa * (1 - mixed_home_share)
+    residents = homes_m2 / split["homes"]
+    out["district_C_allocation"] = {
+        "modules": alloc, "module_gross_floor_area_m2": gfa, "mixed_home_share": round(mixed_home_share, 3),
+        "homes_m2": round(homes_m2), "services_m2": round(services_m2),
+        "residents_at_homes_m2_each": round(residents), "services_m2_per_resident": round(services_m2 / residents, 2),
+        "service_types": {"school": 3, "clinic": 1, "community_shops_offices": alloc["service"] - 4},
+        "note": "Illustrative allocation: 66 home modules alone give 9,504 residents at 30 m2 each; six mixed modules on the "
+                "flanks near the shore (shops and services below, homes on the two upper floors) bring it to about 10,000 "
+                "with about 10 m2 of services each. Parks are the open decks (60 percent of every deck), not extra modules."}
     # 9. published reference points (for scale only)
     busan_m2 = 15.5 * 4046.8564224                   # CLM_031 (acres -> m2)
     out["reference_points"] = {
@@ -308,6 +332,17 @@ def write_md(o):
              + ", ".join(dc["excludes"]) + ".",
              f"- 40 m² sàn mỗi người = {dc['gfa_per_resident_m2']['homes']} m² nhà ở + {dc['gfa_per_resident_m2']['schools_clinic_shops_services']} m² "
              "trường học, phòng khám, cửa hàng, dịch vụ (giả định)."]
+    al, ls = o["district_C_allocation"], o["list_example_shown_state"]
+    rows += ["", "## 10. Phân bổ 93 phao của quận (minh họa)",
+             f"- {al['modules']['home']} phao nhà ở, {al['modules']['mixed']} phao hỗn hợp (tầng trệt dịch vụ, hai tầng trên nhà ở), "
+             f"{al['modules']['service']} phao dịch vụ ({al['service_types']['school']} trường học, {al['service_types']['clinic']} phòng khám, "
+             f"{al['service_types']['community_shops_offices']} nhà cộng đồng, cửa hàng, văn phòng). Mọi phao cùng diện tích chiếm đất, "
+             "số tầng và tải, nên cùng mớn nước.",
+             f"- Nhà ở {al['homes_m2']:,} m² → khoảng {al['residents_at_homes_m2_each']:,} người ở mức 30 m²/người; dịch vụ "
+             f"{al['services_m2']:,} m², khoảng {al['services_m2_per_resident']} m² mỗi người. Công viên là phần sàn trống (60% mỗi phao).",
+             "", "## 11. Góc nghiêng của trạng thái mà B11 chiếu",
+             f"- {ls['state']}: dời {ls['w_t']} t ra cách tâm {ls['d_m']} m → nghiêng khoảng {ls['list_deg']}° "
+             f"(bản 3 tầng: {o['list_example']['list_deg']}°)."]
     rv = o["revisions"]
     a2, b2 = rv["A_prime_deeper_hull_heavy_buildings"], rv["B_neighbours_2_vs_4_storeys"]
     rows += ["", "## 7. Các lần sửa thiết kế mà câu chuyện dùng",

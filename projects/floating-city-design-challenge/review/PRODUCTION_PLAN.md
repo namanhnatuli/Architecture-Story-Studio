@@ -91,3 +91,18 @@
     - nhóm camera đồng nhất tính cả hướng mở đầu riêng của SEQUENCE;
     - vạch mạn khô 1,0 × 1,3 m để phần nổi trên nước đủ lớn cho kiểm "phần phát sáng nhìn thấy được".
   - Gói duyệt: `review/EXCERPT_REVIEW_L5.md`. **Dừng chờ chủ kênh duyệt chất lượng hình** trước khi render phần còn lại.
+- **L5 vòng 2 (2026-11-10), sau review asset và đoạn thử:**
+  - **Mô hình tính:** thêm góc nghiêng của trạng thái B11 chiếu (0,438°) và phân bổ 93 module (66 nhà ở + 6 hỗn hợp + 21 dịch vụ → 10.080 người ở mức 30 m²). Nguồn và 50 claim không đổi (`build_sources.py` cho cùng `sources.json`).
+  - **Asset:**
+    - cửa sổ, vạch tầng, lối vào cho mọi nhà;
+    - lối đi lát trên mọi phao;
+    - trường học (chữ U, sân chơi), phòng khám (vòng quanh sân trong), nhà cộng đồng (hai dãy dài); cỏ và cây trên 10 phao quanh hồ;
+    - mọi kiểu sử dụng phủ cùng diện tích và số tầng, nên giữ đúng tải và mớn nước;
+    - mặt cắt có nửa trước và nước phía trước để B08 "cắt"; có đường kích thước mớn nước và mạn khô, các nét đứt chuẩn trước/sau, đường viền phần thân dưới nước;
+    - phao 3D có mũi tên 15 m và đường ngang chuẩn.
+  - **B08–B11 làm lại theo từng điểm góp ý**, gồm hai âm hiệu ứng nhẹ. Kiểm Blender 73/73; QA đoạn thử đạt.
+  - **Engine:**
+    - khóa cuối của bước REVEAL/MOVE lấy đúng trạng thái kết thúc (không trôi);
+    - kiểm "bộ phận đáp đúng chỗ" chấp nhận vị trí do các bước MOVE trước đó đặt.
+  - **Thử Sand3D** (`review/SAND3D_TRIAL.md`): nhập USD được, đúng tỉ lệ, chi phí render không đáng kể, nhưng chỉ thấy ở khung cận. Chưa dùng trong phim.
+  - **Dừng chờ chủ kênh duyệt R2.**

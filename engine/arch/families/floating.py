@@ -34,86 +34,361 @@ def block_layout(length, width, cover):
             for sx in (-1, 1) for sy in (-1, 1)]
 
 
+def _hull(prefix, group, L, B, H, T, slab, wall, bh, spacing, ya, yb, south, north, skip_y=()):
+    """Bottom, perimeter walls, bulkheads and deck of a box hull between y = ya and y = yb (a whole hull, or the half on
+    one side of a section). south / north: whether that wall is built. Returns (components, walls, bulkhead xs)."""
+    zb, zt = -T, H - T
+    comps = [_c(f"{prefix}hull_bottom", "HULL", "concrete", group, _box(-L / 2, L / 2, ya, yb, zb, zb + slab), 0)]
+    walls = [(f"{prefix}hull_wall_west", -L / 2, -L / 2 + wall, ya, yb), (f"{prefix}hull_wall_east", L / 2 - wall, L / 2, ya, yb)]
+    if north:
+        walls.append((f"{prefix}hull_wall_north", -L / 2, L / 2, yb - wall, yb))
+    if south:
+        walls.append((f"{prefix}hull_wall_south", -L / 2, L / 2, ya, ya + wall))
+    for cid, x0, x1, y0, y1 in walls:
+        comps.append(_c(cid, "HULL", "concrete", group, _box(x0, x1, y0, y1, zb, zt), 0))
+    nx, ny = int(round(L / spacing)), int(round(B / spacing))
+    xs = [-L / 2 + i * spacing for i in range(1, nx)]
+    ys = [y for y in (-B / 2 + j * spacing for j in range(1, ny)) if ya + 0.5 < y < yb - 0.5 and y not in skip_y]
+    bgroup = "bulkheads" if not prefix else group
+    for i, x in enumerate(xs, 1):
+        comps.append(_c(f"{prefix}bulkhead_x{i}", "BULKHEAD", "concrete", bgroup, _box(x - bh / 2, x + bh / 2, ya, yb, zb + slab, zt - slab), 1))
+    for j, y in enumerate(ys, 1):
+        comps.append(_c(f"{prefix}bulkhead_y{j}", "BULKHEAD", "concrete", bgroup, _box(-L / 2, L / 2, y - bh / 2, y + bh / 2, zb + slab, zt - slab), 1))
+    comps.append(_c(f"{prefix}deck", "DECK", "concrete_deck", "deck" if not prefix else group, _box(-L / 2, L / 2, ya, yb, zt - slab, zt), 2))
+    return comps, walls, xs
+
+
 def platform(p):
     """A box pontoon (bottom, perimeter walls, bulkhead grid, deck) floating at `draft_m`, with low-rise blocks.
 
-    Optional parts the story switches on and off with SEQUENCE steps: storeys up to `storeys`, a roof cap for every
-    storey count from 2 up (inset so a lower cap hides inside the storey above), and a hull extension of `extension_m`
-    below the bottom (walls and bulkheads; the bottom itself is moved by the story)."""
+    Optional parts the story switches on and off with SEQUENCE steps: storeys up to `storeys` (each with its windows
+    and floor line), a roof cap for every storey count from 2 up (inset so a lower cap hides inside the storey above),
+    and a hull extension of `extension_m` below the bottom (walls and bulkheads; the bottom itself is moved by the
+    story). Section: the half at y >= 0 with plates on the cut and the drawing's marks (draft and freeboard dimensions,
+    the outline of the water pushed aside, dashed lines at the deck's and the bottom's first levels); front_half adds
+    the other half and the water in front of it, which the story removes to show the cut."""
     L, B, H, T = p["length_m"], p["width_m"], p["hull_depth_m"], p["draft_m"]
     slab, wall, bh, spacing = p["slab_m"], p["wall_m"], p["bulkhead_m"], p["bulkhead_spacing_m"]
     section = bool(p["section"])
     zb, zt = -T, H - T
     y0 = 0.0 if section else -B / 2.0
-    comps = [_c("hull_bottom", "HULL", "concrete", "hull", _box(-L / 2, L / 2, y0, B / 2, zb, zb + slab), 0)]
-    walls = [("hull_wall_west", -L / 2, -L / 2 + wall, y0, B / 2), ("hull_wall_east", L / 2 - wall, L / 2, y0, B / 2),
-             ("hull_wall_north", -L / 2, L / 2, B / 2 - wall, B / 2)]
-    if not section:
-        walls.append(("hull_wall_south", -L / 2, L / 2, -B / 2, -B / 2 + wall))
-    for cid, x0, x1, ya, yb in walls:
-        comps.append(_c(cid, "HULL", "concrete", "hull", _box(x0, x1, ya, yb, zb, zt), 0))
-    nx, ny = int(round(L / spacing)), int(round(B / spacing))
-    xs = [-L / 2 + i * spacing for i in range(1, nx)]
-    ys = [-B / 2 + j * spacing for j in range(1, ny) if not section or -B / 2 + j * spacing > 0.5]
-    for i, x in enumerate(xs, 1):
-        comps.append(_c(f"bulkhead_x{i}", "BULKHEAD", "concrete", "bulkheads", _box(x - bh / 2, x + bh / 2, y0, B / 2, zb + slab, zt - slab), 1))
-    for j, y in enumerate(ys, 1):
-        comps.append(_c(f"bulkhead_y{j}", "BULKHEAD", "concrete", "bulkheads", _box(-L / 2, L / 2, y - bh / 2, y + bh / 2, zb + slab, zt - slab), 1))
-    comps.append(_c("deck", "DECK", "concrete_deck", "deck", _box(-L / 2, L / 2, y0, B / 2, zt - slab, zt), 2))
+    comps, walls, xs = _hull("", "hull", L, B, H, T, slab, wall, bh, spacing, y0, B / 2, south=not section, north=True,
+                             skip_y=(0.0,) if section else ())
     ext = p["extension_m"]
     if ext > 0:   # the deeper hull of the design revision: walls and bulkheads grow below the present bottom
+        ext_mat = "highlight_gold" if section else "concrete"   # in section the added depth reads as one gold band
         for cid, x0, x1, ya, yb in walls:
-            comps.append(_c(cid.replace("hull_wall", "hull_ext"), "HULL", "concrete", "hull_extension",
-                            _box(x0, x1, ya, yb, zb - ext, zb), 0))
+            comps.append(_c(cid.replace("hull_wall", "hull_ext"), "HULL", ext_mat, "hull_extension", _box(x0, x1, ya, yb, zb - ext, zb), 0))
         for i, x in enumerate(xs, 1):
-            comps.append(_c(f"hull_ext_bulkhead_x{i}", "BULKHEAD", "concrete", "hull_extension",
+            comps.append(_c(f"hull_ext_bulkhead_x{i}", "BULKHEAD", ext_mat, "hull_extension",
                             _box(x - bh / 2, x + bh / 2, y0, B / 2, zb - ext, zb), 1))
-    if section:   # section plates on the cut, the displaced water, and the water below the hull
-        cy0, cy1 = CUT_Y
-        cuts = [("cut_bottom", -L / 2, L / 2, zb, zb + slab), ("cut_deck", -L / 2, L / 2, zt - slab, zt),
-                ("cut_wall_west", -L / 2, -L / 2 + wall, zb, zt), ("cut_wall_east", L / 2 - wall, L / 2, zb, zt)]
-        cuts += [(f"cut_bulkhead_x{i}", x - bh / 2, x + bh / 2, zb + slab, zt - slab) for i, x in enumerate(xs, 1)]
-        for cid, x0, x1, z0, z1 in cuts:
-            group = "hull_bottom_cut" if cid == "cut_bottom" else "section_cut"
-            comps.append(_c(cid, "SECTION_CUT", "section_poche", group, _box(x0, x1, cy0, cy1, z0, z1), 3))
-        if ext > 0:
-            ext_cuts = [("cut_ext_wall_west", -L / 2, -L / 2 + wall), ("cut_ext_wall_east", L / 2 - wall, L / 2)]
-            ext_cuts += [(f"cut_ext_bulkhead_x{i}", x - bh / 2, x + bh / 2) for i, x in enumerate(xs, 1)]
-            for cid, x0, x1 in ext_cuts:
-                comps.append(_c(cid, "SECTION_CUT", "highlight_gold", "hull_extension_cut",
-                                _box(x0, x1, cy0, cy1, zb - ext, zb), 3))
-        dy0, dy1 = DISPLACED_Y
-        comps.append(_c("displaced_volume", "DISPLACED_VOLUME", "displaced_water", "displaced",
-                        _box(-L / 2, L / 2, dy0, dy1, zb, 0.0), 3,
-                        meta={"note": "the outer hull below the waterline: L x B x draft of water pushed aside"}))
-        mx0, mx1 = L / 2, L / 2 + FREEBOARD_MARKER_W
-        comps.append(_c("freeboard_marker", "MARKER", "highlight_gold", "freeboard",
-                        _box(mx0, mx1, MARKER_Y[0], MARKER_Y[1], zt - FREEBOARD_MARKER_H, zt), 3,
-                        meta={"note": "moves with the hull; the water's cut plate hides it below the waterline, so the "
-                                      "part that shows is the freeboard"}))
-        depth = p["water_depth_m"]
-        comps.append(_c("water_below", "WATER", "water_cut", "water_below",
-                        _box(-L / 2, L / 2, cy0, cy1, -depth - 1.0, zb), 0, animation=("STATIC",)))   # stays behind the seabed cut while the platform moves
-    if p.get("test_load") and not section:   # B11: a 100 t load the story slides toward the edge (a street crossing)
+    if section:
+        comps += _section_marks(p, L, B, T, zb, zt, slab, wall, bh, xs, ext)
+    if p.get("test_load") and not section:   # B11: a 100 t load the story slides toward the edge, along the street
         side = round((p["test_load_t"] / LOAD_DENSITY_T_M3 / LOAD_HEIGHT_M) ** 0.5, 3)
-        comps.append(_c("test_load", "LOAD", "highlight_gold", "load", _box(-side / 2, side / 2, -side / 2, side / 2, zt, zt + LOAD_HEIGHT_M), 3,
+        zl = zt + PATH_H
+        comps.append(_c("test_load", "LOAD", "highlight_gold", "load", _box(-side / 2, side / 2, -side / 2, side / 2, zl, zl + LOAD_HEIGHT_M), 3,
                         meta={"mass_t": p["test_load_t"], "note": "a concrete block of this mass, for the tilt example"}))
+        x0, x1 = side / 2 + 0.3, side / 2 + p["test_load_shift_m"]
+        comps.append(_c("load_path", "MARKER", "highlight_gold", "load",
+                        P.merge(_box(x0, x1 - 1.2, -0.2, 0.2, zl, zl + 0.03), _tri_prism(x1 - 1.2, x1, 0.8, zl, zl + 0.03)), 3,
+                        meta={"note": f"the {p['test_load_shift_m']} m the load moves"}))
+        comps.append(_c("level_ref", "MARKER", "section_poche", "reference", _level_ref(L, B, zt), 3, animation=("STATIC",),
+                        meta={"note": "the deck's level before the tilt (a dashed line in front, the deck's outline)"}))
     if p.get("neighbours") and not section:   # B12: four copies arrive around a small basin (the neighbourhood's U)
         pitch_x, pitch_y = L + p["neighbour_gap_m"], B + p["neighbour_gap_m"]
         for k, (i, j) in enumerate([ij for ij in NEIGHBOURHOOD if ij != (0, 0)], 1):
             comps += _platform_set(f"neighbour{k}", L, B, H, T, p["building_cover"], 3, i * pitch_x, j * pitch_y,
                                    group=f"neighbour{k}")
+    if not section:
+        comps.append(_c("paths", "DECORATION", "paving", "paths", _paths_mesh("home", L, B, zt), 2))
+    front = section and p.get("front_half")
+    if front:   # the half in front of the cut (y < 0), its blocks, and the water and seabed in front of it
+        fc, _, _ = _hull("front_", "front_half", L, B, H, T, slab, wall, bh, spacing, -B / 2, 0.0, south=True, north=False,
+                         skip_y=(0.0,))
+        comps += fc
+        fw, fd, depth = p["front_width_m"], p["front_depth_m"], p["water_depth_m"]
+        for cid, x0, x1, ya, yb in (("front_water_west", -fw / 2, -L / 2, -fd, FRONT_Y), ("front_water_east", L / 2, fw / 2, -fd, FRONT_Y),
+                                    ("front_water_south", -L / 2, L / 2, -fd, -B / 2)):
+            comps.append(_c(cid, "WATER", "water", "front_water", _box(x0, x1, ya, yb, -depth, 0.0), 0, animation=("STATIC",)))
+        comps.append(_c("front_seabed", "GROUND", "seabed", "front_water", _box(-fw / 2, fw / 2, -fd, FRONT_Y, -depth - 1.5, -depth), 0,
+                        animation=("STATIC",)))
     for k, (x0, x1, ya, yb) in enumerate(block_layout(L, B, p["building_cover"]), 1):
-        if section and yb <= 0.0:
+        in_front = section and yb <= 0.0
+        if in_front and not front:
             continue
-        ya = max(ya, 0.0) if section else ya
+        prefix, grp_ = ("front_", "front_half") if in_front else ("", None)
+        ya = max(ya, 0.0) if section and not in_front else ya
+        door_face = ("y", yb, 1) if (ya + yb) / 2 < 0 else ("y", ya, -1)   # the entrance faces the street across the platform
         for s in range(1, p["storeys"] + 1):
             z0, z1 = zt + (s - 1) * p["storey_height_m"], zt + s * p["storey_height_m"]
-            comps.append(_c(f"block{k}_storey{s}", "BUILDING", "plaster", f"storey_{s}", _box(x0, x1, ya, yb, z0, z1), 4 + s))
+            g = grp_ or f"storey_{s}"
+            comps.append(_c(f"{prefix}block{k}_storey{s}", "BUILDING", "plaster", g, _box(x0, x1, ya, yb, z0, z1), 4 + s))
+            comps.append(_c(f"{prefix}block{k}_storey{s}_windows", "DECORATION", "window_dark", g,
+                            _facade([(x0, x1, ya, yb)], z0, 1, p["storey_height_m"], doors=[door_face] if s == 1 else [],
+                                    first_storey=s), 4 + s))
             if s >= 2:   # a roof cap for this storey count, inset so it hides inside the storey above
-                comps.append(_c(f"block{k}_roof{s}", "ROOF", "roof_membrane", f"roof_{s}",
+                comps.append(_c(f"{prefix}block{k}_roof{s}", "ROOF", "roof_membrane", grp_ or f"roof_{s}",
                                 _box(x0 + 0.05, x1 - 0.05, ya + (0.0 if section and ya == 0.0 else 0.05), yb - 0.05, z1, z1 + 0.3), 4 + s))
     return comps
+
+
+def _section_marks(p, L, B, T, zb, zt, slab, wall, bh, xs, ext):
+    """The section's plates on the cut and the drawing's marks."""
+    comps = []
+    cy0, cy1 = CUT_Y
+    cuts = [("cut_bottom", -L / 2, L / 2, zb, zb + slab), ("cut_deck", -L / 2, L / 2, zt - slab, zt),
+            ("cut_wall_west", -L / 2, -L / 2 + wall, zb, zt), ("cut_wall_east", L / 2 - wall, L / 2, zb, zt)]
+    cuts += [(f"cut_bulkhead_x{i}", x - bh / 2, x + bh / 2, zb + slab, zt - slab) for i, x in enumerate(xs, 1)]
+    for cid, x0, x1, z0, z1 in cuts:
+        group = "hull_bottom_cut" if cid == "cut_bottom" else "section_cut"
+        comps.append(_c(cid, "SECTION_CUT", "section_poche", group, _box(x0, x1, cy0, cy1, z0, z1), 3))
+    if ext > 0:
+        ext_cuts = [("cut_ext_wall_west", -L / 2, -L / 2 + wall), ("cut_ext_wall_east", L / 2 - wall, L / 2)]
+        ext_cuts += [(f"cut_ext_bulkhead_x{i}", x - bh / 2, x + bh / 2) for i, x in enumerate(xs, 1)]
+        for cid, x0, x1 in ext_cuts:
+            comps.append(_c(cid, "SECTION_CUT", "highlight_gold", "hull_extension_cut", _box(x0, x1, cy0, cy1, zb - ext, zb), 3))
+    f0, f1 = FRONT_MARK_Y
+    t = OUTLINE_T   # the water pushed aside: an outline around the hull below the waterline, drawn in front of the water
+    outline = P.merge(_box(-L / 2 - t, -L / 2, f0, f1, zb - t, 0.0), _box(L / 2, L / 2 + t, f0, f1, zb - t, 0.0),
+                      _box(-L / 2 - t, L / 2 + t, f0, f1, zb - t, zb))
+    comps.append(_c("displaced_volume", "DISPLACED_VOLUME", "displaced_water", "displaced", outline, 3,
+                    meta={"note": "outline of the hull below the waterline: L x B x draft of water pushed aside"}))
+    x = -L / 2 - DIM_OFFSET   # the draft as a dimension: waterline to the bottom, ticks at both ends
+    comps.append(_c("draft_dim", "MARKER", "section_poche", "dimensions",
+                    P.merge(_box(x - DIM_W / 2, x + DIM_W / 2, f0, f1, zb, 0.0), _box(x - 0.45, x + 0.45, f0, f1, -DIM_TICK, 0.0),
+                            _box(x - 0.45, x + 0.45, f0, f1, zb, zb + DIM_TICK)), 3, animation=("STATIC",)))
+    m0, m1 = MARKER_Y   # the freeboard: a line hanging from a tick level with the deck, hidden below the waterline by the
+    xm = L / 2 + 0.55     # water's cut plate, so the part that shows is the freeboard
+    comps.append(_c("freeboard_marker", "MARKER", "highlight_gold", "freeboard",
+                    P.merge(_box(xm - DIM_W / 2, xm + DIM_W / 2, m0, m1, zt - FREEBOARD_MARKER_H, zt),
+                            _box(L / 2, L / 2 + 1.0, m0, m1, zt - DIM_TICK, zt)), 3,
+                    meta={"note": "moves with the hull; below the waterline the water's cut plate hides it"}))
+    r0, r1 = REF_Y
+    comps.append(_c("deck_ref", "MARKER", "section_poche", "reference", _dashes(-L / 2 - 1.5, L / 2 + 1.5, r0, r1, zt - 0.03, zt + 0.03), 3,
+                    animation=("STATIC",), meta={"note": "the deck's level before a change (dashed)"}))
+    comps.append(_c("bottom_ref", "MARKER", "section_poche", "reference", _dashes(-L / 2 - 1.5, L / 2 + 1.5, r0, r1, zb - 0.03, zb + 0.03), 3,
+                    animation=("STATIC",), meta={"note": "the bottom's level before a change (dashed)"}))
+    depth = p["water_depth_m"]
+    comps.append(_c("water_below", "WATER", "water_cut", "water_below",
+                    _box(-L / 2, L / 2, cy0, cy1, -depth - 1.0, zb), 0, animation=("STATIC",)))   # behind the seabed cut while the platform moves
+    return comps
+
+
+def _dashes(x0, x1, y0, y1, z0, z1, dash=0.8, gap=0.5):
+    out, x = [], x0
+    while x < x1 - 1e-9:
+        out.append(_box(x, min(x + dash, x1), y0, y1, z0, z1))
+        x += dash + gap
+    return P.merge(*out)
+
+
+def _tri_prism(x0, x1, half_w, z0, z1):
+    """An arrow head pointing +x: a flat triangle from x0 (base, +-half_w) to x1 (tip), z0..z1."""
+    verts = [(x0, -half_w, z0), (x1, 0.0, z0), (x0, half_w, z0), (x0, -half_w, z1), (x1, 0.0, z1), (x0, half_w, z1)]
+    faces = [(0, 2, 1), (3, 4, 5), (0, 1, 4, 3), (1, 2, 5, 4), (2, 0, 3, 5)]
+    return {"verts": verts, "faces": faces}
+
+
+def _level_ref(L, B, zt):
+    """B11's references: a dashed line at the deck's first level in front of the platform, reaching past both ends, and
+    the outline of the deck's edges at that level."""
+    y = -B / 2
+    line = _dashes(-L / 2 - 5.0, L / 2 + 5.0, y - 0.06, y, zt - 0.05, zt + 0.05, dash=1.2, gap=0.6)
+    edge = P.merge(_box(-L / 2, L / 2, B / 2 - 0.12, B / 2, zt, zt + 0.04), _box(-L / 2, -L / 2 + 0.12, -B / 2, B / 2, zt, zt + 0.04),
+                   _box(L / 2 - 0.12, L / 2, -B / 2, B / 2, zt, zt + 0.04))
+    return P.merge(line, edge)
+
+
+# ---------------------------------------------------------------- facades, paths and the uses of a platform
+WINDOW_W, WINDOW_H, WINDOW_SILL, WINDOW_PITCH, PANE = 1.4, 1.5, 0.9, 3.0, 0.05
+SHOP_W, SHOP_H, SHOP_SILL = 2.4, 2.3, 0.3
+LINE_H, LINE_OUT = 0.14, 0.06
+DOOR_W, DOOR_H = 2.0, 2.4
+PATH_H = 0.03
+
+
+def _subtract(interval, covered):
+    lo, hi = interval
+    parts = [(lo, hi)]
+    for c0, c1 in covered:
+        nxt = []
+        for a, b in parts:
+            if c1 <= a or c0 >= b:
+                nxt.append((a, b))
+                continue
+            if c0 > a:
+                nxt.append((a, c0))
+            if c1 < b:
+                nxt.append((c1, b))
+        parts = nxt
+    return parts
+
+
+def _faces(rects):
+    """Exposed faces of touching, non-overlapping footprint rectangles: [(axis, coord, lo, hi, outward sign)]; a face on
+    x = coord spans y lo..hi (axis 'x'), a face on y = coord spans x lo..hi (axis 'y')."""
+    out = []
+    for i, (x0, x1, y0, y1) in enumerate(rects):
+        for axis, coord, lo, hi, sign in (("x", x0, y0, y1, -1), ("x", x1, y0, y1, 1), ("y", y0, x0, x1, -1), ("y", y1, x0, x1, 1)):
+            covered = []
+            for j, (a0, a1, b0, b1) in enumerate(rects):
+                if j == i:
+                    continue
+                if axis == "x" and abs((a1 if sign < 0 else a0) - coord) < 1e-6:
+                    covered.append((b0, b1))
+                if axis == "y" and abs((b1 if sign < 0 else b0) - coord) < 1e-6:
+                    covered.append((a0, a1))
+            out += [(axis, coord, a, b, sign) for a, b in _subtract((lo, hi), covered) if b - a > 1.0]
+    return out
+
+
+def _pane(axis, coord, sign, u0, u1, z0, z1, out=PANE):
+    a, b = sorted((coord, coord + sign * out))
+    return _box(a, b, u0, u1, z0, z1) if axis == "x" else _box(u0, u1, a, b, z0, z1)
+
+
+def _facade(rects, z0, storeys, h, doors=(), first_storey=1, shop=False):
+    """Windows (a pane every WINDOW_PITCH along every exposed face), a floor line at the foot of every storey above the
+    first, and doors with a canopy on the given faces [(axis, coord, sign)], for storeys first_storey.. of a building."""
+    out = []
+    for axis, coord, lo, hi, sign in _faces(rects):
+        length = hi - lo
+        has_door = any(d[0] == axis and abs(d[1] - coord) < 1e-6 and d[2] == sign for d in doors) and length > 6.0
+        mid = (lo + hi) / 2
+        for k in range(storeys):
+            s = first_storey + k
+            zs = z0 + k * h
+            if s >= 2:
+                out.append(_pane(axis, coord, sign, lo, hi, zs - LINE_H / 2, zs + LINE_H / 2, LINE_OUT))
+            w, wh, sill = (SHOP_W, SHOP_H, SHOP_SILL) if (shop and s == 1) else (WINDOW_W, WINDOW_H, WINDOW_SILL)
+            n = int((length - 1.0) // WINDOW_PITCH)
+            for i in range(n):
+                c = mid + (i - (n - 1) / 2) * WINDOW_PITCH
+                if s == 1 and has_door and abs(c - mid) < (DOOR_W + w) / 2 + 0.3:
+                    continue
+                out.append(_pane(axis, coord, sign, c - w / 2, c + w / 2, zs + sill, zs + sill + wh))
+            if s == 1 and has_door:
+                out.append(_pane(axis, coord, sign, mid - DOOR_W / 2, mid + DOOR_W / 2, zs + PATH_H + 0.02, zs + DOOR_H))   # above the paving
+                out.append(_pane(axis, coord, sign, mid - DOOR_W / 2 - 0.4, mid + DOOR_W / 2 + 0.4, zs + DOOR_H + 0.2, zs + DOOR_H + 0.35, 1.2))
+    return P.merge(*out) if out else _box(0, 0.01, 0, 0.01, z0, z0 + 0.01)
+
+
+def use_layout(use, L, B, cover, orient="x"):
+    """Footprint rectangles of a platform's buildings by use; every use covers the same share of the deck with the same
+    storeys, so the load, and the draft, stay those of the calculation."""
+    area = cover * L * B
+    if use in ("home", "mixed"):
+        return block_layout(L, B, cover)
+    if use == "school":   # a U around a yard that opens to the +y edge
+        W, D = 0.9 * L, 0.6 * B
+        t = ((W + 2 * D) - math.sqrt((W + 2 * D) ** 2 - 8 * area)) / 4
+        return [(-W / 2, W / 2, -D / 2, -D / 2 + t), (-W / 2, -W / 2 + t, -D / 2 + t, D / 2), (W / 2 - t, W / 2, -D / 2 + t, D / 2)]
+    if use == "clinic":   # a ring around a courtyard
+        a = 0.733 * L
+        c = math.sqrt(a * a - area)
+        return [(-a / 2, a / 2, -a / 2, -c / 2), (-a / 2, a / 2, c / 2, a / 2), (-a / 2, -c / 2, -c / 2, c / 2), (c / 2, a / 2, -c / 2, c / 2)]
+    if use == "community":   # two long halls either side of a street
+        length, gap = 0.9 * L, 2.0
+        w = area / (2 * length)
+        if orient == "x":
+            return [(-length / 2, length / 2, gap, gap + w), (-length / 2, length / 2, -gap - w, -gap)]
+        return [(gap, gap + w, -length / 2, length / 2), (-gap - w, -gap, -length / 2, length / 2)]
+    raise ValueError(f"unknown use {use!r}")
+
+
+USE_LOOK = {   # walls, roof
+    "home": ("plaster", "roof_membrane"), "mixed": ("plaster", "roof_membrane"), "school": ("plaster_school", "roof_school"),
+    "clinic": ("plaster_clinic", "roof_clinic"), "community": ("plaster_service", "roof_green")}
+
+
+def _paths_mesh(use, L, B, z, orient="x", rects=None):
+    """Paving on the deck: the streets between the buildings, stopping short of the edges where walkways land."""
+    e = L / 2 - 1.2
+    w = 1.75
+    if use in ("home", "mixed"):
+        boxes = [(-e, e, -w, w), (-w, w, -e, e)]
+    elif use == "school":
+        base_top = rects[0][3]
+        boxes = [(-w, w, base_top, e), (-e, e, rects[0][2] - (rects[0][2] + B / 2) / 2 - w, rects[0][2] - (rects[0][2] + B / 2) / 2 + w)]
+    elif use == "clinic":
+        a, c = rects[1][3], rects[1][2]
+        boxes = [(a, e, -w, w), (-e, -a, -w, w), (-w, w, a, e), (-w, w, -e, -a), (-c + 1.0, c - 1.0, -c + 1.0, c - 1.0)]
+    else:   # community
+        boxes = [(-e, e, -w, w)] if orient == "x" else [(-w, w, -e, e)]
+    return P.merge(*[_box(x0, x1, y0, y1, z, z + PATH_H) for x0, x1, y0, y1 in boxes])
+
+
+def _cone(cx, cy, z0, r, h, n=8):
+    verts = [(cx + r * math.cos(2 * math.pi * k / n), cy + r * math.sin(2 * math.pi * k / n), z0) for k in range(n)] + [(cx, cy, z0 + h)]
+    faces = [tuple(reversed(range(n)))] + [(k, (k + 1) % n, n) for k in range(n)]
+    return {"verts": verts, "faces": faces}
+
+
+def _trees(L, B, z):
+    """Lawn along the open edges of the deck and trees on it (a park around the lagoon)."""
+    e0, e1 = L / 2 - 4.6, L / 2 - 0.4    # the strip between the buildings and the edge
+    lawns = []
+    for sx in (-1, 1):
+        a, b = sorted((sx * e0, sx * e1))
+        lawns += [_box(a, b, 3.0, e1, z, z + PATH_H), _box(a, b, -e1, -3.0, z, z + PATH_H)]
+    for sy in (-1, 1):
+        a, b = sorted((sy * e0, sy * e1))
+        lawns += [_box(3.0, e0, a, b, z, z + PATH_H), _box(-e0, -3.0, a, b, z, z + PATH_H)]
+    trees = []
+    zt = z + PATH_H
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            for u, v in ((L / 2 - 2.5, 8.0), (L / 2 - 2.5, 19.0), (8.0, L / 2 - 2.5), (19.0, L / 2 - 2.5)):
+                x, y = sx * u, sy * v
+                trees += [P.cylinder_z(0.22, 1.6, 6, (x, y, zt + 0.8)), _cone(x, y, zt + 1.4, 1.5, 4.2)]
+    return P.merge(*lawns), P.merge(*trees)
+
+
+def _playground(rects, z):
+    """A play court and three play structures in a school's yard."""
+    yard_x = rects[1][1]          # inner face of the west wing
+    y0 = rects[0][3]              # the yard starts at the base's inner face
+    court = _box(yard_x + 1.0, -2.5, y0 + 6.0, y0 + 22.0, z, z + PATH_H)
+    play = [_box(3.0, 5.0, y0 + 7.0, y0 + 9.0, z, z + 2.2), _box(6.5, 9.5, y0 + 12.0, y0 + 13.0, z, z + 1.2),
+            _box(3.5, 8.5, y0 + 17.0, y0 + 18.2, z, z + 0.6)]
+    return P.merge(court, *play)
+
+
+def _platform_set(prefix, L, B, H, T, cover, storeys, cx, cy, use="home", group=None, orient="x", park=False):
+    """One platform as a few merged components placed at (cx, cy): hull, deck, buildings, roofs, facades (windows, floor
+    lines, entrances), paving, and by use a playground or a park; identical platforms share their meshes.
+    use: home | mixed (shops below, homes above) | school | clinic | community."""
+    g = group or prefix
+    zt = H - T
+    parts = [_placed(f"{prefix}_hull", "HULL", "concrete", g, _local_box(L, B, H - 0.25, -(H - 0.25) / 2.0), (cx, cy, zt - 0.25), 0),
+             _placed(f"{prefix}_deck", "DECK", "concrete_deck", g, _local_box(L, B, 0.25, -0.125), (cx, cy, zt), 1)]
+    if storeys <= 0:
+        return parts
+    rects = use_layout(use, L, B, cover, orient)
+    h = storeys * 3.0
+    walls, roofs = USE_LOOK[use]
+    body = P.merge(*[_box(x0, x1, y0, y1, 0.0, h) for x0, x1, y0, y1 in rects])
+    roof = P.merge(*[_box(x0 + 0.05, x1 - 0.05, y0 + 0.05, y1 - 0.05, h, h + 0.3) for x0, x1, y0, y1 in rects])
+    if use in ("home", "mixed"):   # each block's entrance faces the street across the middle
+        doors = [("y", y1, 1) if (y0 + y1) / 2 < 0 else ("y", y0, -1) for x0, x1, y0, y1 in rects]
+        facade = P.merge(*[_facade([r], 0.0, storeys, 3.0, doors=[d], shop=use == "mixed") for r, d in zip(rects, doors)])
+    else:
+        x0, x1, y0, y1 = max(rects, key=lambda r: (r[1] - r[0]) * (r[3] - r[2]))
+        door = ("y", y1, 1) if use != "community" or orient == "x" else ("x", x1, 1)
+        facade = _facade(rects, 0.0, storeys, 3.0, doors=[door])
+    meta = {"use": use}
+    parts.append(_placed(f"{prefix}_buildings", "BUILDING", walls, g, body, (cx, cy, zt), 2, meta=meta))
+    parts.append(_placed(f"{prefix}_roofs", "ROOF", roofs, g, roof, (cx, cy, zt), 2))
+    parts.append(_placed(f"{prefix}_facade", "DECORATION", "window_dark", g, facade, (cx, cy, zt), 3))
+    parts.append(_placed(f"{prefix}_paths", "DECORATION", "paving", g, _paths_mesh(use, L, B, 0.0, orient, rects), (cx, cy, zt), 3))
+    if use == "school":
+        parts.append(_placed(f"{prefix}_playground", "DECORATION", "court_play", g, _playground(rects, 0.0), (cx, cy, zt), 3))
+    if park:
+        lawn, trees = _trees(L, B, 0.0)
+        parts.append(_placed(f"{prefix}_lawn", "DECORATION", "park_lawn", g, lawn, (cx, cy, zt), 3))
+        parts.append(_placed(f"{prefix}_trees", "DECORATION", "tree", g, trees, (cx, cy, zt), 3))   # standing on the lawn
+    return parts
 
 
 def _sloped_slab(x0, x1, y0, y1, z_top0, z_top1, z_bottom):
@@ -158,9 +433,12 @@ def bay(p):
     return comps
 
 
-FREEBOARD_MARKER_W, FREEBOARD_MARKER_H = 1.0, 1.3   # m; longer than any freeboard the story shows (1.146 m), short
-                                                     # enough that the part above the water is most of it (glow QA)
-MARKER_Y = (-0.016, -0.006)                      # just behind the water's cut plate (CUT_Y), in front of the hull
+FREEBOARD_MARKER_H = 1.3     # m; longer than any freeboard the story shows (1.146 m)
+MARKER_Y = (-0.016, -0.006)  # just behind the water's cut plate (CUT_Y), in front of the hull
+REF_Y = (-0.005, -0.001)     # dashed reference lines, between the marker and the hull
+FRONT_MARK_Y = (-0.075, -0.065)   # marks that stay visible over the water: in front of its cut plate
+FRONT_Y = -0.08              # the water in front of the cut ends here
+DIM_W, DIM_TICK, DIM_OFFSET, OUTLINE_T = 0.12, 0.08, 1.2, 0.15
 LOAD_DENSITY_T_M3, LOAD_HEIGHT_M = 2.4, 2.6
 
 EXPLODE_LIFT = {"BUILDING": 14.0, "ROOF": 14.0, "DECK": 8.0, "BULKHEAD": 4.0}   # metres up; the hull shell stays
@@ -202,26 +480,6 @@ def _placed(cid, ctype, material, group, mesh, loc, layer, animation=("HIGHLIGHT
     c = _c(cid, ctype, material, group, mesh, layer, animation, meta)
     c.location = tuple(loc)
     return c
-
-
-def _platform_set(prefix, L, B, H, T, cover, storeys, cx, cy, use="home", group=None):
-    """One platform as a few merged components (hull, deck, buildings, roof) placed at (cx, cy): identical platforms
-    share their meshes. use: home | service | park."""
-    g = group or prefix
-    zt = H - T
-    parts = [_placed(f"{prefix}_hull", "HULL", "concrete", g, _local_box(L, B, H - 0.25, -(H - 0.25) / 2.0), (cx, cy, zt - 0.25), 0),
-             _placed(f"{prefix}_deck", "DECK", "concrete_deck" if use != "park" else "park_lawn", g,
-                     _local_box(L, B, 0.25, -0.125), (cx, cy, zt), 1)]
-    if use == "park" or storeys <= 0:
-        return parts
-    blocks = block_layout(L, B, cover)
-    h = storeys * 3.0
-    body = P.merge(*[P.box((x1 - x0, y1 - y0, h), ((x0 + x1) / 2.0, (y0 + y1) / 2.0, h / 2.0)) for x0, x1, y0, y1 in blocks])
-    roof = P.merge(*[P.box((x1 - x0 - 0.1, y1 - y0 - 0.1, 0.3), ((x0 + x1) / 2.0, (y0 + y1) / 2.0, h + 0.15)) for x0, x1, y0, y1 in blocks])
-    parts.append(_placed(f"{prefix}_buildings", "BUILDING", "plaster" if use == "home" else "plaster_service", g, body,
-                         (cx, cy, zt), 2, meta={"use": use}))
-    parts.append(_placed(f"{prefix}_roofs", "ROOF", "roof_membrane" if use == "home" else "roof_green", g, roof, (cx, cy, zt), 2))
-    return parts
 
 
 def _walkway(cid, x0, y0, z0, x1, y1, z1, width, group="walkways", hinged=True):
@@ -326,7 +584,7 @@ def clay_boat(p):
              _c("solid_block_cut", "SECTION_CUT", "section_poche", "solid_block",
                 _box(bx - side / 2, bx + side / 2, -0.06, -0.05, -depth, -depth + side), 1)]
     hull = platform(dict(p, storeys=0, extension_m=0.0, section=1))
-    return comps + [c for c in hull if c.type not in ("BUILDING", "ROOF", "DISPLACED_VOLUME", "MARKER")]
+    return comps + [c for c in hull if c.type not in ("BUILDING", "ROOF", "DISPLACED_VOLUME", "MARKER", "DECORATION")]
 
 
 def semi_sub(p):
@@ -359,16 +617,23 @@ ANCHOR_EMBED_M = 0.3   # anchors are drawn bedded into the seabed (a sloping bed
 DISTRICT_LAGOON = {(c, r) for c in (4, 5, 6) for r in (4, 5)}
 
 
+DISTRICT_USES = {   # the 27 modules of the outer ring by use (results.json district_C_allocation); the rest are homes
+    **{(c, r): "mixed" for c in (0, DISTRICT_COLS - 1) for r in (0, 1, 2)},          # shops below, homes above, near the quay
+    (4, 8): "school", (6, 8): "school", (0, 5): "school", (10, 3): "clinic"}
+PARKS = {(4, 3), (5, 3), (6, 3), (4, 6), (5, 6), (6, 6), (3, 4), (3, 5), (7, 4), (7, 5)}   # the homes around the lagoon
+ROUTE_COLS = (2, 5, 8)   # the bridges' columns (a district with 3 bridges): halls there stand either side of the route
+
+
 def district_cells():
-    """[(col, row, use)]: 93 platforms of an 11 x 9 grid around a 3 x 2 lagoon; row 0 faces the shore; the seaward
-    row and both flanks (27 platforms) carry services, the 66 inside are homes."""
+    """[(col, row, use)]: 93 platforms of an 11 x 9 grid around a 3 x 2 lagoon; row 0 faces the shore. The seaward row
+    and both flanks (27 platforms) carry the mixed and service uses, the 66 inside are homes."""
     out = []
     for c in range(DISTRICT_COLS):
         for r in range(DISTRICT_ROWS):
             if (c, r) in DISTRICT_LAGOON:
                 continue
             ring = r == DISTRICT_ROWS - 1 or c in (0, DISTRICT_COLS - 1)
-            out.append((c, r, "service" if ring else "home"))
+            out.append((c, r, DISTRICT_USES.get((c, r), "community") if ring else "home"))
     return out
 
 
@@ -388,7 +653,8 @@ def district(p):
         cx, cy = x_first + c * pitch, y_first + r * pitch
         pos[(c, r)] = (cx, cy)
         comps += _platform_set(f"m{c:02d}{r}", L, B, H, T, p["building_cover"], p["storeys"], cx, cy, use=use,
-                               group="homes" if use == "home" else "services")
+                               group="homes" if use in ("home", "mixed") else "services",
+                               orient="y" if c in ROUTE_COLS else "x", park=(c, r) in PARKS)
     walk = P.box((gap + 2.0, 3.0, WALK_TOP_M), (0.0, 0.0, WALK_TOP_M / 2.0))
     walk_y = P.box((3.0, gap + 2.0, WALK_TOP_M), (0.0, 0.0, WALK_TOP_M / 2.0))
     n = 0
@@ -484,7 +750,7 @@ def district(p):
             cy = pos[(c, r)][1]
             ya = cy - B / 2.0 + (1.0 if r else 0.05)          # clear of the link-span's end and the walkway's overlap
             yb = cy + B / 2.0 - (1.0 if (c, r + 1) in pos else 0.0)
-            parts.append(_box(x - 1.3, x + 1.3, ya, yb, zt, zt + 0.05))
+            parts.append(_box(x - 1.3, x + 1.3, ya, yb, zt + PATH_H, zt + PATH_H + 0.05))   # painted on the paving
             if (c, r + 1) in pos:
                 parts.append(_box(x - 1.3, x + 1.3, cy + B / 2.0 - 1.0, cy + B / 2.0 + gap + 1.0, zt + WALK_TOP_M, zt + WALK_TOP_M + 0.05))
             r += 1
