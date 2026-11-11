@@ -193,7 +193,7 @@ def main():
                                                 "the equilibrium of both, so this step is not what a rigid link would see; it only shows "
                                                 "that different loads add a demand on the connection. The design chooses hinged walkways."},
     }
-    # 8d. district C at the chosen module size (standard residential modules only)
+    # 8d. district C at the chosen module size: the standard modules carry the homes and the services inside 40 m2 per resident
     side = g["district_module_m"][0]
     mod = platform(**dict(base, L=side, B=side), dead=mid)
     n = math.ceil(deck_mid / (side * side))
@@ -202,8 +202,9 @@ def main():
                          "residents_per_module": round(mod["gross_floor_area_m2"] / 40),
                          "joints_max": trade[f"{side}m"]["shared_edges_in_grid_max"],
                          "standard_modules_displacement_t": round(n * mod["mass_t"]["total"], -3),
-                         "excludes": ["service and port platforms", "breakwater", "link-span bridges", "moorings and piles",
-                                      "utility plants and networks"],
+                         "includes": ["homes", "schools, a clinic, shops and offices (10 of the 40 m2 per resident; section 10)"],
+                         "excludes": ["port, marina and utility platforms (plants, depots, boat services)", "breakwater",
+                                      "link-span bridges", "moorings and piles", "utility networks"],
                          "gfa_per_resident_m2": {"total": 40, **g["gross_floor_area_split_mid_m2"]}}
     # 8e. how the district's 93 modules are used (illustrative allocation, owner review of the L5 excerpt): every module
     # keeps the same footprint, storeys and loads, so every module floats at the same draft; only the use changes
@@ -221,7 +222,13 @@ def main():
         "service_types": {"school": 3, "clinic": 1, "community_shops_offices": alloc["service"] - 4},
         "note": "Illustrative allocation: 66 home modules alone give 9,504 residents at 30 m2 each; six mixed modules on the "
                 "flanks near the shore (shops and services below, homes on the two upper floors) bring it to about 10,000 "
-                "with about 10 m2 of services each. Parks are the open decks (60 percent of every deck), not extra modules."}
+                "with about 10 m2 of services each. Parks are the open decks (60 percent of every deck), not extra modules.",
+        "building_types_note": "Every module, whatever its building type, keeps the same footprint area (40 percent of the deck), "
+                               "three storeys and a footprint centred on the deck, so the same mass, draft and no list. Equal "
+                               "load per m2 of floor across building types is an assumption of this model, not a result.",
+        "landscape_note": f"Lawns and trees are drawn on the open deck. The model carries {g['deck_finishes_t_per_m2']} t/m2 of "
+                          f"finishes over the whole deck and {g['variable_load_t_per_m2']} t/m2 of variable load on the open "
+                          "deck: enough for a thin planted layer only. Deep planters for large trees are not modelled."}
     # 9. published reference points (for scale only)
     busan_m2 = 15.5 * 4046.8564224                   # CLM_031 (acres -> m2)
     out["reference_points"] = {
@@ -325,11 +332,12 @@ def write_md(o):
     rows += [f"| {st['step']} | {st['mass_t']} | {st['draft_m']} | {st['freeboard_m']} |" for st in sb["steps"]]
     rows += [f"", f"Thân sâu thêm 0,5 m tốn thêm {sb['extra_concrete_for_deeper_hull_t']} t bê tông "
                   f"({round(sb['extra_concrete_share_of_hull'] * 100, 1)}% bê tông thân phao).", "",
-             f"## 9. Quận C với phao {dc['module_m']} m (chỉ các phao tiêu chuẩn)",
+             f"## 9. Quận C với phao {dc['module_m']} m (các phao tiêu chuẩn: nhà ở và dịch vụ)",
              f"- {dc['modules']} phao, {round(dc['deck_area_m2'] / 1e4, 1)} ha, khoảng {dc['residents_per_module']} người mỗi phao, "
              f"tới {dc['joints_max']} cạnh chung; mỗi phao khoảng {dc['module_mass_t']:,.0f} t (mớn nước {dc['module_draft_m']} m).",
-             f"- Lượng chiếm nước của các phao tiêu chuẩn: khoảng {dc['standard_modules_displacement_t']:,.0f} t. **Không gồm:** "
-             + ", ".join(dc["excludes"]) + ".",
+             f"- Lượng chiếm nước của các phao tiêu chuẩn: khoảng {dc['standard_modules_displacement_t']:,.0f} t.",
+             "- **Đã gồm:** " + "; ".join(dc["includes"]) + ".",
+             "- **Không gồm:** " + "; ".join(dc["excludes"]) + ".",
              f"- 40 m² sàn mỗi người = {dc['gfa_per_resident_m2']['homes']} m² nhà ở + {dc['gfa_per_resident_m2']['schools_clinic_shops_services']} m² "
              "trường học, phòng khám, cửa hàng, dịch vụ (giả định)."]
     al, ls = o["district_C_allocation"], o["list_example_shown_state"]
@@ -340,6 +348,9 @@ def write_md(o):
              "số tầng và tải, nên cùng mớn nước.",
              f"- Nhà ở {al['homes_m2']:,} m² → khoảng {al['residents_at_homes_m2_each']:,} người ở mức 30 m²/người; dịch vụ "
              f"{al['services_m2']:,} m², khoảng {al['services_m2_per_resident']} m² mỗi người. Công viên là phần sàn trống (60% mỗi phao).",
+             "- Đây là phân bổ minh họa, không phải kết quả kiểm tra đủ trường học, y tế hay dịch vụ theo một tiêu chuẩn quy hoạch.",
+             "- Kiểu nhà: " + al["building_types_note"],
+             "- Cây xanh: " + al["landscape_note"],
              "", "## 11. Góc nghiêng của trạng thái mà B11 chiếu",
              f"- {ls['state']}: dời {ls['w_t']} t ra cách tâm {ls['d_m']} m → nghiêng khoảng {ls['list_deg']}° "
              f"(bản 3 tầng: {o['list_example']['list_deg']}°)."]

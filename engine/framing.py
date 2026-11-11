@@ -94,7 +94,8 @@ def view_fits(views, points_of, preset, aspect, band=0.0):
             raise ValueError(f"view focus {sorted(v.get('focus') or [])} matches no built part")
         basis = camera_basis(az, el)
         margin = v["margin"] if v.get("margin") is not None else preset.get("margin", 0.07)
-        fit = fit_ortho(pts, basis, aspect, margin, band)
+        clearance = 10.0 if v.get("clearance") is None else float(v["clearance"])   # R3: a close view among buildings
+        fit = fit_ortho(pts, basis, aspect, margin, band, clearance=clearance)
         fit.update(azimuth=az, elevation=el, rotation=camera_euler(basis))
         fits.append(fit)
     return fits
@@ -117,6 +118,27 @@ def basis_from_euler(euler):
     return right, up, forward
 
 
+ORBIT_FULL_BACK_AWAY_DEGREES = 20.0   # a turn this large (azimuth + elevation) backs away by the larger distance
+
+
+def orbit_back_away(a, b):
+    """How far the camera backs away mid-orbit (at s = 0.5): the larger of the two distances for a turn of
+    ORBIT_FULL_BACK_AWAY_DEGREES or more, proportionally less for a smaller turn, nothing when the direction does not
+    change (then the move is a straight slide and cannot pass through the subject)."""
+    turn = abs(b["azimuth"] - a["azimuth"]) + abs(b["elevation"] - a["elevation"])
+    return min(1.0, turn / ORBIT_FULL_BACK_AWAY_DEGREES) * max(a["distance"], b["distance"])
+
+
+def sequence_clip_end(fits):
+    """A SEQUENCE camera's far clip: every view's own, plus the most the camera backs away between two views, so a
+    pull-back mid-move never clips the far ground (it showed as a flat background band, R3 opening)."""
+    ends = [f.get("clip_end", 1000.0) for f in fits]
+    extra = max((orbit_back_away(a, b) for a, b in zip(fits, fits[1:])
+                 if all(a.get(k) is not None and b.get(k) is not None for k in ("azimuth", "elevation", "distance"))),
+                default=0.0)
+    return max(ends) + extra
+
+
 def orbit_pose(a, b, s):
     """Camera pose at progress s (0..1, already eased) of an orbit between two view fits that carry azimuth,
     elevation, pivot and distance: the pivot, the angles and the scale are interpolated, and the camera backs away
@@ -126,7 +148,7 @@ def orbit_pose(a, b, s):
     el = a["elevation"] + (b["elevation"] - a["elevation"]) * s
     basis = camera_basis(az, el)
     pivot = tuple(p + (q - p) * s for p, q in zip(a["pivot"], b["pivot"]))
-    dist = a["distance"] + (b["distance"] - a["distance"]) * s + 4.0 * s * (1.0 - s) * max(a["distance"], b["distance"])
+    dist = a["distance"] + (b["distance"] - a["distance"]) * s + 4.0 * s * (1.0 - s) * orbit_back_away(a, b)
     location = tuple(p - dist * f for p, f in zip(pivot, basis[2]))
     return location, camera_euler(basis), a["ortho_scale"] + (b["ortho_scale"] - a["ortho_scale"]) * s
 

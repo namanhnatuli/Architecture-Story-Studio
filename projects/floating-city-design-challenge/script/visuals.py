@@ -133,12 +133,24 @@ def platform_parts(cells, kinds=("hull", "deck", "buildings", "roofs")):
 
 HOMES = [grp("building_block", "homes"), grp("high_roof", "homes")]
 SERVICES = [grp("building_block", "services"), grp("high_roof", "services")]
-FACADES = [part("facade_detail", [f"{cell(c, r)}_facade" for c, r, _ in CELLS])]
+def attached(cells):
+    """What hangs on a platform's buildings and goes with them: facades, and by home type balconies and solar panels."""
+    ids = []
+    for c, r, use in cells:
+        ids.append(f"{cell(c, r)}_facade")
+        if use == "home":
+            ids += [f"{cell(c, r)}_{x}" for x in F.home_extras(F.district_kind(c, r)[0], 60.0, 60.0, 0.4) if x in ("balconies", "solar")]
+    return [part("facade_detail", ids)]
+
+
+FACADES = attached(CELLS)
 BUILDINGS_ALL = [{"concept": "building_block"}, {"concept": "high_roof"}] + FACADES
 GROUND_DETAIL = [{"concept": "facade_detail"}]   # facades, paving, lawns, trees, play courts
 MOORINGS = [{"concept": "mooring_pile"}, {"concept": "mooring_line"}, {"concept": "anchor"}]
 UTILITIES = [{"concept": "utility_line"}]
 WATER_SITE = [{"concept": "water_section"}]
+WATER_SEE_THROUGH = 0.5   # ghosted water keeps half its colour: the surface and the waterline still read (owner review, R2)
+WATER_SEE_THROUGH_DEEP = 0.65   # B31 only: cables on a seabed 60 m down
 NEAR_SHORE = platform_parts([(c, r, u) for c, r, u in CELLS if r <= 1 and 3 <= c <= 7])
 ALL_HULLS = [{"concept": "platform_hull"}]
 
@@ -224,16 +236,35 @@ def joint(n):
 
 
 # ======================================================================================== C1
-visual("B01", "SEQUENCE", "Establishing aerial of the finished illustrative district in its sheltered bay, the quay in the "
-       "foreground; a slow push toward the homes; NOTE 'Illustrative design'", [DISTRICT], "HIGH",
-       sequence=seq("FLOAT_AERIAL", [view(ALL_HULLS + [{"concept": "breakwater"}], margin=0.04),
-                                    view(platform_parts([x for x in CELLS if 2 <= x[0] <= 8 and x[1] <= 6], ("hull",)),
-                                         at(1), move=3.4)], []),
+# The camera stands 400 m off in every view of the opening: with the default 10 m its near clip sliced the platforms
+# between it and a closer framing (the lagoon's far side, the flanks), most visibly while it moved (R3)
+OPEN_CLEARANCE = 400.0
+OPEN_GARDEN = (5, 6)   # the garden that opens onto the lagoon toward the camera: the opening's park close-up
+OPEN_CLUSTER = [x for x in CELLS if 3 <= x[0] <= 7 and 6 <= x[1] <= 8]   # two schools, homes of three types, three gardens
+SCHOOLS = [part("building_block", [f"{cell(c, r)}_buildings" for c, r, u in CELLS if u == "school"]),
+           part("high_roof", [f"{cell(c, r)}_roofs" for c, r, u in CELLS if u == "school"])]
+PARK = [part("facade_detail", [f"{cell(*OPEN_GARDEN)}_{k}" for k in ("lawn", "furniture", "playground", "lamps", "trees")])]
+WATERSIDE = platform_parts([(OPEN_GARDEN[0], OPEN_GARDEN[1], "home")], ("hull", "deck", "buildings")) + \
+    [part("facade_detail", [f"{cell(*OPEN_GARDEN)}_{k}" for k in ("furniture", "lamps")])]
+WHOLE = ALL_HULLS + [{"concept": "breakwater"}]
+
+visual("B01", "SEQUENCE", "The finished illustrative district in its bay; the camera comes down over a cluster with two "
+       "schools and three gardens on the lagoon, into one garden (lawn, trees, seats, play, the waterside promenade), and "
+       "low to the water's edge: the platform's side at the waterline; NOTE 'Illustrative design'", [DISTRICT], "HIGH",
+       sequence=seq("FLOAT_AERIAL", [view(WHOLE, margin=0.04, clearance=OPEN_CLEARANCE),
+                                    view(platform_parts(OPEN_CLUSTER, ("hull",)), at(0, "homes", -0.2), move=1.9, elevation=30.0,
+                                         margin=0.04, clearance=OPEN_CLEARANCE),
+                                    view(PARK, at(0, "parks", -0.1), move=2.0, azimuth=-76.0, elevation=17.0, margin=0.05, clearance=OPEN_CLEARANCE),
+                                    view(WATERSIDE, at(1, "and", -0.3), move=1.8, azimuth=-80.0, elevation=8.0, margin=0.05, clearance=OPEN_CLEARANCE)],
+                    [glow(SCHOOLS, at(0, "schools", -0.1), at(0, "parks"))]),
        annotations=[note("B01_note", "Illustrative design", 0)])
-visual("B02", "SEQUENCE", "The push-in continues over the homes, no claim on screen", [DISTRICT], "HIGH",
-       sequence=seq("FLOAT_AERIAL", [view(platform_parts([x for x in CELLS if 2 <= x[0] <= 8 and x[1] <= 6], ("hull",))),
-                                    view(platform_parts([x for x in CELLS if 3 <= x[0] <= 7 and 1 <= x[1] <= 4], ("hull",)),
-                                         at(0, "design"), move=9.0, elevation=26.0)], []))
+visual("B02", "SEQUENCE", "From the water's edge the camera pulls back to the whole district and settles on it; no claim "
+       "on screen", [DISTRICT], "HIGH",
+       sequence=seq("FLOAT_AERIAL", [view(WATERSIDE, azimuth=-80.0, elevation=8.0, margin=0.05, clearance=OPEN_CLEARANCE),
+                                    view(WHOLE, at(0, "could", -0.2), move=3.0, margin=0.04, clearance=OPEN_CLEARANCE),
+                                    view(WHOLE, at(1, "let's", -0.2), move=3.5, margin=0.08, clearance=OPEN_CLEARANCE)], []))
+# (R3 tried glows on the hulls, the moorings and the utilities at "floats / stays / keeps working": at the scale of the
+# whole district they covered 0.05-0.5 % of the frame and the Blender check refused them; B04 takes those systems apart.)
 
 c = Card("B03")
 c.tag("Already built, and proposed")
@@ -455,7 +486,10 @@ visual("B13", "SEQUENCE", "Side elevation of two identical platforms with two an
 visual("B14", "SEQUENCE", "Close-up of one joint: the gap, the hinged walkway, the flexible utility link and the fenders, "
        "each lit as it is named (conceptual geometry, not sized)", [HOOD], "MEDIUM",
        sequence=seq("FLOAT_THREE_QUARTER",
-                    [view(joint(1), margin=0.3, elevation=48.0)],   # steep enough to see into the gap past the buildings
+                    # R3: looking along the gap (no building between the camera and the joint), close enough for the
+                    # hinge pins, the utility link and the fenders to read (each >= 0.3 % of the frame), the camera
+                    # 40 m off so the near clip does not slice the buildings on either side
+                    [view(joint(1), margin=0.12, azimuth=-90.0, elevation=55.0, clearance=40.0)],
                     [hide(LINES),
                      glow(joint(1), at(0, "trouble", -0.4), at(1, "research")),
                      glow([part("walkway_connector", ["joint1_walkway_hinge0", "joint1_walkway_hinge1"])], at(1, "connectors", -0.2),
@@ -651,14 +685,15 @@ visual("B21", "SEQUENCE", "From the plan to an aerial view: inner homes light, t
                           point="LEFT")])
 
 # ======================================================================================== C5
-visual("B22", "SEQUENCE", "Low view of the neighbourhood: the water ghosts and the steel piles beneath light up",
+visual("B22", "SEQUENCE", "Low view of the neighbourhood: the water turns see-through (half its colour and the waterline stay) and the steel piles beneath light up",
        [HOOD], "MEDIUM",
        sequence=seq("FLOAT_UNDERWATER", [view([grp(cc, f"platform{k}") for k in (1, 2) for cc in ("platform_hull", "deck")] + PILES,
                                               margin=0.1)],
                     [hide(LINES),
-                     step("GHOST", WATER_SITE, at(1, "floating", -0.3), seconds=1.2, transparency=0.85),
+                     step("GHOST", WATER_SITE, at(1, "floating", -0.3), seconds=1.2, transparency=WATER_SEE_THROUGH),
                      glow(PILES, at(1, "poles", -0.4), at(1, end=True, offset=0.3))]),
-       annotations=[label("B22_pile", part("mooring_pile", "platform2_pile1"), "Steel pile", 1, "poles", point="BOTTOM")])
+       annotations=[label("B22_pile", part("mooring_pile", "platform2_pile1"), "Steel pile", 1, "poles", point="BOTTOM"),
+                    note("B22_note", "Water drawn see-through", 1, word="floating")])
 
 c = Card("B23")
 c.tag("Water level and the hinged bridge (illustrative)")
@@ -710,10 +745,10 @@ visual("B23", "CARD", "Elevation at true slope: quay, shore hinge, a 25 m link-s
        "the platform rise and fall, the bridge turns on its hinge; '2 m water level (assumed) + loading; about 2.8° either way'",
        [], "LOW", graphic=c.spec())
 
-visual("B24", "SEQUENCE", "Same neighbourhood with the water ghosted: the piles fade and mooring lines to anchors on the "
+visual("B24", "SEQUENCE", "Same neighbourhood; the water turns see-through (half its colour stays): the piles fade and mooring lines to anchors on the "
        "seabed take their place; lines and anchors light (conceptual mooring, not sized)", [HOOD], "MEDIUM",
        sequence=seq("FLOAT_UNDERWATER", [view(HOOD_PLATFORMS + LINES, margin=0.06)],
-                    [hide(LINES), step("GHOST", WATER_SITE, 0, seconds=0, transparency=0.85),
+                    [hide(LINES), step("GHOST", WATER_SITE, at(0, "water", -0.2), seconds=0.9, transparency=WATER_SEE_THROUGH),
                      step("FADE_OUT", PILES, at(0, "piles", -0.2), seconds=1.0),
                      step("REVEAL", LINES, at(0, "mooring", -0.3), seconds=1.4, direction="FROM_ABOVE", distance=4.0),
                      glow([{"concept": "mooring_line"}], at(1, "lines", -0.3), at(1, "anchors")),
@@ -800,7 +835,7 @@ visual("B30", "SEQUENCE", "Long conceptual swell passes along the breakwater (la
                     [step("OSCILLATE", [ref], 0.3, seconds=round(d30 - 0.6, 2), amplitude_m=0.8, period_seconds=9.0,
                           phase_degrees=round(-28.0 * k, 1), tilt_degrees=1.5, axis="X",
                           pivot=[-6 * 64.0 + (k + 0.5) * 64.0 - 2.0, bw_y, 0.0], fade_seconds=1.5) for k, ref in enumerate(BW)] +
-                    [step("GHOST", WATER_SITE, at(1, "below", -0.3), seconds=1.2, transparency=0.88),
+                    [step("GHOST", WATER_SITE, at(1, "below", -0.3), seconds=1.2, transparency=WATER_SEE_THROUGH),
                      glow([{"concept": "mooring_line"}], at(1, "mooring", -0.3), at(1, "anchors")),
                      glow([{"concept": "anchor"}], at(1, "anchors", -0.2), at(1, end=True, offset=0.3))]),
        annotations=[note("B30_label", CONCEPT_MOTION_LABEL, 0)])
@@ -808,7 +843,7 @@ visual("B30", "SEQUENCE", "Long conceptual swell passes along the breakwater (la
 visual("B31", "SEQUENCE", "From above with the water ghosted: three cables and pipes run along the seabed toward a shore "
        "beyond the frame, and light", [OFF, "utility_line"], "MEDIUM",
        sequence=seq("FLOAT_UNDERWATER", [view(ALL_HULLS + UTILITIES, margin=0.04, elevation=34.0)],
-                    [step("GHOST", WATER_SITE, at(0, "cables", -0.6), seconds=1.0, transparency=0.9),
+                    [step("GHOST", WATER_SITE, at(0, "cables", -0.6), seconds=1.0, transparency=WATER_SEE_THROUGH_DEEP),
                      glow(UTILITIES, at(0, "cables", -0.2), at(1, end=True, offset=0.3))]),
        annotations=[note("B31_note", "Links to a shore beyond the frame, not sized", 0, word="cables")])
 
@@ -836,7 +871,7 @@ visual("B33", "SEQUENCE", "Our box pontoon, then beside it a semi-submersible mo
        sequence=seq("FLOAT_UNDERWATER", [view(BOX, margin=0.2, elevation=12.0),
                                          view({"except": []}, at(1, "semi", -0.6), move=2.0, margin=0.08, elevation=12.0)],
                     [hide(SEMI),
-                     step("GHOST", WATER_SITE, at(0, "different", -0.3), seconds=1.0, transparency=0.85),
+                     step("GHOST", WATER_SITE, at(0, "different", -0.3), seconds=1.0, transparency=WATER_SEE_THROUGH),
                      glow([grp("platform_hull", "box")], at(0, "hull", -0.3), at(1, "semi")),
                      step("REVEAL", SEMI, at(1, "semi", -0.2), seconds=1.6, direction="FROM_BELOW", distance=8.0),
                      glow([{"concept": "column"}], at(1, "columns", -0.3), at(1, "behind")),
@@ -848,7 +883,7 @@ visual("B33", "SEQUENCE", "Our box pontoon, then beside it a semi-submersible mo
 visual("B34", "SEQUENCE", "Low on the hull's side: the water ghosts and the concrete below the waterline lights (no damage "
        "shown)", ["floating_platform"], "LOW",
        sequence=seq("FLOAT_UNDERWATER", [view([grp("platform_hull", "hull")], margin=0.12, elevation=8.0)],
-                    [step("GHOST", WATER_SITE, at(1, "seawater", -0.4), seconds=1.0, transparency=0.85),
+                    [step("GHOST", WATER_SITE, at(1, "seawater", -0.4), seconds=1.0, transparency=WATER_SEE_THROUGH),
                      glow([grp("platform_hull", "hull")], at(1, "chlorides", -0.3), at(2, end=True, offset=0.3))]),
        annotations=[note("B34_note", "Illustrative: inspection zone, no damage shown", 1, word="chlorides")])
 
@@ -857,7 +892,7 @@ visual("B35", "SEQUENCE", "Below the district with the water ghosted: the platfo
        sequence=seq("FLOAT_UNDERWATER", [view(platform_parts([x for x in CELLS if 3 <= x[0] <= 7 and 2 <= x[1] <= 6], ("hull",)),
                                               margin=0.05, elevation=24.0),
                                          view(ALL_HULLS, at(1), move=4.0, margin=0.05, elevation=30.0)],
-                    [step("GHOST", WATER_SITE, at(0, "light", -0.4), seconds=1.4, transparency=0.88)]),
+                    [step("GHOST", WATER_SITE, at(0, "light", -0.4), seconds=1.4, transparency=WATER_SEE_THROUGH)]),
        annotations=[note("B35_note", "Shade illustrative; effects still need study", 0, word="study")])
 
 c = Card("B36")

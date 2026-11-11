@@ -69,6 +69,49 @@ class PlanSequenceTest(unittest.TestCase):
         self.assertGreater(plan.sample("c", motion.HIGHLIGHT, plan.markers["highlight_3_peak"])[0], 0.5)
         self.assertEqual(plan.sample("c", motion.HIGHLIGHT, plan.frame(3.2))[0], 0.0)
 
+    def test_a_pull_back_never_clips_the_far_ground(self):
+        """R3 opening: the orbit backs away mid-move; the camera's far clip must cover that, and a move that does not
+        turn (only the framing changes) slides straight, without backing away."""
+        from engine import framing
+        pts = [(x, y, z) for x in (-300.0, 300.0) for y in (0.0, 600.0) for z in (0.0, 10.0)]
+        small = [(x, y, z) for x in (-20.0, 20.0) for y in (300.0, 340.0) for z in (0.0, 10.0)]
+        preset = {"azimuth_degrees": -62.0, "elevation_degrees": 32.0, "margin": 0.05}
+        views = motion.sequence_views({"views": [{"focus": ["s"], "azimuth": -80.0, "elevation": 8.0},
+                                                 {"start_seconds": 1.0, "move_seconds": 3.0, "margin": 0.04},
+                                                 {"start_seconds": 5.0, "move_seconds": 3.0, "margin": 0.08}]})
+        fits = framing.view_fits(views, lambda focus: small if focus else pts, preset, 16 / 9)
+        a, b, c = fits
+        self.assertEqual(framing.orbit_back_away(b, c), 0.0)   # same direction: no back-away
+        self.assertAlmostEqual(framing.orbit_back_away(a, b), max(a["distance"], b["distance"]))   # a 44 degree turn
+        far = framing.sequence_clip_end(fits)
+        for s in (0.25, 0.5, 0.75):
+            loc, _, _ = framing.orbit_pose(a, b, s)
+            fwd = framing.camera_basis(a["azimuth"] + (b["azimuth"] - a["azimuth"]) * s,
+                                       a["elevation"] + (b["elevation"] - a["elevation"]) * s)[2]
+            reach = max(sum((p - l) * f for p, l, f in zip(q, loc, fwd)) for q in pts)
+            self.assertLess(reach, far)   # the farthest corner of the scene stays inside the far clip
+        loc, _, _ = framing.orbit_pose(b, c, 0.5)
+        mid = tuple((x + y) / 2 for x, y in zip(b["location"], c["location"]))
+        for got, want in zip(loc, mid):
+            self.assertAlmostEqual(got, want, places=6)
+
+    def test_a_view_may_stand_the_camera_further_off(self):
+        """R3 (B14): a close view among buildings: the camera stands `clearance` metres in front of the framed parts,
+        so the near clip does not slice what stands between; the frame itself does not change."""
+        from engine import framing
+        pts = [(x, y, z) for x in (-2.0, 2.0) for y in (0.0, 4.0) for z in (0.0, 1.0)]
+        preset = {"azimuth_degrees": -58.0, "elevation_degrees": 48.0, "margin": 0.3}
+        near, far = framing.view_fits(motion.sequence_views({"views": [{}, {"start_seconds": 1.0, "move_seconds": 1.0,
+                                                                              "clearance": 40.0}]}),
+                                      lambda focus: pts, preset, 16 / 9)
+        fwd = framing.camera_basis(-58.0, 48.0)[2]
+        back = sum((a - b) * f for a, b, f in zip(near["location"], far["location"], fwd))
+        self.assertAlmostEqual(back, 30.0, places=6)
+        self.assertAlmostEqual(near["ortho_scale"], far["ortho_scale"], places=9)
+        self.assertGreaterEqual(far["clip_end"] - near["clip_end"], 0.0)
+        with self.assertRaises(motion.PlanError):
+            motion.sequence_views({"views": [{"clearance": 0.0}]})
+
     def test_an_orbit_turns_around_the_subject_and_lands_on_each_view(self):
         """g-r5: a view with its own direction: the camera turns on a short arc, held exactly on each fit."""
         from engine import framing

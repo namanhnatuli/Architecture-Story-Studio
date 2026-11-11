@@ -165,7 +165,7 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
         v0 = motion.sequence_views(cfg)[0]
         cam_preset = dict(cam_preset, **{k: float(v0[v]) for k, v in (("azimuth_degrees", "azimuth"),
                                                                        ("elevation_degrees", "elevation"),
-                                                                       ("margin", "margin"))
+                                                                       ("margin", "margin"), ("clearance", "clearance"))
                                          if v0[v] is not None})   # the built camera IS the opening view's fit
     basis = framing.camera_basis(cam_preset["azimuth_degrees"], cam_preset["elevation_degrees"])
     offsets = {sid: (0.0, 0.0, 0.0) for sid in slots}
@@ -250,6 +250,7 @@ def build_shot(project_dir, shot_id, preset_name="preview", isolated=False):
         camera_keys = {"name": camera.name, "views": fits, "start": fits[0], "end": fits[-1]}
         smallest = min(f["ortho_scale"] for f in fits) / fits[0]["ortho_scale"]
         camera.data.clip_start = min(camera.data.clip_start, 0.3 * smallest)   # the overlays ride closer when zoomed in
+        camera.data.clip_end = max(camera.data.clip_end, framing.sequence_clip_end(fits))   # the far ground mid-move
 
     move = cfg.get("camera_move") if cfg["template"] == "HOLD" else None
     if move:   # M7: slow push-in from the group's locked framing towards the focus parts

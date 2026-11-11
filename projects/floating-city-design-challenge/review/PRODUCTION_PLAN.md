@@ -106,3 +106,29 @@
     - kiểm "bộ phận đáp đúng chỗ" chấp nhận vị trí do các bước MOVE trước đó đặt.
   - **Thử Sand3D** (`review/SAND3D_TRIAL.md`): nhập USD được, đúng tỉ lệ, chi phí render không đáng kể, nhưng chỉ thấy ở khung cận. Chưa dùng trong phim.
   - **Dừng chờ chủ kênh duyệt R2.**
+- **L6: diện mạo đô thị và đoạn mở đầu (2026-11-11), sau review R2.**
+  - **Đầu vào:** review R2 coi cách giải thích B08–B11 là mẫu cho các chương cơ chế. Toàn quận vẫn lặp lại, công viên chưa đọc được, cảnh neo mất cảm giác nước, hồ sơ khối lượng còn câu cũ.
+  - **Hồ sơ khối lượng:**
+    - `analysis/design_model.py` tách "đã gồm" (nhà ở; trường, phòng khám, cửa hàng, văn phòng trong 40 m²/người) và "không gồm" (phao cảng, bến thuyền, phao hạ tầng; đê; cầu dẫn; neo; mạng hạ tầng);
+    - thêm ghi chú kiểu nhà và giới hạn tải cây xanh;
+    - không số nào đổi. Câu tương ứng trong `concept/scenario_contract.json` sửa theo.
+  - **Kiểu nhà** (`engine/arch/families/floating.py`):
+    - dãy nhà liền kề mái dốc, khối sân trong có pin mặt trời, biệt thự mái lệch ốp gỗ, bốn thanh nhà xoay có ban công, bốn khối cũ, và phao vườn mở ra mặt hồ;
+    - kiểu nào cũng 40% diện tích chiếm đất, 3 tầng, trọng tâm giữa sàn, phố chữ thập ở giữa phao. Vì vậy tải, mớn nước và độ nghiêng của phép tính giữ nguyên (có test).
+  - **Quận:**
+    - nhà ở chia thành ô 2 × 2 phao cùng kiểu, ô cạnh nhau khác kiểu;
+    - 10 phao quanh hồ là phao vườn: cỏ, cây, ghế, đèn, sân chơi, lối dạo ven nước;
+    - ống hạ tầng chuyển từ hàng 6 sang hàng 7 để không cắt ngang công viên;
+    - `home_types = blocks` dựng lại được diện mạo cũ để so sánh.
+  - **Khu 5 phao** (B14, B17, B22, B24) dùng 5 kiểu nhà.
+  - **Nước làm trong:** giữ 50% màu ở mọi cảnh (B31: 35%, vì cáp nằm sâu 60 m). B24 mở bằng nước đầy, rồi mới làm trong. B22 có ghi chú "Water drawn see-through".
+  - **Đoạn mở đầu B01–B02:** toàn quận → cụm có hai trường và ba phao vườn → cận công viên → sát mặt nước → kéo lui ra toàn quận. Đã thử làm sáng thân phao, neo và hạ tầng ở B02 nhưng bỏ: ở tầm toàn quận chúng chỉ chiếm 0,05–0,5% khung hình và kiểm Blender từ chối.
+  - **Engine:** camera giữa hai khung khác hướng lùi ra quá khoảng cắt xa, làm hiện mảng nền phẳng. Sửa hai chỗ:
+    - `clip_end` của SEQUENCE tính cả lúc lùi;
+    - mức lùi tỉ lệ với góc quay, không lùi khi chỉ đổi khung.
+    Có test.
+  - **Khóa `clearance` cho khung nhìn** (khoảng camera đứng trước phần được đóng khung; mặc định 10 m):
+    - đoạn mở đầu dùng 400 m để mặt phẳng cắt gần không xén các phao phía trước;
+    - B14 dùng 40 m và nhìn dọc khe nước.
+  - **Sand3D vòng 2:** không mẫu tòa nhà nào đúng 3 tầng (`review/SAND3D_TRIAL.md`). Phim dùng đồ của Studio.
+  - **SFX:** kho `sfx/` có vẻ không được dùng ngoài CapCut theo thỏa thuận giấy phép của CapCut (`review/SFX_LIBRARY.md`). Chưa dùng.

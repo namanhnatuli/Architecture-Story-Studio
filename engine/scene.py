@@ -324,7 +324,8 @@ def camera_preset(style, name):
 def build_camera(scene, collection, preset, points, aspect, bottom_band=0.0):
     """Locked orthographic camera: direction from the preset, position/scale fitted to points."""
     basis = framing.camera_basis(preset["azimuth_degrees"], preset["elevation_degrees"])
-    fit = framing.fit_ortho(points, basis, aspect, preset.get("margin", 0.07), bottom_band)
+    fit = framing.fit_ortho(points, basis, aspect, preset.get("margin", 0.07), bottom_band,
+                            clearance=preset.get("clearance") or 10.0)   # R3: a SEQUENCE view may stand further off
     data = bpy.data.cameras.new("Locked orthographic")
     data.type = "ORTHO"
     data.ortho_scale = fit["ortho_scale"]

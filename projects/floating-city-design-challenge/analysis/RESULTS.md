@@ -72,14 +72,19 @@ Chỉ tính dải mực nước (không tính thay đổi tải), khớp ở gi�
 
 Thân sâu thêm 0,5 m tốn thêm 105.6 t bê tông (4.0% bê tông thân phao).
 
-## 9. Quận C với phao 60 m (chỉ các phao tiêu chuẩn)
+## 9. Quận C với phao 60 m (các phao tiêu chuẩn: nhà ở và dịch vụ)
 - 93 phao, 33.5 ha, khoảng 108 người mỗi phao, tới 180 cạnh chung; mỗi phao khoảng 10,764 t (mớn nước 2.917 m).
-- Lượng chiếm nước của các phao tiêu chuẩn: khoảng 1,001,000 t. **Không gồm:** service and port platforms, breakwater, link-span bridges, moorings and piles, utility plants and networks.
+- Lượng chiếm nước của các phao tiêu chuẩn: khoảng 1,001,000 t.
+- **Đã gồm:** homes; schools, a clinic, shops and offices (10 of the 40 m2 per resident; section 10).
+- **Không gồm:** port, marina and utility platforms (plants, depots, boat services); breakwater; link-span bridges; moorings and piles; utility networks.
 - 40 m² sàn mỗi người = 30 m² nhà ở + 10 m² trường học, phòng khám, cửa hàng, dịch vụ (giả định).
 
 ## 10. Phân bổ 93 phao của quận (minh họa)
 - 66 phao nhà ở, 6 phao hỗn hợp (tầng trệt dịch vụ, hai tầng trên nhà ở), 21 phao dịch vụ (3 trường học, 1 phòng khám, 17 nhà cộng đồng, cửa hàng, văn phòng). Mọi phao cùng diện tích chiếm đất, số tầng và tải, nên cùng mớn nước.
 - Nhà ở 302,400 m² → khoảng 10,080 người ở mức 30 m²/người; dịch vụ 99,360 m², khoảng 9.86 m² mỗi người. Công viên là phần sàn trống (60% mỗi phao).
+- Đây là phân bổ minh họa, không phải kết quả kiểm tra đủ trường học, y tế hay dịch vụ theo một tiêu chuẩn quy hoạch.
+- Kiểu nhà: Every module, whatever its building type, keeps the same footprint area (40 percent of the deck), three storeys and a footprint centred on the deck, so the same mass, draft and no list. Equal load per m2 of floor across building types is an assumption of this model, not a result.
+- Cây xanh: Lawns and trees are drawn on the open deck. The model carries 0.2 t/m2 of finishes over the whole deck and 0.25 t/m2 of variable load on the open deck: enough for a thin planted layer only. Deep planters for large trees are not modelled.
 
 ## 11. Góc nghiêng của trạng thái mà B11 chiếu
 - 4 storeys, hull 4.5 m (end of the storey branch): dời 100 t ra cách tâm 15 m → nghiêng khoảng 0.438° (bản 3 tầng: 0.421°).

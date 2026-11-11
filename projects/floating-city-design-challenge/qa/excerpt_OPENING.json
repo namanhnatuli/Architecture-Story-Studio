@@ -1,0 +1,172 @@
+{
+  "utc": "2026-11-11T02:38:49.495498+00:00",
+  "label": "OPENING",
+  "preset": "internal_720p",
+  "shots": [
+    "SC_001",
+    "SC_002"
+  ],
+  "render": {
+    "SC_001": "rendered",
+    "SC_002": "rendered"
+  },
+  "runs": [
+    [
+      "SC_001",
+      "SC_002"
+    ]
+  ],
+  "excerpt_joins": [],
+  "frames": 580,
+  "seconds": 24.167,
+  "cuts": [
+    {
+      "cut": "SC_001->SC_002",
+      "mode": "match",
+      "ssim": 0.99992,
+      "ok": true
+    }
+  ],
+  "offsets_seconds": {
+    "SC_001": 0.0,
+    "SC_002": 10.958333333333334
+  },
+  "sound_cues": [],
+  "mix": {
+    "cues": 0,
+    "narration_peak": 15392,
+    "effect_peak": 0.0,
+    "under_narration_db": 14.0,
+    "clipped_samples": 0
+  },
+  "sound_design": {
+    "schema": "sound_design/1",
+    "note": "Sound effects synthesised in the project (pipeline/sound.py): a stone part set in place. Levels are relative to the narration's peak; the whole mix is then loudness-normalised. An agent cannot listen: the owner decides whether they help.",
+    "under_narration_db": 14.0,
+    "lead_seconds": 0.03,
+    "variants": 3,
+    "kinds": {
+      "STONE": {
+        "seconds": 0.45,
+        "relative_db": 0.0,
+        "thump_hz": 72.0,
+        "thump_start_hz": 110.0,
+        "thump_decay": 0.07,
+        "thump_gain": 1.0,
+        "click_decay": 0.018,
+        "click_lowpass_hz": 3200.0,
+        "click_highpass_hz": 700.0,
+        "click_gain": 0.55,
+        "body": [
+          [
+            430.0,
+            0.05,
+            0.22
+          ],
+          [
+            780.0,
+            0.035,
+            0.14
+          ],
+          [
+            1350.0,
+            0.02,
+            0.08
+          ]
+        ]
+      },
+      "STONE_HEAVY": {
+        "seconds": 0.8,
+        "relative_db": 2.0,
+        "thump_hz": 52.0,
+        "thump_start_hz": 85.0,
+        "thump_decay": 0.13,
+        "thump_gain": 1.0,
+        "click_decay": 0.025,
+        "click_lowpass_hz": 2400.0,
+        "click_highpass_hz": 500.0,
+        "click_gain": 0.45,
+        "body": [
+          [
+            300.0,
+            0.09,
+            0.25
+          ],
+          [
+            560.0,
+            0.06,
+            0.15
+          ],
+          [
+            1020.0,
+            0.03,
+            0.08
+          ]
+        ]
+      }
+    }
+  },
+  "subtitle_stats": {
+    "cues": 5,
+    "sentences": 4,
+    "max_line": 41,
+    "lines_over_42": 0,
+    "two_line_cues": 3,
+    "aligned_boundaries": 1,
+    "sentence_fallbacks": 0,
+    "max_cps": 14.9
+  },
+  "subtitle_warnings": [],
+  "files": {
+    "with_sfx": {
+      "file": "output/pilot/floating_city_design_challenge_OPENING_INTERNAL_REVIEW_720p.mp4",
+      "subtitles": "output/pilot/floating_city_design_challenge_OPENING_INTERNAL_REVIEW_720p.en.srt",
+      "seconds": 24.167,
+      "frames": 580,
+      "loudness": {
+        "integrated_lufs": -16.4,
+        "true_peak_dbtp": -1.4
+      },
+      "size_bytes": 9030454
+    },
+    "_no_sfx": {
+      "file": "output/pilot/floating_city_design_challenge_OPENING_INTERNAL_REVIEW_720p_no_sfx.mp4",
+      "subtitles": "output/pilot/floating_city_design_challenge_OPENING_INTERNAL_REVIEW_720p_no_sfx.en.srt",
+      "seconds": 24.167,
+      "frames": 580,
+      "loudness": {
+        "integrated_lufs": -16.4,
+        "true_peak_dbtp": -1.4
+      },
+      "size_bytes": 9030454
+    }
+  },
+  "intelligibility": {
+    "status": "RUN",
+    "model": "openai/whisper-large-v3-turbo",
+    "rows": {
+      "SC_001": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "10,000 people with homes, schools, a clinic, parks, and streets to walk along. And not one of them is standing on land."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "10,000 people with homes, schools, a clinic, parks, and streets to walk along. And not one of them is standing on land."
+        }
+      },
+      "SC_002": {
+        "with_sfx": {
+          "wer": 0.0,
+          "text": "Could we design a city like this, one that floats, stays where we put it and keeps working? Let's treat it as a design problem and solve it one step at a time."
+        },
+        "_no_sfx": {
+          "wer": 0.0,
+          "text": "Could we design a city like this, one that floats, stays where we put it and keeps working? Let's treat it as a design problem and solve it one step at a time."
+        }
+      }
+    },
+    "worse": []
+  },
+  "problems": []
+}

@@ -16,7 +16,7 @@
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [],
       "narration": "10,000 people, with homes, schools, a clinic, parks, and streets to walk along. And not one of them is standing on land.",
-      "visual_goal": "Establishing aerial of the finished illustrative district in its sheltered bay, the quay in the foreground; a slow push toward the homes; NOTE 'Illustrative design'",
+      "visual_goal": "The finished illustrative district in its bay; the camera comes down over a cluster with two schools and three gardens on the lagoon, into one garden (lawn, trees, seats, play, the waterside promenade), and low to the water's edge: the platform's side at the waterline; NOTE 'Illustrative design'",
       "required_concepts": [
         "floating_district"
       ],
@@ -34,66 +34,140 @@
                 "concept": "breakwater"
               }
             ],
-            "margin": 0.04
+            "margin": 0.04,
+            "clearance": 400.0
           },
           {
             "frame": [
               {
                 "concept": "platform_hull",
                 "local": [
-                  "m020_hull",
-                  "m021_hull",
-                  "m022_hull",
-                  "m023_hull",
-                  "m024_hull",
-                  "m025_hull",
-                  "m026_hull",
-                  "m030_hull",
-                  "m031_hull",
-                  "m032_hull",
-                  "m033_hull",
-                  "m034_hull",
-                  "m035_hull",
                   "m036_hull",
-                  "m040_hull",
-                  "m041_hull",
-                  "m042_hull",
-                  "m043_hull",
+                  "m037_hull",
+                  "m038_hull",
                   "m046_hull",
-                  "m050_hull",
-                  "m051_hull",
-                  "m052_hull",
-                  "m053_hull",
+                  "m047_hull",
+                  "m048_hull",
                   "m056_hull",
-                  "m060_hull",
-                  "m061_hull",
-                  "m062_hull",
-                  "m063_hull",
+                  "m057_hull",
+                  "m058_hull",
                   "m066_hull",
-                  "m070_hull",
-                  "m071_hull",
-                  "m072_hull",
-                  "m073_hull",
-                  "m074_hull",
-                  "m075_hull",
+                  "m067_hull",
+                  "m068_hull",
                   "m076_hull",
-                  "m080_hull",
-                  "m081_hull",
-                  "m082_hull",
-                  "m083_hull",
-                  "m084_hull",
-                  "m085_hull",
-                  "m086_hull"
+                  "m077_hull",
+                  "m078_hull"
+                ]
+              }
+            ],
+            "elevation": 30.0,
+            "margin": 0.04,
+            "clearance": 400.0,
+            "at": {
+              "sentence": 0,
+              "word": "homes",
+              "offset": -0.2
+            },
+            "move_seconds": 1.9
+          },
+          {
+            "frame": [
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m056_lawn",
+                  "m056_furniture",
+                  "m056_playground",
+                  "m056_lamps",
+                  "m056_trees"
+                ]
+              }
+            ],
+            "azimuth": -76.0,
+            "elevation": 17.0,
+            "margin": 0.05,
+            "clearance": 400.0,
+            "at": {
+              "sentence": 0,
+              "word": "parks",
+              "offset": -0.1
+            },
+            "move_seconds": 2.0
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull",
+                "local": [
+                  "m056_hull"
+                ]
+              },
+              {
+                "concept": "deck",
+                "local": [
+                  "m056_deck"
+                ]
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "m056_buildings"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m056_furniture",
+                  "m056_lamps"
+                ]
+              }
+            ],
+            "azimuth": -80.0,
+            "elevation": 8.0,
+            "margin": 0.05,
+            "clearance": 400.0,
+            "at": {
+              "sentence": 1,
+              "word": "and",
+              "offset": -0.3
+            },
+            "move_seconds": 1.8
+          }
+        ],
+        "steps": [
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "building_block",
+                "local": [
+                  "m005_buildings",
+                  "m048_buildings",
+                  "m068_buildings"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "m005_roofs",
+                  "m048_roofs",
+                  "m068_roofs"
                 ]
               }
             ],
             "at": {
-              "sentence": 1
+              "sentence": 0,
+              "word": "schools",
+              "offset": -0.1
             },
-            "move_seconds": 3.4
+            "until": {
+              "sentence": 0,
+              "word": "parks"
+            },
+            "strength": 1.0,
+            "tint": 0.6
           }
-        ],
-        "steps": []
+        ]
       },
       "annotations": [
         {
@@ -112,7 +186,7 @@
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [],
       "narration": "Could we design a city like this, one that floats, stays where we put it, and keeps working? Let's treat it as a design problem, and solve it one step at a time.",
-      "visual_goal": "The push-in continues over the homes, no claim on screen",
+      "visual_goal": "From the water's edge the camera pulls back to the whole district and settles on it; no claim on screen",
       "required_concepts": [
         "floating_district"
       ],
@@ -126,84 +200,69 @@
               {
                 "concept": "platform_hull",
                 "local": [
-                  "m020_hull",
-                  "m021_hull",
-                  "m022_hull",
-                  "m023_hull",
-                  "m024_hull",
-                  "m025_hull",
-                  "m026_hull",
-                  "m030_hull",
-                  "m031_hull",
-                  "m032_hull",
-                  "m033_hull",
-                  "m034_hull",
-                  "m035_hull",
-                  "m036_hull",
-                  "m040_hull",
-                  "m041_hull",
-                  "m042_hull",
-                  "m043_hull",
-                  "m046_hull",
-                  "m050_hull",
-                  "m051_hull",
-                  "m052_hull",
-                  "m053_hull",
-                  "m056_hull",
-                  "m060_hull",
-                  "m061_hull",
-                  "m062_hull",
-                  "m063_hull",
-                  "m066_hull",
-                  "m070_hull",
-                  "m071_hull",
-                  "m072_hull",
-                  "m073_hull",
-                  "m074_hull",
-                  "m075_hull",
-                  "m076_hull",
-                  "m080_hull",
-                  "m081_hull",
-                  "m082_hull",
-                  "m083_hull",
-                  "m084_hull",
-                  "m085_hull",
-                  "m086_hull"
+                  "m056_hull"
+                ]
+              },
+              {
+                "concept": "deck",
+                "local": [
+                  "m056_deck"
+                ]
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "m056_buildings"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m056_furniture",
+                  "m056_lamps"
                 ]
               }
-            ]
+            ],
+            "azimuth": -80.0,
+            "elevation": 8.0,
+            "margin": 0.05,
+            "clearance": 400.0
           },
           {
             "frame": [
               {
-                "concept": "platform_hull",
-                "local": [
-                  "m031_hull",
-                  "m032_hull",
-                  "m033_hull",
-                  "m034_hull",
-                  "m041_hull",
-                  "m042_hull",
-                  "m043_hull",
-                  "m051_hull",
-                  "m052_hull",
-                  "m053_hull",
-                  "m061_hull",
-                  "m062_hull",
-                  "m063_hull",
-                  "m071_hull",
-                  "m072_hull",
-                  "m073_hull",
-                  "m074_hull"
-                ]
+                "concept": "platform_hull"
+              },
+              {
+                "concept": "breakwater"
               }
             ],
-            "elevation": 26.0,
+            "margin": 0.04,
+            "clearance": 400.0,
             "at": {
               "sentence": 0,
-              "word": "design"
+              "word": "could",
+              "offset": -0.2
             },
-            "move_seconds": 9.0
+            "move_seconds": 3.0
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull"
+              },
+              {
+                "concept": "breakwater"
+              }
+            ],
+            "margin": 0.08,
+            "clearance": 400.0,
+            "at": {
+              "sentence": 1,
+              "word": "let's",
+              "offset": -0.2
+            },
+            "move_seconds": 3.5
           }
         ],
         "steps": []
@@ -1387,7 +1446,9 @@
                   "m012_facade",
                   "m013_facade",
                   "m014_facade",
+                  "m014_balconies",
                   "m015_facade",
+                  "m015_balconies",
                   "m016_facade",
                   "m017_facade",
                   "m018_facade",
@@ -1396,64 +1457,95 @@
                   "m022_facade",
                   "m023_facade",
                   "m024_facade",
+                  "m024_balconies",
                   "m025_facade",
+                  "m025_balconies",
                   "m026_facade",
                   "m027_facade",
                   "m028_facade",
                   "m030_facade",
                   "m031_facade",
                   "m032_facade",
+                  "m032_solar",
                   "m033_facade",
+                  "m033_solar",
                   "m034_facade",
+                  "m034_balconies",
                   "m035_facade",
+                  "m035_balconies",
                   "m036_facade",
                   "m037_facade",
                   "m038_facade",
                   "m040_facade",
                   "m041_facade",
                   "m042_facade",
+                  "m042_solar",
                   "m043_facade",
+                  "m043_balconies",
                   "m046_facade",
+                  "m046_balconies",
                   "m047_facade",
                   "m048_facade",
                   "m050_facade",
                   "m051_facade",
                   "m052_facade",
+                  "m052_balconies",
                   "m053_facade",
+                  "m053_balconies",
                   "m056_facade",
+                  "m056_balconies",
                   "m057_facade",
+                  "m057_solar",
                   "m058_facade",
                   "m060_facade",
                   "m061_facade",
                   "m062_facade",
+                  "m062_balconies",
                   "m063_facade",
+                  "m063_balconies",
                   "m066_facade",
+                  "m066_balconies",
                   "m067_facade",
+                  "m067_solar",
                   "m068_facade",
                   "m070_facade",
+                  "m070_solar",
                   "m071_facade",
+                  "m071_solar",
                   "m072_facade",
                   "m073_facade",
                   "m074_facade",
+                  "m074_balconies",
                   "m075_facade",
+                  "m075_balconies",
                   "m076_facade",
+                  "m076_balconies",
                   "m077_facade",
+                  "m077_balconies",
                   "m078_facade",
                   "m080_facade",
+                  "m080_solar",
                   "m081_facade",
+                  "m081_solar",
                   "m082_facade",
                   "m083_facade",
                   "m084_facade",
                   "m085_facade",
                   "m086_facade",
+                  "m086_balconies",
                   "m087_facade",
+                  "m087_balconies",
                   "m088_facade",
                   "m090_facade",
+                  "m090_balconies",
                   "m091_facade",
+                  "m091_balconies",
                   "m092_facade",
                   "m093_facade",
                   "m094_facade",
+                  "m094_solar",
                   "m095_facade",
+                  "m095_solar",
                   "m096_facade",
                   "m097_facade",
                   "m098_facade",
@@ -5468,8 +5560,10 @@
                 "group": "joint1"
               }
             ],
-            "margin": 0.3,
-            "elevation": 48.0
+            "margin": 0.12,
+            "azimuth": -90.0,
+            "elevation": 55.0,
+            "clearance": 40.0
           }
         ],
         "steps": [
@@ -20279,7 +20373,7 @@
         "CLM_020"
       ],
       "narration": "Something also has to hold the city in place. Floating homes in the Netherlands are fixed to the shore, often resting against steel poles.",
-      "visual_goal": "Low view of the neighbourhood: the water ghosts and the steel piles beneath light up",
+      "visual_goal": "Low view of the neighbourhood: the water turns see-through (half its colour and the waterline stay) and the steel piles beneath light up",
       "required_concepts": [
         "neighbourhood_both_moorings"
       ],
@@ -20344,7 +20438,7 @@
               "offset": -0.3
             },
             "seconds": 1.2,
-            "transparency": 0.85
+            "transparency": 0.5
           },
           {
             "do": "HIGHLIGHT",
@@ -20386,6 +20480,14 @@
           "text": "Steel pile",
           "sentence": 1,
           "word": "poles"
+        },
+        {
+          "id": "B22_note",
+          "type": "NOTE",
+          "text": "Water drawn see-through",
+          "sentence": 1,
+          "position": "BOTTOM_RIGHT",
+          "word": "floating"
         }
       ]
     },
@@ -20781,7 +20883,7 @@
         "CLM_054"
       ],
       "narration": "Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed. Deeper water means longer lines, deeper anchors, and higher costs. The seabed itself shapes the design, and the bill.",
-      "visual_goal": "Same neighbourhood with the water ghosted: the piles fade and mooring lines to anchors on the seabed take their place; lines and anchors light (conceptual mooring, not sized)",
+      "visual_goal": "Same neighbourhood; the water turns see-through (half its colour stays): the piles fade and mooring lines to anchors on the seabed take their place; lines and anchors light (conceptual mooring, not sized)",
       "required_concepts": [
         "neighbourhood_both_moorings"
       ],
@@ -20923,9 +21025,13 @@
                 "concept": "water_section"
               }
             ],
-            "at": 0,
-            "seconds": 0,
-            "transparency": 0.85
+            "at": {
+              "sentence": 0,
+              "word": "water",
+              "offset": -0.2
+            },
+            "seconds": 0.9,
+            "transparency": 0.5
           },
           {
             "do": "FADE_OUT",
@@ -21153,7 +21259,9 @@
                   "m012_facade",
                   "m013_facade",
                   "m014_facade",
+                  "m014_balconies",
                   "m015_facade",
+                  "m015_balconies",
                   "m016_facade",
                   "m017_facade",
                   "m018_facade",
@@ -21162,64 +21270,95 @@
                   "m022_facade",
                   "m023_facade",
                   "m024_facade",
+                  "m024_balconies",
                   "m025_facade",
+                  "m025_balconies",
                   "m026_facade",
                   "m027_facade",
                   "m028_facade",
                   "m030_facade",
                   "m031_facade",
                   "m032_facade",
+                  "m032_solar",
                   "m033_facade",
+                  "m033_solar",
                   "m034_facade",
+                  "m034_balconies",
                   "m035_facade",
+                  "m035_balconies",
                   "m036_facade",
                   "m037_facade",
                   "m038_facade",
                   "m040_facade",
                   "m041_facade",
                   "m042_facade",
+                  "m042_solar",
                   "m043_facade",
+                  "m043_balconies",
                   "m046_facade",
+                  "m046_balconies",
                   "m047_facade",
                   "m048_facade",
                   "m050_facade",
                   "m051_facade",
                   "m052_facade",
+                  "m052_balconies",
                   "m053_facade",
+                  "m053_balconies",
                   "m056_facade",
+                  "m056_balconies",
                   "m057_facade",
+                  "m057_solar",
                   "m058_facade",
                   "m060_facade",
                   "m061_facade",
                   "m062_facade",
+                  "m062_balconies",
                   "m063_facade",
+                  "m063_balconies",
                   "m066_facade",
+                  "m066_balconies",
                   "m067_facade",
+                  "m067_solar",
                   "m068_facade",
                   "m070_facade",
+                  "m070_solar",
                   "m071_facade",
+                  "m071_solar",
                   "m072_facade",
                   "m073_facade",
                   "m074_facade",
+                  "m074_balconies",
                   "m075_facade",
+                  "m075_balconies",
                   "m076_facade",
+                  "m076_balconies",
                   "m077_facade",
+                  "m077_balconies",
                   "m078_facade",
                   "m080_facade",
+                  "m080_solar",
                   "m081_facade",
+                  "m081_solar",
                   "m082_facade",
                   "m083_facade",
                   "m084_facade",
                   "m085_facade",
                   "m086_facade",
+                  "m086_balconies",
                   "m087_facade",
+                  "m087_balconies",
                   "m088_facade",
                   "m090_facade",
+                  "m090_balconies",
                   "m091_facade",
+                  "m091_balconies",
                   "m092_facade",
                   "m093_facade",
                   "m094_facade",
+                  "m094_solar",
                   "m095_facade",
+                  "m095_solar",
                   "m096_facade",
                   "m097_facade",
                   "m098_facade",
@@ -24548,7 +24687,7 @@
               "offset": -0.3
             },
             "seconds": 1.2,
-            "transparency": 0.88
+            "transparency": 0.5
           },
           {
             "do": "HIGHLIGHT",
@@ -24648,7 +24787,7 @@
               "offset": -0.6
             },
             "seconds": 1.0,
-            "transparency": 0.9
+            "transparency": 0.65
           },
           {
             "do": "HIGHLIGHT",
@@ -24972,7 +25111,7 @@
               "offset": -0.3
             },
             "seconds": 1.0,
-            "transparency": 0.85
+            "transparency": 0.5
           },
           {
             "do": "HIGHLIGHT",
@@ -25155,7 +25294,7 @@
               "offset": -0.4
             },
             "seconds": 1.0,
-            "transparency": 0.85
+            "transparency": 0.5
           },
           {
             "do": "HIGHLIGHT",
@@ -25267,7 +25406,7 @@
               "offset": -0.4
             },
             "seconds": 1.4,
-            "transparency": 0.88
+            "transparency": 0.5
           }
         ]
       },

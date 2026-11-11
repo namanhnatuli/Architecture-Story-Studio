@@ -68,7 +68,10 @@ def expected_counts(family, variant, p):
         return {k: v for k, v in {"HULL": 2, "DECK": 2, "BUILDING": n_built, "ROOF": n_built, "DECORATION": 2 * n_built,
                                   "WALKWAY": 1, "CONNECTOR": 2}.items() if v}
     if family == "floating" and variant == "neighbourhood":   # 5 platforms, 4 joints (2 along X with fenders)
-        out = {"HULL": 5, "DECK": 5, "BUILDING": 5, "ROOF": 5, "DECORATION": 10, "WALKWAY": 4, "UTILITY_LINE": 4,
+        from engine.arch.families import floating as F
+        decoration = sum(F.set_counts("home", kind, L=p["length_m"], B=p["width_m"], cover=p["building_cover"])["DECORATION"]
+                         for kind in F.NEIGHBOURHOOD_KINDS[p["home_types"]])
+        out = {"HULL": 5, "DECK": 5, "BUILDING": 5, "ROOF": 5, "DECORATION": decoration, "WALKWAY": 4, "UTILITY_LINE": 4,
                "CONNECTOR": 4 * 2 + 2 * 2}
         if p["moorings"] in ("piles", "both"):
             out.update(MOORING_PILE=10, CONNECTOR=out["CONNECTOR"] + 10)
@@ -89,8 +92,14 @@ def expected_counts(family, variant, p):
         pitch = p["length_m"] + p["gap_m"]
         nseg = int((cols * pitch + 2 * pitch) // 64.0)
         bridges = 0 if p["offshore"] else p["bridges"]
-        schools, parks = 3, 10   # district_C_allocation: three schools (a playground each); lawn and trees round the lagoon
-        out = {"HULL": 93, "DECK": 93, "BUILDING": 93, "ROOF": 93, "DECORATION": 93 * 2 + schools + 2 * parks,
+        from engine.arch.families import floating as F
+        if p["home_types"] == "varied":   # every home type brings its own gardens, balconies, solar panels or seats
+            decoration = sum(F.set_counts(u, F.district_kind(c, r)[0] if u == "home" else "blocks", L=p["length_m"], B=p["width_m"],
+                                          cover=p["building_cover"], storeys=p["storeys"])["DECORATION"] for c, r, u in F.district_cells())
+        else:
+            schools, parks = 3, 10   # district_C_allocation: three schools (a playground each); lawn and trees round the lagoon
+            decoration = 93 * 2 + schools + 2 * parks
+        out = {"HULL": 93, "DECK": 93, "BUILDING": 93, "ROOF": 93, "DECORATION": decoration,
                "WALKWAY": walks + 2, "MOORING_PILE": piles,
                "MOORING_LINE": lines, "ANCHOR": lines, "BREAKWATER": nseg, "LINK_SPAN": bridges,
                "CONNECTOR": bridges, "UTILITY_LINE": 3 * bridges + (9 if bridges else 0) + (3 if p["offshore"] and p["shore_link_m"] > 0 else 0),

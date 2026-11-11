@@ -73,6 +73,31 @@ class VisualsTest(unittest.TestCase):
             if bid == "B10":
                 self.assertEqual(len({tuple(v["focus"] or ()) for v in anim["views"]}), 2)   # two framings
 
+    def test_water_made_see_through_keeps_its_colour(self):
+        """Owner review of R2: ghosted water must still read as water (the surface, its colour, the waterline)."""
+        n = 0
+        for bid, v in self.V.VISUALS.items():
+            for st in steps_of(v):
+                if st["do"] == "GHOST" and st["targets"] == self.V.WATER_SITE:
+                    n += 1
+                    self.assertLessEqual(st["transparency"], 0.65, bid)
+        self.assertEqual(n, 7)
+        b24 = steps_of(self.V.VISUALS["B24"])
+        ghost = next(st for st in b24 if st["do"] == "GHOST")
+        self.assertNotEqual(ghost["at"], 0)   # B24 opens on the full water, then makes it see-through
+
+    def test_opening_goes_from_the_district_to_a_park_and_back(self):
+        b01, b02 = self.V.VISUALS["B01"]["sequence"], self.V.VISUALS["B02"]["sequence"]
+        first, *_, last = b01["views"]
+        self.assertEqual(first["frame"], self.V.WHOLE)
+        self.assertIn(self.V.PARK[0], [r for vw in b01["views"] for r in vw["frame"]])
+        cont = {k: v for k, v in last.items() if k not in ("at", "move_seconds")}
+        self.assertEqual(b02["views"][0], cont)   # B02 opens on the frame B01 ends on: the cut does not jump
+        self.assertEqual(b02["views"][-1]["frame"], self.V.WHOLE)
+        garden = self.V.OPEN_GARDEN
+        self.assertEqual(self.V.F.district_kind(*garden)[0], "garden")
+        self.assertEqual(self.V.F.GARDEN_SIDE[garden], "-y")   # it opens toward the aerial camera (azimuth -62)
+
     def test_conceptual_motion_is_labelled_on_screen_for_the_whole_beat(self):
         for bid, v in self.V.VISUALS.items():
             if any(s["do"] == "OSCILLATE" for s in steps_of(v)):

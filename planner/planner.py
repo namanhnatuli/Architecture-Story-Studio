@@ -548,7 +548,7 @@ def build_strategy(name, ctx):
             out = {"focus": None if v.get("frame") is None else sorted(ids(v["frame"], f"views[{k}].frame"))}
             if k:
                 out.update(start_seconds=when(v.get("at"), f"views[{k}].at"), move_seconds=float(v.get("move_seconds", 1.5)))
-            for key in ("easing", "margin", "azimuth", "elevation"):   # g-r5: a view may turn the camera
+            for key in ("easing", "margin", "azimuth", "elevation", "clearance"):   # g-r5: a view may turn the camera
                 if key in v:
                     out[key] = v[key]
             views.append(out)

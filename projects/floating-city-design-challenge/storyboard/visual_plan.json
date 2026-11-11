@@ -14,7 +14,7 @@
   "duration_seconds": 784.166667,
   "executable": true,
   "inputs": {
-    "beats_sha256": "cbe0bdaec97b9d2aee513af9aad4f9b11282c53e5a5c6196a1854e775bc6b863",
+    "beats_sha256": "0cabdee2756d872f93852bfb9faa18fce93ada5fe5d5d26402a0b5c42f15a27f",
     "sources_sha256": "46654721c482ed944ccc32544fd77ab0d37a8e807a17c0c01d928f80aef8ea23",
     "vocabulary_sha256": "d32458f216d6975b947e282b2157998ad4509f89f4a029390b91c126f1ff184c",
     "planning_config_sha256": "87ac0665ffadc4389ec256954c387b4dbdd9e957727e42ea31978cc314345a09",
@@ -22,7 +22,7 @@
       "floating_clay_boat_01": "afa34805bb8f8daf032908bfd25356bfe3570845c2d11f31d7c6baae50063399",
       "floating_district_01": "59a9d3d60d39c83651b5ab7f33494a85c118e86c3a5ab3a5b5e0c27e8ee0d885",
       "floating_district_offshore_01": "67660a335f4a775f71578bfe39cd6fde978645373030d930d49d132f974e1148",
-      "floating_neighbourhood_both_01": "cf2b566e21d2d8806f67a8234fb05def6219f4f296f67ed39fd5eb15d2992a0d",
+      "floating_neighbourhood_both_01": "93b2be4b9cc9186232e6a9558654dd0fd105bbe3f9dc219d0fed107336ee3227",
       "floating_pair_b_01": "bd0ffbe4f542ada1e711f8d4a336c6f7b5cbe667813668fef01b4b22bb5f870e",
       "floating_platform_a_01": "24f26ef8362444f38f771346633818e37ce269e4c0719af6717d1ab7a23bf8a1",
       "floating_platform_a_section_01": "7db4db0cd1a76cc8d4d28016e52bcf51a84ac8223d07168b88d0b1cf7b4c98ee",
@@ -369,59 +369,83 @@
                 "floating_district_m107_hull",
                 "floating_district_m108_hull"
               ],
-              "margin": 0.04
+              "margin": 0.04,
+              "clearance": 400.0
             },
             {
               "focus": [
-                "floating_district_m020_hull",
-                "floating_district_m021_hull",
-                "floating_district_m022_hull",
-                "floating_district_m023_hull",
-                "floating_district_m024_hull",
-                "floating_district_m025_hull",
-                "floating_district_m026_hull",
-                "floating_district_m030_hull",
-                "floating_district_m031_hull",
-                "floating_district_m032_hull",
-                "floating_district_m033_hull",
-                "floating_district_m034_hull",
-                "floating_district_m035_hull",
                 "floating_district_m036_hull",
-                "floating_district_m040_hull",
-                "floating_district_m041_hull",
-                "floating_district_m042_hull",
-                "floating_district_m043_hull",
+                "floating_district_m037_hull",
+                "floating_district_m038_hull",
                 "floating_district_m046_hull",
-                "floating_district_m050_hull",
-                "floating_district_m051_hull",
-                "floating_district_m052_hull",
-                "floating_district_m053_hull",
+                "floating_district_m047_hull",
+                "floating_district_m048_hull",
                 "floating_district_m056_hull",
-                "floating_district_m060_hull",
-                "floating_district_m061_hull",
-                "floating_district_m062_hull",
-                "floating_district_m063_hull",
+                "floating_district_m057_hull",
+                "floating_district_m058_hull",
                 "floating_district_m066_hull",
-                "floating_district_m070_hull",
-                "floating_district_m071_hull",
-                "floating_district_m072_hull",
-                "floating_district_m073_hull",
-                "floating_district_m074_hull",
-                "floating_district_m075_hull",
+                "floating_district_m067_hull",
+                "floating_district_m068_hull",
                 "floating_district_m076_hull",
-                "floating_district_m080_hull",
-                "floating_district_m081_hull",
-                "floating_district_m082_hull",
-                "floating_district_m083_hull",
-                "floating_district_m084_hull",
-                "floating_district_m085_hull",
-                "floating_district_m086_hull"
+                "floating_district_m077_hull",
+                "floating_district_m078_hull"
               ],
-              "start_seconds": 6.95,
-              "move_seconds": 3.4
+              "start_seconds": 2.04,
+              "move_seconds": 1.9,
+              "margin": 0.04,
+              "elevation": 30.0,
+              "clearance": 400.0
+            },
+            {
+              "focus": [
+                "floating_district_m056_furniture",
+                "floating_district_m056_lamps",
+                "floating_district_m056_lawn",
+                "floating_district_m056_playground",
+                "floating_district_m056_trees"
+              ],
+              "start_seconds": 3.98,
+              "move_seconds": 2.0,
+              "margin": 0.05,
+              "azimuth": -76.0,
+              "elevation": 17.0,
+              "clearance": 400.0
+            },
+            {
+              "focus": [
+                "floating_district_m056_buildings",
+                "floating_district_m056_deck",
+                "floating_district_m056_furniture",
+                "floating_district_m056_hull",
+                "floating_district_m056_lamps"
+              ],
+              "start_seconds": 6.65,
+              "move_seconds": 1.8,
+              "margin": 0.05,
+              "azimuth": -80.0,
+              "elevation": 8.0,
+              "clearance": 400.0
             }
           ],
-          "steps": []
+          "steps": [
+            {
+              "components": [
+                "floating_district_m005_buildings",
+                "floating_district_m048_buildings",
+                "floating_district_m068_buildings",
+                "floating_district_m005_roofs",
+                "floating_district_m048_roofs",
+                "floating_district_m068_roofs"
+              ],
+              "start_seconds": 2.74,
+              "rise_seconds": 0.3,
+              "hold_seconds": 0.64,
+              "fall_seconds": 0.4,
+              "strength": 1.0,
+              "tint": 0.6,
+              "do": "HIGHLIGHT"
+            }
+          ]
         },
         "from_state": "floating_district",
         "to_state": "floating_district",
@@ -432,7 +456,7 @@
         ],
         "claim_ids": [],
         "narration": "10,000 people, with homes, schools, a clinic, parks, and streets to walk along. And not one of them is standing on land.",
-        "visual_purpose": "Establishing aerial of the finished illustrative district in its sheltered bay, the quay in the foreground; a slow push toward the homes; NOTE 'Illustrative design' [SEQUENCE 1/1: 2 view(s), 0 timed steps on floating_district: ]",
+        "visual_purpose": "The finished illustrative district in its bay; the camera comes down over a cluster with two schools and three gardens on the lagoon, into one garden (lawn, trees, seats, play, the waterside promenade), and low to the water's edge: the platform's side at the waterline; NOTE 'Illustrative design' [SEQUENCE 1/1: 4 view(s), 1 timed steps on floating_district: highlight 6]",
         "build_variants": [
           "floating_district"
         ],
@@ -618,49 +642,19 @@
         ],
         "safe_band": 0.1,
         "end_focus": [
-          "floating_district_m020_hull",
-          "floating_district_m021_hull",
-          "floating_district_m022_hull",
-          "floating_district_m023_hull",
-          "floating_district_m024_hull",
-          "floating_district_m025_hull",
-          "floating_district_m026_hull",
-          "floating_district_m030_hull",
-          "floating_district_m031_hull",
-          "floating_district_m032_hull",
-          "floating_district_m033_hull",
-          "floating_district_m034_hull",
-          "floating_district_m035_hull",
-          "floating_district_m036_hull",
-          "floating_district_m040_hull",
-          "floating_district_m041_hull",
-          "floating_district_m042_hull",
-          "floating_district_m043_hull",
-          "floating_district_m046_hull",
-          "floating_district_m050_hull",
-          "floating_district_m051_hull",
-          "floating_district_m052_hull",
-          "floating_district_m053_hull",
+          "floating_district_m056_buildings",
+          "floating_district_m056_deck",
+          "floating_district_m056_furniture",
           "floating_district_m056_hull",
-          "floating_district_m060_hull",
-          "floating_district_m061_hull",
-          "floating_district_m062_hull",
-          "floating_district_m063_hull",
-          "floating_district_m066_hull",
-          "floating_district_m070_hull",
-          "floating_district_m071_hull",
-          "floating_district_m072_hull",
-          "floating_district_m073_hull",
-          "floating_district_m074_hull",
-          "floating_district_m075_hull",
-          "floating_district_m076_hull",
-          "floating_district_m080_hull",
-          "floating_district_m081_hull",
-          "floating_district_m082_hull",
-          "floating_district_m083_hull",
-          "floating_district_m084_hull",
-          "floating_district_m085_hull",
-          "floating_district_m086_hull"
+          "floating_district_m056_lamps"
+        ],
+        "angles": [
+          null,
+          null
+        ],
+        "end_angles": [
+          -80.0,
+          8.0
         ],
         "group": 1,
         "build_variants": [
@@ -672,11 +666,11 @@
         "mode": "AUDIO_LOCKED",
         "frames": 263,
         "duration_seconds": 10.958333,
-        "min_seconds": 10.4167,
+        "min_seconds": 8.5417,
         "beat_offset_seconds": 0.0,
         "start_seconds": 0.0
       },
-      "explanation": "2 view(s), 0 timed steps on floating_district: ",
+      "explanation": "4 view(s), 1 timed steps on floating_district: highlight 6",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -757,6 +751,50 @@
           "views": [
             {
               "focus": [
+                "floating_district_m056_buildings",
+                "floating_district_m056_deck",
+                "floating_district_m056_furniture",
+                "floating_district_m056_hull",
+                "floating_district_m056_lamps"
+              ],
+              "margin": 0.05,
+              "azimuth": -80.0,
+              "elevation": 8.0,
+              "clearance": 400.0
+            },
+            {
+              "focus": [
+                "floating_district_breakwater00",
+                "floating_district_breakwater01",
+                "floating_district_breakwater02",
+                "floating_district_breakwater03",
+                "floating_district_breakwater04",
+                "floating_district_breakwater05",
+                "floating_district_breakwater06",
+                "floating_district_breakwater07",
+                "floating_district_breakwater08",
+                "floating_district_breakwater09",
+                "floating_district_breakwater10",
+                "floating_district_breakwater11",
+                "floating_district_breakwater12",
+                "floating_district_m000_hull",
+                "floating_district_m001_hull",
+                "floating_district_m002_hull",
+                "floating_district_m003_hull",
+                "floating_district_m004_hull",
+                "floating_district_m005_hull",
+                "floating_district_m006_hull",
+                "floating_district_m007_hull",
+                "floating_district_m008_hull",
+                "floating_district_m010_hull",
+                "floating_district_m011_hull",
+                "floating_district_m012_hull",
+                "floating_district_m013_hull",
+                "floating_district_m014_hull",
+                "floating_district_m015_hull",
+                "floating_district_m016_hull",
+                "floating_district_m017_hull",
+                "floating_district_m018_hull",
                 "floating_district_m020_hull",
                 "floating_district_m021_hull",
                 "floating_district_m022_hull",
@@ -764,6 +802,8 @@
                 "floating_district_m024_hull",
                 "floating_district_m025_hull",
                 "floating_district_m026_hull",
+                "floating_district_m027_hull",
+                "floating_district_m028_hull",
                 "floating_district_m030_hull",
                 "floating_district_m031_hull",
                 "floating_district_m032_hull",
@@ -771,21 +811,29 @@
                 "floating_district_m034_hull",
                 "floating_district_m035_hull",
                 "floating_district_m036_hull",
+                "floating_district_m037_hull",
+                "floating_district_m038_hull",
                 "floating_district_m040_hull",
                 "floating_district_m041_hull",
                 "floating_district_m042_hull",
                 "floating_district_m043_hull",
                 "floating_district_m046_hull",
+                "floating_district_m047_hull",
+                "floating_district_m048_hull",
                 "floating_district_m050_hull",
                 "floating_district_m051_hull",
                 "floating_district_m052_hull",
                 "floating_district_m053_hull",
                 "floating_district_m056_hull",
+                "floating_district_m057_hull",
+                "floating_district_m058_hull",
                 "floating_district_m060_hull",
                 "floating_district_m061_hull",
                 "floating_district_m062_hull",
                 "floating_district_m063_hull",
                 "floating_district_m066_hull",
+                "floating_district_m067_hull",
+                "floating_district_m068_hull",
                 "floating_district_m070_hull",
                 "floating_district_m071_hull",
                 "floating_district_m072_hull",
@@ -793,38 +841,154 @@
                 "floating_district_m074_hull",
                 "floating_district_m075_hull",
                 "floating_district_m076_hull",
+                "floating_district_m077_hull",
+                "floating_district_m078_hull",
                 "floating_district_m080_hull",
                 "floating_district_m081_hull",
                 "floating_district_m082_hull",
                 "floating_district_m083_hull",
                 "floating_district_m084_hull",
                 "floating_district_m085_hull",
-                "floating_district_m086_hull"
-              ]
+                "floating_district_m086_hull",
+                "floating_district_m087_hull",
+                "floating_district_m088_hull",
+                "floating_district_m090_hull",
+                "floating_district_m091_hull",
+                "floating_district_m092_hull",
+                "floating_district_m093_hull",
+                "floating_district_m094_hull",
+                "floating_district_m095_hull",
+                "floating_district_m096_hull",
+                "floating_district_m097_hull",
+                "floating_district_m098_hull",
+                "floating_district_m100_hull",
+                "floating_district_m101_hull",
+                "floating_district_m102_hull",
+                "floating_district_m103_hull",
+                "floating_district_m104_hull",
+                "floating_district_m105_hull",
+                "floating_district_m106_hull",
+                "floating_district_m107_hull",
+                "floating_district_m108_hull"
+              ],
+              "start_seconds": 0.2,
+              "move_seconds": 3.0,
+              "margin": 0.04,
+              "clearance": 400.0
             },
             {
               "focus": [
+                "floating_district_breakwater00",
+                "floating_district_breakwater01",
+                "floating_district_breakwater02",
+                "floating_district_breakwater03",
+                "floating_district_breakwater04",
+                "floating_district_breakwater05",
+                "floating_district_breakwater06",
+                "floating_district_breakwater07",
+                "floating_district_breakwater08",
+                "floating_district_breakwater09",
+                "floating_district_breakwater10",
+                "floating_district_breakwater11",
+                "floating_district_breakwater12",
+                "floating_district_m000_hull",
+                "floating_district_m001_hull",
+                "floating_district_m002_hull",
+                "floating_district_m003_hull",
+                "floating_district_m004_hull",
+                "floating_district_m005_hull",
+                "floating_district_m006_hull",
+                "floating_district_m007_hull",
+                "floating_district_m008_hull",
+                "floating_district_m010_hull",
+                "floating_district_m011_hull",
+                "floating_district_m012_hull",
+                "floating_district_m013_hull",
+                "floating_district_m014_hull",
+                "floating_district_m015_hull",
+                "floating_district_m016_hull",
+                "floating_district_m017_hull",
+                "floating_district_m018_hull",
+                "floating_district_m020_hull",
+                "floating_district_m021_hull",
+                "floating_district_m022_hull",
+                "floating_district_m023_hull",
+                "floating_district_m024_hull",
+                "floating_district_m025_hull",
+                "floating_district_m026_hull",
+                "floating_district_m027_hull",
+                "floating_district_m028_hull",
+                "floating_district_m030_hull",
                 "floating_district_m031_hull",
                 "floating_district_m032_hull",
                 "floating_district_m033_hull",
                 "floating_district_m034_hull",
+                "floating_district_m035_hull",
+                "floating_district_m036_hull",
+                "floating_district_m037_hull",
+                "floating_district_m038_hull",
+                "floating_district_m040_hull",
                 "floating_district_m041_hull",
                 "floating_district_m042_hull",
                 "floating_district_m043_hull",
+                "floating_district_m046_hull",
+                "floating_district_m047_hull",
+                "floating_district_m048_hull",
+                "floating_district_m050_hull",
                 "floating_district_m051_hull",
                 "floating_district_m052_hull",
                 "floating_district_m053_hull",
+                "floating_district_m056_hull",
+                "floating_district_m057_hull",
+                "floating_district_m058_hull",
+                "floating_district_m060_hull",
                 "floating_district_m061_hull",
                 "floating_district_m062_hull",
                 "floating_district_m063_hull",
+                "floating_district_m066_hull",
+                "floating_district_m067_hull",
+                "floating_district_m068_hull",
+                "floating_district_m070_hull",
                 "floating_district_m071_hull",
                 "floating_district_m072_hull",
                 "floating_district_m073_hull",
-                "floating_district_m074_hull"
+                "floating_district_m074_hull",
+                "floating_district_m075_hull",
+                "floating_district_m076_hull",
+                "floating_district_m077_hull",
+                "floating_district_m078_hull",
+                "floating_district_m080_hull",
+                "floating_district_m081_hull",
+                "floating_district_m082_hull",
+                "floating_district_m083_hull",
+                "floating_district_m084_hull",
+                "floating_district_m085_hull",
+                "floating_district_m086_hull",
+                "floating_district_m087_hull",
+                "floating_district_m088_hull",
+                "floating_district_m090_hull",
+                "floating_district_m091_hull",
+                "floating_district_m092_hull",
+                "floating_district_m093_hull",
+                "floating_district_m094_hull",
+                "floating_district_m095_hull",
+                "floating_district_m096_hull",
+                "floating_district_m097_hull",
+                "floating_district_m098_hull",
+                "floating_district_m100_hull",
+                "floating_district_m101_hull",
+                "floating_district_m102_hull",
+                "floating_district_m103_hull",
+                "floating_district_m104_hull",
+                "floating_district_m105_hull",
+                "floating_district_m106_hull",
+                "floating_district_m107_hull",
+                "floating_district_m108_hull"
               ],
-              "start_seconds": 1.04,
-              "move_seconds": 9.0,
-              "elevation": 26.0
+              "start_seconds": 7.05,
+              "move_seconds": 3.5,
+              "margin": 0.08,
+              "clearance": 400.0
             }
           ],
           "steps": []
@@ -838,7 +1002,7 @@
         ],
         "claim_ids": [],
         "narration": "Could we design a city like this, one that floats, stays where we put it, and keeps working? Let's treat it as a design problem, and solve it one step at a time.",
-        "visual_purpose": "The push-in continues over the homes, no claim on screen [SEQUENCE 1/1: 2 view(s), 0 timed steps on floating_district: ]",
+        "visual_purpose": "From the water's edge the camera pulls back to the whole district and settles on it; no claim on screen [SEQUENCE 1/1: 3 view(s), 0 timed steps on floating_district: ]",
         "build_variants": [
           "floating_district"
         ]
@@ -858,6 +1022,45 @@
         "mode": "SEQUENCE",
         "preset": "FLOAT_AERIAL",
         "focus": [
+          "floating_district_m056_buildings",
+          "floating_district_m056_deck",
+          "floating_district_m056_furniture",
+          "floating_district_m056_hull",
+          "floating_district_m056_lamps"
+        ],
+        "safe_band": 0.1,
+        "end_focus": [
+          "floating_district_breakwater00",
+          "floating_district_breakwater01",
+          "floating_district_breakwater02",
+          "floating_district_breakwater03",
+          "floating_district_breakwater04",
+          "floating_district_breakwater05",
+          "floating_district_breakwater06",
+          "floating_district_breakwater07",
+          "floating_district_breakwater08",
+          "floating_district_breakwater09",
+          "floating_district_breakwater10",
+          "floating_district_breakwater11",
+          "floating_district_breakwater12",
+          "floating_district_m000_hull",
+          "floating_district_m001_hull",
+          "floating_district_m002_hull",
+          "floating_district_m003_hull",
+          "floating_district_m004_hull",
+          "floating_district_m005_hull",
+          "floating_district_m006_hull",
+          "floating_district_m007_hull",
+          "floating_district_m008_hull",
+          "floating_district_m010_hull",
+          "floating_district_m011_hull",
+          "floating_district_m012_hull",
+          "floating_district_m013_hull",
+          "floating_district_m014_hull",
+          "floating_district_m015_hull",
+          "floating_district_m016_hull",
+          "floating_district_m017_hull",
+          "floating_district_m018_hull",
           "floating_district_m020_hull",
           "floating_district_m021_hull",
           "floating_district_m022_hull",
@@ -865,6 +1068,8 @@
           "floating_district_m024_hull",
           "floating_district_m025_hull",
           "floating_district_m026_hull",
+          "floating_district_m027_hull",
+          "floating_district_m028_hull",
           "floating_district_m030_hull",
           "floating_district_m031_hull",
           "floating_district_m032_hull",
@@ -872,21 +1077,29 @@
           "floating_district_m034_hull",
           "floating_district_m035_hull",
           "floating_district_m036_hull",
+          "floating_district_m037_hull",
+          "floating_district_m038_hull",
           "floating_district_m040_hull",
           "floating_district_m041_hull",
           "floating_district_m042_hull",
           "floating_district_m043_hull",
           "floating_district_m046_hull",
+          "floating_district_m047_hull",
+          "floating_district_m048_hull",
           "floating_district_m050_hull",
           "floating_district_m051_hull",
           "floating_district_m052_hull",
           "floating_district_m053_hull",
           "floating_district_m056_hull",
+          "floating_district_m057_hull",
+          "floating_district_m058_hull",
           "floating_district_m060_hull",
           "floating_district_m061_hull",
           "floating_district_m062_hull",
           "floating_district_m063_hull",
           "floating_district_m066_hull",
+          "floating_district_m067_hull",
+          "floating_district_m068_hull",
           "floating_district_m070_hull",
           "floating_district_m071_hull",
           "floating_district_m072_hull",
@@ -894,41 +1107,43 @@
           "floating_district_m074_hull",
           "floating_district_m075_hull",
           "floating_district_m076_hull",
+          "floating_district_m077_hull",
+          "floating_district_m078_hull",
           "floating_district_m080_hull",
           "floating_district_m081_hull",
           "floating_district_m082_hull",
           "floating_district_m083_hull",
           "floating_district_m084_hull",
           "floating_district_m085_hull",
-          "floating_district_m086_hull"
-        ],
-        "safe_band": 0.1,
-        "end_focus": [
-          "floating_district_m031_hull",
-          "floating_district_m032_hull",
-          "floating_district_m033_hull",
-          "floating_district_m034_hull",
-          "floating_district_m041_hull",
-          "floating_district_m042_hull",
-          "floating_district_m043_hull",
-          "floating_district_m051_hull",
-          "floating_district_m052_hull",
-          "floating_district_m053_hull",
-          "floating_district_m061_hull",
-          "floating_district_m062_hull",
-          "floating_district_m063_hull",
-          "floating_district_m071_hull",
-          "floating_district_m072_hull",
-          "floating_district_m073_hull",
-          "floating_district_m074_hull"
+          "floating_district_m086_hull",
+          "floating_district_m087_hull",
+          "floating_district_m088_hull",
+          "floating_district_m090_hull",
+          "floating_district_m091_hull",
+          "floating_district_m092_hull",
+          "floating_district_m093_hull",
+          "floating_district_m094_hull",
+          "floating_district_m095_hull",
+          "floating_district_m096_hull",
+          "floating_district_m097_hull",
+          "floating_district_m098_hull",
+          "floating_district_m100_hull",
+          "floating_district_m101_hull",
+          "floating_district_m102_hull",
+          "floating_district_m103_hull",
+          "floating_district_m104_hull",
+          "floating_district_m105_hull",
+          "floating_district_m106_hull",
+          "floating_district_m107_hull",
+          "floating_district_m108_hull"
         ],
         "angles": [
-          null,
-          null
+          -80.0,
+          8.0
         ],
         "end_angles": [
           null,
-          26.0
+          null
         ],
         "group": 1,
         "build_variants": [
@@ -940,11 +1155,11 @@
         "mode": "AUDIO_LOCKED",
         "frames": 317,
         "duration_seconds": 13.208333,
-        "min_seconds": 10.125,
+        "min_seconds": 10.625,
         "beat_offset_seconds": 0.0,
         "start_seconds": 10.958333
       },
-      "explanation": "2 view(s), 0 timed steps on floating_district: ",
+      "explanation": "3 view(s), 0 timed steps on floating_district: ",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -2203,13 +2418,13 @@
                 "floating_district_linkspan3_wastewater",
                 "floating_district_spine_power_r0",
                 "floating_district_spine_power_r2",
-                "floating_district_spine_power_r6",
+                "floating_district_spine_power_r7",
                 "floating_district_spine_water_r0",
                 "floating_district_spine_water_r2",
-                "floating_district_spine_water_r6",
+                "floating_district_spine_water_r7",
                 "floating_district_spine_wastewater_r0",
                 "floating_district_spine_wastewater_r2",
-                "floating_district_spine_wastewater_r6",
+                "floating_district_spine_wastewater_r7",
                 "floating_district_route1",
                 "floating_district_route2",
                 "floating_district_route3",
@@ -2435,7 +2650,9 @@
                 "floating_district_m012_facade",
                 "floating_district_m013_facade",
                 "floating_district_m014_facade",
+                "floating_district_m014_balconies",
                 "floating_district_m015_facade",
+                "floating_district_m015_balconies",
                 "floating_district_m016_facade",
                 "floating_district_m017_facade",
                 "floating_district_m018_facade",
@@ -2444,64 +2661,95 @@
                 "floating_district_m022_facade",
                 "floating_district_m023_facade",
                 "floating_district_m024_facade",
+                "floating_district_m024_balconies",
                 "floating_district_m025_facade",
+                "floating_district_m025_balconies",
                 "floating_district_m026_facade",
                 "floating_district_m027_facade",
                 "floating_district_m028_facade",
                 "floating_district_m030_facade",
                 "floating_district_m031_facade",
                 "floating_district_m032_facade",
+                "floating_district_m032_solar",
                 "floating_district_m033_facade",
+                "floating_district_m033_solar",
                 "floating_district_m034_facade",
+                "floating_district_m034_balconies",
                 "floating_district_m035_facade",
+                "floating_district_m035_balconies",
                 "floating_district_m036_facade",
                 "floating_district_m037_facade",
                 "floating_district_m038_facade",
                 "floating_district_m040_facade",
                 "floating_district_m041_facade",
                 "floating_district_m042_facade",
+                "floating_district_m042_solar",
                 "floating_district_m043_facade",
+                "floating_district_m043_balconies",
                 "floating_district_m046_facade",
+                "floating_district_m046_balconies",
                 "floating_district_m047_facade",
                 "floating_district_m048_facade",
                 "floating_district_m050_facade",
                 "floating_district_m051_facade",
                 "floating_district_m052_facade",
+                "floating_district_m052_balconies",
                 "floating_district_m053_facade",
+                "floating_district_m053_balconies",
                 "floating_district_m056_facade",
+                "floating_district_m056_balconies",
                 "floating_district_m057_facade",
+                "floating_district_m057_solar",
                 "floating_district_m058_facade",
                 "floating_district_m060_facade",
                 "floating_district_m061_facade",
                 "floating_district_m062_facade",
+                "floating_district_m062_balconies",
                 "floating_district_m063_facade",
+                "floating_district_m063_balconies",
                 "floating_district_m066_facade",
+                "floating_district_m066_balconies",
                 "floating_district_m067_facade",
+                "floating_district_m067_solar",
                 "floating_district_m068_facade",
                 "floating_district_m070_facade",
+                "floating_district_m070_solar",
                 "floating_district_m071_facade",
+                "floating_district_m071_solar",
                 "floating_district_m072_facade",
                 "floating_district_m073_facade",
                 "floating_district_m074_facade",
+                "floating_district_m074_balconies",
                 "floating_district_m075_facade",
+                "floating_district_m075_balconies",
                 "floating_district_m076_facade",
+                "floating_district_m076_balconies",
                 "floating_district_m077_facade",
+                "floating_district_m077_balconies",
                 "floating_district_m078_facade",
                 "floating_district_m080_facade",
+                "floating_district_m080_solar",
                 "floating_district_m081_facade",
+                "floating_district_m081_solar",
                 "floating_district_m082_facade",
                 "floating_district_m083_facade",
                 "floating_district_m084_facade",
                 "floating_district_m085_facade",
                 "floating_district_m086_facade",
+                "floating_district_m086_balconies",
                 "floating_district_m087_facade",
+                "floating_district_m087_balconies",
                 "floating_district_m088_facade",
                 "floating_district_m090_facade",
+                "floating_district_m090_balconies",
                 "floating_district_m091_facade",
+                "floating_district_m091_balconies",
                 "floating_district_m092_facade",
                 "floating_district_m093_facade",
                 "floating_district_m094_facade",
+                "floating_district_m094_solar",
                 "floating_district_m095_facade",
+                "floating_district_m095_solar",
                 "floating_district_m096_facade",
                 "floating_district_m097_facade",
                 "floating_district_m098_facade",
@@ -2525,101 +2773,217 @@
                 "floating_district_m007_paths",
                 "floating_district_m008_paths",
                 "floating_district_m010_paths",
+                "floating_district_m010_lawn",
+                "floating_district_m010_trees",
                 "floating_district_m011_paths",
+                "floating_district_m011_lawn",
+                "floating_district_m011_trees",
                 "floating_district_m012_paths",
                 "floating_district_m013_paths",
                 "floating_district_m014_paths",
+                "floating_district_m014_lawn",
+                "floating_district_m014_trees",
                 "floating_district_m015_paths",
+                "floating_district_m015_lawn",
+                "floating_district_m015_trees",
                 "floating_district_m016_paths",
+                "floating_district_m016_lawn",
+                "floating_district_m016_trees",
                 "floating_district_m017_paths",
+                "floating_district_m017_lawn",
+                "floating_district_m017_trees",
                 "floating_district_m018_paths",
                 "floating_district_m020_paths",
+                "floating_district_m020_lawn",
+                "floating_district_m020_trees",
                 "floating_district_m021_paths",
+                "floating_district_m021_lawn",
+                "floating_district_m021_trees",
                 "floating_district_m022_paths",
                 "floating_district_m023_paths",
                 "floating_district_m024_paths",
+                "floating_district_m024_lawn",
+                "floating_district_m024_trees",
                 "floating_district_m025_paths",
+                "floating_district_m025_lawn",
+                "floating_district_m025_trees",
                 "floating_district_m026_paths",
+                "floating_district_m026_lawn",
+                "floating_district_m026_trees",
                 "floating_district_m027_paths",
+                "floating_district_m027_lawn",
+                "floating_district_m027_trees",
                 "floating_district_m028_paths",
                 "floating_district_m030_paths",
+                "floating_district_m030_lawn",
+                "floating_district_m030_trees",
                 "floating_district_m031_paths",
+                "floating_district_m031_lawn",
+                "floating_district_m031_trees",
                 "floating_district_m032_paths",
+                "floating_district_m032_lawn",
+                "floating_district_m032_trees",
                 "floating_district_m033_paths",
+                "floating_district_m033_lawn",
+                "floating_district_m033_trees",
                 "floating_district_m034_paths",
                 "floating_district_m034_lawn",
                 "floating_district_m034_trees",
+                "floating_district_m034_furniture",
+                "floating_district_m034_lamps",
+                "floating_district_m034_playground",
                 "floating_district_m035_paths",
                 "floating_district_m035_lawn",
                 "floating_district_m035_trees",
+                "floating_district_m035_furniture",
+                "floating_district_m035_lamps",
+                "floating_district_m035_playground",
                 "floating_district_m036_paths",
                 "floating_district_m037_paths",
                 "floating_district_m038_paths",
                 "floating_district_m040_paths",
+                "floating_district_m040_lawn",
+                "floating_district_m040_trees",
                 "floating_district_m041_paths",
+                "floating_district_m041_lawn",
+                "floating_district_m041_trees",
                 "floating_district_m042_paths",
+                "floating_district_m042_lawn",
+                "floating_district_m042_trees",
                 "floating_district_m043_paths",
                 "floating_district_m043_lawn",
                 "floating_district_m043_trees",
+                "floating_district_m043_furniture",
+                "floating_district_m043_lamps",
+                "floating_district_m043_playground",
                 "floating_district_m046_paths",
                 "floating_district_m046_lawn",
                 "floating_district_m046_trees",
+                "floating_district_m046_furniture",
+                "floating_district_m046_lamps",
+                "floating_district_m046_playground",
                 "floating_district_m047_paths",
                 "floating_district_m048_paths",
                 "floating_district_m048_playground",
                 "floating_district_m050_paths",
                 "floating_district_m051_paths",
                 "floating_district_m052_paths",
+                "floating_district_m052_lawn",
+                "floating_district_m052_trees",
                 "floating_district_m053_paths",
                 "floating_district_m053_lawn",
                 "floating_district_m053_trees",
+                "floating_district_m053_furniture",
+                "floating_district_m053_lamps",
+                "floating_district_m053_playground",
                 "floating_district_m056_paths",
                 "floating_district_m056_lawn",
                 "floating_district_m056_trees",
+                "floating_district_m056_furniture",
+                "floating_district_m056_lamps",
+                "floating_district_m056_playground",
                 "floating_district_m057_paths",
+                "floating_district_m057_lawn",
+                "floating_district_m057_trees",
                 "floating_district_m058_paths",
                 "floating_district_m060_paths",
                 "floating_district_m061_paths",
                 "floating_district_m062_paths",
+                "floating_district_m062_lawn",
+                "floating_district_m062_trees",
                 "floating_district_m063_paths",
                 "floating_district_m063_lawn",
                 "floating_district_m063_trees",
+                "floating_district_m063_furniture",
+                "floating_district_m063_lamps",
+                "floating_district_m063_playground",
                 "floating_district_m066_paths",
                 "floating_district_m066_lawn",
                 "floating_district_m066_trees",
+                "floating_district_m066_furniture",
+                "floating_district_m066_lamps",
+                "floating_district_m066_playground",
                 "floating_district_m067_paths",
+                "floating_district_m067_lawn",
+                "floating_district_m067_trees",
                 "floating_district_m068_paths",
                 "floating_district_m068_playground",
                 "floating_district_m070_paths",
+                "floating_district_m070_lawn",
+                "floating_district_m070_trees",
                 "floating_district_m071_paths",
+                "floating_district_m071_lawn",
+                "floating_district_m071_trees",
                 "floating_district_m072_paths",
+                "floating_district_m072_lawn",
+                "floating_district_m072_trees",
                 "floating_district_m073_paths",
+                "floating_district_m073_lawn",
+                "floating_district_m073_trees",
                 "floating_district_m074_paths",
                 "floating_district_m074_lawn",
                 "floating_district_m074_trees",
+                "floating_district_m074_furniture",
+                "floating_district_m074_lamps",
+                "floating_district_m074_playground",
                 "floating_district_m075_paths",
                 "floating_district_m075_lawn",
                 "floating_district_m075_trees",
+                "floating_district_m075_furniture",
+                "floating_district_m075_lamps",
+                "floating_district_m075_playground",
                 "floating_district_m076_paths",
+                "floating_district_m076_lawn",
+                "floating_district_m076_trees",
                 "floating_district_m077_paths",
+                "floating_district_m077_lawn",
+                "floating_district_m077_trees",
                 "floating_district_m078_paths",
                 "floating_district_m080_paths",
+                "floating_district_m080_lawn",
+                "floating_district_m080_trees",
                 "floating_district_m081_paths",
+                "floating_district_m081_lawn",
+                "floating_district_m081_trees",
                 "floating_district_m082_paths",
+                "floating_district_m082_lawn",
+                "floating_district_m082_trees",
                 "floating_district_m083_paths",
+                "floating_district_m083_lawn",
+                "floating_district_m083_trees",
                 "floating_district_m084_paths",
                 "floating_district_m085_paths",
                 "floating_district_m086_paths",
+                "floating_district_m086_lawn",
+                "floating_district_m086_trees",
                 "floating_district_m087_paths",
+                "floating_district_m087_lawn",
+                "floating_district_m087_trees",
                 "floating_district_m088_paths",
                 "floating_district_m090_paths",
+                "floating_district_m090_lawn",
+                "floating_district_m090_trees",
                 "floating_district_m091_paths",
+                "floating_district_m091_lawn",
+                "floating_district_m091_trees",
                 "floating_district_m092_paths",
+                "floating_district_m092_lawn",
+                "floating_district_m092_trees",
                 "floating_district_m093_paths",
+                "floating_district_m093_lawn",
+                "floating_district_m093_trees",
                 "floating_district_m094_paths",
+                "floating_district_m094_lawn",
+                "floating_district_m094_trees",
                 "floating_district_m095_paths",
+                "floating_district_m095_lawn",
+                "floating_district_m095_trees",
                 "floating_district_m096_paths",
+                "floating_district_m096_lawn",
+                "floating_district_m096_trees",
                 "floating_district_m097_paths",
+                "floating_district_m097_lawn",
+                "floating_district_m097_trees",
                 "floating_district_m098_paths",
                 "floating_district_m100_paths",
                 "floating_district_m101_paths",
@@ -3005,7 +3369,7 @@
         ],
         "claim_ids": [],
         "narration": "So let's take our city apart, and build it back, one problem at a time.",
-        "visual_purpose": "The district comes apart system by system (breakwater, moorings, utilities and routes, link-spans, buildings, platforms) until one empty platform remains [SEQUENCE 1/1: 2 view(s), 7 timed steps on floating_district: fade_out 13, fade_out 112, fade_out 23, fade_out 6, fade_out 395, fade_out 161, fade_out 184]",
+        "visual_purpose": "The district comes apart system by system (breakwater, moorings, utilities and routes, link-spans, buildings, platforms) until one empty platform remains [SEQUENCE 1/1: 2 view(s), 7 timed steps on floating_district: fade_out 13, fade_out 112, fade_out 23, fade_out 6, fade_out 544, fade_out 161, fade_out 184]",
         "build_variants": [
           "floating_district"
         ]
@@ -3137,7 +3501,7 @@
         "beat_offset_seconds": 0.0,
         "start_seconds": 56.666667
       },
-      "explanation": "2 view(s), 7 timed steps on floating_district: fade_out 13, fade_out 112, fade_out 23, fade_out 6, fade_out 395, fade_out 161, fade_out 184",
+      "explanation": "2 view(s), 7 timed steps on floating_district: fade_out 13, fade_out 112, fade_out 23, fade_out 6, fade_out 544, fade_out 161, fade_out 184",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -11311,8 +11675,10 @@
                 "neighbourhood_both_moorings_joint1_walkway_hinge0",
                 "neighbourhood_both_moorings_joint1_walkway_hinge1"
               ],
-              "margin": 0.3,
-              "elevation": 48.0
+              "margin": 0.12,
+              "azimuth": -90.0,
+              "elevation": 55.0,
+              "clearance": 40.0
             }
           ],
           "steps": [
@@ -11483,13 +11849,13 @@
               "anchors": [
                 {
                   "world": [
-                    -24.34151,
-                    11.11658,
+                    -23.03091,
+                    11.2718,
                     1.282
                   ],
                   "screen": [
-                    0.519531,
-                    0.668981
+                    0.498698,
+                    0.863426
                   ],
                   "point": "TOP",
                   "component_ids": [
@@ -11501,10 +11867,10 @@
                 {
                   "kind": "plate",
                   "box": [
-                    0.438584,
-                    0.708561,
-                    0.600478,
-                    0.769401
+                    0.417751,
+                    0.613006,
+                    0.579645,
+                    0.673846
                   ],
                   "fill": "#FBF9F4",
                   "border": "#77736A",
@@ -11516,26 +11882,26 @@
                   "size": 0.036,
                   "color": "#24231F",
                   "center": [
-                    0.519531,
-                    0.738981
+                    0.498698,
+                    0.643426
                   ],
                   "box": [
-                    0.438584,
-                    0.708561,
-                    0.600478,
-                    0.769401
+                    0.417751,
+                    0.613006,
+                    0.579645,
+                    0.673846
                   ]
                 },
                 {
                   "kind": "line",
                   "points": [
                     [
-                      0.519531,
-                      0.708561
+                      0.498698,
+                      0.673846
                     ],
                     [
-                      0.519531,
-                      0.668981
+                      0.498698,
+                      0.863426
                     ]
                   ],
                   "width": 0.0098,
@@ -11547,12 +11913,12 @@
                   "kind": "line",
                   "points": [
                     [
-                      0.519531,
-                      0.708561
+                      0.498698,
+                      0.673846
                     ],
                     [
-                      0.519531,
-                      0.668981
+                      0.498698,
+                      0.863426
                     ]
                   ],
                   "width": 0.0028,
@@ -11562,8 +11928,8 @@
                 {
                   "kind": "dot",
                   "center": [
-                    0.519531,
-                    0.668981
+                    0.498698,
+                    0.863426
                   ],
                   "radius": 0.0065,
                   "color": "#3B3A36"
@@ -11571,21 +11937,21 @@
               ],
               "boxes": [
                 [
-                  0.438584,
-                  0.708561,
-                  0.600478,
-                  0.769401
+                  0.417751,
+                  0.613006,
+                  0.579645,
+                  0.673846
                 ]
               ],
               "segments": [
                 [
                   [
-                    0.519531,
-                    0.708561
+                    0.498698,
+                    0.673846
                   ],
                   [
-                    0.519531,
-                    0.668981
+                    0.498698,
+                    0.863426
                   ]
                 ]
               ]
@@ -11603,13 +11969,13 @@
               "anchors": [
                 {
                   "world": [
-                    -22.85898,
-                    6.78433,
-                    0.692
+                    -23.03091,
+                    6.75,
+                    0.40966
                   ],
                   "screen": [
-                    0.501302,
-                    0.553241
+                    0.498698,
+                    0.548611
                   ],
                   "point": "BOTTOM",
                   "component_ids": [
@@ -11621,10 +11987,10 @@
                 {
                   "kind": "plate",
                   "box": [
-                    0.411279,
-                    0.422821,
-                    0.591325,
-                    0.483661
+                    0.408675,
+                    0.448191,
+                    0.588721,
+                    0.509031
                   ],
                   "fill": "#FBF9F4",
                   "border": "#77736A",
@@ -11636,26 +12002,26 @@
                   "size": 0.036,
                   "color": "#24231F",
                   "center": [
-                    0.501302,
-                    0.453241
+                    0.498698,
+                    0.478611
                   ],
                   "box": [
-                    0.411279,
-                    0.422821,
-                    0.591325,
-                    0.483661
+                    0.408675,
+                    0.448191,
+                    0.588721,
+                    0.509031
                   ]
                 },
                 {
                   "kind": "line",
                   "points": [
                     [
-                      0.501302,
-                      0.483661
+                      0.498698,
+                      0.509031
                     ],
                     [
-                      0.501302,
-                      0.553241
+                      0.498698,
+                      0.548611
                     ]
                   ],
                   "width": 0.0098,
@@ -11667,12 +12033,12 @@
                   "kind": "line",
                   "points": [
                     [
-                      0.501302,
-                      0.483661
+                      0.498698,
+                      0.509031
                     ],
                     [
-                      0.501302,
-                      0.553241
+                      0.498698,
+                      0.548611
                     ]
                   ],
                   "width": 0.0028,
@@ -11682,8 +12048,8 @@
                 {
                   "kind": "dot",
                   "center": [
-                    0.501302,
-                    0.553241
+                    0.498698,
+                    0.548611
                   ],
                   "radius": 0.0065,
                   "color": "#3B3A36"
@@ -11691,21 +12057,21 @@
               ],
               "boxes": [
                 [
-                  0.411279,
-                  0.422821,
-                  0.591325,
-                  0.483661
+                  0.408675,
+                  0.448191,
+                  0.588721,
+                  0.509031
                 ]
               ],
               "segments": [
                 [
                   [
-                    0.501302,
-                    0.483661
+                    0.498698,
+                    0.509031
                   ],
                   [
-                    0.501302,
-                    0.553241
+                    0.498698,
+                    0.548611
                   ]
                 ]
               ]
@@ -11723,13 +12089,13 @@
               "anchors": [
                 {
                   "world": [
-                    -25.5,
-                    2.89202,
-                    0.58651
+                    -25.7514,
+                    2.0,
+                    0.29442
                   ],
                   "screen": [
-                    0.425781,
-                    0.506944
+                    0.384115,
+                    0.252315
                   ],
                   "point": "BOTTOM",
                   "component_ids": [
@@ -11741,10 +12107,10 @@
                 {
                   "kind": "plate",
                   "box": [
-                    0.388792,
-                    0.576524,
-                    0.46277,
-                    0.637364
+                    0.420251,
+                    0.221895,
+                    0.494229,
+                    0.282735
                   ],
                   "fill": "#FBF9F4",
                   "border": "#77736A",
@@ -11756,26 +12122,26 @@
                   "size": 0.036,
                   "color": "#24231F",
                   "center": [
-                    0.425781,
-                    0.606944
+                    0.45724,
+                    0.252315
                   ],
                   "box": [
-                    0.388792,
-                    0.576524,
-                    0.46277,
-                    0.637364
+                    0.420251,
+                    0.221895,
+                    0.494229,
+                    0.282735
                   ]
                 },
                 {
                   "kind": "line",
                   "points": [
                     [
-                      0.425781,
-                      0.576524
+                      0.420251,
+                      0.252315
                     ],
                     [
-                      0.425781,
-                      0.506944
+                      0.384115,
+                      0.252315
                     ]
                   ],
                   "width": 0.0098,
@@ -11787,12 +12153,12 @@
                   "kind": "line",
                   "points": [
                     [
-                      0.425781,
-                      0.576524
+                      0.420251,
+                      0.252315
                     ],
                     [
-                      0.425781,
-                      0.506944
+                      0.384115,
+                      0.252315
                     ]
                   ],
                   "width": 0.0028,
@@ -11802,8 +12168,8 @@
                 {
                   "kind": "dot",
                   "center": [
-                    0.425781,
-                    0.506944
+                    0.384115,
+                    0.252315
                   ],
                   "radius": 0.0065,
                   "color": "#3B3A36"
@@ -11811,21 +12177,21 @@
               ],
               "boxes": [
                 [
-                  0.388792,
-                  0.576524,
-                  0.46277,
-                  0.637364
+                  0.420251,
+                  0.221895,
+                  0.494229,
+                  0.282735
                 ]
               ],
               "segments": [
                 [
                   [
-                    0.425781,
-                    0.576524
+                    0.420251,
+                    0.252315
                   ],
                   [
-                    0.425781,
-                    0.506944
+                    0.384115,
+                    0.252315
                   ]
                 ]
               ]
@@ -11866,12 +12232,12 @@
           "neighbourhood_both_moorings_joint1_walkway_hinge1"
         ],
         "angles": [
-          null,
-          48.0
+          -90.0,
+          55.0
         ],
         "end_angles": [
-          null,
-          48.0
+          -90.0,
+          55.0
         ],
         "group": 11,
         "build_variants": [
@@ -11964,13 +12330,13 @@
             "anchors": [
               {
                 "world": [
-                  -24.34151,
-                  11.11658,
+                  -23.03091,
+                  11.2718,
                   1.282
                 ],
                 "screen": [
-                  0.519531,
-                  0.668981
+                  0.498698,
+                  0.863426
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -11982,10 +12348,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.438584,
-                  0.708561,
-                  0.600478,
-                  0.769401
+                  0.417751,
+                  0.613006,
+                  0.579645,
+                  0.673846
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -11997,26 +12363,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.519531,
-                  0.738981
+                  0.498698,
+                  0.643426
                 ],
                 "box": [
-                  0.438584,
-                  0.708561,
-                  0.600478,
-                  0.769401
+                  0.417751,
+                  0.613006,
+                  0.579645,
+                  0.673846
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.519531,
-                    0.708561
+                    0.498698,
+                    0.673846
                   ],
                   [
-                    0.519531,
-                    0.668981
+                    0.498698,
+                    0.863426
                   ]
                 ],
                 "width": 0.0098,
@@ -12028,12 +12394,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.519531,
-                    0.708561
+                    0.498698,
+                    0.673846
                   ],
                   [
-                    0.519531,
-                    0.668981
+                    0.498698,
+                    0.863426
                   ]
                 ],
                 "width": 0.0028,
@@ -12043,8 +12409,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.519531,
-                  0.668981
+                  0.498698,
+                  0.863426
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -12052,21 +12418,21 @@
             ],
             "boxes": [
               [
-                0.438584,
-                0.708561,
-                0.600478,
-                0.769401
+                0.417751,
+                0.613006,
+                0.579645,
+                0.673846
               ]
             ],
             "segments": [
               [
                 [
-                  0.519531,
-                  0.708561
+                  0.498698,
+                  0.673846
                 ],
                 [
-                  0.519531,
-                  0.668981
+                  0.498698,
+                  0.863426
                 ]
               ]
             ]
@@ -12084,13 +12450,13 @@
             "anchors": [
               {
                 "world": [
-                  -22.85898,
-                  6.78433,
-                  0.692
+                  -23.03091,
+                  6.75,
+                  0.40966
                 ],
                 "screen": [
-                  0.501302,
-                  0.553241
+                  0.498698,
+                  0.548611
                 ],
                 "point": "BOTTOM",
                 "component_ids": [
@@ -12102,10 +12468,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.411279,
-                  0.422821,
-                  0.591325,
-                  0.483661
+                  0.408675,
+                  0.448191,
+                  0.588721,
+                  0.509031
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -12117,26 +12483,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.501302,
-                  0.453241
+                  0.498698,
+                  0.478611
                 ],
                 "box": [
-                  0.411279,
-                  0.422821,
-                  0.591325,
-                  0.483661
+                  0.408675,
+                  0.448191,
+                  0.588721,
+                  0.509031
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.501302,
-                    0.483661
+                    0.498698,
+                    0.509031
                   ],
                   [
-                    0.501302,
-                    0.553241
+                    0.498698,
+                    0.548611
                   ]
                 ],
                 "width": 0.0098,
@@ -12148,12 +12514,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.501302,
-                    0.483661
+                    0.498698,
+                    0.509031
                   ],
                   [
-                    0.501302,
-                    0.553241
+                    0.498698,
+                    0.548611
                   ]
                 ],
                 "width": 0.0028,
@@ -12163,8 +12529,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.501302,
-                  0.553241
+                  0.498698,
+                  0.548611
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -12172,21 +12538,21 @@
             ],
             "boxes": [
               [
-                0.411279,
-                0.422821,
-                0.591325,
-                0.483661
+                0.408675,
+                0.448191,
+                0.588721,
+                0.509031
               ]
             ],
             "segments": [
               [
                 [
-                  0.501302,
-                  0.483661
+                  0.498698,
+                  0.509031
                 ],
                 [
-                  0.501302,
-                  0.553241
+                  0.498698,
+                  0.548611
                 ]
               ]
             ]
@@ -12204,13 +12570,13 @@
             "anchors": [
               {
                 "world": [
-                  -25.5,
-                  2.89202,
-                  0.58651
+                  -25.7514,
+                  2.0,
+                  0.29442
                 ],
                 "screen": [
-                  0.425781,
-                  0.506944
+                  0.384115,
+                  0.252315
                 ],
                 "point": "BOTTOM",
                 "component_ids": [
@@ -12222,10 +12588,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.388792,
-                  0.576524,
-                  0.46277,
-                  0.637364
+                  0.420251,
+                  0.221895,
+                  0.494229,
+                  0.282735
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -12237,26 +12603,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.425781,
-                  0.606944
+                  0.45724,
+                  0.252315
                 ],
                 "box": [
-                  0.388792,
-                  0.576524,
-                  0.46277,
-                  0.637364
+                  0.420251,
+                  0.221895,
+                  0.494229,
+                  0.282735
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.425781,
-                    0.576524
+                    0.420251,
+                    0.252315
                   ],
                   [
-                    0.425781,
-                    0.506944
+                    0.384115,
+                    0.252315
                   ]
                 ],
                 "width": 0.0098,
@@ -12268,12 +12634,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.425781,
-                    0.576524
+                    0.420251,
+                    0.252315
                   ],
                   [
-                    0.425781,
-                    0.506944
+                    0.384115,
+                    0.252315
                   ]
                 ],
                 "width": 0.0028,
@@ -12283,8 +12649,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.425781,
-                  0.506944
+                  0.384115,
+                  0.252315
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -12292,21 +12658,21 @@
             ],
             "boxes": [
               [
-                0.388792,
-                0.576524,
-                0.46277,
-                0.637364
+                0.420251,
+                0.221895,
+                0.494229,
+                0.282735
               ]
             ],
             "segments": [
               [
                 [
-                  0.425781,
-                  0.576524
+                  0.420251,
+                  0.252315
                 ],
                 [
-                  0.425781,
-                  0.506944
+                  0.384115,
+                  0.252315
                 ]
               ]
             ]
@@ -21724,24 +22090,31 @@
                 "neighbourhood_both_moorings_platform1_deck",
                 "neighbourhood_both_moorings_platform1_facade",
                 "neighbourhood_both_moorings_platform1_hull",
+                "neighbourhood_both_moorings_platform1_lawn",
                 "neighbourhood_both_moorings_platform1_paths",
                 "neighbourhood_both_moorings_platform1_roofs",
                 "neighbourhood_both_moorings_platform2_buildings",
                 "neighbourhood_both_moorings_platform2_deck",
                 "neighbourhood_both_moorings_platform2_facade",
                 "neighbourhood_both_moorings_platform2_hull",
+                "neighbourhood_both_moorings_platform2_lawn",
                 "neighbourhood_both_moorings_platform2_paths",
                 "neighbourhood_both_moorings_platform2_roofs",
+                "neighbourhood_both_moorings_platform2_solar",
+                "neighbourhood_both_moorings_platform2_trees",
                 "neighbourhood_both_moorings_platform3_buildings",
                 "neighbourhood_both_moorings_platform3_deck",
                 "neighbourhood_both_moorings_platform3_facade",
                 "neighbourhood_both_moorings_platform3_hull",
+                "neighbourhood_both_moorings_platform3_lawn",
                 "neighbourhood_both_moorings_platform3_paths",
                 "neighbourhood_both_moorings_platform3_roofs",
+                "neighbourhood_both_moorings_platform4_balconies",
                 "neighbourhood_both_moorings_platform4_buildings",
                 "neighbourhood_both_moorings_platform4_deck",
                 "neighbourhood_both_moorings_platform4_facade",
                 "neighbourhood_both_moorings_platform4_hull",
+                "neighbourhood_both_moorings_platform4_lawn",
                 "neighbourhood_both_moorings_platform4_paths",
                 "neighbourhood_both_moorings_platform4_roofs",
                 "neighbourhood_both_moorings_platform5_buildings",
@@ -21810,6 +22183,7 @@
                 "neighbourhood_both_moorings_platform1_roofs",
                 "neighbourhood_both_moorings_platform1_facade",
                 "neighbourhood_both_moorings_platform1_paths",
+                "neighbourhood_both_moorings_platform1_lawn",
                 "neighbourhood_both_moorings_joint1_walkway",
                 "neighbourhood_both_moorings_joint1_walkway_hinge0",
                 "neighbourhood_both_moorings_joint1_walkway_hinge1",
@@ -21839,7 +22213,10 @@
                 "neighbourhood_both_moorings_platform2_buildings",
                 "neighbourhood_both_moorings_platform2_roofs",
                 "neighbourhood_both_moorings_platform2_facade",
-                "neighbourhood_both_moorings_platform2_paths"
+                "neighbourhood_both_moorings_platform2_paths",
+                "neighbourhood_both_moorings_platform2_solar",
+                "neighbourhood_both_moorings_platform2_lawn",
+                "neighbourhood_both_moorings_platform2_trees"
               ],
               "start_seconds": 0.3,
               "seconds": 10.28,
@@ -21864,6 +22241,7 @@
                 "neighbourhood_both_moorings_platform3_roofs",
                 "neighbourhood_both_moorings_platform3_facade",
                 "neighbourhood_both_moorings_platform3_paths",
+                "neighbourhood_both_moorings_platform3_lawn",
                 "neighbourhood_both_moorings_joint2_walkway",
                 "neighbourhood_both_moorings_joint2_walkway_hinge0",
                 "neighbourhood_both_moorings_joint2_walkway_hinge1",
@@ -21894,6 +22272,8 @@
                 "neighbourhood_both_moorings_platform4_roofs",
                 "neighbourhood_both_moorings_platform4_facade",
                 "neighbourhood_both_moorings_platform4_paths",
+                "neighbourhood_both_moorings_platform4_balconies",
+                "neighbourhood_both_moorings_platform4_lawn",
                 "neighbourhood_both_moorings_joint3_walkway",
                 "neighbourhood_both_moorings_joint3_walkway_hinge0",
                 "neighbourhood_both_moorings_joint3_walkway_hinge1",
@@ -21953,7 +22333,7 @@
         ],
         "claim_ids": [],
         "narration": "And all of this sits on water that never keeps still. Each platform rises and falls on its own, and every gap and hinge between them has to cope.",
-        "visual_purpose": "Five platforms rise, fall and tilt out of step; the gaps open and close and the walkways follow one side (conceptual motion, labelled) [SEQUENCE 1/1: 1 view(s), 6 timed steps on neighbourhood_both_moorings: fade_out 40, oscillate 12, oscillate 6, oscillate 12, oscillate 10, oscillate 10]",
+        "visual_purpose": "Five platforms rise, fall and tilt out of step; the gaps open and close and the walkways follow one side (conceptual motion, labelled) [SEQUENCE 1/1: 1 view(s), 6 timed steps on neighbourhood_both_moorings: fade_out 40, oscillate 13, oscillate 9, oscillate 13, oscillate 12, oscillate 10]",
         "build_variants": [
           "neighbourhood_both_moorings"
         ],
@@ -22034,24 +22414,31 @@
           "neighbourhood_both_moorings_platform1_deck",
           "neighbourhood_both_moorings_platform1_facade",
           "neighbourhood_both_moorings_platform1_hull",
+          "neighbourhood_both_moorings_platform1_lawn",
           "neighbourhood_both_moorings_platform1_paths",
           "neighbourhood_both_moorings_platform1_roofs",
           "neighbourhood_both_moorings_platform2_buildings",
           "neighbourhood_both_moorings_platform2_deck",
           "neighbourhood_both_moorings_platform2_facade",
           "neighbourhood_both_moorings_platform2_hull",
+          "neighbourhood_both_moorings_platform2_lawn",
           "neighbourhood_both_moorings_platform2_paths",
           "neighbourhood_both_moorings_platform2_roofs",
+          "neighbourhood_both_moorings_platform2_solar",
+          "neighbourhood_both_moorings_platform2_trees",
           "neighbourhood_both_moorings_platform3_buildings",
           "neighbourhood_both_moorings_platform3_deck",
           "neighbourhood_both_moorings_platform3_facade",
           "neighbourhood_both_moorings_platform3_hull",
+          "neighbourhood_both_moorings_platform3_lawn",
           "neighbourhood_both_moorings_platform3_paths",
           "neighbourhood_both_moorings_platform3_roofs",
+          "neighbourhood_both_moorings_platform4_balconies",
           "neighbourhood_both_moorings_platform4_buildings",
           "neighbourhood_both_moorings_platform4_deck",
           "neighbourhood_both_moorings_platform4_facade",
           "neighbourhood_both_moorings_platform4_hull",
+          "neighbourhood_both_moorings_platform4_lawn",
           "neighbourhood_both_moorings_platform4_paths",
           "neighbourhood_both_moorings_platform4_roofs",
           "neighbourhood_both_moorings_platform5_buildings",
@@ -22067,24 +22454,31 @@
           "neighbourhood_both_moorings_platform1_deck",
           "neighbourhood_both_moorings_platform1_facade",
           "neighbourhood_both_moorings_platform1_hull",
+          "neighbourhood_both_moorings_platform1_lawn",
           "neighbourhood_both_moorings_platform1_paths",
           "neighbourhood_both_moorings_platform1_roofs",
           "neighbourhood_both_moorings_platform2_buildings",
           "neighbourhood_both_moorings_platform2_deck",
           "neighbourhood_both_moorings_platform2_facade",
           "neighbourhood_both_moorings_platform2_hull",
+          "neighbourhood_both_moorings_platform2_lawn",
           "neighbourhood_both_moorings_platform2_paths",
           "neighbourhood_both_moorings_platform2_roofs",
+          "neighbourhood_both_moorings_platform2_solar",
+          "neighbourhood_both_moorings_platform2_trees",
           "neighbourhood_both_moorings_platform3_buildings",
           "neighbourhood_both_moorings_platform3_deck",
           "neighbourhood_both_moorings_platform3_facade",
           "neighbourhood_both_moorings_platform3_hull",
+          "neighbourhood_both_moorings_platform3_lawn",
           "neighbourhood_both_moorings_platform3_paths",
           "neighbourhood_both_moorings_platform3_roofs",
+          "neighbourhood_both_moorings_platform4_balconies",
           "neighbourhood_both_moorings_platform4_buildings",
           "neighbourhood_both_moorings_platform4_deck",
           "neighbourhood_both_moorings_platform4_facade",
           "neighbourhood_both_moorings_platform4_hull",
+          "neighbourhood_both_moorings_platform4_lawn",
           "neighbourhood_both_moorings_platform4_paths",
           "neighbourhood_both_moorings_platform4_roofs",
           "neighbourhood_both_moorings_platform5_buildings",
@@ -22108,7 +22502,7 @@
         "beat_offset_seconds": 0.0,
         "start_seconds": 333.583333
       },
-      "explanation": "1 view(s), 6 timed steps on neighbourhood_both_moorings: fade_out 40, oscillate 12, oscillate 6, oscillate 12, oscillate 10, oscillate 10",
+      "explanation": "1 view(s), 6 timed steps on neighbourhood_both_moorings: fade_out 40, oscillate 13, oscillate 9, oscillate 13, oscillate 12, oscillate 10",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -26026,13 +26420,13 @@
               "anchors": [
                 {
                   "world": [
-                    -5.51317,
-                    196.89969,
-                    5.185
+                    7.76498,
+                    159.5,
+                    5.63627
                   ],
                   "screen": [
-                    0.410156,
-                    0.43287
+                    0.404948,
+                    0.400463
                   ],
                   "point": "TOP",
                   "component_ids": [
@@ -26044,10 +26438,10 @@
                 {
                   "kind": "plate",
                   "box": [
-                    0.372511,
-                    0.47245,
-                    0.447801,
-                    0.53329
+                    0.367303,
+                    0.300043,
+                    0.442593,
+                    0.360883
                   ],
                   "fill": "#FBF9F4",
                   "border": "#77736A",
@@ -26059,26 +26453,26 @@
                   "size": 0.036,
                   "color": "#24231F",
                   "center": [
-                    0.410156,
-                    0.50287
+                    0.404948,
+                    0.330463
                   ],
                   "box": [
-                    0.372511,
-                    0.47245,
-                    0.447801,
-                    0.53329
+                    0.367303,
+                    0.300043,
+                    0.442593,
+                    0.360883
                   ]
                 },
                 {
                   "kind": "line",
                   "points": [
                     [
-                      0.410156,
-                      0.47245
+                      0.404948,
+                      0.360883
                     ],
                     [
-                      0.410156,
-                      0.43287
+                      0.404948,
+                      0.400463
                     ]
                   ],
                   "width": 0.0098,
@@ -26090,12 +26484,12 @@
                   "kind": "line",
                   "points": [
                     [
-                      0.410156,
-                      0.47245
+                      0.404948,
+                      0.360883
                     ],
                     [
-                      0.410156,
-                      0.43287
+                      0.404948,
+                      0.400463
                     ]
                   ],
                   "width": 0.0028,
@@ -26105,8 +26499,8 @@
                 {
                   "kind": "dot",
                   "center": [
-                    0.410156,
-                    0.43287
+                    0.404948,
+                    0.400463
                   ],
                   "radius": 0.0065,
                   "color": "#3B3A36"
@@ -26114,21 +26508,21 @@
               ],
               "boxes": [
                 [
-                  0.372511,
-                  0.47245,
-                  0.447801,
-                  0.53329
+                  0.367303,
+                  0.300043,
+                  0.442593,
+                  0.360883
                 ]
               ],
               "segments": [
                 [
                   [
-                    0.410156,
-                    0.47245
+                    0.404948,
+                    0.360883
                   ],
                   [
-                    0.410156,
-                    0.43287
+                    0.404948,
+                    0.400463
                   ]
                 ]
               ]
@@ -26587,13 +26981,13 @@
             "anchors": [
               {
                 "world": [
-                  -5.51317,
-                  196.89969,
-                  5.185
+                  7.76498,
+                  159.5,
+                  5.63627
                 ],
                 "screen": [
-                  0.410156,
-                  0.43287
+                  0.404948,
+                  0.400463
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -26605,10 +26999,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.372511,
-                  0.47245,
-                  0.447801,
-                  0.53329
+                  0.367303,
+                  0.300043,
+                  0.442593,
+                  0.360883
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -26620,26 +27014,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.410156,
-                  0.50287
+                  0.404948,
+                  0.330463
                 ],
                 "box": [
-                  0.372511,
-                  0.47245,
-                  0.447801,
-                  0.53329
+                  0.367303,
+                  0.300043,
+                  0.442593,
+                  0.360883
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.410156,
-                    0.47245
+                    0.404948,
+                    0.360883
                   ],
                   [
-                    0.410156,
-                    0.43287
+                    0.404948,
+                    0.400463
                   ]
                 ],
                 "width": 0.0098,
@@ -26651,12 +27045,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.410156,
-                    0.47245
+                    0.404948,
+                    0.360883
                   ],
                   [
-                    0.410156,
-                    0.43287
+                    0.404948,
+                    0.400463
                   ]
                 ],
                 "width": 0.0028,
@@ -26666,8 +27060,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.410156,
-                  0.43287
+                  0.404948,
+                  0.400463
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -26675,21 +27069,21 @@
             ],
             "boxes": [
               [
-                0.372511,
-                0.47245,
-                0.447801,
-                0.53329
+                0.367303,
+                0.300043,
+                0.442593,
+                0.360883
               ]
             ],
             "segments": [
               [
                 [
-                  0.410156,
-                  0.47245
+                  0.404948,
+                  0.360883
                 ],
                 [
-                  0.410156,
-                  0.43287
+                  0.404948,
+                  0.400463
                 ]
               ]
             ]
@@ -26944,7 +27338,7 @@
               ],
               "start_seconds": 4.025,
               "seconds": 1.2,
-              "transparency": 0.85,
+              "transparency": 0.5,
               "do": "GHOST"
             },
             {
@@ -26991,13 +27385,64 @@
           "CLM_020"
         ],
         "narration": "Something also has to hold the city in place. Floating homes in the Netherlands are fixed to the shore, often resting against steel poles.",
-        "visual_purpose": "Low view of the neighbourhood: the water ghosts and the steel piles beneath light up [SEQUENCE 1/1: 1 view(s), 3 timed steps on neighbourhood_both_moorings: fade_out 20, ghost 1, highlight 20]",
+        "visual_purpose": "Low view of the neighbourhood: the water turns see-through (half its colour and the waterline stay) and the steel piles beneath light up [SEQUENCE 1/1: 1 view(s), 3 timed steps on neighbourhood_both_moorings: fade_out 20, ghost 1, highlight 20]",
         "build_variants": [
           "neighbourhood_both_moorings"
         ],
         "annotations": {
           "style_sha256": "a192ab8edb9b6e9a156646932b274923582300f6a3a817d6b2a110d74a119d51",
           "items": [
+            {
+              "id": "B22_note",
+              "type": "NOTE",
+              "appear": 4.2083,
+              "disappear": 11.375,
+              "claim_id": null,
+              "text": "Water drawn see-through",
+              "style": null,
+              "force": null,
+              "direction": null,
+              "anchors": [],
+              "elements": [
+                {
+                  "kind": "plate",
+                  "box": [
+                    0.764319,
+                    0.18,
+                    0.955,
+                    0.2307
+                  ],
+                  "fill": "#FBF9F4",
+                  "border": "#77736A",
+                  "border_width": 0.0025
+                },
+                {
+                  "kind": "text",
+                  "text": "Water drawn see-through",
+                  "size": 0.03,
+                  "color": "#4C4A44",
+                  "center": [
+                    0.85966,
+                    0.20535
+                  ],
+                  "box": [
+                    0.764319,
+                    0.18,
+                    0.955,
+                    0.2307
+                  ]
+                }
+              ],
+              "boxes": [
+                [
+                  0.764319,
+                  0.18,
+                  0.955,
+                  0.2307
+                ]
+              ],
+              "segments": []
+            },
             {
               "id": "B22_pile",
               "type": "COMPONENT_LABEL",
@@ -27216,6 +27661,57 @@
       "annotations": {
         "style_sha256": "a192ab8edb9b6e9a156646932b274923582300f6a3a817d6b2a110d74a119d51",
         "items": [
+          {
+            "id": "B22_note",
+            "type": "NOTE",
+            "appear": 4.2083,
+            "disappear": 11.375,
+            "claim_id": null,
+            "text": "Water drawn see-through",
+            "style": null,
+            "force": null,
+            "direction": null,
+            "anchors": [],
+            "elements": [
+              {
+                "kind": "plate",
+                "box": [
+                  0.764319,
+                  0.18,
+                  0.955,
+                  0.2307
+                ],
+                "fill": "#FBF9F4",
+                "border": "#77736A",
+                "border_width": 0.0025
+              },
+              {
+                "kind": "text",
+                "text": "Water drawn see-through",
+                "size": 0.03,
+                "color": "#4C4A44",
+                "center": [
+                  0.85966,
+                  0.20535
+                ],
+                "box": [
+                  0.764319,
+                  0.18,
+                  0.955,
+                  0.2307
+                ]
+              }
+            ],
+            "boxes": [
+              [
+                0.764319,
+                0.18,
+                0.955,
+                0.2307
+              ]
+            ],
+            "segments": []
+          },
           {
             "id": "B22_pile",
             "type": "COMPONENT_LABEL",
@@ -27751,6 +28247,7 @@
                 "neighbourhood_both_moorings_platform1_deck",
                 "neighbourhood_both_moorings_platform1_facade",
                 "neighbourhood_both_moorings_platform1_hull",
+                "neighbourhood_both_moorings_platform1_lawn",
                 "neighbourhood_both_moorings_platform1_line1",
                 "neighbourhood_both_moorings_platform1_line2",
                 "neighbourhood_both_moorings_platform1_paths",
@@ -27761,26 +28258,32 @@
                 "neighbourhood_both_moorings_platform2_deck",
                 "neighbourhood_both_moorings_platform2_facade",
                 "neighbourhood_both_moorings_platform2_hull",
+                "neighbourhood_both_moorings_platform2_lawn",
                 "neighbourhood_both_moorings_platform2_line1",
                 "neighbourhood_both_moorings_platform2_line2",
                 "neighbourhood_both_moorings_platform2_paths",
                 "neighbourhood_both_moorings_platform2_roofs",
+                "neighbourhood_both_moorings_platform2_solar",
+                "neighbourhood_both_moorings_platform2_trees",
                 "neighbourhood_both_moorings_platform3_anchor1",
                 "neighbourhood_both_moorings_platform3_anchor2",
                 "neighbourhood_both_moorings_platform3_buildings",
                 "neighbourhood_both_moorings_platform3_deck",
                 "neighbourhood_both_moorings_platform3_facade",
                 "neighbourhood_both_moorings_platform3_hull",
+                "neighbourhood_both_moorings_platform3_lawn",
                 "neighbourhood_both_moorings_platform3_line1",
                 "neighbourhood_both_moorings_platform3_line2",
                 "neighbourhood_both_moorings_platform3_paths",
                 "neighbourhood_both_moorings_platform3_roofs",
                 "neighbourhood_both_moorings_platform4_anchor1",
                 "neighbourhood_both_moorings_platform4_anchor2",
+                "neighbourhood_both_moorings_platform4_balconies",
                 "neighbourhood_both_moorings_platform4_buildings",
                 "neighbourhood_both_moorings_platform4_deck",
                 "neighbourhood_both_moorings_platform4_facade",
                 "neighbourhood_both_moorings_platform4_hull",
+                "neighbourhood_both_moorings_platform4_lawn",
                 "neighbourhood_both_moorings_platform4_line1",
                 "neighbourhood_both_moorings_platform4_line2",
                 "neighbourhood_both_moorings_platform4_paths",
@@ -27831,9 +28334,9 @@
               "components": [
                 "water"
               ],
-              "start_seconds": 0.0,
-              "seconds": 0,
-              "transparency": 0.85,
+              "start_seconds": 1.42,
+              "seconds": 0.9,
+              "transparency": 0.5,
               "do": "GHOST"
             },
             {
@@ -27952,7 +28455,7 @@
           "CLM_054"
         ],
         "narration": "Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed. Deeper water means longer lines, deeper anchors, and higher costs. The seabed itself shapes the design, and the bill.",
-        "visual_purpose": "Same neighbourhood with the water ghosted: the piles fade and mooring lines to anchors on the seabed take their place; lines and anchors light (conceptual mooring, not sized) [SEQUENCE 1/1: 1 view(s), 6 timed steps on neighbourhood_both_moorings: fade_out 20, ghost 1, fade_out 20, reveal 20, highlight 10, highlight 10]",
+        "visual_purpose": "Same neighbourhood; the water turns see-through (half its colour stays): the piles fade and mooring lines to anchors on the seabed take their place; lines and anchors light (conceptual mooring, not sized) [SEQUENCE 1/1: 1 view(s), 6 timed steps on neighbourhood_both_moorings: fade_out 20, ghost 1, fade_out 20, reveal 20, highlight 10, highlight 10]",
         "build_variants": [
           "neighbourhood_both_moorings"
         ],
@@ -28023,12 +28526,12 @@
               "anchors": [
                 {
                   "world": [
-                    2.0,
-                    -66.59038,
-                    -13.78791
+                    0.40514,
+                    -67.0,
+                    -13.89378
                   ],
                   "screen": [
-                    0.272135,
+                    0.264323,
                     0.30787
                   ],
                   "point": "TOP",
@@ -28041,9 +28544,9 @@
                 {
                   "kind": "plate",
                   "box": [
-                    0.235146,
+                    0.227334,
                     0.34745,
-                    0.309124,
+                    0.301312,
                     0.40829
                   ],
                   "fill": "#FBF9F4",
@@ -28056,13 +28559,13 @@
                   "size": 0.036,
                   "color": "#24231F",
                   "center": [
-                    0.272135,
+                    0.264323,
                     0.37787
                   ],
                   "box": [
-                    0.235146,
+                    0.227334,
                     0.34745,
-                    0.309124,
+                    0.301312,
                     0.40829
                   ]
                 },
@@ -28070,11 +28573,11 @@
                   "kind": "line",
                   "points": [
                     [
-                      0.272135,
+                      0.264323,
                       0.34745
                     ],
                     [
-                      0.272135,
+                      0.264323,
                       0.30787
                     ]
                   ],
@@ -28087,11 +28590,11 @@
                   "kind": "line",
                   "points": [
                     [
-                      0.272135,
+                      0.264323,
                       0.34745
                     ],
                     [
-                      0.272135,
+                      0.264323,
                       0.30787
                     ]
                   ],
@@ -28102,7 +28605,7 @@
                 {
                   "kind": "dot",
                   "center": [
-                    0.272135,
+                    0.264323,
                     0.30787
                   ],
                   "radius": 0.0065,
@@ -28111,20 +28614,20 @@
               ],
               "boxes": [
                 [
-                  0.235146,
+                  0.227334,
                   0.34745,
-                  0.309124,
+                  0.301312,
                   0.40829
                 ]
               ],
               "segments": [
                 [
                   [
-                    0.272135,
+                    0.264323,
                     0.34745
                   ],
                   [
-                    0.272135,
+                    0.264323,
                     0.30787
                   ]
                 ]
@@ -28155,6 +28658,7 @@
           "neighbourhood_both_moorings_platform1_deck",
           "neighbourhood_both_moorings_platform1_facade",
           "neighbourhood_both_moorings_platform1_hull",
+          "neighbourhood_both_moorings_platform1_lawn",
           "neighbourhood_both_moorings_platform1_line1",
           "neighbourhood_both_moorings_platform1_line2",
           "neighbourhood_both_moorings_platform1_paths",
@@ -28165,26 +28669,32 @@
           "neighbourhood_both_moorings_platform2_deck",
           "neighbourhood_both_moorings_platform2_facade",
           "neighbourhood_both_moorings_platform2_hull",
+          "neighbourhood_both_moorings_platform2_lawn",
           "neighbourhood_both_moorings_platform2_line1",
           "neighbourhood_both_moorings_platform2_line2",
           "neighbourhood_both_moorings_platform2_paths",
           "neighbourhood_both_moorings_platform2_roofs",
+          "neighbourhood_both_moorings_platform2_solar",
+          "neighbourhood_both_moorings_platform2_trees",
           "neighbourhood_both_moorings_platform3_anchor1",
           "neighbourhood_both_moorings_platform3_anchor2",
           "neighbourhood_both_moorings_platform3_buildings",
           "neighbourhood_both_moorings_platform3_deck",
           "neighbourhood_both_moorings_platform3_facade",
           "neighbourhood_both_moorings_platform3_hull",
+          "neighbourhood_both_moorings_platform3_lawn",
           "neighbourhood_both_moorings_platform3_line1",
           "neighbourhood_both_moorings_platform3_line2",
           "neighbourhood_both_moorings_platform3_paths",
           "neighbourhood_both_moorings_platform3_roofs",
           "neighbourhood_both_moorings_platform4_anchor1",
           "neighbourhood_both_moorings_platform4_anchor2",
+          "neighbourhood_both_moorings_platform4_balconies",
           "neighbourhood_both_moorings_platform4_buildings",
           "neighbourhood_both_moorings_platform4_deck",
           "neighbourhood_both_moorings_platform4_facade",
           "neighbourhood_both_moorings_platform4_hull",
+          "neighbourhood_both_moorings_platform4_lawn",
           "neighbourhood_both_moorings_platform4_line1",
           "neighbourhood_both_moorings_platform4_line2",
           "neighbourhood_both_moorings_platform4_paths",
@@ -28208,6 +28718,7 @@
           "neighbourhood_both_moorings_platform1_deck",
           "neighbourhood_both_moorings_platform1_facade",
           "neighbourhood_both_moorings_platform1_hull",
+          "neighbourhood_both_moorings_platform1_lawn",
           "neighbourhood_both_moorings_platform1_line1",
           "neighbourhood_both_moorings_platform1_line2",
           "neighbourhood_both_moorings_platform1_paths",
@@ -28218,26 +28729,32 @@
           "neighbourhood_both_moorings_platform2_deck",
           "neighbourhood_both_moorings_platform2_facade",
           "neighbourhood_both_moorings_platform2_hull",
+          "neighbourhood_both_moorings_platform2_lawn",
           "neighbourhood_both_moorings_platform2_line1",
           "neighbourhood_both_moorings_platform2_line2",
           "neighbourhood_both_moorings_platform2_paths",
           "neighbourhood_both_moorings_platform2_roofs",
+          "neighbourhood_both_moorings_platform2_solar",
+          "neighbourhood_both_moorings_platform2_trees",
           "neighbourhood_both_moorings_platform3_anchor1",
           "neighbourhood_both_moorings_platform3_anchor2",
           "neighbourhood_both_moorings_platform3_buildings",
           "neighbourhood_both_moorings_platform3_deck",
           "neighbourhood_both_moorings_platform3_facade",
           "neighbourhood_both_moorings_platform3_hull",
+          "neighbourhood_both_moorings_platform3_lawn",
           "neighbourhood_both_moorings_platform3_line1",
           "neighbourhood_both_moorings_platform3_line2",
           "neighbourhood_both_moorings_platform3_paths",
           "neighbourhood_both_moorings_platform3_roofs",
           "neighbourhood_both_moorings_platform4_anchor1",
           "neighbourhood_both_moorings_platform4_anchor2",
+          "neighbourhood_both_moorings_platform4_balconies",
           "neighbourhood_both_moorings_platform4_buildings",
           "neighbourhood_both_moorings_platform4_deck",
           "neighbourhood_both_moorings_platform4_facade",
           "neighbourhood_both_moorings_platform4_hull",
+          "neighbourhood_both_moorings_platform4_lawn",
           "neighbourhood_both_moorings_platform4_line1",
           "neighbourhood_both_moorings_platform4_line2",
           "neighbourhood_both_moorings_platform4_paths",
@@ -28344,12 +28861,12 @@
             "anchors": [
               {
                 "world": [
-                  2.0,
-                  -66.59038,
-                  -13.78791
+                  0.40514,
+                  -67.0,
+                  -13.89378
                 ],
                 "screen": [
-                  0.272135,
+                  0.264323,
                   0.30787
                 ],
                 "point": "TOP",
@@ -28362,9 +28879,9 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.235146,
+                  0.227334,
                   0.34745,
-                  0.309124,
+                  0.301312,
                   0.40829
                 ],
                 "fill": "#FBF9F4",
@@ -28377,13 +28894,13 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.272135,
+                  0.264323,
                   0.37787
                 ],
                 "box": [
-                  0.235146,
+                  0.227334,
                   0.34745,
-                  0.309124,
+                  0.301312,
                   0.40829
                 ]
               },
@@ -28391,11 +28908,11 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.272135,
+                    0.264323,
                     0.34745
                   ],
                   [
-                    0.272135,
+                    0.264323,
                     0.30787
                   ]
                 ],
@@ -28408,11 +28925,11 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.272135,
+                    0.264323,
                     0.34745
                   ],
                   [
-                    0.272135,
+                    0.264323,
                     0.30787
                   ]
                 ],
@@ -28423,7 +28940,7 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.272135,
+                  0.264323,
                   0.30787
                 ],
                 "radius": 0.0065,
@@ -28432,20 +28949,20 @@
             ],
             "boxes": [
               [
-                0.235146,
+                0.227334,
                 0.34745,
-                0.309124,
+                0.301312,
                 0.40829
               ]
             ],
             "segments": [
               [
                 [
-                  0.272135,
+                  0.264323,
                   0.34745
                 ],
                 [
-                  0.272135,
+                  0.264323,
                   0.30787
                 ]
               ]
@@ -28529,13 +29046,13 @@
                 "floating_district_linkspan3_wastewater",
                 "floating_district_spine_power_r0",
                 "floating_district_spine_power_r2",
-                "floating_district_spine_power_r6",
+                "floating_district_spine_power_r7",
                 "floating_district_spine_water_r0",
                 "floating_district_spine_water_r2",
-                "floating_district_spine_water_r6",
+                "floating_district_spine_water_r7",
                 "floating_district_spine_wastewater_r0",
                 "floating_district_spine_wastewater_r2",
-                "floating_district_spine_wastewater_r6"
+                "floating_district_spine_wastewater_r7"
               ],
               "start_seconds": 0.0,
               "seconds": 0,
@@ -28743,7 +29260,9 @@
                 "floating_district_m012_facade",
                 "floating_district_m013_facade",
                 "floating_district_m014_facade",
+                "floating_district_m014_balconies",
                 "floating_district_m015_facade",
+                "floating_district_m015_balconies",
                 "floating_district_m016_facade",
                 "floating_district_m017_facade",
                 "floating_district_m018_facade",
@@ -28752,64 +29271,95 @@
                 "floating_district_m022_facade",
                 "floating_district_m023_facade",
                 "floating_district_m024_facade",
+                "floating_district_m024_balconies",
                 "floating_district_m025_facade",
+                "floating_district_m025_balconies",
                 "floating_district_m026_facade",
                 "floating_district_m027_facade",
                 "floating_district_m028_facade",
                 "floating_district_m030_facade",
                 "floating_district_m031_facade",
                 "floating_district_m032_facade",
+                "floating_district_m032_solar",
                 "floating_district_m033_facade",
+                "floating_district_m033_solar",
                 "floating_district_m034_facade",
+                "floating_district_m034_balconies",
                 "floating_district_m035_facade",
+                "floating_district_m035_balconies",
                 "floating_district_m036_facade",
                 "floating_district_m037_facade",
                 "floating_district_m038_facade",
                 "floating_district_m040_facade",
                 "floating_district_m041_facade",
                 "floating_district_m042_facade",
+                "floating_district_m042_solar",
                 "floating_district_m043_facade",
+                "floating_district_m043_balconies",
                 "floating_district_m046_facade",
+                "floating_district_m046_balconies",
                 "floating_district_m047_facade",
                 "floating_district_m048_facade",
                 "floating_district_m050_facade",
                 "floating_district_m051_facade",
                 "floating_district_m052_facade",
+                "floating_district_m052_balconies",
                 "floating_district_m053_facade",
+                "floating_district_m053_balconies",
                 "floating_district_m056_facade",
+                "floating_district_m056_balconies",
                 "floating_district_m057_facade",
+                "floating_district_m057_solar",
                 "floating_district_m058_facade",
                 "floating_district_m060_facade",
                 "floating_district_m061_facade",
                 "floating_district_m062_facade",
+                "floating_district_m062_balconies",
                 "floating_district_m063_facade",
+                "floating_district_m063_balconies",
                 "floating_district_m066_facade",
+                "floating_district_m066_balconies",
                 "floating_district_m067_facade",
+                "floating_district_m067_solar",
                 "floating_district_m068_facade",
                 "floating_district_m070_facade",
+                "floating_district_m070_solar",
                 "floating_district_m071_facade",
+                "floating_district_m071_solar",
                 "floating_district_m072_facade",
                 "floating_district_m073_facade",
                 "floating_district_m074_facade",
+                "floating_district_m074_balconies",
                 "floating_district_m075_facade",
+                "floating_district_m075_balconies",
                 "floating_district_m076_facade",
+                "floating_district_m076_balconies",
                 "floating_district_m077_facade",
+                "floating_district_m077_balconies",
                 "floating_district_m078_facade",
                 "floating_district_m080_facade",
+                "floating_district_m080_solar",
                 "floating_district_m081_facade",
+                "floating_district_m081_solar",
                 "floating_district_m082_facade",
                 "floating_district_m083_facade",
                 "floating_district_m084_facade",
                 "floating_district_m085_facade",
                 "floating_district_m086_facade",
+                "floating_district_m086_balconies",
                 "floating_district_m087_facade",
+                "floating_district_m087_balconies",
                 "floating_district_m088_facade",
                 "floating_district_m090_facade",
+                "floating_district_m090_balconies",
                 "floating_district_m091_facade",
+                "floating_district_m091_balconies",
                 "floating_district_m092_facade",
                 "floating_district_m093_facade",
                 "floating_district_m094_facade",
+                "floating_district_m094_solar",
                 "floating_district_m095_facade",
+                "floating_district_m095_solar",
                 "floating_district_m096_facade",
                 "floating_district_m097_facade",
                 "floating_district_m098_facade",
@@ -28841,13 +29391,13 @@
                 "floating_district_linkspan3_wastewater",
                 "floating_district_spine_power_r0",
                 "floating_district_spine_power_r2",
-                "floating_district_spine_power_r6",
+                "floating_district_spine_power_r7",
                 "floating_district_spine_water_r0",
                 "floating_district_spine_water_r2",
-                "floating_district_spine_water_r6",
+                "floating_district_spine_water_r7",
                 "floating_district_spine_wastewater_r0",
                 "floating_district_spine_wastewater_r2",
-                "floating_district_spine_wastewater_r6"
+                "floating_district_spine_wastewater_r7"
               ],
               "start_seconds": 7.155,
               "seconds": 1.2,
@@ -28866,13 +29416,13 @@
                 "floating_district_linkspan3_wastewater",
                 "floating_district_spine_power_r0",
                 "floating_district_spine_power_r2",
-                "floating_district_spine_power_r6",
+                "floating_district_spine_power_r7",
                 "floating_district_spine_water_r0",
                 "floating_district_spine_water_r2",
-                "floating_district_spine_water_r6",
+                "floating_district_spine_water_r7",
                 "floating_district_spine_wastewater_r0",
                 "floating_district_spine_wastewater_r2",
-                "floating_district_spine_wastewater_r6"
+                "floating_district_spine_wastewater_r7"
               ],
               "start_seconds": 7.575,
               "rise_seconds": 0.3,
@@ -28893,7 +29443,7 @@
         ],
         "claim_ids": [],
         "narration": "So it floats, and it stays put. But is it a city yet? Fade out the buildings, and the city's other half appears.",
-        "visual_purpose": "Close to the quay: the buildings ghost and the city's other half appears: power, water and wastewater lines along the bridges and through the district [SEQUENCE 1/1: 1 view(s), 4 timed steps on floating_district: fade_out 18, ghost 279, fade_in 18, highlight 18]",
+        "visual_purpose": "Close to the quay: the buildings ghost and the city's other half appears: power, water and wastewater lines along the bridges and through the district [SEQUENCE 1/1: 1 view(s), 4 timed steps on floating_district: fade_out 18, ghost 312, fade_in 18, highlight 18]",
         "build_variants": [
           "floating_district"
         ]
@@ -29017,7 +29567,7 @@
         "beat_offset_seconds": 0.0,
         "start_seconds": 476.875
       },
-      "explanation": "1 view(s), 4 timed steps on floating_district: fade_out 18, ghost 279, fade_in 18, highlight 18",
+      "explanation": "1 view(s), 4 timed steps on floating_district: fade_out 18, ghost 312, fade_in 18, highlight 18",
       "evidence_status": "INTERNAL_PREVIEW",
       "composition": null,
       "sequence": null,
@@ -32185,13 +32735,13 @@
                 "floating_district_linkspan3_wastewater",
                 "floating_district_spine_power_r0",
                 "floating_district_spine_power_r2",
-                "floating_district_spine_power_r6",
+                "floating_district_spine_power_r7",
                 "floating_district_spine_water_r0",
                 "floating_district_spine_water_r2",
-                "floating_district_spine_water_r6",
+                "floating_district_spine_water_r7",
                 "floating_district_spine_wastewater_r0",
                 "floating_district_spine_wastewater_r2",
-                "floating_district_spine_wastewater_r6"
+                "floating_district_spine_wastewater_r7"
               ],
               "start_seconds": 8.95,
               "rise_seconds": 0.3,
@@ -32368,13 +32918,13 @@
               "anchors": [
                 {
                   "world": [
-                    -0.94043,
-                    165.7094,
+                    -0.93253,
+                    160.05603,
                     1.163
                   ],
                   "screen": [
-                    0.428385,
-                    0.428241
+                    0.425781,
+                    0.423611
                   ],
                   "point": "TOP",
                   "component_ids": [
@@ -32386,10 +32936,10 @@
                 {
                   "kind": "plate",
                   "box": [
-                    0.364168,
-                    0.527821,
-                    0.492602,
-                    0.588661
+                    0.361564,
+                    0.563191,
+                    0.489998,
+                    0.624031
                   ],
                   "fill": "#FBF9F4",
                   "border": "#77736A",
@@ -32401,26 +32951,26 @@
                   "size": 0.036,
                   "color": "#24231F",
                   "center": [
-                    0.428385,
-                    0.558241
+                    0.425781,
+                    0.593611
                   ],
                   "box": [
-                    0.364168,
-                    0.527821,
-                    0.492602,
-                    0.588661
+                    0.361564,
+                    0.563191,
+                    0.489998,
+                    0.624031
                   ]
                 },
                 {
                   "kind": "line",
                   "points": [
                     [
-                      0.428385,
-                      0.527821
+                      0.425781,
+                      0.563191
                     ],
                     [
-                      0.428385,
-                      0.428241
+                      0.425781,
+                      0.423611
                     ]
                   ],
                   "width": 0.0098,
@@ -32432,12 +32982,12 @@
                   "kind": "line",
                   "points": [
                     [
-                      0.428385,
-                      0.527821
+                      0.425781,
+                      0.563191
                     ],
                     [
-                      0.428385,
-                      0.428241
+                      0.425781,
+                      0.423611
                     ]
                   ],
                   "width": 0.0028,
@@ -32447,8 +32997,8 @@
                 {
                   "kind": "dot",
                   "center": [
-                    0.428385,
-                    0.428241
+                    0.425781,
+                    0.423611
                   ],
                   "radius": 0.0065,
                   "color": "#3B3A36"
@@ -32456,21 +33006,21 @@
               ],
               "boxes": [
                 [
-                  0.364168,
-                  0.527821,
-                  0.492602,
-                  0.588661
+                  0.361564,
+                  0.563191,
+                  0.489998,
+                  0.624031
                 ]
               ],
               "segments": [
                 [
                   [
-                    0.428385,
-                    0.527821
+                    0.425781,
+                    0.563191
                   ],
                   [
-                    0.428385,
-                    0.428241
+                    0.425781,
+                    0.423611
                   ]
                 ]
               ]
@@ -32844,13 +33394,13 @@
             "anchors": [
               {
                 "world": [
-                  -0.94043,
-                  165.7094,
+                  -0.93253,
+                  160.05603,
                   1.163
                 ],
                 "screen": [
-                  0.428385,
-                  0.428241
+                  0.425781,
+                  0.423611
                 ],
                 "point": "TOP",
                 "component_ids": [
@@ -32862,10 +33412,10 @@
               {
                 "kind": "plate",
                 "box": [
-                  0.364168,
-                  0.527821,
-                  0.492602,
-                  0.588661
+                  0.361564,
+                  0.563191,
+                  0.489998,
+                  0.624031
                 ],
                 "fill": "#FBF9F4",
                 "border": "#77736A",
@@ -32877,26 +33427,26 @@
                 "size": 0.036,
                 "color": "#24231F",
                 "center": [
-                  0.428385,
-                  0.558241
+                  0.425781,
+                  0.593611
                 ],
                 "box": [
-                  0.364168,
-                  0.527821,
-                  0.492602,
-                  0.588661
+                  0.361564,
+                  0.563191,
+                  0.489998,
+                  0.624031
                 ]
               },
               {
                 "kind": "line",
                 "points": [
                   [
-                    0.428385,
-                    0.527821
+                    0.425781,
+                    0.563191
                   ],
                   [
-                    0.428385,
-                    0.428241
+                    0.425781,
+                    0.423611
                   ]
                 ],
                 "width": 0.0098,
@@ -32908,12 +33458,12 @@
                 "kind": "line",
                 "points": [
                   [
-                    0.428385,
-                    0.527821
+                    0.425781,
+                    0.563191
                   ],
                   [
-                    0.428385,
-                    0.428241
+                    0.425781,
+                    0.423611
                   ]
                 ],
                 "width": 0.0028,
@@ -32923,8 +33473,8 @@
               {
                 "kind": "dot",
                 "center": [
-                  0.428385,
-                  0.428241
+                  0.425781,
+                  0.423611
                 ],
                 "radius": 0.0065,
                 "color": "#3B3A36"
@@ -32932,21 +33482,21 @@
             ],
             "boxes": [
               [
-                0.364168,
-                0.527821,
-                0.492602,
-                0.588661
+                0.361564,
+                0.563191,
+                0.489998,
+                0.624031
               ]
             ],
             "segments": [
               [
                 [
-                  0.428385,
-                  0.527821
+                  0.425781,
+                  0.563191
                 ],
                 [
-                  0.428385,
-                  0.428241
+                  0.425781,
+                  0.423611
                 ]
               ]
             ]
@@ -33894,7 +34444,7 @@
               ],
               "start_seconds": 6.075,
               "seconds": 1.2,
-              "transparency": 0.88,
+              "transparency": 0.5,
               "do": "GHOST"
             },
             {
@@ -34425,7 +34975,7 @@
               ],
               "start_seconds": 1.38,
               "seconds": 1.0,
-              "transparency": 0.9,
+              "transparency": 0.65,
               "do": "GHOST"
             },
             {
@@ -35103,7 +35653,7 @@
               ],
               "start_seconds": 2.2,
               "seconds": 1.0,
-              "transparency": 0.85,
+              "transparency": 0.5,
               "do": "GHOST"
             },
             {
@@ -35884,7 +36434,7 @@
               ],
               "start_seconds": 4.95,
               "seconds": 1.0,
-              "transparency": 0.85,
+              "transparency": 0.5,
               "do": "GHOST"
             },
             {
@@ -36242,7 +36792,7 @@
               ],
               "start_seconds": 2.38,
               "seconds": 1.4,
-              "transparency": 0.88,
+              "transparency": 0.5,
               "do": "GHOST"
             }
           ]
@@ -37627,13 +38177,13 @@
                 "floating_district_linkspan3_wastewater",
                 "floating_district_spine_power_r0",
                 "floating_district_spine_power_r2",
-                "floating_district_spine_power_r6",
+                "floating_district_spine_power_r7",
                 "floating_district_spine_water_r0",
                 "floating_district_spine_water_r2",
-                "floating_district_spine_water_r6",
+                "floating_district_spine_water_r7",
                 "floating_district_spine_wastewater_r0",
                 "floating_district_spine_wastewater_r2",
-                "floating_district_spine_wastewater_r6",
+                "floating_district_spine_wastewater_r7",
                 "floating_district_linkspan1",
                 "floating_district_linkspan2",
                 "floating_district_linkspan3"
@@ -41062,6 +41612,22 @@
           "until": null,
           "window": [
             9.185,
+            11.375
+          ],
+          "shots": [
+            "SC_022"
+          ],
+          "status": "PLACED",
+          "issues": []
+        },
+        {
+          "id": "B22_note",
+          "type": "NOTE",
+          "claim_id": null,
+          "sentence": 1,
+          "until": null,
+          "window": [
+            4.225,
             11.375
           ],
           "shots": [

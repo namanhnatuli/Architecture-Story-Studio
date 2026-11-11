@@ -290,7 +290,87 @@ class UsesAndDetailTest(unittest.TestCase):
                 self.assertIn(f"m{c:02d}{r}_{k}", ids)
             if use == "school":
                 self.assertIn(f"m{c:02d}{r}_playground", ids)
+        for c, r in floating.PARKS:   # the gardens round the lagoon: lawn, trees, seats, lamps, a play court
+            for k in ("lawn", "trees", "furniture", "lamps", "playground"):
+                self.assertIn(f"m{c:02d}{r}_{k}", ids)
+        homes = [(c, r) for c, r, u in floating.district_cells() if u == "home" and floating.district_kind(c, r)[0] != "blocks"]
+        for c, r in homes:   # every home type except the plain blocks brings its own lawn
+            self.assertIn(f"m{c:02d}{r}_lawn", ids)
+
+
+class HomeTypesTest(unittest.TestCase):
+    """Home types (owner review of R2): different buildings, the calculation's floor area, storeys and centre of mass."""
+
+    def test_every_type_keeps_the_footprint_area_and_centre_and_the_streets(self):
+        for L in (60.0, 40.0):
+            for kind in floating.HOME_KINDS:
+                if kind == "garden" and L < 50:
+                    continue
+                rects = floating.home_layout(kind, L, L, 0.4)["rects"]
+                area = sum((x1 - x0) * (y1 - y0) for x0, x1, y0, y1 in rects)
+                self.assertAlmostEqual(area, 0.4 * L * L, delta=0.5, msg=(kind, L))
+                cx = sum((x1 - x0) * (y1 - y0) * (x0 + x1) / 2 for x0, x1, y0, y1 in rects) / area
+                cy = sum((x1 - x0) * (y1 - y0) * (y0 + y1) / 2 for x0, x1, y0, y1 in rects) / area
+                self.assertLess(abs(cx) + abs(cy), 0.01, (kind, L))   # no list from the buildings
+                for x0, x1, y0, y1 in rects:
+                    self.assertTrue(x0 >= 2.5 or x1 <= -2.5, (kind, L))   # the street along y stays open
+                    self.assertTrue(y0 >= 2.5 or y1 <= -2.5, (kind, L))   # and the street along x
+                    self.assertTrue(max(abs(x0), abs(x1), abs(y0), abs(y1)) <= L / 2 - 2.5 + 1e-9, (kind, L))
+                for i, a in enumerate(rects):
+                    for b in rects[i + 1:]:
+                        self.assertFalse(min(a[1], b[1]) - max(a[0], b[0]) > 1e-6 and min(a[3], b[3]) - max(a[2], b[2]) > 1e-6, (kind, L))
+
+    def test_every_type_has_three_storeys(self):
+        for kind in floating.HOME_KINDS:
+            parts = floating.home_parts(kind, 60.0, 60.0, 4.0, 2.917, 0.4, 3)
+            zs = [v[2] for v in parts["buildings"][2]["verts"]]
+            self.assertAlmostEqual(max(zs) - min(zs), 9.0, places=6, msg=kind)
+
+    def test_trees_and_seats_keep_clear_of_buildings_and_balconies(self):
+        for kind in floating.HOME_KINDS:
+            lay = floating.home_layout(kind, 60.0, 60.0, 0.4)
+            reach = floating.BALCONY_D if lay["balconies"] else 0.0
+            for x, y, sc in lay["trees"] + lay["round_trees"]:
+                r = 1.9 * sc + 0.1
+                for x0, x1, y0, y1 in lay["rects"]:
+                    dx = max(x0 - reach - x, 0.0, x - x1 - reach)
+                    dy = max(y0 - reach - y, 0.0, y - y1 - reach)
+                    self.assertGreater((dx * dx + dy * dy) ** 0.5, r, (kind, x, y))
+            for x, y, *_ in lay["benches"] + [(x, y) for x, y in lay["picnic"]]:
+                for x0, x1, y0, y1 in lay["rects"]:
+                    self.assertFalse(x0 - 1.0 < x < x1 + 1.0 and y0 - 1.0 < y < y1 + 1.0, (kind, x, y))
+
+    def test_district_mixes_types_and_gardens_open_onto_the_lagoon(self):
+        kinds = {}
+        for c, r, u in floating.district_cells():
+            if u == "home":
+                kinds[(c, r)] = floating.district_kind(c, r)
+        self.assertEqual({k for k, _ in kinds.values()}, set(floating.HOME_KINDS))
+        self.assertEqual({cr for cr, (k, _) in kinds.items() if k == "garden"}, floating.PARKS)
+        step = {"+y": (0, 1), "-y": (0, -1), "+x": (1, 0), "-x": (-1, 0)}
+        for (c, r), side in floating.GARDEN_SIDE.items():   # the garden's open (promenade) side faces a lagoon cell
+            dc, dr = step[side]
+            self.assertIn((c + dc, r + dr), floating.DISTRICT_LAGOON)
+            self.assertEqual(kinds[(c, r)], ("garden", floating.LAGOON_TURN[side]))
+        for (c, r), (k, _) in kinds.items():   # neighbouring tiles differ
+            for dc, dr in ((1, 0), (0, 1)):
+                other = kinds.get((c + dc, r + dr))
+                same_tile = ((c - 1) // 2, r // 2) == ((c + dc - 1) // 2, (r + dr) // 2)
+                if other and not same_tile and "garden" not in (k, other[0]):
+                    self.assertNotEqual(k, other[0], ((c, r), (c + dc, r + dr)))
+
+    def test_old_look_is_still_available(self):
+        _, p = spec("floating_district_01")
+        comps = floating.district(dict(p, home_types="blocks"))
         self.assertEqual(sum(c.id.endswith("_trees") for c in comps), len(floating.PARKS))
+        self.assertFalse(any(c.id.endswith("_balconies") or c.id.endswith("_solar") for c in comps))
+
+
+
+class StoryDetailTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.res = json.loads(RESULTS.read_text())
 
     def test_storeys_carry_their_windows(self):
         comps = {c.id: c for c in floating.platform(params(storeys=4, section=1))}

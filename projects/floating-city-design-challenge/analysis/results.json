@@ -329,12 +329,16 @@
     "residents_per_module": 108,
     "joints_max": 180,
     "standard_modules_displacement_t": 1001000.0,
+    "includes": [
+      "homes",
+      "schools, a clinic, shops and offices (10 of the 40 m2 per resident; section 10)"
+    ],
     "excludes": [
-      "service and port platforms",
+      "port, marina and utility platforms (plants, depots, boat services)",
       "breakwater",
       "link-span bridges",
       "moorings and piles",
-      "utility plants and networks"
+      "utility networks"
     ],
     "gfa_per_resident_m2": {
       "total": 40,
@@ -359,7 +363,9 @@
       "clinic": 1,
       "community_shops_offices": 17
     },
-    "note": "Illustrative allocation: 66 home modules alone give 9,504 residents at 30 m2 each; six mixed modules on the flanks near the shore (shops and services below, homes on the two upper floors) bring it to about 10,000 with about 10 m2 of services each. Parks are the open decks (60 percent of every deck), not extra modules."
+    "note": "Illustrative allocation: 66 home modules alone give 9,504 residents at 30 m2 each; six mixed modules on the flanks near the shore (shops and services below, homes on the two upper floors) bring it to about 10,000 with about 10 m2 of services each. Parks are the open decks (60 percent of every deck), not extra modules.",
+    "building_types_note": "Every module, whatever its building type, keeps the same footprint area (40 percent of the deck), three storeys and a footprint centred on the deck, so the same mass, draft and no list. Equal load per m2 of floor across building types is an assumption of this model, not a result.",
+    "landscape_note": "Lawns and trees are drawn on the open deck. The model carries 0.2 t/m2 of finishes over the whole deck and 0.25 t/m2 of variable load on the open deck: enough for a thin planted layer only. Deep planters for large trees are not modelled."
   },
   "reference_points": {
     "oceanix_busan_proposed": {

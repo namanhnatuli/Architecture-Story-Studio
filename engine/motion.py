@@ -630,7 +630,8 @@ def plan_camera_move(plan, cfg, camera):
 # words). The camera keys come from the views' fits, computed by the caller from the rest geometry.
 SEQUENCE_DEFAULTS = {"template": "SEQUENCE", "state": None, "duration_seconds": None, "views": None, "steps": None}
 VIEW_DEFAULTS = {"start_seconds": 0.0, "move_seconds": 0.0, "focus": None, "easing": "SMOOTH", "margin": None,
-                 "azimuth": None, "elevation": None}   # g-r5: a view may turn the camera (an orbit); None = the preset
+                 "azimuth": None, "elevation": None,   # g-r5: a view may turn the camera (an orbit); None = the preset
+                 "clearance": None}   # metres the camera stands in front of the framed parts (None: framing default)
 STEP_DEFAULTS = {
     "GHOST": {"components": None, "start_seconds": None, "seconds": 1.0, "transparency": 0.85},
     "UNGHOST": {"components": None, "start_seconds": None, "seconds": 1.0},
@@ -715,6 +716,8 @@ def sequence_views(cfg, where="SEQUENCE"):
         c = merge_config(VIEW_DEFAULTS, v, f"{where}.views[{i}]", free_form=("focus",))
         _number(c, "start_seconds", f"{where}.views[{i}]")
         _number(c, "move_seconds", f"{where}.views[{i}]")
+        if c["clearance"] is not None and not (isinstance(c["clearance"], (int, float)) and 1.0 <= c["clearance"] <= 500.0):
+            raise PlanError(f"{where}.views[{i}].clearance must be null or metres in [1, 500]")
         if i == 0 and (c["start_seconds"] or c["move_seconds"]):
             raise PlanError(f"{where}.views[0] is the opening framing: start_seconds and move_seconds must be 0")
         if i > 0 and c["move_seconds"] <= 0:

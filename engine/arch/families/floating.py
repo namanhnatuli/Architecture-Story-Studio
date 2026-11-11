@@ -248,29 +248,41 @@ def _pane(axis, coord, sign, u0, u1, z0, z1, out=PANE):
     return _box(a, b, u0, u1, z0, z1) if axis == "x" else _box(u0, u1, a, b, z0, z1)
 
 
-def _facade(rects, z0, storeys, h, doors=(), first_storey=1, shop=False):
-    """Windows (a pane every WINDOW_PITCH along every exposed face), a floor line at the foot of every storey above the
-    first, and doors with a canopy on the given faces [(axis, coord, sign)], for storeys first_storey.. of a building."""
+def _on(face_list, axis, coord, sign):
+    return any(f[0] == axis and abs(f[1] - coord) < 1e-6 and f[2] == sign for f in face_list)
+
+
+def _facade(rects, z0, storeys, h, doors=(), first_storey=1, shop=False, window=None, door_pitch=None, no_lines=()):
+    """Windows (a pane every pitch along every exposed face), a floor line at the foot of every storey above the
+    first, and doors with a canopy on the given faces [(axis, coord, sign)], for storeys first_storey.. of a building.
+    window: (width, height, sill, pitch); door_pitch: a door every so many metres along a door face (a terrace's
+    houses) instead of one in the middle; no_lines: faces whose floor lines the balconies replace."""
+    ww, wwh, wsill, pitch = window or (WINDOW_W, WINDOW_H, WINDOW_SILL, WINDOW_PITCH)
     out = []
     for axis, coord, lo, hi, sign in _faces(rects):
         length = hi - lo
-        has_door = any(d[0] == axis and abs(d[1] - coord) < 1e-6 and d[2] == sign for d in doors) and length > 6.0
         mid = (lo + hi) / 2
+        door_cs = []
+        if _on(doors, axis, coord, sign) and length >= 5.0:
+            n_d = max(1, int(length // door_pitch)) if door_pitch else 1
+            door_cs = [mid + (i - (n_d - 1) / 2) * (door_pitch or 0.0) for i in range(n_d)]
+        lines = not _on(no_lines, axis, coord, sign)
         for k in range(storeys):
             s = first_storey + k
             zs = z0 + k * h
-            if s >= 2:
+            if s >= 2 and lines:
                 out.append(_pane(axis, coord, sign, lo, hi, zs - LINE_H / 2, zs + LINE_H / 2, LINE_OUT))
-            w, wh, sill = (SHOP_W, SHOP_H, SHOP_SILL) if (shop and s == 1) else (WINDOW_W, WINDOW_H, WINDOW_SILL)
-            n = int((length - 1.0) // WINDOW_PITCH)
+            w, wh, sill = (SHOP_W, SHOP_H, SHOP_SILL) if (shop and s == 1) else (ww, wwh, wsill)
+            n = int((length - 1.0) // pitch)
             for i in range(n):
-                c = mid + (i - (n - 1) / 2) * WINDOW_PITCH
-                if s == 1 and has_door and abs(c - mid) < (DOOR_W + w) / 2 + 0.3:
+                c = mid + (i - (n - 1) / 2) * pitch
+                if s == 1 and any(abs(c - dc) < (DOOR_W + w) / 2 + 0.3 for dc in door_cs):
                     continue
                 out.append(_pane(axis, coord, sign, c - w / 2, c + w / 2, zs + sill, zs + sill + wh))
-            if s == 1 and has_door:
-                out.append(_pane(axis, coord, sign, mid - DOOR_W / 2, mid + DOOR_W / 2, zs + PATH_H + 0.02, zs + DOOR_H))   # above the paving
-                out.append(_pane(axis, coord, sign, mid - DOOR_W / 2 - 0.4, mid + DOOR_W / 2 + 0.4, zs + DOOR_H + 0.2, zs + DOOR_H + 0.35, 1.2))
+            if s == 1:
+                for dc in door_cs:
+                    out.append(_pane(axis, coord, sign, dc - DOOR_W / 2, dc + DOOR_W / 2, zs + PATH_H + 0.02, zs + DOOR_H))   # above the paving
+                    out.append(_pane(axis, coord, sign, dc - DOOR_W / 2 - 0.4, dc + DOOR_W / 2 + 0.4, zs + DOOR_H + 0.2, zs + DOOR_H + 0.35, 1.2))
     return P.merge(*out) if out else _box(0, 0.01, 0, 0.01, z0, z0 + 0.01)
 
 
@@ -355,15 +367,375 @@ def _playground(rects, z):
     return P.merge(court, *play)
 
 
-def _platform_set(prefix, L, B, H, T, cover, storeys, cx, cy, use="home", group=None, orient="x", park=False):
+# ---------------------------------------------------------------- home building types
+# Every type covers the same share of the deck with the same storeys (the load and the draft of the calculation), keeps
+# its footprint centred on the deck (no list), and keeps the cross streets on both axes open, where the walkways land.
+STREET_CLEAR = 3.5   # buildings keep this far from both axes
+EDGE_CLEAR = 2.5     # and this far from the deck's edges
+LAWN_FROM = 1.75     # lawns start at the paving's edge (the streets are 3.5 m wide)
+BALCONY_D = 1.4
+HOME_KINDS = ("blocks", "terrace", "courtyard", "villas", "pinwheel", "garden")
+KIND_LOOK = {   # walls, roof, windows (width, height, sill, pitch)
+    "blocks": ("plaster", "roof_membrane", None),
+    "terrace": ("brick_pale", "roof_slate", (1.2, 1.6, 0.8, 3.0)),
+    "courtyard": ("plaster", "roof_membrane", (0.9, 1.9, 0.6, 2.2)),
+    "villas": ("timber_clad", "roof_zinc", (2.4, 1.9, 0.5, 4.5)),
+    "pinwheel": ("plaster_light", "roof_membrane", (1.8, 2.1, 0.3, 3.0)),
+    "garden": ("plaster_light", "roof_membrane", (1.8, 2.1, 0.3, 3.0)),
+}
+KIND_EXTRAS = {   # the optional DECORATION parts of each type (besides facade and paving)
+    "blocks": (), "terrace": ("lawn", "trees"), "courtyard": ("solar", "lawn", "trees"), "villas": ("lawn", "trees"),
+    "pinwheel": ("balconies", "lawn", "trees"), "garden": ("balconies", "lawn", "trees", "furniture", "lamps", "playground")}
+EXTRA_MATERIAL = {"balconies": "balcony", "solar": "pv_panel", "lawn": "park_lawn", "trees": "tree", "furniture": "timber_light",
+                  "lamps": "steel_dark", "playground": "court_play"}
+LAGOON_TURN = {"+y": 0, "-x": 1, "-y": 2, "+x": 3}   # quarter turns (counter-clockwise) of the garden drawn facing +y
+
+
+def _mirror4(rect):
+    """A rectangle in the +x +y quadrant and its mirror images in the other three."""
+    x0, x1, y0, y1 = rect
+    return [(x0, x1, y0, y1), (-x1, -x0, y0, y1), (x0, x1, -y1, -y0), (-x1, -x0, -y1, -y0)]
+
+
+def _mirror_pts(pts):
+    return [(sx * x, sy * y) + tuple(rest) for x, y, *rest in pts for sx in (1, -1) for sy in (1, -1)]
+
+
+def _rect_minus(rect, holes):
+    """Cells of `rect` not covered by any hole (a grid on all their edges), as non-overlapping rectangles."""
+    x0, x1, y0, y1 = rect
+    xs = sorted({x0, x1} | {min(max(v, x0), x1) for h in holes for v in h[:2]})
+    ys = sorted({y0, y1} | {min(max(v, y0), y1) for h in holes for v in h[2:]})
+    out = []
+    for a, b in zip(xs, xs[1:]):
+        for c, d in zip(ys, ys[1:]):
+            mx, my = (a + b) / 2, (c + d) / 2
+            if b - a > 0.2 and d - c > 0.2 and not any(h[0] < mx < h[1] and h[2] < my < h[3] for h in holes):
+                out.append((a, b, c, d))
+    return out
+
+
+def _sloped_box(x0, x1, y0, y1, z0, top):
+    """A box whose top corners sit at top(x, y): a pitched roof's wedge."""
+    corners = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+    verts = [(x, y, z0) for x, y in corners] + [(x, y, top(x, y)) for x, y in corners]
+    faces = [(0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
+    return {"verts": verts, "faces": faces}
+
+
+def _gable(rect, z, rise, over=0.3):
+    """A gable roof on a rectangle, the ridge along its long side, with eaves overhanging by `over`."""
+    x0, x1, y0, y1 = rect[0] - over, rect[1] + over, rect[2] - over, rect[3] + over
+    if x1 - x0 >= y1 - y0:
+        ym = (y0 + y1) / 2
+        verts = [(x0, y0, z), (x1, y0, z), (x1, y1, z), (x0, y1, z), (x0, ym, z + rise), (x1, ym, z + rise)]
+    else:
+        xm = (x0 + x1) / 2
+        verts = [(x0, y1, z), (x0, y0, z), (x1, y0, z), (x1, y1, z), (xm, y1, z + rise), (xm, y0, z + rise)]
+    return {"verts": verts, "faces": [(0, 3, 2, 1), (0, 1, 5, 4), (2, 3, 4, 5), (1, 2, 5), (3, 0, 4)]}
+
+
+def _mono(rect, z, rise, high, over=0.3, eave=0.3):
+    """A single-pitch roof rising toward `high` ('+x', '-x', '+y', '-y'), eave edge `eave` thick."""
+    x0, x1, y0, y1 = rect[0] - over, rect[1] + over, rect[2] - over, rect[3] + over
+    axis, sign = high[1], 1 if high[0] == "+" else -1
+    lo_, hi_ = (x0, x1) if axis == "x" else (y0, y1)
+
+    def top(x, y):
+        u = (x if axis == "x" else y) - lo_
+        t = u / (hi_ - lo_)
+        return z + eave + rise * (t if sign > 0 else 1.0 - t)
+    return _sloped_box(x0, x1, y0, y1, z, top)
+
+
+def _balconies(faces, storeys, h, inset=1.0):
+    """A slab with a parapet in front of each face [(axis, coord, sign, lo, hi)] at every storey above the first."""
+    out = []
+    for axis, coord, sign, lo, hi in faces:
+        for s in range(2, storeys + 1):
+            z = (s - 1) * h
+            out.append(_pane(axis, coord, sign, lo + inset, hi - inset, z - 0.2, z, BALCONY_D))
+            out.append(_pane(axis, coord + sign * (BALCONY_D - 0.08), sign, lo + inset, hi - inset, z, z + 1.0, 0.08))
+    return P.merge(*out)
+
+
+def _solar(rects, z, pitch=1.7, size=1.0):
+    """Rows of solar panels across each roof wing (flat, dark), leaving a metre at the edges."""
+    out = []
+    for x0, x1, y0, y1 in rects:
+        along_x = x1 - x0 >= y1 - y0
+        lo, hi = (x0, x1) if along_x else (y0, y1)
+        n = int((hi - lo - 2.0) // pitch)
+        for i in range(n):
+            c = lo + 1.0 + size / 2 + i * pitch
+            out.append(_box(c - size / 2, c + size / 2, y0 + 1.0, y1 - 1.0, z, z + 0.12) if along_x
+                       else _box(x0 + 1.0, x1 - 1.0, c - size / 2, c + size / 2, z, z + 0.12))
+    return P.merge(*out)
+
+
+def _tree(x, y, z, scale=1.0):
+    return [P.cylinder_z(0.22 * scale, 1.6 * scale, 6, (x, y, z + 0.8 * scale)), _cone(x, y, z + 1.4 * scale, 1.5 * scale, 4.2 * scale)]
+
+
+def _bench(x, y, z, facing):
+    """A park bench 1.8 m long; `facing` is the direction a seated person looks ('+x', '-x', '+y', '-y')."""
+    along_x = facing[1] == "y"
+    s = 1 if facing[0] == "+" else -1
+    parts = []
+    for u0, u1, v0, v1, z0, z1 in ((-0.9, 0.9, -0.25, 0.25, 0.4, 0.48), (-0.9, 0.9, -0.3, -0.22, 0.48, 0.9),
+                                   (-0.8, -0.7, -0.22, 0.22, 0.0, 0.4), (0.7, 0.8, -0.22, 0.22, 0.0, 0.4)):
+        v0, v1 = (v0, v1) if s > 0 else (-v1, -v0)   # the back on the side away from where it faces
+        parts.append(_box(x + u0, x + u1, y + v0, y + v1, z + z0, z + z1) if along_x else _box(x + v0, x + v1, y + u0, y + u1, z + z0, z + z1))
+    return parts
+
+
+def _picnic(x, y, z):
+    """A picnic table with its two benches (1.8 x 1.6 m)."""
+    return [_box(x - 0.9, x + 0.9, y - 0.4, y + 0.4, z + 0.7, z + 0.76), _box(x - 0.1, x + 0.1, y - 0.3, y + 0.3, z, z + 0.7),
+            _box(x - 0.9, x + 0.9, y - 0.8, y - 0.55, z + 0.42, z + 0.47), _box(x - 0.9, x + 0.9, y + 0.55, y + 0.8, z + 0.42, z + 0.47),
+            _box(x - 0.1, x + 0.1, y - 0.8, y - 0.55, z, z + 0.42), _box(x - 0.1, x + 0.1, y + 0.55, y + 0.8, z, z + 0.42)]
+
+
+def _lamp(x, y, z, arm=(0.0, 1.0)):
+    """A street lamp: a pole, an arm toward `arm` (a unit direction in plan) and the lantern under its end."""
+    ax, ay = x + 0.7 * arm[0], y + 0.7 * arm[1]
+    return [P.cylinder_z(0.08, 4.2, 6, (x, y, z + 2.1)), _bar((x, y, z + 4.15), (ax, ay, z + 4.15), 0.1, 0.1),
+            _box(ax - 0.22, ax + 0.22, ay - 0.22, ay + 0.22, z + 3.95, z + 4.1)]
+
+
+def _crown(x, y, z, r, segs=7, rings=4):
+    """A round tree crown: a low-poly ball of radius r whose lowest point is at z."""
+    cz = z + r
+    verts = [(x, y, cz - r)]
+    for i in range(1, rings):
+        a = math.pi * i / rings - math.pi / 2
+        verts += [(x + r * math.cos(a) * math.cos(2 * math.pi * k / segs), y + r * math.cos(a) * math.sin(2 * math.pi * k / segs),
+                   cz + r * math.sin(a)) for k in range(segs)]
+    verts.append((x, y, cz + r))
+    top = len(verts) - 1
+    faces = [(0, 1 + (k + 1) % segs, 1 + k) for k in range(segs)]
+    for i in range(rings - 2):
+        b0, b1 = 1 + i * segs, 1 + (i + 1) * segs
+        faces += [(b0 + k, b0 + (k + 1) % segs, b1 + (k + 1) % segs, b1 + k) for k in range(segs)]
+    last = 1 + (rings - 2) * segs
+    faces += [(last + k, last + (k + 1) % segs, top) for k in range(segs)]
+    return {"verts": verts, "faces": faces}
+
+
+def _round_tree(x, y, z, scale=1.0):
+    return [P.cylinder_z(0.22 * scale, 2.0 * scale, 6, (x, y, z + 1.0 * scale)), _crown(x, y, z + 1.7 * scale, 1.9 * scale)]
+
+
+def _play_set(x0, x1, y0, y1, z):
+    """Timber play equipment on a play court: a swing frame (two A-frames, a beam, two seats on ropes) and a slide
+    tower (four posts, a deck, a ramp)."""
+    out = []
+    xc, ya, yb = x0 + 1.2, y0 + 0.6, y0 + 3.6
+    for y in (ya, yb):
+        # legs start 2 cm up: a slanted bar's lower corners would otherwise dip into the court
+        out += [_bar((xc - 0.9, y, z + 0.02), (xc, y, z + 2.4), 0.1, 0.1), _bar((xc + 0.9, y, z + 0.02), (xc, y, z + 2.4), 0.1, 0.1)]
+    out.append(_bar((xc, ya, z + 2.4), (xc, yb, z + 2.4), 0.12, 0.12))
+    for y in (ya + 1.0, yb - 1.0):
+        out.append(_box(xc - 0.12, xc + 0.12, y - 0.25, y + 0.25, z + 0.5, z + 0.55))
+        for dy in (-0.22, 0.22):
+            out.append(_bar((xc, y + dy, z + 0.55), (xc, y + dy, z + 2.34), 0.03, 0.03))
+    tx, ty = x1 - 1.0, y1 - 1.6
+    for px in (tx - 0.6, tx + 0.6):
+        for py in (ty - 0.6, ty + 0.6):
+            out.append(_box(px - 0.06, px + 0.06, py - 0.06, py + 0.06, z, z + 2.4))
+    out.append(_box(tx - 0.66, tx + 0.66, ty - 0.66, ty + 0.66, z + 1.5, z + 1.6))
+    out.append(_bar((tx, ty - 0.66, z + 1.55), (tx, ty - 3.2, z + 0.05), 0.6, 0.06))
+    return out
+
+
+def _turn(mesh, quarter):
+    """Rotate a mesh by quarter turns (counter-clockwise) about the platform's centre (winding is kept)."""
+    q = quarter % 4
+    if q == 0:
+        return mesh
+    rot = {1: lambda x, y: (-y, x), 2: lambda x, y: (-x, -y), 3: lambda x, y: (y, -x)}[q]
+    return {"verts": [rot(x, y) + (z,) for x, y, z in mesh["verts"]], "faces": mesh["faces"]}
+
+
+def home_layout(kind, L, B, cover, storeys=3, h=3.0):
+    """A home platform's buildings by type, drawn for a garden opening toward +y (turned afterwards):
+    {rects, roofs: [mesh], doors, door_pitch, balconies: [faces], solar: [rects], lawns, trees: [(x, y, scale)],
+    benches: [(x, y, facing)], picnic: [(x, y)], lamps: [(x, y)], play: [rects]}."""
+    A = cover * L * B
+    q0, qx, qy = STREET_CLEAR, L / 2 - EDGE_CLEAR, B / 2 - EDGE_CLEAR
+    sx, sy = qx - q0, qy - q0
+    zr = storeys * h
+    out = {"rects": [], "roofs": [], "doors": [], "door_pitch": None, "balconies": [], "solar": [], "lawns": [], "trees": [],
+           "benches": [], "picnic": [], "lamps": [], "play": [], "promenade": [], "round_trees": []}
+    quad = (q0, qx, q0, qy)
+    if kind == "blocks":
+        out["rects"] = block_layout(L, B, cover)
+        out["doors"] = [("y", y1, 1) if (y0 + y1) / 2 < 0 else ("y", y0, -1) for x0, x1, y0, y1 in out["rects"]]
+        out["roofs"] = [_box(x0 + 0.05, x1 - 0.05, y0 + 0.05, y1 - 0.05, zr, zr + 0.3) for x0, x1, y0, y1 in out["rects"]]
+        return out
+    if kind == "terrace":   # rows of houses with gable roofs, a door every 6 m; back gardens between two rows
+        nb = 2 if sy >= 20.0 else 1
+        d = A / (4 * nb * sx)
+        rows = [(q0, qx, q0, q0 + d)] + ([(q0, qx, qy - d, qy)] if nb == 2 else [])
+        for r in rows:
+            out["rects"] += _mirror4(r)
+        out["doors"] = [("y", q0, -1), ("y", -q0, 1)] + ([("y", qy, 1), ("y", -qy, -1)] if nb == 2 else [])
+        out["door_pitch"] = 6.0
+        out["roofs"] = [_gable(r, zr, 0.5 * d / 2) for r in out["rects"]]
+        gardens = _rect_minus(quad, rows)
+        out["lawns"] = [m for g in gardens for m in _mirror4(g)]
+        if nb == 2:
+            out["trees"] = _mirror_pts([(q0 + 0.3 * sx, q0 + d + (sy - 2 * d) / 2, 0.8), (q0 + 0.7 * sx, q0 + d + (sy - 2 * d) / 2, 0.8)])
+        return out
+    if kind == "courtyard":   # a ring of four L-shaped wings around a garden, gates on the axes, solar panels
+        a, g = min(qx, qy) - 1.5, 5.0
+        k = 8 * a - 4 * g
+        d = (k - math.sqrt(k * k - 16 * A)) / 8
+        wing = [(g / 2, a, a - d, a), (a - d, a, g / 2, a - d)]
+        for r in wing:
+            out["rects"] += _mirror4(r)
+        out["doors"] = [("y", a, 1), ("y", -a, -1), ("x", a, 1), ("x", -a, -1)]
+        out["roofs"] = [_box(x0 + 0.05, x1 - 0.05, y0 + 0.05, y1 - 0.05, zr, zr + 0.3) for x0, x1, y0, y1 in out["rects"]]
+        out["solar"] = out["rects"]
+        inner = a - d
+        out["lawns"] = _mirror4((LAWN_FROM, inner, LAWN_FROM, inner))
+        out["round_trees"] = _mirror_pts([((LAWN_FROM + inner) / 2, (LAWN_FROM + inner) / 2, 1.0)])
+        return out
+    if kind == "villas":   # two houses a quadrant, staggered, single-pitch roofs facing each other, timber
+        w = (sx - 3.0) / 2
+        dh = A / 8 / w
+        if dh > sy:
+            w = (sx - 2.0) / 2
+            dh = A / 8 / w
+        stagger = max(0.0, min(3.0, sy - dh))
+        houses = [(q0, q0 + w, q0 + stagger, q0 + stagger + dh), (qx - w, qx, q0, q0 + dh)]
+        for r in houses:
+            out["rects"] += _mirror4(r)
+        out["doors"] = [("y", q0 + stagger, -1), ("y", q0, -1), ("y", -q0 - stagger, 1), ("y", -q0, 1)]
+        for x0, x1, y0, y1 in out["rects"]:
+            inner_x = "+x" if (x0 + x1) / 2 < 0 else "-x"
+            outer = (abs(x0 + x1) / 2) > (q0 + qx) / 2
+            high = ("-" if inner_x == "+x" else "+") + "x" if outer else inner_x   # the pair's roofs rise toward the gap
+            out["roofs"].append(_mono((x0, x1, y0, y1), zr, 0.18 * w, high))
+        out["lawns"] = [m for g in _rect_minus(quad, houses) for m in _mirror4(g)]
+        trees = []
+        for x0, x1, y0, y1 in houses:
+            if qy - y1 >= 3.5:
+                trees.append(((x0 + x1) / 2, y1 + (qy - y1) / 2, 0.8))
+        out["round_trees"] = _mirror_pts(trees)
+        return out
+    if kind == "pinwheel":   # four bars turning about the centre, balconies on their long faces
+        d = A / (4 * sx)
+        bars = [(q0, qx, q0, q0 + d), (-q0 - d, -q0, q0, qy), (-qx, -q0, -q0 - d, -q0), (q0, q0 + d, -qy, -q0)]
+        out["rects"] = bars
+        out["doors"] = [("y", q0, -1), ("x", -q0, 1), ("y", -q0, 1), ("x", q0, -1)]
+        out["door_pitch"] = 8.0
+        out["roofs"] = [_box(x0 + 0.05, x1 - 0.05, y0 + 0.05, y1 - 0.05, zr, zr + 0.3) for x0, x1, y0, y1 in bars]
+        out["balconies"] = [("y", q0 + d, 1, q0, qx), ("y", q0, -1, q0, qx), ("x", -q0 - d, -1, q0, qy), ("x", -q0, 1, q0, qy),
+                            ("y", -q0 - d, -1, -qx, -q0), ("y", -q0, 1, -qx, -q0), ("x", q0 + d, 1, -qy, -q0), ("x", q0, -1, -qy, -q0)]
+        quads = [(q0, qx, q0, qy), (-qx, -q0, q0, qy), (-qx, -q0, -qy, -q0), (q0, qx, -qy, -q0)]
+        for qd, bar in zip(quads, bars):
+            out["lawns"] += _rect_minus(qd, [bar])
+        free = sy - d - BALCONY_D
+        if free >= 4.0:   # a row of trees in each quadrant's open strip, clear of the balconies
+            v = q0 + d + BALCONY_D + free / 2
+            for u in (q0 + 0.2 * sx, q0 + 0.5 * sx, q0 + 0.8 * sx):
+                out["trees"] += [(u, v, 0.9), (-v, u, 0.9), (-u, -v, 0.9), (v, -u, 0.9)]
+        return out
+    if kind == "garden":   # homes on both sides of a garden that runs to the water (+y): lawn, trees, seats, play
+        d = A / (4 * sy)
+        bar = (qx - d, qx, q0, qy)
+        out["rects"] = _mirror4(bar)
+        gx = qx - d    # the garden's half-width
+        out["doors"] = [("x", gx, -1), ("x", -gx, 1)]
+        out["door_pitch"] = 6.0
+        out["roofs"] = [_box(x0 + 0.05, x1 - 0.05, y0 + 0.05, y1 - 0.05, zr, zr + 0.3) for x0, x1, y0, y1 in out["rects"]]
+        out["balconies"] = [("x", gx, -1, q0, qy), ("x", -gx, 1, q0, qy), ("x", gx, -1, -qy, -q0), ("x", -gx, 1, -qy, -q0)]
+        prom = B / 2 - 3.5                    # the waterside promenade: 3.5 m in the garden, the deck's edge strip beyond
+        out["promenade"] = [(-gx, gx, prom, B / 2 - 0.4), (-L / 2 + 0.4, -gx, qy, B / 2 - 0.4), (gx, L / 2 - 0.4, qy, B / 2 - 0.4)]
+        out["play"] = [(3.5, 7.0, -18.0, -11.0)]
+        for sgn in (1, -1):   # lawn on both halves: up to the promenade on the water side, round the play court on the other
+            out["lawns"].append(tuple(sorted((sgn * LAWN_FROM, sgn * gx))) + (LAWN_FROM, prom))
+            out["lawns"] += _rect_minus(tuple(sorted((sgn * LAWN_FROM, sgn * gx))) + (-qy, -LAWN_FROM), out["play"])
+        tx = gx - BALCONY_D - 2.1
+        out["trees"] = _mirror_pts([(tx, 7.0, 1.0), (tx, 21.0, 1.0)])
+        out["round_trees"] = _mirror_pts([(tx, 14.0, 1.0)])
+        out["benches"] = [(sgn * 3.0, y, ("-x" if sgn > 0 else "+x")) for sgn in (1, -1) for y in (8.0, 18.0, -8.0, -18.0)]
+        out["benches"] += [(x, B / 2 - 2.0, "+y") for x in (-8.0, -4.0, 4.0, 8.0)]
+        out["picnic"] = [(6.0, 17.0), (-6.0, 17.0)]
+        out["lamps"] = [(sgn * 2.6, y, (-sgn, 0.0)) for sgn in (1, -1) for y in (13.0, -13.0)] + \
+                       [(x, B / 2 - 0.9, (0.0, -1.0)) for x in (-10.0, -6.0, 6.0, 10.0)]
+        return out
+    raise ValueError(f"unknown home type {kind!r}")
+
+
+def home_parts(kind, L, B, H, T, cover, storeys, turn=0, shop=False):
+    """{part: (component type, material, mesh)} of a home platform of this type in the platform's own frame (deck top at
+    z = 0), turned by quarter turns: buildings, roofs, facade, paving and the type's extras (KIND_EXTRAS)."""
+    lay = home_layout(kind, L, B, cover, storeys)
+    walls, roof_mat, window = KIND_LOOK[kind]
+    h = 3.0
+    rects = lay["rects"]
+    no_lines = [(f[0], f[1], f[2]) for f in lay["balconies"]]
+    parts = {"buildings": ("BUILDING", walls, P.merge(*[_box(x0, x1, y0, y1, 0.0, storeys * h) for x0, x1, y0, y1 in rects])),
+             "roofs": ("ROOF", roof_mat, P.merge(*lay["roofs"])),
+             "facade": ("DECORATION", "window_dark", _facade(rects, 0.0, storeys, h, doors=lay["doors"], shop=shop, window=window,
+                                                              door_pitch=lay["door_pitch"], no_lines=no_lines))}
+    e, w = L / 2 - 1.2, 1.75
+    paths = [_box(-e, e, -w, w, 0.0, PATH_H), _box(-w, w, -e, e, 0.0, PATH_H)] + [_box(*r, 0.0, PATH_H) for r in lay["promenade"]]
+    parts["paths"] = ("DECORATION", "paving", P.merge(*paths))
+    z = PATH_H
+    extras = {"balconies": lambda: _balconies(lay["balconies"], storeys, h),
+              "solar": lambda: _solar(lay["solar"], storeys * h + 0.3),
+              "lawn": lambda: P.merge(*[_box(*r, 0.0, PATH_H) for r in lay["lawns"]]),
+              "trees": lambda: P.merge(*[m for x, y, s in lay["trees"] for m in _tree(x, y, z, s)],
+                                       *[m for x, y, s in lay["round_trees"] for m in _round_tree(x, y, z, s)]),
+              "furniture": lambda: P.merge(*[m for x, y, f in lay["benches"] for m in _bench(x, y, z, f)],
+                                           *[m for x, y in lay["picnic"] for m in _picnic(x, y, z)],
+                                           *[m for r in lay["play"] for m in _play_set(*r, z)]),
+              "lamps": lambda: P.merge(*[m for x, y, arm in lay["lamps"] for m in _lamp(x, y, z, arm)]),
+              "playground": lambda: P.merge(*[_box(x0, x1, y0, y1, 0.0, PATH_H) for x0, x1, y0, y1 in lay["play"]])}
+    for name in KIND_EXTRAS[kind]:
+        mesh = extras[name]()
+        if mesh["verts"]:
+            parts[name] = ("DECORATION", EXTRA_MATERIAL[name], mesh)
+    return {k: (t, m, _turn(mesh, turn)) for k, (t, m, mesh) in parts.items()}
+
+
+def home_extras(kind, L, B, cover, storeys=3):
+    """The optional parts a home type brings at this platform size (some have no room for trees on a 40 m deck)."""
+    if kind == "blocks":
+        return ()
+    return tuple(name for name in KIND_EXTRAS[kind] if name in home_parts(kind, L, B, 0.0, 0.0, cover, storeys))
+
+
+def set_counts(use, kind="blocks", park=False, L=60.0, B=60.0, cover=0.4, storeys=3):
+    """Component types of one built platform (_platform_set with storeys > 0)."""
+    out = {"HULL": 1, "DECK": 1, "BUILDING": 1, "ROOF": 1}
+    if use == "home" and kind != "blocks":
+        out["DECORATION"] = 2 + len(home_extras(kind, L, B, cover, storeys))
+    else:
+        out["DECORATION"] = 2 + (use == "school") + 2 * bool(park)
+    return out
+
+
+def _platform_set(prefix, L, B, H, T, cover, storeys, cx, cy, use="home", group=None, orient="x", park=False, kind="blocks",
+                  turn=0):
     """One platform as a few merged components placed at (cx, cy): hull, deck, buildings, roofs, facades (windows, floor
     lines, entrances), paving, and by use a playground or a park; identical platforms share their meshes.
-    use: home | mixed (shops below, homes above) | school | clinic | community."""
+    use: home | mixed (shops below, homes above) | school | clinic | community. kind: the home type (HOME_KINDS); a type
+    other than blocks brings its own gardens; turn: quarter turns of the type (a garden opens toward +y unturned)."""
     g = group or prefix
     zt = H - T
     parts = [_placed(f"{prefix}_hull", "HULL", "concrete", g, _local_box(L, B, H - 0.25, -(H - 0.25) / 2.0), (cx, cy, zt - 0.25), 0),
              _placed(f"{prefix}_deck", "DECK", "concrete_deck", g, _local_box(L, B, 0.25, -0.125), (cx, cy, zt), 1)]
     if storeys <= 0:
+        return parts
+    if use == "home" and kind != "blocks":
+        layer = {"buildings": 2, "roofs": 2}
+        for name, (ctype, mat, mesh) in home_parts(kind, L, B, H, T, cover, storeys, turn).items():
+            parts.append(_placed(f"{prefix}_{name}", ctype, mat, g, mesh, (cx, cy, zt), layer.get(name, 3),
+                                 meta={"use": use, "type": kind} if name == "buildings" else None))
         return parts
     rects = use_layout(use, L, B, cover, orient)
     h = storeys * 3.0
@@ -512,6 +884,10 @@ def pair(p):
 
 
 NEIGHBOURHOOD = [(-1, 0), (0, 0), (1, 0), (-1, 1), (1, 1)]   # a U of five platforms around a small basin (0, 1)
+NEIGHBOURHOOD_KINDS = {   # home types of the five platforms, in NEIGHBOURHOOD order
+    "blocks": ("blocks",) * 5,
+    "varied": ("terrace", "courtyard", "villas", "pinwheel", "blocks"),
+    "varied_garden": ("terrace", "garden", "courtyard", "villas", "pinwheel")}   # (0, 0) opens onto the basin (60 m decks)
 
 
 def neighbourhood(p):
@@ -521,12 +897,13 @@ def neighbourhood(p):
     pitch_x, pitch_y = L + gap, B + gap
     zt = H - T
     storeys = [int(s) for s in str(p["storeys_pattern"]).split(",")]
+    kinds = NEIGHBOURHOOD_KINDS[p.get("home_types", "blocks")]
     comps, centres = [], {}
     for k, (i, j) in enumerate(NEIGHBOURHOOD, 1):
         cx, cy = i * pitch_x, j * pitch_y
         centres[(i, j)] = (cx, cy)
         comps += _platform_set(f"platform{k}", L, B, H, T, p["building_cover"], storeys[(k - 1) % len(storeys)], cx, cy,
-                               group=f"platform{k}")
+                               group=f"platform{k}", kind=kinds[k - 1])
     joints = [((-1, 0), (0, 0)), ((0, 0), (1, 0)), ((-1, 0), (-1, 1)), ((1, 0), (1, 1))]
     for n, (a, b) in enumerate(joints, 1):
         (ax, ay), (bx, by) = centres[a], centres[b]
@@ -621,7 +998,22 @@ DISTRICT_USES = {   # the 27 modules of the outer ring by use (results.json dist
     **{(c, r): "mixed" for c in (0, DISTRICT_COLS - 1) for r in (0, 1, 2)},          # shops below, homes above, near the quay
     (4, 8): "school", (6, 8): "school", (0, 5): "school", (10, 3): "clinic"}
 PARKS = {(4, 3), (5, 3), (6, 3), (4, 6), (5, 6), (6, 6), (3, 4), (3, 5), (7, 4), (7, 5)}   # the homes around the lagoon
+SPINE_ROWS = (0, 2, 7)   # utility spines: not row 6, whose gardens open onto the lagoon (owner review of R2)
 ROUTE_COLS = (2, 5, 8)   # the bridges' columns (a district with 3 bridges): halls there stand either side of the route
+
+
+DISTRICT_TILE_KINDS = ("terrace", "villas", "blocks", "courtyard", "pinwheel")   # neighbours' tiles always differ
+GARDEN_SIDE = {**{(c, 3): "+y" for c in (4, 5, 6)}, **{(c, 6): "-y" for c in (4, 5, 6)},
+               (3, 4): "+x", (3, 5): "+x", (7, 4): "-x", (7, 5): "-x"}   # where the lagoon lies from each garden platform
+
+
+def district_kind(c, r):
+    """(home type, quarter turns) of a home platform: gardens open onto the lagoon; elsewhere 2 x 2 tiles of one type
+    (a neighbourhood that reads as one), neighbouring tiles of different types, every other platform turned."""
+    if (c, r) in GARDEN_SIDE:
+        return "garden", LAGOON_TURN[GARDEN_SIDE[(c, r)]]
+    tc, tr = (c - 1) // 2, r // 2
+    return DISTRICT_TILE_KINDS[(tc + 2 * tr) % len(DISTRICT_TILE_KINDS)], (c + r) % 2
 
 
 def district_cells():
@@ -652,9 +1044,11 @@ def district(p):
     for c, r, use in cells:
         cx, cy = x_first + c * pitch, y_first + r * pitch
         pos[(c, r)] = (cx, cy)
+        varied = p.get("home_types", "varied") == "varied"
+        kind, turn = district_kind(c, r) if varied and use == "home" else ("blocks", 0)
         comps += _platform_set(f"m{c:02d}{r}", L, B, H, T, p["building_cover"], p["storeys"], cx, cy, use=use,
                                group="homes" if use in ("home", "mixed") else "services",
-                               orient="y" if c in ROUTE_COLS else "x", park=(c, r) in PARKS)
+                               orient="y" if c in ROUTE_COLS else "x", park=(c, r) in PARKS and not varied, kind=kind, turn=turn)
     walk = P.box((gap + 2.0, 3.0, WALK_TOP_M), (0.0, 0.0, WALK_TOP_M / 2.0))
     walk_y = P.box((3.0, gap + 2.0, WALK_TOP_M), (0.0, 0.0, WALK_TOP_M / 2.0))
     n = 0
@@ -720,7 +1114,7 @@ def district(p):
                                 meta={"network": net}))
         for u, (mat, dy) in enumerate((("utility_power", -1.0), ("utility_water", 0.0), ("utility_waste", 1.0)), 1):
             net = ("power", "water", "wastewater")[u - 1]
-            for r in (0, 2, 6):   # spines along the street through the middle of a row, carried on the walkways
+            for r in SPINE_ROWS:   # spines along the street through the middle of a row, carried on the walkways
                 y = y_first + r * pitch + dy
                 xa, xb = x_first, x_first + (DISTRICT_COLS - 1) * pitch
                 z = zt + WALK_TOP_M + 0.3 - 0.002   # resting on the planks (2 mm contact, under the 4 mm penetration limit)
