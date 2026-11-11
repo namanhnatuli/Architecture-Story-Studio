@@ -2,9 +2,9 @@
   "blender": "5.2.2 LTS",
   "preset": "internal_720p",
   "summary": {
-    "passed": 85,
+    "passed": 86,
     "failed": 0,
-    "total": 85
+    "total": 86
   },
   "results": [
     {
@@ -17,13 +17,13 @@
       "shot": "SC_001",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "11 animated objects x 160 frames, max error 5.50e-05"
+      "detail": "11 animated objects x 149 frames, max error 5.52e-05"
     },
     {
       "shot": "SC_001",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "1042 objects (3 shared) unchanged on 160 frames"
+      "detail": "1042 objects (3 shared) unchanged on 149 frames"
     },
     {
       "shot": "SC_001",
@@ -77,7 +77,7 @@
       "shot": "SC_001",
       "check": "highlight_targets_visible",
       "status": "PASS",
-      "detail": "step 0@82: 91% visible, 1.36% of frame"
+      "detail": "step 0@75: 88% visible, 2.42% of frame"
     },
     {
       "shot": "SC_001",
@@ -119,13 +119,13 @@
       "shot": "SC_002",
       "check": "plan_matches_evaluated_keys",
       "status": "PASS",
-      "detail": "1 animated objects x 168 frames, max error 6.07e-05"
+      "detail": "7 animated objects x 180 frames, max error 6.01e-05"
     },
     {
       "shot": "SC_002",
       "check": "unanimated_parts_static",
       "status": "PASS",
-      "detail": "1048 objects (3 shared) unchanged on 168 frames"
+      "detail": "1042 objects (3 shared) unchanged on 180 frames"
     },
     {
       "shot": "SC_002",
@@ -168,6 +168,12 @@
       "check": "camera_framing",
       "status": "PASS",
       "detail": "min margin 0.050 at floating_district_m056_hull@1; lowest point y=0.295 (label band 0.10); ortho_scale 77.230"
+    },
+    {
+      "shot": "SC_002",
+      "check": "highlight_targets_visible",
+      "status": "PASS",
+      "detail": "step 0@268: 75% visible, 19.41% of frame"
     },
     {
       "shot": "SC_002",
@@ -491,13 +497,13 @@
       "shot": "SC_001",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 743f403f576ebed9"
+      "detail": "sha256 b2f20a4c704232ee"
     },
     {
       "shot": "SC_002",
       "check": "repeatable_build",
       "status": "PASS",
-      "detail": "sha256 785db169d4519ef7"
+      "detail": "sha256 242ae6bc3df3fca2"
     },
     {
       "shot": "SC_014",

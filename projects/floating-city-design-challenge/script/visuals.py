@@ -247,24 +247,35 @@ PARK = [part("facade_detail", [f"{cell(*OPEN_GARDEN)}_{k}" for k in ("lawn", "fu
 WATERSIDE = platform_parts([(OPEN_GARDEN[0], OPEN_GARDEN[1], "home")], ("hull", "deck", "buildings")) + \
     [part("facade_detail", [f"{cell(*OPEN_GARDEN)}_{k}" for k in ("furniture", "lamps")])]
 WHOLE = ALL_HULLS + [{"concept": "breakwater"}]
+KEEP = [x for x in CELLS if (x[0], x[1]) == CENTRE]   # the home platform B02 ends on and B04 strips down to
+ONE_PLATFORM = platform_parts(KEEP, ("hull", "buildings", "roofs"))
+ONE_PLATFORM_ALL = platform_parts(KEEP, ("hull", "deck", "buildings", "roofs")) + attached(KEEP)   # what glows
 
-visual("B01", "SEQUENCE", "The finished illustrative district in its bay; the camera comes down over a cluster with two "
-       "schools and three gardens on the lagoon, into one garden (lawn, trees, seats, play, the waterside promenade), and "
-       "low to the water's edge: the platform's side at the waterline; NOTE 'Illustrative design'", [DISTRICT], "HIGH",
+# Pacing (L6 review): the cluster is a pass (about 1 s, while its schools glow) so the park holds about 2 s before the
+# camera goes down to the water; there is no cut inside a SEQUENCE, every framing is reached by a move
+visual("B01", "SEQUENCE", "The finished illustrative district in its bay; the camera passes over a cluster with two "
+       "schools and three gardens on the lagoon, settles on one garden (lawn, trees, seats, play, the waterside "
+       "promenade) for about two seconds, and goes low to the water's edge: the platform's side at the waterline; "
+       "NOTE 'Illustrative design'", [DISTRICT], "HIGH",
        sequence=seq("FLOAT_AERIAL", [view(WHOLE, margin=0.04, clearance=OPEN_CLEARANCE),
-                                    view(platform_parts(OPEN_CLUSTER, ("hull",)), at(0, "homes", -0.2), move=1.9, elevation=30.0,
+                                    view(platform_parts(OPEN_CLUSTER, ("hull",)), at(0, "people", -0.35), move=1.6, elevation=30.0,
                                          margin=0.04, clearance=OPEN_CLEARANCE),
-                                    view(PARK, at(0, "parks", -0.1), move=2.0, azimuth=-76.0, elevation=17.0, margin=0.05, clearance=OPEN_CLEARANCE),
-                                    view(WATERSIDE, at(1, "and", -0.3), move=1.8, azimuth=-80.0, elevation=8.0, margin=0.05, clearance=OPEN_CLEARANCE)],
-                    [glow(SCHOOLS, at(0, "schools", -0.1), at(0, "parks"))]),
+                                    view(PARK, at(0, "clinic"), move=1.6, azimuth=-76.0, elevation=17.0, margin=0.05, clearance=OPEN_CLEARANCE),
+                                    view(WATERSIDE, at(1, "not", -0.3), move=1.5, azimuth=-80.0, elevation=8.0, margin=0.05, clearance=OPEN_CLEARANCE)],
+                    [glow(SCHOOLS, at(0, "schools", -0.15), at(0, "clinic"), rise_seconds=0.2, fall_seconds=0.3)]),
        annotations=[note("B01_note", "Illustrative design", 0)])
-visual("B02", "SEQUENCE", "From the water's edge the camera pulls back to the whole district and settles on it; no claim "
-       "on screen", [DISTRICT], "HIGH",
+visual("B02", "SEQUENCE", "From the water's edge the camera pulls back to the whole district during the question; at "
+       "'Let's treat it as a design problem' it comes down onto one home platform near the front, the one B04 strips "
+       "down to, framed close among its neighbours, and the platform glows once at 'one step at a time'; no claim on "
+       "screen", [DISTRICT], "HIGH",
        sequence=seq("FLOAT_AERIAL", [view(WATERSIDE, azimuth=-80.0, elevation=8.0, margin=0.05, clearance=OPEN_CLEARANCE),
-                                    view(WHOLE, at(0, "could", -0.2), move=3.0, margin=0.04, clearance=OPEN_CLEARANCE),
-                                    view(WHOLE, at(1, "let's", -0.2), move=3.5, margin=0.08, clearance=OPEN_CLEARANCE)], []))
+                                    view(WHOLE, at(0, "could", -0.2), move=3.8, margin=0.04, clearance=OPEN_CLEARANCE),
+                                    view(ONE_PLATFORM, at(1, "let's", -0.2), move=2.6, margin=0.1, clearance=OPEN_CLEARANCE)],
+                    [glow(ONE_PLATFORM_ALL, at(1, "one", -0.1), at(1, "time", 0.6))]))
 # (R3 tried glows on the hulls, the moorings and the utilities at "floats / stays / keeps working": at the scale of the
-# whole district they covered 0.05-0.5 % of the frame and the Blender check refused them; B04 takes those systems apart.)
+# whole district they covered 0.05-0.5 % of the frame and the Blender check refused them; B04 takes those systems apart.
+# L6 review: rather than pull back further at "Let's treat it...", the camera goes to the one platform the film starts from;
+# its neighbours are the same home type (2 x 2 tiles), so a close frame and one glow say which platform.)
 
 c = Card("B03")
 c.tag("Already built, and proposed")
@@ -289,7 +300,6 @@ visual("B03", "CARD", "Scale card: Schoonschip (built, 46 households, schematic 
        "Busan (proposed 2022, three linked platforms, schematic); 'Architects' project page, Nov 2026: In Design'", [], "LOW",
        graphic=c.spec())
 
-KEEP = [x for x in CELLS if (x[0], x[1]) == CENTRE]
 OTHERS = [x for x in CELLS if (x[0], x[1]) != CENTRE]
 visual("B04", "SEQUENCE", "The district comes apart system by system (breakwater, moorings, utilities and routes, "
        "link-spans, buildings, platforms) until one empty platform remains", [DISTRICT], "HIGH",

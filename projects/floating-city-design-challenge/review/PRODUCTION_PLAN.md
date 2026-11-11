@@ -130,5 +130,12 @@
   - **Khóa `clearance` cho khung nhìn** (khoảng camera đứng trước phần được đóng khung; mặc định 10 m):
     - đoạn mở đầu dùng 400 m để mặt phẳng cắt gần không xén các phao phía trước;
     - B14 dùng 40 m và nhìn dọc khe nước.
-  - **Sand3D vòng 2:** không mẫu tòa nhà nào đúng 3 tầng (`review/SAND3D_TRIAL.md`). Phim dùng đồ của Studio.
+  - **Sand3D vòng 2:** trong 7 mẫu đã đo, chưa tìm được tòa nhà đúng 3 tầng (`review/SAND3D_TRIAL.md`). Phim dùng đồ của Studio.
   - **SFX:** kho `sfx/` có vẻ không được dùng ngoài CapCut theo thỏa thuận giấy phép của CapCut (`review/SFX_LIBRARY.md`). Chưa dùng.
+- **L6 vòng 2: nhịp đoạn mở đầu (2026-11-11), sau review L6.**
+  - **Đầu vào:** review L6 coi bộ nhà và công viên đủ để làm từng chương. Hai việc cần làm trước khi chốt đoạn mở đầu:
+    - B01: công viên chỉ đứng yên khoảng 0,67 s;
+    - B02: gần 10 s chỉ có toàn quận.
+  - **B01:** khung cụm thành một chặng đi qua (dừng khoảng 1 s, đúng lúc hai trường sáng lên), để công viên đứng yên khoảng 2 s rồi mới xuống mép nước. Audio giữ nguyên.
+  - **B02:** kéo lui ra toàn quận chậm hơn trong câu hỏi. Tới "Let's treat it as a design problem", camera hạ xuống phao nhà ở trung tâm, đúng phao mà B04 bóc dần còn lại.
+  - **Nhắc khi làm chương neo (B22/B24):** giữ một mép mặt nước hoặc một dải nước nguyên màu, cân lại độ tương phản của đáy và bóng đổ, và xem cả chuyển động trước/sau khi làm trong. Alpha không phải tiêu chí nghiệm thu. Ở B14 cũng phải xem lúc từng bộ phận được làm sáng.

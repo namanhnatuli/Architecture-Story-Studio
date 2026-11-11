@@ -68,7 +68,7 @@
   - tải 7 mẫu ở revision cố định, so checksum, đọc file (chỉ là lưới, không tham chiếu ngoài);
   - nhập vào Blender 5.2 và đo.
 - **Tiêu chí:** nhà ở thấp tầng **3 tầng**, mỗi tầng khoảng 3 m, đúng tỉ lệ hoặc chỉ cần phóng đều, phong cách Studio theo kịp.
-- **Kết quả: không mẫu nào đạt.**
+- **Kết quả: trong 7 mẫu đã tải và đo, không mẫu nào đạt.** Đợt thử chỉ chạy hai truy vấn và xem khoảng 100 ảnh xem trước, nên kết luận đúng phạm vi là *chưa tìm được mẫu phù hợp trong đợt thử này*, không phải Sand3D không có nhà ba tầng dùng được.
 
 | Mẫu | Đo được | Kết luận |
 |---|---|---|
@@ -78,7 +78,7 @@
 | "Apartment" (khối nâu) | cao 25,8 m, ảnh xem trước 3 hàng cửa | sai tỉ lệ |
 | 3 nhà phố Pháp (Troyes, Dijon, Fumay) | 2 tầng và mái dốc, 48–62 m² | 2 tầng |
 
-- Nhóm `building` chủ yếu là mô hình vì kèo, tháp cao, nhà kho và nhà 1–2 tầng.
+- Trong các ảnh xem trước đã xem, nhóm `building` chủ yếu là mô hình vì kèo, tháp cao, nhà kho và nhà 1–2 tầng.
 - Mẫu "townhouse" vẫn được đặt thử lên một phao (8 căn) để so hình: xem `sand3d_platform4.png` cạnh `types_platform4.png`.
 
 ## Kiểu nhà của Studio (dùng thay)
@@ -101,6 +101,13 @@
 - **Thời gian render:** gần như không đổi (cận cảnh 1080p: 1,97 s so với 1,97 s).
 
 ## Đề nghị
-1. **Không dùng tòa nhà Sand3D:** không mẫu nào đúng 3 tầng.
+1. **Không dùng tòa nhà Sand3D cho phim này:** trong đợt thử chưa tìm được mẫu đúng 3 tầng.
 2. **Phim dùng đồ của Studio** trong đoạn mở đầu: không cần ghi công, không phụ thuộc giấy phép ngoài.
 3. **Nếu bạn thích bộ đồ chơi Sand3D hơn:** cần viết bộ nhập USD vào thư viện, ghi manifest và dòng ghi công trước khi dùng.
+
+## Sau review L6 (2026-11-11)
+- **Review L6 đồng ý** giữ nhà và đồ công viên của Studio cho vòng sản xuất này:
+  - nhà Sand3D đặt thử đọc thành hai tầng, lệch giả định ba tầng;
+  - bộ sân chơi và ghế Sand3D chi tiết hơn, nhưng đèn lớn và đậm tạo nhiều điểm hút mắt; trong cận cảnh ngắn, lợi ích chưa đủ để tích hợp.
+- **Giữ các ứng viên Sand3D** (`review/sand3d_candidates.json`) cho cảnh nào cần cận lâu hơn. Khi đó vẫn phải viết bộ nhập USD, ghi manifest và dòng ghi công CC-BY-4.0 trước khi dùng.
+- **Không tìm tiếp trong vòng này.** Kết luận chỉ áp cho đợt thử đã ghi ở trên.

@@ -16,7 +16,7 @@
       "narrative_intent": "INTRODUCE_ARCHITECTURE",
       "claim_ids": [],
       "narration": "10,000 people, with homes, schools, a clinic, parks, and streets to walk along. And not one of them is standing on land.",
-      "visual_goal": "The finished illustrative district in its bay; the camera comes down over a cluster with two schools and three gardens on the lagoon, into one garden (lawn, trees, seats, play, the waterside promenade), and low to the water's edge: the platform's side at the waterline; NOTE 'Illustrative design'",
+      "visual_goal": "The finished illustrative district in its bay; the camera passes over a cluster with two schools and three gardens on the lagoon, settles on one garden (lawn, trees, seats, play, the waterside promenade) for about two seconds, and goes low to the water's edge: the platform's side at the waterline; NOTE 'Illustrative design'",
       "required_concepts": [
         "floating_district"
       ],
@@ -65,10 +65,10 @@
             "clearance": 400.0,
             "at": {
               "sentence": 0,
-              "word": "homes",
-              "offset": -0.2
+              "word": "people",
+              "offset": -0.35
             },
-            "move_seconds": 1.9
+            "move_seconds": 1.6
           },
           {
             "frame": [
@@ -89,10 +89,9 @@
             "clearance": 400.0,
             "at": {
               "sentence": 0,
-              "word": "parks",
-              "offset": -0.1
+              "word": "clinic"
             },
-            "move_seconds": 2.0
+            "move_seconds": 1.6
           },
           {
             "frame": [
@@ -128,10 +127,10 @@
             "clearance": 400.0,
             "at": {
               "sentence": 1,
-              "word": "and",
+              "word": "not",
               "offset": -0.3
             },
-            "move_seconds": 1.8
+            "move_seconds": 1.5
           }
         ],
         "steps": [
@@ -158,14 +157,16 @@
             "at": {
               "sentence": 0,
               "word": "schools",
-              "offset": -0.1
+              "offset": -0.15
             },
             "until": {
               "sentence": 0,
-              "word": "parks"
+              "word": "clinic"
             },
             "strength": 1.0,
-            "tint": 0.6
+            "tint": 0.6,
+            "rise_seconds": 0.2,
+            "fall_seconds": 0.3
           }
         ]
       },
@@ -186,7 +187,7 @@
       "narrative_intent": "SHOW_CONTEXT",
       "claim_ids": [],
       "narration": "Could we design a city like this, one that floats, stays where we put it, and keeps working? Let's treat it as a design problem, and solve it one step at a time.",
-      "visual_goal": "From the water's edge the camera pulls back to the whole district and settles on it; no claim on screen",
+      "visual_goal": "From the water's edge the camera pulls back to the whole district during the question; at 'Let's treat it as a design problem' it comes down onto one home platform near the front, the one B04 strips down to, framed close among its neighbours, and the platform glows once at 'one step at a time'; no claim on screen",
       "required_concepts": [
         "floating_district"
       ],
@@ -244,28 +245,89 @@
               "word": "could",
               "offset": -0.2
             },
-            "move_seconds": 3.0
+            "move_seconds": 3.8
           },
           {
             "frame": [
               {
-                "concept": "platform_hull"
+                "concept": "platform_hull",
+                "local": [
+                  "m052_hull"
+                ]
               },
               {
-                "concept": "breakwater"
+                "concept": "building_block",
+                "local": [
+                  "m052_buildings"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "m052_roofs"
+                ]
               }
             ],
-            "margin": 0.08,
+            "margin": 0.1,
             "clearance": 400.0,
             "at": {
               "sentence": 1,
               "word": "let's",
               "offset": -0.2
             },
-            "move_seconds": 3.5
+            "move_seconds": 2.6
           }
         ],
-        "steps": []
+        "steps": [
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "platform_hull",
+                "local": [
+                  "m052_hull"
+                ]
+              },
+              {
+                "concept": "deck",
+                "local": [
+                  "m052_deck"
+                ]
+              },
+              {
+                "concept": "building_block",
+                "local": [
+                  "m052_buildings"
+                ]
+              },
+              {
+                "concept": "high_roof",
+                "local": [
+                  "m052_roofs"
+                ]
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m052_facade",
+                  "m052_balconies"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "one",
+              "offset": -0.1
+            },
+            "until": {
+              "sentence": 1,
+              "word": "time",
+              "offset": 0.6
+            },
+            "strength": 1.0,
+            "tint": 0.6
+          }
+        ]
       }
     },
     {

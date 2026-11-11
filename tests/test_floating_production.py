@@ -93,10 +93,27 @@ class VisualsTest(unittest.TestCase):
         self.assertIn(self.V.PARK[0], [r for vw in b01["views"] for r in vw["frame"]])
         cont = {k: v for k, v in last.items() if k not in ("at", "move_seconds")}
         self.assertEqual(b02["views"][0], cont)   # B02 opens on the frame B01 ends on: the cut does not jump
-        self.assertEqual(b02["views"][-1]["frame"], self.V.WHOLE)
+        self.assertEqual(b02["views"][1]["frame"], self.V.WHOLE)
+        self.assertEqual(b02["views"][-1]["frame"], self.V.ONE_PLATFORM)   # L6 review: "Let's treat it..." goes to one platform
+        self.assertEqual([(c, r) for c, r, _ in self.V.KEEP], [self.V.CENTRE])   # the platform B04 strips down to
+        self.assertEqual([(st["do"], st["targets"]) for st in b02["steps"]], [("HIGHLIGHT", self.V.ONE_PLATFORM_ALL)])   # one glow
         garden = self.V.OPEN_GARDEN
         self.assertEqual(self.V.F.district_kind(*garden)[0], "garden")
         self.assertEqual(self.V.F.GARDEN_SIDE[garden], "-y")   # it opens toward the aerial camera (azimuth -62)
+
+    def test_opening_holds_each_framing_long_enough_to_read(self):
+        """L6 review: the park held about 0.67 s before the camera left; B02 held the whole district for 10 s."""
+        plan = json.loads((P / "storyboard/visual_plan.json").read_text())
+        views = {bid: next(s for s in plan["shots"] if s["beat_id"] == bid)["shot"]["animation"]["views"]
+                 for bid in ("B01", "B02")}
+        settled = lambda v: v["start_seconds"] + v["move_seconds"]   # noqa: E731
+        b01, b02 = views["B01"], views["B02"]
+        self.assertEqual(len(b01), 4)
+        self.assertGreaterEqual(b01[3]["start_seconds"] - settled(b01[2]), 1.5)   # the park
+        self.assertGreaterEqual(b01[2]["start_seconds"] - settled(b01[1]), 0.8)   # the cluster: a pass, its schools glow
+        self.assertEqual(len(b02), 3)
+        self.assertLessEqual(b02[2]["start_seconds"] - settled(b02[1]), 4.0)      # the whole district, then one platform
+        self.assertGreater(b02[2]["start_seconds"], 6.5)                          # at the second sentence
 
     def test_conceptual_motion_is_labelled_on_screen_for_the_whole_beat(self):
         for bid, v in self.V.VISUALS.items():
