@@ -1,0 +1,83 @@
+{
+  "preset": "internal_720p",
+  "file": "output/floating_city_design_challenge_INTERNAL_REVIEW_720p.mp4",
+  "codec": "h264",
+  "width": 1280,
+  "height": 720,
+  "pix_fmt": "yuv420p",
+  "fps": "24/1",
+  "frames": 18820,
+  "duration": 784.166667,
+  "color": {
+    "profile": "High",
+    "level": 31,
+    "color_range": "tv",
+    "color_transfer": "iec61966-2-1",
+    "color_primaries": "bt709"
+  },
+  "decode_errors": 0,
+  "black_segments": 0,
+  "chapter_intermediates": [
+    "output/chapters_internal_720p/floating_city_design_challenge_C1_silent.mp4",
+    "output/chapters_internal_720p/floating_city_design_challenge_C2_silent.mp4",
+    "output/chapters_internal_720p/floating_city_design_challenge_C3_silent.mp4",
+    "output/chapters_internal_720p/floating_city_design_challenge_C4_silent.mp4",
+    "output/chapters_internal_720p/floating_city_design_challenge_C5_silent.mp4",
+    "output/chapters_internal_720p/floating_city_design_challenge_C6_silent.mp4",
+    "output/chapters_internal_720p/floating_city_design_challenge_C7_silent.mp4",
+    "output/chapters_internal_720p/floating_city_design_challenge_C8_silent.mp4"
+  ],
+  "chapter_boundaries": [
+    {
+      "cut": "C1->C2",
+      "frame": 1539,
+      "mode": "hard",
+      "ssim": 0.92053,
+      "ok": true
+    },
+    {
+      "cut": "C2->C3",
+      "frame": 4821,
+      "mode": "hard",
+      "ssim": 0.77223,
+      "ok": true
+    },
+    {
+      "cut": "C3->C4",
+      "frame": 8006,
+      "mode": "hard",
+      "ssim": 0.70966,
+      "ok": true
+    },
+    {
+      "cut": "C4->C5",
+      "frame": 10148,
+      "mode": "hard",
+      "ssim": 0.63716,
+      "ok": true
+    },
+    {
+      "cut": "C5->C6",
+      "frame": 11445,
+      "mode": "hard",
+      "ssim": 0.50081,
+      "ok": true
+    },
+    {
+      "cut": "C6->C7",
+      "frame": 13147,
+      "mode": "hard",
+      "ssim": 0.64947,
+      "ok": true
+    },
+    {
+      "cut": "C7->C8",
+      "frame": 16830,
+      "mode": "hard",
+      "ssim": 0.44654,
+      "ok": true
+    }
+  ],
+  "expected_total_frames": 18820,
+  "problems": []
+}

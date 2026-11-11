@@ -1,0 +1,93 @@
+{
+  "utc": "2026-11-11T14:03:46.926612+00:00",
+  "preset": "internal_720p",
+  "timing_sha256": "0e407a60dcf199477ed691026850c57fb67308d9537914444904705c89585274",
+  "results": [
+    {
+      "check": "chapters_structure",
+      "status": "PASS",
+      "detail": "8 chapters cover every beat contiguously, in order"
+    },
+    {
+      "check": "chapter_durations",
+      "status": "PASS",
+      "detail": "C1 64s, C2 137s, C3 133s, C4 89s, C5 54s, C6 71s, C7 153s, C8 83s"
+    },
+    {
+      "check": "runtime",
+      "status": "PASS",
+      "detail": "13.07 min (18820 frames); acceptable 8-15 min"
+    },
+    {
+      "check": "no_duplicate_shots",
+      "status": "PASS",
+      "detail": "44 unique shots"
+    },
+    {
+      "check": "no_repeated_sentences",
+      "status": "PASS",
+      "detail": "126 sentences, none repeated verbatim"
+    },
+    {
+      "check": "narration_sentences_complete",
+      "status": "PASS",
+      "detail": "126 sentences scheduled, same text and order as narration.json"
+    },
+    {
+      "check": "audio_no_overlap",
+      "status": "PASS",
+      "detail": "no two beats' speech overlaps"
+    },
+    {
+      "check": "narration_silences",
+      "status": "PASS",
+      "detail": "longest gap 1.23s (limit 4.0s), after the last line 0.82s"
+    },
+    {
+      "check": "no_static_stretches",
+      "status": "PASS",
+      "detail": "longest stretch without a visual change 12.4s at 188.5s (limit 14.0s)"
+    },
+    {
+      "check": "visual_variety",
+      "status": "FAIL",
+      "detail": "longest run of one visual kind: 7 x 3D_SEQUENCE (limit 4); 3D_SEQUENCE 27, DIAGRAM 16, TITLE 1"
+    },
+    {
+      "check": "no_repeated_visuals",
+      "status": "PASS",
+      "detail": "no two consecutive shots show the same picture"
+    },
+    {
+      "check": "chapter_openings",
+      "status": "PASS",
+      "detail": "chapters 2-8 open with a numbered title on their first shot"
+    },
+    {
+      "check": "annotations_consistent",
+      "status": "PASS",
+      "detail": "narration/visual consistency: no contradiction; 2 UNCERTAIN for the reviewer (B31.s1 TRANSFORMATION, B40.s0 SIDE); every annotation placed"
+    },
+    {
+      "check": "render_cache_current",
+      "status": "WARN",
+      "detail": "44/44 shots not rendered or stale at internal_720p: SC_001, SC_002, SC_003, SC_004, SC_005, SC_006"
+    },
+    {
+      "check": "chapter_variety",
+      "status": "PASS",
+      "detail": "every multi-shot chapter mixes at least two visual kinds"
+    },
+    {
+      "check": "image_licences",
+      "status": "PASS",
+      "detail": "0 external images, all approved with matching files"
+    },
+    {
+      "check": "image_attribution",
+      "status": "PASS",
+      "detail": "every external image is credited (credit card or description)"
+    }
+  ],
+  "failed": 1
+}

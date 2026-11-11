@@ -203,7 +203,7 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
                 if channel == motion.HIDE:
                     err = 0.0 if (want[0] > 0.5) == (got[0] > 0.5) else 1.0
                 worst = max(worst, err)
-                if err > TOL and len(mismatches) < 5:
+                if err > motion.Plan.key_tolerance(want, TOL) and len(mismatches) < 5:
                     mismatches.append(f"{name}{channel}@{f}: plan {want} vs blender {got}")
         if f == 1:
             rest_world = {n: o.matrix_world.copy() for n, o in ctx.objects.items()}
@@ -634,7 +634,7 @@ def check_card(ctx, report):
                 want, got = ctx.plan.sample(name, channel, f), _blender_value(obj, channel)
                 err = max(abs(a - b) for a, b in zip(want, got))
                 worst = max(worst, err)
-                if err > TOL and len(bad) < 5:
+                if err > motion.Plan.key_tolerance(want, TOL) and len(bad) < 5:
                     bad.append(f"{name}{channel}@{f}: plan {want} vs {got}")
     report.add(sid, "plan_matches_evaluated_keys", not bad,
                "; ".join(bad) or f"{len(ctx.plan.tracks)} objects x {len(frames)} frames, max error {worst:.2e}")
@@ -726,7 +726,8 @@ def run_all(project_dir, preset="preview", only=None):
             opening = shot.get("camera_focus") or ((motion.sequence_views(ctx.cfg)[0]["focus"] or ())
                                                     if ctx.cfg["template"] == "SEQUENCE" else ())
             v0 = motion.sequence_views(ctx.cfg)[0] if ctx.cfg["template"] == "SEQUENCE" else {}
-            turn = tuple(v0.get(k) for k in ("azimuth", "elevation", "margin"))   # a SEQUENCE may open on its own view
+            # a SEQUENCE may open on its own view; its clearance (how far the camera stands off) moves the camera too
+            turn = tuple(v0.get(k) for k in ("azimuth", "elevation", "margin", "clearance"))
             group = (shot.get("scene_context"), tuple(templates.layout_slots(shot, states)[0][1]), shot.get("camera"),
                      tuple(sorted(opening)), float(shot.get("camera_safe_band", 0.0)), turn)
             cameras[sid] = ([v for r in ctx.camera.matrix_world for v in r], ctx.camera.data.ortho_scale, group)

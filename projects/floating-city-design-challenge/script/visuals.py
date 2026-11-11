@@ -150,7 +150,13 @@ MOORINGS = [{"concept": "mooring_pile"}, {"concept": "mooring_line"}, {"concept"
 UTILITIES = [{"concept": "utility_line"}]
 WATER_SITE = [{"concept": "water_section"}]
 WATER_SEE_THROUGH = 0.5   # ghosted water keeps half its colour: the surface and the waterline still read (owner review, R2)
-WATER_SEE_THROUGH_DEEP = 0.65   # B31 only: cables on a seabed 60 m down
+WATER_SEE_THROUGH_DEEP = 0.65   # B31 only: cables on a seabed 60 m down (until the full review; now level views)
+# Full review (2026-11-11): seen from above, the see-through water's surface reads as a pale floor and the platforms'
+# shade on the seabed as a pattern on the ground: the district looked built on land (B30, B31; the L6 note on B22, B24).
+# Below-the-surface beats go down to a level view as the water clears, the camera standing outside the site's water, so
+# its near face tints everything under the surface, the waterline is one straight edge and the seabed a band.
+LEVEL_HOOD = {"elevation": 0.5, "clearance": 300.0}                        # the neighbourhood's site is 320 m square
+LEVEL_SEA = {"azimuth": -75.0, "elevation": 0.5, "clearance": 1500.0}      # open sea, 1.7 x 1.5 km; the box corner off-frame
 NEAR_SHORE = platform_parts([(c, r, u) for c, r, u in CELLS if r <= 1 and 3 <= c <= 7])
 ALL_HULLS = [{"concept": "platform_hull"}]
 
@@ -478,18 +484,22 @@ visual("B12", "SEQUENCE", "Back to the three-storey design: the fourth storey fa
 pair = RES["revisions"]["B_neighbours_2_vs_4_storeys"]
 WALK = [part("walkway_connector", ["walkway", "walkway_hinge0", "walkway_hinge1"])]
 visual("B13", "SEQUENCE", "Side elevation of two identical platforms with two and four storeys at their own drafts; close on "
-       "the 0.66 m step between the decks; a hinged walkway arrives and spans it (no part shown failing)",
+       "the 0.66 m step between the decks; then close over the gap, looking along it, as a hinged walkway arrives and its "
+       "hinges light (no part shown failing)",
        ["floating_pair"], "MEDIUM",
        sequence=seq("FLOAT_SECTION",
                     [view({"except": WALK}, margin=0.07),
-                     view(WALK + [part("deck", ["platform_a_deck", "platform_b_deck"])], at(1, "decks", -0.6), move=2.2, margin=0.25)],
+                     view(WALK + [part("deck", ["platform_a_deck", "platform_b_deck"])], at(1, "decks", -0.6), move=2.2, margin=0.25),
+                     # full review (2026-11-11): from the side the hinge pins were seen end-on (0.00 % of the frame at
+                     # "hinged"); obliquely over the gap, close, the walkway, both pins and the step between the decks read
+                     view(WALK, at(2, "whatever", -0.2), move=2.0, azimuth=-70.0, elevation=20.0, margin=0.35)],
                     [hide(WALK),
                      glow([grp("building_block", "platform_a"), grp("high_roof", "platform_a")], at(0, "two", -0.2), at(0, "four", -0.2)),
                      glow([grp("building_block", "platform_b"), grp("high_roof", "platform_b")], at(0, "four", -0.1), at(0, end=True, offset=0.4)),
                      step("REVEAL", WALK, at(3, "walkways", -0.3), seconds=1.2, direction="FROM_ABOVE", distance=3.0),
                      glow([part("walkway_connector", ["walkway_hinge0", "walkway_hinge1"])], at(3, "hinged", -0.2), at(3, end=True))]),
        annotations=[label("B13_step", part("deck", "platform_b_deck"), f"Decks ≈ {m(pair['deck_level_step_m'])} m apart", 1, "decks",
-                          point="TOP_LEFT"),
+                          point="TOP_LEFT", until=2),   # gone before the camera moves over the gap
                     note("B13_free", "Each floating on its own (illustrative)", 1, word="floating"),
                     note("B13_ballast", "Another option: ballast to even out the decks", 4, word="ballast", position="TOP_LEFT")])
 
@@ -695,10 +705,14 @@ visual("B21", "SEQUENCE", "From the plan to an aerial view: inner homes light, t
                           point="LEFT")])
 
 # ======================================================================================== C5
-visual("B22", "SEQUENCE", "Low view of the neighbourhood: the water turns see-through (half its colour and the waterline stay) and the steel piles beneath light up",
+HOOD_P12 = [grp(cc, f"platform{k}") for k in (1, 2) for cc in ("platform_hull", "deck")]
+HOOD_P2 = [grp(cc, "platform2") for cc in ("platform_hull", "deck")]   # level views: one platform, so the water reads deep
+visual("B22", "SEQUENCE", "Low view of the neighbourhood on full water; as the water turns see-through (half its colour stays) "
+       "the camera goes down to a level view outside the water: the waterline one edge, the steel piles beneath light up",
        [HOOD], "MEDIUM",
-       sequence=seq("FLOAT_UNDERWATER", [view([grp(cc, f"platform{k}") for k in (1, 2) for cc in ("platform_hull", "deck")] + PILES,
-                                              margin=0.1)],
+       sequence=seq("FLOAT_UNDERWATER", [view(HOOD_P12 + PILES, margin=0.1),
+                                         view(HOOD_P2 + [part("mooring_pile", ["platform2_pile1", "platform2_pile2"])],
+                                              at(1, "floating", -0.3), move=1.8, margin=0.08, **LEVEL_HOOD)],
                     [hide(LINES),
                      step("GHOST", WATER_SITE, at(1, "floating", -0.3), seconds=1.2, transparency=WATER_SEE_THROUGH),
                      glow(PILES, at(1, "poles", -0.4), at(1, end=True, offset=0.3))]),
@@ -755,9 +769,13 @@ visual("B23", "CARD", "Elevation at true slope: quay, shore hinge, a 25 m link-s
        "the platform rise and fall, the bridge turns on its hinge; '2 m water level (assumed) + loading; about 2.8° either way'",
        [], "LOW", graphic=c.spec())
 
-visual("B24", "SEQUENCE", "Same neighbourhood; the water turns see-through (half its colour stays): the piles fade and mooring lines to anchors on the "
-       "seabed take their place; lines and anchors light (conceptual mooring, not sized)", [HOOD], "MEDIUM",
-       sequence=seq("FLOAT_UNDERWATER", [view(HOOD_PLATFORMS + LINES, margin=0.06)],
+visual("B24", "SEQUENCE", "Same neighbourhood on full water; as the water turns see-through (half its colour stays) the camera "
+       "goes down to a level view outside the water: the piles fade and mooring lines to anchors on the seabed take their "
+       "place; lines and anchors light (conceptual mooring, not sized)", [HOOD], "MEDIUM",
+       sequence=seq("FLOAT_UNDERWATER", [view(HOOD_PLATFORMS + LINES, margin=0.06),
+                                         view(HOOD_P2 + [part("mooring_line", ["platform2_line1", "platform2_line2"]),
+                                                         part("anchor", ["platform2_anchor1", "platform2_anchor2"])],
+                                              at(0, "water", -0.2), move=1.6, margin=0.06, **LEVEL_HOOD)],
                     [hide(LINES), step("GHOST", WATER_SITE, at(0, "water", -0.2), seconds=0.9, transparency=WATER_SEE_THROUGH),
                      step("FADE_OUT", PILES, at(0, "piles", -0.2), seconds=1.0),
                      step("REVEAL", LINES, at(0, "mooring", -0.3), seconds=1.4, direction="FROM_ABOVE", distance=4.0),
@@ -803,28 +821,45 @@ visual("B26", "CARD", "Schematic: 46 homes on the water, one cable to the grid o
        "a smart grid between them; 'Floating ≠ off-grid'", [], "LOW", graphic=c.spec())
 
 LS2 = [part("link_span", "linkspan2")]
-visual("B27", "SEQUENCE", "One bridge to the quay, close: the bridge deck ghosts, and the wastewater line beneath it, then "
-       "the drinking-water line, light as they are named", [DISTRICT, "utility_line", "link_span"], "MEDIUM",
+visual("B27", "SEQUENCE", "One bridge to the quay, close (our illustrative design, not Schoonschip): the bridge deck ghosts "
+       "first, so the wastewater line beneath it shows when it is named, then the drinking-water line lights",
+       [DISTRICT, "utility_line", "link_span"], "MEDIUM",
        sequence=seq("FLOAT_THREE_QUARTER",
                     [view(LS2 + [part("utility_line", [f"linkspan2_{n}" for n in ("power", "water", "wastewater")])], margin=0.25,
                           elevation=14.0)],
-                    [glow([part("utility_line", ["linkspan2_wastewater"])], at(0, "black", -0.3), at(1, "connecting")),
-                     step("GHOST", LS2, at(1, "infrastructure", -0.4), seconds=1.0, transparency=0.85),
+                    # full review (2026-11-11): the deck hid the line at its first glow (2 % of its silhouette visible)
+                    [step("GHOST", LS2, at(0, "wastewater", -0.3), seconds=1.0, transparency=0.85),
+                     glow([part("utility_line", ["linkspan2_wastewater"])], at(0, "black", -0.3), at(1, "connecting")),
                      glow([part("utility_line", ["linkspan2_wastewater"])], at(2, "wastewater", -0.2), at(2, "drinking")),
                      glow([part("utility_line", ["linkspan2_water"])], at(2, "drinking", -0.2), at(2, end=True, offset=0.3))]),
-       annotations=[label("B27_waste", part("utility_line", "linkspan2_wastewater"), "Wastewater to shore", 2, "wastewater",
+       annotations=[note("B27_note", "Our illustrative design", 0, until=2, position="TOP_RIGHT"),   # s0-s1 describe Schoonschip
+                    label("B27_waste", part("utility_line", "linkspan2_wastewater"), "Wastewater to shore", 2, "wastewater",
                           point="RIGHT"),
                     label("B27_water", part("utility_line", "linkspan2_water"), "Drinking water from shore", 2, "drinking", point="RIGHT")])
 
-visual("B28", "SEQUENCE", "The whole district: boat landings for fire and rescue, the emergency routes to the bridges, the "
-       "utility lines, then the bridges themselves light in turn", [DISTRICT, "access_route"], "HIGH",
-       sequence=seq("FLOAT_AERIAL", [view(ALL_HULLS, margin=0.05)],
-                    [glow([grp("walkway_connector", "landings")], at(0, "fire", -0.3), at(0, "food")),
-                     glow([{"concept": "access_route"}], at(0, "medical", -0.2), at(1, "large")),
-                     glow(UTILITIES, at(1, "sewage", -0.3), at(1, "roads")),
-                     glow([{"concept": "link_span"}], at(1, "roads", -0.2), at(2, end=True, offset=0.4))]),
-       annotations=[label("B28_landing", part("walkway_connector", "landing1"), "Boat landing", 0, "fire", until=1, point="LEFT"),
-                    label("B28_route", part("access_route", "route2"), "Route to land", 0, "medical", until=2, point="TOP")])
+# Full review (2026-11-11): in the whole district the landings, routes, utility lines and bridges were 0.04-0.16 % of the
+# frame and their labels larger than they were. One bridge, close, carries the beat; the whole district comes back only
+# for "our city connects", with everything that ties it to land lit together.
+BRIDGE1 = [x for x in CELLS if x[0] == F.ROUTE_COLS[0] and x[1] <= 1]   # the first bridge's column, the two rows at the quay
+BRIDGE1_UTILITIES = [part("utility_line", [f"linkspan1_{n}" for n in ("power", "water", "wastewater")] +
+                          [f"spine_{n}_r0" for n in ("power", "water", "wastewater")])]
+TIES_TO_LAND = [{"concept": "link_span"}, {"concept": "access_route"}] + UTILITIES
+visual("B28", "SEQUENCE", "Looking up one bridge's route from the quay: the emergency route on the decks lights with fire and "
+       "medical services, the utility lines with sewage and power, the bridge with roads; then the whole district, its "
+       "buildings ghosted, everything that ties it to land lit together as the city connects", [DISTRICT, "access_route"], "HIGH",
+       # looking up the route from the quay: the route runs between the halls, not behind them (20 % visible at -62/32)
+       sequence=seq("FLOAT_AERIAL", [view(platform_parts(BRIDGE1, ("hull", "deck")) + [part("link_span", ["linkspan1"])], margin=0.06,
+                                         azimuth=-90.0, elevation=50.0),
+                                    view(ALL_HULLS, at(1, "alternatives", -0.4), move=2.4, margin=0.05)],
+                    [glow([part("access_route", ["route1"])], at(0, "fire", -0.3), at(1, "connect")),
+                     # whole district: the buildings ghost, so what ties it to land reads as one network (lit, it was a
+                     # faint tint among 93 platforms of buildings)
+                     step("GHOST", BUILDINGS_ALL, at(1, "alternatives", -0.4), seconds=1.6, transparency=0.85),
+                     glow(BRIDGE1_UTILITIES, at(1, "sewage", -0.3), at(1, "roads", -0.2)),
+                     glow([part("link_span", ["linkspan1"])], at(1, "roads", -0.2), at(1, "alternatives")),
+                     glow(TIES_TO_LAND, at(2, "and", -0.3), at(2, end=True, offset=0.4))]),
+       # a note, not a label: the route crosses the whole close frame, so a label could not sit clear of it
+       annotations=[note("B28_route", "Emergency route to land", 0, until=1, word="fire", position="TOP_RIGHT")])
 
 # ======================================================================================== C7
 OFF = "floating_district_offshore"
@@ -837,24 +872,31 @@ BW = [part("breakwater", [f"breakwater{k:02d}"]) for k in range(13)]
 d30 = duration("B30")
 off_pitch = 66.0
 bw_y = 25.0 + 30.0 + 8 * off_pitch + 30.0 + 60.0
-visual("B30", "SEQUENCE", "Long conceptual swell passes along the breakwater (labelled); the water ghosts and the long "
-       "mooring lines to deep anchors light", [OFF, "breakwater", "mooring_line"], "MEDIUM",
+EAST_LINE = [part("platform_hull", ["m100_hull"]), part("mooring_line", ["m100_line1"]), part("anchor", ["m100_anchor1"])]
+visual("B30", "SEQUENCE", "Long conceptual swell passes along the breakwater (labelled); below the surface the camera goes "
+       "down to a level view outside the water as it turns see-through: long mooring lines run down to deep anchors on the "
+       "seabed, and light", [OFF, "breakwater", "mooring_line"], "MEDIUM",
        motion_label=CONCEPT_MOTION_LABEL,
        sequence=seq("FLOAT_UNDERWATER", [view([{"concept": "breakwater"}, {"concept": "mooring_line"}, {"concept": "anchor"}],
-                                              margin=0.06, elevation=12.0)],
+                                              margin=0.06, elevation=12.0),
+                                         view(EAST_LINE, at(1, "below", -0.3), move=1.8, margin=0.08, **LEVEL_SEA)],
                     [step("OSCILLATE", [ref], 0.3, seconds=round(d30 - 0.6, 2), amplitude_m=0.8, period_seconds=9.0,
                           phase_degrees=round(-28.0 * k, 1), tilt_degrees=1.5, axis="X",
                           pivot=[-6 * 64.0 + (k + 0.5) * 64.0 - 2.0, bw_y, 0.0], fade_seconds=1.5) for k, ref in enumerate(BW)] +
                     [step("GHOST", WATER_SITE, at(1, "below", -0.3), seconds=1.2, transparency=WATER_SEE_THROUGH),
-                     glow([{"concept": "mooring_line"}], at(1, "mooring", -0.3), at(1, "anchors")),
-                     glow([{"concept": "anchor"}], at(1, "anchors", -0.2), at(1, end=True, offset=0.3))]),
-       annotations=[note("B30_label", CONCEPT_MOTION_LABEL, 0)])
+                     # one glow: an anchor alone is under 0.05 % of a frame that holds its whole line
+                     glow([{"concept": "mooring_line"}, {"concept": "anchor"}], at(1, "mooring", -0.3), at(1, end=True, offset=0.3))]),
+       annotations=[note("B30_label", CONCEPT_MOTION_LABEL, 0),
+                    label("B30_anchor", part("anchor", "m100_anchor1"), "Anchor", 1, "anchors", point="TOP")])
 
-visual("B31", "SEQUENCE", "From above with the water ghosted: three cables and pipes run along the seabed toward a shore "
-       "beyond the frame, and light", [OFF, "utility_line"], "MEDIUM",
-       sequence=seq("FLOAT_UNDERWATER", [view(ALL_HULLS + UTILITIES, margin=0.04, elevation=34.0)],
-                    [step("GHOST", WATER_SITE, at(0, "cables", -0.6), seconds=1.0, transparency=WATER_SEE_THROUGH_DEEP),
-                     glow(UTILITIES, at(0, "cables", -0.2), at(1, end=True, offset=0.3))]),
+FRONT_MIDDLE = platform_parts([x for x in CELLS if x[1] == 0 and 4 <= x[0] <= 6], ("hull",))   # where the links leave
+visual("B31", "SEQUENCE", "The district at sea from above (full water); as the water turns see-through the camera goes down "
+       "to a level view outside it, where three cables and pipes leave the platform, run down to the seabed and away toward a "
+       "shore beyond the frame, and light", [OFF, "utility_line"], "MEDIUM",
+       sequence=seq("FLOAT_UNDERWATER", [view(ALL_HULLS + UTILITIES, margin=0.04, elevation=34.0),
+                                         view(FRONT_MIDDLE, at(0, "cables", -0.6), move=1.8, margin=0.08, **LEVEL_SEA)],
+                    [step("GHOST", WATER_SITE, at(0, "cables", -0.6), seconds=1.2, transparency=WATER_SEE_THROUGH),
+                     glow(UTILITIES, at(0, "supply", -0.2), at(1, end=True, offset=0.3))]),
        annotations=[note("B31_note", "Links to a shore beyond the frame, not sized", 0, word="cables")])
 
 rz = RES["reference_points"]["ruzzo_energy_per_inhabitant_MWh_yr"]
@@ -940,13 +982,17 @@ visual("B37", "CARD", "Two columns, no numbers: what floating gives (follows the
        "(moorings, connections, maintenance); 'no reliable cost estimate for this design yet'", [], "LOW", graphic=c.spec())
 
 # ======================================================================================== C8
-visual("B38", "SEQUENCE", "From one platform to the whole district: the camera pulls back while the systems we added light "
-       "in turn (walkways, moorings, breakwater, utilities)", [DISTRICT], "HIGH",
-       sequence=seq("FLOAT_AERIAL", [view(platform_parts(KEEP, ("hull", "buildings")), margin=0.25),
+# Full review (2026-11-11): walkways and utilities lit one by one in the whole district were 0.20-0.24 % of the frame.
+# The walkways light while the camera is still close; "every part we added" lights as one network as it pulls back.
+ADDED = [{"concept": "walkway_connector"}, {"concept": "link_span"}, {"concept": "access_route"}, {"concept": "breakwater"}] + UTILITIES
+visual("B38", "SEQUENCE", "From one platform, its walkways lit, the camera pulls back to the whole district; the buildings "
+       "ghost and everything we added (walkways, bridges, routes, utilities, breakwater) lights together as one network",
+       [DISTRICT], "HIGH",
+       sequence=seq("FLOAT_AERIAL", [view(platform_parts(KEEP, ("hull", "buildings")), margin=0.25, elevation=50.0),
                                     view(ALL_HULLS + [{"concept": "breakwater"}], at(0, "district", -0.3), move=2.6, margin=0.05)],
-                    [glow([grp("walkway_connector", "walkways")], at(0, "every", -0.2), at(0, "added")),
-                     glow([{"concept": "breakwater"}], at(0, "added", -0.2), at(0, "question")),
-                     glow(UTILITIES + [{"concept": "link_span"}], at(0, "question", -0.2), at(0, end=True, offset=0.2))]))
+                    [glow([grp("walkway_connector", "walkways")], at(0, "one", -0.2), at(0, "district"), rise_seconds=0.2, fall_seconds=0.3),
+                     step("GHOST", BUILDINGS_ALL, at(0, "every", -0.5), seconds=1.2, transparency=0.85),
+                     glow(ADDED, at(0, "every", -0.2), at(0, end=True, offset=0.2))]))
 
 TIERS = (("Small floating neighbourhoods, sheltered and connected", "already exist", "#4E7D4A"),
          ("A connected district for 10,000 in a sheltered bay", "possible, under the right conditions", GOLD),

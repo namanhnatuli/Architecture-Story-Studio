@@ -111,6 +111,9 @@ class PlanSequenceTest(unittest.TestCase):
         self.assertGreaterEqual(far["clip_end"] - near["clip_end"], 0.0)
         with self.assertRaises(motion.PlanError):
             motion.sequence_views({"views": [{"clearance": 0.0}]})
+        motion.sequence_views({"views": [{"clearance": 1500.0}]})   # outside an open-sea site's water (B30, B31)
+        with self.assertRaises(motion.PlanError):
+            motion.sequence_views({"views": [{"clearance": 2500.0}]})
 
     def test_an_orbit_turns_around_the_subject_and_lands_on_each_view(self):
         """g-r5: a view with its own direction: the camera turns on a short arc, held exactly on each fit."""

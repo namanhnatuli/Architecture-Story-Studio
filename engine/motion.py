@@ -19,6 +19,7 @@ TRANSPARENCY = '["ass_transparency"]'
 HIGHLIGHT = '["ass_highlight"]'
 TINT = '["ass_tint"]'   # g-r5: how far a part's glow leans towards the accent colour (one value per part and shot)
 HIDE = "hide_render"  # also mirrored to hide_viewport when applied in Blender
+F32_KEY_ULPS = 4      # Plan.key_tolerance: Blender keeps keyframe values in single precision
 
 
 class PlanError(ValueError):
@@ -107,6 +108,14 @@ class Plan:
 
     def keys(self, name, channel):
         return [k for _, k in sorted(self.tracks.get(name, {}).get(channel, {}).items())]
+
+    @staticmethod
+    def key_tolerance(values, base):
+        """How far Blender's evaluated value may sit from the plan's: `base`, or, for large values, a few single-
+        precision ulps. Blender stores F-curve keys as float32 and interpolates between them in float32, so a district
+        camera's ortho scale of ~1000 m comes back 1-3 ulps (6e-5 m each) off the float64 plan (SC_004, SC_038)."""
+        largest = max((abs(v) for v in values), default=0.0)
+        return max(base, F32_KEY_ULPS * largest * 2.0 ** -23)
 
     def channels(self, name):
         return sorted(self.tracks.get(name, {}))
@@ -632,6 +641,7 @@ SEQUENCE_DEFAULTS = {"template": "SEQUENCE", "state": None, "duration_seconds": 
 VIEW_DEFAULTS = {"start_seconds": 0.0, "move_seconds": 0.0, "focus": None, "easing": "SMOOTH", "margin": None,
                  "azimuth": None, "elevation": None,   # g-r5: a view may turn the camera (an orbit); None = the preset
                  "clearance": None}   # metres the camera stands in front of the framed parts (None: framing default)
+MAX_CLEARANCE_M = 2000.0
 STEP_DEFAULTS = {
     "GHOST": {"components": None, "start_seconds": None, "seconds": 1.0, "transparency": 0.85},
     "UNGHOST": {"components": None, "start_seconds": None, "seconds": 1.0},
@@ -716,8 +726,10 @@ def sequence_views(cfg, where="SEQUENCE"):
         c = merge_config(VIEW_DEFAULTS, v, f"{where}.views[{i}]", free_form=("focus",))
         _number(c, "start_seconds", f"{where}.views[{i}]")
         _number(c, "move_seconds", f"{where}.views[{i}]")
-        if c["clearance"] is not None and not (isinstance(c["clearance"], (int, float)) and 1.0 <= c["clearance"] <= 500.0):
-            raise PlanError(f"{where}.views[{i}].clearance must be null or metres in [1, 500]")
+        # up to 2 km: a level view of a moored district stands outside its site's water (open sea, 1.7 x 1.5 km), so the
+        # water's near face lies between the camera and what is under the surface (full review, 2026-11-11)
+        if c["clearance"] is not None and not (isinstance(c["clearance"], (int, float)) and 1.0 <= c["clearance"] <= MAX_CLEARANCE_M):
+            raise PlanError(f"{where}.views[{i}].clearance must be null or metres in [1, {MAX_CLEARANCE_M:g}]")
         if i == 0 and (c["start_seconds"] or c["move_seconds"]):
             raise PlanError(f"{where}.views[0] is the opening framing: start_seconds and move_seconds must be 0")
         if i > 0 and c["move_seconds"] <= 0:

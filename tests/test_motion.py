@@ -47,6 +47,25 @@ class EasingTest(unittest.TestCase):
         self.assertEqual(motion.frame_at(2.5 / 24, 24), 4)
 
 
+class KeyToleranceTest(unittest.TestCase):
+    def test_small_values_keep_the_base_tolerance(self):
+        self.assertEqual(motion.Plan.key_tolerance((0.5, -12.0, 150.0), 1e-4), 1e-4)
+
+    def test_large_values_allow_a_few_float32_ulps_and_no_more(self):
+        import struct
+
+        def f32(x):
+            return struct.unpack("f", struct.pack("f", x))[0]
+        # SC_038 (full review, 2026-11-11): plan 933.2710799037022, Blender 933.271240234375 = 3 ulps of 6.1e-5
+        want, got = 933.2710799037022, 933.271240234375
+        tol = motion.Plan.key_tolerance((want,), 1e-4)
+        self.assertGreater(abs(got - want), 1e-4)
+        self.assertLessEqual(abs(got - want), tol)
+        ulp = 2.0 ** (math.frexp(f32(want))[1] - 24)
+        self.assertLess(tol, 9 * ulp)               # a real mismatch (a wrong key) is still caught
+        self.assertGreater(abs(want * 1.001 - want), tol)
+
+
 class DirectionTest(unittest.TestCase):
     def test_named_vector_and_computed(self):
         c = comp("a", (2.0, 0.0, 3.0), hint=(0, 0, 2))

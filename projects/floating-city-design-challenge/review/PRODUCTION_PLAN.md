@@ -139,3 +139,14 @@
   - **B01:** khung cụm thành một chặng đi qua (dừng khoảng 1 s, đúng lúc hai trường sáng lên), để công viên đứng yên khoảng 2 s rồi mới xuống mép nước. Audio giữ nguyên.
   - **B02:** kéo lui ra toàn quận chậm hơn trong câu hỏi. Tới "Let's treat it as a design problem", camera hạ xuống phao nhà ở trung tâm, đúng phao mà B04 bóc dần còn lại.
   - **Nhắc khi làm chương neo (B22/B24):** giữ một mép mặt nước hoặc một dải nước nguyên màu, cân lại độ tương phản của đáy và bóng đổ, và xem cả chuyển động trước/sau khi làm trong. Alpha không phải tiêu chí nghiệm thu. Ở B14 cũng phải xem lúc từng bộ phận được làm sáng.
+- **Bản internal review đầy đủ v1 (2026-11-11 → 2026-11-12).**
+  - Chủ kênh chuyển sang làm cả phim, không duyệt từng đoạn nhỏ nữa.
+  - **Đã sửa theo review toàn phim:**
+    - B13, B22, B24, B27, B28, B30, B31, B38;
+    - ba lỗi pipeline (khóa F-curve float32; `clearance` trong khóa nhóm camera);
+    - tiêu đề chương 2–8.
+  - **Render và ghép:**
+    - render 8 chương ở 720p; ghép bản đầy đủ 13:04,2, có SFX và không SFX;
+    - kiểm Blender 585/585; media, âm lượng, phụ đề, Whisper đều PASS;
+    - QA phim dài còn `visual_variety` FAIL, chờ chủ kênh quyết.
+  - Chi tiết: `review/INTERNAL_REVIEW_V1.md`, `qa/EDITORIAL_REVIEW_TIMECODED.md`.

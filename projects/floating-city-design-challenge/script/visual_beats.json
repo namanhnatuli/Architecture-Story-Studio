@@ -2061,6 +2061,14 @@
       },
       "annotations": [
         {
+          "id": "B05_ch",
+          "type": "NOTE",
+          "text": "2 · The First Problem: Making Buildings Float",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
+        {
           "id": "B05_block",
           "type": "COMPONENT_LABEL",
           "target": {
@@ -5378,6 +5386,14 @@
       },
       "annotations": [
         {
+          "id": "B12_ch",
+          "type": "NOTE",
+          "text": "3 · Why One Platform Isn't a City",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
+        {
           "id": "B12_people",
           "type": "NOTE",
           "text": "3 stories: about 48 residents per platform",
@@ -5396,7 +5412,7 @@
         "CLM_107"
       ],
       "narration": "Look at two identical platforms carrying different buildings, one with two stories and one with four. Floating on their own, their decks would sit about 66 centimeters apart in height. So different loads add a demand on whatever connects them. In this design, the walkways between platforms are hinged, so they can follow the difference. Adding ballast to even out the decks would be another option.",
-      "visual_goal": "Side elevation of two identical platforms with two and four storeys at their own drafts; close on the 0.66 m step between the decks; a hinged walkway arrives and spans it (no part shown failing)",
+      "visual_goal": "Side elevation of two identical platforms with two and four storeys at their own drafts; close on the 0.66 m step between the decks; then close over the gap, looking along it, as a hinged walkway arrives and its hinges light (no part shown failing)",
       "required_concepts": [
         "floating_pair"
       ],
@@ -5445,6 +5461,27 @@
               "offset": -0.6
             },
             "move_seconds": 2.2
+          },
+          {
+            "frame": [
+              {
+                "concept": "walkway_connector",
+                "local": [
+                  "walkway",
+                  "walkway_hinge0",
+                  "walkway_hinge1"
+                ]
+              }
+            ],
+            "azimuth": -70.0,
+            "elevation": 20.0,
+            "margin": 0.35,
+            "at": {
+              "sentence": 2,
+              "word": "whatever",
+              "offset": -0.2
+            },
+            "move_seconds": 2.0
           }
         ],
         "steps": [
@@ -5572,7 +5609,8 @@
           "point": "TOP_LEFT",
           "text": "Decks ≈ 0.66 m apart",
           "sentence": 1,
-          "word": "decks"
+          "word": "decks",
+          "until": 2
         },
         {
           "id": "B13_free",
@@ -16732,6 +16770,14 @@
       },
       "annotations": [
         {
+          "id": "B17_ch",
+          "type": "NOTE",
+          "text": "4 · The Water Never Stays Still",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
+        {
           "id": "B17_label",
           "type": "NOTE",
           "text": "Conceptual motion visualization — not a hydrodynamic simulation",
@@ -20435,7 +20481,7 @@
         "CLM_020"
       ],
       "narration": "Something also has to hold the city in place. Floating homes in the Netherlands are fixed to the shore, often resting against steel poles.",
-      "visual_goal": "Low view of the neighbourhood: the water turns see-through (half its colour and the waterline stay) and the steel piles beneath light up",
+      "visual_goal": "Low view of the neighbourhood on full water; as the water turns see-through (half its colour stays) the camera goes down to a level view outside the water: the waterline one edge, the steel piles beneath light up",
       "required_concepts": [
         "neighbourhood_both_moorings"
       ],
@@ -20471,6 +20517,34 @@
               }
             ],
             "margin": 0.1
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull",
+                "group": "platform2"
+              },
+              {
+                "concept": "deck",
+                "group": "platform2"
+              },
+              {
+                "concept": "mooring_pile",
+                "local": [
+                  "platform2_pile1",
+                  "platform2_pile2"
+                ]
+              }
+            ],
+            "margin": 0.08,
+            "elevation": 0.5,
+            "clearance": 300.0,
+            "at": {
+              "sentence": 1,
+              "word": "floating",
+              "offset": -0.3
+            },
+            "move_seconds": 1.8
           }
         ],
         "steps": [
@@ -20529,6 +20603,14 @@
         ]
       },
       "annotations": [
+        {
+          "id": "B22_ch",
+          "type": "NOTE",
+          "text": "5 · Keeping the City in Place",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
         {
           "id": "B22_pile",
           "type": "COMPONENT_LABEL",
@@ -20945,7 +21027,7 @@
         "CLM_054"
       ],
       "narration": "Further out, the water is deeper, and piles give way to mooring lines anchored in the seabed. Deeper water means longer lines, deeper anchors, and higher costs. The seabed itself shapes the design, and the bill.",
-      "visual_goal": "Same neighbourhood; the water turns see-through (half its colour stays): the piles fade and mooring lines to anchors on the seabed take their place; lines and anchors light (conceptual mooring, not sized)",
+      "visual_goal": "Same neighbourhood on full water; as the water turns see-through (half its colour stays) the camera goes down to a level view outside the water: the piles fade and mooring lines to anchors on the seabed take their place; lines and anchors light (conceptual mooring, not sized)",
       "required_concepts": [
         "neighbourhood_both_moorings"
       ],
@@ -21064,6 +21146,41 @@
               }
             ],
             "margin": 0.06
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull",
+                "group": "platform2"
+              },
+              {
+                "concept": "deck",
+                "group": "platform2"
+              },
+              {
+                "concept": "mooring_line",
+                "local": [
+                  "platform2_line1",
+                  "platform2_line2"
+                ]
+              },
+              {
+                "concept": "anchor",
+                "local": [
+                  "platform2_anchor1",
+                  "platform2_anchor2"
+                ]
+              }
+            ],
+            "margin": 0.06,
+            "elevation": 0.5,
+            "clearance": 300.0,
+            "at": {
+              "sentence": 0,
+              "word": "water",
+              "offset": -0.2
+            },
+            "move_seconds": 1.6
           }
         ],
         "steps": [
@@ -21479,7 +21596,17 @@
             "tint": 0.6
           }
         ]
-      }
+      },
+      "annotations": [
+        {
+          "id": "B25_ch",
+          "type": "NOTE",
+          "text": "6 · A City Needs More Than Buildings",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        }
+      ]
     },
     {
       "beat_id": "B26",
@@ -24040,7 +24167,7 @@
         "CLM_123"
       ],
       "narration": "Wastewater is separated there too: gray water from showers and washing machines, black water from toilets. Connecting floating homes to sewers on land takes extra infrastructure, such as waterproof cables and pumps. In our city, wastewater is pumped ashore along the bridges, and drinking water comes back the same way.",
-      "visual_goal": "One bridge to the quay, close: the bridge deck ghosts, and the wastewater line beneath it, then the drinking-water line, light as they are named",
+      "visual_goal": "One bridge to the quay, close (our illustrative design, not Schoonschip): the bridge deck ghosts first, so the wastewater line beneath it shows when it is named, then the drinking-water line lights",
       "required_concepts": [
         "floating_district",
         "utility_line",
@@ -24074,6 +24201,24 @@
         ],
         "steps": [
           {
+            "do": "GHOST",
+            "targets": [
+              {
+                "concept": "link_span",
+                "local": [
+                  "linkspan2"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 0,
+              "word": "wastewater",
+              "offset": -0.3
+            },
+            "seconds": 1.0,
+            "transparency": 0.85
+          },
+          {
             "do": "HIGHLIGHT",
             "targets": [
               {
@@ -24094,24 +24239,6 @@
             },
             "strength": 1.0,
             "tint": 0.6
-          },
-          {
-            "do": "GHOST",
-            "targets": [
-              {
-                "concept": "link_span",
-                "local": [
-                  "linkspan2"
-                ]
-              }
-            ],
-            "at": {
-              "sentence": 1,
-              "word": "infrastructure",
-              "offset": -0.4
-            },
-            "seconds": 1.0,
-            "transparency": 0.85
           },
           {
             "do": "HIGHLIGHT",
@@ -24162,6 +24289,14 @@
       },
       "annotations": [
         {
+          "id": "B27_note",
+          "type": "NOTE",
+          "text": "Our illustrative design",
+          "sentence": 0,
+          "position": "TOP_RIGHT",
+          "until": 2
+        },
+        {
           "id": "B27_waste",
           "type": "COMPONENT_LABEL",
           "target": {
@@ -24200,7 +24335,7 @@
         "CLM_043"
       ],
       "narration": "Transport, fire and medical services, and food all follow the same logic. A large floating development has to connect sewage, power and roads to land, or develop alternatives of its own, and our city connects.",
-      "visual_goal": "The whole district: boat landings for fire and rescue, the emergency routes to the bridges, the utility lines, then the bridges themselves light in turn",
+      "visual_goal": "Looking up one bridge's route from the quay: the emergency route on the decks lights with fire and medical services, the utility lines with sewage and power, the bridge with roads; then the whole district, its buildings ghosted, everything that ties it to land lit together as the city connects",
       "required_concepts": [
         "floating_district",
         "access_route"
@@ -24213,10 +24348,43 @@
           {
             "frame": [
               {
+                "concept": "platform_hull",
+                "local": [
+                  "m020_hull",
+                  "m021_hull"
+                ]
+              },
+              {
+                "concept": "deck",
+                "local": [
+                  "m020_deck",
+                  "m021_deck"
+                ]
+              },
+              {
+                "concept": "link_span",
+                "local": [
+                  "linkspan1"
+                ]
+              }
+            ],
+            "margin": 0.06,
+            "azimuth": -90.0,
+            "elevation": 50.0
+          },
+          {
+            "frame": [
+              {
                 "concept": "platform_hull"
               }
             ],
-            "margin": 0.05
+            "margin": 0.05,
+            "at": {
+              "sentence": 1,
+              "word": "alternatives",
+              "offset": -0.4
+            },
+            "move_seconds": 2.4
           }
         ],
         "steps": [
@@ -24224,8 +24392,10 @@
             "do": "HIGHLIGHT",
             "targets": [
               {
-                "concept": "walkway_connector",
-                "group": "landings"
+                "concept": "access_route",
+                "local": [
+                  "route1"
+                ]
               }
             ],
             "at": {
@@ -24234,36 +24404,174 @@
               "offset": -0.3
             },
             "until": {
-              "sentence": 0,
-              "word": "food"
+              "sentence": 1,
+              "word": "connect"
             },
             "strength": 1.0,
             "tint": 0.6
           },
           {
-            "do": "HIGHLIGHT",
+            "do": "GHOST",
             "targets": [
               {
-                "concept": "access_route"
+                "concept": "building_block"
+              },
+              {
+                "concept": "high_roof"
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m000_facade",
+                  "m001_facade",
+                  "m002_facade",
+                  "m003_facade",
+                  "m004_facade",
+                  "m005_facade",
+                  "m006_facade",
+                  "m007_facade",
+                  "m008_facade",
+                  "m010_facade",
+                  "m011_facade",
+                  "m012_facade",
+                  "m013_facade",
+                  "m014_facade",
+                  "m014_balconies",
+                  "m015_facade",
+                  "m015_balconies",
+                  "m016_facade",
+                  "m017_facade",
+                  "m018_facade",
+                  "m020_facade",
+                  "m021_facade",
+                  "m022_facade",
+                  "m023_facade",
+                  "m024_facade",
+                  "m024_balconies",
+                  "m025_facade",
+                  "m025_balconies",
+                  "m026_facade",
+                  "m027_facade",
+                  "m028_facade",
+                  "m030_facade",
+                  "m031_facade",
+                  "m032_facade",
+                  "m032_solar",
+                  "m033_facade",
+                  "m033_solar",
+                  "m034_facade",
+                  "m034_balconies",
+                  "m035_facade",
+                  "m035_balconies",
+                  "m036_facade",
+                  "m037_facade",
+                  "m038_facade",
+                  "m040_facade",
+                  "m041_facade",
+                  "m042_facade",
+                  "m042_solar",
+                  "m043_facade",
+                  "m043_balconies",
+                  "m046_facade",
+                  "m046_balconies",
+                  "m047_facade",
+                  "m048_facade",
+                  "m050_facade",
+                  "m051_facade",
+                  "m052_facade",
+                  "m052_balconies",
+                  "m053_facade",
+                  "m053_balconies",
+                  "m056_facade",
+                  "m056_balconies",
+                  "m057_facade",
+                  "m057_solar",
+                  "m058_facade",
+                  "m060_facade",
+                  "m061_facade",
+                  "m062_facade",
+                  "m062_balconies",
+                  "m063_facade",
+                  "m063_balconies",
+                  "m066_facade",
+                  "m066_balconies",
+                  "m067_facade",
+                  "m067_solar",
+                  "m068_facade",
+                  "m070_facade",
+                  "m070_solar",
+                  "m071_facade",
+                  "m071_solar",
+                  "m072_facade",
+                  "m073_facade",
+                  "m074_facade",
+                  "m074_balconies",
+                  "m075_facade",
+                  "m075_balconies",
+                  "m076_facade",
+                  "m076_balconies",
+                  "m077_facade",
+                  "m077_balconies",
+                  "m078_facade",
+                  "m080_facade",
+                  "m080_solar",
+                  "m081_facade",
+                  "m081_solar",
+                  "m082_facade",
+                  "m083_facade",
+                  "m084_facade",
+                  "m085_facade",
+                  "m086_facade",
+                  "m086_balconies",
+                  "m087_facade",
+                  "m087_balconies",
+                  "m088_facade",
+                  "m090_facade",
+                  "m090_balconies",
+                  "m091_facade",
+                  "m091_balconies",
+                  "m092_facade",
+                  "m093_facade",
+                  "m094_facade",
+                  "m094_solar",
+                  "m095_facade",
+                  "m095_solar",
+                  "m096_facade",
+                  "m097_facade",
+                  "m098_facade",
+                  "m100_facade",
+                  "m101_facade",
+                  "m102_facade",
+                  "m103_facade",
+                  "m104_facade",
+                  "m105_facade",
+                  "m106_facade",
+                  "m107_facade",
+                  "m108_facade"
+                ]
               }
             ],
             "at": {
-              "sentence": 0,
-              "word": "medical",
-              "offset": -0.2
-            },
-            "until": {
               "sentence": 1,
-              "word": "large"
+              "word": "alternatives",
+              "offset": -0.4
             },
-            "strength": 1.0,
-            "tint": 0.6
+            "seconds": 1.6,
+            "transparency": 0.85
           },
           {
             "do": "HIGHLIGHT",
             "targets": [
               {
-                "concept": "utility_line"
+                "concept": "utility_line",
+                "local": [
+                  "linkspan1_power",
+                  "linkspan1_water",
+                  "linkspan1_wastewater",
+                  "spine_power_r0",
+                  "spine_water_r0",
+                  "spine_wastewater_r0"
+                ]
               }
             ],
             "at": {
@@ -24273,7 +24581,30 @@
             },
             "until": {
               "sentence": 1,
-              "word": "roads"
+              "word": "roads",
+              "offset": -0.2
+            },
+            "strength": 1.0,
+            "tint": 0.6
+          },
+          {
+            "do": "HIGHLIGHT",
+            "targets": [
+              {
+                "concept": "link_span",
+                "local": [
+                  "linkspan1"
+                ]
+              }
+            ],
+            "at": {
+              "sentence": 1,
+              "word": "roads",
+              "offset": -0.2
+            },
+            "until": {
+              "sentence": 1,
+              "word": "alternatives"
             },
             "strength": 1.0,
             "tint": 0.6
@@ -24283,12 +24614,18 @@
             "targets": [
               {
                 "concept": "link_span"
+              },
+              {
+                "concept": "access_route"
+              },
+              {
+                "concept": "utility_line"
               }
             ],
             "at": {
-              "sentence": 1,
-              "word": "roads",
-              "offset": -0.2
+              "sentence": 2,
+              "word": "and",
+              "offset": -0.3
             },
             "until": {
               "sentence": 2,
@@ -24302,34 +24639,13 @@
       },
       "annotations": [
         {
-          "id": "B28_landing",
-          "type": "COMPONENT_LABEL",
-          "target": {
-            "concept": "walkway_connector",
-            "local": [
-              "landing1"
-            ]
-          },
-          "point": "LEFT",
-          "text": "Boat landing",
-          "sentence": 0,
-          "word": "fire",
-          "until": 1
-        },
-        {
           "id": "B28_route",
-          "type": "COMPONENT_LABEL",
-          "target": {
-            "concept": "access_route",
-            "local": [
-              "route2"
-            ]
-          },
-          "point": "TOP",
-          "text": "Route to land",
+          "type": "NOTE",
+          "text": "Emergency route to land",
           "sentence": 0,
-          "word": "medical",
-          "until": 2
+          "position": "TOP_RIGHT",
+          "until": 1,
+          "word": "fire"
         }
       ]
     },
@@ -24377,6 +24693,14 @@
       },
       "annotations": [
         {
+          "id": "B29_ch",
+          "type": "NOTE",
+          "text": "7 · What Would Actually Make This Difficult?",
+          "sentence": 0,
+          "position": "TOP_LEFT",
+          "until": 1
+        },
+        {
           "id": "B29_note",
           "type": "NOTE",
           "text": "Counterfactual: the same district at open sea",
@@ -24395,7 +24719,7 @@
         "CLM_054"
       ],
       "narration": "Longer waves arrive, and a floating breakwater may not be enough against them. Below the surface, the seabed drops away, so mooring lines get longer and anchors deeper.",
-      "visual_goal": "Long conceptual swell passes along the breakwater (labelled); the water ghosts and the long mooring lines to deep anchors light",
+      "visual_goal": "Long conceptual swell passes along the breakwater (labelled); below the surface the camera goes down to a level view outside the water as it turns see-through: long mooring lines run down to deep anchors on the seabed, and light",
       "required_concepts": [
         "floating_district_offshore",
         "breakwater",
@@ -24421,6 +24745,38 @@
             ],
             "margin": 0.06,
             "elevation": 12.0
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull",
+                "local": [
+                  "m100_hull"
+                ]
+              },
+              {
+                "concept": "mooring_line",
+                "local": [
+                  "m100_line1"
+                ]
+              },
+              {
+                "concept": "anchor",
+                "local": [
+                  "m100_anchor1"
+                ]
+              }
+            ],
+            "margin": 0.08,
+            "azimuth": -75.0,
+            "elevation": 0.5,
+            "clearance": 1500.0,
+            "at": {
+              "sentence": 1,
+              "word": "below",
+              "offset": -0.3
+            },
+            "move_seconds": 1.8
           }
         ],
         "steps": [
@@ -24756,31 +25112,15 @@
             "targets": [
               {
                 "concept": "mooring_line"
-              }
-            ],
-            "at": {
-              "sentence": 1,
-              "word": "mooring",
-              "offset": -0.3
-            },
-            "until": {
-              "sentence": 1,
-              "word": "anchors"
-            },
-            "strength": 1.0,
-            "tint": 0.6
-          },
-          {
-            "do": "HIGHLIGHT",
-            "targets": [
+              },
               {
                 "concept": "anchor"
               }
             ],
             "at": {
               "sentence": 1,
-              "word": "anchors",
-              "offset": -0.2
+              "word": "mooring",
+              "offset": -0.3
             },
             "until": {
               "sentence": 1,
@@ -24799,6 +25139,20 @@
           "text": "Conceptual motion visualization — not a hydrodynamic simulation",
           "sentence": 0,
           "position": "BOTTOM_RIGHT"
+        },
+        {
+          "id": "B30_anchor",
+          "type": "COMPONENT_LABEL",
+          "target": {
+            "concept": "anchor",
+            "local": [
+              "m100_anchor1"
+            ]
+          },
+          "point": "TOP",
+          "text": "Anchor",
+          "sentence": 1,
+          "word": "anchors"
         }
       ]
     },
@@ -24812,7 +25166,7 @@
         "CLM_051"
       ],
       "narration": "Further from shore, cables, pipes and supply ships can still reach the city, but every link becomes longer and more exposed.",
-      "visual_goal": "From above with the water ghosted: three cables and pipes run along the seabed toward a shore beyond the frame, and light",
+      "visual_goal": "The district at sea from above (full water); as the water turns see-through the camera goes down to a level view outside it, where three cables and pipes leave the platform, run down to the seabed and away toward a shore beyond the frame, and light",
       "required_concepts": [
         "floating_district_offshore",
         "utility_line"
@@ -24833,6 +25187,28 @@
             ],
             "margin": 0.04,
             "elevation": 34.0
+          },
+          {
+            "frame": [
+              {
+                "concept": "platform_hull",
+                "local": [
+                  "m040_hull",
+                  "m050_hull",
+                  "m060_hull"
+                ]
+              }
+            ],
+            "margin": 0.08,
+            "azimuth": -75.0,
+            "elevation": 0.5,
+            "clearance": 1500.0,
+            "at": {
+              "sentence": 0,
+              "word": "cables",
+              "offset": -0.6
+            },
+            "move_seconds": 1.8
           }
         ],
         "steps": [
@@ -24848,8 +25224,8 @@
               "word": "cables",
               "offset": -0.6
             },
-            "seconds": 1.0,
-            "transparency": 0.65
+            "seconds": 1.2,
+            "transparency": 0.5
           },
           {
             "do": "HIGHLIGHT",
@@ -24860,7 +25236,7 @@
             ],
             "at": {
               "sentence": 0,
-              "word": "cables",
+              "word": "supply",
               "offset": -0.2
             },
             "until": {
@@ -26199,7 +26575,7 @@
       "narrative_intent": "SUMMARIZE_DIFFERENCES",
       "claim_ids": [],
       "narration": "From one platform to a district, every part we added answers a question we had to ask.",
-      "visual_goal": "From one platform to the whole district: the camera pulls back while the systems we added light in turn (walkways, moorings, breakwater, utilities)",
+      "visual_goal": "From one platform, its walkways lit, the camera pulls back to the whole district; the buildings ghost and everything we added (walkways, bridges, routes, utilities, breakwater) lights together as one network",
       "required_concepts": [
         "floating_district"
       ],
@@ -26223,7 +26599,8 @@
                 ]
               }
             ],
-            "margin": 0.25
+            "margin": 0.25,
+            "elevation": 50.0
           },
           {
             "frame": [
@@ -26254,48 +26631,189 @@
             ],
             "at": {
               "sentence": 0,
-              "word": "every",
+              "word": "one",
               "offset": -0.2
             },
             "until": {
               "sentence": 0,
-              "word": "added"
+              "word": "district"
             },
             "strength": 1.0,
-            "tint": 0.6
+            "tint": 0.6,
+            "rise_seconds": 0.2,
+            "fall_seconds": 0.3
           },
           {
-            "do": "HIGHLIGHT",
+            "do": "GHOST",
             "targets": [
               {
-                "concept": "breakwater"
+                "concept": "building_block"
+              },
+              {
+                "concept": "high_roof"
+              },
+              {
+                "concept": "facade_detail",
+                "local": [
+                  "m000_facade",
+                  "m001_facade",
+                  "m002_facade",
+                  "m003_facade",
+                  "m004_facade",
+                  "m005_facade",
+                  "m006_facade",
+                  "m007_facade",
+                  "m008_facade",
+                  "m010_facade",
+                  "m011_facade",
+                  "m012_facade",
+                  "m013_facade",
+                  "m014_facade",
+                  "m014_balconies",
+                  "m015_facade",
+                  "m015_balconies",
+                  "m016_facade",
+                  "m017_facade",
+                  "m018_facade",
+                  "m020_facade",
+                  "m021_facade",
+                  "m022_facade",
+                  "m023_facade",
+                  "m024_facade",
+                  "m024_balconies",
+                  "m025_facade",
+                  "m025_balconies",
+                  "m026_facade",
+                  "m027_facade",
+                  "m028_facade",
+                  "m030_facade",
+                  "m031_facade",
+                  "m032_facade",
+                  "m032_solar",
+                  "m033_facade",
+                  "m033_solar",
+                  "m034_facade",
+                  "m034_balconies",
+                  "m035_facade",
+                  "m035_balconies",
+                  "m036_facade",
+                  "m037_facade",
+                  "m038_facade",
+                  "m040_facade",
+                  "m041_facade",
+                  "m042_facade",
+                  "m042_solar",
+                  "m043_facade",
+                  "m043_balconies",
+                  "m046_facade",
+                  "m046_balconies",
+                  "m047_facade",
+                  "m048_facade",
+                  "m050_facade",
+                  "m051_facade",
+                  "m052_facade",
+                  "m052_balconies",
+                  "m053_facade",
+                  "m053_balconies",
+                  "m056_facade",
+                  "m056_balconies",
+                  "m057_facade",
+                  "m057_solar",
+                  "m058_facade",
+                  "m060_facade",
+                  "m061_facade",
+                  "m062_facade",
+                  "m062_balconies",
+                  "m063_facade",
+                  "m063_balconies",
+                  "m066_facade",
+                  "m066_balconies",
+                  "m067_facade",
+                  "m067_solar",
+                  "m068_facade",
+                  "m070_facade",
+                  "m070_solar",
+                  "m071_facade",
+                  "m071_solar",
+                  "m072_facade",
+                  "m073_facade",
+                  "m074_facade",
+                  "m074_balconies",
+                  "m075_facade",
+                  "m075_balconies",
+                  "m076_facade",
+                  "m076_balconies",
+                  "m077_facade",
+                  "m077_balconies",
+                  "m078_facade",
+                  "m080_facade",
+                  "m080_solar",
+                  "m081_facade",
+                  "m081_solar",
+                  "m082_facade",
+                  "m083_facade",
+                  "m084_facade",
+                  "m085_facade",
+                  "m086_facade",
+                  "m086_balconies",
+                  "m087_facade",
+                  "m087_balconies",
+                  "m088_facade",
+                  "m090_facade",
+                  "m090_balconies",
+                  "m091_facade",
+                  "m091_balconies",
+                  "m092_facade",
+                  "m093_facade",
+                  "m094_facade",
+                  "m094_solar",
+                  "m095_facade",
+                  "m095_solar",
+                  "m096_facade",
+                  "m097_facade",
+                  "m098_facade",
+                  "m100_facade",
+                  "m101_facade",
+                  "m102_facade",
+                  "m103_facade",
+                  "m104_facade",
+                  "m105_facade",
+                  "m106_facade",
+                  "m107_facade",
+                  "m108_facade"
+                ]
               }
             ],
             "at": {
               "sentence": 0,
-              "word": "added",
-              "offset": -0.2
+              "word": "every",
+              "offset": -0.5
             },
-            "until": {
-              "sentence": 0,
-              "word": "question"
-            },
-            "strength": 1.0,
-            "tint": 0.6
+            "seconds": 1.2,
+            "transparency": 0.85
           },
           {
             "do": "HIGHLIGHT",
             "targets": [
               {
-                "concept": "utility_line"
+                "concept": "walkway_connector"
               },
               {
                 "concept": "link_span"
+              },
+              {
+                "concept": "access_route"
+              },
+              {
+                "concept": "breakwater"
+              },
+              {
+                "concept": "utility_line"
               }
             ],
             "at": {
               "sentence": 0,
-              "word": "question",
+              "word": "every",
               "offset": -0.2
             },
             "until": {
@@ -26307,7 +26825,16 @@
             "tint": 0.6
           }
         ]
-      }
+      },
+      "annotations": [
+        {
+          "id": "B38_ch",
+          "type": "NOTE",
+          "text": "8 · Could We Really Build It?",
+          "sentence": 0,
+          "position": "TOP_LEFT"
+        }
+      ]
     },
     {
       "beat_id": "B39",

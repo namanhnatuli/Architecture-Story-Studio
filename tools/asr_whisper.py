@@ -15,6 +15,7 @@ import sys
 import warnings
 
 warnings.filterwarnings("ignore")
+WINDOW_SECONDS = 30
 
 
 def main():
@@ -39,7 +40,11 @@ def main():
                             "words": [{"text": c["text"].strip(), "start": c["timestamp"][0], "end": c["timestamp"][1]}
                                       for c in out.get("chunks") or []]})
             continue
-        out = asr({"raw": audio, "sampling_rate": sr}, generate_kwargs={"task": "transcribe"}, return_language=True)
+        # Whisper hears 30 s at a time; a longer clip (a whole shot of a full cut) is transcribed in
+        # sequential windows, which transformers only allows with timestamp tokens.
+        long_form = len(audio) > WINDOW_SECONDS * sr
+        out = asr({"raw": audio, "sampling_rate": sr}, generate_kwargs={"task": "transcribe"}, return_language=True,
+                  **({"return_timestamps": True} if long_form else {}))
         chunks = out.get("chunks") or []
         language = chunks[0].get("language") if chunks else out.get("language")
         results.append({"path": path, "text": out["text"].strip(), "language": language})

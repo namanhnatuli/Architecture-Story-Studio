@@ -352,7 +352,10 @@ def main():
                            "reason": "Revision c-r2, locked by the owner with its claims approved (2026-11-08); visuals in "
                                      "internal production, not approved for publication."},
            "beats": []}
-    from visuals import VISUALS   # production layer L4: the visuals of every beat
+    from visuals import VISUALS, note   # production layer L4: the visuals of every beat
+    # full review (2026-11-11): chapters 2-8 open with their numbered title (one source: CHAPTERS), as in the reference film
+    firsts = {next(b["id"] for b in BEATS if b["chapter"] == cid): (k, title)
+              for k, (cid, title, _) in enumerate(CHAPTERS, 1) if k > 1}
     missing = [b["id"] for b in BEATS if b["id"] not in VISUALS]
     if missing:
         raise SystemExit(f"no visual in script/visuals.py for {missing}")
@@ -363,6 +366,10 @@ def main():
                  "visual_goal": v.pop("visual_goal"), "required_concepts": v.pop("required_concepts"),
                  "expected_complexity": v.pop("expected_complexity")}
         entry.update(v)
+        if b["id"] in firsts:
+            k, title = firsts[b["id"]]
+            entry["annotations"] = [note(f"{b['id']}_ch", f"{k} \u00b7 {title}", 0, until=1 if len(b["sentences"]) > 1 else None,
+                                         position="TOP_LEFT")] + list(entry.get("annotations") or [])
         doc["beats"].append(entry)
     (HERE / "visual_beats.json").write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
     chapters = {"schema": "chapters/1", "project_id": "floating-city-design-challenge",

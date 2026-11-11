@@ -86,6 +86,47 @@ class VisualsTest(unittest.TestCase):
         ghost = next(st for st in b24 if st["do"] == "GHOST")
         self.assertNotEqual(ghost["at"], 0)   # B24 opens on the full water, then makes it see-through
 
+    def test_below_the_surface_the_camera_goes_level_outside_the_water(self):
+        """Full review (2026-11-11): seen from above, the see-through water's surface read as a floor and the seabed's
+        shade as ground. The mooring and cable beats end on a level view whose camera stands outside the site's water."""
+        hood = json.loads((ROOT / "asset_library/architecture/sites/site_bay_01.json").read_text())["parameters"]
+        sea = json.loads((ROOT / "asset_library/architecture/sites/site_open_sea_01.json").read_text())["parameters"]
+        half_diagonal = {k: 0.5 * (s["site_width_m"] ** 2 + s["site_length_m"] ** 2) ** 0.5 for k, s in (("hood", hood), ("sea", sea))}
+        for bid, site in (("B22", "hood"), ("B24", "hood"), ("B30", "sea"), ("B31", "sea")):
+            seq = self.V.VISUALS[bid]["sequence"]
+            self.assertEqual(seq["camera"], "FLOAT_UNDERWATER", bid)
+            last = seq["views"][-1]
+            self.assertLessEqual(abs(last["elevation"]), 1.0, bid)
+            self.assertGreater(last["clearance"], half_diagonal[site], bid)   # in front of the water's near face
+            motion.sequence_views({"views": [{}, {"start_seconds": 1.0, "move_seconds": 1.0, "clearance": last["clearance"]}]})
+            ghost = next(st for st in steps_of(self.V.VISUALS[bid]) if st["do"] == "GHOST" and st["targets"] == self.V.WATER_SITE)
+            self.assertEqual(ghost["at"], last["at"], bid)   # the camera goes down as the water clears
+
+    def test_chapters_after_the_first_open_with_their_numbered_title(self):
+        chapters = json.loads((P / "script/chapters.json").read_text())["chapters"]
+        beats = {b["beat_id"]: b for b in json.loads((P / "script/visual_beats.json").read_text())["beats"]}
+        for k, c in enumerate(chapters[1:], 2):
+            texts = [a.get("text") for a in beats[c["beat_ids"][0]].get("annotations") or []]
+            self.assertIn(f"{k} · {c['title']}", texts, c["id"])
+
+    def test_close_details_are_framed_close_when_they_are_named(self):
+        """Full review: the hinge pins (B13) were seen end-on; the bridge deck hid the wastewater line (B27); the bridge,
+        route and lines of B28 and the systems of B38 were specks in the whole district."""
+        b13 = self.V.VISUALS["B13"]["sequence"]["views"]
+        self.assertEqual(b13[-1]["frame"], self.V.WALK)
+        self.assertGreaterEqual(b13[-1]["elevation"], 20.0)
+        step13 = next(a for a in self.V.VISUALS["B13"]["annotations"] if a["id"] == "B13_step")
+        self.assertEqual(step13["until"], 2)   # the label leaves before the camera moves
+        plan = {s["beat_id"]: s["shot"].get("animation") for s in json.loads((P / "storyboard/visual_plan.json").read_text())["shots"]}
+        b27 = plan["B27"]["steps"]
+        ghost = next(st for st in b27 if st["do"] == "GHOST")
+        first_glow = min(st["start_seconds"] for st in b27 if st["do"] == "HIGHLIGHT")
+        self.assertLessEqual(ghost["start_seconds"] + ghost["seconds"], first_glow)
+        b28 = self.V.VISUALS["B28"]["sequence"]
+        self.assertNotIn(self.V.ALL_HULLS[0], b28["views"][0]["frame"])   # opens close on one bridge
+        b38 = plan["B38"]
+        self.assertEqual(sum(1 for st in b38["steps"] if st["do"] == "HIGHLIGHT"), 2)
+
     def test_opening_goes_from_the_district_to_a_park_and_back(self):
         b01, b02 = self.V.VISUALS["B01"]["sequence"], self.V.VISUALS["B02"]["sequence"]
         first, *_, last = b01["views"]
