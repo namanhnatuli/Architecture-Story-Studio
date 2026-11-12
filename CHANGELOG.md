@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.12.2 — 2026-11-13 — Phim thành phố nổi: bản cuối 4K
+- **Duyệt của chủ kênh** (ghi trong `review/OWNER_APPROVALS.json`):
+  - hình FULL v3, giữ nguyên cả 6 điểm;
+  - SFX như FULL_V3;
+  - lời kêu gọi cuối phim;
+  - yêu cầu render final. Hồ sơ dự án chuyển sang `PUBLICATION_CANDIDATE`.
+  - Mô tả YouTube chưa duyệt: chủ kênh muốn sửa.
+- **Pipeline:**
+  - `final-assemble` trộn SFX khi `audio/sound_plan.json` có `"final": true`; file WAV chỉ lời dẫn vẫn xuất riêng;
+  - mô tả YouTube cho phim không có ảnh: không mục ảnh, câu công bố riêng của dự án (`publication_metadata.disclosures`), ghi công âm thanh.
+- **Bản cuối:**
+  - 8 chương, 44 shot, render 8 giờ 10 phút;
+  - bản trộn giống từng mẫu với FULL_V3; SSIM so với FULL_V3 ≥ 0,970;
+  - −16,4 LUFS, đỉnh thật −1,4 dBTP; QA phim dài 17/17;
+  - gate `final_4k` cho kết quả PUBLICATION_READY. Gate không kiểm việc duyệt mô tả, nên phim chưa sẵn sàng đăng.
+  - Chi tiết: `projects/floating-city-design-challenge/review/FINAL_4K.md`.
+
 ## 0.12.1 — 2026-11-12 — Âm thu sẵn có giấy phép; phim thành phố nổi FULL v3
 - **Âm thu sẵn** (chủ kênh yêu cầu; `pipeline/sound.py`, `tools/excerpt.py`):
   - **`audio/sound_plan.json`:** mỗi file ghi trang nguồn, tác giả, giấy phép, ngày kiểm giấy phép và sha256. Thiếu file hay file bị thay thì không trộn.

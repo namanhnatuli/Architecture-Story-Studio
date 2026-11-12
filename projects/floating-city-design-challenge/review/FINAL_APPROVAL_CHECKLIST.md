@@ -4,13 +4,16 @@ Owner decisions the Studio cannot take. The agent records each one only after th
 (review/OWNER_APPROVALS.json, schema owner_approvals/1), with scope, source revision, date, evidence,
 conditions and what invalidates it.
 
-- [ ] **Claims**: approve the claims the film uses (review/EDITORIAL_APPROVAL_PACKAGE.md) for narration revision `…`.
-- [ ] **Voice**: approve the narrator for THIS project and its publication purpose (config/tts_providers.json `voice_approvals`), unless it is already in `voices_cleared`.
-- [ ] **Pronunciation**: accept the reviewed audio for the listed terms (review/PRONUNCIATION_REVIEW.md); the acceptance is bound to the audio revision.
-- [ ] **Images and attribution**: confirm the archival images and the credits (review/RIGHTS_PROVENANCE.md).
-- [ ] **Disclosure**: AI-generated narration stated in the description (review/YOUTUBE_DESCRIPTION.md).
-- [ ] **Closing call to action**: the wording that invites viewers to suggest topics, like and subscribe.
-- [ ] **Unused claims**: research-only claims stay in the archive; nothing used by the film may remain unapproved.
-- [ ] **Publication**: request the publication evaluation (profile PUBLICATION_CANDIDATE) and the final render.
+State on 2026-11-13, after the final 4K (review/FINAL_4K.md):
+
+- [x] **Claims**: the 50 claims the film uses, narration revision `c-r2` (APP-CLAIMS, 2026-11-08).
+- [x] **Voice**: Kokoro-82M `am_michael` for this film, public YouTube release (APP-VOICE, 2026-11-08).
+- [x] **Pronunciation**: the current audio, with 'Schoonschip' (APP-PRONUNCIATION, 2026-11-08). No per-item listening is recorded.
+- [x] **Images and attribution**: not applicable. The film has no archival or third-party images; the 3D models and diagrams are made for it.
+- [ ] **Disclosure**: AI-generated narration stated in the description (review/YOUTUBE_DESCRIPTION.md). **Not approved**: the owner wants to edit the description (NOTE-NOT-RECORDED, 2026-11-12).
+- [x] **Closing call to action**: B43 (APP-CTA, 2026-11-12).
+- [x] **Unused claims**: 14 research-only claims stay SOURCE_VERIFIED in the archive. None is used by the narration, visual beats or storyboard (`tools/validator.used_claim_ids`).
+- [x] **Publication**: publication evaluation requested and final 4K rendered (REQ-PUBLICATION-EVALUATION, 2026-11-12).
+- [x] **Picture and sound of the final**: FULL v3 picture with its six points kept (APP-PICTURE-FINAL); sound effects as in FULL_V3 (APP-SOUND-FINAL).
 
 The Studio never uploads, merges or pushes. Publishing is the owner's action.

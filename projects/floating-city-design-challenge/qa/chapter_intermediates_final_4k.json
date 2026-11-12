@@ -1,0 +1,1073 @@
+{
+  "preset": "final_4k",
+  "chapters": {
+    "C1": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C1_silent.mp4",
+      "sha256": "d156d279c0f0d3b159c9991fd4984b072868efd654450e5db1d956745b34f559",
+      "frames": 1539,
+      "shot_keys": {
+        "SC_001": "38210321c3da4a3e3a8dcc66056bdc9394f07650dd07053fbde2d976a5fdae55",
+        "SC_002": "8778e75f5c5281902c8e95d612c0b618d94c961f11521531123899bf7a12558e",
+        "SC_003": "c045aa709c034abd99ffa42c8b87e9fefb42001f43f1f85ba524f60c23b39433",
+        "SC_004": "b96d2f7ca4d2cc0a5423a9a61ffb3cf6e023fb43b3ddea4861c1bca23fbf9907"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C1",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C1_silent.mp4",
+        "shots": [
+          "SC_001",
+          "SC_002",
+          "SC_003",
+          "SC_004"
+        ],
+        "expected_frames": 1539,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1539,
+          "duration": 64.125,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_001->SC_002",
+            "mode": "match",
+            "ssim": 0.99989,
+            "ok": true
+          },
+          {
+            "cut": "SC_002->SC_003",
+            "mode": "hard",
+            "ssim": 0.68807,
+            "ok": true
+          },
+          {
+            "cut": "SC_003->SC_004",
+            "mode": "hard",
+            "ssim": 0.73439,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 44.61,
+            "psnr_to_plain_db": 15.71,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_001",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_002",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_003",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_004",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T13:44:29.728036+00:00",
+      "free_gb_after_encode": 74.7,
+      "png_bytes_released": 4051139274
+    },
+    "C2": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C2_silent.mp4",
+      "sha256": "a37de15e26c84498ab9a6c52d2a1c5297260e7281c575bb2f893d2793f3a6c22",
+      "frames": 3282,
+      "shot_keys": {
+        "SC_005": "b3ad63a6b0f6c6327ef01f595488133ced4916fdc0dd6aa4778f40d1f7cd7ad1",
+        "SC_006": "533a7986e58a0fa5e94c2cf1c8a1ec552e62949234b7b0115e18710423e354b3",
+        "SC_007": "a37c92930c0ab4ca7cbd3b4105c8a8088ba061a4da8efdb2e0d464fae71bd6a8",
+        "SC_008": "e919344454c3f0b5fd731545eb85258fdea374eba1528597b241ada36b757a42",
+        "SC_009": "1240997d273e99cfe0309a4b7d1f4c9d2608debdd8dd6e64016fc9250427c234",
+        "SC_010": "aeb00c367d4227d76b80a33028bcd53575034f11a14b165793ad87eb8013ad91",
+        "SC_011": "17972a5f84cf132a6ebe76e82112ddcefaa0065894c8f1c97c21a50426fda767"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C2",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C2_silent.mp4",
+        "shots": [
+          "SC_005",
+          "SC_006",
+          "SC_007",
+          "SC_008",
+          "SC_009",
+          "SC_010",
+          "SC_011"
+        ],
+        "expected_frames": 3282,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 3282,
+          "duration": 136.75,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_005->SC_006",
+            "mode": "hard",
+            "ssim": 0.84151,
+            "ok": true
+          },
+          {
+            "cut": "SC_006->SC_007",
+            "mode": "hard",
+            "ssim": 0.83921,
+            "ok": true
+          },
+          {
+            "cut": "SC_007->SC_008",
+            "mode": "hard",
+            "ssim": 0.87168,
+            "ok": true
+          },
+          {
+            "cut": "SC_008->SC_009",
+            "mode": "match",
+            "ssim": 0.99977,
+            "ok": true
+          },
+          {
+            "cut": "SC_009->SC_010",
+            "mode": "match",
+            "ssim": 0.99998,
+            "ok": true
+          },
+          {
+            "cut": "SC_010->SC_011",
+            "mode": "hard",
+            "ssim": 0.81085,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 45.12,
+            "psnr_to_plain_db": 15.69,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_005",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_006",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_007",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_008",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_009",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_010",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_011",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T15:44:00.910514+00:00",
+      "free_gb_after_encode": 68.9,
+      "png_bytes_released": 7970176466
+    },
+    "C3": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C3_silent.mp4",
+      "sha256": "17e0cef67e1d37d6e8f9e08be94df52d22760afd831cc83232584f8411341ec7",
+      "frames": 3185,
+      "shot_keys": {
+        "SC_012": "f3c0eb18c05fd06fb06b48a72fcc90f18f08268d497617e4d76d6f761dbb6de7",
+        "SC_013": "62b9a6bd4b4124b2d7100636c1443d4f1385d44bfb2c6aecc8eb5e708c922b31",
+        "SC_014": "852bb1cbd37aa8e5fd8e22423bfe731c3407b53722b61c49d07a1d8aaaa6573a",
+        "SC_015": "7217c56e6c4ffd96d3dc8e69958373e4baa9832750a68bf3a71d19779c1e4d6f",
+        "SC_016": "b00f495bee5577408591dc9703160f4222c9c1bafdd0cf8de22822d1ebcf187b"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C3",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C3_silent.mp4",
+        "shots": [
+          "SC_012",
+          "SC_013",
+          "SC_014",
+          "SC_015",
+          "SC_016"
+        ],
+        "expected_frames": 3185,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 3185,
+          "duration": 132.708333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_012->SC_013",
+            "mode": "hard",
+            "ssim": 0.81356,
+            "ok": true
+          },
+          {
+            "cut": "SC_013->SC_014",
+            "mode": "hard",
+            "ssim": 0.82751,
+            "ok": true
+          },
+          {
+            "cut": "SC_014->SC_015",
+            "mode": "hard",
+            "ssim": 0.80363,
+            "ok": true
+          },
+          {
+            "cut": "SC_015->SC_016",
+            "mode": "hard",
+            "ssim": 0.9582,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 45.44,
+            "psnr_to_plain_db": 16.89,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_012",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_013",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_014",
+              "edges": 0.4,
+              "busy": false
+            },
+            {
+              "shot": "SC_015",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_016",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T16:42:01.926234+00:00",
+      "free_gb_after_encode": 70.5,
+      "png_bytes_released": 3890362450
+    },
+    "C4": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C4_silent.mp4",
+      "sha256": "d9b55d3f303c9addd3880c9fad315afd2901444f0af190cca776177eed877771",
+      "frames": 2142,
+      "shot_keys": {
+        "SC_017": "107768481d7656c292ab0676a813ee4a3124425a86b5445503ff0bb1a22fd3f5",
+        "SC_018": "21719b6980d35ed3739f9a594d17150518f0f3adf6601baa29d1f2ca5ce11c11",
+        "SC_019": "9e98bb58091a07b38efef7618ad1534a4d0dd60275aaeabbadfccb81cc319ba3",
+        "SC_020": "6acb40c8d769eaa5c75ab8fe3c9aca5e3a970d6a976e868368baaa15f618dbdd",
+        "SC_021": "18dee635f04bd269e7007e162722ea332c18b9f72113a29fbac737236a0aa6c9"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C4",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C4_silent.mp4",
+        "shots": [
+          "SC_017",
+          "SC_018",
+          "SC_019",
+          "SC_020",
+          "SC_021"
+        ],
+        "expected_frames": 2142,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 2142,
+          "duration": 89.25,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_017->SC_018",
+            "mode": "hard",
+            "ssim": 0.83126,
+            "ok": true
+          },
+          {
+            "cut": "SC_018->SC_019",
+            "mode": "hard",
+            "ssim": 0.95815,
+            "ok": true
+          },
+          {
+            "cut": "SC_019->SC_020",
+            "mode": "hard",
+            "ssim": 0.9614,
+            "ok": true
+          },
+          {
+            "cut": "SC_020->SC_021",
+            "mode": "hard",
+            "ssim": 0.79606,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 46.69,
+            "psnr_to_plain_db": 16.82,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_017",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_018",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_019",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_020",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_021",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T17:39:56.395133+00:00",
+      "free_gb_after_encode": 69.9,
+      "png_bytes_released": 4378452524
+    },
+    "C5": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C5_silent.mp4",
+      "sha256": "3032b3cfcffab137563ca9614553458e7591edb45e01afe4b8165ad08c7f0974",
+      "frames": 1297,
+      "shot_keys": {
+        "SC_022": "edcb93a3cd73e89ca4e4911b0597799d40131f6395a37c6d9daab949aa8df50b",
+        "SC_023": "877414d132103a94c6c5b5ea41b02cc834f704b9d3a001f3b82a6958a2651ff3",
+        "SC_024": "3c3ad62d82705125cd6fd01237279a048c053ae8470cdb99427160075bdc1ca0"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C5",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C5_silent.mp4",
+        "shots": [
+          "SC_022",
+          "SC_023",
+          "SC_024"
+        ],
+        "expected_frames": 1297,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1297,
+          "duration": 54.041667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_022->SC_023",
+            "mode": "hard",
+            "ssim": 0.82468,
+            "ok": true
+          },
+          {
+            "cut": "SC_023->SC_024",
+            "mode": "hard",
+            "ssim": 0.84105,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 45.56,
+            "psnr_to_plain_db": 17.97,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_022",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_023",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_024",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T18:06:26.590816+00:00",
+      "free_gb_after_encode": 72.6,
+      "png_bytes_released": 1613710493
+    },
+    "C6": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C6_silent.mp4",
+      "sha256": "43faccc822dc55491f40aee7707a674602e138c4f49ad2f574b9291492f77aec",
+      "frames": 1702,
+      "shot_keys": {
+        "SC_025": "7ed0684fee0bdbb18b8786c00a2cc862372fac8c2f1e1536a6721717c446e81f",
+        "SC_026": "408fa8f393a11ad4d2a0ee2b9a1de4b23fcd34c097da96d71cea3e9d56c04558",
+        "SC_027": "94e7a30342cf77a193b1ccdec6d3eb3d28866c049b17d78944e2631a128c16b1",
+        "SC_028": "85f595b373f8b47a4bd706d74f3d4a8ff0046914f709c850d9527a205af5f718"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C6",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C6_silent.mp4",
+        "shots": [
+          "SC_025",
+          "SC_026",
+          "SC_027",
+          "SC_028"
+        ],
+        "expected_frames": 1702,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1702,
+          "duration": 70.916667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_025->SC_026",
+            "mode": "hard",
+            "ssim": 0.83546,
+            "ok": true
+          },
+          {
+            "cut": "SC_026->SC_027",
+            "mode": "hard",
+            "ssim": 0.83692,
+            "ok": true
+          },
+          {
+            "cut": "SC_027->SC_028",
+            "mode": "hard",
+            "ssim": 0.754,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 44.94,
+            "psnr_to_plain_db": 15.72,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_025",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_026",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_027",
+              "edges": 0.9,
+              "busy": false
+            },
+            {
+              "shot": "SC_028",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T18:51:39.973079+00:00",
+      "free_gb_after_encode": 71.6,
+      "png_bytes_released": 2564498895
+    },
+    "C7": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C7_silent.mp4",
+      "sha256": "cd7c9c64815853724a1c85832fc24cbe864dfb3d9d6f84484e02fe8fbaee1401",
+      "frames": 3683,
+      "shot_keys": {
+        "SC_029": "2fa293894a1a25422037b8d9b0e3c5d82cf8eac6b1d4ffb8bc1443a3581228c4",
+        "SC_030": "8ecf74d9de3ceee070af08dceb89396c26b2f08d5307b4d623d5eb842297337d",
+        "SC_031": "d57b858740438b3807100467f5ddffb8fd70a783fef9810ceff56f59e70513d2",
+        "SC_032": "19fd35288006b110008f62852aa456c41c9ddc7e941b4cbea7c67b6580990814",
+        "SC_033": "1c4d277b5a0e8ead9fa3189592a500d2c9b26bbd5d4c01dd1d4a3c0bbbf6e727",
+        "SC_034": "13f4147e3d738b6bafa091e8171413dd990bc4e39d6f39acf0cbeaf744d45133",
+        "SC_035": "c9fc4c0615ce75d2c20de5a02979c83bbef3a4fe22f09a946b54e959bce30911",
+        "SC_036": "13c065379ae807f931dc90fdc0004c8d8d135c070c29e517b1508d9d794836c4",
+        "SC_037": "52bba56a01efa0fe3df14dd5ce35a9902c9863856684ab0334f3d209ad77863f"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C7",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C7_silent.mp4",
+        "shots": [
+          "SC_029",
+          "SC_030",
+          "SC_031",
+          "SC_032",
+          "SC_033",
+          "SC_034",
+          "SC_035",
+          "SC_036",
+          "SC_037"
+        ],
+        "expected_frames": 3683,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 3683,
+          "duration": 153.458333,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_029->SC_030",
+            "mode": "hard",
+            "ssim": 0.71117,
+            "ok": true
+          },
+          {
+            "cut": "SC_030->SC_031",
+            "mode": "hard",
+            "ssim": 0.77627,
+            "ok": true
+          },
+          {
+            "cut": "SC_031->SC_032",
+            "mode": "hard",
+            "ssim": 0.84661,
+            "ok": true
+          },
+          {
+            "cut": "SC_032->SC_033",
+            "mode": "hard",
+            "ssim": 0.89597,
+            "ok": true
+          },
+          {
+            "cut": "SC_033->SC_034",
+            "mode": "hard",
+            "ssim": 0.88584,
+            "ok": true
+          },
+          {
+            "cut": "SC_034->SC_035",
+            "mode": "hard",
+            "ssim": 0.48547,
+            "ok": true
+          },
+          {
+            "cut": "SC_035->SC_036",
+            "mode": "hard",
+            "ssim": 0.70244,
+            "ok": true
+          },
+          {
+            "cut": "SC_036->SC_037",
+            "mode": "hard",
+            "ssim": 0.96981,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 46.49,
+            "psnr_to_plain_db": 16.81,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_029",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_030",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_031",
+              "edges": 2.73,
+              "busy": false
+            },
+            {
+              "shot": "SC_032",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_033",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_034",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_035",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_036",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_037",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T20:23:57.959646+00:00",
+      "free_gb_after_encode": 67.5,
+      "png_bytes_released": 6481748933
+    },
+    "C8": {
+      "file": "output/chapters_final_4k/floating_city_design_challenge_C8_silent.mp4",
+      "sha256": "ef09c5bf81fb9018ea18d5d2ee589c40ea28291cbfdba5eb088da3ba64dab506",
+      "frames": 1990,
+      "shot_keys": {
+        "SC_038": "7364541be0a2f645dac63054d1170d8665c292ed17e4bbed9785cf1abb16674a",
+        "SC_039": "065afd35285a195dbc99b3ba376075b6e9e63a25ee64965a7f897bbe06f4240e",
+        "SC_040": "ce76dbcd4b2d732253a81877da18df4538f696f4cbc3df55efc6a0929a1abfbd",
+        "SC_041": "0421ac52fa7df0171d3ce4d0beb2aabf7f0b078096fe629da3e2cf3b1779cf2b",
+        "SC_042": "3aedd01065ea2d486ad09cfa4e61a19327c1fa53d5a5788d20d263179fcca50c",
+        "SC_043": "630a4fda788f1a776d2a7959af13649ec7f5f07c04da6560bedabfc35bcc657c",
+        "SC_044": "2d4412b5a4802aae61db59b5632c804749d1b6fe4a54d02459303f740db7684b"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 173,
+        "y": 1894,
+        "width": 538,
+        "height": 180,
+        "opacity": 0.55
+      },
+      "media": {
+        "chapter": "C8",
+        "video": "output/chapters_final_4k/floating_city_design_challenge_C8_silent.mp4",
+        "shots": [
+          "SC_038",
+          "SC_039",
+          "SC_040",
+          "SC_041",
+          "SC_042",
+          "SC_043",
+          "SC_044"
+        ],
+        "expected_frames": 1990,
+        "probe": {
+          "codec": "h264",
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "fps": "24/1",
+          "frames": 1990,
+          "duration": 82.916667,
+          "black_segments": 0,
+          "decode_errors": 0,
+          "streams": {
+            "video": 1,
+            "audio": 0
+          }
+        },
+        "cuts": [
+          {
+            "cut": "SC_038->SC_039",
+            "mode": "hard",
+            "ssim": 0.85671,
+            "ok": true
+          },
+          {
+            "cut": "SC_039->SC_040",
+            "mode": "hard",
+            "ssim": 0.99099,
+            "ok": true
+          },
+          {
+            "cut": "SC_040->SC_041",
+            "mode": "hard",
+            "ssim": 0.97791,
+            "ok": true
+          },
+          {
+            "cut": "SC_041->SC_042",
+            "mode": "hard",
+            "ssim": 0.74579,
+            "ok": true
+          },
+          {
+            "cut": "SC_042->SC_043",
+            "mode": "hard",
+            "ssim": 0.72796,
+            "ok": true
+          },
+          {
+            "cut": "SC_043->SC_044",
+            "mode": "hard",
+            "ssim": 0.95194,
+            "ok": true
+          }
+        ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 173,
+          "y": 1894,
+          "width": 538,
+          "height": 180,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              173,
+              1894,
+              538,
+              180
+            ],
+            "psnr_to_watermarked_db": 38.07,
+            "psnr_to_plain_db": 21.75,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_038",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_039",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_040",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_041",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_042",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_043",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_044",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
+        "problems": []
+      },
+      "encoded_utc": "2026-11-12T20:56:34.222169+00:00",
+      "free_gb_after_encode": 71.4,
+      "png_bytes_released": 2488944702
+    }
+  }
+}

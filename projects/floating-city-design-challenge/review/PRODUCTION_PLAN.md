@@ -188,3 +188,21 @@
     - quyết về chuỗi card của phim Gothic.
     - Các đề nghị "giữ" của Codex chưa được ghi là quyết định.
   - Chi tiết: `review/INTERNAL_REVIEW_V3.md`.
+- **Bản cuối 4K (2026-11-12 → 2026-11-13).**
+  - **Đầu vào:**
+    - chủ kênh yêu cầu render bản final 4K;
+    - duyệt hình FULL v3 (cả 6 điểm), SFX như FULL_V3 và lời kêu gọi;
+    - mô tả YouTube chưa duyệt, vì chủ kênh muốn sửa.
+  - **Pipeline:** `final-assemble` trộn SFX khi `audio/sound_plan.json` có `"final": true`. File WAV chỉ lời dẫn vẫn xuất riêng.
+  - **Render:** 8 chương, 44/44 shot, 8 giờ 10 phút; mỗi lúc một Blender.
+  - **QA:**
+    - bản trộn giống từng mẫu với FULL_V3;
+    - SSIM so với FULL_V3 ≥ 0,970 mỗi giây;
+    - −16,4 LUFS, đỉnh thật −1,4 dBTP;
+    - 0 lỗi giải mã;
+    - QA phim dài 17/17;
+    - gate `final_4k` cho kết quả PUBLICATION_READY.
+  - **Còn chờ chủ kênh:**
+    - sửa và duyệt mô tả YouTube (gate không kiểm mục này);
+    - đăng phim.
+  - Chi tiết: `review/FINAL_4K.md`.

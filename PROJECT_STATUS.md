@@ -2,22 +2,18 @@
 
 ## Concept đang làm: `floating-city-design-challenge` (nhánh `concept-floating-city-design-challenge`)
 
-- **Trạng thái (2026-11-08): kịch bản c-r2 chờ chủ kênh chốt.**
-  - c-r1: sửa theo review concept. c-r2: ba điểm của review c-r1 (B23 điều kiện tải, CLM_054, quay về bản 3 tầng) cùng nhịp B03/B40 và B15–B16 (`review/REVIEW_C_R2.md`).
-  - Lời dẫn: 44 beat, 126 câu.
-  - Audio nội bộ Kokoro `am_michael`; ASR 126/126; timing khóa: **13:03**.
-  - Chưa có asset sản xuất hay card. Không claim nào được duyệt.
-- **Bắt đầu đọc:** `projects/floating-city-design-challenge/review/SCRIPT_REVIEW.md` và bản nghe thử `output/floating-city-design-challenge_narration_preview_c-r2.m4a` (ngoài git).
-- **Làm theo hướng chủ kênh nêu:** giữ khoảng 13 phút; tạm dùng sơ đồ Schoonschip, tìm cơ hội xin phép ảnh đúng công trình.
+- **Trạng thái (2026-11-13): bản final 4K đã render và qua mọi gate (`gates --preset final_4k` → PUBLICATION_READY). Mô tả YouTube chưa được chủ kênh duyệt, nên chưa sẵn sàng đăng.**
+  - **Bản cuối:**
+    - `output/floating_city_design_challenge_FINAL_4K_2160p.mp4`: 3840×2160, 13:04,2, 18 820 frame, −16,4 LUFS;
+    - kèm `.en.srt`, WAV master có SFX, WAV chỉ lời dẫn và `.sha256`; tất cả ngoài git.
+  - **Nội dung:** lời dẫn c-r2, 44 beat, 126 câu, giọng Kokoro `am_michael`. 50 claim dùng trong phim đều EDITORIALLY_APPROVED.
+  - **Âm thanh:** 11 SFX và 2 đoạn nền nước (Pixabay Content License), ghi trong `audio/sound_plan.json`.
+  - **Chủ kênh đã duyệt** (`review/OWNER_APPROVALS.json`): giọng, phát âm, claim, chốt kịch bản, hình FULL v3, SFX, lời kêu gọi; đã yêu cầu render final.
+- **Bắt đầu đọc:** `projects/floating-city-design-challenge/review/FINAL_4K.md`, rồi `review/FINAL_APPROVAL_CHECKLIST.md`.
 - **Việc của chủ kênh:**
-  - phát âm "Schoonschip";
-  - giọng cho dự án;
-  - chốt kịch bản;
-  - duyệt claim.
-- **Sau khi chốt kịch bản:**
-  - dựng họ asset `floating` và site `bay`;
-  - thêm các năng lực mặt cắt, SINK/RISE, TILT, CONCEPT_MOTION;
-  - đoạn thử có lời dẫn cho chuỗi "thêm tải → chìm → sửa thân". Prototype P6 (mặt cắt, không lời) đã thử chuỗi này.
+  - nói muốn sửa gì trong `review/YOUTUBE_DESCRIPTION.md`, rồi duyệt mô tả và câu công bố giọng AI. Sửa mô tả không cần render lại;
+  - đăng phim.
+- **Lưu ý:** `tools/longform_reports.py` ghi đè `YOUTUBE_DESCRIPTION.md` khi bản sinh tự động dưới 5 000 ký tự. Khi đưa bản chủ kênh sửa vào, phải giữ bản đó khỏi bị ghi đè.
 
 ## `gothic-cathedral-heights` (nhánh `episode-gothic-cathedral-heights`)
 

@@ -97,7 +97,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 - PASS `no_repeated_visuals`: no two consecutive shots show the same picture
 - PASS `chapter_openings`: chapters 2-8 open with a numbered title on their first shot
 - PASS `annotations_consistent`: narration/visual consistency: no contradiction; 2 UNCERTAIN for the reviewer (B31.s1 TRANSFORMATION, B40.s0 SIDE); every annotation placed
-- PASS `render_cache_current`: all 44 shots rendered at internal_720p with current cache keys
+- PASS `render_cache_current`: all 44 shots rendered at final_4k with current cache keys
 - PASS `chapter_variety`: every multi-shot chapter mixes at least two visual kinds
 - PASS `image_licences`: 0 external images, all approved with matching files
 - PASS `image_attribution`: every external image is credited (credit card or description)

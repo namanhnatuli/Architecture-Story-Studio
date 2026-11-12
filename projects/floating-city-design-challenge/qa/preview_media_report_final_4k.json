@@ -1,0 +1,94 @@
+{
+  "preset": "final_4k",
+  "file": "output/floating_city_design_challenge_FINAL_4K_2160p.mp4",
+  "codec": "h264",
+  "width": 3840,
+  "height": 2160,
+  "pix_fmt": "yuv420p",
+  "fps": "24/1",
+  "frames": 18820,
+  "duration": 784.166667,
+  "color": {
+    "profile": "High",
+    "level": 51,
+    "color_range": "tv",
+    "color_space": "bt709",
+    "color_transfer": "bt709",
+    "color_primaries": "bt709"
+  },
+  "decode_errors": 0,
+  "black_segments": 0,
+  "watermark": {
+    "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+    "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+    "corner": "BOTTOM_LEFT",
+    "x": 173,
+    "y": 1894,
+    "width": 538,
+    "height": 180,
+    "opacity": 0.55
+  },
+  "chapter_intermediates": [
+    "output/chapters_final_4k/floating_city_design_challenge_C1_silent.mp4",
+    "output/chapters_final_4k/floating_city_design_challenge_C2_silent.mp4",
+    "output/chapters_final_4k/floating_city_design_challenge_C3_silent.mp4",
+    "output/chapters_final_4k/floating_city_design_challenge_C4_silent.mp4",
+    "output/chapters_final_4k/floating_city_design_challenge_C5_silent.mp4",
+    "output/chapters_final_4k/floating_city_design_challenge_C6_silent.mp4",
+    "output/chapters_final_4k/floating_city_design_challenge_C7_silent.mp4",
+    "output/chapters_final_4k/floating_city_design_challenge_C8_silent.mp4"
+  ],
+  "chapter_boundaries": [
+    {
+      "cut": "C1->C2",
+      "frame": 1539,
+      "mode": "hard",
+      "ssim": 0.95287,
+      "ok": true
+    },
+    {
+      "cut": "C2->C3",
+      "frame": 4821,
+      "mode": "hard",
+      "ssim": 0.87253,
+      "ok": true
+    },
+    {
+      "cut": "C3->C4",
+      "frame": 8006,
+      "mode": "hard",
+      "ssim": 0.79171,
+      "ok": true
+    },
+    {
+      "cut": "C4->C5",
+      "frame": 10148,
+      "mode": "hard",
+      "ssim": 0.73113,
+      "ok": true
+    },
+    {
+      "cut": "C5->C6",
+      "frame": 11445,
+      "mode": "hard",
+      "ssim": 0.6303,
+      "ok": true
+    },
+    {
+      "cut": "C6->C7",
+      "frame": 13147,
+      "mode": "hard",
+      "ssim": 0.73449,
+      "ok": true
+    },
+    {
+      "cut": "C7->C8",
+      "frame": 16830,
+      "mode": "hard",
+      "ssim": 0.61632,
+      "ok": true
+    }
+  ],
+  "expected_total_frames": 18820,
+  "problems": []
+}

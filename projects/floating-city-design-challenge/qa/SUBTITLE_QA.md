@@ -1,6 +1,6 @@
 # Subtitle QA
 
-- File: `output/floating_city_design_challenge_INTERNAL_REVIEW_720p.en.srt` — 181 cues for 126 sentences; 115 two-line cues; longest line 42 chars (limit 42); max reading speed 17.1 chars/s.
+- File: `output/floating_city_design_challenge_FINAL_4K_2160p.en.srt` — 181 cues for 126 sentences; 115 two-line cues; longest line 42 chars (limit 42); max reading speed 17.1 chars/s.
 - Phrase breaks from Whisper word alignment, placed at the quietest 10 ms frame of the real audio: 55; sentence-span fallbacks: 0.
 - Text comes from the script (official spellings kept); ASR text is never used as subtitle text.
 - Problems: none
