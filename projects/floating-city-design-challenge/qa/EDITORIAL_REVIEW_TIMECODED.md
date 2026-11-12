@@ -1,4 +1,32 @@
-# Xem lại biên tập có mốc thời gian: bản internal review đầy đủ v2 (2026-11-12)
+# Xem lại biên tập có mốc thời gian: bản internal review đầy đủ v3 (2026-11-12)
+
+**v3 so với v2:** chỉ khác ở hai đoạn chuyển nước (B31, B33) và phần âm thanh. Các mục khác dưới đây là kết quả xem bản v2, vẫn đúng cho v3: cùng khung hình, vì 42/44 shot lấy từ cache, cùng lời dẫn và cùng mốc thời gian.
+
+## v3: hai đoạn chuyển và SFX
+- **Cách xem:** frame trích từ `output/pilot/floating_city_design_challenge_FULL_V3_INTERNAL_REVIEW_720p.mp4`, 4 khung mỗi giây, ở 9:32,75–9:34,75 và 10:06,75–10:08,75.
+- **B31 (9:33,75):** nước còn đục khi camera còn chéo; chỉ trong dần từ khoảng 9:34,0, khi camera gần ngang. Không còn lưới bóng phao dưới đáy.
+- **B33 (10:07,5–10:08,5):** nước đục tới khoảng 10:08,0. Mô-đun nhô lên qua mặt nước đục, rồi nước trong ở khung ngang (10:08,25–10:08,75). Không còn mảng bóng phao dưới đáy.
+  - **Còn thấy:** ở khoảng 10:07,0–10:07,75 có một góc mép bãi nước màu xám ở góc trên trái, rồi dưới trái của khung, khi camera đang hạ. Đây là do đường đi của camera, không phải do thời điểm làm trong nước. Đã có từ v2; chưa sửa.
+- **SFX (đo, không phải nghe):** đo trên hiệu giữa hai bản WAV trước chuẩn hóa (`audio/excerpt/FULL_V3_raw.wav` trừ `..._no_sfx_raw.wav`).
+
+| Mốc | Âm | Đỉnh so với đỉnh lời dẫn | Ghi chú |
+|---|---|---|---|
+| 1:03,7–1:04,5 | Chuyển chương 2 | −16 dB | Hết trước khi lời dẫn bắt đầu (1:04,9) |
+| 1:13,2–1:14,6 | Khối chìm (B05) | −14 dB | Nằm dưới câu đang đọc |
+| 2:26,6 | Đặt tầng (B09) | −14 dB | 0,16 s |
+| 2:44,4 | Thân phao sâu thêm (B10) | −12 dB | 0,34 s |
+| 3:20,4–3:21,3 | Chuyển chương 3 | −16 dB | |
+| 3:57,8 | Đặt cầu đi bộ (B13) | −17 dB | 0,15 s |
+| 5:33,1–5:34,0 | Chuyển chương 4 | −16 dB | |
+| 5:33,6–5:45,7 | Nền nước (B17) | RMS thấp hơn RMS lời dẫn 26 dB | Vào 1 s, ra 1 s |
+| 7:02,4, 7:56,4, 9:07,3, 11:40,8 (mỗi tiếng khoảng 0,85 s) | Chuyển chương 5–8 | −16 dB | Hết trước lời dẫn |
+| 9:17,0–9:24,9 | Nền nước (B30) | RMS thấp hơn 26 dB | Tắt hẳn khi camera xuống khung ngang |
+
+  - Ngoài các mốc trên, track SFX im lặng hoàn toàn.
+  - Whisper: 44/44 shot không nghe kém đi khi có SFX.
+  - Hai bản có/không SFX cùng −16,4 LUFS; đỉnh thật −1,1 và −1,2 dBTP; không mẫu nào bị cắt.
+
+## Kết quả xem bản v2 (vẫn đúng cho v3)
 
 - **Người xem:** agent, trên bản FULL v2 720p, 784,2 s (13:04,2):
   - `output/pilot/floating_city_design_challenge_FULL_V2_INTERNAL_REVIEW_720p.mp4` (có SFX) và `..._no_sfx.mp4`;
@@ -50,11 +78,11 @@ Các mục dưới đây **chưa sửa** trong bản này.
 | # | Mốc | Shot (beat) | Vấn đề | Vì sao quan trọng | Cách sửa đề xuất | Ảnh hưởng | Phải render lại |
 |---|---|---|---|---|---|---|---|
 | 1 | 7:03–7:14, 7:40–7:57, 9:25–9:42, 10:09–10:21, 10:29–10:40 | SC_022, SC_024, SC_030, SC_031, SC_033, SC_034 | Khi nước đã trong (độ trong 0,5), khối nước vẫn xanh xám nhạt. Mặt nước, dải đáy và nhãn "Sea surface" giúp đọc ra là nước, nhưng màu nước tự nó còn gần màu nền | Người xem mới phải dựa vào đường mặt nước và dải đáy | Có hai hướng, đều phải chủ kênh chọn: (a) đổi nền sau khung ngang sang màu ấm hơn để nước tách ra; (b) chấp nhận mức hiện tại. Nước đậm hơn thì AgX làm xám đi (đã thử) | Hình | 6 shot nếu chọn (a) |
-| 2 | 10:07,5–10:08,5 | SC_033 (B33), lúc camera hạ | Khoảng 1 s: nước bắt đầu trong khi camera chưa tới khung ngang. Lộ hai mảng bóng phao xanh đậm dưới đáy và một góc mép bãi nước | Ngắn, nhưng cùng loại hình mà v1 đã sửa ở B30/B31 | Lùi thời điểm làm trong ở B33 thêm khoảng 0,5 s, hoặc kéo dài lúc hạ camera | Hình | SC_033 (450 frame) |
+| 2 | 10:07,0–10:07,75 | SC_033 (B33), lúc camera hạ | **v3:** bóng phao đã hết; còn một góc mép bãi nước ở góc khung khoảng 0,75 s | Nhỏ, ở góc khung | Đổi đường camera, hoặc nới bãi nước của site (làm mất cache mọi shot dùng site đó) | Hình | SC_033, hoặc nhiều shot |
 | 3 | 11:13–11:16 | SC_037 (B37) | 2,8 s đầu chỉ có nhãn góc | Lời dẫn đang hỏi đúng câu trên nhãn, nên không lạc; nhưng vẫn là một khoảng trống | Hiện vạch chia hai cột vẽ mờ từ khung đầu, giống B03 | Hình | SC_037 (671 frame) |
 | 4 | 2:24–2:39 (cue 35) | SC_009 (B09.s2) | Phụ đề 17,1 ký tự/s, vượt khuyến nghị 17,0 (chưa đổi từ v1) | Chỉ là cảnh báo | Tách cue ở chỗ ngắt cụm | Phụ đề | Không |
 | 5 | 4:59–5:34 | SC_016 (B16) | Card số học dài 34 s (chưa đổi từ v1) | Đoạn tĩnh dài nhất phim | Để chủ kênh xem rồi quyết | Nhịp | Không (nếu giữ) |
-| 6 | 2:26,5 và 2:44,4 | SC_009, SC_010 | Hai tiếng SFX chưa có ai nghe chọn | Chủ kênh muốn nghe hai bản trước khi quyết | Chủ kênh nghe bản có SFX và bản `_no_sfx` | Âm thanh | Không |
+| 6 | 11 mốc và 2 nền nước (bảng ở đầu file) | B05, B09, B10, B13, B17, B30, 7 điểm chuyển chương | **v3:** SFX thu sẵn, agent chọn bằng số đo; chưa ai nghe | Âm hợp hay không chỉ nghe mới biết | Chủ kênh nghe bản FULL_V3 có SFX và bản `_no_sfx`; bỏ hay đổi từng âm trong `audio/sound_plan.json` mà không phải render lại | Âm thanh | Không |
 
 ## `visual_variety`
 - Chủ kênh đã chấp nhận ngoại lệ cho đúng hai chuỗi: **B08–B14** (SC_008–SC_014, 7 shot) và **B27–B31** (SC_027–SC_031, 5 shot). Hồ sơ ở `project.json` → `variety_exception.runs`, và `DEC-VARIETY-B08-B14-B27-B31`.

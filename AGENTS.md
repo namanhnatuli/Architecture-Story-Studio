@@ -165,8 +165,14 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **SEQUENCE** (`engine/motion.plan_sequence`, chiến lược planner cùng tên): một mô hình, nhiều bước theo lời dẫn (làm mờ, hiện ra, phát sáng; camera trượt và zoom giữa các khung của một preset). Cách viết: playbook, mục "Shot SEQUENCE".
   - Asset phải khai báo `SEQUENCE` trong `animation_support`. Không có thì planner trả MISSING_TEMPLATE, không thay bằng hình giữ.
   - Camera chỉ quay một cung ngắn giữa hai view (từ g-r5), không quay khi bộ phận đang đổi. Không dùng hoạt ảnh để tái hiện một vụ sập lịch sử: nguyên nhân còn tranh luận thì vẽ từng giả thuyết riêng, có nhãn.
-- **Âm thanh:** chỉ âm tổng hợp trong dự án (`pipeline/sound.py`, `config/sound_design.json`), mỗi âm gắn với một sự kiện nhìn thấy được, nhỏ hơn lời dẫn.
-  - Không nhạc nền, không ambience, không tải âm thanh ngoài khi chưa kiểm giấy phép.
+- **Âm thanh:** âm tổng hợp trong dự án (`pipeline/sound.py`, `config/sound_design.json`), mỗi âm gắn với một sự kiện nhìn thấy được, nhỏ hơn lời dẫn.
+  - Không nhạc nền, không tải âm thanh ngoài khi chưa kiểm giấy phép.
+  - **Từ 2026-11-12 (chủ kênh yêu cầu):** dự án được dùng âm thu sẵn, ghi ở `audio/sound_plan.json` (schema `sound_plan/1`, xem docstring `pipeline/sound.py`).
+    - Mỗi file ghi trang nguồn, tác giả, giấy phép, ngày kiểm giấy phép và sha256. Thiếu file hay file bị thay thì không trộn.
+    - Âm thêm neo vào một bước của storyboard (shot, số thứ tự bước, `do`), nên không đổi shot và không làm mất cache render.
+    - Nền âm (ambience) chỉ được dùng ngắn, dưới đúng một shot mà chính âm đó là chủ đề (nước làm phao nhấp nhô), thấp hơn lời dẫn nhiều (`bed_under_narration_db`). Không trải nền âm dưới cả phim.
+    - Agent chọn file bằng số đo (độ dài, điểm bắt đầu, nền ồn, cân bằng trầm/bổng), không nghe được. Chủ kênh nghe rồi quyết.
+    - `final-assemble` chưa trộn âm hiệu ứng: hiện chỉ bản trích (`tools/excerpt.py`) có SFX. Phải thêm trước khi làm bản 4K có SFX.
   - Agent không nghe được, nên luôn giao kèm một bản không âm thanh để so. Whisper trên lời dẫn có âm và không âm phải cho WER tương đương (`tools/excerpt.py`).
 - **Đoạn thử** (`tools/excerpt.py`): các shot của phim, render đúng như trong phim, ghép với đúng đoạn lời dẫn của chúng.
   - Tên file luôn có `INTERNAL_REVIEW`. Chỗ nối giữa hai shot không liền nhau trong phim được ghi là "excerpt join".

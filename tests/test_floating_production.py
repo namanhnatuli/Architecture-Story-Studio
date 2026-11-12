@@ -103,8 +103,13 @@ class VisualsTest(unittest.TestCase):
             motion.sequence_views({"views": [{}, {"start_seconds": 1.0, "move_seconds": 1.0, "clearance": last["clearance"]}]})
             ghost = next(st for st in steps_of(self.V.VISUALS[bid]) if st["do"] == "GHOST" and st["targets"] == self.V.WATER_SITE)
             self.assertEqual((ghost["at"]["sentence"], ghost["at"]["word"]), (last["at"]["sentence"], last["at"]["word"]), bid)
-            self.assertAlmostEqual(ghost["at"].get("offset", 0.0) - last["at"].get("offset", 0.0), self.V.CLEAR_AFTER, msg=bid)
-            self.assertGreaterEqual(self.V.CLEAR_AFTER + ghost["seconds"], last["move_seconds"], bid)   # clear once level
+            after = ghost["at"].get("offset", 0.0) - last["at"].get("offset", 0.0)   # seconds into the descent
+            # v3 (Codex review of FULL v2): from a high first view (B31, B33) the water clears in the descent's last
+            # CLEAR_LATE_BEFORE s; elsewhere CLEAR_AFTER s into it. Never earlier, and clear once level.
+            late = last["move_seconds"] - self.V.CLEAR_LATE_BEFORE
+            self.assertAlmostEqual(after, late if bid in ("B31", "B33") else self.V.CLEAR_AFTER, msg=bid)
+            self.assertGreaterEqual(after, self.V.CLEAR_AFTER, bid)
+            self.assertGreaterEqual(after + ghost["seconds"], last["move_seconds"], bid)   # clear once level
 
     def test_chapters_after_the_first_open_with_their_numbered_title(self):
         chapters = json.loads((P / "script/chapters.json").read_text())["chapters"]

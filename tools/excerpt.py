@@ -5,8 +5,9 @@
 The shots are rendered (or taken from the render cache) exactly as in the film. Each shot keeps its own stretch of
 the film's narration track, so a non-adjacent excerpt is the film with the other shots cut out; where two kept shots
 are not adjacent in the film the report marks an "excerpt join" (no continuity is promised there). Sound cues of
-SEQUENCE shots (pipeline/sound.py) are mixed under the narration; a second file without them is written next to it so
-the owner can compare. Names always carry INTERNAL_REVIEW.
+SEQUENCE shots (pipeline/sound.py) are mixed under the narration, with the recorded sounds, extra cues and beds of
+the project's audio/sound_plan.json when it has one; a second file without any of them is written next to it so the
+owner can compare. Names always carry INTERNAL_REVIEW.
 
 QA: frames, decode errors, black segments, the film's own cuts (SSIM), A/V drift, loudness, subtitles, and, with an
 ASR interpreter available, Whisper on the clean and the mixed narration of every shot (the sounds must not cost
@@ -110,7 +111,17 @@ def build(p, preset, ids, label):
                    for s in shots for st in (s.get("animation") or {}).get("steps") or [] if st.get("sound"))
     if len(cues) != expected:   # a cue lost between the plan and the storyboard would pass silently otherwise
         problems.append(f"{len(cues)} sound cues in the storyboard, {expected} sounding steps in the shots")
-    mixed, mix_report = sound.mix_under(clean, cues, sr)
+    plan, beds = sound.load_plan(p), []
+    if plan:   # recorded sounds, extra cues and beds the project lists with their licence (audio/sound_plan.json)
+        plan_problems = sound.check_plan(plan)
+        if plan_problems:
+            raise SystemExit("sound plan: " + "; ".join(plan_problems))
+        shot_of = {b["id"]: b["shot"] for b in timing["beats"]}
+        firsts = [shot_of[c["beat_ids"][0]] for c in cli.read_json(p / "script/chapters.json")["chapters"][1:]]
+        extra, beds, plan_problems = sound.resolve_plan(plan, story, film_ids, ids, offsets, firsts)
+        problems += plan_problems
+        cues = sorted(cues + extra, key=lambda c: c["at_seconds"])
+    mixed, mix_report = sound.mix_under(clean, cues, sr, plan=plan, beds=beds)
     if mix_report["clipped_samples"]:
         problems.append(f"{mix_report['clipped_samples']} clipped samples in the mix")
     outputs = {}
@@ -163,14 +174,14 @@ def build(p, preset, ids, label):
     report = {"utc": datetime.now(timezone.utc).isoformat(), "label": label, "preset": preset, "shots": ids,
               "render": results, "runs": runs, "excerpt_joins": joins, "frames": frames, "seconds": round(frames / fps, 3),
               "cuts": cuts, "watermark": wm, "offsets_seconds": offsets, "sound_cues": cues, "mix": mix_report,
-              "sound_design": sound.load_design(), "subtitle_stats": sub_stats, "subtitle_warnings": sub_warnings,
+              "sound_design": sound.load_design(), "sound_plan": plan, "sound_beds": beds, "subtitle_stats": sub_stats, "subtitle_warnings": sub_warnings,
               "files": files, "intelligibility": intelligibility, "problems": problems}
     target = p / "qa" / f"excerpt_{label}.json"
     target.write_text(json.dumps(report, indent=2, ensure_ascii=False))
     silent.unlink()
     for key, f in files.items():
         print(f"  {f['file']}: {f['seconds']} s, {f['frames']} frames, {f['loudness']['integrated_lufs']} LUFS")
-    print(f"  {len(cues)} sound cues; excerpt joins: {', '.join(joins) or 'none'}; report {target}")
+    print(f"  {len(cues)} sound cues, {len(beds)} beds; excerpt joins: {', '.join(joins) or 'none'}; report {target}")
     if problems:
         raise SystemExit("Excerpt QA FAILED: " + "; ".join(problems))
     print("SUCCESS: excerpt QA passed")

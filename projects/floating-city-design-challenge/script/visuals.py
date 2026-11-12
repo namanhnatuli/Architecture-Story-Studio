@@ -159,6 +159,11 @@ WATER_SEE_THROUGH_DEEP = 0.65   # B31 only: cables on a seabed 60 m down (until 
 # platforms' shade showed on the seabed as a grid (B30 9:23, B31 9:32). The water now clears late in the descent, from
 # CLEAR_AFTER s after the camera starts down, finishing just after it arrives.
 CLEAR_AFTER, CLEAR_SECONDS = 1.0, 1.0
+# Codex review of FULL v2 (2026-11-12): from a high first view (B31 at 34 degrees, B33 at 22) the camera is still
+# oblique 1.0 s into the descent, and the clearing water showed the seabed's shade (B31 9:33.75) or the water's
+# edge and the hulls' shade (B33 10:07.75). These two clear in the last CLEAR_LATE_BEFORE s of the descent, over
+# CLEAR_LATE_SECONDS; the level view they end on is unchanged.
+CLEAR_LATE_BEFORE, CLEAR_LATE_SECONDS = 0.4, 0.6
 LEVEL_HOOD = {"elevation": 0.5, "clearance": 300.0}                        # the neighbourhood's site is 320 m square
 LEVEL_SEA = {"azimuth": -75.0, "elevation": 0.5, "clearance": 1500.0}      # open sea, 1.7 x 1.5 km; the box corner off-frame
 NEAR_SHORE = platform_parts([(c, r, u) for c, r, u in CELLS if r <= 1 and 3 <= c <= 7])
@@ -922,7 +927,7 @@ visual("B31", "SEQUENCE", "The district at sea from above (full water); as the w
        "shore beyond the frame, and light", [OFF, "utility_line"], "MEDIUM",
        sequence=seq("FLOAT_UNDERWATER", [view(ALL_HULLS + UTILITIES, margin=0.04, elevation=34.0),
                                          view(FRONT_MIDDLE, at(0, "cables", -0.6), move=1.8, margin=0.08, **LEVEL_SEA)],
-                    [step("GHOST", WATER_SITE, at(0, "cables", -0.6 + CLEAR_AFTER), seconds=CLEAR_SECONDS, transparency=WATER_SEE_THROUGH),
+                    [step("GHOST", WATER_SITE, at(0, "cables", -0.6 + 1.8 - CLEAR_LATE_BEFORE), seconds=CLEAR_LATE_SECONDS, transparency=WATER_SEE_THROUGH),
                      # Codex review v1: the three links were thin and lost among the mooring lines; the lines and
                      # anchors step back (ghosted) while the links the narration names light in the accent colour
                      step("GHOST", LINES, at(0, "supply", -0.6), seconds=0.6, transparency=0.85),
@@ -964,7 +969,7 @@ visual("B33", "SEQUENCE", "Our box pontoon on the water; as the semi-submersible
        sequence=seq("FLOAT_UNDERWATER", [view(BOX, margin=0.2, elevation=22.0),   # at 12 degrees the bay's far edge showed
                                          view({"except": []}, at(1, "semi", -0.6), move=2.0, margin=0.08, **LEVEL_HOOD)],
                     [hide(SEMI),
-                     step("GHOST", WATER_SITE, at(1, "semi", -0.6 + CLEAR_AFTER), seconds=CLEAR_SECONDS, transparency=WATER_SEE_THROUGH),
+                     step("GHOST", WATER_SITE, at(1, "semi", -0.6 + 2.0 - CLEAR_LATE_BEFORE), seconds=CLEAR_LATE_SECONDS, transparency=WATER_SEE_THROUGH),
                      # the water is opaque here (it clears with the level view): the pontoon lights as hull and deck,
                      # its hull alone being 5 % visible above the waterline
                      glow([grp("platform_hull", "box"), grp("deck", "box")], at(0, "hull", -0.3), at(1, "semi")),

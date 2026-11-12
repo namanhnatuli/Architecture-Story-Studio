@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.12.1 — 2026-11-12 — Âm thu sẵn có giấy phép; phim thành phố nổi FULL v3
+- **Âm thu sẵn** (chủ kênh yêu cầu; `pipeline/sound.py`, `tools/excerpt.py`):
+  - **`audio/sound_plan.json`:** mỗi file ghi trang nguồn, tác giả, giấy phép, ngày kiểm giấy phép và sha256. Thiếu file hay file bị thay thì không trộn.
+  - **`replace`:** mốc âm tổng hợp phát file thật.
+  - **`cues`:** tiếng thêm neo vào một bước của storyboard, không đổi shot, không làm mất cache render.
+  - **`chapter_cues`:** chỉ phát ở điểm cắt thật sang chương mới.
+  - **`beds`:** nền âm ngắn dưới đúng một shot, đặt theo RMS của lời dẫn.
+  - **Test:** 6 test mới. AGENTS.md và playbook ghi lại quy tắc.
+  - **Giới hạn:** `final-assemble` chưa trộn SFX.
+- **Phim thành phố nổi, FULL v3:**
+  - B31 và B33 chỉ làm trong nước ở 0,4 s cuối lúc camera hạ, không còn lưới bóng hay bóng phao dưới đáy ở đoạn chuyển;
+  - 4 tiếng gắn với hành động, 7 tiếng chuyển chương, 2 đoạn nền nước ngắn (Pixabay Content License);
+  - chi tiết ở `projects/floating-city-design-challenge/review/INTERNAL_REVIEW_V3.md`.
+
 ## 0.12.0 — 2026-11-12 — Watermark kênh, ngoại lệ đúng phạm vi, đính chính dung sai keyframe; phim thành phố nổi FULL v2
 - **Watermark kênh** (chủ kênh yêu cầu):
   - file `branding/concepts_20261107/A_watermark_burnin_640.png`, đặt ở góc dưới trái, rộng 14% khung, độ đậm 55%;

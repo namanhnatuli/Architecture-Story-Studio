@@ -173,3 +173,18 @@
     - quyết về chuỗi card của phim Gothic;
     - xem watermark và chữ trên hình mới.
   - Chi tiết: `review/INTERNAL_REVIEW_V2.md`, `qa/EDITORIAL_REVIEW_TIMECODED.md`.
+- **Bản internal review đầy đủ v3 (2026-11-12).**
+  - **Đầu vào:**
+    - review của Codex trên FULL v2: sửa nốt hai đoạn chuyển nước B31, B33; giữ màu nước, watermark, B37;
+    - chủ kênh yêu cầu đưa SFX Pixabay đã tải vào video.
+  - **Hình:** B31 và B33 chỉ làm trong nước ở 0,4 s cuối lúc camera hạ. Render lại đúng 2 shot theo báo cáo cache.
+  - **Âm thanh:**
+    - âm thu sẵn có giấy phép ghi trong `audio/sound_plan.json`;
+    - 4 tiếng gắn với hành động, 7 tiếng chuyển chương, 2 đoạn nền nước ngắn;
+    - agent chọn bằng số đo, chưa ai nghe.
+  - **Còn chờ chủ kênh:**
+    - nghe SFX;
+    - quyết về góc mép bãi nước khoảng 0,75 s ở B33;
+    - quyết về chuỗi card của phim Gothic.
+    - Các đề nghị "giữ" của Codex chưa được ghi là quyết định.
+  - Chi tiết: `review/INTERNAL_REVIEW_V3.md`.

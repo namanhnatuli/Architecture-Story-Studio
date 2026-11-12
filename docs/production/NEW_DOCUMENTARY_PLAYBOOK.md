@@ -83,7 +83,9 @@ Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều
 - Tham chiếu bộ phận: concept + `group`, hoặc `local` (id cục bộ chính xác, ví dụ `rib_diagonal_b1a`). `{"except": refs}` nghĩa là mọi bộ phận của công trình trừ những cái đó. Các bộ phận bị camera ẩn (sàn khi nhìn từ dưới) không bao giờ bị chọn.
 - Hai shot liền nhau mà shot sau mở đúng khung và đúng trạng thái mờ mà shot trước kết thúc thì planner cho match cut. Ghi lại trạng thái đầu shot bằng bước tức thì ở `at: 0, seconds: 0`.
 - Chú thích bám vào bộ phận chỉ hiện khi camera đứng yên. Planner tự cắt cửa sổ hiển thị, còn ghi chú cố định màn hình thì đi theo camera.
-- Âm thanh: `REVEAL` có `sound` (`STONE`, `STONE_HEAVY`) sinh một mốc âm khi bộ phận đặt xuống. Âm tổng hợp trong `pipeline/sound.py` (`config/sound_design.json`), không có nhạc nền hay ambience.
+- Âm thanh: `REVEAL` có `sound` (`STONE`, `STONE_HEAVY`) sinh một mốc âm khi bộ phận đặt xuống. Âm tổng hợp trong `pipeline/sound.py` (`config/sound_design.json`), không có nhạc nền.
+  - Âm thu sẵn (từ 2026-11-12): `audio/sound_plan.json` ghi nguồn, giấy phép, sha256; `replace` cho mốc tổng hợp phát file thật; `cues` neo vào một bước storyboard; `chapter_cues` ở mỗi điểm cắt sang chương mới; `beds` là nền âm ngắn dưới đúng một shot.
+  - Nguyên tắc chọn âm (phim giải thích kiến thức): chỉ gắn âm khi có hành động vật lý mà lời dẫn đang nói; âm cỡ mô hình; không gắn âm cho chữ hay card; bỏ được thì bỏ. Xem `projects/floating-city-design-challenge/review/SFX_LIBRARY.md`.
 - Cách làm hiệu quả: dựng **một đoạn thử 60–90 giây** (`tools/excerpt.py`) cho chủ kênh duyệt chất lượng hình trước, rồi mới áp cho cả phim. Xem frame thử bằng Blender trước khi render cả shot. Kiểm tra Blender riêng các shot mới: `engine/render_scene.py --mode check --shot SC_a,SC_b`.
 - Những điều đã học từ đoạn thử của phim Gothic:
   - khung "cả mô hình" của một mặt cắt cao hơn chiều ngang thì bị giới hạn theo chiều cao, nên cận cảnh phải cắt bớt chiều cao;
