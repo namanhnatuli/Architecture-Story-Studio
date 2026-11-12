@@ -120,8 +120,10 @@ def narration_rights(project_dir):
     return classes == {"PUBLICATION_CLEARED"}, sorted(classes)
 
 
-def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None, audio_bitrate="160k"):
-    """Build narration track (+loudnorm), mux with `video`, write SRT, verify; returns a report."""
+def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None, audio_bitrate="160k", effects=None):
+    """Build narration track (+loudnorm), mux with `video`, write SRT, verify; returns a report. `effects`
+    (optional): f(raw narration wav, track) -> (wav with the sound effects mixed under it, report), applied before
+    loudness normalisation (the final film's recorded sounds, 2026-11-12)."""
     p = Path(project_dir)
     timing = json.loads((p / "script/timing.json").read_text())
     tag = "full" if shot_ids is None else "_".join(shot_ids) if len(shot_ids) <= 3 else \
@@ -129,7 +131,12 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None
     raw = p / "audio" / f"narration_track_{tag}.wav"
     track = build_narration_track(p, timing, raw, shot_ids)
     mixed = p / "audio" / f"narration_mix_{tag}.wav"
-    measured_in = loudnorm(raw, mixed)
+    fx_report = None
+    if effects:
+        source, fx_report = effects(raw, track)
+    else:
+        source = raw
+    measured_in = loudnorm(source, mixed)
     out_mp4 = Path(out_mp4)
     out_mp4.parent.mkdir(parents=True, exist_ok=True)
     cleared, classes = narration_rights(p)
@@ -176,12 +183,16 @@ def assemble(project_dir, video, out_mp4, shot_ids=None, log=print, comment=None
     if loud["true_peak_dbtp"] is not None and loud["true_peak_dbtp"] > -1.0:
         problems.append(f"true peak {loud['true_peak_dbtp']} dBTP exceeds -1.0")
     problems += sub_problems
+    if fx_report is not None:
+        problems += [f"sound effects: {x}" for x in fx_report.get("problems", [])]
     report = {"output": str(out_mp4), "subtitles": str(srt), "narration_rights": classes,
               "publication_audio": cleared, "narration_track": str(mixed), "shots": shot_ids or "all",
               "frames": track["frames"], "seconds": track["seconds"],
               "video": v, "audio": a, "loudness_before": {"I": measured_in["input_i"], "TP": measured_in["input_tp"]},
               "loudness_after": loud, "subtitle_entries": len(cues), "subtitle_stats": sub_stats,
               "subtitle_warnings": sub_warnings, "subtitle_cues": cues, "problems": problems}
+    if fx_report is not None:
+        report["sound_effects"] = fx_report
     for line in (f"  {out_mp4.name}: {track['frames']} frames, {track['seconds']:.3f}s",
                  f"  loudness {loud['integrated_lufs']} LUFS, true peak {loud['true_peak_dbtp']} dBTP",
                  f"  subtitles: {len(cues)} cues ({sub_stats['aligned_boundaries']} aligned phrase breaks, "

@@ -135,5 +135,30 @@ class SoundPlanMixTest(unittest.TestCase):
         self.assertEqual(set(ra), {"cues", "narration_peak", "effect_peak", "under_narration_db", "clipped_samples"})
 
 
+class FinalEffectsTest(unittest.TestCase):
+    def test_the_final_mix_has_the_storyboard_and_plan_sounds_and_is_written_next_to_the_narration(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            plan = plan_for(root)
+            p = root / "film"
+            (p / "script").mkdir(parents=True)
+            (p / "script/chapters.json").write_text(json.dumps({"chapters": [{"id": "C1", "beat_ids": ["b1"]},
+                                                                              {"id": "C2", "beat_ids": ["b2"]}]}))
+            timing = {"fps": 24, "beats": [{"id": "b1", "shot": "A"}, {"id": "b2", "shot": "B"}],
+                      "shots": [{"id": "A", "start_frame": 0}, {"id": "B", "start_frame": 96}]}
+            story = copy.deepcopy(SHOTS)
+            story[0]["sound_cues"] = [{"at_seconds": 1.0, "kind": "STONE", "step": 0}]
+            raw = p / "audio" / "narration_track_full.wav"
+            sound.write_wav(raw, [4000 * math.sin(2 * math.pi * 250 * i / SR) for i in range(9 * SR)], SR)
+            out, report = sound.final_effects(p, plan, raw, timing, story, root=root)
+            self.assertEqual(out.name, "narration_track_full_sfx.wav")
+            kinds = [c["kind"] for c in report["sound_cues"]]
+            self.assertEqual(kinds, ["STONE", "PEAKY", "HIT"])   # storyboard cue, chapter cue at B, B's step cue
+            self.assertEqual(len(report["sound_beds"]), 1)
+            self.assertEqual(report["problems"], [])
+            _, _, mixed = sound.read_wav(out)
+            self.assertEqual(len(mixed), 9 * SR)
+
+
 if __name__ == "__main__":
     unittest.main()

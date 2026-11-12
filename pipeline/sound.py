@@ -245,6 +245,36 @@ def resolve_plan(plan, story_shots, film_ids, ids, offsets, chapter_firsts):
     return sorted(cues, key=lambda c: c["at_seconds"]), beds, problems
 
 
+def film_plan_cues(p, plan, story_shots, timing, ids, offsets):
+    """resolve_plan for the shots `ids` of project `p` (at `offsets`), the chapter starts taken from
+    script/chapters.json: (cues, beds, problems)."""
+    shot_of = {b["id"]: b["shot"] for b in timing["beats"]}
+    chapters = json.loads((Path(p) / "script/chapters.json").read_text())["chapters"]
+    firsts = [shot_of[c["beat_ids"][0]] for c in chapters[1:]]
+    return resolve_plan(plan, story_shots, [s["id"] for s in story_shots], ids, offsets, firsts)
+
+
+def final_effects(p, plan, raw, timing, story_shots, root=ROOT):
+    """The whole film's sound effects under its narration track `raw` (mono WAV): the storyboard's cues and the
+    plan's, as tools/excerpt.py mixes them for the full review cut. Writes <raw>_sfx.wav; returns (path, report)."""
+    ch, sr, narration = read_wav(raw)
+    if ch != 1:
+        raise ValueError("mono narration expected")
+    fps = timing["fps"]
+    offsets = {s["id"]: s["start_frame"] / fps for s in timing["shots"]}
+    ids = [s["id"] for s in story_shots]
+    cues = sorted((dict(c, at_seconds=round(offsets[s["id"]] + c["at_seconds"], 4), shot=s["id"])
+                   for s in story_shots for c in s.get("sound_cues") or []), key=lambda c: c["at_seconds"])
+    extra, beds, problems = film_plan_cues(p, plan, story_shots, timing, ids, offsets)
+    cues = sorted(cues + extra, key=lambda c: c["at_seconds"])
+    mixed, report = mix_under(narration, cues, sr, plan=plan, beds=beds, root=root)
+    if report["clipped_samples"]:
+        problems.append(f"{report['clipped_samples']} clipped samples in the mix")
+    out = Path(raw).with_name(Path(raw).stem + "_sfx.wav")
+    write_wav(out, mixed, sr)
+    return out, dict(report, sound_cues=cues, sound_beds=beds, problems=problems, plan=PLAN_FILE)
+
+
 def speech_rms(narration, sr, window=0.05, floor_db=30.0):
     """RMS (int16 scale) of the narration where it speaks: 50 ms windows within floor_db of the loudest one."""
     w = max(1, int(window * sr))

@@ -102,12 +102,56 @@
       "evidence": "owner answer in session, 2026-11-12, 'Chấp nhận đúng 2 chuỗi (Recommended)', to the agent's question: 'QA phim dài báo visual_variety FAIL vì có hai chuỗi shot 3D liền nhau dài hơn ngưỡng 4. Theo AGENTS.md, ngoại lệ ngưỡng là quyết định của chủ kênh và tôi không được tự ghi. Review của Codex khuyên chấp nhận ngoại lệ, chỉ cho đúng hai chuỗi B08–B14 (7 shot, 2:03–4:34) và B27–B31 (5 shot, 8:24–9:41), áp cho bản hình hiện tại. Ngưỡng 4 giữ nguyên cho phần còn lại của phim. Anh/chị chấp nhận ngoại lệ này không?'"
     },
     {
+      "id": "APP-PICTURE-FINAL",
+      "subject": "the picture of FULL v3 (commit 8c9f544) for the final 4K, with six points left as they are: the water's colour in the level views; the watermark (bottom left, 14 % wide, 55 % opacity); B37's first 2.8 s with the corner tag only; the bay's corner for about 0.75 s in B33 (10:07); the pace of the B15/B16 cards; subtitle cue 35 at 17.1 characters/s",
+      "scope": "floating-city-design-challenge, final 4K",
+      "source_revision": {
+        "commit": "8c9f544",
+        "file": "output/pilot/floating_city_design_challenge_FULL_V3_INTERNAL_REVIEW_720p.mp4"
+      },
+      "decision": "APPROVED (the owner chose 'Duyệt cả 6 điểm như v3')",
+      "date": "2026-11-12",
+      "evidence": "owner's answer to the agent's four questions in session, 2026-11-12, after the owner's message 'tôi duyệt bản này, hãy render bản final 4k' on FULL v3 (commit 8c9f544)",
+      "invalidation": "any change to a shot's picture, the watermark or the subtitles"
+    },
+    {
+      "id": "APP-SOUND-FINAL",
+      "subject": "the final mix with the sound effects of FULL v3: 4 action sounds, 7 chapter cues and 2 water beds from audio/sound_plan.json (6 Pixabay files, Pixabay Content License, sha256 recorded)",
+      "scope": "floating-city-design-challenge, final 4K",
+      "source_revision": {
+        "record": "audio/sound_plan.json",
+        "excerpt": "qa/excerpt_FULL_V3.json"
+      },
+      "decision": "APPROVED (the owner chose 'Có SFX như FULL_V3'); audio/sound_plan.json 'final': true",
+      "date": "2026-11-12",
+      "evidence": "owner's answer to the agent's four questions in session, 2026-11-12, after the owner's message 'tôi duyệt bản này, hãy render bản final 4k' on FULL v3 (commit 8c9f544)",
+      "conditions": "the files must match their recorded sha256; the agent chose them by measurement and did not listen; whether the owner listened is not recorded",
+      "invalidation": "a changed sound plan (file, stretch, level or cue)"
+    },
+    {
+      "id": "APP-CTA",
+      "subject": "the closing call to action (B43): 'Which structure should we explain next? Suggest a topic in the comments. And if you enjoyed this film, please like it and subscribe.' with the self-drawn icons shown as each is named",
+      "scope": "floating-city-design-challenge",
+      "decision": "APPROVED (the owner chose 'Duyệt lời kêu gọi')",
+      "date": "2026-11-12",
+      "evidence": "owner's answer to the agent's four questions in session, 2026-11-12, after the owner's message 'tôi duyệt bản này, hãy render bản final 4k' on FULL v3 (commit 8c9f544)",
+      "invalidation": "a changed B43 sentence or icon"
+    },
+    {
+      "id": "REQ-PUBLICATION-EVALUATION",
+      "subject": "publication readiness",
+      "scope": "floating-city-design-challenge",
+      "decision": "the owner asked for the final 4K render; production_profile set to PUBLICATION_CANDIDATE with publication_metadata so the gates evaluate publication. This is not a publication approval: the description (and its AI disclosure) is not approved yet",
+      "date": "2026-11-12",
+      "evidence": "owner's message in session, 2026-11-12: 'tôi duyệt bản này, hãy render bản final 4k'"
+    },
+    {
       "id": "NOTE-NOT-RECORDED",
       "subject": "what this record does not contain",
       "scope": "floating-city-design-challenge",
-      "decision": "NOT RECORDED: images and credits, AI-disclosure wording, the closing call to action on screen, the publication profile, publication",
-      "date": "2026-11-08",
-      "evidence": "—"
+      "decision": "NOT RECORDED: the YouTube description and its AI-disclosure wording (the owner chose 'Tôi muốn sửa mô tả' on 2026-11-12 and has not said what to change); publication. Images and credits: the film uses no third-party photograph or drawing.",
+      "date": "2026-11-12",
+      "evidence": "the agent's four questions in session, 2026-11-12, after the owner's message 'tôi duyệt bản này, hãy render bản final 4k' on FULL v3 (commit 8c9f544)"
     }
   ]
 }

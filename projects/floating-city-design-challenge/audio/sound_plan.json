@@ -1,6 +1,8 @@
 {
   "schema": "sound_plan/1",
   "note": "Recorded sounds for the floating-city film (pipeline/sound.py). Owner request 2026-11-12: add the Pixabay sounds proposed in review/SFX_LIBRARY.md, only where they fit the channel's explanatory style. The owner downloaded the candidates; the agent chose one file per place by measurement (length, onset, noise floor, low/high balance, steadiness), not by listening. The owner listens and decides.",
+  "final": true,
+  "final_decision": "APP-SOUND-FINAL in review/OWNER_APPROVALS.json (owner, 2026-11-12)",
   "bed_under_narration_db": 26.0,
   "sources": {
     "water_splosh": {
@@ -59,35 +61,114 @@
     }
   },
   "kinds": {
-    "SINK": {"source": "water_splosh", "trim_start": 0.15, "seconds": 1.6, "fade_out": 0.4, "relative_db": 0.0,
-             "why": "one clean, low 'splosh' (most energy under 250 Hz): the block goes under, no splash from height"},
-    "PLACE": {"source": "quiet_thud_hits", "trim_start": 5.28, "seconds": 0.8, "fade_out": 0.2, "relative_db": 0.0,
-              "why": "the fifth of seven soft thuds (the strongest, floor 58 dB under it): a storey set down"},
-    "PLACE_HEAVY": {"source": "wooden_thud", "trim_start": 0.03, "seconds": 0.54, "fade_out": 0.1, "relative_db": 2.0,
-                    "why": "a single deep wooden thud, cleaner and lower than PLACE: the deeper hull"},
-    "PLACE_LIGHT": {"source": "place", "trim_start": 0.03, "seconds": 0.38, "fade_out": 0.06, "relative_db": -3.0,
-                    "why": "a single light, short 'place': the walkway set across the gap, the lightest of the four"},
-    "CHAPTER": {"source": "air_whoosh_1", "trim_start": 0.0, "seconds": 1.5, "fade_out": 0.1, "relative_db": -2.0,
-                "align": "peak",
-                "why": "the smoothest of the soft air whooshes (almost nothing above 2.5 kHz): marks the cut, not a sound effect to notice"},
-    "WATER_A": {"source": "water_lapping_dock", "bed": true, "trim_start": 31.8, "seconds": 12.3, "highpass_hz": 80,
-                "why": "the steadiest 12 s of the recording (its loudest 0.2 s within 8.8 dB of the median)"},
-    "WATER_B": {"source": "water_lapping_dock", "bed": true, "trim_start": 34.4, "seconds": 8.1, "highpass_hz": 80,
-                "why": "the steadiest 8 s of the recording"}
+    "SINK": {
+      "source": "water_splosh",
+      "trim_start": 0.15,
+      "seconds": 1.6,
+      "fade_out": 0.4,
+      "relative_db": 0.0,
+      "why": "one clean, low 'splosh' (most energy under 250 Hz): the block goes under, no splash from height"
+    },
+    "PLACE": {
+      "source": "quiet_thud_hits",
+      "trim_start": 5.28,
+      "seconds": 0.8,
+      "fade_out": 0.2,
+      "relative_db": 0.0,
+      "why": "the fifth of seven soft thuds (the strongest, floor 58 dB under it): a storey set down"
+    },
+    "PLACE_HEAVY": {
+      "source": "wooden_thud",
+      "trim_start": 0.03,
+      "seconds": 0.54,
+      "fade_out": 0.1,
+      "relative_db": 2.0,
+      "why": "a single deep wooden thud, cleaner and lower than PLACE: the deeper hull"
+    },
+    "PLACE_LIGHT": {
+      "source": "place",
+      "trim_start": 0.03,
+      "seconds": 0.38,
+      "fade_out": 0.06,
+      "relative_db": -3.0,
+      "why": "a single light, short 'place': the walkway set across the gap, the lightest of the four"
+    },
+    "CHAPTER": {
+      "source": "air_whoosh_1",
+      "trim_start": 0.0,
+      "seconds": 1.5,
+      "fade_out": 0.1,
+      "relative_db": -2.0,
+      "align": "peak",
+      "why": "the smoothest of the soft air whooshes (almost nothing above 2.5 kHz): marks the cut, not a sound effect to notice"
+    },
+    "WATER_A": {
+      "source": "water_lapping_dock",
+      "bed": true,
+      "trim_start": 31.8,
+      "seconds": 12.3,
+      "highpass_hz": 80,
+      "why": "the steadiest 12 s of the recording (its loudest 0.2 s within 8.8 dB of the median)"
+    },
+    "WATER_B": {
+      "source": "water_lapping_dock",
+      "bed": true,
+      "trim_start": 34.4,
+      "seconds": 8.1,
+      "highpass_hz": 80,
+      "why": "the steadiest 8 s of the recording"
+    }
   },
-  "replace": {"STONE": "PLACE", "STONE_HEAVY": "PLACE_HEAVY"},
+  "replace": {
+    "STONE": "PLACE",
+    "STONE_HEAVY": "PLACE_HEAVY"
+  },
   "cues": [
-    {"shot": "SC_005", "step": 4, "do": "MOVE", "edge": "start", "offset": 0.3, "kind": "SINK",
-     "why": "B05 'sinks': the solid block, flush with the surface, starts down to the seabed"},
-    {"shot": "SC_013", "step": 5, "do": "REVEAL", "edge": "end", "offset": 0.0, "kind": "PLACE_LIGHT",
-     "why": "B13: the hinged walkway lands across the gap"}
+    {
+      "shot": "SC_005",
+      "step": 4,
+      "do": "MOVE",
+      "edge": "start",
+      "offset": 0.3,
+      "kind": "SINK",
+      "why": "B05 'sinks': the solid block, flush with the surface, starts down to the seabed"
+    },
+    {
+      "shot": "SC_013",
+      "step": 5,
+      "do": "REVEAL",
+      "edge": "end",
+      "offset": 0.0,
+      "kind": "PLACE_LIGHT",
+      "why": "B13: the hinged walkway lands across the gap"
+    }
   ],
-  "chapter_cues": {"kind": "CHAPTER", "offset": -0.1,
-                   "why": "chapters 2-8: the whoosh peaks 0.1 s before the cut, in the 1.2 s without speech around it"},
+  "chapter_cues": {
+    "kind": "CHAPTER",
+    "offset": -0.1,
+    "why": "chapters 2-8: the whoosh peaks 0.1 s before the cut, in the 1.2 s without speech around it"
+  },
   "beds": [
-    {"shot": "SC_017", "from": 0.0, "to": "end", "kind": "WATER_A", "fade_in": 1.0, "fade_out": 1.0,
-     "why": "B17: five platforms rise, fall and tilt on the water"},
-    {"shot": "SC_030", "from": 0.0, "to": {"view": 1, "edge": "end"}, "kind": "WATER_B", "fade_in": 1.0, "fade_out": 1.5,
-     "why": "B30: the long swell along the breakwater, until the camera is down at the level view"}
+    {
+      "shot": "SC_017",
+      "from": 0.0,
+      "to": "end",
+      "kind": "WATER_A",
+      "fade_in": 1.0,
+      "fade_out": 1.0,
+      "why": "B17: five platforms rise, fall and tilt on the water"
+    },
+    {
+      "shot": "SC_030",
+      "from": 0.0,
+      "to": {
+        "view": 1,
+        "edge": "end"
+      },
+      "kind": "WATER_B",
+      "fade_in": 1.0,
+      "fade_out": 1.5,
+      "why": "B30: the long swell along the breakwater, until the camera is down at the level view"
+    }
   ]
 }

@@ -172,7 +172,9 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
     - Âm thêm neo vào một bước của storyboard (shot, số thứ tự bước, `do`), nên không đổi shot và không làm mất cache render.
     - Nền âm (ambience) chỉ được dùng ngắn, dưới đúng một shot mà chính âm đó là chủ đề (nước làm phao nhấp nhô), thấp hơn lời dẫn nhiều (`bed_under_narration_db`). Không trải nền âm dưới cả phim.
     - Agent chọn file bằng số đo (độ dài, điểm bắt đầu, nền ồn, cân bằng trầm/bổng), không nghe được. Chủ kênh nghe rồi quyết.
-    - `final-assemble` chưa trộn âm hiệu ứng: hiện chỉ bản trích (`tools/excerpt.py`) có SFX. Phải thêm trước khi làm bản 4K có SFX.
+    - `final-assemble` trộn âm hiệu ứng khi chủ kênh đã duyệt và `audio/sound_plan.json` ghi `"final": true` (từ 2026-11-12): cùng cách trộn như bản trích, trước khi chuẩn hóa âm lượng.
+      - File WAV `narration_master_clean` vẫn chỉ có lời dẫn; `audio_master` có SFX.
+      - Trước khi ghép bản cuối, so bản trộn cả phim với bản trộn của đoạn trích đã duyệt: hai bản phải giống nhau từng mẫu.
   - Agent không nghe được, nên luôn giao kèm một bản không âm thanh để so. Whisper trên lời dẫn có âm và không âm phải cho WER tương đương (`tools/excerpt.py`).
 - **Đoạn thử** (`tools/excerpt.py`): các shot của phim, render đúng như trong phim, ghép với đúng đoạn lời dẫn của chúng.
   - Tên file luôn có `INTERNAL_REVIEW`. Chỗ nối giữa hai shot không liền nhau trong phim được ghi là "excerpt join".

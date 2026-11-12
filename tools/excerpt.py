@@ -116,9 +116,7 @@ def build(p, preset, ids, label):
         plan_problems = sound.check_plan(plan)
         if plan_problems:
             raise SystemExit("sound plan: " + "; ".join(plan_problems))
-        shot_of = {b["id"]: b["shot"] for b in timing["beats"]}
-        firsts = [shot_of[c["beat_ids"][0]] for c in cli.read_json(p / "script/chapters.json")["chapters"][1:]]
-        extra, beds, plan_problems = sound.resolve_plan(plan, story, film_ids, ids, offsets, firsts)
+        extra, beds, plan_problems = sound.film_plan_cues(p, plan, story, timing, ids, offsets)
         problems += plan_problems
         cues = sorted(cues + extra, key=lambda c: c["at_seconds"])
     mixed, mix_report = sound.mix_under(clean, cues, sr, plan=plan, beds=beds)

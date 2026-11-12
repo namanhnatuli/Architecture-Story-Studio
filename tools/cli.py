@@ -1286,8 +1286,16 @@ def do_final_assemble(p, preset):
     finally:
         lst.unlink()
     os.replace(partial, video)
+    effects = None
+    from pipeline import sound
+    plan = sound.load_plan(p)
+    if plan and plan.get("final"):   # the owner's sound effects for the final mix (audio/sound_plan.json, 2026-11-12)
+        plan_problems = sound.check_plan(plan)
+        if plan_problems:
+            raise SystemExit("sound plan: " + "; ".join(plan_problems))
+        effects = lambda raw, track: sound.final_effects(p, plan, raw, timing, shots(p))   # noqa: E731
     report = assemble.assemble(p, video, out, comment=internal_comment(label) if label != "documentary" else None,
-                               audio_bitrate=cfg.get("audio_bitrate", "160k"))
+                               audio_bitrate=cfg.get("audio_bitrate", "160k"), effects=effects)
     media = final_media_qa(p, preset, out, files, doc, ranges, timing)
     report["media"] = media
     report["problems"] = media["problems"] + report["problems"]

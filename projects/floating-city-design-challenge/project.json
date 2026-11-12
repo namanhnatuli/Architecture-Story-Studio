@@ -6,7 +6,7 @@
   "fps": 24,
   "render_preset": "review",
   "factual_review": "verified",
-  "production_profile": "NARRATED_INTERNAL_REVIEW",
+  "production_profile": "PUBLICATION_CANDIDATE",
   "chapters": "script/chapters.json",
   "review_label": "INTERNAL_REVIEW",
   "audio_timing_locked": true,
@@ -38,5 +38,19 @@
     "decided_on": "2026-11-12",
     "basis": "owner answer 'Chấp nhận đúng 2 chuỗi (Recommended)' (2026-11-12) to the agent's question: 'QA phim dài báo visual_variety FAIL vì có hai chuỗi shot 3D liền nhau dài hơn ngưỡng 4. Theo AGENTS.md, ngoại lệ ngưỡng là quyết định của chủ kênh và tôi không được tự ghi. Review của Codex khuyên chấp nhận ngoại lệ, chỉ cho đúng hai chuỗi B08–B14 (7 shot, 2:03–4:34) và B27–B31 (5 shot, 8:24–9:41), áp cho bản hình hiện tại. Ngưỡng 4 giữ nguyên cho phần còn lại của phim. Anh/chị chấp nhận ngoại lệ này không?' The option read: record variety_exception limited to exactly B08–B14 and B27–B31 for this picture revision; the validator exempts only those two runs; a change to the runs needs a new decision",
     "limit_elsewhere": "the film-wide limit of 4 is unchanged for every other run; a run that grows, shrinks or changes kind is not covered"
+  },
+  "publication_metadata": {
+    "title": "Could We Build an Entire City That Floats?",
+    "description": "review/YOUTUBE_DESCRIPTION.md",
+    "language": "en",
+    "credits": "No third-party photographs or drawings; the 3D models and diagrams are made for this video. Narration and any sound effects are credited in review/YOUTUBE_DESCRIPTION.md",
+    "disclosure": "Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael) - in the description",
+    "approvals": "review/OWNER_APPROVALS.json",
+    "summary": "10,000 people, with homes, schools, a clinic, parks and streets to walk along, and not one of them standing on land. Could we design a city like this, one that floats, stays where we put it and keeps working? This film treats it as a design problem and solves it one step at a time: making buildings float, joining platforms into a city, water that never stays still, keeping the city in place, the services a city needs, and what changes out at sea.",
+    "disclosures": [
+      "3D models and diagrams are illustrative visualisations made for this video, not engineering designs.",
+      "The district, its platforms and the numbers given as estimates come from the Studio's own concept-level calculations for this video, not from a certified engineering design.",
+      "The motion of the water and the platforms is a conceptual visualisation, not a hydrodynamic simulation."
+    ]
   }
 }

@@ -1,6 +1,8 @@
-<!-- DRAFT: not for publication until the editorial approval package is approved. -->
+<!-- PUBLICATION CANDIDATE: description for the owner's own upload (approvals in review/OWNER_APPROVALS.json). The Studio never uploads. -->
 
 # Could We Build an Entire City That Floats?
+
+10,000 people, with homes, schools, a clinic, parks and streets to walk along, and not one of them standing on land. Could we design a city like this, one that floats, stays where we put it and keeps working? This film treats it as a design problem and solves it one step at a time: making buildings float, joining platforms into a city, water that never stays still, keeping the city in place, the services a city needs, and what changes out at sea.
 
 Chapters
 
@@ -26,18 +28,17 @@ Sources
 - Rethinking and comprehensive planning of the floating city concept, Communications Earth & Environment 7, 196; C. Ruzzo, M. L. Cacurri, F. Arena (published 2026-01-23; DOI 10.1038/s43247-026-03218-3). https://www.nature.com/articles/s43247-026-03218-3
 - University Physics Volume 1, 14.4 Archimedes' Principle and Buoyancy, OpenStax (Rice University). https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy
 - University Physics Volume 1, 14.1 Fluids, Density, and Pressure (Tables 14.1 and 14.2), OpenStax (Rice University). https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure
-- Concept design model of SCN_FLOATCITY_COASTAL_01 (analysis/RESULTS.md), Architecture Story Studio (this project). projects/floating-city-design-challenge/analysis/design_model.py
-- Scenario contract SCN_FLOATCITY_COASTAL_01 (concept/SCENARIO_CONTRACT.md), Architecture Story Studio (this project). projects/floating-city-design-challenge/concept/scenario_contract.json
+- Concept design model of SCN_FLOATCITY_COASTAL_01 (analysis/RESULTS.md), Architecture Story Studio (this project). made for this video
+- Scenario contract SCN_FLOATCITY_COASTAL_01 (concept/SCENARIO_CONTRACT.md), Architecture Story Studio (this project). made for this video
 - Offshore Hydromechanics, Module 1, part 1: Introduction, hydrostatics and stability (lecture slides), TU Delft OpenCourseWare (P. de Jong). https://ocw.tudelft.nl/wp-content/uploads/1.OffshoreHydromech1_IntroHydrostaticsStability.pdf
 - Offshore Hydromechanics, Module 1, part 2: Hydrostatics and stability (lecture slides), TU Delft OpenCourseWare (P. de Jong). https://ocw.tudelft.nl/wp-content/uploads/2.OffshoreHydromech1_FloatingStability.pdf
 - 13.012 Hydrodynamics for Ocean Engineers, Reading #3 (hydrostatics and stability), v2.2, Massachusetts Institute of Technology (course handout, 2003). https://web.mit.edu/13.012/www/handouts/2003/Reading3.pdf
 
-Photographs and drawings
-
-
 Credits and disclosures
 
 - Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael).
-- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs or reconstructions of the buildings shown in the photographs and drawings.
-- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given.
+- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs.
+- The district, its platforms and the numbers given as estimates come from the Studio's own concept-level calculations for this video, not from a certified engineering design.
+- The motion of the water and the platforms is a conceptual visualisation, not a hydrodynamic simulation.
+- Sound effects: Pixabay (Pixabay Content License); recordings by 89o (Freesound), Breviceps (Freesound), Sdanezis, TRP (Freesound), benj500 (Freesound), toddcircle (Freesound).
 

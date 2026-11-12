@@ -198,23 +198,35 @@ def youtube_description(p, d, manifest):
     lines += ["", "Sources", ""]
     for s in sources:
         if not s["id"].startswith("SRC_HAER"):
+            url = s.get("url", "")   # the Studio's own calculations live in the repository, not on the web
+            where = url if url.startswith("http") or not url else "made for this video"
             lines.append(f"- {s['title']}, {s.get('publisher', '')}" + (f" ({s['edition']})" if s.get("edition") else "")
-                         + f". {s.get('url', '')}" + (f" (archived copy: {s['archived_url']})" if s.get("archived_url") else ""))
+                         + f". {where}" + (f" (archived copy: {s['archived_url']})" if s.get("archived_url") else ""))
     haer = any("HAER" in (a.get("attribution", "") + a.get("creator", "")) or "Historic American Engineering Record"
                in a.get("attribution", "") for a in photos)
-    lines += ["", "Archival photographs" if haer else "Photographs and drawings", ""]
+    if photos:   # a film without photographs or drawings has no such section (floating city, 2026-11-12)
+        lines += ["", "Archival photographs" if haer else "Photographs and drawings", ""]
     for a in photos:
         lines.append(f"- {a.get('title') or a['id']}: {a['attribution']}. {a['license']}"
                      + (f" ({a['license_url']})" if a.get("license_url") else "")
                      + f". Original record: {a.get('original_record') or a['source_url']}"
                      + (f". Changes: {a['modifications']}" if not haer and a.get("modifications") else ""))
     lines += ["", "Credits and disclosures", "",
-              f"- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice {d['narration']['voice']['voice']}).",
-              # g-r5: the bridge film's wording stays exactly as it was; other films get their own
-              "- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs "
-              + ("or reconstructions of the bridges shown in the photographs." if haer else
-                 "or reconstructions of the buildings shown in the photographs and drawings."),
-              "- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given."]
+              f"- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice {d['narration']['voice']['voice']})."]
+    own = (project.get("publication_metadata") or {}).get("disclosures")
+    if own:   # the film's own wording, approved by the owner with the description (floating city, 2026-11-12)
+        lines += [f"- {x}" for x in own]
+    else:   # g-r5: the bridge film's wording stays exactly as it was; other films get their own
+        lines += ["- 3D models and diagrams are illustrative visualisations made for this video, not engineering designs "
+                  + ("or reconstructions of the bridges shown in the photographs." if haer else
+                     "or reconstructions of the buildings shown in the photographs and drawings."),
+                  "- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given."]
+    plan_path = p / "audio/sound_plan.json"
+    plan = read(plan_path) if plan_path.is_file() else {}
+    if plan.get("final"):   # recorded sounds in the final mix: their licence and artists
+        artists = sorted({src["artist"].split(", uploaded by")[0] for src in plan["sources"].values()})
+        licences = sorted({src["license"] for src in plan["sources"].values()})
+        lines.append(f"- Sound effects: Pixabay ({', '.join(licences)}); recordings by {', '.join(artists)}.")
     if haer:
         lines.append("- Historic American Engineering Record (HAER), National Park Service; Library of Congress Prints & "
                      "Photographs Division. Photographs are public-domain works of the U.S. Government.")
