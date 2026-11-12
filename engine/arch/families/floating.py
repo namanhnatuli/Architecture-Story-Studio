@@ -880,6 +880,21 @@ def pair(p):
     comps += _platform_set("platform_b", L, B, H, p["draft_b_m"], p["building_cover"], p["storeys_b"], xb, 0.0)
     za, zb = H - p["draft_a_m"], H - p["draft_b_m"]
     comps += _walkway("walkway", xa + L / 2.0, -B / 4.0, za, xb - L / 2.0, -B / 4.0, zb, 3.0)
+    # The step between the decks drawn as a dimension at the gap, on the hulls' front faces (B13; Codex review of the
+    # full cut v1, 2026-11-12): each deck's level carried across the gap, dashed, and a vertical line between the two
+    # levels with end ticks. True heights: the drawing adds nothing to the step. 0.1 m thick against the faces (they
+    # touch, so the marks hang on the hulls; their visible face is not coplanar with the hulls').
+    y0, y1 = -B / 2.0 - 0.1, -B / 2.0
+    reach, w, tick = gap / 2.0 + 4.0, 0.05, 0.05
+    lo, hi = min(za, zb), max(za, zb)
+    comps.append(_c("deck_step_dim", "MARKER", "section_poche", "dimensions",
+                    P.merge(_box(-w / 2, w / 2, y0, y1, lo, hi), _box(-0.35, 0.35, y0, y1, hi - tick, hi),
+                            _box(-0.35, 0.35, y0, y1, lo, lo + tick)), 3, animation=("STATIC",),
+                    meta={"note": f"vertical dimension: deck levels {za:.3f} and {zb:.3f} m above the hull bottom datum"}))
+    comps.append(_c("deck_level_a", "MARKER", "section_poche", "dimensions",
+                    _dashes(-reach, 0.6, y0, y1, za - 0.02, za + 0.02, dash=0.45, gap=0.3), 3, animation=("STATIC",)))
+    comps.append(_c("deck_level_b", "MARKER", "section_poche", "dimensions",
+                    _dashes(-0.6, reach, y0, y1, zb - 0.02, zb + 0.02, dash=0.45, gap=0.3), 3, animation=("STATIC",)))
     return comps
 
 

@@ -1,7 +1,7 @@
 {
-  "utc": "2026-11-11T14:03:46.926612+00:00",
+  "utc": "2026-11-12T03:20:41.657276+00:00",
   "preset": "internal_720p",
-  "timing_sha256": "0e407a60dcf199477ed691026850c57fb67308d9537914444904705c89585274",
+  "timing_sha256": "53651265c76615193f3a8d57489b358f01177065e38c5759672fe72bfc347544",
   "results": [
     {
       "check": "chapters_structure",
@@ -50,8 +50,8 @@
     },
     {
       "check": "visual_variety",
-      "status": "FAIL",
-      "detail": "longest run of one visual kind: 7 x 3D_SEQUENCE (limit 4); 3D_SEQUENCE 27, DIAGRAM 16, TITLE 1"
+      "status": "PASS",
+      "detail": "longest run of one visual kind: 7 x 3D_SEQUENCE (limit 4); owner exception for SC_008-SC_014 (7 x 3D_SEQUENCE), SC_027-SC_031 (5 x 3D_SEQUENCE), Tran Nam Anh (channel owner), 2026-11-12; 3D_SEQUENCE 27, DIAGRAM 16, TITLE 1"
     },
     {
       "check": "no_repeated_visuals",
@@ -70,8 +70,8 @@
     },
     {
       "check": "render_cache_current",
-      "status": "WARN",
-      "detail": "44/44 shots not rendered or stale at internal_720p: SC_001, SC_002, SC_003, SC_004, SC_005, SC_006"
+      "status": "PASS",
+      "detail": "all 44 shots rendered at internal_720p with current cache keys"
     },
     {
       "check": "chapter_variety",
@@ -89,5 +89,5 @@
       "detail": "every external image is credited (credit card or description)"
     }
   ],
-  "failed": 1
+  "failed": 0
 }

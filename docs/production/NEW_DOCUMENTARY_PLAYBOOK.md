@@ -218,6 +218,8 @@ Rút ra từ một phim 15 phút, 46 shot, chín vòng review. Đây là cách l
 - **Đổi mã shot thì sinh lại manifest chương** (`chapters --preset internal_720p`) và báo cáo (`tools/longform_reports.py`) ở mỗi vòng. Chủ kênh đã gặp manifest còn mã shot cũ.
 - **Việc cần quyết của chủ kênh:** hỏi bằng câu hỏi có lựa chọn, mỗi lựa chọn nêu đúng điều nó ghi vào hồ sơ. Chỉ ghi các mục được chọn. Câu "duyệt bản này" chưa phải duyệt từng mục.
 - **Ngoại lệ của một ngưỡng** (ví dụ một chuỗi dài cùng loại hình) là quyết định của chủ kênh, ghi ở `project.json` (`variety_exception`, như `runtime_decision`), hiện trong báo cáo QA. Ngưỡng chung không đổi. Không tự miễn một kiểm tra.
+  - Ghi đúng phạm vi chủ kênh chấp nhận: `runs` (`first`, `last`, `length`, `kind`) cùng `decided_by`, `decided_on`, `basis`. `longform_qa` chỉ miễn đúng các chuỗi đó. Một chuỗi dài ra, ngắn lại hay đổi loại thì cần quyết định mới. (Từ 2026-11-12. Trước đó `max_run` nâng ngưỡng cho cả phim.)
+- **Watermark kênh** (`config/branding.json`, từ 2026-11-12): được đốt vào hình khi mã hóa khung (`encode_sequence`), cho mọi bản chương, bản ghép và bản trích. Chỉ áp cho dự án có `"watermark": true` trong `project.json`; dự án mới có sẵn. Watermark nằm ở góc dưới trái, trong vùng phụ đề nơi chú thích không bao giờ vào. QA chương kiểm watermark có trong file xuất. Không vẽ watermark trong Blender, nên cache render không đổi.
 - **Không bao giờ có file tên FINAL trước khi duyệt.** `final-assemble` từng đặt tên FINAL cho bản nội bộ; một test của dự án bắt được. Bản nội bộ lấy tên theo `review_label`.
 
 ### Hình phải khớp lời, niên đại và nguồn

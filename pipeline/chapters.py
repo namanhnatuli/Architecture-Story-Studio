@@ -132,6 +132,33 @@ def visual_kind(shot):
     return "3D_HOLD" if t == "HOLD" else f"3D_{t}"
 
 
+def same_kind_runs(shots):
+    """Maximal runs of consecutive shots of one visual kind: [{first, last, length, kind, shots}]."""
+    runs = []
+    for s in shots:
+        k = visual_kind(s)
+        if runs and runs[-1]["kind"] == k:
+            runs[-1].update(last=s["id"], length=runs[-1]["length"] + 1)
+            runs[-1]["shots"].append(s["id"])
+        else:
+            runs.append({"first": s["id"], "last": s["id"], "length": 1, "kind": k, "shots": [s["id"]]})
+    return runs
+
+
+def variety_excepted(run, exc, shots_of_chapter):
+    """Whether the owner's `variety_exception` (project.json) covers this run. The record must be complete
+    (decided_by, decided_on, basis). `runs`: the run is exactly one accepted run (same first and last shot, length,
+    kind), so a run that grows, shrinks or changes kind needs a new decision. Older records (`chapter`, `max_run`):
+    the run lies inside that chapter and is no longer than max_run."""
+    if not (exc.get("decided_by") and exc.get("decided_on") and exc.get("basis")):
+        return False
+    if exc.get("runs"):
+        return any((a.get("first"), a.get("last"), a.get("length"), a.get("kind")) ==
+                   (run["first"], run["last"], run["length"], run["kind"]) for a in exc["runs"])
+    chapter = shots_of_chapter.get(exc.get("chapter"))
+    return bool(chapter and exc.get("max_run")) and set(run["shots"]) <= chapter and run["length"] <= int(exc["max_run"])
+
+
 def _moving(a, b, step=1.0):
     """Sample points inside an interval of continuous motion (it is never a static stretch)."""
     n = max(1, int((b - a) / step))
@@ -344,21 +371,24 @@ def longform_qa(p, preset="review"):
         f"longest stretch without a visual change {longest[0]:.1f}s at {longest[1]:.1f}s (limit {MAX_STATIC}s)")
 
     kinds = [visual_kind(s) for s in story["shots"]]
-    run, best, at = 1, 1, kinds[0] if kinds else None
-    for a, b in zip(kinds, kinds[1:]):
-        run = run + 1 if a == b else 1
-        if run > best:
-            best, at = run, b
-    # g-r9: the film-wide limit stays; one run may be accepted by the owner, on the record in project.json
-    # (`variety_exception`: max_run, chapter, decided_by, decided_on, basis), as `runtime_decision` does for the runtime
+    runs = same_kind_runs(story["shots"])
+    best = max(runs, key=lambda r: r["length"]) if runs else {"length": 1, "kind": None}
+    long_runs = [r for r in runs if r["length"] > MAX_SAME_KIND_RUN]
+    # g-r9: the film-wide limit stays; a longer run passes only when the owner accepted that run, on the record in
+    # project.json `variety_exception` (decided_by, decided_on, basis, and its scope: `runs` named by first and last
+    # shot, or the older `chapter` + `max_run`); 2026-11-12 (Codex review of the floating film): the scope is checked,
+    # an exception never raises the limit for the rest of the film
     exc = (_read(p / "project.json") or {}).get("variety_exception") or {}
-    limit = MAX_SAME_KIND_RUN
-    if exc.get("max_run") and exc.get("decided_by") and exc.get("decided_on") and exc.get("basis"):
-        limit = max(limit, int(exc["max_run"]))
-    row("visual_variety", best <= limit,
-        f"longest run of one visual kind: {best} x {at} (limit {MAX_SAME_KIND_RUN}"
-        + (f"; owner exception to {limit} for {exc.get('chapter')}, {exc['decided_by']}, {exc['decided_on']}" if limit != MAX_SAME_KIND_RUN else "")
-        + "); " + ", ".join(f"{k} {kinds.count(k)}" for k in sorted(set(kinds))))
+    shots_of = {c["id"]: set(c["shots"]) for c in m["chapters"]}
+    covered = [r for r in long_runs if variety_excepted(r, exc, shots_of)]
+    uncovered = [r for r in long_runs if r not in covered]
+    span = lambda r: f"{r['first']}-{r['last']} ({r['length']} x {r['kind']})"
+    row("visual_variety", not uncovered,
+        f"longest run of one visual kind: {best['length']} x {best['kind']} (limit {MAX_SAME_KIND_RUN})"
+        + (f"; owner exception for {', '.join(span(r) for r in covered)}, {exc['decided_by']}, {exc['decided_on']}"
+           if covered else "")
+        + (f"; over the limit without an owner exception: {', '.join(span(r) for r in uncovered)}" if uncovered else "")
+        + "; " + ", ".join(f"{k} {kinds.count(k)}" for k in sorted(set(kinds))))
     def signature(sh):
         return (sh.get("visual_type"), sh.get("transition"), sh.get("from_state"), sh.get("to_state"), sh.get("camera"),
                 json.dumps((sh.get("animation") or {}).get("camera_move"), sort_keys=True),

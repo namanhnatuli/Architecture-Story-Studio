@@ -19,7 +19,19 @@ TRANSPARENCY = '["ass_transparency"]'
 HIGHLIGHT = '["ass_highlight"]'
 TINT = '["ass_tint"]'   # g-r5: how far a part's glow leans towards the accent colour (one value per part and shot)
 HIDE = "hide_render"  # also mirrored to hide_viewport when applied in Blender
-F32_KEY_ULPS = 4      # Plan.key_tolerance: Blender keeps keyframe values in single precision
+# Plan.key_tolerance: Blender keeps keyframe values in single precision and interpolates them in single precision.
+# Measured independently (tools/f32_key_error.py, Blender 5.2.2, 2026-11-12: every easing the engine writes, random key
+# pairs from 0.5 to 2000 and across zero, 640,000 in-between frames): the evaluated value lies at most 2.9 float32
+# ulps of the segment's scale max(|a|, |b|, |b - a|) from the float64 plan (4.8 ulps if counted on the keys alone,
+# because a move across zero carries a change larger than either key). 4 ulps of that scale: the measured worst case
+# with a margin, and nothing more.
+F32_KEY_ULPS = 4
+
+
+def f32_ulp(x):
+    """Spacing of single-precision numbers at |x| (one unit in the last place)."""
+    x = abs(x)
+    return 2.0 ** -149 if x < 2.0 ** -126 else 2.0 ** (math.frexp(x)[1] - 24)
 
 
 class PlanError(ValueError):
@@ -109,13 +121,21 @@ class Plan:
     def keys(self, name, channel):
         return [k for _, k in sorted(self.tracks.get(name, {}).get(channel, {}).items())]
 
-    @staticmethod
-    def key_tolerance(values, base):
-        """How far Blender's evaluated value may sit from the plan's: `base`, or, for large values, a few single-
-        precision ulps. Blender stores F-curve keys as float32 and interpolates between them in float32, so a district
-        camera's ortho scale of ~1000 m comes back 1-3 ulps (6e-5 m each) off the float64 plan (SC_004, SC_038)."""
-        largest = max((abs(v) for v in values), default=0.0)
-        return max(base, F32_KEY_ULPS * largest * 2.0 ** -23)
+    def key_tolerance(self, name, channel, frame, base):
+        """How far Blender's evaluated value may sit from the plan's at `frame`: `base`, or, for large values,
+        F32_KEY_ULPS float32 ulps of the scale of the keys Blender interpolates there (max(|a|, |b|, |b - a|) over the
+        components; the key itself on a hold). A district camera's ortho scale of ~933 m came back 2.6 ulps
+        (1.6e-4 m) off the float64 plan (SC_004, SC_038, full review 2026-11-11), over the fixed 1e-4."""
+        keys = self.keys(name, channel)
+        if not keys:
+            return base
+        pair = next(((a, b) for a, b in zip(keys, keys[1:]) if a.frame <= frame < b.frame and a.easing != "CONSTANT"), None)
+        if pair is None:   # before the first key, after the last, or on a hold: the stored key itself
+            key = keys[0] if frame <= keys[0].frame else next((a for a, b in zip(keys, keys[1:]) if a.frame <= frame < b.frame), keys[-1])
+            scale = max((abs(v) for v in key.value), default=0.0)
+        else:
+            scale = max((max(abs(x), abs(y), abs(y - x)) for x, y in zip(pair[0].value, pair[1].value)), default=0.0)
+        return max(base, F32_KEY_ULPS * f32_ulp(scale))
 
     def channels(self, name):
         return sorted(self.tracks.get(name, {}))

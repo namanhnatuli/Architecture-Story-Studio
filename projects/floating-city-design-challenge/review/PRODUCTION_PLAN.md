@@ -150,3 +150,26 @@
     - kiểm Blender 585/585; media, âm lượng, phụ đề, Whisper đều PASS;
     - QA phim dài còn `visual_variety` FAIL, chờ chủ kênh quyết.
   - Chi tiết: `review/INTERNAL_REVIEW_V1.md`, `qa/EDITORIAL_REVIEW_TIMECODED.md`.
+- **Bản internal review đầy đủ v2 (2026-11-12).**
+  - Đầu vào: review của Codex trên FULL v1, cộng yêu cầu watermark của chủ kênh. Chủ kênh chấp nhận ngoại lệ `visual_variety` cho đúng hai chuỗi B08–B14 và B27–B31.
+  - **Đã sửa:**
+    - B33/B34 xuống khung ngang mặt nước;
+    - B13 cận khe, có thước 0,66 m;
+    - đầu card B03/B20/B32/B37 hiện sơ đồ sớm;
+    - nước trong muộn hơn và xanh hơn ở B22/B24/B30/B31;
+    - B12/B17 không lộ mép bãi; B31 và B38 tăng tương phản.
+  - **Pipeline:**
+    - watermark kênh đốt vào hình lúc mã hóa;
+    - ngoại lệ `visual_variety` đúng phạm vi;
+    - dung sai keyframe đúng 4 ulp, kèm phép đo độc lập.
+  - **Render và ghép:** render lại 44/44 shot theo báo cáo cache; bản FULL_V2 13:04,2, có SFX và không SFX.
+  - **QA:**
+    - kiểm Blender 586/586;
+    - QA phim dài 17/17;
+    - gate nội bộ PASS; 487 test.
+  - **Còn chờ chủ kênh:**
+    - nghe SFX;
+    - quyết về nước ở khung ngang, B33 khung chuyển và B37;
+    - quyết về chuỗi card của phim Gothic;
+    - xem watermark và chữ trên hình mới.
+  - Chi tiết: `review/INTERNAL_REVIEW_V2.md`, `qa/EDITORIAL_REVIEW_TIMECODED.md`.

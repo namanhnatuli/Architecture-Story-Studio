@@ -66,7 +66,7 @@ def expected_counts(family, variant, p):
     if family == "floating" and variant == "pair":
         n_built = sum(1 for k in ("storeys_a", "storeys_b") if p[k] > 0)
         return {k: v for k, v in {"HULL": 2, "DECK": 2, "BUILDING": n_built, "ROOF": n_built, "DECORATION": 2 * n_built,
-                                  "WALKWAY": 1, "CONNECTOR": 2}.items() if v}
+                                  "WALKWAY": 1, "CONNECTOR": 2, "MARKER": 3}.items() if v}   # the deck step's dimension
     if family == "floating" and variant == "neighbourhood":   # 5 platforms, 4 joints (2 along X with fenders)
         from engine.arch.families import floating as F
         decoration = sum(F.set_counts("home", kind, L=p["length_m"], B=p["width_m"], cover=p["building_cover"])["DECORATION"]

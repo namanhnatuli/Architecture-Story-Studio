@@ -299,8 +299,10 @@ def encode_sequence(p, preset, shot_list, target, log_name):
                 (link_dir / f"f_{n:06d}.png").symlink_to((seq / f"frame_{k:04d}.png").resolve())
         target.parent.mkdir(parents=True, exist_ok=True)
         partial = target.with_name(target.stem + ".partial.mp4")   # atomic: the real name only for a complete file
+        wm = watermark_spec(p, preset)
         run_logged([ff, "-y", "-framerate", str(project["fps"]), "-start_number", "1", "-i", str(link_dir / "f_%06d.png"),
-                    *encode_args(settings, preset), "-movflags", "+faststart", str(partial)],
+                    *(["-i", str(ROOT / wm["image"])] if wm else []),
+                    *encode_args(settings, preset, wm), "-movflags", "+faststart", str(partial)],
                    p / "qa" / f"{log_name}.log")
         if not partial.is_file() or partial.stat().st_size == 0:
             raise SystemExit(f"FFmpeg returned success but {partial.name} is missing/empty")
@@ -310,19 +312,109 @@ def encode_sequence(p, preset, shot_list, target, log_name):
     return target
 
 
-def encode_args(settings, preset):
+def encode_args(settings, preset, wm=None):
     """Video encoder arguments: global codec/CRF, per-preset overrides (M7 final_4k: CRF, x264 preset and an
-    explicit BT.709 conversion + tags; earlier presets keep their original arguments)."""
+    explicit BT.709 conversion + tags; earlier presets keep their original arguments). With `wm` (watermark_spec,
+    the image as the second input) the watermark is laid over the frames in RGB before any colour conversion."""
     cfg = settings.get(preset, {})
     args = ["-c:v", settings["output_codec"], "-crf", str(cfg.get("crf", settings["output_crf"]))]
     if cfg.get("x264_preset"):
         args += ["-preset", cfg["x264_preset"]]
-    if cfg.get("color") == "bt709":
-        # PNG frames carry sRGB transfer metadata that newer FFmpeg propagates; setparams pins BT.709 on the frames
-        args += ["-vf", "scale=out_color_matrix=bt709:out_range=tv,"
-                        "setparams=colorspace=bt709:color_primaries=bt709:color_trc=bt709:range=tv",
-                 "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-color_range", "tv"]
+    # PNG frames carry sRGB transfer metadata that newer FFmpeg propagates; setparams pins BT.709 on the frames
+    bt709 = "scale=out_color_matrix=bt709:out_range=tv,setparams=colorspace=bt709:color_primaries=bt709:color_trc=bt709:range=tv" \
+        if cfg.get("color") == "bt709" else None
+    if wm:
+        args += ["-filter_complex", watermark_filter(wm) + (f",{bt709}" if bt709 else "") + "[v]", "-map", "[v]"]
+    elif bt709:
+        args += ["-vf", bt709]
+    if bt709:
+        args += ["-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-color_range", "tv"]
     return args + ["-pix_fmt", "yuv420p"]
+
+
+BRANDING = ROOT / "config" / "branding.json"
+
+
+def png_size(path):
+    with open(path, "rb") as f:
+        head = f.read(24)
+    if head[:8] != b"\x89PNG\r\n\x1a\n":
+        raise SystemExit(f"{path} is not a PNG")
+    return int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big")
+
+
+def watermark_spec(p, preset):
+    """The channel watermark (config/branding.json) as pixel geometry for `preset`, or None when the project does not
+    carry it (project.json "watermark": true). The image must be the recorded file (sha256). The box must lie in a
+    bottom corner inside the subtitle zone of config/annotation_style.json, which annotations never enter, so the
+    watermark cannot cover a label, a note or a card tag."""
+    if not read_json(p / "project.json").get("watermark"):
+        return None
+    cfg = read_json(BRANDING)["watermark"]
+    image = ROOT / cfg["image"]
+    if not image.is_file() or sha256_of(image) != cfg["sha256"]:
+        raise SystemExit(f"watermark {cfg['image']} is missing or not the recorded file (sha256 in config/branding.json)")
+    want = read_json(ROOT / "config/render_presets.json")[preset]
+    W, H = want["width"], want["height"]
+    iw, ih = png_size(image)
+    w = 2 * round(W * cfg["width_fraction"] / 2)
+    h = 2 * round(w * ih / iw / 2)
+    margin_x, margin_y = round(W * cfg["margin_x_fraction"]), round(H * cfg["margin_y_fraction"])
+    corner = cfg["corner"]
+    if corner not in ("BOTTOM_LEFT", "BOTTOM_RIGHT"):
+        raise SystemExit(f"watermark corner {corner}: only the bottom corners lie in the annotation-free subtitle zone")
+    zone = read_json(ROOT / "config/annotation_style.json")["subtitle_zone"]
+    if (margin_y + h) / H > zone:
+        raise SystemExit(f"watermark box reaches {(margin_y + h) / H:.3f} of the frame height, above the subtitle zone {zone}")
+    x = margin_x if corner == "BOTTOM_LEFT" else W - margin_x - w
+    return {"image": cfg["image"], "sha256": cfg["sha256"], "corner": corner, "x": x, "y": H - margin_y - h,
+            "width": w, "height": h, "opacity": cfg["opacity"]}
+
+
+def watermark_filter(wm):
+    """filter_complex chain: input 1 (the watermark) scaled and faded, laid over input 0 in RGB (no output label)."""
+    return (f"[1:v]scale={wm['width']}:{wm['height']}:flags=lanczos,format=rgba,colorchannelmixer=aa={wm['opacity']}[wm];"
+            f"[0:v][wm]overlay={wm['x']}:{wm['y']}:format=rgb")
+
+
+def watermark_check(p, preset, video, first_png, wm):
+    """The watermark is in the encoded file, where it should be: in its box, the video's first frame is close to the
+    shot's first PNG with the watermark laid over it, and far from the PNG without it (PSNR of the box, dB)."""
+    work = p / "qa" / "_watermark_check"
+    work.mkdir(exist_ok=True)
+    try:
+        frame, ref = work / "video.png", work / "reference.png"
+        subprocess.run([ffmpeg_bin(), "-v", "error", "-y", "-i", str(video), "-frames:v", "1", str(frame)], check=True)
+        subprocess.run([ffmpeg_bin(), "-v", "error", "-y", "-i", str(first_png), "-i", str(ROOT / wm["image"]),
+                        "-filter_complex", watermark_filter(wm), "-frames:v", "1", str(ref)], check=True)
+
+        def psnr(a, b):
+            crop = f"crop={wm['width']}:{wm['height']}:{wm['x']}:{wm['y']}"
+            r = subprocess.run([ffmpeg_bin(), "-v", "info", "-i", str(a), "-i", str(b), "-lavfi",
+                                f"[0:v]{crop}[a];[1:v]{crop}[b];[a][b]psnr", "-f", "null", "-"], capture_output=True, text=True)
+            value = r.stderr.split("average:")[1].split()[0]
+            return 99.0 if value == "inf" else float(value)
+        with_wm, without = psnr(frame, ref), psnr(frame, first_png)
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+    return {"box": [wm["x"], wm["y"], wm["width"], wm["height"]], "psnr_to_watermarked_db": round(with_wm, 2),
+            "psnr_to_plain_db": round(without, 2), "present": with_wm >= 30.0 and with_wm >= without + 6.0}
+
+
+def watermark_backgrounds(p, preset, chapter_list, wm, busy=6.0):
+    """What lies under the watermark box in the middle frame of each shot: mean edge strength (0-255) of the box in
+    the render. Informative: over busy footage the watermark reads less, it never hides a text (subtitle zone)."""
+    rows = []
+    for s in chapter_list:
+        png = p / "renders" / preset / s["id"] / f"frame_{max(1, expected_frames(p, s) // 2):04d}.png"
+        r = subprocess.run([ffmpeg_bin(), "-v", "info", "-i", str(png), "-vf",
+                            f"crop={wm['width']}:{wm['height']}:{wm['x']}:{wm['y']},edgedetect=low=0.08:high=0.2,"
+                            "signalstats,metadata=print:key=lavfi.signalstats.YAVG", "-f", "null", "-"],
+                           capture_output=True, text=True)
+        edges = float(r.stderr.split("YAVG=")[1].split()[0]) if "YAVG=" in r.stderr else None
+        rows.append({"shot": s["id"], "edges": None if edges is None else round(edges, 2),
+                     "busy": edges is not None and edges > busy})
+    return rows
 
 
 def encode_full(p, preset):
@@ -1011,8 +1103,15 @@ def chapter_media_qa(p, preset, chapter, video, chapter_list):
     ids = [s["id"] for s in chapter_list]
     cuts = [c for c in boundary_ssim(p, preset, chapter_list)]
     problems += [f"cut {c['cut']}: SSIM {c['ssim']} < {CUT_SSIM_MIN}" for c in cuts if not c["ok"]]
+    wm = watermark_spec(p, preset)
+    watermark = None
+    if wm:
+        watermark = dict(wm, check=watermark_check(p, preset, video, p / "renders" / preset / ids[0] / "frame_0001.png", wm),
+                         backgrounds=watermark_backgrounds(p, preset, chapter_list, wm))
+        if not watermark["check"]["present"]:
+            problems.append(f"watermark not found in its box: {watermark['check']}")
     return {"chapter": chapter, "video": str(video.relative_to(p)), "shots": ids, "expected_frames": expected,
-            "probe": info, "cuts": cuts, "problems": problems}
+            "probe": info, "cuts": cuts, "watermark": watermark, "problems": problems}
 
 
 def sha256_of(path):
@@ -1054,6 +1153,8 @@ def intermediate_problem(p, preset, entry, chapter_list):
         return "checksum differs (corrupt or replaced)"
     if shot_keys(p, chapter_list, preset) != entry["shot_keys"]:
         return "shot inputs changed since it was encoded"
+    if entry.get("watermark") != watermark_spec(p, preset):
+        return "watermark changed since it was encoded (config/branding.json, project.json)"
     info = probe(f)
     want = read_json(ROOT / "config/render_presets.json")[preset]
     if info["frames"] != entry["frames"] or (info["width"], info["height"]) != (want["width"], want["height"]):
@@ -1101,7 +1202,7 @@ def do_chapter(p, chapter, preset, force=False, release=False):
             raise SystemExit(f"Chapter {chapter} intermediate QA FAILED: " + "; ".join(media["problems"]))
         reg["chapters"][chapter] = {"file": str(video.relative_to(p)), "sha256": sha256_of(video),
                                     "frames": media["expected_frames"], "shot_keys": shot_keys(p, chapter_list, preset),
-                                    "media": media, "encoded_utc": datetime.now(timezone.utc).isoformat(),
+                                    "watermark": watermark_spec(p, preset), "media": media, "encoded_utc": datetime.now(timezone.utc).isoformat(),
                                     "free_gb_after_encode": round(free_gb(p), 1)}
         write_registry(p, preset, reg)
         if release:   # the verified intermediate (+ registry, manifests) now stands for these frames
@@ -1246,7 +1347,7 @@ def final_media_qa(p, preset, out, files, doc, ranges, timing):
                            "ssim": round(value, 5), "ok": mode == "hard" or value >= CUT_SSIM_MIN})
     problems += [f"chapter cut {x['cut']}: SSIM {x['ssim']} (match cut must be invisible)" for x in boundaries if not x["ok"]]
     return {"preset": preset, "file": str(out.relative_to(p)), **info, "color": tags, "decode_errors": errs,
-            "black_segments": blacks, "chapter_intermediates": [str(f.relative_to(p)) for f in files],
+            "black_segments": blacks, "watermark": watermark_spec(p, preset), "chapter_intermediates": [str(f.relative_to(p)) for f in files],
             "chapter_boundaries": boundaries, "expected_total_frames": timing["total_frames"], "problems": problems}
 
 

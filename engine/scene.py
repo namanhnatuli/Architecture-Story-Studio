@@ -121,11 +121,15 @@ def add_units(material, units):
     links.new(_socket(mix.outputs, "Result_Color"), bsdf.inputs["Emission Color"])
 
 
+SEE_THROUGH_FULL = 0.5   # the transparency at which a see-through material shows its see_through_color in full
+
+
 def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, render_method="DITHERED",
-                  detail=None, units=None, tint_color=None):
+                  detail=None, units=None, tint_color=None, see_through_color=None):
     """Principled material driven per object by two custom properties:
     ass_highlight (0..1 self-coloured glow) and ass_transparency (0 opaque .. 1
-    invisible). Missing properties read as 0."""
+    invisible). Missing properties read as 0. With see_through_color, the surface turns towards that colour as it
+    becomes see-through (in full at SEE_THROUGH_FULL); opaque, it keeps exactly `color`."""
     material = bpy.data.materials.new(name)
     material.use_nodes = True
     nodes, links = material.node_tree.nodes, material.node_tree.links
@@ -156,6 +160,25 @@ def make_material(name, color, roughness=0.72, metallic=0.0, glow_gain=1.0, rend
         add_surface_detail(material, color, detail)
     if units:
         add_units(material, units)
+    if see_through_color:
+        # 2026-11-12 (Codex review of the floating film's full cut v1): see-through water kept half of a light blue and
+        # read almost as the backdrop in level views. Seen through, it now keeps half of a deeper blue, so its
+        # see-through look stays about the look of the opaque water, and the waterline and the water read.
+        seen = nodes.new("ShaderNodeMath")
+        seen.operation = "MULTIPLY"
+        seen.use_clamp = True
+        seen.inputs[1].default_value = 1.0 / SEE_THROUGH_FULL
+        links.new(tr.outputs["Fac"], seen.inputs[0])
+        deep = nodes.new("ShaderNodeMix")
+        deep.data_type = "RGBA"
+        sock = lambda sockets, ident: next(x for x in sockets if x.identifier == ident)
+        links.new(seen.outputs[0], sock(deep.inputs, "Factor_Float"))
+        sock(deep.inputs, "A_Color").default_value = hex_to_rgba(color)
+        sock(deep.inputs, "B_Color").default_value = hex_to_rgba(see_through_color)
+        base_in = bsdf.inputs["Base Color"]
+        if base_in.is_linked:
+            links.new(base_in.links[0].from_socket, sock(deep.inputs, "A_Color"))
+        links.new(sock(deep.outputs, "Result_Color"), base_in)
     if tint_color:
         # g-r5: a SEQUENCE highlight may colour the part instead of brightening it (ass_tint 0..1, default 0): the
         # surface turns towards the accent as the highlight rises, and the glow gives way by the same share. A light
@@ -202,7 +225,8 @@ def library_materials(kw, path=MATERIAL_LIBRARY):
     """M4 shared material library (procedural only), keyed like the asset components."""
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     return {key: make_material(m["name"], m["color"], roughness=m.get("roughness", 0.72),
-                               metallic=m.get("metallic", 0.0), detail=m.get("detail"), units=m.get("units"), **kw)
+                               metallic=m.get("metallic", 0.0), detail=m.get("detail"), units=m.get("units"),
+                               see_through_color=m.get("see_through_color"), **kw)
             for key, m in data["materials"].items()}
 
 

@@ -1,0 +1,16 @@
+{
+  "schema": "branding/1",
+  "watermark": {
+    "added": "2026-11-12 (owner request: burn the channel watermark into a corner of the video)",
+    "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+    "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+    "corner": "BOTTOM_LEFT",
+    "width_fraction": 0.14,
+    "margin_x_fraction": 0.045,
+    "margin_y_fraction": 0.04,
+    "opacity": 0.55,
+    "where": "Burnt into the picture when the shot frames are encoded (tools/cli.py encode_sequence): chapter intermediates, the assembled film and review excerpts of every preset; never in the Blender renders, so the render cache is unaffected. Only for projects whose project.json says \"watermark\": true (films finished before it keep their verified intermediates).",
+    "why_bottom_left": "Measured on the floating-city internal review (2026-11-12): the other three corners carry the film's own text (TOP_LEFT card tags and chapter titles, TOP_RIGHT and BOTTOM_RIGHT notes); the box sits inside the subtitle zone of config/annotation_style.json (bottom 17 %), which annotations never enter, and at the left edge of the title-safe area; YouTube's own channel watermark and end-screen subscribe element use the bottom right. Navy at 55 % stays readable over every background the film has (luma 118-218 under the box).",
+    "note": "Source attribution, not protection against re-upload. The navy lockup is for light footage (watermarks_navy_revision.json)."
+  }
+}

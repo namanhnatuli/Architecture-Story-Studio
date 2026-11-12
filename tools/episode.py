@@ -87,7 +87,7 @@ def scaffold(topic, slug=None, projects_root=None, today=None):
     project = {"slug": slug, "title": topic.strip().rstrip("."), "mode": "documentary", "language": d["language"],
                "fps": d["fps"], "render_preset": "review", "factual_review": "pending",
                "production_profile": "NARRATED_INTERNAL_REVIEW", "chapters": "script/chapters.json",
-               "review_label": "INTERNAL_REVIEW"}
+               "review_label": "INTERNAL_REVIEW", "watermark": bool((d.get("watermark") or {}).get("burn_in"))}
     (p / "project.json").write_text(json.dumps(project, indent=2) + "\n")
     episode = {"schema": "episode/1", "topic": topic, "created": day, "defaults": d,
                "notes": "Stages are derived from files by `episode.py status`; this file only records the brief. "

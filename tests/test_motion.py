@@ -48,22 +48,43 @@ class EasingTest(unittest.TestCase):
 
 
 class KeyToleranceTest(unittest.TestCase):
-    def test_small_values_keep_the_base_tolerance(self):
-        self.assertEqual(motion.Plan.key_tolerance((0.5, -12.0, 150.0), 1e-4), 1e-4)
+    """Plan.key_tolerance: F32_KEY_ULPS float32 ulps of the scale Blender interpolates (max(|a|, |b|, |b - a|) of the
+    bracketing keys), never less than the fixed base; measured independently by tools/f32_key_error.py."""
 
-    def test_large_values_allow_a_few_float32_ulps_and_no_more(self):
+    @staticmethod
+    def plan(a, b, easing="SMOOTH", frames=(1, 25)):
+        p = motion.Plan(fps=24, frame_count=40)
+        p.key("cam", motion.ORTHO, frames[0], a, easing)
+        p.key("cam", motion.ORTHO, frames[1], b, easing)
+        return p
+
+    def test_ulp_is_the_float32_spacing(self):
         import struct
 
-        def f32(x):
-            return struct.unpack("f", struct.pack("f", x))[0]
-        # SC_038 (full review, 2026-11-11): plan 933.2710799037022, Blender 933.271240234375 = 3 ulps of 6.1e-5
+        def next_up(x):
+            return struct.unpack("f", struct.pack("I", struct.unpack("I", struct.pack("f", x))[0] + 1))[0]
+        for x in (0.75, 1.0, 3.0, 150.0, 933.27099609375, 1500.0):
+            self.assertEqual(motion.f32_ulp(x), next_up(x) - x, x)
+
+    def test_small_values_keep_the_base_tolerance(self):
+        self.assertEqual(self.plan(0.5, 150.0).key_tolerance("cam", motion.ORTHO, 10, 1e-4), 1e-4)
+
+    def test_large_values_allow_four_float32_ulps_of_the_segment_and_no_more(self):
+        # SC_038 (full review, 2026-11-11): plan 933.2710799037022, Blender 933.271240234375 (2.6 ulps of 6.1e-5)
         want, got = 933.2710799037022, 933.271240234375
-        tol = motion.Plan.key_tolerance((want,), 1e-4)
+        p = self.plan(want, want * 1.0004)
+        tol = p.key_tolerance("cam", motion.ORTHO, 10, 1e-4)
+        ulp = 2.0 ** -14   # float32 spacing in [512, 1024)
+        self.assertEqual(tol, motion.F32_KEY_ULPS * ulp)
         self.assertGreater(abs(got - want), 1e-4)
         self.assertLessEqual(abs(got - want), tol)
-        ulp = 2.0 ** (math.frexp(f32(want))[1] - 24)
-        self.assertLess(tol, 9 * ulp)               # a real mismatch (a wrong key) is still caught
-        self.assertGreater(abs(want * 1.001 - want), tol)
+        self.assertGreater(5 * ulp, tol)   # an error of 5 ulps is a mismatch
+
+    def test_a_move_across_zero_uses_the_change_and_a_hold_its_key(self):
+        p = self.plan(-891.0, 874.0, frames=(5, 25))   # the change, 1765, is in [1024, 2048): ulp 2**-13
+        self.assertEqual(p.key_tolerance("cam", motion.ORTHO, 10, 1e-4), 4 * 2.0 ** -13)
+        self.assertEqual(p.key_tolerance("cam", motion.ORTHO, 30, 1e-4), 4 * 2.0 ** -14)   # after the last key: 874
+        self.assertEqual(p.key_tolerance("cam", motion.ORTHO, 2, 1e-4), 4 * 2.0 ** -14)    # before the first key: 891
 
 
 class DirectionTest(unittest.TestCase):

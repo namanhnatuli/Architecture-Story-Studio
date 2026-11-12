@@ -11,5 +11,32 @@
   "review_label": "INTERNAL_REVIEW",
   "audio_timing_locked": true,
   "factual_review_basis": "the owner approved the 50 narrated claims on 2026-11-08 (answer 'Chốt c-r2 + duyệt 50 claim'); research/editorial_approval.json, bound to narration c-r2 (hash 976bb7c2…); the 14 registry claims the film does not narrate stay SOURCE_VERIFIED; Studio calculations and assumptions stay labelled illustrative",
-  "duration_seconds": 784.1666666666666
+  "duration_seconds": 784.1666666666666,
+  "watermark": true,
+  "variety_exception": {
+    "check": "visual_variety",
+    "runs": [
+      {
+        "first": "SC_008",
+        "last": "SC_014",
+        "beats": "B08-B14",
+        "length": 7,
+        "kind": "3D_SEQUENCE",
+        "why": "one explanation carried through: load and hull, freeboard, stability, platforms carrying different loads, the joint"
+      },
+      {
+        "first": "SC_027",
+        "last": "SC_031",
+        "beats": "B27-B31",
+        "length": 5,
+        "kind": "3D_SEQUENCE",
+        "why": "from the shore links to the offshore counterfactual and its moorings and links"
+      }
+    ],
+    "picture_revision": "internal review v2 (after ef13442)",
+    "decided_by": "Tran Nam Anh (channel owner)",
+    "decided_on": "2026-11-12",
+    "basis": "owner answer 'Chấp nhận đúng 2 chuỗi (Recommended)' (2026-11-12) to the agent's question: 'QA phim dài báo visual_variety FAIL vì có hai chuỗi shot 3D liền nhau dài hơn ngưỡng 4. Theo AGENTS.md, ngoại lệ ngưỡng là quyết định của chủ kênh và tôi không được tự ghi. Review của Codex khuyên chấp nhận ngoại lệ, chỉ cho đúng hai chuỗi B08–B14 (7 shot, 2:03–4:34) và B27–B31 (5 shot, 8:24–9:41), áp cho bản hình hiện tại. Ngưỡng 4 giữ nguyên cho phần còn lại của phim. Anh/chị chấp nhận ngoại lệ này không?' The option read: record variety_exception limited to exactly B08–B14 and B27–B31 for this picture revision; the validator exempts only those two runs; a change to the runs needs a new decision",
+    "limit_elsewhere": "the film-wide limit of 4 is unchanged for every other run; a run that grows, shrinks or changes kind is not covered"
+  }
 }

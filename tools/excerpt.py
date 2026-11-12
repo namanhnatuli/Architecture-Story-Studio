@@ -85,6 +85,11 @@ def build(p, preset, ids, label):
     black, decode = cli.black_segments(silent), cli.decode_errors(silent)
     if black or decode:
         problems.append(f"black segments {black}, decode errors {decode}")
+    wm = cli.watermark_spec(p, preset)   # the channel watermark, burnt in by encode_sequence
+    if wm:
+        wm = dict(wm, check=cli.watermark_check(p, preset, silent, p / "renders" / preset / ids[0] / "frame_0001.png", wm))
+        if not wm["check"]["present"]:
+            problems.append(f"watermark not found in its box: {wm['check']}")
     runs = excerpt_runs(film_ids, ids)
     cuts = []
     for run in runs:   # the film's own cuts inside each run keep their promise
@@ -157,7 +162,7 @@ def build(p, preset, ids, label):
         problems.append("sounds cost intelligibility: " + "; ".join(intelligibility["worse"]))
     report = {"utc": datetime.now(timezone.utc).isoformat(), "label": label, "preset": preset, "shots": ids,
               "render": results, "runs": runs, "excerpt_joins": joins, "frames": frames, "seconds": round(frames / fps, 3),
-              "cuts": cuts, "offsets_seconds": offsets, "sound_cues": cues, "mix": mix_report,
+              "cuts": cuts, "watermark": wm, "offsets_seconds": offsets, "sound_cues": cues, "mix": mix_report,
               "sound_design": sound.load_design(), "subtitle_stats": sub_stats, "subtitle_warnings": sub_warnings,
               "files": files, "intelligibility": intelligibility, "problems": problems}
     target = p / "qa" / f"excerpt_{label}.json"

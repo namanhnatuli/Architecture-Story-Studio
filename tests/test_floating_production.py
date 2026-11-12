@@ -92,7 +92,9 @@ class VisualsTest(unittest.TestCase):
         hood = json.loads((ROOT / "asset_library/architecture/sites/site_bay_01.json").read_text())["parameters"]
         sea = json.loads((ROOT / "asset_library/architecture/sites/site_open_sea_01.json").read_text())["parameters"]
         half_diagonal = {k: 0.5 * (s["site_width_m"] ** 2 + s["site_length_m"] ** 2) ** 0.5 for k, s in (("hood", hood), ("sea", sea))}
-        for bid, site in (("B22", "hood"), ("B24", "hood"), ("B30", "sea"), ("B31", "sea")):
+        # v2 (Codex review of the full cut v1): B33-B34 go level too; the water clears late in the descent, so the
+        # platforms' shade on the seabed never shows as a grid from above (9:23, 9:32)
+        for bid, site in (("B22", "hood"), ("B24", "hood"), ("B30", "sea"), ("B31", "sea"), ("B33", "hood"), ("B34", "hood")):
             seq = self.V.VISUALS[bid]["sequence"]
             self.assertEqual(seq["camera"], "FLOAT_UNDERWATER", bid)
             last = seq["views"][-1]
@@ -100,7 +102,9 @@ class VisualsTest(unittest.TestCase):
             self.assertGreater(last["clearance"], half_diagonal[site], bid)   # in front of the water's near face
             motion.sequence_views({"views": [{}, {"start_seconds": 1.0, "move_seconds": 1.0, "clearance": last["clearance"]}]})
             ghost = next(st for st in steps_of(self.V.VISUALS[bid]) if st["do"] == "GHOST" and st["targets"] == self.V.WATER_SITE)
-            self.assertEqual(ghost["at"], last["at"], bid)   # the camera goes down as the water clears
+            self.assertEqual((ghost["at"]["sentence"], ghost["at"]["word"]), (last["at"]["sentence"], last["at"]["word"]), bid)
+            self.assertAlmostEqual(ghost["at"].get("offset", 0.0) - last["at"].get("offset", 0.0), self.V.CLEAR_AFTER, msg=bid)
+            self.assertGreaterEqual(self.V.CLEAR_AFTER + ghost["seconds"], last["move_seconds"], bid)   # clear once level
 
     def test_chapters_after_the_first_open_with_their_numbered_title(self):
         chapters = json.loads((P / "script/chapters.json").read_text())["chapters"]

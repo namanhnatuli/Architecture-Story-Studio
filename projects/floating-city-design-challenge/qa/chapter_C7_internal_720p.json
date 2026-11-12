@@ -629,37 +629,37 @@
       {
         "cut": "SC_030->SC_031",
         "mode": "hard",
-        "ssim": 0.69312,
+        "ssim": 0.68142,
         "ok": true
       },
       {
         "cut": "SC_031->SC_032",
         "mode": "hard",
-        "ssim": 0.7796,
+        "ssim": 0.77706,
         "ok": true
       },
       {
         "cut": "SC_032->SC_033",
         "mode": "hard",
-        "ssim": 0.82481,
+        "ssim": 0.83912,
         "ok": true
       },
       {
         "cut": "SC_033->SC_034",
         "mode": "hard",
-        "ssim": 0.79265,
+        "ssim": 0.78211,
         "ok": true
       },
       {
         "cut": "SC_034->SC_035",
         "mode": "hard",
-        "ssim": 0.31578,
+        "ssim": 0.31865,
         "ok": true
       },
       {
         "cut": "SC_035->SC_036",
         "mode": "hard",
-        "ssim": 0.62917,
+        "ssim": 0.60003,
         "ok": true
       },
       {
@@ -669,6 +669,74 @@
         "ok": true
       }
     ],
+    "watermark": {
+      "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+      "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+      "corner": "BOTTOM_LEFT",
+      "x": 58,
+      "y": 631,
+      "width": 180,
+      "height": 60,
+      "opacity": 0.55,
+      "check": {
+        "box": [
+          58,
+          631,
+          180,
+          60
+        ],
+        "psnr_to_watermarked_db": 42.91,
+        "psnr_to_plain_db": 17.09,
+        "present": true
+      },
+      "backgrounds": [
+        {
+          "shot": "SC_029",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_030",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_031",
+          "edges": 7.23,
+          "busy": true
+        },
+        {
+          "shot": "SC_032",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_033",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_034",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_035",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_036",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_037",
+          "edges": 0.0,
+          "busy": false
+        }
+      ]
+    },
     "problems": []
   },
   "render_results": {

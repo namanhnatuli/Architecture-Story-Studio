@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.12.0 — 2026-11-12 — Watermark kênh, ngoại lệ đúng phạm vi, đính chính dung sai keyframe; phim thành phố nổi FULL v2
+- **Watermark kênh** (chủ kênh yêu cầu):
+  - file `branding/concepts_20261107/A_watermark_burnin_640.png`, đặt ở góc dưới trái, rộng 14% khung, độ đậm 55%;
+  - đốt vào hình lúc mã hóa khung PNG (`tools/cli.py`), nên cache render Blender không đổi;
+  - cấu hình ở `config/branding.json`, có sha256 của file ảnh;
+  - ô watermark phải nằm trong vùng phụ đề, nơi chú thích không bao giờ vào; pipeline từ chối mọi vị trí khác;
+  - chỉ áp cho dự án có `"watermark": true`. Dự án mới có sẵn (`production_defaults.json`); phim cầu và phim Gothic giữ nguyên;
+  - QA chương kiểm watermark có thật trong file (PSNR trong ô); registry bản chương ghi thông số, đổi watermark thì phải mã hóa lại.
+- **Ngoại lệ `visual_variety` theo đúng phạm vi** (`pipeline/chapters.py`):
+  - `variety_exception.runs` chỉ miễn những chuỗi khớp đúng shot đầu, shot cuối, độ dài và loại;
+  - hồ sơ phải có `decided_by`, `decided_on`, `basis`;
+  - dạng cũ `chapter` + `max_run` nay chỉ miễn chuỗi nằm trong chương đó, không còn nâng ngưỡng cho cả phim.
+  - Phát hiện: phim Gothic có chuỗi 5 card SC_024–SC_028 chưa được chấp nhận, trước đây qua QA nhờ kiểu cũ. Chỉ báo cáo, không sửa phim đó.
+- **Đính chính dung sai keyframe** (`engine/motion.py`): báo cáo trước ghi "4 ulp" và "không nới ngưỡng QA", nhưng công thức thực chất cho 4–8 ulp.
+  - Đo độc lập trên Blender 5.2.2 (`tools/f32_key_error.py`, 640.000 frame): sai số lớn nhất 2,9 ulp của độ lớn đoạn nội suy.
+  - Dung sai nay là đúng 4 ulp float32 của đoạn đó, ulp tính theo số mũ nhị phân.
+- **Mặt nước khi làm trong** (`engine/scene.py`): vật liệu có `see_through_color` chuyển màu khi trong (nước: #2A6E8E); nước đục giữ đúng màu cũ.
+- **Cặp phao `floating.pair`:** thêm thước chênh sàn (3 MARKER) đặt trên mặt trước hai phao.
+- **Phim thành phố nổi, bản internal review FULL v2:** sửa B03, B12, B13, B17, B20, B22, B24, B30–B34, B37, B38; render lại 8 chương 720p; 13:04,2. Chi tiết ở `projects/floating-city-design-challenge/review/INTERNAL_REVIEW_V2.md`.
+
 ## 0.11.2 — 2026-11-08 — Phim thành phố nổi c-r2: ba điểm sau review c-r1
 - **B23 (dốc cầu nối bờ):** lời dẫn nêu "including changes in loading". CLM_109 nêu đủ cả dải mực nước 2 m, thay đổi mớn nước khoảng 0,44 m và khớp ở giữa dải (±2,8°). Mô hình in thêm phép tính chỉ với mực nước (±2,3°).
 - **CLM_054:** thay "costs that rise faster than the depth" bằng "non-linear increases in material and installation cost", đúng lời nguồn.

@@ -93,7 +93,7 @@ Sinh tự động bởi `tools/longform_reports.py`. Đây là số liệu cấu
 - PASS `audio_no_overlap`: no two beats' speech overlaps
 - PASS `narration_silences`: longest gap 1.23s (limit 4.0s), after the last line 0.82s
 - PASS `no_static_stretches`: longest stretch without a visual change 12.4s at 188.5s (limit 14.0s)
-- FAIL `visual_variety`: longest run of one visual kind: 7 x 3D_SEQUENCE (limit 4); 3D_SEQUENCE 27, DIAGRAM 16, TITLE 1
+- PASS `visual_variety`: longest run of one visual kind: 7 x 3D_SEQUENCE (limit 4); owner exception for SC_008-SC_014 (7 x 3D_SEQUENCE), SC_027-SC_031 (5 x 3D_SEQUENCE), Tran Nam Anh (channel owner), 2026-11-12; 3D_SEQUENCE 27, DIAGRAM 16, TITLE 1
 - PASS `no_repeated_visuals`: no two consecutive shots show the same picture
 - PASS `chapter_openings`: chapters 2-8 open with a numbered title on their first shot
 - PASS `annotations_consistent`: narration/visual consistency: no contradiction; 2 UNCERTAIN for the reviewer (B31.s1 TRANSFORMATION, B40.s0 SIDE); every annotation placed

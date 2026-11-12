@@ -3,13 +3,23 @@
   "chapters": {
     "C1": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C1_silent.mp4",
-      "sha256": "32d7c1e6119ded2e7c52bd8873bfcec2765ffd4238935fcd4a0812561f658621",
+      "sha256": "e652203f03923d4e54b93b3d5399175fd2d27919ee75d4b9fb0508836d1de4ca",
       "frames": 1539,
       "shot_keys": {
-        "SC_001": "47148d72dcffe8119b48a11918c5f39263816b4015b95093c8fb3d1d6571e332",
-        "SC_002": "1b7e9a2e211953033964a9515b8d7343f92661e24b5a3f10f8c2eb45e0605d19",
-        "SC_003": "0419c82255327b37606f6ee067c39140de514d32b644b8e7a8971e979ff1088a",
-        "SC_004": "1615cf72a5198f481c623a022dc459811268629bac2354e411d734cefcc34f91"
+        "SC_001": "9354e8346fe0ba80e7077075ede2e0ce6090f85943f90ba334805d75bdae4b66",
+        "SC_002": "f55df3d17f6b8accef6441a0c92dbe7886e0b2858a37b3143dd768d0918eda5b",
+        "SC_003": "23e0b5280b996e01b980b2bad01b9f8d7927123f3b46f1a3982d536865751b63",
+        "SC_004": "7a9a77ccaafd1d230d7204031a819034011c70123265232bfe30b97f45edbb90"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C1",
@@ -46,33 +56,86 @@
           {
             "cut": "SC_002->SC_003",
             "mode": "hard",
-            "ssim": 0.49761,
+            "ssim": 0.49562,
             "ok": true
           },
           {
             "cut": "SC_003->SC_004",
             "mode": "hard",
-            "ssim": 0.65053,
+            "ssim": 0.64866,
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 40.43,
+            "psnr_to_plain_db": 16.05,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_001",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_002",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_003",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_004",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T14:28:46.080166+00:00",
-      "free_gb_after_encode": 83.9
+      "encoded_utc": "2026-11-12T00:40:31.683600+00:00",
+      "free_gb_after_encode": 81.2
     },
     "C2": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C2_silent.mp4",
-      "sha256": "7683db81737a84bc67bda4ba1e314c8c88a62ca7a1000192167def34cd2f3a6d",
+      "sha256": "6a39f4d9b8c21cd6fe2cad1124a576b771d7ff25787948489ba52b72e89b021e",
       "frames": 3282,
       "shot_keys": {
-        "SC_005": "968d56047c66db0bda23fbcadefb4ae5340184feeddad8c476be7db2f2300195",
-        "SC_006": "2fa0c9855fa1812cea329d84210f16b704950bb08b052813a02b0579eece704a",
-        "SC_007": "c467fb9e53eb6547c3960a369404d902e6687c74cdf882860938127d18c35ee5",
-        "SC_008": "556684036f1449b7507f0807df5134d0850c3e78da2a36d5839f23c7f4a34dbb",
-        "SC_009": "c0b86bc329360c4c269daa10908e703521419a83e8ef75fe3852cac6c807fe31",
-        "SC_010": "995a44a9ad2c87854c396672be7d4fa981d3f9d1e8f5da371fccbaee2bf1c78d",
-        "SC_011": "ff85b099cec34be4f1ebfab424a960409da84836e98acef3f96ac47b52abb4c6"
+        "SC_005": "49b4b2650f75767c3e77a8982f3295a79465d16267e174a2d066c190377d6bf6",
+        "SC_006": "08ab5cf2917041db8c5e3f85412c73ae3ccab350e9aeeac80283bbe7b9e6a0ad",
+        "SC_007": "146dcbaa042d6368c649f1f9106ca80e05605e34cdd99c3adefb02546a92ea8e",
+        "SC_008": "8f2418a19f2bb260f3a48171ce3762ac3503555188e57a5e709592ff88e08530",
+        "SC_009": "8d8f63676856946b81bbb7d6286c927850f22d2c9f803338f43a044d6a0fc3e4",
+        "SC_010": "5b39af2578e4ce1b73c4a58f6d051d8ba8dedaaf9472d8f3190dcb5f7c007957",
+        "SC_011": "f84feb9711e8ac7e8da40ad9a1d0858d79933782af813ed6e8fb51d66181e7de"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C2",
@@ -130,7 +193,7 @@
           {
             "cut": "SC_009->SC_010",
             "mode": "match",
-            "ssim": 0.99997,
+            "ssim": 0.99998,
             "ok": true
           },
           {
@@ -140,21 +203,89 @@
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 40.77,
+            "psnr_to_plain_db": 16.02,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_005",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_006",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_007",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_008",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_009",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_010",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_011",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T15:01:43.306195+00:00",
-      "free_gb_after_encode": 83.8
+      "encoded_utc": "2026-11-12T01:13:26.626665+00:00",
+      "free_gb_after_encode": 81.2
     },
     "C3": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C3_silent.mp4",
-      "sha256": "59be1a4cb2ef12185531262ed2756819aa52417c014e7cf09770d864a547ceee",
+      "sha256": "c753a0b268069e45bc166fb9e629611a5cc75eb0a089dc37eb9bce88df380e92",
       "frames": 3185,
       "shot_keys": {
-        "SC_012": "027cf7f5809da0b89074b0a4f291eb08f802a51f1358d2aae13012bcb89c8ca9",
-        "SC_013": "6f8afba8ece212c91f1520446bb1efc024cb201e6c77b6ea1c3da9b0f0b643d3",
-        "SC_014": "2d29bcbe19e71ee4acd04cd0f92516dbfc587987d453988edc24e919ff39a357",
-        "SC_015": "be9c43db83fc1ece710ea8a5ae34d52b652bec074afbeb20c2e392947406c13e",
-        "SC_016": "c57ead7aab2099bb984ac8ca2c9c5f397ff5c18223afd33416fc781d89d89785"
+        "SC_012": "248c3ff503b70bfc06f072c265fe1ea3eb98da6951034e2c66e4f6c6d380a3db",
+        "SC_013": "e416d9b51e75a506f28a66885667dc09bc2560151e278b17b0fb35cf47cc44f9",
+        "SC_014": "57b065cb02ea8a1c917975a6b8c0121a3ed0c952223ac23783a3ecaaa704d596",
+        "SC_015": "1904057ef001224a6165f111df8222cdd4aafb6922caaaf988d9d2bd2eb50083",
+        "SC_016": "7d469c1ea3c607bb60d7518ae6898a1ae8152c0e76ab778d9d7c53c7cad4281c"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C3",
@@ -186,13 +317,13 @@
           {
             "cut": "SC_012->SC_013",
             "mode": "hard",
-            "ssim": 0.71713,
+            "ssim": 0.70286,
             "ok": true
           },
           {
             "cut": "SC_013->SC_014",
             "mode": "hard",
-            "ssim": 0.69769,
+            "ssim": 0.69768,
             "ok": true
           },
           {
@@ -208,21 +339,79 @@
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 43.12,
+            "psnr_to_plain_db": 17.21,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_012",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_013",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_014",
+              "edges": 1.21,
+              "busy": false
+            },
+            {
+              "shot": "SC_015",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_016",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T15:23:00.562511+00:00",
-      "free_gb_after_encode": 83.3
+      "encoded_utc": "2026-11-12T01:34:48.560794+00:00",
+      "free_gb_after_encode": 81.2
     },
     "C4": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C4_silent.mp4",
-      "sha256": "ab332033ed71fdd63c7f71bb8fd775be308bc7cc2ea67e2ae86ddc3958dac610",
+      "sha256": "1f8faa37fea0992ae1058f8faed96d0577829eba2058d1e73980dbbadb59050a",
       "frames": 2142,
       "shot_keys": {
-        "SC_017": "070ca612dfce735e8820a2564544b16ebda461212f92af4fbe2951429a0e5872",
-        "SC_018": "17b853dbc5e1813f8c62c19fa1f9e6c288cddccf52304858b1ab091eba1742d5",
-        "SC_019": "d4d0b3be5b93c29dedbc5ce40b3cc24f39a065d0fcf80d2d92175d33f05199e4",
-        "SC_020": "02ea7b45d240832a579a697ede039800990f0c9fd69f1fd6afaddc64328fa9bc",
-        "SC_021": "688b33915974a042890b29bf1d7448cc6affa3d5b9fd23b448e8ad15815600f7"
+        "SC_017": "ebae33186f86d8eaa0ba9b2e00200da63536988384e911ee5f78c63485e6b32c",
+        "SC_018": "6caf23975023180f25eedb62fac686f6cb97eb6c106852be00dec7fc382508ba",
+        "SC_019": "3d85167ac80ebb84cf0df9a454693ca9807cbb21e319974b9072141ffbda6eab",
+        "SC_020": "ca7034306f2fc9c3452c533434d06d4e287d77618c70aec88935d5e66477c66d",
+        "SC_021": "63d57663310dfef450e08d396e15cbe6516143a3bbe06d95f3ace1e6fb871525"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C4",
@@ -254,7 +443,7 @@
           {
             "cut": "SC_017->SC_018",
             "mode": "hard",
-            "ssim": 0.75514,
+            "ssim": 0.73506,
             "ok": true
           },
           {
@@ -266,7 +455,7 @@
           {
             "cut": "SC_019->SC_020",
             "mode": "hard",
-            "ssim": 0.94694,
+            "ssim": 0.92383,
             "ok": true
           },
           {
@@ -276,19 +465,77 @@
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 42.9,
+            "psnr_to_plain_db": 17.11,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_017",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_018",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_019",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_020",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_021",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T15:40:25.192983+00:00",
-      "free_gb_after_encode": 82.7
+      "encoded_utc": "2026-11-12T01:50:52.688598+00:00",
+      "free_gb_after_encode": 81.2
     },
     "C5": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C5_silent.mp4",
-      "sha256": "b78e53869288f90f0059271f7ea2df2457e7225ecb4111cd10321b6d9b090419",
+      "sha256": "bea4288952392135702d49257d27040760641ec9a0c0927434133dbe8ffa37dd",
       "frames": 1297,
       "shot_keys": {
-        "SC_022": "063fc2d42f013d091040ea1465d90f49256eb090fa06f41e18d59315af9aa32f",
-        "SC_023": "916137b3dfb74a9fc3ad8a6d209c3381f07852b62299f13cb9c54442f532892b",
-        "SC_024": "9716acea95c0efff350f68227231905efac5ce9e6708160fafebebd96c32f944"
+        "SC_022": "7b888cbd4fdb064871f6ec7b77cbaa873e66c7300df856e0c56b7e82501a352d",
+        "SC_023": "fe86c4cea68d4605e255d4db01dae917ad754bd6d559eb60e57b35041b291303",
+        "SC_024": "e319c548223000633d9bc26bef808510ae3bc755785b849cdb4e87366b79636c"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C5",
@@ -318,7 +565,7 @@
           {
             "cut": "SC_022->SC_023",
             "mode": "hard",
-            "ssim": 0.72264,
+            "ssim": 0.70513,
             "ok": true
           },
           {
@@ -328,20 +575,68 @@
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 41.32,
+            "psnr_to_plain_db": 18.28,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_022",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_023",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_024",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T15:51:00.938317+00:00",
-      "free_gb_after_encode": 82.5
+      "encoded_utc": "2026-11-12T02:02:33.375603+00:00",
+      "free_gb_after_encode": 81.2
     },
     "C6": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C6_silent.mp4",
-      "sha256": "d3a2860b234bf54cc3a3ce961f074355dc88045af57a30ad1893a7aeb87f11e0",
+      "sha256": "fd219b8134a9b7d03c774b74eb4a7704ccae29cb4b6329826c3cbcbc57d146dd",
       "frames": 1702,
       "shot_keys": {
-        "SC_025": "904a8370015a9c21ddd37fa7b92269c9b91b0c32d680c2708d68f0b939df56fa",
-        "SC_026": "f980a44c6d3c7838a5f32f798fff81a5d60e924894f3f83fd9d7382bc950ab98",
-        "SC_027": "8eef9038f0cc3a62db9fbdbeddf934d187a14de789650af05d3142d34d329e1a",
-        "SC_028": "0c7e28428935164c55f0941be4d0c172f5ca764c84ad00e044afdfa7b08d873c"
+        "SC_025": "33fcdc6ae9647cbead2a31d94578146c1f1bfc48b5ed5667d9bfab17721ccbbe",
+        "SC_026": "4ad503cf817ab204c5d9eb7d80103cee9339d6eb23356e3da00c9206ab5f7020",
+        "SC_027": "01ca8289483b7713b661c7db143fbf34df782cdcdf86c4fcf00913bf37e50580",
+        "SC_028": "06c55d0b2520b73d9b3a2098d1b60bbd5382964722a79807f13f54c46724cc54"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C6",
@@ -388,25 +683,78 @@
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 40.54,
+            "psnr_to_plain_db": 16.06,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_025",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_026",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_027",
+              "edges": 2.43,
+              "busy": false
+            },
+            {
+              "shot": "SC_028",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T16:07:22.597573+00:00",
-      "free_gb_after_encode": 82.1
+      "encoded_utc": "2026-11-12T02:19:00.696238+00:00",
+      "free_gb_after_encode": 81.2
     },
     "C7": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C7_silent.mp4",
-      "sha256": "63105df4af3da688d5414f5c6bd464d16e2a7b27261024c16e7640a3c5b5e1f3",
+      "sha256": "774558e16fb103409ab37b3a68217980861f773173007fa745f147b763ad5e84",
       "frames": 3683,
       "shot_keys": {
-        "SC_029": "4e4f30fd4be2b635d57e9bc7bd48d4f1cdaab2edabbd685b332f55d83df66e85",
-        "SC_030": "48c6ee2ac6f7efadbfcbd892ab041e3f1e783064733a336160d70381ffd649cc",
-        "SC_031": "698ee536fb3a72714a0b4bb6b359918e1c40a5cebd0ae8f2613cf1d34a341fb4",
-        "SC_032": "4e8f7e5d3a10155483836f495be6933da7c7f7c7e3ed812640df48183d1c703b",
-        "SC_033": "a4caa6fd117b229000473f20bc397e7a28f64054d2ec8ff595d71f4b37b1e795",
-        "SC_034": "4a8a70cccd7de76638159055503b413e7661390ecff3b4243ac64074e5620929",
-        "SC_035": "351b6575bdab248da2b82ffe2674e0ad43c19ee87431385ec73bab354185ce7a",
-        "SC_036": "a1b352e0336b0a5851e5ad2ad3c258896024674212ac55c70a55961872ffb409",
-        "SC_037": "cba2a289809e2459cd07c8d5c0e0f963f75266ef249635344786b1d9e1ccfe68"
+        "SC_029": "c4b9ca4f560db22e92d25b92416c8f79e434330659a1a8ab1db5a9006cd35b14",
+        "SC_030": "78415b91a10379fbb47433da6265ab817f96367fe032199c82b2d919070d5c13",
+        "SC_031": "4ec6a2961c73a75fd8c9a822e9eafa1b70bb7b296fbf839ae016231fad060036",
+        "SC_032": "2d68c99a71641ca9d2574e2009eb477b0dfced526137bf8c05d3375ccb873564",
+        "SC_033": "6b506fbf7da4829f658664594c4d324d6977d2e7d11b00789d0c6732575731eb",
+        "SC_034": "c8cd55a9c98c922474c9b939985c1b9dc56560087c9a3f49b9637d18450c828b",
+        "SC_035": "6446de1771189c85c1fcce1d5487aee64c77a40ddc892dfcb138e16324316ebe",
+        "SC_036": "31a4dd45d07517571918ef58444c2ce1acca9e7f0012a68d10aaac41af40f771",
+        "SC_037": "3b5f6adad8cc11d245f9620747011dd52608ebc272e72de74182a99fc1a82935"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C7",
@@ -448,37 +796,37 @@
           {
             "cut": "SC_030->SC_031",
             "mode": "hard",
-            "ssim": 0.69312,
+            "ssim": 0.68142,
             "ok": true
           },
           {
             "cut": "SC_031->SC_032",
             "mode": "hard",
-            "ssim": 0.7796,
+            "ssim": 0.77706,
             "ok": true
           },
           {
             "cut": "SC_032->SC_033",
             "mode": "hard",
-            "ssim": 0.82481,
+            "ssim": 0.83912,
             "ok": true
           },
           {
             "cut": "SC_033->SC_034",
             "mode": "hard",
-            "ssim": 0.79265,
+            "ssim": 0.78211,
             "ok": true
           },
           {
             "cut": "SC_034->SC_035",
             "mode": "hard",
-            "ssim": 0.31578,
+            "ssim": 0.31865,
             "ok": true
           },
           {
             "cut": "SC_035->SC_036",
             "mode": "hard",
-            "ssim": 0.62917,
+            "ssim": 0.60003,
             "ok": true
           },
           {
@@ -488,23 +836,101 @@
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 42.91,
+            "psnr_to_plain_db": 17.09,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_029",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_030",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_031",
+              "edges": 7.23,
+              "busy": true
+            },
+            {
+              "shot": "SC_032",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_033",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_034",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_035",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_036",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_037",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T16:43:09.720213+00:00",
-      "free_gb_after_encode": 81.2
+      "encoded_utc": "2026-11-12T02:56:31.259853+00:00",
+      "free_gb_after_encode": 81.1
     },
     "C8": {
       "file": "output/chapters_internal_720p/floating_city_design_challenge_C8_silent.mp4",
-      "sha256": "cfebb62698682ce1bbdcc9a9583dc34d032fe09916407c4e3bd7841b1e42eafe",
+      "sha256": "b34d9768875da0226e8b5d410056b6aa6e1aede67e721af8f799e1b958914d07",
       "frames": 1990,
       "shot_keys": {
-        "SC_038": "ef7da2dbb17283211756fa3e2de00bdb82f5fde7d1575f7e6658d0271a1846b8",
-        "SC_039": "cd60c8e3cf2428fb4beb966637e3f1ed477cd581c7a3cceaee506b437051b291",
-        "SC_040": "9158cea976147859ed971012c6fb731b6d6e3aab2d44de121ed18c1f8f09237a",
-        "SC_041": "07d5d0e322029f37fa800002f5377926ede9440517d0a49085fed303504fc809",
-        "SC_042": "5b4dffb841428a461eaf98cb7fa0fa50310430a2e7549d2e1baa6076da5669de",
-        "SC_043": "1addae021a91ba027f10754511e37a9a50acd1312ea30274ec049376bee9ebba",
-        "SC_044": "267c8525166d8ee8be59591b1ec217b055999e4ef34665733af34165b6d490bc"
+        "SC_038": "20b771324540ea67e58a33c6191bca23015165a5d4d81fb7e7f437fd74b6cee8",
+        "SC_039": "dc24c6f6a8d4cd71f3940b487d3f2c129541778f1cf286dd3c2ff1530e04ff82",
+        "SC_040": "f58abf21cb20f7001303c33401cc8e8b532039878f6e964c30f0c5e628c7a9b9",
+        "SC_041": "c47c25b6635d3fce1147ef9c5ff7315cd56fb87ef049bd2e9037c06e22ab9b23",
+        "SC_042": "d6b4019d761aea65b7b653a4fde6fe6ce02b6a4c8feed9a322c6477308cb701b",
+        "SC_043": "02b0911c245fc146253d89b0df12b9bdcd389a1677d825529f987e4802d0d0ed",
+        "SC_044": "54fb96938f5caa3143e7d9e641944e7340e16b12dfa1db9d03c356dae9a83739"
+      },
+      "watermark": {
+        "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+        "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+        "corner": "BOTTOM_LEFT",
+        "x": 58,
+        "y": 631,
+        "width": 180,
+        "height": 60,
+        "opacity": 0.55
       },
       "media": {
         "chapter": "C8",
@@ -538,7 +964,7 @@
           {
             "cut": "SC_038->SC_039",
             "mode": "hard",
-            "ssim": 0.76893,
+            "ssim": 0.76686,
             "ok": true
           },
           {
@@ -556,7 +982,7 @@
           {
             "cut": "SC_041->SC_042",
             "mode": "hard",
-            "ssim": 0.67026,
+            "ssim": 0.67027,
             "ok": true
           },
           {
@@ -572,10 +998,68 @@
             "ok": true
           }
         ],
+        "watermark": {
+          "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+          "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+          "corner": "BOTTOM_LEFT",
+          "x": 58,
+          "y": 631,
+          "width": 180,
+          "height": 60,
+          "opacity": 0.55,
+          "check": {
+            "box": [
+              58,
+              631,
+              180,
+              60
+            ],
+            "psnr_to_watermarked_db": 34.93,
+            "psnr_to_plain_db": 22.08,
+            "present": true
+          },
+          "backgrounds": [
+            {
+              "shot": "SC_038",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_039",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_040",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_041",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_042",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_043",
+              "edges": 0.0,
+              "busy": false
+            },
+            {
+              "shot": "SC_044",
+              "edges": 0.0,
+              "busy": false
+            }
+          ]
+        },
         "problems": []
       },
-      "encoded_utc": "2026-11-11T16:53:52.959667+00:00",
-      "free_gb_after_encode": 80.8
+      "encoded_utc": "2026-11-12T03:07:14.785905+00:00",
+      "free_gb_after_encode": 81.1
     }
   }
 }

@@ -539,7 +539,7 @@
       {
         "cut": "SC_009->SC_010",
         "mode": "match",
-        "ssim": 0.99997,
+        "ssim": 0.99998,
         "ok": true
       },
       {
@@ -549,6 +549,64 @@
         "ok": true
       }
     ],
+    "watermark": {
+      "image": "branding/concepts_20261107/A_watermark_burnin_640.png",
+      "sha256": "65596357f2694b7c9f50d675377968c9a392f5b52b3aade3d7d2b1ce5bcef83b",
+      "corner": "BOTTOM_LEFT",
+      "x": 58,
+      "y": 631,
+      "width": 180,
+      "height": 60,
+      "opacity": 0.55,
+      "check": {
+        "box": [
+          58,
+          631,
+          180,
+          60
+        ],
+        "psnr_to_watermarked_db": 40.77,
+        "psnr_to_plain_db": 16.02,
+        "present": true
+      },
+      "backgrounds": [
+        {
+          "shot": "SC_005",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_006",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_007",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_008",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_009",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_010",
+          "edges": 0.0,
+          "busy": false
+        },
+        {
+          "shot": "SC_011",
+          "edges": 0.0,
+          "busy": false
+        }
+      ]
+    },
     "problems": []
   },
   "render_results": {

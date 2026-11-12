@@ -189,7 +189,7 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
   - Mỗi vòng review có `review/REVIEW_<vòng>.md` (góp ý → đã làm → kiểm tra → cần quyết). Sửa cục bộ, giữ hướng; đổi mã shot thì sinh lại manifest chương và báo cáo.
   - Ảnh phải khớp giai đoạn lời đang kể; "today" chưa đủ cho công trình đã được dựng lại. Nhãn chỉ bộ phận phải chấm đúng bộ phận (soi khung 1:1).
   - Xem video thật bằng khung trích từ MP4 ghép. Một kiểm tra QA báo sai đáng ngờ thì tìm nguyên nhân trước (QA cũng có lỗi). Không nới ngưỡng.
-  - Chủ kênh quyết từng mục (claim, giọng và phát âm, ảnh và ghi công và công bố, lời kêu gọi). Chỉ ghi các mục được chọn. Ngoại lệ của một ngưỡng là quyết định của chủ kênh, ghi ở `project.json` (`variety_exception`); không tự miễn.
+  - Chủ kênh quyết từng mục (claim, giọng và phát âm, ảnh và ghi công và công bố, lời kêu gọi). Chỉ ghi các mục được chọn. Ngoại lệ của một ngưỡng là quyết định của chủ kênh, ghi ở `project.json` (`variety_exception`); không tự miễn. Ngoại lệ ghi đúng chuỗi được chấp nhận (`runs`: shot đầu, shot cuối, độ dài, loại hình); validator chỉ miễn đúng các chuỗi đó, không nâng ngưỡng cho cả phim.
   - Không có file tên FINAL trước khi duyệt; `final-assemble` ở preset nội bộ đặt tên theo `review_label`.
   - Render: một Blender, không sửa engine hay chạy test gọi Blender khi đang render; benchmark 4K trước (3D khoảng 2,2 giây mỗi frame).
   - Sau bản final: dọn file render thử và review cũ theo mục 28, giữ bản final, bản review đã duyệt và mọi hồ sơ trong git.

@@ -191,7 +191,7 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
                "; ".join(problems) or f"{sum(len(s) for s in ctx.slots.values())} components, ownership + parenting OK")
 
     # 2. Blender's evaluated keys equal the pure-Python plan at every sampled frame.
-    worst, mismatches = 0.0, []
+    worst, share, mismatches = 0.0, 0.0, []
     rest_world = {}
     for f in frames:
         ctx.scene.frame_set(f)
@@ -202,13 +202,15 @@ def check_shot(ctx, states, report, project=None, preset="preview"):
                 err = max(abs(a - b) for a, b in zip(want, got))
                 if channel == motion.HIDE:
                     err = 0.0 if (want[0] > 0.5) == (got[0] > 0.5) else 1.0
-                worst = max(worst, err)
-                if err > motion.Plan.key_tolerance(want, TOL) and len(mismatches) < 5:
-                    mismatches.append(f"{name}{channel}@{f}: plan {want} vs blender {got}")
+                tol = plan.key_tolerance(name, channel, f, TOL)
+                worst, share = max(worst, err), max(share, err / tol)
+                if err > tol and len(mismatches) < 5:
+                    mismatches.append(f"{name}{channel}@{f}: plan {want} vs blender {got} (tolerance {tol:.2e})")
         if f == 1:
             rest_world = {n: o.matrix_world.copy() for n, o in ctx.objects.items()}
     report.add(sid, "plan_matches_evaluated_keys", not mismatches,
-               "; ".join(mismatches) or f"{len(plan.tracks)} animated objects x {len(frames)} frames, max error {worst:.2e}")
+               "; ".join(mismatches) or f"{len(plan.tracks)} animated objects x {len(frames)} frames, max error {worst:.2e} "
+               f"(at most {share:.0%} of its tolerance)")
 
     # 3. Everything the template does not animate stays exactly where it was (world space).
     static = [n for n in ctx.objects if n not in plan.tracks]
@@ -634,7 +636,7 @@ def check_card(ctx, report):
                 want, got = ctx.plan.sample(name, channel, f), _blender_value(obj, channel)
                 err = max(abs(a - b) for a, b in zip(want, got))
                 worst = max(worst, err)
-                if err > motion.Plan.key_tolerance(want, TOL) and len(bad) < 5:
+                if err > ctx.plan.key_tolerance(name, channel, f, TOL) and len(bad) < 5:
                     bad.append(f"{name}{channel}@{f}: plan {want} vs {got}")
     report.add(sid, "plan_matches_evaluated_keys", not bad,
                "; ".join(bad) or f"{len(ctx.plan.tracks)} objects x {len(frames)} frames, max error {worst:.2e}")
