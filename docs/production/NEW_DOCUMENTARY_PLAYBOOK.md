@@ -134,7 +134,9 @@ Câu hỏi cho mỗi đoạn: **"trong đoạn này, người xem thấy điều
   - cầu trên site 24 m: dầm gỗ, vòm đá, giàn Pratt/Warren;
   - cầu nhịp lớn trên site 72 m (M8): công-xôn, cầu treo, dây văng;
   - mặt cắt nhà thờ (phim Gothic): Gothic và Romanesque kiểu vòm nôi, trên nền `site_level_ground`; camera `CATHEDRAL_SECTION` cho cảnh chung, `CATHEDRAL_FROM_BELOW` cho cận cảnh vòm (`camera_mode: COMPONENT_CLOSEUP`, `close_on` hoặc `close_on_targets: true`; cắt sát một gian, vì khung rộng để lộ chân trụ nhìn từ dưới lên);
-  - nhà, mái (gồm states mái cũ ở `asset_library/legacy_states/`), site.
+  - nhà, mái (gồm states mái cũ ở `asset_library/legacy_states/`), site;
+  - họ nổi (phim thành phố nổi, `asset_library/architecture/floating/`): phao (`platform`, có cả bản mặt cắt), cặp phao (`pair`), khu 5 phao (`neighbourhood`, cọc hoặc dây neo), quận 93 phao (`district`, có bản ngoài khơi), khối bê tông đặc (`clay_boat`), phao bán chìm (`semi_sub`); site `site_bay_01`, `site_bay_district_01`, `site_open_sea_01` (và `site_bay_section_platform_a` cho mặt cắt).
+- Dựng họ asset mới hoặc dùng mô hình có sẵn từ dataset (Sand3D): đọc kinh nghiệm ở mục 29.
 - Một concept cần site riêng thì khai báo `scene_context` và `site` trong `config/visual_vocabulary.json` (xem M8).
 - Asset mới: viết spec trong `asset_library/architecture/`, chạy `asset-check --asset …` và `asset-render --asset …`. Chỉ tạo khi thật sự cần.
 - Ảnh ngoài: hồ sơ đầy đủ trong `assets/manifest.json` (`EXTERNAL_LICENSE_FIELDS`, `credit_keys`, SHA256, rendition).
@@ -294,6 +296,74 @@ Rút ra từ một phim "bài toán thiết kế" 13 phút, 44 shot, hầu hết
   - giữ mực nước là một đường thẳng.
 - **Độ trong (alpha) không phải tiêu chí nghiệm thu.** Xem mọi đoạn chuyển trong MP4 ở 4 khung mỗi giây.
 - **Báo cáo v2 từng ghi B31 đã sửa** trong khi một khung vẫn lộ lưới bóng: agent đã bỏ sót khung đó. Khi báo một lỗi đã sửa, xem đủ mọi khung quanh đoạn chuyển. Nếu báo sai thì đính chính công khai ở vòng sau.
+
+### Dựng mô hình 3D (họ asset mới)
+- **Prototype trước, họ asset sau.**
+  - Trước khi chốt kịch bản, dựng 6 ảnh tĩnh 960 × 540 (khoảng 1 giây mỗi ảnh) và một hoạt ảnh 12 giây, với số lấy từ mô hình tính.
+  - Chúng trả lời các câu hỏi khả thi: mặt cắt có làm được không, nước làm trong có làm được không, một thay đổi nhỏ có nhìn thấy không.
+  - Prototype không phải asset sản xuất và không gắn vào engine (`concept/PROTOTYPE_REPORT.md`).
+- **Thay đổi nhỏ cần cận cảnh.** Phao chìm thêm 33 cm trên phao rộng 40 m thì ở khung toàn cảnh không thấy gì. Biết trước điều này nhờ prototype, nên kịch bản và kế hoạch hình đặt sẵn khung cận, kèm thước và số đo.
+- **Mỗi họ có một bộ sinh thủ tục và spec trong `asset_library/architecture/<họ>/`.** Mỗi biến thể chạy `asset-check` (offline) và `asset-render --preset review`, rồi xem ảnh ba phía, mặt đứng, mặt bằng và tách lớp. Test của bộ sinh kiểm:
+  - số bộ phận khớp `checks.expected_counts`;
+  - kích thước then chốt khớp mô hình tính (mớn nước, bước sàn, khối bê tông);
+  - cọc và neo bám theo đáy của site.
+- **Mặt cắt:**
+  - bộ sinh dựng nửa mô hình và một tấm mặt cắt, không dùng boolean;
+  - kiểm rằng không bộ phận nào nằm đúng trên mặt cắt: một vách ngăn trùng mặt cắt từng che hết hình cắt;
+  - tấm nước dưới đáy phải co giãn quanh đáy biển, không quanh mặt nước, nếu không nó che cả lòng thân phao.
+- **Nước vẽ hai lớp:** một mặt nước nhìn rõ, và khối nước làm mờ nhẹ. Làm mờ quá tay thì phao trông như sàn đặt trên cột, tức là gợi ý sai rằng cọc đỡ phao.
+- **Chồng hình có chủ ý** (nắp mái nằm trong tầng thêm, dây neo vào neo, cọc vào đáy): khai báo đúng cặp loại bộ phận đó, chỉ cho họ đó (`engine/arch/asset_scene.py`). Không nới kiểm tra chồng hình chung.
+- **Mô hình phải đọc được ở khung sẽ dùng:**
+  - nhà là hộp liền thì không đếm được số tầng: thêm cửa sổ theo nhịp 3 m, vạch tầng, lối vào; tầng đặt thêm mang theo cửa sổ của nó;
+  - dấu hiệu (vạch mạn khô, thước, mũi tên) đặt cỡ theo khung nhìn, đủ cho kiểm "phần phát sáng nhìn thấy được";
+  - bộ phận được gọi tên cần ít nhất khoảng 0,3% khung hình.
+- **Nhiều kiểu nhà mà không đổi phép tính:**
+  - 5 kiểu nhà và phao vườn đều có cùng 40% diện tích chiếm đất, 3 tầng và trọng tâm ở giữa sàn;
+  - test kiểm diện tích ±0,5 m², trọng tâm lệch dưới 1 cm, chiều cao đúng 9 m;
+  - nhà chia ô 2 × 2 phao cùng kiểu, ô cạnh nhau khác kiểu;
+  - một tham số dựng lại diện mạo cũ (`home_types = blocks`) để so trước và sau.
+- **Đừng làm trong suốt cả một tòa nhà:** nắp mái bên trong lộ ra thành sọc. Ẩn phần bên trong, hoặc bỏ hẳn dãy nhà che phía trước.
+- **Camera với mô hình lớn:**
+  - mặt phẳng cắt gần xén các phao phía trước khi camera di chuyển: dùng `clearance` (400 m cho toàn quận, 40 m cho cận khớp nối);
+  - camera lùi giữa hai khung khác hướng từng vượt `clip_end`, hiện mảng nền phẳng ở 123/580 khung: nay `clip_end` tính cả lúc lùi;
+  - quét mọi khung tìm mảng nền phẳng và mép bãi.
+- **Hoạt ảnh trên mô hình:**
+  - khóa đầu và cuối mỗi bước lấy đúng trạng thái tại thời điểm đó. Bộ phận từng trôi khoảng 0,05 mm, đủ làm nhãn bám bộ phận bị lệch;
+  - REVEAL và MOVE trên cùng bộ phận chạy theo thứ tự; hai chuyển động chồng thời gian bị từ chối;
+  - camera đứng yên mỗi khi mô hình chìm, nổi hay lớn thêm (có test), để người xem thấy chính thay đổi đó.
+- **Chi phí:** toàn quận 1.048 đối tượng, khoảng 5,5–6 giây mỗi khung ở 4K.
+- **Blender MCP chỉ dùng để xem, trên bản sao của scene.** Không bao giờ mở Blender thứ hai khi đang render. Đường sản xuất lặp lại được là Blender CLI (`docs/07_MCP_AND_AGENT_SETUP.md`).
+
+### Sand3D (mô hình có sẵn từ dataset)
+- **Chỉ thử, chưa dùng trong phim:** `review/SAND3D_TRIAL.md`, `review/sand3d_candidates.json`.
+- **Nguồn:**
+  - dataset `Sandflow/sand3d-objaverse`, ghim một revision; dataset theo CC-BY-4.0, và từng đối tượng có giấy phép nguồn riêng;
+  - thư viện `sand3d` (Apache-2.0) **không cài**: nó cần Python ≥ 3.11, < 3.14 và không hỗ trợ 3.12, trong khi CLI của Studio chạy 3.14;
+  - nhập thẳng file `.usda` dựng sẵn bằng bộ nhập USD của Blender. Chỉ cần thư viện khi muốn dựng lại hình theo tham số.
+- **Chọn mẫu:**
+  - tìm bằng API của Hugging Face, ưu tiên file nhỏ, `f_score` ≥ 0,97, giấy phép nguồn CC-BY-4.0;
+  - `f_score` không thay việc xem hình;
+  - ghi đúng truy vấn đã chạy và số ảnh xem trước đã xem: máy chủ có lúc báo lỗi tạm thời với một số truy vấn;
+  - kiểm từng con số so với hồ sơ: báo cáo đầu từng ghi cả bốn mẫu đạt ngưỡng, trong khi bộ đồ chơi chỉ được 0,966.
+- **File tải về là dữ liệu chưa tin cậy:**
+  - đặt riêng một thư mục;
+  - so SHA256 với metadata của dataset;
+  - đọc file trước khi nhập: chỉ là lưới đa giác thuần (mét, trục Z lên), không tham chiếu file ngoài, không có mã.
+- **Chuẩn hóa:**
+  - đổi vật liệu gốc sang vật liệu phẳng của Studio, giữ kích thước thật;
+  - mẫu phải đúng tỉ lệ, hoặc chỉ cần phóng đều. Không kéo giãn nhà một tầng thành ba tầng;
+  - đếm tầng bằng số hàng cửa sổ so với chiều cao.
+- **Kết quả ở phim này:**
+  - **Đồ phụ đô thị** (ghế, đèn, bàn picnic, bộ đồ chơi): nhập dưới 10 ms mỗi file, đúng tỉ lệ, chi phí render không đáng kể (vòng 1: thêm 143 đối tượng trên một phao, cận ngã tư 1,32 → 1,38 s; vòng 2: cận công viên 1080p 1,97 → 1,97 s). Nhưng chúng chỉ đọc được ở khung cận; ở khung cả phao hay toàn quận chúng biến mất hoặc bị nhà che.
+  - **Tòa nhà:** tải và đo 7 mẫu, không mẫu nào đúng 3 tầng ở tỉ lệ thật (4 tầng, 2 tầng, chỉ có mặt tiền, sai tỉ lệ).
+  - **Chủ kênh (review L6):** bộ đồ chơi Sand3D chi tiết hơn, nhưng đèn lớn và đậm tạo điểm hút mắt; trong cận cảnh ngắn, lợi ích chưa đủ. Phim dùng nhà và đồ của Studio: không cần ghi công, không phụ thuộc giấy phép ngoài.
+- **Ghi kết luận đúng phạm vi đợt thử** (số truy vấn, số ảnh xem trước, số mẫu đã đo). Viết "chưa tìm được trong đợt thử này", không viết "Sand3D không có".
+- **Khi nào nên dùng:** chỉ cho cảnh cận giữ lâu (công viên, sân trường). Mọi thứ gắn với phép tính (phao, mặt cắt, chuyển động) dùng bộ sinh của Studio.
+- **Nếu dùng** (phải có quyết định của chủ kênh trước):
+  - chép `.usda` vào `asset_library/` kèm manifest: nguồn, revision, checksum, ghi công;
+  - viết bộ nhập: USD → component có ID, vật liệu Studio, loại `DECORATION`;
+  - ghi `assets/manifest.json` của dự án với `status: approved` trước bản final.
+- **Ghi công bắt buộc:** CC-BY-4.0 đòi ghi công từng mẫu (tên, tác giả, URL Sketchfab, giấy phép, "vật liệu do Studio đổi") trong mô tả và phần ghi công. Khác với Pixabay, `description_omit` không được bỏ dòng này.
 
 ### Âm thanh
 - **Kiểm giấy phép trước khi dùng một kho có sẵn.** Kho `sfx/` cũ của chủ kênh chỉ được dùng trong CapCut.

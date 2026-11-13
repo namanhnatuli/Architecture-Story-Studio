@@ -12,7 +12,7 @@
 - **Dọn dẹp:**
   - khoảng 6,0 GB file render thử và review cũ (`docs/production/CLEANUP_REPORT.md`);
   - commit riêng việc xóa 42 file SFX CapCut cũ mà chủ kênh đã tự xóa khỏi thư mục làm việc.
-- **Kinh nghiệm chung:** playbook mục 29 và AGENTS.md (phim concept, nhịp review, hình 3D ở tầm toàn quận, nước làm trong, SFX, kiểm bản final, hồ sơ xuất bản).
+- **Kinh nghiệm chung:** playbook mục 29 và AGENTS.md (phim concept, nhịp review, hình 3D ở tầm toàn quận, nước làm trong, dựng mô hình 3D, thử Sand3D, SFX, kiểm bản final, hồ sơ xuất bản). Mục 9–10 của playbook liệt kê họ asset nổi.
 
 ## 0.12.2 — 2026-11-13 — Phim thành phố nổi: bản cuối 4K
 - **Duyệt của chủ kênh** (ghi trong `review/OWNER_APPROVALS.json`):

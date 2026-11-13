@@ -206,6 +206,17 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
 - **Chi tiết ở `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` mục 29.** Điểm cần nhớ cho mọi phim sau:
   - Phim concept: mọi số trên hình lấy từ mô hình tính của dự án (có test). Đổi hình cho dễ đọc thì giữ nguyên bất biến kỹ thuật.
   - Làm đoạn thử cho chương khó nhất và đoạn mở đầu, rồi mới làm cả phim. Đề nghị "giữ nguyên" của người review thứ hai chưa phải quyết định của chủ kênh.
+  - Mô hình 3D:
+    - prototype ảnh tĩnh trước khi dựng họ asset;
+    - mỗi biến thể chạy `asset-check` và `asset-render`, có test số bộ phận và kích thước theo mô hình tính;
+    - mặt cắt dựng nửa mô hình, không boolean; nước vẽ hai lớp;
+    - chồng hình có chủ ý khai báo đúng cặp loại, chỉ cho họ đó;
+    - nhà phải đọc được số tầng; nhiều kiểu nhà nhưng giữ diện tích, số tầng và trọng tâm (có test).
+  - Sand3D:
+    - nhập thẳng `.usda` của dataset (ghim revision, so SHA256, đọc file trước), không cài thư viện;
+    - mẫu đúng tỉ lệ, không kéo giãn; kết luận đúng phạm vi đợt thử;
+    - đồ phụ chỉ có ích ở cảnh cận giữ lâu;
+    - dùng thì cần quyết định của chủ kênh, bộ nhập vào `asset_library`, manifest, và ghi công CC-BY-4.0 bắt buộc trong mô tả.
   - Bộ phận lời dẫn gọi tên phải đủ lớn trong khung: đưa camera tới nó. Nước trong chỉ ở cuối lúc camera hạ; xem mọi đoạn chuyển trong MP4 ở 4 khung mỗi giây trước khi báo đã sửa.
   - SFX: kiểm giấy phép từng file; ghi nguồn, giấy phép và sha256 trong `audio/sound_plan.json`; neo vào bước storyboard; giao kèm bản không SFX.
   - Trước khi render 4K: bước ghép cuối phải tái tạo đủ bản review đã duyệt. Sau khi ghép: so âm thanh từng mẫu, hình bằng SSIM, phụ đề byte-to-byte.
