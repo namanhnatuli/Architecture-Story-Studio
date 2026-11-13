@@ -207,7 +207,7 @@
     - đăng phim.
   - Chi tiết: `review/FINAL_4K.md`.
 - **Mô tả và dọn dẹp (2026-11-13).**
-  - **Mô tả:** bỏ dòng ghi công lời dẫn và SFX theo yêu cầu chủ kênh (DEC-DESCRIPTION-CREDITS); ghi trong `publication_metadata.description_omit`. Không render lại. Bản mô tả đã sửa chưa được duyệt.
+  - **Mô tả:** bỏ dòng ghi công lời dẫn và SFX theo yêu cầu chủ kênh (DEC-DESCRIPTION-CREDITS); ghi trong `publication_metadata.description_omit`. Không render lại. Chủ kênh đã duyệt bản đã sửa (APP-DESCRIPTION).
   - **Hồ sơ:** lập `review/RIGHTS_PROVENANCE.md`.
   - **Dọn dẹp:** xóa khoảng 6,0 GB file render thử và review cũ (`docs/production/CLEANUP_REPORT.md`). Gate `final_4k` vẫn đạt; `episode.py status` báo COMPLETE; 497 test đạt.
   - **Kinh nghiệm chung:** ghi ở mục 29 của playbook.

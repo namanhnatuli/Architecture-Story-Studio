@@ -164,12 +164,27 @@
       "recorded_by": "agent (records the owner's instruction; approves nothing itself)"
     },
     {
+      "id": "APP-DESCRIPTION",
+      "subject": "the YouTube description review/YOUTUBE_DESCRIPTION.md (4604 characters) after DEC-DESCRIPTION-CREDITS: summary, 8 chapter times, 16 sources, 3 disclosures (illustrative models; Studio concept-level estimates; conceptual water motion); no narration or sound-effects credit line",
+      "scope": "floating-city-design-challenge",
+      "source_revision": {
+        "file": "review/YOUTUBE_DESCRIPTION.md",
+        "sha256": "50973996d17b339707e2f7606ee3a0c5d31b9f89eb30a9bd9d0d43b2edaa2e19"
+      },
+      "decision": "APPROVED (the owner chose 'Duyệt mô tả này')",
+      "date": "2026-11-13",
+      "evidence": "owner's answer in session, 2026-11-13, to the agent's question on the edited description (commit 87cf2d8)",
+      "conditions": "AI narration is not stated in the description (DEC-DESCRIPTION-CREDITS); YouTube's altered or synthetic content setting at upload is the owner's choice",
+      "invalidation": "any change to the description file (sha256)",
+      "recorded_by": "agent (records the owner's decision; approves nothing itself)"
+    },
+    {
       "id": "NOTE-NOT-RECORDED",
       "subject": "what this record does not contain",
       "scope": "floating-city-design-challenge",
-      "decision": "NOT RECORDED: approval of the edited YouTube description (the owner asked for the edit in DEC-DESCRIPTION-CREDITS; an edit request is not an approval of the text); publication. Images and credits: the film uses no third-party photograph or drawing.",
+      "decision": "NOT RECORDED: publication (uploading is the owner's action; the Studio never uploads). Images and credits: the film uses no third-party photograph or drawing.",
       "date": "2026-11-13",
-      "evidence": "the agent's four questions in session, 2026-11-12 ('Tôi muốn sửa mô tả'), and owner's message in session, 2026-11-13: 'sửa lại descriptin, không cần ghi narration và sfx, không cần render lại'"
+      "evidence": "the agent's four questions in session, 2026-11-12 ('Tôi muốn sửa mô tả'), and owner's message in session, 2026-11-13: 'sửa lại descriptin, không cần ghi narration và sfx, không cần render lại'; and the owner's approval of the edited description, 2026-11-13 (APP-DESCRIPTION)"
     }
   ]
 }

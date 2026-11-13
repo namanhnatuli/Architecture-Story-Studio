@@ -4,7 +4,8 @@
 - **Mô tả YouTube** (chủ kênh yêu cầu):
   - bỏ dòng ghi công lời dẫn và dòng ghi công SFX; không render lại;
   - `tools/longform_reports.py` đọc `publication_metadata.description_omit` (`narration`, `sound_effects`), bắt buộc kèm `description_omit_decision`; giá trị lạ thì dừng;
-  - phim cầu và phim Gothic sinh lại giống hệt; 3 test mới.
+  - phim cầu và phim Gothic sinh lại giống hệt; 3 test mới;
+  - chủ kênh duyệt bản mô tả đã sửa (APP-DESCRIPTION, kèm sha256 của file).
 - **Hồ sơ:**
   - `review/RIGHTS_PROVENANCE.md` cho phim thành phố nổi; trước đây thiếu, nên `episode.py status` dừng ở INTERNAL_REVIEW;
   - DEC-DESCRIPTION-CREDITS trong `OWNER_APPROVALS.json`.

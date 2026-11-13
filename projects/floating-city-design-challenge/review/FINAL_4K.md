@@ -53,14 +53,14 @@
 ## Gate không kiểm việc duyệt mô tả
 - Gate kiểm claim, giọng, phát âm, quyền âm thanh, kỹ thuật và việc có `publication_metadata` (tiêu đề, mô tả, ngôn ngữ, ghi công).
 - Gate **không** kiểm chủ kênh đã duyệt nội dung mô tả hay chưa. Phim cầu cũng vậy.
-- Chủ kênh chưa duyệt mô tả, nên phim **chưa sẵn sàng đăng**. Đăng phim là việc của chủ kênh.
+- Chủ kênh đã duyệt bản mô tả đã sửa (APP-DESCRIPTION, 2026-11-13). Đăng phim là việc của chủ kênh.
 - **Sửa mô tả không cần render lại:** file MP4, phụ đề và âm thanh không đổi.
 ## Sửa mô tả (2026-11-13)
 - **Yêu cầu của chủ kênh:** "sửa lại descriptin, không cần ghi narration và sfx, không cần render lại" (DEC-DESCRIPTION-CREDITS trong `review/OWNER_APPROVALS.json`).
 - **Đã làm:**
   - bỏ dòng ghi công lời dẫn ("Narration: AI-generated voice …") và dòng ghi công SFX ("Sound effects: Pixabay …");
   - phần còn lại giữ nguyên: tóm tắt, 8 mốc chương, 16 nguồn, 3 dòng công bố về mô hình, số liệu và chuyển động;
-  - mô tả còn 4 606 ký tự. Không render lại; MP4, phụ đề và âm thanh không đổi (sha256 kiểm lại khớp).
+  - mô tả còn 4 604 ký tự. Không render lại; MP4, phụ đề và âm thanh không đổi (sha256 kiểm lại khớp).
 - **Cách ghi:**
   - lựa chọn này nằm trong `project.json` (`publication_metadata.description_omit` và `description_omit_decision`), nên chạy lại `tools/longform_reports.py` vẫn sinh đúng bản này;
   - phim cầu và phim Gothic sinh lại đúng như cũ;
@@ -68,7 +68,8 @@
 - **Giấy phép:** Apache-2.0 (Kokoro) và Pixabay Content License đều không đòi ghi công. Nguồn SFX vẫn ghi đủ trong `audio/sound_plan.json` và `review/RIGHTS_PROVENANCE.md` (mới lập).
 - **Điều kiện của lần duyệt giọng:** APP-VOICE có điều kiện "nêu lời dẫn AI trong mô tả". Theo quyết định trên của chủ kênh, điều kiện này không áp cho phim này. Cài đặt "nội dung đã chỉnh sửa hoặc tổng hợp" khi đăng lên YouTube vẫn do chủ kênh chọn.
 
+**Duyệt:** chủ kênh duyệt bản mô tả đã sửa (APP-DESCRIPTION, 2026-11-13; sha256 `50973996d17b339707e2f7606ee3a0c5d31b9f89eb30a9bd9d0d43b2edaa2e19`).
+
 ## Chưa ghi
-- Việc duyệt bản mô tả đã sửa: yêu cầu sửa chưa phải là duyệt văn bản.
 - Việc đăng phim.
 - Agent không nghe được; không ghi một buổi nghe nào.
