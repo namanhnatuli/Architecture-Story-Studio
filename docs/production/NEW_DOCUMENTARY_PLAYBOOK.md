@@ -399,6 +399,17 @@ Rút ra từ một phim "bài toán thiết kế" 13 phút, 44 shot, hầu hết
 - **Font có chữ số đều chiều cao** (ví dụ Charter Black). Georgia dùng chữ số kiểu cũ, làm "10,000" nhỏ và lệch dòng.
 - **Mỗi chữ trên thumbnail phải có câu tương ứng trong lời dẫn.** Kiểm khả năng đọc ở 320×180 và 168×94.
 - **Lưu script và thông số camera cùng ảnh** (`review/thumbnails/make/`). Script thumbnail của phim Gothic không được lưu, nên lần sau phải dựng lại từ đầu.
+- **Hình phải tự nói lên ý ở cỡ nhỏ** (review vòng 1):
+  - một quận nhìn sát dễ thành "khu đô thị quanh hồ trên đất": cho thấy mép ngoài và nước bao quanh;
+  - lớp tối chỉ đặt ngay sau chữ;
+  - mặt cắt nhìn thẳng thì thân rỗng trông như khối đặc: nhìn phối cảnh xiên để thấy sàn và vách trong của khoang;
+  - dây neo cắt nhau thì rối: nhìn vuông góc với mặt phẳng dây để dây cùng hàng trùng nhau;
+  - đặt chi tiết chính xa góc dưới phải, nơi YouTube đặt nhãn thời lượng.
+- **Nước trong suốt đặt trên nền navy sẽ tối đi.** Giữ màu nước như trong phim; chỉ thay phần trời, lấy mặt nạ từ kênh alpha của một bản render nền trong suốt.
+- **A/B test** (Test & Compare):
+  - YouTube chọn bản thắng theo thời gian xem; khi hòa hoặc chưa kết luận được, YouTube giữ bản tải lên đầu tiên, nên tải bản mặc định lên trước;
+  - đổi tiêu đề hay thumbnail giữa chừng thì phép thử dừng;
+  - mỗi bản là một concept trọn vẹn, nên kết quả không quy được cho riêng chữ hay góc máy.
 
 ### Hồ sơ xuất bản
 - **`RIGHTS_PROVENANCE.md` cần cho mọi phim**, kể cả phim không có ảnh: lời dẫn, mô hình, SFX, font, phụ đề. `episode.py status` đòi file này.

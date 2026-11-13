@@ -13,6 +13,11 @@
   - khoảng 6,0 GB file render thử và review cũ (`docs/production/CLEANUP_REPORT.md`);
   - commit riêng việc xóa 42 file SFX CapCut cũ mà chủ kênh đã tự xóa khỏi thư mục làm việc.
 - **Thumbnail:** 3 đề xuất (quy mô, vật lý, dây neo), render sạch từ scene của phim; script để dựng lại ở `review/thumbnails/make/`.
+- **Thumbnail vòng 2** (theo review):
+  - A2: thấy mép quận và nước bao quanh;
+  - B2: phối cảnh vào khoang rỗng của phao 40 m;
+  - C2: hai tuyến neo không cắt nhau;
+  - bản 3840×2160 dưới 2 MB; kế hoạch A/B có giả thuyết, quy tắc đọc kết quả và nhật ký.
 - **Kinh nghiệm chung:** playbook mục 29 và AGENTS.md (phim concept, nhịp review, hình 3D ở tầm toàn quận, nước làm trong, dựng mô hình 3D, thử Sand3D, SFX, kiểm bản final, hồ sơ xuất bản). Mục 9–10 của playbook liệt kê họ asset nổi.
 
 ## 0.12.2 — 2026-11-13 — Phim thành phố nổi: bản cuối 4K

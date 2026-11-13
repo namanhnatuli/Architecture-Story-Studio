@@ -1,0 +1,107 @@
+{
+  "A2": {
+    "scene": "scenes/SC_001.blend",
+    "out": "A2_render.png",
+    "frame": 48,
+    "res": [
+      3840,
+      2160
+    ],
+    "cam": {
+      "from": [
+        -470,
+        250,
+        420
+      ],
+      "to": [
+        -260,
+        520,
+        0
+      ],
+      "lens": 45
+    }
+  },
+  "B2": {
+    "scene": "scenes/SC_008.blend",
+    "out": "B2_render.png",
+    "frame": 348,
+    "res": [
+      3840,
+      2160
+    ],
+    "transparent": true,
+    "hide": [
+      ":dimensions"
+    ],
+    "cam": {
+      "from": [
+        36,
+        -30,
+        9
+      ],
+      "to": [
+        3,
+        5,
+        5.5
+      ],
+      "lens": 32,
+      "clip": [
+        0.1,
+        2000
+      ]
+    }
+  },
+  "C2": {
+    "scene": "scenes/SC_024.blend",
+    "out": "C2_render.png",
+    "frame": 270,
+    "res": [
+      3840,
+      2160
+    ],
+    "cam": {
+      "from": [
+        -300,
+        77,
+        6.2
+      ],
+      "to": [
+        0,
+        77,
+        6.2
+      ],
+      "ortho": 80,
+      "clip": [
+        0.1,
+        2000
+      ]
+    }
+  },
+  "C2_alpha": {
+    "scene": "scenes/SC_024.blend",
+    "out": "C2_alpha.png",
+    "frame": 270,
+    "res": [
+      3840,
+      2160
+    ],
+    "transparent": true,
+    "cam": {
+      "from": [
+        -300,
+        77,
+        6.2
+      ],
+      "to": [
+        0,
+        77,
+        6.2
+      ],
+      "ortho": 80,
+      "clip": [
+        0.1,
+        2000
+      ]
+    }
+  }
+}
