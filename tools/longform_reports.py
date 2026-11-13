@@ -20,6 +20,9 @@ sys.path.insert(0, str(ROOT))
 from pipeline import chapters as CH  # noqa: E402
 
 
+DESCRIPTION_OMITTABLE = {"narration", "sound_effects"}   # credit lines an owner may leave out of a description
+
+
 def read(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
@@ -211,9 +214,19 @@ def youtube_description(p, d, manifest):
                      + (f" ({a['license_url']})" if a.get("license_url") else "")
                      + f". Original record: {a.get('original_record') or a['source_url']}"
                      + (f". Changes: {a['modifications']}" if not haer and a.get("modifications") else ""))
-    lines += ["", "Credits and disclosures", "",
-              f"- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice {d['narration']['voice']['voice']})."]
-    own = (project.get("publication_metadata") or {}).get("disclosures")
+    # Credit lines the owner chose to leave out of this film's description (publication_metadata.description_omit,
+    # with the decision that records it). Floating city, 2026-11-13: no narration line, no sound-effects line.
+    meta = project.get("publication_metadata") or {}
+    omit = set(meta.get("description_omit") or ())
+    if omit - DESCRIPTION_OMITTABLE:
+        raise SystemExit(f"publication_metadata.description_omit: unknown {sorted(omit - DESCRIPTION_OMITTABLE)}; "
+                         f"allowed {sorted(DESCRIPTION_OMITTABLE)}")
+    if omit and not str(meta.get("description_omit_decision") or "").strip():
+        raise SystemExit("publication_metadata.description_omit needs description_omit_decision (the owner's decision)")
+    lines += ["", "Credits and disclosures", ""]
+    if "narration" not in omit:
+        lines.append(f"- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice {d['narration']['voice']['voice']}).")
+    own = meta.get("disclosures")
     if own:   # the film's own wording, approved by the owner with the description (floating city, 2026-11-12)
         lines += [f"- {x}" for x in own]
     else:   # g-r5: the bridge film's wording stays exactly as it was; other films get their own
@@ -223,7 +236,7 @@ def youtube_description(p, d, manifest):
                   "- Force arrows show concepts, not calculated forces. No load capacities, stresses or safety factors are given."]
     plan_path = p / "audio/sound_plan.json"
     plan = read(plan_path) if plan_path.is_file() else {}
-    if plan.get("final"):   # recorded sounds in the final mix: their licence and artists
+    if plan.get("final") and "sound_effects" not in omit:   # recorded sounds in the final mix: their licence and artists
         artists = sorted({src["artist"].split(", uploaded by")[0] for src in plan["sources"].values()})
         licences = sorted({src["license"] for src in plan["sources"].values()})
         lines.append(f"- Sound effects: Pixabay ({', '.join(licences)}); recordings by {', '.join(artists)}.")

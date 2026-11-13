@@ -43,14 +43,19 @@
     "title": "Could We Build an Entire City That Floats?",
     "description": "review/YOUTUBE_DESCRIPTION.md",
     "language": "en",
-    "credits": "No third-party photographs or drawings; the 3D models and diagrams are made for this video. Narration and any sound effects are credited in review/YOUTUBE_DESCRIPTION.md",
-    "disclosure": "Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael) - in the description",
+    "credits": "No third-party photographs or drawings; the 3D models and diagrams are made for this video. The recorded sound effects (Pixabay Content License, no attribution required) are listed with their pages and artists in audio/sound_plan.json; the description credits neither the narration nor the sound effects (DEC-DESCRIPTION-CREDITS)",
+    "disclosure": "AI-generated narration (Kokoro-82M, voice am_michael): not stated in the description, by the owner's decision DEC-DESCRIPTION-CREDITS (2026-11-13). YouTube's own altered or synthetic content setting at upload is the owner's choice",
     "approvals": "review/OWNER_APPROVALS.json",
     "summary": "10,000 people, with homes, schools, a clinic, parks and streets to walk along, and not one of them standing on land. Could we design a city like this, one that floats, stays where we put it and keeps working? This film treats it as a design problem and solves it one step at a time: making buildings float, joining platforms into a city, water that never stays still, keeping the city in place, the services a city needs, and what changes out at sea.",
     "disclosures": [
       "3D models and diagrams are illustrative visualisations made for this video, not engineering designs.",
       "The district, its platforms and the numbers given as estimates come from the Studio's own concept-level calculations for this video, not from a certified engineering design.",
       "The motion of the water and the platforms is a conceptual visualisation, not a hydrodynamic simulation."
-    ]
+    ],
+    "description_omit": [
+      "narration",
+      "sound_effects"
+    ],
+    "description_omit_decision": "DEC-DESCRIPTION-CREDITS in review/OWNER_APPROVALS.json (owner, 2026-11-13)"
   }
 }

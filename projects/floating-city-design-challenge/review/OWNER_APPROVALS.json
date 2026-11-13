@@ -146,12 +146,30 @@
       "evidence": "owner's message in session, 2026-11-12: 'tôi duyệt bản này, hãy render bản final 4k'"
     },
     {
+      "id": "DEC-DESCRIPTION-CREDITS",
+      "subject": "credit lines in the YouTube description (review/YOUTUBE_DESCRIPTION.md)",
+      "scope": "floating-city-design-challenge",
+      "decision": "the description does not credit the narration (no 'Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael)' line) and does not credit the sound effects (no Pixabay line); the rest of the description is unchanged; no re-render",
+      "date": "2026-11-13",
+      "evidence": "owner's message in session, 2026-11-13: 'sửa lại descriptin, không cần ghi narration và sfx, không cần render lại'",
+      "consequence": {
+        "APP-VOICE": "its recorded condition 'disclose AI-generated narration (description)' is not applied to this film, by this decision of the owner. The Kokoro licence audit (docs/licensing/KOKORO_LICENSE_AUDIT.md section 5, point 3) called the description line the cautious choice, not a licence term; Apache-2.0 asks no credit for generated audio",
+        "sound effects": "the Pixabay Content License asks no attribution; sources, artists and sha256 stay in audio/sound_plan.json",
+        "records": [
+          "project.json publication_metadata.description_omit",
+          "tools/longform_reports.py youtube_description"
+        ]
+      },
+      "owner_open_point": "YouTube's policy on altered or synthetic content and its upload setting are checked by the owner at publication (audit section 5, point 3)",
+      "recorded_by": "agent (records the owner's instruction; approves nothing itself)"
+    },
+    {
       "id": "NOTE-NOT-RECORDED",
       "subject": "what this record does not contain",
       "scope": "floating-city-design-challenge",
-      "decision": "NOT RECORDED: the YouTube description and its AI-disclosure wording (the owner chose 'Tôi muốn sửa mô tả' on 2026-11-12 and has not said what to change); publication. Images and credits: the film uses no third-party photograph or drawing.",
-      "date": "2026-11-12",
-      "evidence": "the agent's four questions in session, 2026-11-12, after the owner's message 'tôi duyệt bản này, hãy render bản final 4k' on FULL v3 (commit 8c9f544)"
+      "decision": "NOT RECORDED: approval of the edited YouTube description (the owner asked for the edit in DEC-DESCRIPTION-CREDITS; an edit request is not an approval of the text); publication. Images and credits: the film uses no third-party photograph or drawing.",
+      "date": "2026-11-13",
+      "evidence": "the agent's four questions in session, 2026-11-12 ('Tôi muốn sửa mô tả'), and owner's message in session, 2026-11-13: 'sửa lại descriptin, không cần ghi narration và sfx, không cần render lại'"
     }
   ]
 }

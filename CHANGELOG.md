@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.12.3 — 2026-11-13 — Phim thành phố nổi: sửa mô tả, dọn dẹp, kinh nghiệm chung
+- **Mô tả YouTube** (chủ kênh yêu cầu):
+  - bỏ dòng ghi công lời dẫn và dòng ghi công SFX; không render lại;
+  - `tools/longform_reports.py` đọc `publication_metadata.description_omit` (`narration`, `sound_effects`), bắt buộc kèm `description_omit_decision`; giá trị lạ thì dừng;
+  - phim cầu và phim Gothic sinh lại giống hệt; 3 test mới.
+- **Hồ sơ:**
+  - `review/RIGHTS_PROVENANCE.md` cho phim thành phố nổi; trước đây thiếu, nên `episode.py status` dừng ở INTERNAL_REVIEW;
+  - DEC-DESCRIPTION-CREDITS trong `OWNER_APPROVALS.json`.
+- **Dọn dẹp:**
+  - khoảng 6,0 GB file render thử và review cũ (`docs/production/CLEANUP_REPORT.md`);
+  - commit riêng việc xóa 42 file SFX CapCut cũ mà chủ kênh đã tự xóa khỏi thư mục làm việc.
+- **Kinh nghiệm chung:** playbook mục 29 và AGENTS.md (phim concept, nhịp review, hình 3D ở tầm toàn quận, nước làm trong, SFX, kiểm bản final, hồ sơ xuất bản).
+
 ## 0.12.2 — 2026-11-13 — Phim thành phố nổi: bản cuối 4K
 - **Duyệt của chủ kênh** (ghi trong `review/OWNER_APPROVALS.json`):
   - hình FULL v3, giữ nguyên cả 6 điểm;

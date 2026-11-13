@@ -36,9 +36,7 @@ Sources
 
 Credits and disclosures
 
-- Narration: AI-generated voice (Kokoro-82M, Apache-2.0; voice am_michael).
 - 3D models and diagrams are illustrative visualisations made for this video, not engineering designs.
 - The district, its platforms and the numbers given as estimates come from the Studio's own concept-level calculations for this video, not from a certified engineering design.
 - The motion of the water and the platforms is a conceptual visualisation, not a hydrodynamic simulation.
-- Sound effects: Pixabay (Pixabay Content License); recordings by 89o (Freesound), Breviceps (Freesound), Sdanezis, TRP (Freesound), benj500 (Freesound), toddcircle (Freesound).
 

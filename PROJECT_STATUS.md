@@ -2,18 +2,20 @@
 
 ## Concept đang làm: `floating-city-design-challenge` (nhánh `concept-floating-city-design-challenge`)
 
-- **Trạng thái (2026-11-13): bản final 4K đã render và qua mọi gate (`gates --preset final_4k` → PUBLICATION_READY). Mô tả YouTube chưa được chủ kênh duyệt, nên chưa sẵn sàng đăng.**
+- **Trạng thái (2026-11-13): bản final 4K đã render và qua mọi gate (`gates --preset final_4k` → PUBLICATION_READY). Bản mô tả YouTube đã sửa chưa được chủ kênh duyệt, nên chưa sẵn sàng đăng.**
   - **Bản cuối:**
     - `output/floating_city_design_challenge_FINAL_4K_2160p.mp4`: 3840×2160, 13:04,2, 18 820 frame, −16,4 LUFS;
     - kèm `.en.srt`, WAV master có SFX, WAV chỉ lời dẫn và `.sha256`; tất cả ngoài git.
   - **Nội dung:** lời dẫn c-r2, 44 beat, 126 câu, giọng Kokoro `am_michael`. 50 claim dùng trong phim đều EDITORIALLY_APPROVED.
   - **Âm thanh:** 11 SFX và 2 đoạn nền nước (Pixabay Content License), ghi trong `audio/sound_plan.json`.
   - **Chủ kênh đã duyệt** (`review/OWNER_APPROVALS.json`): giọng, phát âm, claim, chốt kịch bản, hình FULL v3, SFX, lời kêu gọi; đã yêu cầu render final.
+- **Mô tả (2026-11-13):** đã bỏ dòng ghi công lời dẫn và SFX theo yêu cầu chủ kênh (DEC-DESCRIPTION-CREDITS); không render lại. Bản mô tả đã sửa **chưa được duyệt**.
+- **Đã dọn** khoảng 6,0 GB file render thử và review cũ (`docs/production/CLEANUP_REPORT.md`). Còn lại: bản final 4K, bản trung gian 4K theo chương, bản review FULL_V3 đã duyệt. `episode.py status`: COMPLETE.
 - **Bắt đầu đọc:** `projects/floating-city-design-challenge/review/FINAL_4K.md`, rồi `review/FINAL_APPROVAL_CHECKLIST.md`.
 - **Việc của chủ kênh:**
-  - nói muốn sửa gì trong `review/YOUTUBE_DESCRIPTION.md`, rồi duyệt mô tả và câu công bố giọng AI. Sửa mô tả không cần render lại;
-  - đăng phim.
-- **Lưu ý:** `tools/longform_reports.py` ghi đè `YOUTUBE_DESCRIPTION.md` khi bản sinh tự động dưới 5 000 ký tự. Khi đưa bản chủ kênh sửa vào, phải giữ bản đó khỏi bị ghi đè.
+  - duyệt `review/YOUTUBE_DESCRIPTION.md` đã sửa;
+  - đăng phim, kể cả việc chọn cài đặt "nội dung tổng hợp" của YouTube.
+- **Kinh nghiệm của phim này:** `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` mục 29.
 
 ## `gothic-cathedral-heights` (nhánh `episode-gothic-cathedral-heights`)
 

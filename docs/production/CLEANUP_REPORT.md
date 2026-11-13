@@ -83,3 +83,48 @@ Giữ lại `qa/codex_gr9_review_20261107` (review mới nhất của chủ kên
 **Việc cần làm khi chạy lại gates sau khi xoá:** `render_cache_current` của preset 720p không còn (đã dự kiến, chỉ là WARN cho preset nội bộ); preset `final_4k` vẫn đạt.
 
 **Gặp khi hoàn tất:** sau khi duyệt, `sources.json` đổi nên `visual_plan.json` và `storyboard.json` cũ (hash nguồn). Chạy `plan-visuals`, `build-shots` (chỉ đổi `evidence_status` và hash, không đổi shot), rồi `chapters --preset final_4k` để QA dài khớp timing mới trước khi `gates`. Không cần render lại.
+
+---
+
+# Dọn sau bản final 4K: `floating-city-design-challenge` (2026-11-13)
+
+Theo yêu cầu của chủ kênh ("dọn dẹp các file cũ thừa không còn dùng đến"), sau khi `gates --preset final_4k` đạt và checksum đã ghi.
+
+**Cách làm (như phim Gothic):**
+1. Chuyển file sang một thư mục tạm.
+2. Chạy lại `chapters --preset final_4k` (QA phim dài 17/17), `gates --preset final_4k` (PUBLICATION_READY), `episode.py status` (COMPLETE), toàn bộ 497 test (kể cả test gọi Blender) và kiểm sha256 các file giữ lại.
+3. Chỉ xoá khi mọi bước đạt.
+
+Không xoá file nào của dự án có trong git.
+
+**Giữ:**
+- Trong `output/`:
+  - bản final 4K (`…_FINAL_4K_2160p.mp4`, `.en.srt`, `.sha256`), `audio_master_final_4k.wav`, `narration_master_clean_final_4k.wav`;
+  - `chapters_final_4k/`: bản trung gian 4K theo chương, cần để ghép lại (ví dụ đổi âm thanh) và để kiểm cache.
+- Bản review nội bộ chủ kênh đã duyệt: `output/pilot/…_FULL_V3_INTERNAL_REVIEW_720p.mp4` + `.en.srt`, kèm `.sha256` mới.
+- `renders/final_4k/`, `scenes/`.
+- `audio/segments/`: 126 bản đọc của lời c-r2, có trong git.
+- `audio/beats/`, `audio/narration_track_full*.wav`, `audio/narration_mix_full.wav`.
+- `qa/codex_full_v2_review` (review Codex mới nhất), mọi log.
+- `sfx/pixabay/`: nguồn của SFX trong bản cuối. Không vào git, theo giấy phép Pixabay.
+
+| Đã xoá | Dung lượng |
+|---|---|
+| `renders/internal_720p/` (khung PNG và cache 720p) | 3,8 GB |
+| `audio/excerpt/` (WAV của các bản trích và FULL v1–v3) | 820 MB |
+| `output/pilot/`: 27 mục, gồm FULL v1, v2, bản `_no_sfx` của v3, các bản trích, OPENING, `cluster_trial`, `sand3d_trial`, `stills_*` | 414 MB |
+| `output/…FINAL_4K_2160p_video.mp4` (video trung gian, đã có bản ghép cuối), bản ghép 720p của pipeline (chỉ lời dẫn: mp4, srt, sha256, `_video.mp4`), WAV master 720p (2 file), bản nghe thử kịch bản c-r1 và c-r2 | 620 MB |
+| `output/chapters_internal_720p/` | 180 MB |
+| `renders/prototype/` (ảnh và video thử P1–P6 của giai đoạn concept) | 136 MB |
+| `qa/codex_*` của các vòng cũ: `asset_review_l5`, `asset_review_l6`, `asset_review_r2`, `cr1_review_p6.png`, `full_review`, `full_v1_review` (ngoài git) | 31 MB |
+| `audio/narration_mix_SC_*.wav` (2 bản trích cũ) | 28 MB |
+| `audio/segments/`: 41 bản đọc TTS của các lời cũ, ngoài git; lời c-r2 không dùng | 11 MB |
+| `qa/cache_report_internal_720p.json` (ngoài git) | nhỏ |
+| **Tổng** | **khoảng 6,0 GB** (đĩa trống từ 70 lên 76 GB) |
+
+- **Dung lượng:** tính bằng `du`. Frame tĩnh dùng lại là hard link, nên tổng kích thước logic (15,8 GB) lớn hơn dung lượng thật trên đĩa.
+- **Cũng trong lần dọn này:** 42 file SFX CapCut cũ ở `sfx/`. Chủ kênh đã tự xoá khỏi thư mục làm việc; theo `review/SFX_LIBRARY.md`, chúng chỉ được dùng trong CapCut, và không code hay cấu hình nào đọc tới. Việc xoá được commit riêng, nên có thể khôi phục bằng `git revert` hoặc lấy lại từ lịch sử git.
+
+**Sau khi xoá:** preset nội bộ 720p không còn khung render. Đây là điều đã dự kiến; preset `final_4k` vẫn đạt.
+
+**Gặp khi dọn:** `episode.py status` báo INTERNAL_REVIEW là TODO vì thiếu `review/RIGHTS_PROVENANCE.md`. Phim không dùng ảnh ngoài nên chưa ai lập bản này. Agent đã lập bản kê (lời dẫn, mô hình, SFX Pixabay, font, phụ đề); sau đó status báo COMPLETE.

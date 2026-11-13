@@ -201,3 +201,13 @@ Mỗi shot là một `scene` render độc lập; có cache và manifest. Một 
   - Không có file tên FINAL trước khi duyệt; `final-assemble` ở preset nội bộ đặt tên theo `review_label`.
   - Render: một Blender, không sửa engine hay chạy test gọi Blender khi đang render; benchmark 4K trước (3D khoảng 2,2 giây mỗi frame).
   - Sau bản final: dọn file render thử và review cũ theo mục 28, giữ bản final, bản review đã duyệt và mọi hồ sơ trong git.
+
+## Bổ sung 2026-11-13 (phim thành phố nổi, bản final 4K): kinh nghiệm chung
+- **Chi tiết ở `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` mục 29.** Điểm cần nhớ cho mọi phim sau:
+  - Phim concept: mọi số trên hình lấy từ mô hình tính của dự án (có test). Đổi hình cho dễ đọc thì giữ nguyên bất biến kỹ thuật.
+  - Làm đoạn thử cho chương khó nhất và đoạn mở đầu, rồi mới làm cả phim. Đề nghị "giữ nguyên" của người review thứ hai chưa phải quyết định của chủ kênh.
+  - Bộ phận lời dẫn gọi tên phải đủ lớn trong khung: đưa camera tới nó. Nước trong chỉ ở cuối lúc camera hạ; xem mọi đoạn chuyển trong MP4 ở 4 khung mỗi giây trước khi báo đã sửa.
+  - SFX: kiểm giấy phép từng file; ghi nguồn, giấy phép và sha256 trong `audio/sound_plan.json`; neo vào bước storyboard; giao kèm bản không SFX.
+  - Trước khi render 4K: bước ghép cuối phải tái tạo đủ bản review đã duyệt. Sau khi ghép: so âm thanh từng mẫu, hình bằng SSIM, phụ đề byte-to-byte.
+  - Ước lượng thời gian render theo loại shot, có trọng số số frame. Khi đang render chỉ chạy test offline.
+  - Mọi phim cần `review/RIGHTS_PROVENANCE.md`. Gate PUBLICATION_READY không kiểm việc duyệt mô tả. Lựa chọn của chủ kênh về mô tả ghi vào `publication_metadata` (`disclosures`, `description_omit` + `description_omit_decision`), không sửa tay file mô tả.

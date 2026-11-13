@@ -256,6 +256,77 @@ Rút ra từ một phim 15 phút, 46 shot, chín vòng review. Đây là cách l
 - **Giữ:** bản final 4K + `.en.srt` + WAV master + `.sha256`; bản review nội bộ 720p mới nhất đã được duyệt (một file); `review/`, `qa/*.json`, `research/`, `script/`, `assets/` (trong git).
 - **Sau khi ghi duyệt, trước `gates` cuối:** `sources.json` đã đổi nên chạy lại `plan-visuals` → `build-shots` → `chapters --preset final_4k` (chỉ đổi `evidence_status` và hash; không render lại). Nếu không, GV báo kế hoạch cũ và GL báo QA cũ.
 - Không xóa trong git; không động tới dự án khác. Ghi những gì đã xóa và dung lượng vào `docs/production/CLEANUP_REPORT.md`.
+- **Cách làm an toàn:** chuyển file ra một thư mục tạm, chạy lại `chapters`, `gates --preset final_4k`, `episode.py status`, toàn bộ test và `shasum -c` các file giữ lại; chỉ xóa khi mọi bước đạt.
+- **Đo dung lượng bằng `du`.** Frame tĩnh dùng lại là hard link, nên tổng kích thước logic lớn hơn nhiều so với dung lượng thật (phim thành phố nổi: 15,8 GB logic, 6,0 GB thật).
+
+## 29. Kinh nghiệm từ phim thành phố nổi (concept tới bản final 4K, 2026-11-08 tới 2026-11-13)
+Rút ra từ một phim "bài toán thiết kế" 13 phút, 44 shot, hầu hết là 3D, không có ảnh của bên thứ ba. Đây là cách làm, không phải nội dung.
+
+### Phim concept: con số phải có gốc
+- **Mô hình thiết kế trước kịch bản.** Bản hợp đồng kịch bản (`concept/SCENARIO_CONTRACT.md`) và mô hình tính (`analysis/results.json`) có trước lời dẫn. Mọi độ dịch, góc và tổng số trên hình lấy từ mô hình, có test giữ; không viết tay số nào.
+- **Phép tính của Studio là claim riêng**, ghi rõ loại (ước tính, giả định) và giới hạn. Lời dẫn, ghi chú trên hình và mô tả đều nói rõ: tính ở mức concept, không phải thiết kế được chứng nhận; chuyển động là minh họa, không phải mô phỏng.
+- **Đổi hình cho dễ đọc thì giữ nguyên bất biến kỹ thuật.** Ví dụ thêm kiểu nhà, cửa sổ, công viên nhưng giữ diện tích chiếm đất, số tầng và trọng tâm, có test chứng minh tải và mớn nước không đổi.
+- **Tự rà kịch bản với nguồn**, đọc cả câu quanh đoạn trích. Agent tự tìm ra một claim gán nhầm mục đích (khoảng cách giữa module là để tránh va chạm, không phải để giảm tải mối nối).
+
+### Nhịp review
+- **Thứ tự đã chạy tốt:**
+  1. Concept, rồi hai vòng kịch bản (c-r1, c-r2). Chốt lời dẫn và duyệt claim, giọng, phát âm.
+  2. Các lớp asset và engine L1–L4, mỗi lớp kiểm được và commit riêng.
+  3. Đoạn thử chương cơ chế khó nhất (L5, hai vòng), rồi đoạn mở đầu (L6, hai vòng).
+  4. Cả phim (FULL v1–v3), rồi bản final.
+  - Khi đoạn thử đã chốt ngôn ngữ hình, chủ kênh chuyển sang duyệt cả phim, không duyệt từng đoạn nhỏ nữa.
+- **Muốn có đoạn thử thì phải phủ đủ mọi beat trước.** `build-shots` đòi kế hoạch hình thực thi được cho cả phim. Phủ cả 44 beat bằng asset hoặc card thật, nhưng chỉ render các shot của đoạn thử.
+- **Prototype không lời** (ví dụ P6: thêm tải, phao chìm, sửa thân) được làm trước khi chốt kịch bản. Asset thật chỉ dựng sau khi chốt, theo AGENTS.md.
+- **Review của người duyệt thứ hai** (Codex) là đầu vào để sửa. Các đề nghị "giữ nguyên" trong đó chưa phải quyết định của chủ kênh: hỏi lại từng mục rồi mới ghi.
+
+### Hình 3D ở tầm toàn quận
+- **Bộ phận lời dẫn gọi tên phải đủ lớn trong khung.** Ở tầm toàn quận, neo, cáp và cầu chỉ chiếm 0,01–0,5% khung, và kiểm Blender từ chối. Đưa camera tới bộ phận đó, đừng chỉ làm sáng nó trong khung rộng.
+- **Một mạng lưới trên nền sáng:** làm mờ mọi thứ khác và đổi sang màu nhấn, thay vì phát sáng (phát sáng làm mất tương phản).
+- **Mô-đun lặp lại đọc như một mảng vân.** Chia quận thành ô nhiều kiểu nhà, thêm công trình công cộng và công viên đọc được: cửa sổ, lối vào, sân chơi.
+- **Camera mà lộ mép bãi:** nâng góc nhìn hoặc đổi đường camera trước khi tính đến chuyện nới bãi. Nới bãi làm mất cache của mọi shot dùng site đó.
+
+### Nước làm trong
+- **Nước trong để lộ thứ không nên thấy:** lưới bóng trên đáy, mép bãi nước, mặt bên của khối nước.
+- **Cách đã chốt:**
+  - mở bằng nước đục;
+  - camera hạ xuống khung ngang, đứng ngoài khối nước;
+  - nước chỉ trong ở cuối lúc hạ; khi camera xuống từ góc cao thì bắt đầu trong 0,4 s trước khi tới khung ngang, trong 0,6 s;
+  - giữ mực nước là một đường thẳng.
+- **Độ trong (alpha) không phải tiêu chí nghiệm thu.** Xem mọi đoạn chuyển trong MP4 ở 4 khung mỗi giây.
+- **Báo cáo v2 từng ghi B31 đã sửa** trong khi một khung vẫn lộ lưới bóng: agent đã bỏ sót khung đó. Khi báo một lỗi đã sửa, xem đủ mọi khung quanh đoạn chuyển. Nếu báo sai thì đính chính công khai ở vòng sau.
+
+### Âm thanh
+- **Kiểm giấy phép trước khi dùng một kho có sẵn.** Kho `sfx/` cũ của chủ kênh chỉ được dùng trong CapCut.
+- **Nguồn âm thanh:**
+  - YouTube Audio Library: không crawl (trái điều khoản); chủ kênh tải tay;
+  - Pixabay: kiểm giấy phép trên trang của từng file;
+  - ghi trang, tác giả, giấy phép, ngày kiểm và sha256 vào `audio/sound_plan.json`;
+  - không commit file Pixabay.
+- **Agent không nghe được.** Chọn bằng số đo (điểm bắt đầu, nền nhiễu, phổ, độ đều), giao kèm bản không SFX, và ghi rõ là chưa ai nghe.
+- **Chỉ gắn âm khi có lý do:**
+  - hành động vật lý mà lời đang kể;
+  - điểm cắt chương;
+  - nền nước ngắn, chỉ ở nơi nước là chủ đề.
+  - Không gắn âm cho chữ hay card.
+- **Neo tiếng thêm vào bước của storyboard, không neo vào giây.** Như vậy cache render không đổi, và một bước bị dời thì pipeline từ chối.
+
+### Bản final
+- **Trước khi render 4K:** kiểm rằng bước ghép cuối tái tạo đủ mọi thành phần của bản review đã duyệt. Ở phim này, `final-assemble` lúc đầu chưa trộn SFX; lỗi được phát hiện trước khi render.
+- **Sau khi ghép:**
+  - so âm thanh trước chuẩn hóa với bản review đã duyệt, từng mẫu (0 mẫu khác);
+  - so hình bằng SSIM, mỗi giây một khung (≥ 0,97);
+  - so phụ đề byte-to-byte.
+- **Ước lượng thời gian render theo loại shot, có trọng số số frame.** Đừng ước theo shot nặng nhất.
+  - Agent ước 15–25 giờ theo cảnh toàn quận (5,5–6 giây mỗi frame); thực tế 8 giờ 10 phút cho 18 820 frame (trung bình khoảng 1,6 giây mỗi frame).
+  - `caffeinate -is` giữ máy thức suốt lượt render.
+- **Khi đang render chỉ chạy test offline,** liệt kê từng module. Agent từng lỡ chạy hai file test gọi Blender trong lúc render, làm hai Blender chạy cùng lúc.
+- **Đổi dung sai của một kiểm tra thì nói thẳng là đã đổi.** Dung sai phải suy từ cách lưu số (ví dụ ulp float32 của khóa F-curve). Báo cáo v1 từng viết "không nới ngưỡng" trong khi công thức đã đổi; v2 phải đính chính.
+
+### Hồ sơ xuất bản
+- **`RIGHTS_PROVENANCE.md` cần cho mọi phim**, kể cả phim không có ảnh: lời dẫn, mô hình, SFX, font, phụ đề. `episode.py status` đòi file này.
+- **Gate `PUBLICATION_READY` không kiểm việc chủ kênh duyệt mô tả.** Báo riêng mục này, đừng gọi phim là "sẵn sàng đăng" khi mô tả chưa được duyệt.
+- **Lựa chọn của chủ kênh về mô tả** ghi vào `publication_metadata` (`disclosures`, `description_omit` kèm `description_omit_decision`), không sửa tay `YOUTUBE_DESCRIPTION.md`. Lý do: `tools/longform_reports.py` ghi đè file này mỗi khi bản sinh tự động dưới 5 000 ký tự.
+- **Ví dụ ở phim này:** chủ kênh bỏ dòng ghi công lời dẫn và SFX (DEC-DESCRIPTION-CREDITS). Apache-2.0 và Pixabay Content License đều không đòi ghi công. Điều kiện "nêu lời dẫn AI trong mô tả" của lần duyệt giọng vì vậy không áp cho phim này. Cài đặt "nội dung tổng hợp" trên YouTube vẫn do chủ kênh chọn khi đăng.
 
 ## Làm tiếp sau khi dừng
 1. `python3 tools/episode.py status --project <slug>`.

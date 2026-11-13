@@ -211,3 +211,47 @@ class PlannerRulesTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+@unittest.skipUnless((P / "project.json").is_file(), "floating-city project not present")
+class DescriptionCreditsTest(unittest.TestCase):
+    """2026-11-13: the owner left the narration and sound-effects credit lines out of the description
+    (publication_metadata.description_omit, DEC-DESCRIPTION-CREDITS). Runs on a copy; offline."""
+
+    def copy(self):
+        import shutil
+        import tempfile
+        tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, tmp, True)
+        dst = tmp / P.name
+        shutil.copytree(P, dst, ignore=shutil.ignore_patterns("renders", "output", "scenes", "segments", "beats",
+                                                              "excerpt", "qa", "*.wav", "*.png", "*.mp4", "*.blend*"))
+        return dst
+
+    def describe(self, dst, meta_change=None):
+        from tools import longform_reports as LR
+        pj = json.loads((dst / "project.json").read_text())
+        if meta_change:
+            meta_change(pj["publication_metadata"])
+            (dst / "project.json").write_text(json.dumps(pj))
+        manifest = json.loads((P / "chapters/chapter_manifest.json").read_text())
+        LR.youtube_description(dst, LR._load(dst), manifest)
+        return (dst / "review/YOUTUBE_DESCRIPTION_FULL_REFERENCE.md").read_text()
+
+    def test_the_film_description_has_no_narration_or_sound_credit_and_matches_the_committed_text(self):
+        text = self.describe(self.copy())
+        self.assertNotIn("Narration:", text)
+        self.assertNotIn("Sound effects:", text)
+        self.assertIn("not a hydrodynamic simulation", text)
+        self.assertEqual(text, (P / "review/YOUTUBE_DESCRIPTION.md").read_text())
+
+    def test_without_the_omission_both_lines_come_back(self):
+        text = self.describe(self.copy(), lambda m: (m.pop("description_omit"), m.pop("description_omit_decision")))
+        self.assertIn("- Narration: AI-generated voice (Kokoro-82M", text)
+        self.assertIn("- Sound effects: Pixabay", text)
+
+    def test_an_unknown_line_or_a_missing_decision_is_refused(self):
+        with self.assertRaises(SystemExit):
+            self.describe(self.copy(), lambda m: m.__setitem__("description_omit", ["narrator"]))
+        with self.assertRaises(SystemExit):
+            self.describe(self.copy(), lambda m: m.pop("description_omit_decision"))
