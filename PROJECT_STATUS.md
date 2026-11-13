@@ -13,7 +13,9 @@
 - **Đã dọn** khoảng 6,0 GB file render thử và review cũ (`docs/production/CLEANUP_REPORT.md`). Còn lại: bản final 4K, bản trung gian 4K theo chương, bản review FULL_V3 đã duyệt. `episode.py status`: COMPLETE.
 - **Bắt đầu đọc:** `projects/floating-city-design-challenge/review/FINAL_4K.md`, rồi `review/FINAL_APPROVAL_CHECKLIST.md`.
 - **Việc của chủ kênh:**
+  - chọn thumbnail (hoặc chạy A/B test với cả ba);
   - đăng phim, kể cả việc chọn cài đặt "nội dung tổng hợp" của YouTube.
+- **Thumbnail (2026-11-13):** 3 đề xuất chờ chủ kênh chọn, `projects/floating-city-design-challenge/review/PUBLISHING_AB_TEST.md`.
 - **Kinh nghiệm của phim này:** `docs/production/NEW_DOCUMENTARY_PLAYBOOK.md` mục 29.
 
 ## `gothic-cathedral-heights` (nhánh `episode-gothic-cathedral-heights`)

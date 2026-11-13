@@ -392,6 +392,14 @@ Rút ra từ một phim "bài toán thiết kế" 13 phút, 44 shot, hầu hết
 - **Khi đang render chỉ chạy test offline,** liệt kê từng module. Agent từng lỡ chạy hai file test gọi Blender trong lúc render, làm hai Blender chạy cùng lúc.
 - **Đổi dung sai của một kiểm tra thì nói thẳng là đã đổi.** Dung sai phải suy từ cách lưu số (ví dụ ulp float32 của khóa F-curve). Báo cáo v1 từng viết "không nới ngưỡng" trong khi công thức đã đổi; v2 phải đính chính.
 
+### Thumbnail
+- **Render ảnh sạch từ scene của phim**, đừng chụp từ video: video đã có nhãn và watermark. Ẩn collection `85_ANNOTATIONS`. Muốn ẩn một nhóm bộ phận thì ẩn cả collection: thuộc tính ẩn của từng vật có thể bị hoạt ảnh đặt lại lúc render.
+- **Nền:** khung chiếu trực giao của phim có "trời" xám nhạt. Render nền trong suốt, rồi đặt lên nền navy.
+- **Góc nhìn toàn cảnh:** thấp quá thì lộ mép bãi và nền xám. Ở cỡ thumbnail, cả quận chỉ còn là mảng vân; nhìn gần hơn để nhà đủ lớn.
+- **Font có chữ số đều chiều cao** (ví dụ Charter Black). Georgia dùng chữ số kiểu cũ, làm "10,000" nhỏ và lệch dòng.
+- **Mỗi chữ trên thumbnail phải có câu tương ứng trong lời dẫn.** Kiểm khả năng đọc ở 320×180 và 168×94.
+- **Lưu script và thông số camera cùng ảnh** (`review/thumbnails/make/`). Script thumbnail của phim Gothic không được lưu, nên lần sau phải dựng lại từ đầu.
+
 ### Hồ sơ xuất bản
 - **`RIGHTS_PROVENANCE.md` cần cho mọi phim**, kể cả phim không có ảnh: lời dẫn, mô hình, SFX, font, phụ đề. `episode.py status` đòi file này.
 - **Gate `PUBLICATION_READY` không kiểm việc chủ kênh duyệt mô tả.** Báo riêng mục này, đừng gọi phim là "sẵn sàng đăng" khi mô tả chưa được duyệt.
